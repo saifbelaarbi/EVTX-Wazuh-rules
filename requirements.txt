@@ -1,0 +1,5 @@
+python-evtx>=0.7.4
+pyyaml>=6.0
+lxml>=4.9
+click>=8.0
+rich>=13.0
