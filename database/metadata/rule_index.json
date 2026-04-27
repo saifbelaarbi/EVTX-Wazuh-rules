@@ -1,0 +1,921 @@
+{
+  "102026": {
+    "description": "Registry persistence via currentversion\\run",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Registry persistence via currentversion\\run",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/DE_timestomp_and_dll_sideloading_and_RunPersist.evtx",
+    "parent_sid": 61615,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetObject": "currentversion\\run"
+    }
+  },
+  "101038": {
+    "description": "Suspicious process: rundll32",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: rundll32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/rundll32_cmd_schtask.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "rundll32"
+    }
+  },
+  "102027": {
+    "description": "Registry persistence via currentversion\\run",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Registry persistence via currentversion\\run",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61614,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetObject": "currentversion\\run"
+    }
+  },
+  "102028": {
+    "description": "Registry persistence via currentversion\\runonce",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Registry persistence via currentversion\\runonce",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61615,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetObject": "currentversion\\runonce"
+    }
+  },
+  "102029": {
+    "description": "Registry persistence via currentversion\\runonce",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Registry persistence via currentversion\\runonce",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61614,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetObject": "currentversion\\runonce"
+    }
+  },
+  "101039": {
+    "description": "Suspicious process: bitsadmin",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: bitsadmin",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "bitsadmin"
+    }
+  },
+  "101040": {
+    "description": "Suspicious command: reg save",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious command: reg save",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "reg save"
+    }
+  },
+  "101041": {
+    "description": "Suspicious process: wmic",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: wmic",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "wmic"
+    }
+  },
+  "101042": {
+    "description": "Suspicious process: regsvr32",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: regsvr32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "regsvr32"
+    }
+  },
+  "109012": {
+    "description": "Network connection by regsvr32",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1071",
+    "technique_name": "Network connection by regsvr32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "regsvr32",
+      "win.eventdata.destinationPort": "443"
+    }
+  },
+  "102030": {
+    "description": "Registry persistence via userinit",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Registry persistence via userinit",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61615,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetObject": "userinit"
+    }
+  },
+  "101043": {
+    "description": "Suspicious process: certutil",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: certutil",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "certutil"
+    }
+  },
+  "105022": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x1010"
+    }
+  },
+  "101044": {
+    "description": "Suspicious process: procdump",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: procdump",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "procdump"
+    }
+  },
+  "101045": {
+    "description": "Suspicious process: installutil",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: installutil",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "installutil"
+    }
+  },
+  "101046": {
+    "description": "Suspicious process: mshta",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: mshta",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "mshta"
+    }
+  },
+  "109013": {
+    "description": "Network connection by mshta",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1071",
+    "technique_name": "Network connection by mshta",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "mshta",
+      "win.eventdata.destinationPort": "443"
+    }
+  },
+  "109014": {
+    "description": "Network connection by mshta",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1071",
+    "technique_name": "Network connection by mshta",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "mshta",
+      "win.eventdata.destinationPort": "80"
+    }
+  },
+  "101047": {
+    "description": "Suspicious command: iex(",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious command: iex(",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "iex("
+    }
+  },
+  "101048": {
+    "description": "Suspicious process: cmstp",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: cmstp",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "cmstp"
+    }
+  },
+  "109015": {
+    "description": "Network connection by wmic",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1071",
+    "technique_name": "Network connection by wmic",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "wmic",
+      "win.eventdata.destinationPort": "443"
+    }
+  },
+  "109016": {
+    "description": "Network connection by rundll32",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1071",
+    "technique_name": "Network connection by rundll32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "rundll32",
+      "win.eventdata.destinationPort": "443"
+    }
+  },
+  "109017": {
+    "description": "Network connection by certutil",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1071",
+    "technique_name": "Network connection by certutil",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "certutil",
+      "win.eventdata.destinationPort": "443"
+    }
+  },
+  "105023": {
+    "description": "Failed logon attempt",
+    "level": 9,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "Failed logon attempt",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_4624_4625_LogonType2_LogonProc_chrome.evtx",
+    "parent_sid": 60100,
+    "confidence": "low",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.system.eventID": "4625"
+    }
+  },
+  "105024": {
+    "description": "Remote thread injection into LSASS",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "Remote thread injection into LSASS",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+    "parent_sid": 61610,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass"
+    }
+  },
+  "105025": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x1f1fff"
+    }
+  },
+  "105026": {
+    "description": "Suspicious command: -nop ",
+    "level": 11,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "Suspicious command: -nop ",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/discovery_sysmon_1_iis_pwd_and_config_discovery_appcmd.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "-nop "
+    }
+  },
+  "105027": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x1000"
+    }
+  },
+  "105028": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x1410"
+    }
+  },
+  "105029": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x1fffff"
+    }
+  },
+  "105030": {
+    "description": "Suspicious process: rundll32",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "Suspicious process: rundll32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "rundll32"
+    }
+  },
+  "105031": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_3_10_Invoke-Mimikatz_hosted_Github.evtx",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x143a"
+    }
+  },
+  "104006": {
+    "description": "Suspicious process: rundll32",
+    "level": 10,
+    "tactic": "defense_evasion",
+    "technique_id": "T1055",
+    "technique_name": "Suspicious process: rundll32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/Sysmon 7  Update Session Orchestrator Dll Hijack.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "rundll32"
+    }
+  },
+  "104007": {
+    "description": "Network connection by rundll32",
+    "level": 10,
+    "tactic": "defense_evasion",
+    "technique_id": "T1055",
+    "technique_name": "Network connection by rundll32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/Sysmon 7  Update Session Orchestrator Dll Hijack.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "rundll32",
+      "win.eventdata.destinationPort": "1337"
+    }
+  },
+  "102031": {
+    "description": "Registry persistence via shell",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Registry persistence via shell",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/de_PsScriptBlockLogging_disabled_sysmon12_13.evtx",
+    "parent_sid": 61615,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetObject": "shell"
+    }
+  },
+  "102032": {
+    "description": "Registry persistence via shell",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Registry persistence via shell",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/de_PsScriptBlockLogging_disabled_sysmon12_13.evtx",
+    "parent_sid": 61614,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetObject": "shell"
+    }
+  },
+  "101049": {
+    "description": "Network connection by rundll32",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Network connection by rundll32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/Sysmon_meterpreter_ReflectivePEInjection_to_notepad_.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "rundll32",
+      "win.eventdata.destinationPort": "8181"
+    }
+  },
+  "101050": {
+    "description": "Network connection by mshta",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Network connection by mshta",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "mshta",
+      "win.eventdata.destinationPort": "443"
+    }
+  },
+  "101051": {
+    "description": "Network connection by mshta",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Network connection by mshta",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "mshta",
+      "win.eventdata.destinationPort": "80"
+    }
+  },
+  "104008": {
+    "description": "Suspicious process: regsvr32",
+    "level": 10,
+    "tactic": "defense_evasion",
+    "technique_id": "T1055",
+    "technique_name": "Suspicious process: regsvr32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_sysmon_1_7_jscript9_defense_evasion.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "regsvr32"
+    }
+  },
+  "101052": {
+    "description": "Network connection by regsvr32",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Network connection by regsvr32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_sysmon_lobin_regsvr32_sct.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "regsvr32",
+      "win.eventdata.destinationPort": "80"
+    }
+  },
+  "101053": {
+    "description": "Network connection by wmic",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Network connection by wmic",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_wmic_xsl_internet_sysmon_3_1_11.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "wmic",
+      "win.eventdata.destinationPort": "443"
+    }
+  },
+  "101054": {
+    "description": "Network connection by wmic",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Network connection by wmic",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_wmic_xsl_internet_sysmon_3_1_11.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "wmic",
+      "win.eventdata.destinationPort": "80"
+    }
+  },
+  "101055": {
+    "description": "Suspicious command: bypass",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious command: bypass",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/susp_explorer_exec.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "bypass"
+    }
+  },
+  "101056": {
+    "description": "Network connection by mshta",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Network connection by mshta",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/sysmon_mshta_sharpshooter_stageless_meterpreter.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "mshta",
+      "win.eventdata.destinationPort": "4443"
+    }
+  },
+  "107014": {
+    "description": "Suspicious process: mshta",
+    "level": 11,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021",
+    "technique_name": "Suspicious process: mshta",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_DCOM_MSHTA_LethalHTA_Sysmon_3_1.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "mshta"
+    }
+  },
+  "107015": {
+    "description": "Network connection by mshta",
+    "level": 11,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021",
+    "technique_name": "Network connection by mshta",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_DCOM_MSHTA_LethalHTA_Sysmon_3_1.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "mshta",
+      "win.eventdata.destinationPort": "55683"
+    }
+  },
+  "107016": {
+    "description": "Suspicious command: -nop ",
+    "level": 10,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021",
+    "technique_name": "Suspicious command: -nop ",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_sysmon_psexec_smb_meterpreter.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "-nop "
+    }
+  },
+  "107017": {
+    "description": "Suspicious command: -w hidden",
+    "level": 10,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021",
+    "technique_name": "Suspicious command: -w hidden",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_sysmon_psexec_smb_meterpreter.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "-w hidden"
+    }
+  },
+  "107018": {
+    "description": "Suspicious command: net user",
+    "level": 10,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021",
+    "technique_name": "Suspicious command: net user",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_typical_IIS_webshell_sysmon_1_10_traces.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "net user"
+    }
+  },
+  "107019": {
+    "description": "Suspicious process: rundll32",
+    "level": 11,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021",
+    "technique_name": "Suspicious process: rundll32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_wmi_PoisonHandler_Mr-Un1k0d3r_sysmon_1_13.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "rundll32"
+    }
+  },
+  "107020": {
+    "description": "Suspicious process: psexesvc",
+    "level": 11,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021",
+    "technique_name": "Suspicious process: psexesvc",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/remote_file_copy_system_proc_file_write_sysmon_11.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "psexesvc"
+    }
+  },
+  "102033": {
+    "description": "Suspicious process: psexesvc",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Suspicious process: psexesvc",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "psexesvc"
+    }
+  },
+  "102034": {
+    "description": "Suspicious process: rundll32",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Suspicious process: rundll32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "rundll32"
+    }
+  },
+  "102035": {
+    "description": "Registry persistence via winlogon\\",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Registry persistence via winlogon\\",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_13_1_persistence_via_winlogon_shell.evtx",
+    "parent_sid": 61615,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetObject": "winlogon\\"
+    }
+  },
+  "102036": {
+    "description": "Suspicious process: regsvr32",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Suspicious process: regsvr32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "regsvr32"
+    }
+  },
+  "102037": {
+    "description": "Network connection by regsvr32",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Network connection by regsvr32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "regsvr32",
+      "win.eventdata.destinationPort": "443"
+    }
+  },
+  "102038": {
+    "description": "Suspicious process: wmic",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Suspicious process: wmic",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_20_21_1_CommandLineEventConsumer.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "wmic"
+    }
+  },
+  "103010": {
+    "description": "Suspicious process: rundll32",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1548",
+    "technique_name": "Suspicious process: rundll32",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/privesc_unquoted_svc_sysmon_1_11.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "rundll32"
+    }
+  },
+  "103011": {
+    "description": "Suspicious command: bypass",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1548",
+    "technique_name": "Suspicious command: bypass",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_11_7_1_uacbypass_windirectory_mocking.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "bypass"
+    }
+  },
+  "103012": {
+    "description": "Suspicious process: cmstp",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1548",
+    "technique_name": "Suspicious process: cmstp",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_1_13_11_cmstp_ini_uacbypass.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "cmstp"
+    }
+  },
+  "105032": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_from_admin_to_system_handle_inheritance.evtx",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x101ffb"
+    }
+  },
+  "103013": {
+    "description": "Suspicious process: psexec",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1548",
+    "technique_name": "Suspicious process: psexec",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_psexec_dwell.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "psexec"
+    }
+  },
+  "103014": {
+    "description": "Suspicious process: psexesvc",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1548",
+    "technique_name": "Suspicious process: psexesvc",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_psexec_dwell.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "psexesvc"
+    }
+  }
+}

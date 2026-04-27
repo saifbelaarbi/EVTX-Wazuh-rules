@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,sysmon,">
+  <rule id="102026" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">currentversion\run</field>
+    <description>Registry modification in persistence key: currentversion\run</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="101038" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Suspicious process 'rundll32' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="102027" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">currentversion\run</field>
+    <description>Registry modification in persistence key: currentversion\run</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102028" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">currentversion\runonce</field>
+    <description>Registry modification in persistence key: currentversion\runonce</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102029" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">currentversion\runonce</field>
+    <description>Registry modification in persistence key: currentversion\runonce</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="101039" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">bitsadmin</field>
+    <description>Suspicious process 'bitsadmin' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101040" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">reg save</field>
+    <description>Suspicious command-line pattern 'reg save' detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101041" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">wmic</field>
+    <description>Suspicious process 'wmic' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101042" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">regsvr32</field>
+    <description>Suspicious process 'regsvr32' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="109012" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">regsvr32</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'regsvr32'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="102030" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">userinit</field>
+    <description>Registry modification in persistence key: userinit</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="101043" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">certutil</field>
+    <description>Suspicious process 'certutil' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="105022" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x1010</field>
+    <description>Process accessed LSASS with access mask 0x1010</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="101044" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">procdump</field>
+    <description>Suspicious process 'procdump' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101045" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">installutil</field>
+    <description>Suspicious process 'installutil' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101046" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <description>Suspicious process 'mshta' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="109013" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109014" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">80</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="101047" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">iex(</field>
+    <description>Suspicious command-line pattern 'iex(' detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101048" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">cmstp</field>
+    <description>Suspicious process 'cmstp' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="109015" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">wmic</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'wmic'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109016" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'rundll32'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109017" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">certutil</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'certutil'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="105024" level="12">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <description>Remote thread created targeting LSASS process - possible credential dumping</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="105025" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x1f1fff</field>
+    <description>Process accessed LSASS with access mask 0x1f1fff</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="105026" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-nop </field>
+    <description>Suspicious command-line pattern '-nop ' detected</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="105027" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x1000</field>
+    <description>Process accessed LSASS with access mask 0x1000</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="105028" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x1410</field>
+    <description>Process accessed LSASS with access mask 0x1410</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="105029" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x1fffff</field>
+    <description>Process accessed LSASS with access mask 0x1fffff</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="105030" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Suspicious process 'rundll32' execution detected</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="105031" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x143a</field>
+    <description>Process accessed LSASS with access mask 0x143a</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="104006" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Suspicious process 'rundll32' execution detected</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="104007" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <field name="win.eventdata.destinationPort">1337</field>
+    <description>Suspicious network connection from 'rundll32'</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="102031" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">shell</field>
+    <description>Registry modification in persistence key: shell</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102032" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">shell</field>
+    <description>Registry modification in persistence key: shell</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="101049" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <field name="win.eventdata.destinationPort">8181</field>
+    <description>Suspicious network connection from 'rundll32'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101050" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101051" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">80</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="104008" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">regsvr32</field>
+    <description>Suspicious process 'regsvr32' execution detected</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="101052" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">regsvr32</field>
+    <field name="win.eventdata.destinationPort">80</field>
+    <description>Suspicious network connection from 'regsvr32'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101053" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">wmic</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'wmic'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101054" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">wmic</field>
+    <field name="win.eventdata.destinationPort">80</field>
+    <description>Suspicious network connection from 'wmic'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101055" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">bypass</field>
+    <description>Suspicious command-line pattern 'bypass' detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101056" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">4443</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="107014" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <description>Suspicious process 'mshta' execution detected</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107015" level="11">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">55683</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107016" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-nop </field>
+    <description>Suspicious command-line pattern '-nop ' detected</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107017" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-w hidden</field>
+    <description>Suspicious command-line pattern '-w hidden' detected</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107018" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">net user</field>
+    <description>Suspicious command-line pattern 'net user' detected</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107019" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Suspicious process 'rundll32' execution detected</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107020" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexesvc</field>
+    <description>Suspicious process 'psexesvc' execution detected</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="102033" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexesvc</field>
+    <description>Suspicious process 'psexesvc' execution detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102034" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Suspicious process 'rundll32' execution detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102035" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">winlogon\</field>
+    <description>Registry modification in persistence key: winlogon\</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102036" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">regsvr32</field>
+    <description>Suspicious process 'regsvr32' execution detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102037" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">regsvr32</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'regsvr32'</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102038" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">wmic</field>
+    <description>Suspicious process 'wmic' execution detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="103010" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Suspicious process 'rundll32' execution detected</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103011" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">bypass</field>
+    <description>Suspicious command-line pattern 'bypass' detected</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103012" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">cmstp</field>
+    <description>Suspicious process 'cmstp' execution detected</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="105032" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x101ffb</field>
+    <description>Process accessed LSASS with access mask 0x101ffb</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="103013" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <description>Suspicious process 'psexec' execution detected</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103014" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexesvc</field>
+    <description>Suspicious process 'psexesvc' execution detected</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+</group>

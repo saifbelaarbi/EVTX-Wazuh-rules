@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,security,">
+  <rule id="105023" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4625</field>
+    <description>Failed logon attempt (type 2)</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+</group>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1059_command_scripting,">
+  <rule id="101038" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Suspicious process 'rundll32' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101039" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">bitsadmin</field>
+    <description>Suspicious process 'bitsadmin' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101040" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">reg save</field>
+    <description>Suspicious command-line pattern 'reg save' detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101041" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">wmic</field>
+    <description>Suspicious process 'wmic' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101042" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">regsvr32</field>
+    <description>Suspicious process 'regsvr32' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101043" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">certutil</field>
+    <description>Suspicious process 'certutil' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101044" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">procdump</field>
+    <description>Suspicious process 'procdump' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101045" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">installutil</field>
+    <description>Suspicious process 'installutil' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101046" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <description>Suspicious process 'mshta' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101047" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">iex(</field>
+    <description>Suspicious command-line pattern 'iex(' detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101048" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">cmstp</field>
+    <description>Suspicious process 'cmstp' execution detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101049" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <field name="win.eventdata.destinationPort">8181</field>
+    <description>Suspicious network connection from 'rundll32'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101050" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101051" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">80</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101052" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">regsvr32</field>
+    <field name="win.eventdata.destinationPort">80</field>
+    <description>Suspicious network connection from 'regsvr32'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101053" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">wmic</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'wmic'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101054" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">wmic</field>
+    <field name="win.eventdata.destinationPort">80</field>
+    <description>Suspicious network connection from 'wmic'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101055" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">bypass</field>
+    <description>Suspicious command-line pattern 'bypass' detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101056" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">4443</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+</group>

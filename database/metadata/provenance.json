@@ -1,0 +1,231 @@
+{
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/DE_timestomp_and_dll_sideloading_and_RunPersist.evtx": {
+    "rules_generated": [
+      102026
+    ],
+    "last_processed": "2026-04-27T13:43:01.123375+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/rundll32_cmd_schtask.evtx": {
+    "rules_generated": [
+      101038
+    ],
+    "last_processed": "2026-04-27T13:43:01.123380+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx": {
+    "rules_generated": [
+      102027,
+      102028,
+      102029,
+      101039,
+      101040,
+      101041,
+      101042,
+      109012,
+      102030,
+      101043,
+      105022,
+      101044
+    ],
+    "last_processed": "2026-04-27T13:43:01.123405+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx": {
+    "rules_generated": [
+      101045,
+      101046,
+      109013,
+      109014,
+      101047,
+      101048,
+      109015,
+      109016,
+      109017
+    ],
+    "last_processed": "2026-04-27T13:43:01.123418+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_4624_4625_LogonType2_LogonProc_chrome.evtx": {
+    "rules_generated": [
+      105023
+    ],
+    "last_processed": "2026-04-27T13:43:01.123420+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx": {
+    "rules_generated": [
+      105024,
+      105025
+    ],
+    "last_processed": "2026-04-27T13:43:01.123425+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/discovery_sysmon_1_iis_pwd_and_config_discovery_appcmd.evtx": {
+    "rules_generated": [
+      105026
+    ],
+    "last_processed": "2026-04-27T13:43:01.123427+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx": {
+    "rules_generated": [
+      105027,
+      105028,
+      105029
+    ],
+    "last_processed": "2026-04-27T13:43:01.123432+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx": {
+    "rules_generated": [
+      105030
+    ],
+    "last_processed": "2026-04-27T13:43:01.123435+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_3_10_Invoke-Mimikatz_hosted_Github.evtx": {
+    "rules_generated": [
+      105031
+    ],
+    "last_processed": "2026-04-27T13:43:01.123438+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/Sysmon 7  Update Session Orchestrator Dll Hijack.evtx": {
+    "rules_generated": [
+      104006,
+      104007
+    ],
+    "last_processed": "2026-04-27T13:43:01.123442+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/de_PsScriptBlockLogging_disabled_sysmon12_13.evtx": {
+    "rules_generated": [
+      102031,
+      102032
+    ],
+    "last_processed": "2026-04-27T13:43:01.123446+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/Sysmon_meterpreter_ReflectivePEInjection_to_notepad_.evtx": {
+    "rules_generated": [
+      101049
+    ],
+    "last_processed": "2026-04-27T13:43:01.123448+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx": {
+    "rules_generated": [
+      101050,
+      101051
+    ],
+    "last_processed": "2026-04-27T13:43:01.123452+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_sysmon_1_7_jscript9_defense_evasion.evtx": {
+    "rules_generated": [
+      104008
+    ],
+    "last_processed": "2026-04-27T13:43:01.123454+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_sysmon_lobin_regsvr32_sct.evtx": {
+    "rules_generated": [
+      101052
+    ],
+    "last_processed": "2026-04-27T13:43:01.123457+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_wmic_xsl_internet_sysmon_3_1_11.evtx": {
+    "rules_generated": [
+      101053,
+      101054
+    ],
+    "last_processed": "2026-04-27T13:43:01.123460+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/susp_explorer_exec.evtx": {
+    "rules_generated": [
+      101055
+    ],
+    "last_processed": "2026-04-27T13:43:01.123463+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/sysmon_mshta_sharpshooter_stageless_meterpreter.evtx": {
+    "rules_generated": [
+      101056
+    ],
+    "last_processed": "2026-04-27T13:43:01.123465+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_DCOM_MSHTA_LethalHTA_Sysmon_3_1.evtx": {
+    "rules_generated": [
+      107014,
+      107015
+    ],
+    "last_processed": "2026-04-27T13:43:01.123469+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_sysmon_psexec_smb_meterpreter.evtx": {
+    "rules_generated": [
+      107016,
+      107017
+    ],
+    "last_processed": "2026-04-27T13:43:01.123473+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_typical_IIS_webshell_sysmon_1_10_traces.evtx": {
+    "rules_generated": [
+      107018
+    ],
+    "last_processed": "2026-04-27T13:43:01.123476+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_wmi_PoisonHandler_Mr-Un1k0d3r_sysmon_1_13.evtx": {
+    "rules_generated": [
+      107019
+    ],
+    "last_processed": "2026-04-27T13:43:01.123479+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/remote_file_copy_system_proc_file_write_sysmon_11.evtx": {
+    "rules_generated": [
+      107020
+    ],
+    "last_processed": "2026-04-27T13:43:01.123481+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx": {
+    "rules_generated": [
+      102033,
+      102034
+    ],
+    "last_processed": "2026-04-27T13:43:01.123485+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_13_1_persistence_via_winlogon_shell.evtx": {
+    "rules_generated": [
+      102035
+    ],
+    "last_processed": "2026-04-27T13:43:01.123487+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx": {
+    "rules_generated": [
+      102036,
+      102037
+    ],
+    "last_processed": "2026-04-27T13:43:01.123490+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_20_21_1_CommandLineEventConsumer.evtx": {
+    "rules_generated": [
+      102038
+    ],
+    "last_processed": "2026-04-27T13:43:01.123493+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/privesc_unquoted_svc_sysmon_1_11.evtx": {
+    "rules_generated": [
+      103010
+    ],
+    "last_processed": "2026-04-27T13:43:01.123495+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_11_7_1_uacbypass_windirectory_mocking.evtx": {
+    "rules_generated": [
+      103011
+    ],
+    "last_processed": "2026-04-27T13:43:01.123497+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_1_13_11_cmstp_ini_uacbypass.evtx": {
+    "rules_generated": [
+      103012
+    ],
+    "last_processed": "2026-04-27T13:43:01.123500+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_from_admin_to_system_handle_inheritance.evtx": {
+    "rules_generated": [
+      105032
+    ],
+    "last_processed": "2026-04-27T13:43:01.123502+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_psexec_dwell.evtx": {
+    "rules_generated": [
+      103013,
+      103014
+    ],
+    "last_processed": "2026-04-27T13:43:01.123506+00:00"
+  }
+}

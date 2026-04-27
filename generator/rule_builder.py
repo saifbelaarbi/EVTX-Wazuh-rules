@@ -6,27 +6,28 @@ from datetime import date
 from .event_analyzer import DetectionPattern
 from .id_manager import allocate_id
 
-# Map Sysmon Event IDs to Wazuh parent SIDs
+# Map Sysmon Event IDs to Wazuh parent SIDs (from 0595-win-sysmon_rules.xml)
 PARENT_SID_MAP = {
-    # Sysmon events
-    (1, "Microsoft-Windows-Sysmon"): 61600,   # Process Create
-    (2, "Microsoft-Windows-Sysmon"): 61601,   # File Create Time
-    (3, "Microsoft-Windows-Sysmon"): 61603,   # Network Connect
-    (5, "Microsoft-Windows-Sysmon"): 61604,   # Process Terminate
-    (6, "Microsoft-Windows-Sysmon"): 61605,   # Driver Load
-    (7, "Microsoft-Windows-Sysmon"): 61606,   # Image Load
-    (8, "Microsoft-Windows-Sysmon"): 61607,   # CreateRemoteThread
-    (10, "Microsoft-Windows-Sysmon"): 61609,  # Process Access
-    (11, "Microsoft-Windows-Sysmon"): 61610,  # File Create
-    (12, "Microsoft-Windows-Sysmon"): 61612,  # Registry Create/Delete
-    (13, "Microsoft-Windows-Sysmon"): 61613,  # Registry Value Set
-    (14, "Microsoft-Windows-Sysmon"): 61614,  # Registry Rename
-    (15, "Microsoft-Windows-Sysmon"): 61615,  # File Stream Create
-    (17, "Microsoft-Windows-Sysmon"): 61617,  # Pipe Created
-    (18, "Microsoft-Windows-Sysmon"): 61618,  # Pipe Connected
-    (22, "Microsoft-Windows-Sysmon"): 61625,  # DNS Query
-    (23, "Microsoft-Windows-Sysmon"): 61626,  # File Delete
-    (25, "Microsoft-Windows-Sysmon"): 61628,  # Process Tampering
+    (1, "Microsoft-Windows-Sysmon"):  61603,  # Process Create
+    (2, "Microsoft-Windows-Sysmon"):  61604,  # File Create Time
+    (3, "Microsoft-Windows-Sysmon"):  61605,  # Network Connect
+    (4, "Microsoft-Windows-Sysmon"):  61606,  # Sysmon Service State
+    (5, "Microsoft-Windows-Sysmon"):  61607,  # Process Terminate
+    (6, "Microsoft-Windows-Sysmon"):  61608,  # Driver Load
+    (7, "Microsoft-Windows-Sysmon"):  61609,  # Image Load
+    (8, "Microsoft-Windows-Sysmon"):  61610,  # CreateRemoteThread
+    (9, "Microsoft-Windows-Sysmon"):  61611,  # RawAccessRead
+    (10, "Microsoft-Windows-Sysmon"): 61612,  # Process Access
+    (11, "Microsoft-Windows-Sysmon"): 61613,  # File Create
+    (12, "Microsoft-Windows-Sysmon"): 61614,  # Registry Create/Delete
+    (13, "Microsoft-Windows-Sysmon"): 61615,  # Registry Value Set
+    (14, "Microsoft-Windows-Sysmon"): 61616,  # Registry Rename
+    (15, "Microsoft-Windows-Sysmon"): 61617,  # File Stream Create
+    (17, "Microsoft-Windows-Sysmon"): 61619,  # Pipe Created
+    (18, "Microsoft-Windows-Sysmon"): 61620,  # Pipe Connected
+    (22, "Microsoft-Windows-Sysmon"): 61624,  # DNS Query
+    (23, "Microsoft-Windows-Sysmon"): 61625,  # File Delete
+    (25, "Microsoft-Windows-Sysmon"): 61627,  # Process Tampering
 }
 
 # Generic parent SIDs for non-Sysmon events

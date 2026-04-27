@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,defense_evasion,">
+  <rule id="104006" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Suspicious process 'rundll32' execution detected</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="104007" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <field name="win.eventdata.destinationPort">1337</field>
+    <description>Suspicious network connection from 'rundll32'</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="104008" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">regsvr32</field>
+    <description>Suspicious process 'regsvr32' execution detected</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+</group>

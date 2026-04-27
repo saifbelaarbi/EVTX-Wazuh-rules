@@ -18,7 +18,7 @@ def test_resolve_parent_sid_sysmon():
         channel="Microsoft-Windows-Sysmon/Operational",
         provider_name="Microsoft-Windows-Sysmon",
     )
-    assert _resolve_parent_sid(pattern) == 61600
+    assert _resolve_parent_sid(pattern) == 61603
 
 
 def test_resolve_parent_sid_security():
@@ -55,7 +55,7 @@ def test_build_rule_structure():
 
         xml_str = etree.tostring(rule["xml_element"], encoding="unicode")
         assert "if_sid" in xml_str
-        assert "61600" in xml_str  # Sysmon process create parent
+        assert "61603" in xml_str  # Sysmon process create parent
         assert "mimikatz" in xml_str
         assert "credential_access" in xml_str
 
