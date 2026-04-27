@@ -1,0 +1,39 @@
+sources:
+  - name: EVTX-ATTACK-SAMPLES
+    repo: sbousseaden/EVTX-ATTACK-SAMPLES
+    url: https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES.git
+    type: github_clone
+    description: "~200 EVTX samples organized by MITRE ATT&CK tactic"
+    mitre_mapped: true
+    structure: by_tactic
+    tactic_dirs:
+      - "Command and Control"
+      - "Credential Access"
+      - "Defense Evasion"
+      - "Discovery"
+      - "Execution"
+      - "Lateral Movement"
+      - "Persistence"
+      - "Privilege Escalation"
+      - "Other"
+
+  - name: EVTX-to-MITRE-Attack
+    repo: mdecrevoisier/EVTX-to-MITRE-Attack
+    url: https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack.git
+    type: github_clone
+    description: "270+ EVTX samples mapped to ATT&CK techniques"
+    mitre_mapped: true
+    structure: by_tactic
+
+  - name: hayabusa-sample-evtx
+    repo: Yamato-Security/hayabusa-sample-evtx
+    url: https://github.com/Yamato-Security/hayabusa-sample-evtx.git
+    type: github_clone
+    description: "Aggregated EVTX samples from multiple security research sources"
+    mitre_mapped: false
+    structure: by_source
+    sub_sources:
+      - DeepBlueCLI
+      - EVTX-ATTACK-SAMPLES
+      - EVTX-to-MITRE-Attack
+      - YamatoSecurity

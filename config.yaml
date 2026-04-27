@@ -1,0 +1,41 @@
+id_range:
+  start: 100000
+  end: 120000
+
+paths:
+  evtx_data: data/evtx_samples
+  wazuh_defaults: data/wazuh_defaults
+  cache: data/cache
+  rules_output: database/rules
+  drafts: database/drafts
+  metadata: database/metadata
+
+wazuh:
+  deploy_path: /var/ossec/etc/rules/
+  parent_sids:
+    eventchannel: 60000
+    sysmon: 60009
+    sysmon_process_create: 61600
+    sysmon_network_connect: 61603
+    sysmon_file_create: 61601
+    sysmon_registry_event: 61612
+    sysmon_dns_query: 61625
+    sysmon_process_access: 61616
+    windows_security: 60100
+    windows_system: 60106
+    windows_powershell: 91801
+
+tactic_id_ranges:
+  initial_access:        { start: 100000, end: 100999 }
+  execution:             { start: 101000, end: 101999 }
+  persistence:           { start: 102000, end: 102999 }
+  privilege_escalation:  { start: 103000, end: 103999 }
+  defense_evasion:       { start: 104000, end: 104999 }
+  credential_access:     { start: 105000, end: 105999 }
+  discovery:             { start: 106000, end: 106999 }
+  lateral_movement:      { start: 107000, end: 107999 }
+  collection:            { start: 108000, end: 108999 }
+  command_and_control:   { start: 109000, end: 109999 }
+  exfiltration:          { start: 110000, end: 110999 }
+  impact:                { start: 111000, end: 111999 }
+  composite:             { start: 112000, end: 119999 }

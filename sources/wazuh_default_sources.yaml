@@ -1,0 +1,16 @@
+wazuh_defaults:
+  - name: wazuh-ruleset
+    repo: wazuh/wazuh
+    url: https://github.com/wazuh/wazuh.git
+    type: github_sparse_clone
+    description: "Official Wazuh default rules and decoders"
+    sparse_paths:
+      - ruleset/rules/
+      - ruleset/decoders/
+    key_rule_files:
+      - 0575-win-base_rules.xml
+      - 0580-win-security_rules.xml
+      - 0585-win-application_rules.xml
+      - 0590-win-system_rules.xml
+      - 0595-win-sysmon_rules.xml
+      - 0840-win-event_channel.xml
