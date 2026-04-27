@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,system,">
+  <rule id="102013" level="10">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">PSEXESVC</field>
+    <field name="win.eventdata.imagePath">psexesvc</field>
+    <description>Suspicious service 'PSEXESVC' installed</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102014" level="13">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">mimikatz driver (mimidrv)</field>
+    <field name="win.eventdata.imagePath">mimikatz</field>
+    <description>Suspicious service 'mimikatz driver (mimidrv)' installed</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+</group>

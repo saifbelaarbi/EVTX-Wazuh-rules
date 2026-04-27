@@ -1,5 +1,5 @@
 {
-  "102026": {
+  "102000": {
     "description": "Registry persistence via currentversion\\run",
     "level": 9,
     "tactic": "persistence",
@@ -13,7 +13,7 @@
       "win.eventdata.targetObject": "currentversion\\run"
     }
   },
-  "101038": {
+  "101000": {
     "description": "Suspicious process: rundll32",
     "level": 9,
     "tactic": "execution",
@@ -27,7 +27,7 @@
       "win.eventdata.image": "rundll32"
     }
   },
-  "102027": {
+  "102001": {
     "description": "Registry persistence via currentversion\\run",
     "level": 9,
     "tactic": "persistence",
@@ -41,7 +41,7 @@
       "win.eventdata.targetObject": "currentversion\\run"
     }
   },
-  "102028": {
+  "102002": {
     "description": "Registry persistence via currentversion\\runonce",
     "level": 9,
     "tactic": "persistence",
@@ -55,7 +55,7 @@
       "win.eventdata.targetObject": "currentversion\\runonce"
     }
   },
-  "102029": {
+  "102003": {
     "description": "Registry persistence via currentversion\\runonce",
     "level": 9,
     "tactic": "persistence",
@@ -69,7 +69,7 @@
       "win.eventdata.targetObject": "currentversion\\runonce"
     }
   },
-  "101039": {
+  "101001": {
     "description": "Suspicious process: bitsadmin",
     "level": 9,
     "tactic": "execution",
@@ -83,7 +83,7 @@
       "win.eventdata.image": "bitsadmin"
     }
   },
-  "101040": {
+  "101002": {
     "description": "Suspicious command: reg save",
     "level": 8,
     "tactic": "execution",
@@ -97,7 +97,7 @@
       "win.eventdata.commandLine": "reg save"
     }
   },
-  "101041": {
+  "101003": {
     "description": "Suspicious process: wmic",
     "level": 9,
     "tactic": "execution",
@@ -111,7 +111,7 @@
       "win.eventdata.image": "wmic"
     }
   },
-  "101042": {
+  "101004": {
     "description": "Suspicious process: regsvr32",
     "level": 9,
     "tactic": "execution",
@@ -125,7 +125,7 @@
       "win.eventdata.image": "regsvr32"
     }
   },
-  "109012": {
+  "109000": {
     "description": "Network connection by regsvr32",
     "level": 10,
     "tactic": "command_and_control",
@@ -140,7 +140,7 @@
       "win.eventdata.destinationPort": "443"
     }
   },
-  "102030": {
+  "102004": {
     "description": "Registry persistence via userinit",
     "level": 9,
     "tactic": "persistence",
@@ -154,7 +154,7 @@
       "win.eventdata.targetObject": "userinit"
     }
   },
-  "101043": {
+  "101005": {
     "description": "Suspicious process: certutil",
     "level": 9,
     "tactic": "execution",
@@ -168,7 +168,7 @@
       "win.eventdata.image": "certutil"
     }
   },
-  "105022": {
+  "105000": {
     "description": "LSASS memory access",
     "level": 12,
     "tactic": "credential_access",
@@ -183,7 +183,7 @@
       "win.eventdata.grantedAccess": "0x1010"
     }
   },
-  "101044": {
+  "101006": {
     "description": "Suspicious process: procdump",
     "level": 9,
     "tactic": "execution",
@@ -197,7 +197,7 @@
       "win.eventdata.image": "procdump"
     }
   },
-  "101045": {
+  "101007": {
     "description": "Suspicious process: installutil",
     "level": 9,
     "tactic": "execution",
@@ -211,7 +211,7 @@
       "win.eventdata.image": "installutil"
     }
   },
-  "101046": {
+  "101008": {
     "description": "Suspicious process: mshta",
     "level": 9,
     "tactic": "execution",
@@ -225,7 +225,7 @@
       "win.eventdata.image": "mshta"
     }
   },
-  "109013": {
+  "109001": {
     "description": "Network connection by mshta",
     "level": 10,
     "tactic": "command_and_control",
@@ -240,7 +240,7 @@
       "win.eventdata.destinationPort": "443"
     }
   },
-  "109014": {
+  "109002": {
     "description": "Network connection by mshta",
     "level": 10,
     "tactic": "command_and_control",
@@ -255,7 +255,7 @@
       "win.eventdata.destinationPort": "80"
     }
   },
-  "101047": {
+  "101009": {
     "description": "Suspicious command: iex(",
     "level": 8,
     "tactic": "execution",
@@ -269,7 +269,7 @@
       "win.eventdata.commandLine": "iex("
     }
   },
-  "101048": {
+  "101010": {
     "description": "Suspicious process: cmstp",
     "level": 9,
     "tactic": "execution",
@@ -283,7 +283,7 @@
       "win.eventdata.image": "cmstp"
     }
   },
-  "109015": {
+  "109003": {
     "description": "Network connection by wmic",
     "level": 10,
     "tactic": "command_and_control",
@@ -298,7 +298,7 @@
       "win.eventdata.destinationPort": "443"
     }
   },
-  "109016": {
+  "109004": {
     "description": "Network connection by rundll32",
     "level": 10,
     "tactic": "command_and_control",
@@ -313,7 +313,7 @@
       "win.eventdata.destinationPort": "443"
     }
   },
-  "109017": {
+  "109005": {
     "description": "Network connection by certutil",
     "level": 10,
     "tactic": "command_and_control",
@@ -328,7 +328,7 @@
       "win.eventdata.destinationPort": "443"
     }
   },
-  "105023": {
+  "105001": {
     "description": "Failed logon attempt",
     "level": 9,
     "tactic": "credential_access",
@@ -342,7 +342,7 @@
       "win.system.eventID": "4625"
     }
   },
-  "105024": {
+  "105002": {
     "description": "Remote thread injection into LSASS",
     "level": 12,
     "tactic": "credential_access",
@@ -356,7 +356,7 @@
       "win.eventdata.targetImage": "lsass"
     }
   },
-  "105025": {
+  "105003": {
     "description": "LSASS memory access",
     "level": 12,
     "tactic": "credential_access",
@@ -371,7 +371,7 @@
       "win.eventdata.grantedAccess": "0x1f1fff"
     }
   },
-  "105026": {
+  "105004": {
     "description": "Suspicious command: -nop ",
     "level": 11,
     "tactic": "credential_access",
@@ -385,7 +385,7 @@
       "win.eventdata.commandLine": "-nop "
     }
   },
-  "105027": {
+  "105005": {
     "description": "LSASS memory access",
     "level": 12,
     "tactic": "credential_access",
@@ -400,7 +400,7 @@
       "win.eventdata.grantedAccess": "0x1000"
     }
   },
-  "105028": {
+  "105006": {
     "description": "LSASS memory access",
     "level": 12,
     "tactic": "credential_access",
@@ -415,7 +415,7 @@
       "win.eventdata.grantedAccess": "0x1410"
     }
   },
-  "105029": {
+  "105007": {
     "description": "LSASS memory access",
     "level": 12,
     "tactic": "credential_access",
@@ -430,7 +430,7 @@
       "win.eventdata.grantedAccess": "0x1fffff"
     }
   },
-  "105030": {
+  "105008": {
     "description": "Suspicious process: rundll32",
     "level": 12,
     "tactic": "credential_access",
@@ -444,7 +444,7 @@
       "win.eventdata.image": "rundll32"
     }
   },
-  "105031": {
+  "105009": {
     "description": "LSASS memory access",
     "level": 12,
     "tactic": "credential_access",
@@ -459,7 +459,7 @@
       "win.eventdata.grantedAccess": "0x143a"
     }
   },
-  "104006": {
+  "104000": {
     "description": "Suspicious process: rundll32",
     "level": 10,
     "tactic": "defense_evasion",
@@ -473,7 +473,7 @@
       "win.eventdata.image": "rundll32"
     }
   },
-  "104007": {
+  "104001": {
     "description": "Network connection by rundll32",
     "level": 10,
     "tactic": "defense_evasion",
@@ -488,7 +488,7 @@
       "win.eventdata.destinationPort": "1337"
     }
   },
-  "102031": {
+  "102005": {
     "description": "Registry persistence via shell",
     "level": 9,
     "tactic": "persistence",
@@ -502,7 +502,7 @@
       "win.eventdata.targetObject": "shell"
     }
   },
-  "102032": {
+  "102006": {
     "description": "Registry persistence via shell",
     "level": 9,
     "tactic": "persistence",
@@ -516,7 +516,7 @@
       "win.eventdata.targetObject": "shell"
     }
   },
-  "101049": {
+  "101011": {
     "description": "Network connection by rundll32",
     "level": 9,
     "tactic": "execution",
@@ -531,7 +531,7 @@
       "win.eventdata.destinationPort": "8181"
     }
   },
-  "101050": {
+  "101012": {
     "description": "Network connection by mshta",
     "level": 9,
     "tactic": "execution",
@@ -546,7 +546,7 @@
       "win.eventdata.destinationPort": "443"
     }
   },
-  "101051": {
+  "101013": {
     "description": "Network connection by mshta",
     "level": 9,
     "tactic": "execution",
@@ -561,7 +561,7 @@
       "win.eventdata.destinationPort": "80"
     }
   },
-  "104008": {
+  "104002": {
     "description": "Suspicious process: regsvr32",
     "level": 10,
     "tactic": "defense_evasion",
@@ -575,7 +575,7 @@
       "win.eventdata.image": "regsvr32"
     }
   },
-  "101052": {
+  "101014": {
     "description": "Network connection by regsvr32",
     "level": 9,
     "tactic": "execution",
@@ -590,7 +590,7 @@
       "win.eventdata.destinationPort": "80"
     }
   },
-  "101053": {
+  "101015": {
     "description": "Network connection by wmic",
     "level": 9,
     "tactic": "execution",
@@ -605,7 +605,7 @@
       "win.eventdata.destinationPort": "443"
     }
   },
-  "101054": {
+  "101016": {
     "description": "Network connection by wmic",
     "level": 9,
     "tactic": "execution",
@@ -620,7 +620,7 @@
       "win.eventdata.destinationPort": "80"
     }
   },
-  "101055": {
+  "101017": {
     "description": "Suspicious command: bypass",
     "level": 8,
     "tactic": "execution",
@@ -634,7 +634,7 @@
       "win.eventdata.commandLine": "bypass"
     }
   },
-  "101056": {
+  "101018": {
     "description": "Network connection by mshta",
     "level": 9,
     "tactic": "execution",
@@ -649,7 +649,7 @@
       "win.eventdata.destinationPort": "4443"
     }
   },
-  "107014": {
+  "107000": {
     "description": "Suspicious process: mshta",
     "level": 11,
     "tactic": "lateral_movement",
@@ -663,7 +663,7 @@
       "win.eventdata.image": "mshta"
     }
   },
-  "107015": {
+  "107001": {
     "description": "Network connection by mshta",
     "level": 11,
     "tactic": "lateral_movement",
@@ -678,7 +678,7 @@
       "win.eventdata.destinationPort": "55683"
     }
   },
-  "107016": {
+  "107002": {
     "description": "Suspicious command: -nop ",
     "level": 10,
     "tactic": "lateral_movement",
@@ -692,7 +692,7 @@
       "win.eventdata.commandLine": "-nop "
     }
   },
-  "107017": {
+  "107003": {
     "description": "Suspicious command: -w hidden",
     "level": 10,
     "tactic": "lateral_movement",
@@ -706,7 +706,7 @@
       "win.eventdata.commandLine": "-w hidden"
     }
   },
-  "107018": {
+  "107004": {
     "description": "Suspicious command: net user",
     "level": 10,
     "tactic": "lateral_movement",
@@ -720,7 +720,7 @@
       "win.eventdata.commandLine": "net user"
     }
   },
-  "107019": {
+  "107005": {
     "description": "Suspicious process: rundll32",
     "level": 11,
     "tactic": "lateral_movement",
@@ -734,7 +734,7 @@
       "win.eventdata.image": "rundll32"
     }
   },
-  "107020": {
+  "107006": {
     "description": "Suspicious process: psexesvc",
     "level": 11,
     "tactic": "lateral_movement",
@@ -748,7 +748,7 @@
       "win.eventdata.image": "psexesvc"
     }
   },
-  "102033": {
+  "102007": {
     "description": "Suspicious process: psexesvc",
     "level": 10,
     "tactic": "persistence",
@@ -762,7 +762,7 @@
       "win.eventdata.image": "psexesvc"
     }
   },
-  "102034": {
+  "102008": {
     "description": "Suspicious process: rundll32",
     "level": 10,
     "tactic": "persistence",
@@ -776,7 +776,7 @@
       "win.eventdata.image": "rundll32"
     }
   },
-  "102035": {
+  "102009": {
     "description": "Registry persistence via winlogon\\",
     "level": 9,
     "tactic": "persistence",
@@ -790,7 +790,7 @@
       "win.eventdata.targetObject": "winlogon\\"
     }
   },
-  "102036": {
+  "102010": {
     "description": "Suspicious process: regsvr32",
     "level": 10,
     "tactic": "persistence",
@@ -804,7 +804,7 @@
       "win.eventdata.image": "regsvr32"
     }
   },
-  "102037": {
+  "102011": {
     "description": "Network connection by regsvr32",
     "level": 10,
     "tactic": "persistence",
@@ -819,7 +819,7 @@
       "win.eventdata.destinationPort": "443"
     }
   },
-  "102038": {
+  "102012": {
     "description": "Suspicious process: wmic",
     "level": 10,
     "tactic": "persistence",
@@ -833,7 +833,7 @@
       "win.eventdata.image": "wmic"
     }
   },
-  "103010": {
+  "103000": {
     "description": "Suspicious process: rundll32",
     "level": 11,
     "tactic": "privilege_escalation",
@@ -847,7 +847,7 @@
       "win.eventdata.image": "rundll32"
     }
   },
-  "103011": {
+  "103001": {
     "description": "Suspicious command: bypass",
     "level": 10,
     "tactic": "privilege_escalation",
@@ -861,7 +861,7 @@
       "win.eventdata.commandLine": "bypass"
     }
   },
-  "103012": {
+  "103002": {
     "description": "Suspicious process: cmstp",
     "level": 11,
     "tactic": "privilege_escalation",
@@ -875,7 +875,7 @@
       "win.eventdata.image": "cmstp"
     }
   },
-  "105032": {
+  "105010": {
     "description": "LSASS memory access",
     "level": 12,
     "tactic": "credential_access",
@@ -890,7 +890,7 @@
       "win.eventdata.grantedAccess": "0x101ffb"
     }
   },
-  "103013": {
+  "103003": {
     "description": "Suspicious process: psexec",
     "level": 11,
     "tactic": "privilege_escalation",
@@ -904,7 +904,7 @@
       "win.eventdata.image": "psexec"
     }
   },
-  "103014": {
+  "103004": {
     "description": "Suspicious process: psexesvc",
     "level": 11,
     "tactic": "privilege_escalation",
@@ -916,6 +916,289 @@
     "created": "2026-04-27",
     "field_matches": {
       "win.eventdata.image": "psexesvc"
+    }
+  },
+  "101019": {
+    "description": "Suspicious process: psexec",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious process: psexec",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID11,13,17,18-PSexec as system execution.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "psexec"
+    }
+  },
+  "101020": {
+    "description": "DNS query by psexec",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "DNS query by psexec",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID11,13,17,18-PSexec as system execution.evtx",
+    "parent_sid": 61624,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "psexec",
+      "win.eventdata.queryName": "fs03vuln"
+    }
+  },
+  "100000": {
+    "description": "Failed logon attempt",
+    "level": 6,
+    "tactic": "initial_access",
+    "technique_id": "T1566",
+    "technique_name": "Failed logon attempt",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0001-Initial access/T1078-Valid accounts/ID4625-failed login with denied access due to account restriction.evtx",
+    "parent_sid": 60100,
+    "confidence": "low",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.system.eventID": "4625"
+    }
+  },
+  "101021": {
+    "description": "Suspicious PowerShell: downloadstring",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious PowerShell: downloadstring",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1059.001-PowerShell/ID4103-4104-Payload download via PowerShell.evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "downloadstring"
+    }
+  },
+  "101022": {
+    "description": "Suspicious PowerShell: iex(",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious PowerShell: iex(",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1059.001-PowerShell/ID4103-4104-Payload download via PowerShell.evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "iex("
+    }
+  },
+  "102013": {
+    "description": "Suspicious service: PSEXESVC",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Suspicious service: PSEXESVC",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0003-Persistence/T1543.003-Create or Modify System Process-Windows Service/ID7045-7036 PSexec service installation.evtx",
+    "parent_sid": 60106,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.serviceName": "PSEXESVC",
+      "win.eventdata.imagePath": "psexesvc"
+    }
+  },
+  "102014": {
+    "description": "Suspicious service: mimikatz driver (mimidrv)",
+    "level": 13,
+    "tactic": "persistence",
+    "technique_id": "T1547",
+    "technique_name": "Suspicious service: mimikatz driver (mimidrv)",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0003-Persistence/T1543.003-Create or Modify System Process-Windows Service/ID7045-New service for Mimikatz +npcap.evtx",
+    "parent_sid": 60106,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.serviceName": "mimikatz driver (mimidrv)",
+      "win.eventdata.imagePath": "mimikatz"
+    }
+  },
+  "104003": {
+    "description": "Suspicious command: bypass",
+    "level": 9,
+    "tactic": "defense_evasion",
+    "technique_id": "T1055",
+    "technique_name": "Suspicious command: bypass",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1027-Obfuscated Files or Information/ID1-CrackMapExec payload execution.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "bypass"
+    }
+  },
+  "104004": {
+    "description": "Suspicious command: -nop ",
+    "level": 9,
+    "tactic": "defense_evasion",
+    "technique_id": "T1055",
+    "technique_name": "Suspicious command: -nop ",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1027-Obfuscated Files or Information/ID1-CrackMapExec payload execution.evtx",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.commandLine": "-nop "
+    }
+  },
+  "104005": {
+    "description": "Suspicious PowerShell: set-mppreference -disablerealtimemonitoring",
+    "level": 9,
+    "tactic": "defense_evasion",
+    "technique_id": "T1055",
+    "technique_name": "Suspicious PowerShell: set-mppreference -disablerealtimemonitoring",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1562.001-Impair Defenses-Disable or Modify tool/ID800-4103-4104 Defender critical features disabled (PowerShell).evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "set-mppreference -disablerealtimemonitoring"
+    }
+  },
+  "104006": {
+    "description": "Suspicious PowerShell: bypass",
+    "level": 9,
+    "tactic": "defense_evasion",
+    "technique_id": "T1055",
+    "technique_name": "Suspicious PowerShell: bypass",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1562.004-Impair Defenses-Disable or Modify System Firewall/ID4103-4104-2004-OpenSSH firewall rule activation.evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "bypass"
+    }
+  },
+  "105011": {
+    "description": "Suspicious process: mimikatz",
+    "level": 13,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "technique_name": "Suspicious process: mimikatz",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0006-Credential Access/T1003-Credential dumping/ID10-Mimikatz LSASS process dump.evtx",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.image": "mimikatz"
+    }
+  },
+  "106000": {
+    "description": "Suspicious PowerShell: invoke-expression",
+    "level": 6,
+    "tactic": "discovery",
+    "technique_id": "T1087",
+    "technique_name": "Suspicious PowerShell: invoke-expression",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0007-Discovery/T1016-System Network Configuration Discovery/ID800-4103-4104-Firewall configuration enumerated (PowerShell).evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "invoke-expression"
+    }
+  },
+  "106001": {
+    "description": "Suspicious PowerShell: invoke-webrequest",
+    "level": 6,
+    "tactic": "discovery",
+    "technique_id": "T1087",
+    "technique_name": "Suspicious PowerShell: invoke-webrequest",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0007-Discovery/T1016-System Network Configuration Discovery/ID800-4103-4104-Firewall configuration enumerated (PowerShell).evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "invoke-webrequest"
+    }
+  },
+  "106002": {
+    "description": "Suspicious PowerShell: bypass",
+    "level": 6,
+    "tactic": "discovery",
+    "technique_id": "T1087",
+    "technique_name": "Suspicious PowerShell: bypass",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0007-Discovery/T1016-System Network Configuration Discovery/ID800-4103-4104-Firewall configuration enumerated (PowerShell).evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "bypass"
+    }
+  },
+  "107007": {
+    "description": "Suspicious PowerShell: bypass",
+    "level": 10,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021",
+    "technique_name": "Suspicious PowerShell: bypass",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0008-Lateral Movement/T1021.004-Remote Service SSH/ID4103-4104-OpenSSH server activation and config.evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "bypass"
+    }
+  },
+  "101023": {
+    "description": "Suspicious PowerShell: invoke-mimikatz",
+    "level": 13,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious PowerShell: invoke-mimikatz",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/Powershell-Invoke-Obfuscation-many.evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "invoke-mimikatz"
+    }
+  },
+  "101024": {
+    "description": "Suspicious PowerShell: invoke-expression",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious PowerShell: invoke-expression",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/Powershell-Invoke-Obfuscation-many.evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "invoke-expression"
+    }
+  },
+  "101025": {
+    "description": "Suspicious PowerShell: bypass",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious PowerShell: bypass",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/Powershell-Invoke-Obfuscation-many.evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "bypass"
+    }
+  },
+  "101026": {
+    "description": "Suspicious PowerShell: -nop ",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "technique_name": "Suspicious PowerShell: -nop ",
+    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/Powershell-Invoke-Obfuscation-many.evtx",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "2026-04-27",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "-nop "
     }
   }
 }

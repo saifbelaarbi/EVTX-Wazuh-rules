@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,privilege_escalation,">
-  <rule id="103010" level="11">
+  <rule id="103000" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">rundll32</field>
     <description>Suspicious process 'rundll32' execution detected</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>privilege_escalation,evtx_generated,</group>
   </rule>
-  <rule id="103011" level="10">
+  <rule id="103001" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">bypass</field>
     <description>Suspicious command-line pattern 'bypass' detected</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>privilege_escalation,evtx_generated,</group>
   </rule>
-  <rule id="103012" level="11">
+  <rule id="103002" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">cmstp</field>
     <description>Suspicious process 'cmstp' execution detected</description>
@@ -27,7 +27,7 @@
     </mitre>
     <group>privilege_escalation,evtx_generated,</group>
   </rule>
-  <rule id="103013" level="11">
+  <rule id="103003" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">psexec</field>
     <description>Suspicious process 'psexec' execution detected</description>
@@ -36,7 +36,7 @@
     </mitre>
     <group>privilege_escalation,evtx_generated,</group>
   </rule>
-  <rule id="103014" level="11">
+  <rule id="103004" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">psexesvc</field>
     <description>Suspicious process 'psexesvc' execution detected</description>

@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<group name="windows,security,">
-  <rule id="105001" level="9">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4625</field>
-    <description>Failed logon attempt (type 2)</description>
-    <mitre>
-      <id>T1003</id>
-    </mitre>
-    <group>credential_access,evtx_generated,</group>
-  </rule>
+<group name="windows,T1566_phishing,">
   <rule id="100000" level="6">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4625</field>

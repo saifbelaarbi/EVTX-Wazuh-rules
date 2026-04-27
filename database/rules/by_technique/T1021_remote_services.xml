@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1021_remote_services,">
-  <rule id="107014" level="11">
+  <rule id="107000" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">mshta</field>
     <description>Suspicious process 'mshta' execution detected</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>lateral_movement,evtx_generated,</group>
   </rule>
-  <rule id="107015" level="11">
+  <rule id="107001" level="11">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">mshta</field>
     <field name="win.eventdata.destinationPort">55683</field>
@@ -19,7 +19,7 @@
     </mitre>
     <group>lateral_movement,evtx_generated,</group>
   </rule>
-  <rule id="107016" level="10">
+  <rule id="107002" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-nop </field>
     <description>Suspicious command-line pattern '-nop ' detected</description>
@@ -28,7 +28,7 @@
     </mitre>
     <group>lateral_movement,evtx_generated,</group>
   </rule>
-  <rule id="107017" level="10">
+  <rule id="107003" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-w hidden</field>
     <description>Suspicious command-line pattern '-w hidden' detected</description>
@@ -37,7 +37,7 @@
     </mitre>
     <group>lateral_movement,evtx_generated,</group>
   </rule>
-  <rule id="107018" level="10">
+  <rule id="107004" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">net user</field>
     <description>Suspicious command-line pattern 'net user' detected</description>
@@ -46,7 +46,7 @@
     </mitre>
     <group>lateral_movement,evtx_generated,</group>
   </rule>
-  <rule id="107019" level="11">
+  <rule id="107005" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">rundll32</field>
     <description>Suspicious process 'rundll32' execution detected</description>
@@ -55,10 +55,19 @@
     </mitre>
     <group>lateral_movement,evtx_generated,</group>
   </rule>
-  <rule id="107020" level="11">
+  <rule id="107006" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">psexesvc</field>
     <description>Suspicious process 'psexesvc' execution detected</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107007" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">bypass</field>
+    <description>Suspicious PowerShell script block containing 'bypass'</description>
     <mitre>
       <id>T1021</id>
     </mitre>

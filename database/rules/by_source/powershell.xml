@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,powershell,">
+  <rule id="101021" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">downloadstring</field>
+    <description>Suspicious PowerShell script block containing 'downloadstring'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101022" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">iex(</field>
+    <description>Suspicious PowerShell script block containing 'iex('</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="104005" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">set-mppreference -disablerealtimemonitoring</field>
+    <description>Suspicious PowerShell script block containing 'set-mppreference -disablerealtimemonitoring'</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="104006" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">bypass</field>
+    <description>Suspicious PowerShell script block containing 'bypass'</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="106000" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">invoke-expression</field>
+    <description>Suspicious PowerShell script block containing 'invoke-expression'</description>
+    <mitre>
+      <id>T1087</id>
+    </mitre>
+    <group>discovery,evtx_generated,</group>
+  </rule>
+  <rule id="106001" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">invoke-webrequest</field>
+    <description>Suspicious PowerShell script block containing 'invoke-webrequest'</description>
+    <mitre>
+      <id>T1087</id>
+    </mitre>
+    <group>discovery,evtx_generated,</group>
+  </rule>
+  <rule id="106002" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">bypass</field>
+    <description>Suspicious PowerShell script block containing 'bypass'</description>
+    <mitre>
+      <id>T1087</id>
+    </mitre>
+    <group>discovery,evtx_generated,</group>
+  </rule>
+  <rule id="107007" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">bypass</field>
+    <description>Suspicious PowerShell script block containing 'bypass'</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="101023" level="13">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">invoke-mimikatz</field>
+    <description>Suspicious PowerShell script block containing 'invoke-mimikatz'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101024" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">invoke-expression</field>
+    <description>Suspicious PowerShell script block containing 'invoke-expression'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101025" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">bypass</field>
+    <description>Suspicious PowerShell script block containing 'bypass'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101026" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">-nop </field>
+    <description>Suspicious PowerShell script block containing '-nop '</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+</group>

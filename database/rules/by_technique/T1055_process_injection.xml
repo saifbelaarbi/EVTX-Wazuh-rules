@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1055_process_injection,">
-  <rule id="104006" level="10">
+  <rule id="104000" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">rundll32</field>
     <description>Suspicious process 'rundll32' execution detected</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="104007" level="10">
+  <rule id="104001" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">rundll32</field>
     <field name="win.eventdata.destinationPort">1337</field>
@@ -19,10 +19,46 @@
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="104008" level="10">
+  <rule id="104002" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">regsvr32</field>
     <description>Suspicious process 'regsvr32' execution detected</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="104003" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">bypass</field>
+    <description>Suspicious command-line pattern 'bypass' detected</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="104004" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-nop </field>
+    <description>Suspicious command-line pattern '-nop ' detected</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="104005" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">set-mppreference -disablerealtimemonitoring</field>
+    <description>Suspicious PowerShell script block containing 'set-mppreference -disablerealtimemonitoring'</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="104006" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">bypass</field>
+    <description>Suspicious PowerShell script block containing 'bypass'</description>
     <mitre>
       <id>T1055</id>
     </mitre>

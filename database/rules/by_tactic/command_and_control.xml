@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,command_and_control,">
-  <rule id="109012" level="10">
+  <rule id="109000" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">regsvr32</field>
     <field name="win.eventdata.destinationPort">443</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>command_and_control,evtx_generated,</group>
   </rule>
-  <rule id="109013" level="10">
+  <rule id="109001" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">mshta</field>
     <field name="win.eventdata.destinationPort">443</field>
@@ -20,7 +20,7 @@
     </mitre>
     <group>command_and_control,evtx_generated,</group>
   </rule>
-  <rule id="109014" level="10">
+  <rule id="109002" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">mshta</field>
     <field name="win.eventdata.destinationPort">80</field>
@@ -30,7 +30,7 @@
     </mitre>
     <group>command_and_control,evtx_generated,</group>
   </rule>
-  <rule id="109015" level="10">
+  <rule id="109003" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">wmic</field>
     <field name="win.eventdata.destinationPort">443</field>
@@ -40,7 +40,7 @@
     </mitre>
     <group>command_and_control,evtx_generated,</group>
   </rule>
-  <rule id="109016" level="10">
+  <rule id="109004" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">rundll32</field>
     <field name="win.eventdata.destinationPort">443</field>
@@ -50,7 +50,7 @@
     </mitre>
     <group>command_and_control,evtx_generated,</group>
   </rule>
-  <rule id="109017" level="10">
+  <rule id="109005" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">certutil</field>
     <field name="win.eventdata.destinationPort">443</field>

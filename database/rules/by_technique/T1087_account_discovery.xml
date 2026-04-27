@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1087_account_discovery,">
+  <rule id="106000" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">invoke-expression</field>
+    <description>Suspicious PowerShell script block containing 'invoke-expression'</description>
+    <mitre>
+      <id>T1087</id>
+    </mitre>
+    <group>discovery,evtx_generated,</group>
+  </rule>
+  <rule id="106001" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">invoke-webrequest</field>
+    <description>Suspicious PowerShell script block containing 'invoke-webrequest'</description>
+    <mitre>
+      <id>T1087</id>
+    </mitre>
+    <group>discovery,evtx_generated,</group>
+  </rule>
+  <rule id="106002" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">bypass</field>
+    <description>Suspicious PowerShell script block containing 'bypass'</description>
+    <mitre>
+      <id>T1087</id>
+    </mitre>
+    <group>discovery,evtx_generated,</group>
+  </rule>
+</group>

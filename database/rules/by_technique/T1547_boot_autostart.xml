@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1547_boot_autostart,">
-  <rule id="102026" level="9">
+  <rule id="102000" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">currentversion\run</field>
     <description>Registry modification in persistence key: currentversion\run</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102027" level="9">
+  <rule id="102001" level="9">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.targetObject">currentversion\run</field>
     <description>Registry modification in persistence key: currentversion\run</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102028" level="9">
+  <rule id="102002" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">currentversion\runonce</field>
     <description>Registry modification in persistence key: currentversion\runonce</description>
@@ -27,7 +27,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102029" level="9">
+  <rule id="102003" level="9">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.targetObject">currentversion\runonce</field>
     <description>Registry modification in persistence key: currentversion\runonce</description>
@@ -36,7 +36,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102030" level="9">
+  <rule id="102004" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">userinit</field>
     <description>Registry modification in persistence key: userinit</description>
@@ -45,7 +45,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102031" level="9">
+  <rule id="102005" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">shell</field>
     <description>Registry modification in persistence key: shell</description>
@@ -54,7 +54,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102032" level="9">
+  <rule id="102006" level="9">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.targetObject">shell</field>
     <description>Registry modification in persistence key: shell</description>
@@ -63,7 +63,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102033" level="10">
+  <rule id="102007" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">psexesvc</field>
     <description>Suspicious process 'psexesvc' execution detected</description>
@@ -72,7 +72,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102034" level="10">
+  <rule id="102008" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">rundll32</field>
     <description>Suspicious process 'rundll32' execution detected</description>
@@ -81,7 +81,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102035" level="9">
+  <rule id="102009" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">winlogon\</field>
     <description>Registry modification in persistence key: winlogon\</description>
@@ -90,7 +90,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102036" level="10">
+  <rule id="102010" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">regsvr32</field>
     <description>Suspicious process 'regsvr32' execution detected</description>
@@ -99,7 +99,7 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102037" level="10">
+  <rule id="102011" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">regsvr32</field>
     <field name="win.eventdata.destinationPort">443</field>
@@ -109,10 +109,30 @@
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102038" level="10">
+  <rule id="102012" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">wmic</field>
     <description>Suspicious process 'wmic' execution detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102013" level="10">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">PSEXESVC</field>
+    <field name="win.eventdata.imagePath">psexesvc</field>
+    <description>Suspicious service 'PSEXESVC' installed</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102014" level="13">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">mimikatz driver (mimidrv)</field>
+    <field name="win.eventdata.imagePath">mimikatz</field>
+    <description>Suspicious service 'mimikatz driver (mimidrv)' installed</description>
     <mitre>
       <id>T1547</id>
     </mitre>

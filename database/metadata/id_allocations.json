@@ -2,43 +2,55 @@
   "persistence": {
     "range_start": 102000,
     "range_end": 102999,
-    "next_id": 102039,
-    "allocated_count": 39
+    "next_id": 102015,
+    "allocated_count": 15
   },
   "execution": {
     "range_start": 101000,
     "range_end": 101999,
-    "next_id": 101057,
-    "allocated_count": 57
+    "next_id": 101027,
+    "allocated_count": 27
   },
   "command_and_control": {
     "range_start": 109000,
     "range_end": 109999,
-    "next_id": 109018,
-    "allocated_count": 18
+    "next_id": 109006,
+    "allocated_count": 6
   },
   "credential_access": {
     "range_start": 105000,
     "range_end": 105999,
-    "next_id": 105033,
-    "allocated_count": 33
+    "next_id": 105012,
+    "allocated_count": 12
   },
   "defense_evasion": {
     "range_start": 104000,
     "range_end": 104999,
-    "next_id": 104009,
-    "allocated_count": 9
+    "next_id": 104007,
+    "allocated_count": 7
   },
   "lateral_movement": {
     "range_start": 107000,
     "range_end": 107999,
-    "next_id": 107021,
-    "allocated_count": 21
+    "next_id": 107008,
+    "allocated_count": 8
   },
   "privilege_escalation": {
     "range_start": 103000,
     "range_end": 103999,
-    "next_id": 103015,
-    "allocated_count": 15
+    "next_id": 103005,
+    "allocated_count": 5
+  },
+  "initial_access": {
+    "range_start": 100000,
+    "range_end": 100999,
+    "next_id": 100001,
+    "allocated_count": 1
+  },
+  "discovery": {
+    "range_start": 106000,
+    "range_end": 106999,
+    "next_id": 106003,
+    "allocated_count": 3
   }
 }
