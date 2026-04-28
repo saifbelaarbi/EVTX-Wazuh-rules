@@ -202,24 +202,35 @@ def _normalize_json_event(raw: dict) -> dict:
     """Normalize a JSON event to our common schema."""
     event = {}
 
-    # Try common field names from various tools
     event["event_id"] = raw.get("EventID") or raw.get("event_id") or raw.get("Event.System.EventID") or 0
     if isinstance(event["event_id"], str):
         event["event_id"] = int(event["event_id"]) if event["event_id"].isdigit() else 0
+    elif isinstance(event["event_id"], dict):
+        event["event_id"] = int(event["event_id"].get("#text", 0))
 
     event["channel"] = raw.get("Channel") or raw.get("channel") or raw.get("Event.System.Channel") or ""
-    event["provider_name"] = raw.get("Provider") or raw.get("provider_name") or ""
-    event["computer"] = raw.get("Computer") or raw.get("computer") or ""
-    event["timestamp"] = raw.get("Timestamp") or raw.get("TimeCreated") or raw.get("timestamp") or ""
+    event["provider_name"] = (raw.get("Provider") or raw.get("SourceName")
+                               or raw.get("provider_name") or "")
+    event["computer"] = raw.get("Computer") or raw.get("Hostname") or raw.get("computer") or ""
+    event["timestamp"] = (raw.get("Timestamp") or raw.get("TimeCreated")
+                           or raw.get("EventTime") or raw.get("@timestamp")
+                           or raw.get("timestamp") or "")
 
-    # EventData - might be nested or flat
     event_data = raw.get("EventData") or raw.get("event_data") or {}
     if not event_data:
-        # Some tools flatten EventData fields to top level
-        known_system_fields = {"EventID", "Channel", "Provider", "Computer", "Timestamp",
-                               "TimeCreated", "event_id", "channel", "provider_name",
-                               "computer", "timestamp", "Level", "Task"}
-        event_data = {k: v for k, v in raw.items() if k not in known_system_fields and isinstance(v, str)}
+        _SYSTEM_FIELDS = {
+            "EventID", "Channel", "Provider", "Computer", "Timestamp",
+            "TimeCreated", "event_id", "channel", "provider_name",
+            "computer", "timestamp", "Level", "Task", "SourceName",
+            "Hostname", "EventTime", "@timestamp", "@version", "tags",
+            "EventType", "Version", "ThreadID", "OpcodeValue",
+            "RecordNumber", "EventReceivedTime", "SourceModuleName",
+            "SourceModuleType", "Severity", "SeverityValue", "UserID",
+            "ProviderGuid", "AccountType", "Domain", "AccountName",
+            "ExecutionProcessID", "host", "port", "Message",
+        }
+        event_data = {k: str(v) for k, v in raw.items()
+                      if k not in _SYSTEM_FIELDS and v is not None}
 
     event["event_data"] = event_data
     return event

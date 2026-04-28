@@ -1,108 +1,351 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,powershell,">
-  <rule id="101021" level="8">
+  <rule id="105017" level="11">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">downloadstring</field>
-    <description>Suspicious PowerShell script block containing 'downloadstring'</description>
+    <field name="win.eventdata.scriptBlockText">minidump</field>
+    <description>Suspicious PowerShell script block containing 'minidump'</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="101067" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">downloadstring</field>
+    <description>PowerShell module logging captured: 'downloadstring'</description>
     <mitre>
       <id>T1059</id>
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="101022" level="8">
+  <rule id="101068" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">iex(</field>
-    <description>Suspicious PowerShell script block containing 'iex('</description>
+    <field name="win.eventdata.payload">iex(</field>
+    <description>PowerShell module logging captured: 'iex('</description>
     <mitre>
       <id>T1059</id>
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="104005" level="9">
+  <rule id="104025" level="13">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">set-mppreference -disablerealtimemonitoring</field>
-    <description>Suspicious PowerShell script block containing 'set-mppreference -disablerealtimemonitoring'</description>
+    <field name="win.eventdata.payload">invoke-mimikatz</field>
+    <description>PowerShell module logging captured: 'invoke-mimikatz'</description>
     <mitre>
       <id>T1055</id>
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="104006" level="9">
+  <rule id="104026" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">bypass</field>
-    <description>Suspicious PowerShell script block containing 'bypass'</description>
+    <field name="win.eventdata.payload">invoke-expression</field>
+    <description>PowerShell module logging captured: 'invoke-expression'</description>
     <mitre>
       <id>T1055</id>
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="106000" level="6">
+  <rule id="104027" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">invoke-expression</field>
-    <description>Suspicious PowerShell script block containing 'invoke-expression'</description>
+    <field name="win.eventdata.payload">downloadstring</field>
+    <description>PowerShell module logging captured: 'downloadstring'</description>
     <mitre>
-      <id>T1087</id>
+      <id>T1055</id>
     </mitre>
-    <group>discovery,evtx_generated,</group>
+    <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="106001" level="6">
+  <rule id="104028" level="13">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">invoke-webrequest</field>
-    <description>Suspicious PowerShell script block containing 'invoke-webrequest'</description>
+    <field name="win.eventdata.payload">sekurlsa::</field>
+    <description>PowerShell module logging captured: 'sekurlsa::'</description>
     <mitre>
-      <id>T1087</id>
+      <id>T1055</id>
     </mitre>
-    <group>discovery,evtx_generated,</group>
+    <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="106002" level="6">
+  <rule id="105033" level="11">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">bypass</field>
-    <description>Suspicious PowerShell script block containing 'bypass'</description>
+    <field name="win.eventdata.scriptBlockText">comsvcs.dll</field>
+    <description>Suspicious PowerShell script block containing 'comsvcs.dll'</description>
     <mitre>
-      <id>T1087</id>
+      <id>T1003</id>
     </mitre>
-    <group>discovery,evtx_generated,</group>
+    <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="107007" level="10">
+  <rule id="105034" level="11">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">bypass</field>
-    <description>Suspicious PowerShell script block containing 'bypass'</description>
+    <field name="win.eventdata.scriptBlockText">invoke-wmimethod</field>
+    <description>Suspicious PowerShell script block containing 'invoke-wmimethod'</description>
     <mitre>
-      <id>T1021</id>
+      <id>T1003</id>
     </mitre>
-    <group>lateral_movement,evtx_generated,</group>
+    <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="101023" level="13">
+  <rule id="105035" level="11">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">invoke-mimikatz</field>
-    <description>Suspicious PowerShell script block containing 'invoke-mimikatz'</description>
+    <field name="win.eventdata.scriptBlockText">stop-service</field>
+    <description>Suspicious PowerShell script block containing 'stop-service'</description>
     <mitre>
-      <id>T1059</id>
+      <id>T1003</id>
     </mitre>
-    <group>execution,evtx_generated,</group>
+    <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="101024" level="8">
+  <rule id="101560" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">invoke-expression</field>
-    <description>Suspicious PowerShell script block containing 'invoke-expression'</description>
-    <mitre>
-      <id>T1059</id>
-    </mitre>
-    <group>execution,evtx_generated,</group>
-  </rule>
-  <rule id="101025" level="8">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">bypass</field>
-    <description>Suspicious PowerShell script block containing 'bypass'</description>
+    <field name="win.eventdata.payload">bypass</field>
+    <description>PowerShell module logging captured: 'bypass'</description>
     <mitre>
       <id>T1059</id>
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="101026" level="8">
+  <rule id="101561" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">-nop </field>
-    <description>Suspicious PowerShell script block containing '-nop '</description>
+    <field name="win.eventdata.payload">invoke-expression</field>
+    <description>PowerShell module logging captured: 'invoke-expression'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101562" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">procdump</field>
+    <description>PowerShell module logging captured: 'procdump'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101563" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">-nop </field>
+    <description>PowerShell module logging captured: '-nop '</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101564" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">-w hidden</field>
+    <description>PowerShell module logging captured: '-w hidden'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101568" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">-w hidden</field>
+    <description>Suspicious PowerShell script block containing '-w hidden'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101573" level="13">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">sekurlsa::</field>
+    <description>PowerShell module logging captured: 'sekurlsa::'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101574" level="13">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">sekurlsa::</field>
+    <description>Suspicious PowerShell script block containing 'sekurlsa::'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101577" level="13">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">lsadump::</field>
+    <description>PowerShell module logging captured: 'lsadump::'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101578" level="13">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">lsadump::</field>
+    <description>Suspicious PowerShell script block containing 'lsadump::'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101579" level="13">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">invoke-mimikatz</field>
+    <description>PowerShell module logging captured: 'invoke-mimikatz'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101580" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">kerberos::</field>
+    <description>PowerShell module logging captured: 'kerberos::'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101582" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">kerberos::</field>
+    <description>Suspicious PowerShell script block containing 'kerberos::'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101583" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">net user</field>
+    <description>PowerShell module logging captured: 'net user'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101584" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">net user</field>
+    <description>Suspicious PowerShell script block containing 'net user'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101587" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">stop-service</field>
+    <description>Suspicious PowerShell script block containing 'stop-service'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101588" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">stop-service</field>
+    <description>PowerShell module logging captured: 'stop-service'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101590" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">invoke-wmimethod</field>
+    <description>PowerShell module logging captured: 'invoke-wmimethod'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="102063" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">invoke-expression</field>
+    <description>PowerShell module logging captured: 'invoke-expression'</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="101594" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">net localgroup</field>
+    <description>PowerShell module logging captured: 'net localgroup'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101595" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">reg save</field>
+    <description>PowerShell module logging captured: 'reg save'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101600" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">comsvcs.dll</field>
+    <description>PowerShell module logging captured: 'comsvcs.dll'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101601" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">minidump</field>
+    <description>PowerShell module logging captured: 'minidump'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101604" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">minidump</field>
+    <description>Suspicious PowerShell script block containing 'minidump'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101605" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">out-minidump</field>
+    <description>Suspicious PowerShell script block containing 'out-minidump'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101606" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">invoke-webrequest</field>
+    <description>PowerShell module logging captured: 'invoke-webrequest'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101607" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">out-minidump</field>
+    <description>PowerShell module logging captured: 'out-minidump'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101608" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">procdump</field>
+    <description>Suspicious PowerShell script block containing 'procdump'</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101614" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">invoke-obfuscation</field>
+    <description>Suspicious PowerShell script block containing 'invoke-obfuscation'</description>
     <mitre>
       <id>T1059</id>
     </mitre>

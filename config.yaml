@@ -4,6 +4,7 @@ id_range:
 
 paths:
   evtx_data: data/evtx_samples
+  sigma_data: data/sigma_rules
   wazuh_defaults: data/wazuh_defaults
   cache: data/cache
   rules_output: database/rules

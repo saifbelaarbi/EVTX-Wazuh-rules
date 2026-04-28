@@ -325,14 +325,16 @@ def generate_sources_doc():
 
     # Group provenance by source (extract source name from full path)
     by_source = defaultdict(list)
+    known_sources = [
+        "EVTX-ATTACK-SAMPLES", "EVTX-to-MITRE-Attack", "hayabusa-sample-evtx",
+        "Security-Datasets", "danderspritz-evtx", "evtx-hunter", "ThreatSeeker",
+    ]
     for evtx_path, info in provenance.items():
-        # Path like: /home/.../data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/foo.evtx
         source_name = "unknown"
-        for known in ["EVTX-ATTACK-SAMPLES", "EVTX-to-MITRE-Attack", "hayabusa-sample-evtx"]:
+        for known in known_sources:
             if known in evtx_path:
                 source_name = known
                 break
-        # Get the relative path within the source
         if source_name != "unknown" and source_name in evtx_path:
             rel_path = evtx_path.split(source_name + "/", 1)[-1]
         else:
@@ -354,6 +356,10 @@ def generate_sources_doc():
         "EVTX-ATTACK-SAMPLES": "https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES",
         "EVTX-to-MITRE-Attack": "https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack",
         "hayabusa-sample-evtx": "https://github.com/Yamato-Security/hayabusa-sample-evtx",
+        "Security-Datasets": "https://github.com/OTRF/Security-Datasets",
+        "danderspritz-evtx": "https://github.com/fox-it/danderspritz-evtx",
+        "evtx-hunter": "https://github.com/NVISOsecurity/evtx-hunter",
+        "ThreatSeeker": "https://github.com/ine-labs/ThreatSeeker",
     }
 
     total_all_rules = 0
@@ -406,6 +412,9 @@ def generate_sources_doc():
     lines.append("- **SBousseaden** — [EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) — Windows EVTX samples mapped to MITRE ATT&CK")
     lines.append("- **mdecrevoisier** — [EVTX-to-MITRE-Attack](https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack) — 270+ EVTX samples with ATT&CK mapping")
     lines.append("- **Yamato Security** — [hayabusa-sample-evtx](https://github.com/Yamato-Security/hayabusa-sample-evtx) — Aggregated EVTX sample collection")
+    lines.append("- **OTRF** — [Security-Datasets](https://github.com/OTRF/Security-Datasets) — Pre-recorded adversary simulation data (Mordor)")
+    lines.append("- **Fox-IT** — [danderspritz-evtx](https://github.com/fox-it/danderspritz-evtx) — DanderSpritz (NSA) detection events")
+    lines.append("- **SigmaHQ** — [sigma](https://github.com/SigmaHQ/sigma) — Community detection rules in Sigma format")
     lines.append("- **Wazuh Inc.** — [wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) — Official default Wazuh rules and decoders")
     lines.append("")
 

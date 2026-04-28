@@ -1,138 +1,511 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,persistence,">
-  <rule id="102000" level="9">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">currentversion\run</field>
-    <description>Registry modification in persistence key: currentversion\run</description>
+  <rule id="102017" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\public\</field>
+    <description>DLL loaded from suspicious path: \public\</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102001" level="9">
+  <rule id="102022" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.eventdata.consumer"> "AtomicRedTeam-WMIPersistence-Example"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102023" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer"> "AtomicRedTeam-WMIPersistence-Example"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102024" level="9">
+    <if_sid>61623</if_sid>
+    <field name="win.eventdata.consumer"> "\\\\.\\ROOT\\subscription:CommandLineEventConsumer.Name=\"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102025" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">certutil</field>
+    <description>File created by suspicious process 'certutil'</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102029" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4732</field>
+    <description>Member added to group: Administrators</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102030" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\programdata\</field>
+    <description>Executable file created in suspicious path: \programdata\</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102031" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\downloads\</field>
+    <description>Executable file created in suspicious path: \downloads\</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102032" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\programdata\</field>
+    <description>DLL loaded from suspicious path: \programdata\</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102033" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\temp\</field>
+    <description>Executable file created in suspicious path: \temp\</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102036" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\appdata\</field>
+    <description>Executable file created in suspicious path: \appdata\</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102041" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer"> "BotConsumer23"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102042" level="9">
+    <if_sid>61623</if_sid>
+    <field name="win.eventdata.consumer"> "CommandLineEventConsumer.Name=\"BotConsumer23\""</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102043" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.eventdata.consumer"> "BotFilter82"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102044" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer"> "ProbeScriptFint"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102045" level="9">
+    <if_sid>61623</if_sid>
+    <field name="win.eventdata.consumer"> "\\\\.\\root\\subscription:ActiveScriptEventConsumer.Name=\</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102046" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4698</field>
+    <description>Scheduled task created: \bouWFQYO</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102047" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4720</field>
+    <description>New user account created: WADGUtilityAccount</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102048" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102049" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4781</field>
+    <description>Account renamed from 'hacker42' to 'adminupn42'</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102052" level="9">
     <if_sid>61614</if_sid>
-    <field name="win.eventdata.targetObject">currentversion\run</field>
-    <description>Registry modification in persistence key: currentversion\run</description>
+    <field name="win.eventdata.targetObject">currentversion\explorer\shell</field>
+    <description>Registry modification in persistence key: currentversion\explorer\shell</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102002" level="9">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">currentversion\runonce</field>
-    <description>Registry modification in persistence key: currentversion\runonce</description>
+  <rule id="102055" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.eventdata.consumer"> "WindowsParentalControlMigration"</field>
+    <description>WMI event subscription activity detected</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102003" level="9">
-    <if_sid>61614</if_sid>
-    <field name="win.eventdata.targetObject">currentversion\runonce</field>
-    <description>Registry modification in persistence key: currentversion\runonce</description>
+  <rule id="102056" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer"> "WindowsParentalControlMigration"</field>
+    <description>WMI event subscription activity detected</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102004" level="9">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">userinit</field>
-    <description>Registry modification in persistence key: userinit</description>
+  <rule id="102057" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <description>File created by suspicious process 'mshta'</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102005" level="9">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">shell</field>
-    <description>Registry modification in persistence key: shell</description>
+  <rule id="102058" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <description>File created by suspicious process 'psexec'</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102006" level="9">
-    <if_sid>61614</if_sid>
-    <field name="win.eventdata.targetObject">shell</field>
-    <description>Registry modification in persistence key: shell</description>
+  <rule id="102059" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.eventdata.consumer"> "WSUS_QQTJ7"</field>
+    <description>WMI event subscription activity detected</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102007" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">psexesvc</field>
-    <description>Suspicious process 'psexesvc' execution detected</description>
+  <rule id="102060" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer">wmi_event</field>
+    <description>WMI event subscription activity detected</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102008" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">rundll32</field>
-    <description>Suspicious process 'rundll32' execution detected</description>
+  <rule id="102061" level="9">
+    <if_sid>61623</if_sid>
+    <field name="win.eventdata.consumer"> "ActiveScriptEventConsumer.Name=\"WSUS_RP5ZB\""</field>
+    <description>WMI event subscription activity detected</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102009" level="9">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">winlogon\</field>
-    <description>Registry modification in persistence key: winlogon\</description>
+  <rule id="102062" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: mordordc$</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102010" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">regsvr32</field>
-    <description>Suspicious process 'regsvr32' execution detected</description>
+  <rule id="102063" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">invoke-expression</field>
+    <description>PowerShell module logging captured: 'invoke-expression'</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102011" level="10">
-    <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">regsvr32</field>
-    <field name="win.eventdata.destinationPort">443</field>
-    <description>Suspicious network connection from 'regsvr32'</description>
+  <rule id="102064" level="10">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\ntsvcs</field>
+    <description>Known malicious named pipe pattern: \ntsvcs</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102012" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">wmic</field>
-    <description>Suspicious process 'wmic' execution detected</description>
+  <rule id="102065" level="10">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\scerpc</field>
+    <description>Known malicious named pipe pattern: \scerpc</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102013" level="10">
+  <rule id="102066" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">PSEXESVC</field>
-    <field name="win.eventdata.imagePath">psexesvc</field>
-    <description>Suspicious service 'PSEXESVC' installed</description>
+    <field name="win.eventdata.serviceName">Updater</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
     <mitre>
       <id>T1547</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="102014" level="13">
+  <rule id="102067" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">rubeus</field>
+    <description>File created by suspicious process 'rubeus'</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102068" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">mimikatz driver (mimidrv)</field>
-    <field name="win.eventdata.imagePath">mimikatz</field>
-    <description>Suspicious service 'mimikatz driver (mimidrv)' installed</description>
+    <field name="win.eventdata.serviceName">PGUJLOAKFQFVOMHGFQPX</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102069" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.eventdata.consumer"> "Updater"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102070" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer"> "Updater"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102071" level="9">
+    <if_sid>61623</if_sid>
+    <field name="win.eventdata.consumer"> "CommandLineEventConsumer.Name=\"Updater\""</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102072" level="10">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">qfhaer</field>
+    <field name="win.eventdata.imagePath">rundll32</field>
+    <description>Suspicious service 'qfhaer' installed</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102073" level="10">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">rtcpef</field>
+    <field name="win.eventdata.imagePath">rundll32</field>
+    <description>Suspicious service 'rtcpef' installed</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102074" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">nanodump</field>
+    <description>File created by suspicious process 'nanodump'</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102075" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">procdump</field>
+    <description>File created by suspicious process 'procdump'</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102076" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4731</field>
+    <description>Security group created: Backup Operators</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102077" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4735</field>
+    <description>Security group changed: Backup Operators</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102078" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">yagfag</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102079" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">SYyGmEHvgHiGYApk</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102080" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">zIGuwymOgHZnXZPm</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102081" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">DrzkXznQhkKgYssd</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102082" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">TDhDnlnsrKrQVnjY</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102083" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">adsymn</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102084" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">hmoopk</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102085" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">aCshIvAdgRYNApEv</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102086" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">hgabms</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102087" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">UWdKhYTIQWWJxHfx</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102088" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">genusn</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1547</id>
     </mitre>

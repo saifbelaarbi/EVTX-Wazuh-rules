@@ -1,45 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,privilege_escalation,">
-  <rule id="103000" level="11">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">rundll32</field>
-    <description>Suspicious process 'rundll32' execution detected</description>
+  <rule id="103005" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\appdata\</field>
+    <description>DLL loaded from suspicious path: \appdata\</description>
     <mitre>
       <id>T1548</id>
     </mitre>
     <group>privilege_escalation,evtx_generated,</group>
   </rule>
-  <rule id="103001" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">bypass</field>
-    <description>Suspicious command-line pattern 'bypass' detected</description>
+  <rule id="103006" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: administrator</description>
     <mitre>
       <id>T1548</id>
     </mitre>
     <group>privilege_escalation,evtx_generated,</group>
   </rule>
-  <rule id="103002" level="11">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">cmstp</field>
-    <description>Suspicious process 'cmstp' execution detected</description>
+  <rule id="103007" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
     <mitre>
       <id>T1548</id>
     </mitre>
     <group>privilege_escalation,evtx_generated,</group>
   </rule>
-  <rule id="103003" level="11">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">psexec</field>
-    <description>Suspicious process 'psexec' execution detected</description>
+  <rule id="103008" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4698</field>
+    <description>Scheduled task created: \FullPowersTask</description>
     <mitre>
       <id>T1548</id>
     </mitre>
     <group>privilege_escalation,evtx_generated,</group>
   </rule>
-  <rule id="103004" level="11">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">psexesvc</field>
-    <description>Suspicious process 'psexesvc' execution detected</description>
+  <rule id="103009" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting localhost</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103010" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\temp\</field>
+    <description>Executable file created in suspicious path: \temp\</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103011" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\appdata\</field>
+    <description>Executable file created in suspicious path: \appdata\</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103012" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\temp\</field>
+    <description>DLL loaded from suspicious path: \temp\</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103014" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4781</field>
+    <description>Account renamed from 'DC012$' to '01566s-win16-ir'</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103018" level="11">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\psexe</field>
+    <description>Known malicious named pipe pattern: \psexe</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103020" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\psexe</field>
+    <description>Known malicious named pipe pattern: \psexe</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103021" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\public\</field>
+    <description>Executable file created in suspicious path: \public\</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103022" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\public\</field>
+    <description>DLL loaded from suspicious path: \public\</description>
     <mitre>
       <id>T1548</id>
     </mitre>

@@ -1,60 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1071_application_layer_protocol,">
-  <rule id="109000" level="10">
+  <rule id="109012" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting localhost</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109013" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: admin01</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109014" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109015" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">10</field>
+    <description>Remote logon type 10 detected</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109016" level="9">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <field name="win.eventdata.queryName">nashua</field>
+    <description>DNS query from suspicious process 'psexec'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109017" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <field name="win.eventdata.destinationPort">135</field>
+    <description>Suspicious network connection from 'psexec'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109018" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">installutil</field>
+    <field name="win.eventdata.destinationPort">80</field>
+    <description>Suspicious network connection from 'installutil'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109019" level="9">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.image">installutil</field>
+    <field name="win.eventdata.queryName">workstation5</field>
+    <description>DNS query from suspicious process 'installutil'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109020" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">regsvr32</field>
-    <field name="win.eventdata.destinationPort">443</field>
+    <field name="win.eventdata.destinationPort">8444</field>
     <description>Suspicious network connection from 'regsvr32'</description>
     <mitre>
       <id>T1071</id>
     </mitre>
     <group>command_and_control,evtx_generated,</group>
   </rule>
-  <rule id="109001" level="10">
+  <rule id="109021" level="10">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">mshta</field>
-    <field name="win.eventdata.destinationPort">443</field>
-    <description>Suspicious network connection from 'mshta'</description>
+    <field name="win.eventdata.image">rubeus</field>
+    <field name="win.eventdata.destinationPort">88</field>
+    <description>Suspicious network connection from 'rubeus'</description>
     <mitre>
       <id>T1071</id>
     </mitre>
     <group>command_and_control,evtx_generated,</group>
   </rule>
-  <rule id="109002" level="10">
-    <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">mshta</field>
-    <field name="win.eventdata.destinationPort">80</field>
-    <description>Suspicious network connection from 'mshta'</description>
+  <rule id="109022" level="9">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.image">rubeus</field>
+    <field name="win.eventdata.queryName">mordordc.theshire.local</field>
+    <description>DNS query from suspicious process 'rubeus'</description>
     <mitre>
       <id>T1071</id>
     </mitre>
     <group>command_and_control,evtx_generated,</group>
   </rule>
-  <rule id="109003" level="10">
+  <rule id="109023" level="9">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.image">wmic</field>
+    <field name="win.eventdata.queryName">workstation6</field>
+    <description>DNS query from suspicious process 'wmic'</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109024" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">wmic</field>
-    <field name="win.eventdata.destinationPort">443</field>
+    <field name="win.eventdata.destinationPort">61249</field>
     <description>Suspicious network connection from 'wmic'</description>
     <mitre>
       <id>T1071</id>
     </mitre>
     <group>command_and_control,evtx_generated,</group>
   </rule>
-  <rule id="109004" level="10">
-    <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">rundll32</field>
-    <field name="win.eventdata.destinationPort">443</field>
-    <description>Suspicious network connection from 'rundll32'</description>
-    <mitre>
-      <id>T1071</id>
-    </mitre>
-    <group>command_and_control,evtx_generated,</group>
-  </rule>
-  <rule id="109005" level="10">
-    <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">certutil</field>
-    <field name="win.eventdata.destinationPort">443</field>
-    <description>Suspicious network connection from 'certutil'</description>
+  <rule id="109025" level="13">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.image">mimikatz</field>
+    <field name="win.eventdata.queryName">mordordc.theshire.local</field>
+    <description>DNS query from suspicious process 'mimikatz'</description>
     <mitre>
       <id>T1071</id>
     </mitre>

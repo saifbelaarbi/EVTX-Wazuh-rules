@@ -25,6 +25,9 @@ PARENT_SID_MAP = {
     (15, "Microsoft-Windows-Sysmon"): 61617,  # File Stream Create
     (17, "Microsoft-Windows-Sysmon"): 61619,  # Pipe Created
     (18, "Microsoft-Windows-Sysmon"): 61620,  # Pipe Connected
+    (19, "Microsoft-Windows-Sysmon"): 61621,  # WMI Event Filter
+    (20, "Microsoft-Windows-Sysmon"): 61622,  # WMI Event Consumer
+    (21, "Microsoft-Windows-Sysmon"): 61623,  # WMI Consumer Binding
     (22, "Microsoft-Windows-Sysmon"): 61624,  # DNS Query
     (23, "Microsoft-Windows-Sysmon"): 61625,  # File Delete
     (25, "Microsoft-Windows-Sysmon"): 61627,  # Process Tampering

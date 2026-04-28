@@ -4,7 +4,7 @@ import click
 from rich.console import Console
 from rich.table import Table
 
-from . import downloader, registry, wazuh_defaults
+from . import downloader, registry, sigma_downloader, wazuh_defaults
 
 console = Console()
 
@@ -77,6 +77,14 @@ def status():
         console.print("\n[yellow]Wazuh defaults:[/] Not downloaded yet")
 
 
+@cli.command("download-sigma")
+def download_sigma():
+    """Download SigmaHQ Sigma detection rules (Windows)."""
+    info = sigma_downloader.download_sigma_rules()
+    if info:
+        console.print(f"\n[bold green]Sigma rules ready at:[/] {info['rules_path']}")
+
+
 @cli.command("list-sources")
 def list_sources():
     """List all registered EVTX sources."""
@@ -95,6 +103,20 @@ def list_sources():
             "[green]Yes[/]" if s.get("mitre_mapped") else "[yellow]No[/]",
         )
     console.print(table)
+
+    # Also show sigma sources
+    try:
+        sigma_sources = sigma_downloader.load_sigma_sources()
+        console.print()
+        table2 = Table(title="Registered Sigma Sources")
+        table2.add_column("Name", style="bold")
+        table2.add_column("Repository")
+        table2.add_column("Description")
+        for s in sigma_sources:
+            table2.add_row(s["name"], s["repo"], s["description"])
+        console.print(table2)
+    except FileNotFoundError:
+        pass
 
 
 if __name__ == "__main__":
