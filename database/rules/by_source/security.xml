@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,security,">
+  <rule id="109012" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting localhost</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109013" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: admin01</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109014" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="109015" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">10</field>
+    <description>Remote logon type 10 detected</description>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,evtx_generated,</group>
+  </rule>
+  <rule id="105018" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="105023" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: 01566s-win16-ir$</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="104012" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4720</field>
+    <description>New user account created: $</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="104015" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="106005" level="4">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: win-77ltaphiq1r$</description>
+    <mitre>
+      <id>T1087</id>
+    </mitre>
+    <group>discovery,evtx_generated,</group>
+  </rule>
+  <rule id="106006" level="4">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1087</id>
+    </mitre>
+    <group>discovery,evtx_generated,</group>
+  </rule>
+  <rule id="101057" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4698</field>
+    <description>Scheduled task created: \CYAlyNSS</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="107008" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107009" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: user01</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107012" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4698</field>
+    <description>Scheduled task created: \CYAlyNSS</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107013" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting WIN-77LTAPHIQ1R.example.corp</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="102029" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4732</field>
+    <description>Member added to group: Administrators</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="103006" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: administrator</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103007" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103008" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4698</field>
+    <description>Scheduled task created: \FullPowersTask</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103009" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting localhost</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="103014" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4781</field>
+    <description>Account renamed from 'DC012$' to '01566s-win16-ir'</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="102046" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4698</field>
+    <description>Scheduled task created: \bouWFQYO</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="101063" level="6">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: admmig</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="101064" level="6">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="102047" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4720</field>
+    <description>New user account created: WADGUtilityAccount</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104022" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4781</field>
+    <description>Account renamed from 'compnay-88$' to 'rootdc1'</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="102048" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102049" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4781</field>
+    <description>Account renamed from 'hacker42' to 'adminupn42'</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="101559" level="6">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting localhost</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="104030" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: hack1</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="105036" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting localhost</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="107027" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4625</field>
+    <description>Failed logon attempt (type 2)</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="102062" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: mordordc$</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102076" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4731</field>
+    <description>Security group created: Backup Operators</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="102077" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4735</field>
+    <description>Security group changed: Backup Operators</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+</group>

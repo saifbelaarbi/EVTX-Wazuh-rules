@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,lateral_movement,">
+  <rule id="107008" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107009" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: user01</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107012" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4698</field>
+    <description>Scheduled task created: \CYAlyNSS</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107013" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting WIN-77LTAPHIQ1R.example.corp</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107014" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\ntsvcs</field>
+    <description>Known malicious named pipe pattern: \ntsvcs</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107018" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\programdata\</field>
+    <description>Executable file created in suspicious path: \programdata\</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107019" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\appdata\</field>
+    <description>Executable file created in suspicious path: \appdata\</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107023" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\programdata\</field>
+    <description>DLL loaded from suspicious path: \programdata\</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107025" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\downloads\</field>
+    <description>DLL loaded from suspicious path: \downloads\</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107026" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\temp\</field>
+    <description>Executable file created in suspicious path: \temp\</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107027" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4625</field>
+    <description>Failed logon attempt (type 2)</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107028" level="11">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\psexe</field>
+    <description>Known malicious named pipe pattern: \psexe</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107029" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\psexe</field>
+    <description>Known malicious named pipe pattern: \psexe</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107030" level="11">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\ntsvcs</field>
+    <description>Known malicious named pipe pattern: \ntsvcs</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107031" level="11">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\scerpc</field>
+    <description>Known malicious named pipe pattern: \scerpc</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="107032" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\scerpc</field>
+    <description>Known malicious named pipe pattern: \scerpc</description>
+    <mitre>
+      <id>T1021</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+</group>

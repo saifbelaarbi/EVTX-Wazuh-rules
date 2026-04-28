@@ -1,0 +1,1495 @@
+{
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/DE_timestomp_and_dll_sideloading_and_RunPersist.evtx": {
+    "rules_generated": [
+      102000,
+      101027,
+      101028,
+      104007
+    ],
+    "last_processed": "2026-04-28T08:11:57.890240+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/rundll32_cmd_schtask.evtx": {
+    "rules_generated": [
+      101000
+    ],
+    "last_processed": "2026-04-27T13:48:44.364331+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx": {
+    "rules_generated": [
+      102001,
+      102002,
+      102003,
+      101001,
+      101002,
+      101003,
+      101004,
+      109000,
+      102004,
+      101005,
+      105000,
+      101006,
+      101030,
+      102022,
+      102023,
+      102024,
+      101037,
+      101038
+    ],
+    "last_processed": "2026-04-28T08:11:57.890267+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx": {
+    "rules_generated": [
+      101007,
+      101008,
+      109001,
+      109002,
+      101009,
+      101010,
+      109003,
+      109004,
+      109005,
+      102025,
+      104010
+    ],
+    "last_processed": "2026-04-28T08:11:57.890271+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_4624_4625_LogonType2_LogonProc_chrome.evtx": {
+    "rules_generated": [
+      105001
+    ],
+    "last_processed": "2026-04-27T13:48:44.364386+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx": {
+    "rules_generated": [
+      105002,
+      105003
+    ],
+    "last_processed": "2026-04-27T13:48:44.364390+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/discovery_sysmon_1_iis_pwd_and_config_discovery_appcmd.evtx": {
+    "rules_generated": [
+      105004
+    ],
+    "last_processed": "2026-04-27T13:48:44.364398+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx": {
+    "rules_generated": [
+      105005,
+      105006,
+      105007
+    ],
+    "last_processed": "2026-04-27T13:48:44.364404+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx": {
+    "rules_generated": [
+      105008,
+      105025
+    ],
+    "last_processed": "2026-04-28T08:11:57.890300+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_3_10_Invoke-Mimikatz_hosted_Github.evtx": {
+    "rules_generated": [
+      105009
+    ],
+    "last_processed": "2026-04-27T13:48:44.364409+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/Sysmon 7  Update Session Orchestrator Dll Hijack.evtx": {
+    "rules_generated": [
+      104000,
+      104001
+    ],
+    "last_processed": "2026-04-27T13:48:44.364413+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/de_PsScriptBlockLogging_disabled_sysmon12_13.evtx": {
+    "rules_generated": [
+      102005,
+      102006
+    ],
+    "last_processed": "2026-04-27T13:48:44.364423+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/Sysmon_meterpreter_ReflectivePEInjection_to_notepad_.evtx": {
+    "rules_generated": [
+      101011
+    ],
+    "last_processed": "2026-04-27T13:48:44.364426+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx": {
+    "rules_generated": [
+      101012,
+      101013
+    ],
+    "last_processed": "2026-04-27T13:48:44.364429+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_sysmon_1_7_jscript9_defense_evasion.evtx": {
+    "rules_generated": [
+      104002
+    ],
+    "last_processed": "2026-04-27T13:48:44.364469+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_sysmon_lobin_regsvr32_sct.evtx": {
+    "rules_generated": [
+      101014
+    ],
+    "last_processed": "2026-04-27T13:48:44.364473+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_wmic_xsl_internet_sysmon_3_1_11.evtx": {
+    "rules_generated": [
+      101015,
+      101016
+    ],
+    "last_processed": "2026-04-27T13:48:44.364478+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/susp_explorer_exec.evtx": {
+    "rules_generated": [
+      101017
+    ],
+    "last_processed": "2026-04-27T13:48:44.364481+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/sysmon_mshta_sharpshooter_stageless_meterpreter.evtx": {
+    "rules_generated": [
+      101018
+    ],
+    "last_processed": "2026-04-27T13:48:44.364484+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_DCOM_MSHTA_LethalHTA_Sysmon_3_1.evtx": {
+    "rules_generated": [
+      107000,
+      107001
+    ],
+    "last_processed": "2026-04-27T13:48:44.364495+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_sysmon_psexec_smb_meterpreter.evtx": {
+    "rules_generated": [
+      107002,
+      107003,
+      107014
+    ],
+    "last_processed": "2026-04-28T08:11:57.890387+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_typical_IIS_webshell_sysmon_1_10_traces.evtx": {
+    "rules_generated": [
+      107004
+    ],
+    "last_processed": "2026-04-27T13:48:44.364502+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_wmi_PoisonHandler_Mr-Un1k0d3r_sysmon_1_13.evtx": {
+    "rules_generated": [
+      107005
+    ],
+    "last_processed": "2026-04-27T13:48:44.364505+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/remote_file_copy_system_proc_file_write_sysmon_11.evtx": {
+    "rules_generated": [
+      107006
+    ],
+    "last_processed": "2026-04-27T13:48:44.364507+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx": {
+    "rules_generated": [
+      102007,
+      102008,
+      102033
+    ],
+    "last_processed": "2026-04-28T08:11:57.890408+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_13_1_persistence_via_winlogon_shell.evtx": {
+    "rules_generated": [
+      102009,
+      102036
+    ],
+    "last_processed": "2026-04-28T08:11:57.890410+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx": {
+    "rules_generated": [
+      102010,
+      102011
+    ],
+    "last_processed": "2026-04-27T13:48:44.364524+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_20_21_1_CommandLineEventConsumer.evtx": {
+    "rules_generated": [
+      102012,
+      102041,
+      102042,
+      102043
+    ],
+    "last_processed": "2026-04-28T08:11:57.890415+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/privesc_unquoted_svc_sysmon_1_11.evtx": {
+    "rules_generated": [
+      103000
+    ],
+    "last_processed": "2026-04-27T13:48:44.364533+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_11_7_1_uacbypass_windirectory_mocking.evtx": {
+    "rules_generated": [
+      103001
+    ],
+    "last_processed": "2026-04-27T13:48:44.364538+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_1_13_11_cmstp_ini_uacbypass.evtx": {
+    "rules_generated": [
+      103002
+    ],
+    "last_processed": "2026-04-27T13:48:44.364541+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_from_admin_to_system_handle_inheritance.evtx": {
+    "rules_generated": [
+      105010
+    ],
+    "last_processed": "2026-04-27T13:48:44.364543+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_psexec_dwell.evtx": {
+    "rules_generated": [
+      103003,
+      103004,
+      103018,
+      103020
+    ],
+    "last_processed": "2026-04-28T08:11:57.890449+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID11,13,17,18-PSexec as system execution.evtx": {
+    "rules_generated": [
+      101019,
+      101020,
+      101060,
+      101061
+    ],
+    "last_processed": "2026-04-28T08:11:57.890461+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0001-Initial access/T1078-Valid accounts/ID4625-failed login with denied access due to account restriction.evtx": {
+    "rules_generated": [
+      100000
+    ],
+    "last_processed": "2026-04-27T13:48:44.364553+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1059.001-PowerShell/ID4103-4104-Payload download via PowerShell.evtx": {
+    "rules_generated": [
+      101021,
+      101022,
+      101067,
+      101068
+    ],
+    "last_processed": "2026-04-28T08:11:57.890500+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0003-Persistence/T1543.003-Create or Modify System Process-Windows Service/ID7045-7036 PSexec service installation.evtx": {
+    "rules_generated": [
+      102013
+    ],
+    "last_processed": "2026-04-27T13:48:44.364559+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0003-Persistence/T1543.003-Create or Modify System Process-Windows Service/ID7045-New service for Mimikatz +npcap.evtx": {
+    "rules_generated": [
+      102014
+    ],
+    "last_processed": "2026-04-27T13:48:44.364562+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1027-Obfuscated Files or Information/ID1-CrackMapExec payload execution.evtx": {
+    "rules_generated": [
+      104003,
+      104004
+    ],
+    "last_processed": "2026-04-27T13:48:44.364565+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1562.001-Impair Defenses-Disable or Modify tool/ID800-4103-4104 Defender critical features disabled (PowerShell).evtx": {
+    "rules_generated": [
+      104005
+    ],
+    "last_processed": "2026-04-27T13:48:44.364574+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1562.004-Impair Defenses-Disable or Modify System Firewall/ID4103-4104-2004-OpenSSH firewall rule activation.evtx": {
+    "rules_generated": [
+      104006
+    ],
+    "last_processed": "2026-04-27T13:48:44.364577+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0006-Credential Access/T1003-Credential dumping/ID10-Mimikatz LSASS process dump.evtx": {
+    "rules_generated": [
+      105011
+    ],
+    "last_processed": "2026-04-27T13:48:44.364579+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0007-Discovery/T1016-System Network Configuration Discovery/ID800-4103-4104-Firewall configuration enumerated (PowerShell).evtx": {
+    "rules_generated": [
+      106000,
+      106001,
+      106002
+    ],
+    "last_processed": "2026-04-27T13:48:44.364585+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0008-Lateral Movement/T1021.004-Remote Service SSH/ID4103-4104-OpenSSH server activation and config.evtx": {
+    "rules_generated": [
+      107007
+    ],
+    "last_processed": "2026-04-27T13:48:44.364588+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/Powershell-Invoke-Obfuscation-many.evtx": {
+    "rules_generated": [
+      101023,
+      101024,
+      101025,
+      101026,
+      101614
+    ],
+    "last_processed": "2026-04-28T08:11:57.892227+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.evtx": {
+    "rules_generated": [
+      102017
+    ],
+    "last_processed": "2026-04-28T08:11:57.890245+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/sideloading_uacbypass_rundll32_injection_c2.evtx": {
+    "rules_generated": [
+      104008
+    ],
+    "last_processed": "2026-04-28T08:11:57.890249+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Command and Control/DE_RDP_Tunnel_5156.evtx": {
+    "rules_generated": [
+      109012,
+      109013,
+      109014,
+      109015
+    ],
+    "last_processed": "2026-04-28T08:11:57.890280+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_keefarce_keepass_credump.evtx": {
+    "rules_generated": [
+      105014
+    ],
+    "last_processed": "2026-04-28T08:11:57.890284+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/Powershell_4104_MiniDumpWriteDump_Lsass.evtx": {
+    "rules_generated": [
+      105017
+    ],
+    "last_processed": "2026-04-28T08:11:57.890287+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/Zerologon_VoidSec_CVE-2020-1472_4626_LT3_Anonym_follwedby_4742_DC_Anony_DC.evtx": {
+    "rules_generated": [
+      105018
+    ],
+    "last_processed": "2026-04-28T08:11:57.890290+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/remote_sam_registry_access_via_backup_operator_priv.evtx": {
+    "rules_generated": [
+      105023
+    ],
+    "last_processed": "2026-04-28T08:11:57.890294+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_10_11_lsass_memdump.evtx": {
+    "rules_generated": [
+      105024
+    ],
+    "last_processed": "2026-04-28T08:11:57.890297+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_10_1_memdump_comsvcs_minidump.evtx": {
+    "rules_generated": [
+      105028,
+      105029
+    ],
+    "last_processed": "2026-04-28T08:11:57.890305+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/DE_Fake_ComputerAccount_4720.evtx": {
+    "rules_generated": [
+      104012
+    ],
+    "last_processed": "2026-04-28T08:11:57.890308+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/DE_ProcessHerpaderping_Sysmon_11_10_1_7.evtx": {
+    "rules_generated": [
+      104013,
+      104014
+    ],
+    "last_processed": "2026-04-28T08:11:57.890314+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/DE_suspicious_remote_eventlog_svc_access_5145.evtx": {
+    "rules_generated": [
+      104015
+    ],
+    "last_processed": "2026-04-28T08:11:57.890319+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/Sysmon 7 dllhijack_cdpsshims_CDPSvc.evtx": {
+    "rules_generated": [
+      104018
+    ],
+    "last_processed": "2026-04-28T08:11:57.890324+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/sideloading_wwlib_sysmon_7_1_11.evtx": {
+    "rules_generated": [
+      104019
+    ],
+    "last_processed": "2026-04-28T08:11:57.890329+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/sysmon_2_11_evasion_timestomp_MACE.evtx": {
+    "rules_generated": [
+      104020
+    ],
+    "last_processed": "2026-04-28T08:11:57.890334+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Discovery/Discovery_Remote_System_NamedPipes_Sysmon_18.evtx": {
+    "rules_generated": [
+      106003,
+      106004
+    ],
+    "last_processed": "2026-04-28T08:11:57.890340+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Discovery/dicovery_4661_net_group_domain_admins_target.evtx": {
+    "rules_generated": [
+      106005,
+      106006
+    ],
+    "last_processed": "2026-04-28T08:11:57.890348+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/Exec_sysmon_meterpreter_reversetcp_msipackage.evtx": {
+    "rules_generated": [
+      101043
+    ],
+    "last_processed": "2026-04-28T08:11:57.890353+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/evasion_execution_imageload_wuauclt_lolbas.evtx": {
+    "rules_generated": [
+      101045
+    ],
+    "last_processed": "2026-04-28T08:11:57.890358+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx": {
+    "rules_generated": [
+      101048
+    ],
+    "last_processed": "2026-04-28T08:11:57.890364+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/sysmon_exec_from_vss_persistence.evtx": {
+    "rules_generated": [
+      101055
+    ],
+    "last_processed": "2026-04-28T08:11:57.890367+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/temp_scheduled_task_4698_4699.evtx": {
+    "rules_generated": [
+      101057
+    ],
+    "last_processed": "2026-04-28T08:11:57.890370+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/ImpersonateUser-via local Pass The Hash Sysmon and Security.evtx": {
+    "rules_generated": [
+      107008
+    ],
+    "last_processed": "2026-04-28T08:11:57.890374+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx": {
+    "rules_generated": [
+      107009
+    ],
+    "last_processed": "2026-04-28T08:11:57.890377+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx": {
+    "rules_generated": [
+      107012
+    ],
+    "last_processed": "2026-04-28T08:11:57.890381+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_WMIC_4648_rpcss.evtx": {
+    "rules_generated": [
+      107013
+    ],
+    "last_processed": "2026-04-28T08:11:57.890385+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_tsclient_startup_folder.evtx": {
+    "rules_generated": [
+      107018,
+      107019
+    ],
+    "last_processed": "2026-04-28T08:11:57.890392+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/sharprdp_sysmon_7_mstscax.dll.evtx": {
+    "rules_generated": [
+      107023
+    ],
+    "last_processed": "2026-04-28T08:11:57.890396+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/Network_Service_Guest_added_to_admins_4732.evtx": {
+    "rules_generated": [
+      102029
+    ],
+    "last_processed": "2026-04-28T08:11:57.890399+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.evtx": {
+    "rules_generated": [
+      102030,
+      102031,
+      102032
+    ],
+    "last_processed": "2026-04-28T08:11:57.890406+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/wmighost_sysmon_20_21_1.evtx": {
+    "rules_generated": [
+      102044,
+      102045
+    ],
+    "last_processed": "2026-04-28T08:11:57.890420+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/EfsPotato_sysmon_17_18_privesc_seimpersonate_to_system.evtx": {
+    "rules_generated": [
+      103005
+    ],
+    "last_processed": "2026-04-28T08:11:57.890423+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/NTLM2SelfRelay-med0x2e-security_4624_4688.evtx": {
+    "rules_generated": [
+      103006,
+      103007
+    ],
+    "last_processed": "2026-04-28T08:11:57.890428+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/PrivEsc_SeImpersonatePriv_enabled_back_for_upnp_localsvc_4698.evtx": {
+    "rules_generated": [
+      103008
+    ],
+    "last_processed": "2026-04-28T08:11:57.890431+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/Runas_4624_4648_Webshell_CreateProcessAsUserA.evtx": {
+    "rules_generated": [
+      103009
+    ],
+    "last_processed": "2026-04-28T08:11:57.890434+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/Sysmon_UACME_22.evtx": {
+    "rules_generated": [
+      103010,
+      103011
+    ],
+    "last_processed": "2026-04-28T08:11:57.890439+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/Sysmon_UACME_39.evtx": {
+    "rules_generated": [
+      103012
+    ],
+    "last_processed": "2026-04-28T08:11:57.890442+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/samaccount_spoofing_CVE-2021-42287_CVE-2021-42278_DC_securitylogs.evtx": {
+    "rules_generated": [
+      103014
+    ],
+    "last_processed": "2026-04-28T08:11:57.890445+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_uacbypass_CDSSync_schtask_hijack_byeintegrity5.evtx": {
+    "rules_generated": [
+      103021,
+      103022
+    ],
+    "last_processed": "2026-04-28T08:11:57.890455+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID4688,4698,4699,5145,4624-ATexec remote trask creation (GLOBAL).evtx": {
+    "rules_generated": [
+      102046
+    ],
+    "last_processed": "2026-04-28T08:11:57.890466+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID4688,5140,5145-WMIexec execution via SMB (GLOBAL).evtx": {
+    "rules_generated": [
+      101063,
+      101064
+    ],
+    "last_processed": "2026-04-28T08:11:57.890483+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID4720,4698-Fortinet APT group abuse on Windows.evtx": {
+    "rules_generated": [
+      102047
+    ],
+    "last_processed": "2026-04-28T08:11:57.890489+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID47x,4661-4662,5136,4688,4697-SAM the admin (CVE-2021-42287).evtx": {
+    "rules_generated": [
+      104022
+    ],
+    "last_processed": "2026-04-28T08:11:57.890494+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx": {
+    "rules_generated": [
+      101069,
+      101070,
+      101071,
+      101072,
+      101073,
+      101074,
+      101075,
+      101076,
+      101077,
+      101078,
+      101079,
+      101080,
+      101081,
+      101082,
+      101083,
+      101084,
+      101085,
+      101086,
+      101087,
+      101088,
+      101089,
+      101090,
+      101091,
+      101092,
+      101093,
+      101094,
+      101095,
+      101096,
+      101097,
+      101098,
+      101099,
+      101100,
+      101101,
+      101102,
+      101103,
+      101104,
+      101105,
+      101106,
+      101107,
+      101108,
+      101109,
+      101110,
+      101111,
+      101112,
+      101113,
+      101114,
+      101115,
+      101116,
+      101117,
+      101118,
+      101119,
+      101120,
+      101121,
+      101122,
+      101123,
+      101124,
+      101125,
+      101126,
+      101127,
+      101128,
+      101129,
+      101130,
+      101131,
+      101132,
+      101133,
+      101134,
+      101135,
+      101136,
+      101137,
+      101138,
+      101139,
+      101140,
+      101141,
+      101142,
+      101143,
+      101144,
+      101145,
+      101146,
+      101147,
+      101148,
+      101149,
+      101150,
+      101151,
+      101152,
+      101153,
+      101154,
+      101155,
+      101156,
+      101157,
+      101158,
+      101159,
+      101160,
+      101161,
+      101162,
+      101163,
+      101164,
+      101165,
+      101166,
+      101167,
+      101168,
+      101169,
+      101170,
+      101171,
+      101172,
+      101173,
+      101174,
+      101175,
+      101176,
+      101177,
+      101178,
+      101179,
+      101180,
+      101181,
+      101182,
+      101183,
+      101184,
+      101185,
+      101186,
+      101187,
+      101188,
+      101189,
+      101190,
+      101191,
+      101192,
+      101193,
+      101194,
+      101195,
+      101196,
+      101197,
+      101198,
+      101199,
+      101200,
+      101201,
+      101202,
+      101203,
+      101204,
+      101205,
+      101206,
+      101207,
+      101208,
+      101209,
+      101210,
+      101211,
+      101212,
+      101213,
+      101214,
+      101215,
+      101216,
+      101217,
+      101218,
+      101219,
+      101220,
+      101221,
+      101222,
+      101223,
+      101224,
+      101225,
+      101226,
+      101227,
+      101228,
+      101229,
+      101230,
+      101231,
+      101232,
+      101233,
+      101234,
+      101235,
+      101236,
+      101237,
+      101238,
+      101239,
+      101240,
+      101241,
+      101242,
+      101243,
+      101244,
+      101245,
+      101246,
+      101247,
+      101248,
+      101249,
+      101250,
+      101251,
+      101252,
+      101253,
+      101254,
+      101255,
+      101256,
+      101257,
+      101258,
+      101259,
+      101260,
+      101261,
+      101262,
+      101263,
+      101264,
+      101265,
+      101266,
+      101267,
+      101268,
+      101269,
+      101270,
+      101271,
+      101272,
+      101273,
+      101274,
+      101275,
+      101276,
+      101277,
+      101278,
+      101279,
+      101280,
+      101281,
+      101282,
+      101283,
+      101284,
+      101285,
+      101286,
+      101287,
+      101288,
+      101289,
+      101290,
+      101291,
+      101292,
+      101293,
+      101294,
+      101295,
+      101296,
+      101297,
+      101298,
+      101299,
+      101300,
+      101301,
+      101302,
+      101303,
+      101304,
+      101305,
+      101306,
+      101307,
+      101308,
+      101309,
+      101310,
+      101311,
+      101312,
+      101313,
+      101314,
+      101315,
+      101316,
+      101317,
+      101318,
+      101319,
+      101320,
+      101321,
+      101322,
+      101323,
+      101324,
+      101325,
+      101326,
+      101327,
+      101328,
+      101329,
+      101330,
+      101331,
+      101332,
+      101333,
+      101334,
+      101335,
+      101336,
+      101337,
+      101338,
+      101339,
+      101340,
+      101341,
+      101342,
+      101343,
+      101344,
+      101345,
+      101346,
+      101347,
+      101348,
+      101349,
+      101350,
+      101351,
+      101352,
+      101353,
+      101354,
+      101355,
+      101356,
+      101357,
+      101358,
+      101359,
+      101360,
+      101361,
+      101362,
+      101363,
+      101364,
+      101365,
+      101366,
+      101367,
+      101368,
+      101369,
+      101370,
+      101371,
+      101372,
+      101373,
+      101374,
+      101375,
+      101376,
+      101377,
+      101378,
+      101379,
+      101380,
+      101381,
+      101382,
+      101383,
+      101384,
+      101385,
+      101386,
+      101387,
+      101388,
+      101389,
+      101390,
+      101391,
+      101392,
+      101393,
+      101394,
+      101395,
+      101396,
+      101397,
+      101398,
+      101399,
+      101400,
+      101401,
+      101402,
+      101403,
+      101404,
+      101405,
+      101406,
+      101407,
+      101408,
+      101409,
+      101410,
+      101411,
+      101412,
+      101413,
+      101414,
+      101415,
+      101416,
+      101417,
+      101418,
+      101419,
+      101420,
+      101421,
+      101422,
+      101423,
+      101424,
+      101425,
+      101426,
+      101427,
+      101428,
+      101429,
+      101430,
+      101431,
+      101432,
+      101433,
+      101434,
+      101435,
+      101436,
+      101437,
+      101438,
+      101439,
+      101440,
+      101441,
+      101442,
+      101443,
+      101444,
+      101445,
+      101446,
+      101447,
+      101448,
+      101449,
+      101450,
+      101451,
+      101452,
+      101453,
+      101454,
+      101455,
+      101456,
+      101457,
+      101458,
+      101459,
+      101460,
+      101461,
+      101462,
+      101463,
+      101464,
+      101465,
+      101466,
+      101467,
+      101468,
+      101469,
+      101470,
+      101471,
+      101472,
+      101473,
+      101474,
+      101475,
+      101476,
+      101477,
+      101478,
+      101479,
+      101480,
+      101481,
+      101482,
+      101483,
+      101484,
+      101485,
+      101486,
+      101487,
+      101488,
+      101489,
+      101490,
+      101491,
+      101492,
+      101493,
+      101494,
+      101495,
+      101496,
+      101497,
+      101498,
+      101499,
+      101500,
+      101501,
+      101502,
+      101503,
+      101504,
+      101505,
+      101506,
+      101507,
+      101508,
+      101509,
+      101510,
+      101511,
+      101512,
+      101513,
+      101514,
+      101515,
+      101516,
+      101517,
+      101518,
+      101519,
+      101520,
+      101521,
+      101522,
+      101523,
+      101524,
+      101525,
+      101526,
+      101527,
+      101528,
+      101529,
+      101530,
+      101531,
+      101532,
+      101533,
+      101534,
+      101535,
+      101536,
+      101537,
+      101538,
+      101539,
+      101540,
+      101541,
+      101542,
+      101543,
+      101544,
+      101545,
+      101546,
+      101547,
+      101548,
+      101549,
+      101550,
+      101551,
+      101552,
+      101553,
+      101554,
+      101555,
+      101556
+    ],
+    "last_processed": "2026-04-28T08:11:57.891917+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0003-Persistence/T1098.xxx-Account manipulation/ID4724-5145-password reset with setNTLM (Mimikatz).evtx": {
+    "rules_generated": [
+      102048
+    ],
+    "last_processed": "2026-04-28T08:11:57.891920+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0003-Persistence/T1098.xxx-Account manipulation/ID4781-4738-User renamed to admin or likely.evtx": {
+    "rules_generated": [
+      102049
+    ],
+    "last_processed": "2026-04-28T08:11:57.891924+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0003-Persistence/T1546-Event Triggered Execution/ID19-20-WMI registration via PowerLurk.evtx": {
+    "rules_generated": [
+      101557,
+      101558
+    ],
+    "last_processed": "2026-04-28T08:11:57.891928+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0004-Privilege Escalation/T1134-Access Token Manipulation/ID4688,4648,4624-Runas execution with different user.evtx": {
+    "rules_generated": [
+      101559
+    ],
+    "last_processed": "2026-04-28T08:11:57.891932+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1027-Obfuscated Files or Information/ID4103-4104-CrackMapExec payload execution.evtx": {
+    "rules_generated": [
+      104025,
+      104026,
+      104027,
+      104028
+    ],
+    "last_processed": "2026-04-28T08:11:57.891940+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1112-Modify registry/ID11,13-SMBexec service registration.evtx": {
+    "rules_generated": [
+      104029
+    ],
+    "last_processed": "2026-04-28T08:11:57.891959+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1112-Modify registry/ID4624,4670,4688,4674-Registry permission change via WMI (DAMP).evtx": {
+    "rules_generated": [
+      104030
+    ],
+    "last_processed": "2026-04-28T08:11:57.891965+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0006-Credential Access/T1003-Credential dumping/ID800-4103-4104-LSASS dump with LSASSY (PowerShell).evtx": {
+    "rules_generated": [
+      105033,
+      105034,
+      105035
+    ],
+    "last_processed": "2026-04-28T08:11:57.891974+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0006-Credential Access/T1110.xxx-Brut force/ID4625-OpenSSH brutforce with non existing users.evtx": {
+    "rules_generated": [
+      105036
+    ],
+    "last_processed": "2026-04-28T08:11:57.891978+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/atomic/windows/lateral_movement/host/purplesharp_ad_playbook_I_2020-10-22042947.json": {
+    "rules_generated": [
+      107025,
+      107026,
+      107027,
+      102052
+    ],
+    "last_processed": "2026-04-28T08:11:57.891987+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/apt29_evals_day1_manual_2020-05-01225525.json": {
+    "rules_generated": [
+      101560,
+      101561,
+      101562,
+      101563,
+      101564,
+      105037,
+      104033,
+      109016,
+      109017,
+      101565,
+      104034,
+      107028,
+      107029,
+      104035,
+      105038,
+      105039,
+      107030,
+      107031,
+      105040,
+      105041,
+      101568,
+      101569,
+      101570,
+      101571
+    ],
+    "last_processed": "2026-04-28T08:11:57.892025+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/apt29_evals_day2_manual_2020-05-02035409.json": {
+    "rules_generated": [
+      105042,
+      104036,
+      101573,
+      101574,
+      101575,
+      102055,
+      102056,
+      101576,
+      101577,
+      101578,
+      101579,
+      101580,
+      101582,
+      101583,
+      101584
+    ],
+    "last_processed": "2026-04-28T08:11:57.892061+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/cmd_bitsadmin_download_psh_script_2020-10-2302365189.json": {
+    "rules_generated": [
+      104037
+    ],
+    "last_processed": "2026-04-28T08:11:57.892066+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/cmd_lsass_memory_dumpert_syscalls_2020-10-1822561997.json": {
+    "rules_generated": [
+      101585
+    ],
+    "last_processed": "2026-04-28T08:11:57.892072+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/cmd_mshta_javascript_getobject_sct_2020-10-2202214475.json": {
+    "rules_generated": [
+      102057
+    ],
+    "last_processed": "2026-04-28T08:11:57.892076+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/cmd_process_herpaderping_mimiexplorer_2020-10-2623583501.json": {
+    "rules_generated": [
+      101586
+    ],
+    "last_processed": "2026-04-28T08:11:57.892079+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/cmd_psexec_lsa_secrets_dump_2020-10-1903305471.json": {
+    "rules_generated": [
+      102058
+    ],
+    "last_processed": "2026-04-28T08:11:57.892082+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/cmd_psh_stop_netprofm_eventlog_after_reboot.json": {
+    "rules_generated": [
+      104038,
+      101587,
+      101588
+    ],
+    "last_processed": "2026-04-28T08:11:57.892088+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/cmd_seatbelt_group_user_2020-11-0216391814.json": {
+    "rules_generated": [
+      101589,
+      104039
+    ],
+    "last_processed": "2026-04-28T08:11:57.892093+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/covenant_installutil_2020-09-19211702.json": {
+    "rules_generated": [
+      104040,
+      109018,
+      109019
+    ],
+    "last_processed": "2026-04-28T08:11:57.892099+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/covenant_psremoting_command_2020-08-06115603.json": {
+    "rules_generated": [
+      105043
+    ],
+    "last_processed": "2026-04-28T08:11:57.892102+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/covenant_wmi_remote_event_subscription_ActiveScriptEventConsumers_2020-09-01214330.json": {
+    "rules_generated": [
+      102059,
+      102060,
+      102061
+    ],
+    "last_processed": "2026-04-28T08:11:57.892108+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/covenant_wmi_wbemcomn_dll_hijack_2020-10-09173318.json": {
+    "rules_generated": [
+      104041
+    ],
+    "last_processed": "2026-04-28T08:11:57.892111+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_launcher_sct_regsvr32_2020-07-21232741.json": {
+    "rules_generated": [
+      109020
+    ],
+    "last_processed": "2026-04-28T08:11:57.892114+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_mimikatz_lsadump_patch_2020-08-07103913.json": {
+    "rules_generated": [
+      105044
+    ],
+    "last_processed": "2026-04-28T08:11:57.892118+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_mimikatz_sam_access_2020-09-22041117.json": {
+    "rules_generated": [
+      105045
+    ],
+    "last_processed": "2026-04-28T08:11:57.892121+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_msbuild_dcerpc_wmi_smb_2020-09-20173857.json": {
+    "rules_generated": [
+      101590
+    ],
+    "last_processed": "2026-04-28T08:11:57.892124+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_over_pth_patch_lsass_2020-09-21221336.json": {
+    "rules_generated": [
+      105046
+    ],
+    "last_processed": "2026-04-28T08:11:57.892128+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_persistence_registry_modification_run_keys_elevated_user_2020-07-22001847.json": {
+    "rules_generated": [
+      102062
+    ],
+    "last_processed": "2026-04-28T08:11:57.892131+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_persistence_registry_modification_run_keys_standard_user_2020-09-04030609.json": {
+    "rules_generated": [
+      102063,
+      102064,
+      102065
+    ],
+    "last_processed": "2026-04-28T08:11:57.892137+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_psexec_dcerpc_tcp_svcctl_2020-09-20121608.json": {
+    "rules_generated": [
+      102066
+    ],
+    "last_processed": "2026-04-28T08:11:57.892140+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_schtasks_creation_execution_elevated_user_2020-09-21175806.json": {
+    "rules_generated": [
+      101591,
+      101592,
+      101593
+    ],
+    "last_processed": "2026-04-28T08:11:57.892146+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_shell_net_localgroup_administrators_2020-09-21191843.json": {
+    "rules_generated": [
+      101594
+    ],
+    "last_processed": "2026-04-28T08:11:57.892149+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_shell_reg_dump_sam_2020-09-22042823.json": {
+    "rules_generated": [
+      101595
+    ],
+    "last_processed": "2026-04-28T08:11:57.892152+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_shell_rubeus_asktgt_createnetonly_2020-09-21230246.json": {
+    "rules_generated": [
+      101596,
+      104042
+    ],
+    "last_processed": "2026-04-28T08:11:57.892157+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_shell_rubeus_asktgt_ptt_2020-09-21223848.json": {
+    "rules_generated": [
+      102067,
+      109021,
+      109022
+    ],
+    "last_processed": "2026-04-28T08:11:57.892163+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_smbexec_dcerpc_smb_svcctl_2020-09-20025716.json": {
+    "rules_generated": [
+      102068
+    ],
+    "last_processed": "2026-04-28T08:11:57.892166+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_wmi_local_event_subscriptions_elevated_user_2020-09-04164306.json": {
+    "rules_generated": [
+      102069,
+      102070,
+      102071
+    ],
+    "last_processed": "2026-04-28T08:11:57.892172+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_wmic_add_user_backdoor_2020-09-14080546.json": {
+    "rules_generated": [
+      101597,
+      109023,
+      109024,
+      107032
+    ],
+    "last_processed": "2026-04-28T08:11:57.892179+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/metasploit_comsvcs_lsass_memory_dump.json": {
+    "rules_generated": [
+      101598,
+      101599,
+      102072,
+      101600,
+      101601
+    ],
+    "last_processed": "2026-04-28T08:11:57.892188+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/metasploit_logonpasswords_lsass_memory_dump.json": {
+    "rules_generated": [
+      102073
+    ],
+    "last_processed": "2026-04-28T08:11:57.892191+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/metasploit_nanodump_lsass_memory_dump.json": {
+    "rules_generated": [
+      101602,
+      101603,
+      104043,
+      102074
+    ],
+    "last_processed": "2026-04-28T08:11:57.892198+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/metasploit_out-minidump_lsass_memory_dump.json": {
+    "rules_generated": [
+      101604,
+      101605,
+      101606,
+      101607,
+      101608
+    ],
+    "last_processed": "2026-04-28T08:11:57.892208+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/metasploit_procdump_lsass_memory_dump.json": {
+    "rules_generated": [
+      104044,
+      102075
+    ],
+    "last_processed": "2026-04-28T08:11:57.892213+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/metasploit_sharpdump_lsass_memory_dump.json": {
+    "rules_generated": [
+      101609
+    ],
+    "last_processed": "2026-04-28T08:11:57.892216+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/mimikatz_CVE-2020-1472_Unauthenticated_NetrServerAuthenticate2_2020-09-16233923.json": {
+    "rules_generated": [
+      104045,
+      109025
+    ],
+    "last_processed": "2026-04-28T08:11:57.892220+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/danderspritz-evtx/examples/post-Security.evtx": {
+    "rules_generated": [
+      102076,
+      102077
+    ],
+    "last_processed": "2026-04-28T08:11:57.892225+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/many-events-system.evtx": {
+    "rules_generated": [
+      102078,
+      102079,
+      102080,
+      102081,
+      102082,
+      102083,
+      102084,
+      102085
+    ],
+    "last_processed": "2026-04-28T08:11:57.892241+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/metasploit-psexec-native-target-system.evtx": {
+    "rules_generated": [
+      102086
+    ],
+    "last_processed": "2026-04-28T08:11:57.892244+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/metasploit-psexec-powershell-target-system.evtx": {
+    "rules_generated": [
+      102087,
+      102088
+    ],
+    "last_processed": "2026-04-28T08:11:57.892248+00:00"
+  },
+  "/home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/EVTX-ATTACK-SAMPLES/Other/APT28-CredentialStealer.evtx": {
+    "rules_generated": [
+      101615
+    ],
+    "last_processed": "2026-04-28T08:11:57.892251+00:00"
+  }
+}

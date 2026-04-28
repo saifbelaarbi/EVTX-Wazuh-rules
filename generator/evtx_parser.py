@@ -26,17 +26,34 @@ def detect_format(file_path: Path) -> str:
 
 
 def parse_evtx_binary(file_path: Path) -> list[dict]:
-    """Parse a .evtx binary file using python-evtx."""
-    try:
-        import Evtx.Evtx as evtx
-        import Evtx.Views as evtx_views
-    except ImportError:
-        console.print("[red]python-evtx not installed. Run: pip install python-evtx[/]")
-        return []
-
+    """Parse a .evtx binary file. Supports both 'evtx' (Rust) and 'python-evtx' packages."""
     events = []
+
+    # Try the Rust-based 'evtx' package first (faster, easier to install)
     try:
-        with evtx.Evtx(str(file_path)) as log:
+        import evtx as evtx_rs
+
+        parser = evtx_rs.PyEvtxParser(str(file_path))
+        for record in parser.records_json():
+            try:
+                import json as _json
+                raw = _json.loads(record["data"])
+                event = _normalize_evtx_rs_record(raw)
+                if event:
+                    event["_source_file"] = str(file_path)
+                    event["_record_id"] = record.get("event_record_id", 0)
+                    events.append(event)
+            except Exception:
+                continue
+        return events
+    except ImportError:
+        pass
+
+    # Fallback to python-evtx
+    try:
+        import Evtx.Evtx as evtx_py
+
+        with evtx_py.Evtx(str(file_path)) as log:
             for record in log.records():
                 try:
                     event = _parse_evtx_xml_record(record.xml())
@@ -46,10 +63,58 @@ def parse_evtx_binary(file_path: Path) -> list[dict]:
                         events.append(event)
                 except Exception:
                     continue
+        return events
+    except ImportError:
+        console.print("[red]No EVTX parser installed. Run: pip install evtx[/]")
+        return []
     except Exception as e:
         console.print(f"[red]Failed to parse {file_path.name}:[/] {e}")
+        return events
 
-    return events
+
+def _normalize_evtx_rs_record(raw: dict) -> dict | None:
+    """Normalize a record from the Rust evtx parser's JSON output."""
+    event = {}
+    system = raw.get("Event", {}).get("System", {})
+    event_data_raw = raw.get("Event", {}).get("EventData", {})
+
+    if not system:
+        return None
+
+    # Provider
+    provider = system.get("Provider", {})
+    if isinstance(provider, dict):
+        event["provider_name"] = provider.get("#attributes", {}).get("Name", "")
+        event["provider_guid"] = provider.get("#attributes", {}).get("Guid", "")
+    else:
+        event["provider_name"] = str(provider)
+
+    # EventID - may be int or dict
+    eid = system.get("EventID", 0)
+    if isinstance(eid, dict):
+        eid = eid.get("#text", 0)
+    event["event_id"] = int(eid) if str(eid).isdigit() else 0
+
+    event["channel"] = system.get("Channel", "")
+    event["computer"] = system.get("Computer", "")
+
+    time_created = system.get("TimeCreated", {})
+    if isinstance(time_created, dict):
+        event["timestamp"] = time_created.get("#attributes", {}).get("SystemTime", "")
+    else:
+        event["timestamp"] = str(time_created)
+
+    # EventData
+    event["event_data"] = {}
+    if isinstance(event_data_raw, dict):
+        for k, v in event_data_raw.items():
+            if k.startswith("#"):
+                continue
+            if isinstance(v, dict):
+                v = v.get("#text", str(v))
+            event["event_data"][k] = str(v) if v is not None else ""
+
+    return event
 
 
 def _parse_evtx_xml_record(xml_str: str) -> dict | None:
@@ -137,24 +202,35 @@ def _normalize_json_event(raw: dict) -> dict:
     """Normalize a JSON event to our common schema."""
     event = {}
 
-    # Try common field names from various tools
     event["event_id"] = raw.get("EventID") or raw.get("event_id") or raw.get("Event.System.EventID") or 0
     if isinstance(event["event_id"], str):
         event["event_id"] = int(event["event_id"]) if event["event_id"].isdigit() else 0
+    elif isinstance(event["event_id"], dict):
+        event["event_id"] = int(event["event_id"].get("#text", 0))
 
     event["channel"] = raw.get("Channel") or raw.get("channel") or raw.get("Event.System.Channel") or ""
-    event["provider_name"] = raw.get("Provider") or raw.get("provider_name") or ""
-    event["computer"] = raw.get("Computer") or raw.get("computer") or ""
-    event["timestamp"] = raw.get("Timestamp") or raw.get("TimeCreated") or raw.get("timestamp") or ""
+    event["provider_name"] = (raw.get("Provider") or raw.get("SourceName")
+                               or raw.get("provider_name") or "")
+    event["computer"] = raw.get("Computer") or raw.get("Hostname") or raw.get("computer") or ""
+    event["timestamp"] = (raw.get("Timestamp") or raw.get("TimeCreated")
+                           or raw.get("EventTime") or raw.get("@timestamp")
+                           or raw.get("timestamp") or "")
 
-    # EventData - might be nested or flat
     event_data = raw.get("EventData") or raw.get("event_data") or {}
     if not event_data:
-        # Some tools flatten EventData fields to top level
-        known_system_fields = {"EventID", "Channel", "Provider", "Computer", "Timestamp",
-                               "TimeCreated", "event_id", "channel", "provider_name",
-                               "computer", "timestamp", "Level", "Task"}
-        event_data = {k: v for k, v in raw.items() if k not in known_system_fields and isinstance(v, str)}
+        _SYSTEM_FIELDS = {
+            "EventID", "Channel", "Provider", "Computer", "Timestamp",
+            "TimeCreated", "event_id", "channel", "provider_name",
+            "computer", "timestamp", "Level", "Task", "SourceName",
+            "Hostname", "EventTime", "@timestamp", "@version", "tags",
+            "EventType", "Version", "ThreadID", "OpcodeValue",
+            "RecordNumber", "EventReceivedTime", "SourceModuleName",
+            "SourceModuleType", "Severity", "SeverityValue", "UserID",
+            "ProviderGuid", "AccountType", "Domain", "AccountName",
+            "ExecutionProcessID", "host", "port", "Message",
+        }
+        event_data = {k: str(v) for k, v in raw.items()
+                      if k not in _SYSTEM_FIELDS and v is not None}
 
     event["event_data"] = event_data
     return event

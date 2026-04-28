@@ -37,3 +37,38 @@ sources:
       - EVTX-ATTACK-SAMPLES
       - EVTX-to-MITRE-Attack
       - YamatoSecurity
+
+  - name: Security-Datasets
+    repo: OTRF/Security-Datasets
+    url: https://github.com/OTRF/Security-Datasets.git
+    type: github_clone
+    description: "Pre-recorded adversary simulation data (Mordor) mapped to MITRE ATT&CK"
+    mitre_mapped: true
+    structure: by_tactic
+    formats:
+      - json
+      - evtx
+
+  - name: danderspritz-evtx
+    repo: fox-it/danderspritz-evtx
+    url: https://github.com/fox-it/danderspritz-evtx.git
+    type: github_clone
+    description: "DanderSpritz (NSA EternalBlue toolset) EVTX detection events"
+    mitre_mapped: false
+    structure: flat
+
+  - name: evtx-hunter
+    repo: NVISOsecurity/evtx-hunter
+    url: https://github.com/NVISOsecurity/evtx-hunter.git
+    type: github_clone
+    description: "Security-related EVTX activity identification by NVISO"
+    mitre_mapped: false
+    structure: flat
+
+  - name: ThreatSeeker
+    repo: ine-labs/ThreatSeeker
+    url: https://github.com/ine-labs/ThreatSeeker.git
+    type: github_clone
+    description: "Threat hunting via Windows Event Logs analysis"
+    mitre_mapped: false
+    structure: flat

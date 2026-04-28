@@ -75,6 +75,32 @@ SUSPICIOUS_CMD_PATTERNS = [
     "iex(", "bypass", "-nop ", "-w hidden",
     "add-mppreference -exclusionpath",
     "set-mppreference -disablerealtimemonitoring",
+    "ntdsutil", "shadow copy", "vssadmin create",
+    "comsvcs.dll", "minidump", "procdump",
+    "out-minidump", "sharpdump", "nanodump", "dumpert",
+    "invoke-obfuscation", "invoke-shellcode",
+    "invoke-dcomexec", "invoke-wmimethod",
+    "new-scheduledtask", "register-scheduledjob",
+    "wevtutil cl", "wevtutil sl",
+    "stop-service", "sc stop", "sc config",
+    "disable-windowsoptionalfeature",
+    "set-executionpolicy unrestricted",
+]
+
+# Suspicious service names/paths for 7045 detection
+SUSPICIOUS_SERVICE_PATTERNS = [
+    "psexe", "meterpreter", "cobalt", "beacon",
+    "cmd.exe /c", "powershell", "mshta",
+    "rundll32", "regsvr32", "certutil",
+    "bitsadmin", "\\temp\\", "\\tmp\\",
+    "appdata\\", "programdata\\",
+]
+
+# Suspicious DLL/driver paths for image load detection
+SUSPICIOUS_IMAGE_LOAD_PATTERNS = [
+    "\\temp\\", "\\tmp\\", "\\appdata\\",
+    "\\downloads\\", "\\public\\",
+    "\\programdata\\",
 ]
 
 
@@ -110,6 +136,8 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
     channel = event.get("channel", "")
     provider = event.get("provider_name", "")
     event_data = event.get("event_data", {})
+    if not isinstance(event_data, dict):
+        event_data = {}
 
     # Infer tactic from source path
     tactic = infer_tactic_from_path(source_path or event.get("_source_file", ""))
@@ -260,7 +288,152 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
                     sample_event=event,
                 ))
 
-    # === Windows Security - Logon events (4624, 4625) ===
+    # === Sysmon Driver Load (Event ID 6) ===
+    elif event_id == 6 and "Sysmon" in provider:
+        image_loaded = event_data.get("ImageLoaded", "").lower()
+        for susp in SUSPICIOUS_IMAGE_LOAD_PATTERNS:
+            if susp in image_loaded:
+                patterns.append(DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={"win.eventdata.imageLoaded": susp},
+                    tactic=tactic or "persistence",
+                    technique_name=f"Suspicious driver load from {susp.strip(chr(92))}",
+                    description=f"Driver loaded from suspicious path: {susp}",
+                    source_evtx=source_path,
+                    confidence="medium",
+                    sample_event=event,
+                ))
+
+    # === Sysmon Image Load (Event ID 7) ===
+    elif event_id == 7 and "Sysmon" in provider:
+        image_loaded = event_data.get("ImageLoaded", "").lower()
+        image = event_data.get("Image", "").lower()
+        signed = event_data.get("Signed", "").lower()
+        for susp in SUSPICIOUS_IMAGE_LOAD_PATTERNS:
+            if susp in image_loaded:
+                patterns.append(DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={"win.eventdata.imageLoaded": susp},
+                    tactic=tactic or "defense_evasion",
+                    technique_name=f"DLL loaded from suspicious path",
+                    description=f"DLL loaded from suspicious path: {susp}",
+                    source_evtx=source_path,
+                    confidence="medium",
+                    sample_event=event,
+                ))
+        for proc in SUSPICIOUS_PROCESSES:
+            if proc in image:
+                patterns.append(DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={"win.eventdata.image": proc},
+                    tactic=tactic or "defense_evasion",
+                    technique_name=f"DLL sideloading by {proc}",
+                    description=f"Image load by suspicious process '{proc}'",
+                    source_evtx=source_path,
+                    confidence="high",
+                    sample_event=event,
+                ))
+
+    # === Sysmon File Create (Event ID 11) ===
+    elif event_id == 11 and "Sysmon" in provider:
+        target_filename = event_data.get("TargetFilename", "").lower()
+        image = event_data.get("Image", "").lower()
+        for proc in SUSPICIOUS_PROCESSES:
+            if proc in image:
+                patterns.append(DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={"win.eventdata.image": proc},
+                    tactic=tactic or "persistence",
+                    technique_name=f"File created by {proc}",
+                    description=f"File created by suspicious process '{proc}'",
+                    source_evtx=source_path,
+                    confidence="medium",
+                    sample_event=event,
+                ))
+        # Detect executable drops in suspicious locations
+        if any(ext in target_filename for ext in [".exe", ".dll", ".bat", ".ps1", ".vbs", ".hta"]):
+            for susp in SUSPICIOUS_IMAGE_LOAD_PATTERNS:
+                if susp in target_filename:
+                    patterns.append(DetectionPattern(
+                        event_id=event_id,
+                        channel=channel,
+                        provider_name=provider,
+                        field_matches={"win.eventdata.targetFilename": susp},
+                        tactic=tactic or "execution",
+                        technique_name=f"Executable dropped in {susp.strip(chr(92))}",
+                        description=f"Executable file created in suspicious path: {susp}",
+                        source_evtx=source_path,
+                        confidence="medium",
+                        sample_event=event,
+                    ))
+
+    # === Sysmon Pipe Created/Connected (Event ID 17, 18) ===
+    elif event_id in (17, 18) and "Sysmon" in provider:
+        pipe_name = event_data.get("PipeName", "").lower()
+        image = event_data.get("Image", "").lower()
+        suspicious_pipes = [
+            "\\msagent_", "\\isapi", "\\msse-",
+            "\\postex_", "\\status_", "\\mypipe-",
+            "\\win_svc", "\\ntsvcs", "\\scerpc",
+            "\\paexec", "\\psexe",
+        ]
+        for sp in suspicious_pipes:
+            if sp in pipe_name:
+                patterns.append(DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={"win.eventdata.pipeName": sp},
+                    tactic=tactic or "lateral_movement",
+                    technique_name=f"Suspicious named pipe: {sp}",
+                    description=f"Known malicious named pipe pattern: {sp}",
+                    source_evtx=source_path,
+                    confidence="high",
+                    sample_event=event,
+                ))
+
+    # === Sysmon Process Tampering (Event ID 25) ===
+    elif event_id == 25 and "Sysmon" in provider:
+        image = event_data.get("Image", "").lower()
+        tampering_type = event_data.get("Type", "")
+        patterns.append(DetectionPattern(
+            event_id=event_id,
+            channel=channel,
+            provider_name=provider,
+            field_matches={"win.eventdata.image": image.split("\\")[-1] if image else "unknown"},
+            tactic=tactic or "defense_evasion",
+            technique_name=f"Process tampering ({tampering_type})",
+            description=f"Process tampering detected: {tampering_type}",
+            source_evtx=source_path,
+            confidence="high",
+            sample_event=event,
+        ))
+
+    # === Sysmon WMI Events (Event ID 19, 20, 21) ===
+    elif event_id in (19, 20, 21) and "Sysmon" in provider:
+        consumer = event_data.get("Consumer", "") or event_data.get("Name", "")
+        patterns.append(DetectionPattern(
+            event_id=event_id,
+            channel=channel,
+            provider_name=provider,
+            field_matches={"win.eventdata.consumer": consumer[:60] if consumer else "wmi_event"},
+            tactic=tactic or "persistence",
+            technique_name=f"WMI event subscription (EventID {event_id})",
+            description=f"WMI event subscription activity detected",
+            source_evtx=source_path,
+            confidence="medium",
+            sample_event=event,
+        ))
+
+    # === Windows Security - Failed Logon (4625) ===
     elif event_id == 4625 and "Security" in channel:
         logon_type = event_data.get("LogonType", "")
         patterns.append(DetectionPattern(
@@ -276,10 +449,117 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
             sample_event=event,
         ))
 
+    # === Windows Security - Successful Logon with suspicious type (4624) ===
+    elif event_id == 4624 and "Security" in channel:
+        logon_type = event_data.get("LogonType", "")
+        # Type 10 = RemoteInteractive (RDP), Type 3 = Network
+        if logon_type in ("10", "3"):
+            target_user = event_data.get("TargetUserName", "").lower()
+            if target_user not in ("system", "local service", "network service", "dwm-1", "dwm-2", "umfd-0", "umfd-1", "anonymous logon", "-"):
+                patterns.append(DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={
+                        "win.system.eventID": "4624",
+                        "win.eventdata.logonType": logon_type,
+                    },
+                    tactic=tactic or "lateral_movement",
+                    technique_name=f"Remote logon (type {logon_type})",
+                    description=f"Remote logon type {logon_type} detected",
+                    source_evtx=source_path,
+                    confidence="low",
+                    sample_event=event,
+                ))
+
+    # === Windows Security - Explicit Credentials (4648) ===
+    elif event_id == 4648 and "Security" in channel:
+        target_server = event_data.get("TargetServerName", "")
+        patterns.append(DetectionPattern(
+            event_id=event_id,
+            channel=channel,
+            provider_name=provider,
+            field_matches={"win.system.eventID": "4648"},
+            tactic=tactic or "lateral_movement",
+            technique_name="Explicit credential logon",
+            description=f"Logon with explicit credentials targeting {target_server}",
+            source_evtx=source_path,
+            confidence="low",
+            sample_event=event,
+        ))
+
+    # === Windows Security - Special Privileges (4672) ===
+    elif event_id == 4672 and "Security" in channel:
+        subject_user = event_data.get("SubjectUserName", "").lower()
+        if subject_user not in ("system", "local service", "network service", "-", "dwm-1"):
+            patterns.append(DetectionPattern(
+                event_id=event_id,
+                channel=channel,
+                provider_name=provider,
+                field_matches={"win.system.eventID": "4672"},
+                tactic=tactic or "privilege_escalation",
+                technique_name="Special privilege assignment",
+                description=f"Special privileges assigned to user: {subject_user}",
+                source_evtx=source_path,
+                confidence="low",
+                sample_event=event,
+            ))
+
+    # === Windows Security - User Account Created (4720) ===
+    elif event_id == 4720 and "Security" in channel:
+        target_user = event_data.get("TargetUserName", "")
+        patterns.append(DetectionPattern(
+            event_id=event_id,
+            channel=channel,
+            provider_name=provider,
+            field_matches={"win.system.eventID": "4720"},
+            tactic=tactic or "persistence",
+            technique_name="User account created",
+            description=f"New user account created: {target_user}",
+            source_evtx=source_path,
+            confidence="medium",
+            sample_event=event,
+        ))
+
+    # === Windows Security - Security Group Changes (4731, 4732, 4735) ===
+    elif event_id in (4731, 4732, 4735) and "Security" in channel:
+        group_name = event_data.get("TargetUserName", "") or event_data.get("GroupName", "")
+        event_names = {4731: "Security group created", 4732: "Member added to group", 4735: "Security group changed"}
+        patterns.append(DetectionPattern(
+            event_id=event_id,
+            channel=channel,
+            provider_name=provider,
+            field_matches={"win.system.eventID": str(event_id)},
+            tactic=tactic or "persistence",
+            technique_name=event_names[event_id],
+            description=f"{event_names[event_id]}: {group_name}",
+            source_evtx=source_path,
+            confidence="low",
+            sample_event=event,
+        ))
+
+    # === Windows Security - Account Rename (4781) ===
+    elif event_id == 4781 and "Security" in channel:
+        old_name = event_data.get("OldTargetUserName", "")
+        new_name = event_data.get("NewTargetUserName", "")
+        patterns.append(DetectionPattern(
+            event_id=event_id,
+            channel=channel,
+            provider_name=provider,
+            field_matches={"win.system.eventID": "4781"},
+            tactic=tactic or "defense_evasion",
+            technique_name="Account renamed",
+            description=f"Account renamed from '{old_name}' to '{new_name}'",
+            source_evtx=source_path,
+            confidence="medium",
+            sample_event=event,
+        ))
+
     # === Windows Security - Service installed (7045) ===
     elif event_id == 7045:
         service_name = event_data.get("ServiceName", "")
         image_path = event_data.get("ImagePath", "").lower()
+        matched = False
         for proc in SUSPICIOUS_PROCESSES:
             if proc in image_path or proc in service_name.lower():
                 patterns.append(DetectionPattern(
@@ -297,6 +577,57 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
                     confidence="high",
                     sample_event=event,
                 ))
+                matched = True
+        if not matched:
+            for sp in SUSPICIOUS_SERVICE_PATTERNS:
+                if sp in image_path:
+                    patterns.append(DetectionPattern(
+                        event_id=event_id,
+                        channel=channel,
+                        provider_name=provider,
+                        field_matches={
+                            "win.eventdata.serviceName": service_name,
+                            "win.eventdata.imagePath": sp,
+                        },
+                        tactic=tactic or "persistence",
+                        technique_name=f"Suspicious service path: {sp}",
+                        description=f"Service installed with suspicious path pattern: {sp}",
+                        source_evtx=source_path,
+                        confidence="medium",
+                        sample_event=event,
+                    ))
+
+    # === Windows Security - Scheduled Task Created (4698) ===
+    elif event_id == 4698 and "Security" in channel:
+        task_name = event_data.get("TaskName", "")
+        task_content = event_data.get("TaskContent", "").lower()
+        patterns.append(DetectionPattern(
+            event_id=event_id,
+            channel=channel,
+            provider_name=provider,
+            field_matches={"win.system.eventID": "4698"},
+            tactic=tactic or "persistence",
+            technique_name=f"Scheduled task created",
+            description=f"Scheduled task created: {task_name}",
+            source_evtx=source_path,
+            confidence="medium",
+            sample_event=event,
+        ))
+
+    # === Windows Defender/Firewall events ===
+    elif event_id == 5001 and "Security" in channel:
+        patterns.append(DetectionPattern(
+            event_id=event_id,
+            channel=channel,
+            provider_name=provider,
+            field_matches={"win.system.eventID": "5001"},
+            tactic=tactic or "defense_evasion",
+            technique_name="Windows Defender disabled",
+            description="Windows Defender real-time protection disabled",
+            source_evtx=source_path,
+            confidence="high",
+            sample_event=event,
+        ))
 
     # === PowerShell Script Block Logging (4104) ===
     elif event_id == 4104 and "PowerShell" in channel:
@@ -311,6 +642,24 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
                     tactic=tactic or "execution",
                     technique_name=f"Suspicious PowerShell: {pattern}",
                     description=f"Suspicious PowerShell script block containing '{pattern}'",
+                    source_evtx=source_path,
+                    confidence="medium",
+                    sample_event=event,
+                ))
+
+    # === PowerShell Module Logging (4103) ===
+    elif event_id == 4103 and "PowerShell" in channel:
+        payload = event_data.get("Payload", "").lower()
+        for pattern in SUSPICIOUS_CMD_PATTERNS:
+            if pattern in payload:
+                patterns.append(DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={"win.eventdata.payload": pattern},
+                    tactic=tactic or "execution",
+                    technique_name=f"PowerShell module: {pattern}",
+                    description=f"PowerShell module logging captured: '{pattern}'",
                     source_evtx=source_path,
                     confidence="medium",
                     sample_event=event,

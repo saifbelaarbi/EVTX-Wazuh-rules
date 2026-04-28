@@ -112,9 +112,9 @@ def _build_xml_group(rules: list[dict], group_name: str) -> str:
 
     # Pretty print
     etree.indent(root, space="  ")
-    xml_str = etree.tostring(root, pretty_print=True, encoding="unicode",
-                              xml_declaration=True)
-    return xml_str
+    xml_decl = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_str = etree.tostring(root, pretty_print=True, encoding="unicode")
+    return xml_decl + xml_str
 
 
 def export_drafts(rules: list[dict]) -> Path:

@@ -1,0 +1,25 @@
+sigma_sources:
+  - name: SigmaHQ
+    repo: SigmaHQ/sigma
+    url: https://github.com/SigmaHQ/sigma.git
+    type: github_clone
+    description: "3000+ community detection rules in Sigma YAML format"
+    rules_subdir: rules/windows
+    categories:
+      - builtin
+      - create_remote_thread
+      - create_stream_hash
+      - dns_query
+      - driver_load
+      - file
+      - image_load
+      - network_connection
+      - pipe_created
+      - powershell
+      - process_access
+      - process_creation
+      - process_tampering
+      - raw_access_thread
+      - registry
+      - sysmon
+      - wmi_event

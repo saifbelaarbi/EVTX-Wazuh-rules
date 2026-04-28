@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1566_phishing,">
+  <rule id="100000" level="6">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4625</field>
+    <description>Failed logon attempt (type 10)</description>
+    <mitre>
+      <id>T1566</id>
+    </mitre>
+    <group>initial_access,evtx_generated,</group>
+  </rule>
+</group>
