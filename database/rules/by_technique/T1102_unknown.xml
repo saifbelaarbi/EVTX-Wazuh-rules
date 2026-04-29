@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1102_unknown,">
+  <rule id="101826" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.t\.me$|4shared\.com$|abuse\.ch$|anonfiles\.com$|cdn\.discordapp\.com$|cloudflare\.com$|ddns\.net$|discord\.com$|docs\.google\.com$|drive\.google\.com$|dropbox\.com$|dropmefiles\.com$|facebook\.com$|feeds\.rapidfeeds\.com$|fotolog\.com$|ghostbin\.co/$|githubusercontent\.com$|gofile\.io$|hastebin\.com$|imgur\.com$|livejournal\.com$|mediafire\.com$|mega\.co\.nz$|mega\.nz$|onedrive\.com$|pages\.dev$|paste\.ee$|pastebin\.com$|pastebin\.pl$|pastetext\.net$|pixeldrain\.com$|privatlab\.com$|privatlab\.net$|reddit\.com$|send\.exploit\.in$|sendspace\.com$|steamcommunity\.com$|storage\.googleapis\.com$|technet\.microsoft\.com$|temp\.sh$|transfer\.sh$|trycloudflare\.com$|twitter\.com$|ufile\.io$|vimeo\.com$|w3spaces\.com$|wetransfer\.com$|workers\.dev$|youtube\.com$</field>
+    <description>Sigma: New Connection Initiated To Potential Dead Drop Resolver Domain</description>
+    <mitre>
+      <id>T1102</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

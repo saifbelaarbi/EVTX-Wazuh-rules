@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1106_unknown,">
+  <rule id="101958" level="13">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.callTrace">^C:\\Windows\\SYSTEM32\\ntdll\.dll\+[a-z0-9]{4,6}\|C:\\Windows\\System32\\KERNELBASE\.dll\+[a-z0-9]{4,6}\|UNKNOWN\([A-Z0-9]{16}\)$</field>
+    <field name="win.eventdata.grantedAccess">0x1028|0x1fffff</field>
+    <description>Sigma: HackTool - CobaltStrike BOF Injection Pattern</description>
+    <mitre>
+      <id>T1106</id>
+      <id>T1562</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101961" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
+    <field name="win.eventdata.grantedAccess">0x1440</field>
+    <field name="win.eventdata.callTrace">\)$</field>
+    <description>Sigma: HackTool - HandleKatz Duplicating LSASS Handle</description>
+    <mitre>
+      <id>T1106</id>
+      <id>T1003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

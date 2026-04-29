@@ -1,274 +1,387 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1055_process_injection,">
-  <rule id="104007" level="9">
+  <rule id="101698" level="9">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.sourceImage">\System32\cscript\.exe$|\System32\wscript\.exe$|\System32\mshta\.exe$|\winword\.exe$|\excel\.exe$</field>
+    <field name="win.eventdata.targetImage">\SysWOW64\</field>
+    <field name="win.eventdata.startModule"></field>
+    <description>Sigma: HackTool - CACTUSTORCH Remote Thread Creation</description>
+    <mitre>
+      <id>T1055</id>
+      <id>T1059</id>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101699" level="13">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.startAddress">0B80$|0C7C$|0C88$</field>
+    <description>Sigma: HackTool - Potential CobaltStrike Process Injection</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101704" level="9">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.sourceImage">\bash\.exe$|\cscript\.exe$|\cvtres\.exe$|\defrag\.exe$|\dialer\.exe$|\dnx\.exe$|\esentutl\.exe$|\excel\.exe$|\expand\.exe$|\find\.exe$|\findstr\.exe$|\forfiles\.exe$|\gpupdate\.exe$|\hh\.exe$|\installutil\.exe$|\lync\.exe$|\makecab\.exe$|\mDNSResponder\.exe$|\monitoringhost\.exe$|\msbuild\.exe$|\mshta\.exe$|\mspaint\.exe$|\outlook\.exe$|\ping\.exe$|\provtool\.exe$|\python\.exe$|\regsvr32\.exe$|\robocopy\.exe$|\runonce\.exe$|\sapcimc\.exe$|\smartscreen\.exe$|\spoolsv\.exe$|\tstheme\.exe$|\userinit\.exe$|\vssadmin\.exe$|\vssvc\.exe$|\w3wp\.exe$|\winscp\.exe$|\winword\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Rare Remote Thread Creation By Uncommon Source Image</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101818" level="9">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\appdata\</field>
-    <description>DLL loaded from suspicious path: \appdata\</description>
+    <field name="win.eventdata.image">\cmstp\.exe$|\cscript\.exe$|\mshta\.exe$|\msxsl\.exe$|\regsvr32\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\clr\.dll$|\mscoree\.dll$|\mscorlib\.dll$</field>
+    <description>Sigma: DotNet CLR DLL Loaded By Scripting Applications</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104008" level="9">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\public\</field>
-    <description>DLL loaded from suspicious path: \public\</description>
+  <rule id="101831" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">\notepad\.exe$</field>
+    <description>Sigma: Network Connection Initiated Via Notepad.EXE</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104010" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">mshta</field>
-    <description>Image load by suspicious process 'mshta'</description>
+  <rule id="101841" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\MSSE-|-server</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104012" level="9">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4720</field>
-    <description>New user account created: $</description>
+  <rule id="101842" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\interprocess_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104013" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\downloads\</field>
-    <description>Executable file created in suspicious path: \downloads\</description>
+  <rule id="101843" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\lsarpc_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104014" level="9">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\downloads\</field>
-    <description>DLL loaded from suspicious path: \downloads\</description>
+  <rule id="101844" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\mojo_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104015" level="7">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4624</field>
-    <field name="win.eventdata.logonType">3</field>
-    <description>Remote logon type 3 detected</description>
+  <rule id="101845" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\msagent_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104018" level="9">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\programdata\</field>
-    <description>DLL loaded from suspicious path: \programdata\</description>
+  <rule id="101846" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\netlogon_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104019" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\programdata\</field>
-    <description>Executable file created in suspicious path: \programdata\</description>
+  <rule id="101847" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\postex_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104020" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\appdata\</field>
-    <description>Executable file created in suspicious path: \appdata\</description>
+  <rule id="101848" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\samr_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104022" level="9">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4781</field>
-    <description>Account renamed from 'compnay-88$' to 'rootdc1'</description>
+  <rule id="101849" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\srvsvc_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104025" level="13">
+  <rule id="101850" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\status_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101851" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\wkssvc_</field>
+    <description>Sigma: CobaltStrike Named Pipe</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101852" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\mojo\.5688\.8052\.(?:183894939787088877|35780273329370473)[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101853" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\wkssvc_?[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101854" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\ntsvcs[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101855" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\DserNamePipe[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101856" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\SearchTextHarvester[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101857" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\mypipe-(?:f|h)[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101858" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\windows\.update\.manager[0-9a-f]{2,3}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101859" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\ntsvcs_[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101860" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\scerpc_?[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101861" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\PGMessagePipe[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101862" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\MsFteWds[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101863" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\f4c3[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101864" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\fullduplex_[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101865" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\msrpc_[0-9a-f]{4}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101866" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\win\\msrpc_[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101867" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\f53f[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101868" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\rpc_[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101869" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\spoolss_[0-9a-f]{2}</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101870" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\Winsock2\\CatalogChangeListener-[0-9a-f]{3}-0,</field>
+    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101871" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">-0,$</field>
+    <description>Sigma: CobaltStrike Named Pipe Patterns</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101872" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">^\DserNamePipe|^\f4c3|^\f53f|^\fullduplex_|^\mojo\.5688\.8052\.183894939787088877|^\mojo\.5688\.8052\.35780273329370473|^\MsFteWds|^\msrpc_|^\mypipe-f|^\mypipe-h|^\ntsvcs|^\PGMessagePipe|^\rpc_|^\scerpc|^\SearchTextHarvester|^\spoolss|^\win_svc|^\win\msrpc_|^\windows\.update\.manager|^\wkssvc</field>
+    <description>Sigma: CobaltStrike Named Pipe Patterns</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101873" level="13">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\demoagent_11|\demoagent_22</field>
+    <description>Sigma: CobaltStrike Named Pipe Patterns</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101874" level="9">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\coerced\</field>
+    <description>Sigma: HackTool - CoercedPotato Named Pipe Creation</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101876" level="9">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\pipe\|\pipe\srvsvc</field>
+    <description>Sigma: HackTool - EfsPotato Named Pipe Creation</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101879" level="12">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\46a676ab7f179e511e30dd2dc41bd388|\583da945-62af-10e8-4902-a8f205c72b2e|\6e7645c4-32c5-4fe3-aabf-e94c2f4370e7|\9f81f59bc58452127884ce513865ed20|\adschemerpc|\ahexec|\AnonymousPipe|\bc31a7|\bc367|\bizkaz|\csexecsvc|\dce_3d|\e710f28d59aa529d6792ca6ff0ca1b34|\gruntsvc|\isapi_dg|\isapi_dg2|\isapi_http|\jaccdpqnvbrrxlaf|\lsassw|\NamePipe_MoreWindows|\pcheap_reuse|\Posh*|\rpchlp_3|\sdlrpc|\svcctl|\testPipe|\winsession</field>
+    <description>Sigma: Malicious Named Pipe Created</description>
+    <mitre>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101939" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">invoke-mimikatz</field>
-    <description>PowerShell module logging captured: 'invoke-mimikatz'</description>
+    <field name="win.eventdata.scriptBlockText">OiCAAAAYInlM|OiJAAAAYInlM</field>
+    <description>Sigma: PowerShell ShellCode</description>
     <mitre>
       <id>T1055</id>
+      <id>T1059</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104026" level="9">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">invoke-expression</field>
-    <description>PowerShell module logging captured: 'invoke-expression'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104027" level="9">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">downloadstring</field>
-    <description>PowerShell module logging captured: 'downloadstring'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104028" level="13">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">sekurlsa::</field>
-    <description>PowerShell module logging captured: 'sekurlsa::'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104029" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\temp\</field>
-    <description>Executable file created in suspicious path: \temp\</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104030" level="7">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4672</field>
-    <description>Special privileges assigned to user: hack1</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104033" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">psexec</field>
-    <description>Image load by suspicious process 'psexec'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104034" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">psexesvc</field>
-    <description>Image load by suspicious process 'psexesvc'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104035" level="9">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\temp\</field>
-    <description>DLL loaded from suspicious path: \temp\</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104036" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">certutil</field>
-    <description>Image load by suspicious process 'certutil'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104037" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">bitsadmin</field>
-    <description>Image load by suspicious process 'bitsadmin'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104038" level="10">
-    <if_sid>61627</if_sid>
-    <field name="win.eventdata.image">&lt;unknown process&gt;</field>
-    <description>Process tampering detected: Image is locked for access</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104039" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">seatbelt</field>
-    <description>Image load by suspicious process 'seatbelt'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104040" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">installutil</field>
-    <description>Image load by suspicious process 'installutil'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104041" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">wmic</field>
-    <description>Image load by suspicious process 'wmic'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104042" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">rubeus</field>
-    <description>Image load by suspicious process 'rubeus'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104043" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">nanodump</field>
-    <description>Image load by suspicious process 'nanodump'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104044" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">procdump</field>
-    <description>Image load by suspicious process 'procdump'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="104045" level="13">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">mimikatz</field>
-    <description>Image load by suspicious process 'mimikatz'</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
 </group>

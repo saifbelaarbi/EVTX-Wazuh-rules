@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1070_indicator_removal,">
+  <rule id="101626" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">1102</field>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
+    <description>Sigma: Security Eventlog Cleared</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101627" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">517</field>
+    <field name="win.eventdata.provider_Name">Security</field>
+    <description>Sigma: Security Eventlog Cleared</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101678" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.system.eventID">104</field>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
+    <field name="win.eventdata.channel">Microsoft-Windows-PowerShell/Operational|Microsoft-Windows-Sysmon/Operational|PowerShellCore/Operational|Security|System|Windows PowerShell</field>
+    <description>Sigma: Important Windows Eventlog Cleared</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101715" level="9">
+    <if_sid>61625</if_sid>
+    <field name="win.eventdata.targetFilename">_Cmdlet_</field>
+    <description>Sigma: Exchange PowerShell Cmdlet History Deleted</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101716" level="9">
+    <if_sid>61625</if_sid>
+    <field name="win.eventdata.targetFilename">\.pf$</field>
+    <description>Sigma: Prefetch File Deleted</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101908" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">ConsoleHost_history\.txt|\(Get-PSReadlineOption\)\.HistorySavePath</field>
+    <description>Sigma: Clearing Windows Console History</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101910" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Remove-Module|psreadline</field>
+    <description>Sigma: Disable Powershell Command History</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101913" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Remove-EtwTraceProvider </field>
+    <description>Sigma: Disable of ETW Trace - Powershell</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1562</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101914" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Set-EtwTraceProvider |0x11</field>
+    <description>Sigma: Disable of ETW Trace - Powershell</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1562</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="111010" level="14">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">deletejournal|createjournal|setZeroData</field>
+    <field name="win.eventdata.image">\fsutil\.exe$</field>
+    <description>Sigma: Fsutil Suspicious Invocation</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1485</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+  <rule id="111022" level="14">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\vssadmin\.exe$</field>
+    <field name="win.eventdata.commandLine">unbounded|/MaxSize=|shadowstorage|quiet</field>
+    <description>Sigma: Shadow Copies Deletion Using Operating Systems Utilities</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1490</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+  <rule id="102278" level="10">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.eventType">DeleteValue</field>
+    <field name="win.eventdata.targetObject">\Microsoft\Terminal Server Client\Default\MRU</field>
+    <description>Sigma: Terminal Server Client Connection History Cleared - Registry</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102279" level="10">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.eventType">DeleteKey</field>
+    <field name="win.eventdata.targetObject">\Microsoft\Terminal Server Client\Servers\</field>
+    <description>Sigma: Terminal Server Client Connection History Cleared - Registry</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1565_unknown,">
+  <rule id="111006" level="14">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Add-DnsClientNrptRule|-Namesp|-NameSe</field>
+    <description>Sigma: Powershell Add Name Resolution Policy Table Rule</description>
+    <mitre>
+      <id>T1565</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+</group>

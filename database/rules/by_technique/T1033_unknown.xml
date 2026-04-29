@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1033_unknown,">
+  <rule id="106033" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /method:ntlm$| /method:kerb$| /method:nego$| /m:nego$| /m:ntlm$| /m:kerb$</field>
+    <description>Sigma: HackTool - SharpLdapWhoami Execution</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106034" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\SharpLdapWhoami\.exe$</field>
+    <description>Sigma: HackTool - SharpLdapWhoami Execution</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106035" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">SharpLdapWhoami</field>
+    <description>Sigma: HackTool - SharpLdapWhoami Execution</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106036" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.product">SharpLdapWhoami</field>
+    <description>Sigma: HackTool - SharpLdapWhoami Execution</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106062" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">whoami\.exe</field>
+    <description>Sigma: Renamed Whoami Execution</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106064" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.exe whoami</field>
+    <description>Sigma: WhoAmI as Parameter</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106067" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">whoami\.exe</field>
+    <field name="win.eventdata.user">AUTHORI|AUTORI|TrustedInstaller</field>
+    <description>Sigma: Whoami.EXE Execution From Privileged Process</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106068" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /priv| -priv</field>
+    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <description>Sigma: Security Privileges Enumeration Via Whoami.EXE</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+</group>

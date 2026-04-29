@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1571_unknown,">
+  <rule id="102186" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationPort">100|198|200|243|473|666|700|743|777|1443|1515|1777|1817|1904|1960|2443|2448|3360|3675|3939|4040|4433|4438|4443|4444|4455|5445|5552|5649|6625|7210|7777|8143|8843|9631|9943|10101|12102|12103|12322|13145|13394|13504|13505|13506|13507|14102|14103|14154|49180|65520|65535</field>
+    <description>Sigma: Potentially Suspicious Malware Callback Communication</description>
+    <mitre>
+      <id>T1571</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1098_unknown,">
+  <rule id="102090" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5136</field>
+    <field name="win.eventdata.attributeLDAPDisplayName">ntSecurityDescriptor</field>
+    <field name="win.eventdata.attributeValue">1131f6ad-9c07-11d1-f79f-00c04fc2dcd2|1131f6aa-9c07-11d1-f79f-00c04fc2dcd2|89e95b76-444d-4c62-991a-0facbeda640c</field>
+    <description>Sigma: Powerview Add-DomainObjectAcl DCSync AD Extend Right</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102091" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4704</field>
+    <field name="win.eventdata.privilegeList">SeEnableDelegationPrivilege</field>
+    <description>Sigma: Enabled User Right in AD to Control User Objects</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102092" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4738</field>
+    <description>Sigma: Active Directory User Backdoors</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102102" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4794</field>
+    <description>Sigma: Password Change on Directory Service Restore Mode (DSRM) Account</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102250" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">localgroup | /add</field>
+    <description>Sigma: User Added To Highly Privileged Group</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

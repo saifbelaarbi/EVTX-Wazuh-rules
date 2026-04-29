@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1005_data_from_local_system,">
+  <rule id="108019" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">SELECT|TOP|\[VeeamBackup\]\.\[dbo\]\.\[Credentials\]</field>
+    <field name="win.eventdata.image">\sqlcmd\.exe$</field>
+    <description>Sigma: VeeamBackup Database Credentials Dump Via Sqlcmd.EXE</description>
+    <mitre>
+      <id>T1005</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+</group>

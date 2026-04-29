@@ -11,7 +11,8 @@ This document describes the EVTX sample sources used to generate the Wazuh rule 
 | 3 | [Security-Datasets](https://github.com/OTRF/Security-Datasets) | `Security-Datasets` | 37 | 109 |
 | 4 | [danderspritz-evtx](https://github.com/fox-it/danderspritz-evtx) | `danderspritz-evtx` | 1 | 2 |
 | 5 | [hayabusa-sample-evtx](https://github.com/Yamato-Security/hayabusa-sample-evtx) | `hayabusa-sample-evtx` | 4 | 16 |
-| | **Total** | | **140** | **793** |
+| 6 | unknown | `unknown` | 641 | 777 |
+| | **Total** | | **781** | **1570** |
 
 ## EVTX-ATTACK-SAMPLES
 **Repository:** https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES
@@ -64,6 +65,12 @@ This document describes the EVTX sample sources used to generate the Wazuh rule 
 | Directory | EVTX Files | Rules Generated | Sample Files |
 |-----------|------------|-----------------|--------------|
 | DeepBlueCLI | 4 | 16 | `Powershell-Invoke-Obfuscation-many.evtx`, `many-events-system.evtx`, `metasploit-psexec-native-target-system.evtx` +1 more |
+
+## unknown
+
+| Directory | EVTX Files | Rules Generated | Sample Files |
+|-----------|------------|-----------------|--------------|
+| (root) | 641 | 777 | `win_security_diagtrack_eop_default_login_username.yml`, `win_security_overpass_the_hash.yml`, `win_security_rdp_localhost_login.yml` +638 more |
 
 ## Credits
 

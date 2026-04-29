@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1566_phishing,">
-  <rule id="100000" level="6">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4625</field>
-    <description>Failed logon attempt (type 10)</description>
+  <rule id="101736" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.iso$|\.zip\</field>
+    <description>Sigma: ISO File Created Within Temp Folders</description>
     <mitre>
       <id>T1566</id>
     </mitre>
-    <group>initial_access,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101737" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.iso$</field>
+    <description>Sigma: ISO File Created Within Temp Folders</description>
+    <mitre>
+      <id>T1566</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101754" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\cscript\.exe$|\mshta\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.docm$|\.dotm$|\.xlsm$|\.xltm$|\.potm$|\.pptm$</field>
+    <description>Sigma: Office Macro File Creation From Suspicious Process</description>
+    <mitre>
+      <id>T1566</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101756" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Packages\Microsoft\.Outlook_|\AppData\Local\Microsoft\Olk\Attachments\</field>
+    <description>Sigma: Suspicious File Created in Outlook Temporary Directory</description>
+    <mitre>
+      <id>T1566</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
   </rule>
 </group>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1204_user_execution,">
+  <rule id="101757" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$|\msaccess\.exe$|\mspub\.exe$|\powerpnt\.exe$|\visio\.exe$|\winword\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.bat$|\.cmd$|\.com$|\.dll$|\.exe$|\.hta$|\.ocx$|\.proj$|\.ps1$|\.scf$|\.scr$|\.sys$|\.vbe$|\.vbs$|\.wsf$|\.wsh$</field>
+    <description>Sigma: File With Uncommon Extension Created By An Office Application</description>
+    <mitre>
+      <id>T1204</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101781" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.bat$|\.dll$|\.exe$|\.hta$|\.js$|\.ps1$|\.vbe$|\.vbs$</field>
+    <description>Sigma: Suspicious Binaries and Scripts in Public Folder</description>
+    <mitre>
+      <id>T1204</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101783" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.bat$|\.cmd$|\.dll$|\.hta$|\.jar$|\.js$|\.jse$|\.msi$|\.ps1$|\.psd1$|\.psm1$|\.scr$|\.url$|\.vba$|\.vbe$|\.vbs$|\.wsf$</field>
+    <description>Sigma: Suspicious Startup Folder Persistence</description>
+    <mitre>
+      <id>T1204</id>
+      <id>T1547</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101814" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\onenote\.exe$|\onenoteim\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
+    <field name="win.eventdata.imageLoaded">^C:\Windows\Microsoft\.NET\assembly\GAC_MSIL</field>
+    <description>Sigma: GAC DLL Loaded Via Office Applications</description>
+    <mitre>
+      <id>T1204</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101815" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\onenote\.exe$|\onenoteim\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\VBE7\.DLL$|\VBEUI\.DLL$|\VBE7INTL\.DLL$</field>
+    <description>Sigma: VBA DLL Loaded Via Office Application</description>
+    <mitre>
+      <id>T1204</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101962" level="9">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.sourceImage">\winword\.exe$</field>
+    <field name="win.eventdata.callTrace">:\Windows\Microsoft\.NET\Framework64\v2\.|UNKNOWN</field>
+    <description>Sigma: HackTool - LittleCorporal Generated Maldoc Injection</description>
+    <mitre>
+      <id>T1204</id>
+      <id>T1055</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

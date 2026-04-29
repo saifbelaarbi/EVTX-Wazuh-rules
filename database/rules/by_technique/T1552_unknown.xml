@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1552_unknown,">
+  <rule id="101724" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\hive_sam_|\SAM-2021-|\SAM-2022-|\SAM-2023-|\SAM-haxx|\Sam\.save</field>
+    <description>Sigma: HackTool - Typical HiveNightmare SAM File Export</description>
+    <mitre>
+      <id>T1552</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101725" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">C:\windows\temp\sam</field>
+    <description>Sigma: HackTool - Typical HiveNightmare SAM File Export</description>
+    <mitre>
+      <id>T1552</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="108022" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">trufflehog\.exe$|gitleaks\.exe$</field>
+    <field name="win.eventdata.parentImage">\node\.exe$|\bun\.exe$</field>
+    <description>Sigma: Script Interpreter Spawning Credential Scanner - Windows</description>
+    <mitre>
+      <id>T1552</id>
+      <id>T1005</id>
+      <id>T1059</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+</group>

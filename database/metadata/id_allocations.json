@@ -2,14 +2,14 @@
   "persistence": {
     "range_start": 102000,
     "range_end": 102999,
-    "next_id": 102089,
-    "allocated_count": 89
+    "next_id": 102357,
+    "allocated_count": 357
   },
   "execution": {
     "range_start": 101000,
     "range_end": 101999,
-    "next_id": 101617,
-    "allocated_count": 617
+    "next_id": 102000,
+    "allocated_count": 1000
   },
   "command_and_control": {
     "range_start": 109000,
@@ -50,7 +50,25 @@
   "discovery": {
     "range_start": 106000,
     "range_end": 106999,
-    "next_id": 106010,
-    "allocated_count": 10
+    "next_id": 106069,
+    "allocated_count": 69
+  },
+  "collection": {
+    "range_start": 108000,
+    "range_end": 108999,
+    "next_id": 108024,
+    "allocated_count": 24
+  },
+  "impact": {
+    "range_start": 111000,
+    "range_end": 111999,
+    "next_id": 111027,
+    "allocated_count": 27
+  },
+  "exfiltration": {
+    "range_start": 110000,
+    "range_end": 110999,
+    "next_id": 110017,
+    "allocated_count": 17
   }
 }

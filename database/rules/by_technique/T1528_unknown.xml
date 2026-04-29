@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1528_unknown,">
+  <rule id="101674" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4663</field>
+    <field name="win.eventdata.objectName">\Microsoft\Teams\Cookies|\Microsoft\Teams\Local Storage\leveldb</field>
+    <description>Sigma: Suspicious Teams Application Related ObjectAcess Event</description>
+    <mitre>
+      <id>T1528</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101878" level="9">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\imposecost|\imposingcost</field>
+    <description>Sigma: HackTool - Koh Default Named Pipe</description>
+    <mitre>
+      <id>T1528</id>
+      <id>T1134</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1001_unknown,">
+  <rule id="101666" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5136</field>
+    <field name="win.eventdata.attributeValue">*</field>
+    <field name="win.eventdata.attributeLDAPDisplayName">primaryInternationalISDNNumber|otherFacsimileTelephoneNumber|primaryTelexNumber</field>
+    <description>Sigma: Suspicious LDAP-Attributes Used</description>
+    <mitre>
+      <id>T1001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

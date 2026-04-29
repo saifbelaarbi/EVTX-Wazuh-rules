@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1485_data_destruction,">
+  <rule id="111015" level="14">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">sdelete\.exe</field>
+    <description>Sigma: Renamed Sysinternals Sdelete Execution</description>
+    <mitre>
+      <id>T1485</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+  <rule id="111023" level="14">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">sdelete\.exe</field>
+    <description>Sigma: Potential File Overwrite Via Sysinternals SDelete</description>
+    <mitre>
+      <id>T1485</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1012_unknown,">
+  <rule id="106012" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4656</field>
+    <field name="win.eventdata.objectType">Key</field>
+    <field name="win.eventdata.objectName">\SAM$</field>
+    <description>Sigma: SAM Registry Hive Handle Request</description>
+    <mitre>
+      <id>T1012</id>
+      <id>T1552</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106014" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4656|4663</field>
+    <field name="win.eventdata.objectType">key</field>
+    <field name="win.eventdata.objectName">lsa\JD$|lsa\GBG$|lsa\Skew1$|lsa\Data$</field>
+    <description>Sigma: SysKey Registry Keys Access</description>
+    <mitre>
+      <id>T1012</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="110014" level="13">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\system$|\sam$|\security$</field>
+    <field name="win.eventdata.image">\regedit\.exe$</field>
+    <description>Sigma: Exports Critical Registry Keys To a File</description>
+    <mitre>
+      <id>T1012</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+</group>

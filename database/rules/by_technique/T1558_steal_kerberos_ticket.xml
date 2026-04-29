@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1558_steal_kerberos_ticket,">
+  <rule id="101661" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4611</field>
+    <field name="win.eventdata.logonProcessName">User32LogonProcesss</field>
+    <description>Sigma: Register new Logon Process by Rubeus</description>
+    <mitre>
+      <id>T1558</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101663" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4649</field>
+    <description>Sigma: Replay Attack Detected</description>
+    <mitre>
+      <id>T1558</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101675" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4673</field>
+    <field name="win.eventdata.service">LsaRegisterLogonProcess\(\)</field>
+    <field name="win.eventdata.keywords">0x8010000000000000</field>
+    <description>Sigma: User Couldn't Call a Privileged Service 'LsaRegisterLogonProcess'</description>
+    <mitre>
+      <id>T1558</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101728" level="13">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.kirbi$|mimilsa\.log$</field>
+    <description>Sigma: HackTool - Mimikatz Kirbi File Creation</description>
+    <mitre>
+      <id>T1558</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101937" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">System\.IdentityModel\.Tokens\.KerberosRequestorSecurityToken|\.GetRequest\(\)</field>
+    <description>Sigma: Suspicious Kerberos Ticket Request via PowerShell Script - ScriptBlock</description>
+    <mitre>
+      <id>T1558</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>
