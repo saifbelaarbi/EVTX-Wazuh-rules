@@ -13,6 +13,20 @@ paths:
 
 wazuh:
   deploy_path: /var/ossec/etc/rules/
+
+  # Live logtest via Wazuh REST API (primary)
+  # api_url: https://wazuh-manager:55000
+  # api_user: wazuh-wui
+  # api_password_file: ~/.wazuh_api_token
+  # api_verify_ssl: false
+
+  # Live logtest via SSH (fallback)
+  # ssh_host: wazuh-manager
+  # ssh_user: wazuh
+  # ssh_key: ~/.ssh/wazuh_key
+  # logtest_path: /var/ossec/bin/wazuh-logtest
+  # sudo: true
+
   parent_sids:
     eventchannel: 60000
     sysmon: 60009

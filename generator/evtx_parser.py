@@ -256,16 +256,20 @@ def parse_xml_export(file_path: Path) -> list[dict]:
     return events
 
 
-def parse_file(file_path: Path) -> list[dict]:
+def parse_file(file_path: Path, max_events: int | None = None) -> list[dict]:
     """Parse any supported file format, auto-detecting type."""
     fmt = detect_format(file_path)
     if fmt == "evtx":
-        return parse_evtx_binary(file_path)
+        events = parse_evtx_binary(file_path)
     elif fmt == "json":
-        return parse_json_export(file_path)
+        events = parse_json_export(file_path)
     elif fmt == "xml":
-        return parse_xml_export(file_path)
-    return []
+        events = parse_xml_export(file_path)
+    else:
+        events = []
+    if max_events and len(events) > max_events:
+        return events[:max_events]
+    return events
 
 
 def parse_directory(directory: Path, extensions: tuple = (".evtx", ".json", ".jsonl", ".xml")) -> list[dict]:

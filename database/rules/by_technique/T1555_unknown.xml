@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1555_unknown,">
+  <rule id="101700" level="9">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.targetImage">\KeePass\.exe$</field>
+    <description>Sigma: Remote Thread Created In KeePass.EXE</description>
+    <mitre>
+      <id>T1555</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101775" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.cer$|\.key$|\.pfx$|\.pvk$</field>
+    <description>Sigma: DPAPI Backup Keys And Certificate Export Activity IOC</description>
+    <mitre>
+      <id>T1555</id>
+      <id>T1552</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

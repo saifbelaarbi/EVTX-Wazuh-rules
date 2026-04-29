@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1036_unknown,">
+  <rule id="101769" level="12">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\csrss\.exe$|\lsass\.exe$|\RuntimeBroker\.exe$|\sihost\.exe$|\smss\.exe$|\wininit\.exe$|\winlogon\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.bat$|\.dll$|\.exe$|\.hta$|\.iso$|\.ps1$|\.txt$|\.vbe$|\.vbs$</field>
+    <description>Sigma: Windows Binaries Write Suspicious Extensions</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101770" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\dllhost\.exe$|\rundll32\.exe$|\svchost\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.bat$|\.hta$|\.iso$|\.ps1$|\.vbe$|\.vbs$</field>
+    <description>Sigma: Windows Binaries Write Suspicious Extensions</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101773" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.rar\.exe$|\.zip\.exe$</field>
+    <description>Sigma: Suspicious Double Extension Files</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101774" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.doc\.|\.docx\.|\.gif\.|\.jpeg\.|\.jpg\.|\.mp3\.|\.mp4\.|\.pdf\.|\.png\.|\.ppt\.|\.pptx\.|\.rtf\.|\.svg\.|\.txt\.|\.xls\.|\.xlsx\.</field>
+    <description>Sigma: Suspicious Double Extension Files</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101782" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\u202e|\[U\+202E\]|‮</field>
+    <description>Sigma: Potential File Extension Spoofing Using Right-to-Left Override</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101995" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\calc\.exe </field>
+    <field name="win.eventdata.image">\calc\.exe$</field>
+    <description>Sigma: Suspicious Calculator Usage</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

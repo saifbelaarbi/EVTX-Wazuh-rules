@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1078_valid_accounts,">
+  <rule id="102100" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.eventdata.samAccountName">\$$</field>
+    <description>Sigma: Win Susp Computer Name Containing Samtheadmin</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102101" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.eventdata.targetUserName">\$$</field>
+    <description>Sigma: Win Susp Computer Name Containing Samtheadmin</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

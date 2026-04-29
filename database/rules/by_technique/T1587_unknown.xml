@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1587_unknown,">
+  <rule id="101758" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Microsoft\Word\STARTUP</field>
+    <description>Sigma: Uncommon File Created In Office Startup Folder</description>
+    <mitre>
+      <id>T1587</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

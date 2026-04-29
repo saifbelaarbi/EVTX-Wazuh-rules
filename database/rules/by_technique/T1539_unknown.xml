@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1539_unknown,">
+  <rule id="108020" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Login Data|Cookies|Web Data|History|Bookmarks</field>
+    <field name="win.eventdata.product">SQLite</field>
+    <description>Sigma: SQLite Chromium Profile Data DB Access</description>
+    <mitre>
+      <id>T1539</id>
+      <id>T1555</id>
+      <id>T1005</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="108021" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">cookies\.sqlite|places\.sqlite</field>
+    <field name="win.eventdata.product">SQLite</field>
+    <description>Sigma: SQLite Firefox Profile Data DB Access</description>
+    <mitre>
+      <id>T1539</id>
+      <id>T1005</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+</group>

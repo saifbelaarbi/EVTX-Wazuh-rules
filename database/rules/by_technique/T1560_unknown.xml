@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1560_unknown,">
+  <rule id="108017" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <field name="win.eventdata.commandLine"> Järjestelmänvalvoja | Rendszergazda | Администратор | Administrateur | Administrador | Administratör | Administrator | guest | DefaultAccount | "Järjestelmänvalvoja" | "Rendszergazda" | "Администратор" | "Administrateur" | "Administrador" | "Administratör" | "Administrator" | "guest" | "DefaultAccount" | 'Järjestelmänvalvoja' | 'Rendszergazda' | 'Администратор' | 'Administrateur' | 'Administrador' | 'Administratör' | 'Administrator' | 'guest' | 'DefaultAccount' </field>
+    <description>Sigma: Suspicious Manipulation Of Default Accounts Via Net.EXE</description>
+    <mitre>
+      <id>T1560</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="108018" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -m| a </field>
+    <description>Sigma: Rar Usage with Password and Compression Level</description>
+    <mitre>
+      <id>T1560</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+</group>

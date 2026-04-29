@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1105_ingress_tool_transfer,">
+  <rule id="101772" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\svchost\.exe$</field>
+    <field name="win.eventdata.targetFilename">\Personalization\LockScreenImage\</field>
+    <description>Sigma: Suspicious Desktopimgdownldr Target File</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101823" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">\certutil\.exe$</field>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationPort">80|135|443|445</field>
+    <description>Sigma: Uncommon Network Connection Initiated By Certutil.EXE</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="110001" level="13">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">api\.dropboxapi\.com$|content\.dropboxapi\.com$</field>
+    <description>Sigma: Suspicious Dropbox API Usage</description>
+    <mitre>
+      <id>T1105</id>
+      <id>T1567</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="101830" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.image">\IMEWDBLD\.exe$</field>
+    <description>Sigma: Network Connection Initiated By IMEWDBLD.EXE</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101837" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.githubusercontent\.com$|anonfiles\.com$|cdn\.discordapp\.com$|ddns\.net$|dl\.dropboxusercontent\.com$|ghostbin\.co$|github\.com$|glitch\.me$|gofile\.io$|hastebin\.com$|mediafire\.com$|mega\.co\.nz$|mega\.nz$|onrender\.com$|pages\.dev$|paste\.ee$|pastebin\.com$|pastebin\.pl$|pastetext\.net$|pixeldrain\.com$|privatlab\.com$|privatlab\.net$|send\.exploit\.in$|sendspace\.com$|storage\.googleapis\.com$|storjshare\.io$|supabase\.co$|temp\.sh$|transfer\.sh$|trycloudflare\.com$|ufile\.io$|w3spaces\.com$|workers\.dev$</field>
+    <field name="win.eventdata.image">:\\$Recycle\.bin|:\Perflogs\|:\Temp\|:\Users\Default\|:\Users\Public\|:\Windows\Fonts\|:\Windows\IME\|:\Windows\System32\Tasks\|:\Windows\Tasks\|:\Windows\Temp\|\AppData\Temp\|\config\systemprofile\|\Windows\addins\</field>
+    <description>Sigma: Network Communication Initiated To File Sharing Domains From Process Located In Suspicious Folder</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101838" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.image">:\\$Recycle\.bin|:\Perflogs\|:\Temp\|:\Users\Default\|:\Users\Public\|:\Windows\Fonts\|:\Windows\IME\|:\Windows\System32\Tasks\|:\Windows\Tasks\|\config\systemprofile\|\Contacts\|\Favorites\|\Favourites\|\Music\|\Pictures\|\Videos\|\Windows\addins\</field>
+    <description>Sigma: Network Connection Initiated From Process Located In Potentially Suspicious Or Uncommon Location</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101840" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.image">\wscript\.exe$|\cscript\.exe$</field>
+    <description>Sigma: Outbound Network Connection Initiated By Script Interpreter</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101990" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\brave\.exe$|\chrome\.exe$|\msedge\.exe$|\opera\.exe$|\vivaldi\.exe$</field>
+    <field name="win.eventdata.commandLine">--headless|dump-dom|http</field>
+    <description>Sigma: File Download with Headless Browser</description>
+    <mitre>
+      <id>T1105</id>
+      <id>T1564</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101996" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
+    <field name="win.eventdata.image">\certoc\.exe$</field>
+    <description>Sigma: File Download From IP Based URL Via CertOC.EXE</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101998" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">http</field>
+    <field name="win.eventdata.image">\certreq\.exe$</field>
+    <description>Sigma: Suspicious CertReq Command to Download</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

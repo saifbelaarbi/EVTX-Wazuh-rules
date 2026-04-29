@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1134_access_token_manipulation,">
+  <rule id="101636" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5447</field>
+    <field name="win.eventdata.filterName">RonPolicy</field>
+    <description>Sigma: HackTool - NoFilter Execution</description>
+    <mitre>
+      <id>T1134</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101637" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5449</field>
+    <field name="win.eventdata.providerContextName">RonPolicy</field>
+    <description>Sigma: HackTool - NoFilter Execution</description>
+    <mitre>
+      <id>T1134</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101655" level="14">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">cmd|%COMSPEC%|echo|\pipe\</field>
+    <description>Sigma: Meterpreter or Cobalt Strike Getsystem Service Installation - Security</description>
+    <mitre>
+      <id>T1134</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101693" level="14">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">cmd|%COMSPEC%|echo|\pipe\</field>
+    <description>Sigma: Meterpreter or Cobalt Strike Getsystem Service Installation - System</description>
+    <mitre>
+      <id>T1134</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

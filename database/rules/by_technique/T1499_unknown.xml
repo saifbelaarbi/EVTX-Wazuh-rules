@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1499_unknown,">
+  <rule id="111000" level="14">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Ntfs</field>
+    <field name="win.system.eventID">55</field>
+    <field name="win.eventdata.origin">File System Driver</field>
+    <field name="win.eventdata.description">contains a corrupted file record|The name of the file is "\"</field>
+    <description>Sigma: NTFS Vulnerability Exploitation</description>
+    <mitre>
+      <id>T1499</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+</group>

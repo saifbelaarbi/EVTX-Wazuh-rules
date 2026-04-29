@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1053_scheduled_task,">
+  <rule id="101633" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5136</field>
+    <field name="win.eventdata.attributeLDAPDisplayName">gPCMachineExtensionNames|gPCUserExtensionNames</field>
+    <field name="win.eventdata.attributeValue">CAB54552-DEEA-4691-817E-ED4A4D1AFC72|AADCED64-746C-4633-A97C-D61349046527</field>
+    <description>Sigma: Persistence and Execution at Scale via GPO Scheduled Task</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101634" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.shareName">\SYSVOL$</field>
+    <field name="win.eventdata.relativeTargetName">ScheduledTasks\.xml$</field>
+    <field name="win.eventdata.accessList">WriteData|%%4417</field>
+    <description>Sigma: Persistence and Execution at Scale via GPO Scheduled Task</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101671" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.eventdata.taskContent">\AppData\Local\Temp\|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|C:\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\</field>
+    <field name="win.system.eventID">4698</field>
+    <description>Sigma: Suspicious Scheduled Task Creation</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101672" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4699|4701</field>
+    <field name="win.eventdata.taskName">\Windows\SystemRestore\SR|\Windows\Windows Defender\|\Windows\BitLocker|\Windows\WindowsBackup\|\Windows\WindowsUpdate\|\Windows\UpdateOrchestrator\Schedule|\Windows\ExploitGuard</field>
+    <description>Sigma: Important Scheduled Task Deleted/Disabled</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101673" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.eventdata.taskContentNew">\AppData\Local\Temp\|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|C:\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\</field>
+    <field name="win.system.eventID">4702</field>
+    <description>Sigma: Suspicious Scheduled Task Update</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102153" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Windows\System32\Tasks</field>
+    <field name="win.eventdata.image">\AppData\|C:\PerfLogs|\Windows\System32\config\systemprofile</field>
+    <description>Sigma: Suspicious Scheduled Task Write to System32 Tasks</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102195" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\at\.exe$</field>
+    <field name="win.eventdata.commandLine">interactive</field>
+    <description>Sigma: Interactive AT Job</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102245" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine">\AppData\Local\Temp|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\|%ProgramData%|%appdata%|%comspec%|%localappdata%| /TN </field>
+    <description>Sigma: Suspicious Modification Of Scheduled Tasks</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102246" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /create </field>
+    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <description>Sigma: Schtasks From Suspicious Folders</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102247" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine"> /create |ssh\.exe|-i</field>
+    <description>Sigma: Potential SSH Tunnel Persistence Install Using A Scheduled Task</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102248" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine"> ONLOGON | ONSTART | ONCE | ONIDLE </field>
+    <description>Sigma: Suspicious Schtasks Schedule Types</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102249" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine">/Create </field>
+    <description>Sigma: Suspicious Command Patterns In Scheduled Task Creation</description>
+    <mitre>
+      <id>T1053</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

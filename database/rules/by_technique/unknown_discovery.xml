@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,unknown_discovery,">
+  <rule id="106018" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">driverquery\.exe$</field>
+    <field name="win.eventdata.parentImage">\cscript\.exe$|\mshta\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Potential Recon Activity Using DriverQuery.EXE</description>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+</group>

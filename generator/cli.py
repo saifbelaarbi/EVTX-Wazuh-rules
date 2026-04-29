@@ -16,6 +16,8 @@ from . import (
     validator,
     exporter,
     id_manager,
+    sigma_converter,
+    logtest_validator,
 )
 
 console = Console()
@@ -349,6 +351,127 @@ def stats():
 def export_cmd(dest, view):
     """Export rules for Wazuh deployment."""
     exporter.export_for_deployment(Path(dest), view)
+
+
+@cli.command("convert-sigma")
+@click.option("--auto-approve", is_flag=True, help="Export directly to rule database")
+@click.option("--category", default=None, help="Only convert rules from this category (e.g., process_creation)")
+@click.option("--min-level", default="low", type=click.Choice(["informational", "low", "medium", "high", "critical"]),
+              help="Minimum Sigma severity level to convert")
+@click.option("--max-rules", default=None, type=int, help="Maximum number of rules to generate")
+def convert_sigma_cmd(auto_approve, category, min_level, max_rules):
+    """Convert SigmaHQ detection rules to Wazuh XML rules."""
+    config = load_config()
+    sigma_dir = PROJECT_ROOT / config["paths"]["sigma_data"]
+
+    if not sigma_dir.exists():
+        console.print("[red]No Sigma rules found. Run 'python -m collector download-sigma' first.[/]")
+        return
+
+    rules_path = sigma_dir
+    for candidate in [sigma_dir / "SigmaHQ" / "rules" / "windows",
+                      sigma_dir / "sigma" / "rules" / "windows",
+                      sigma_dir / "rules" / "windows",
+                      sigma_dir / "windows"]:
+        if candidate.exists():
+            rules_path = candidate
+            break
+
+    console.print(f"[bold]Converting Sigma rules from {rules_path}...[/]\n")
+
+    # Step 1: Convert
+    rules = sigma_converter.convert_all(
+        rules_dir=rules_path,
+        category=category,
+        min_level=min_level,
+        max_rules=max_rules,
+    )
+
+    if not rules:
+        console.print("[yellow]No rules converted.[/]")
+        return
+
+    # Step 2: Correlate against existing database
+    console.print(f"\n[bold]Correlating {len(rules)} rules against existing database...[/]")
+    existing_index = rule_correlator.load_rule_index()
+    defaults_dir = PROJECT_ROOT / config["paths"]["wazuh_defaults"] / "wazuh-ruleset" / "ruleset" / "rules"
+    default_rules = rule_correlator.load_wazuh_default_rules(defaults_dir)
+
+    kept_rules = []
+    skipped = 0
+    for rule in rules:
+        report = rule_correlator.correlate(rule, existing_index, default_rules)
+        if report["recommendation"] == "skip":
+            skipped += 1
+            continue
+        rule["correlation_report"] = report
+        kept_rules.append(rule)
+
+    console.print(f"  Kept: {len(kept_rules)}, Skipped (duplicates): {skipped}")
+
+    if not kept_rules:
+        console.print("[yellow]All converted rules already exist in the database.[/]")
+        return
+
+    # Step 3: Apply alert levels
+    console.print("\n[bold]Assigning alert levels...[/]")
+    kept_rules = alert_leveler.apply_levels(kept_rules)
+
+    # Step 4: Validate
+    console.print("\n[bold]Validating rules...[/]")
+    errors = validator.validate_rules(kept_rules)
+    if errors:
+        console.print(f"[yellow]Validation warnings ({len(errors)}):[/]")
+        for err in errors[:10]:
+            console.print(f"  - {err}")
+
+    if auto_approve:
+        console.print("\n[bold green]Auto-approving and exporting...[/]")
+        exporter.export_all_views(kept_rules)
+        exporter.update_rule_index(kept_rules)
+        exporter.update_provenance(kept_rules)
+    else:
+        console.print("\n[bold yellow]Exporting as drafts for review...[/]")
+        exporter.export_drafts(kept_rules)
+        console.print("\nRun 'python -m generator review' to review and approve drafts.")
+
+    # Summary
+    table = Table(title="Sigma Conversion Summary")
+    table.add_column("Metric", style="bold")
+    table.add_column("Value", justify="right")
+    table.add_row("Sigma rules scanned", "all")
+    table.add_row("Wazuh rules generated", str(len(kept_rules)))
+    table.add_row("Duplicates skipped", str(skipped))
+    table.add_row("Validation errors", str(len(errors)))
+    table.add_row("Mode", "auto-approved" if auto_approve else "drafts")
+    console.print(table)
+
+
+@cli.command("logtest")
+@click.option("--mode", type=click.Choice(["simulate", "live"]), default="simulate",
+              help="Validation mode: simulate (offline) or live (API/SSH)")
+@click.option("--rule-id", default=None, type=int, help="Validate a specific rule by ID")
+@click.option("--source", default=None, help="Validate rules from a specific EVTX source")
+@click.option("--verbose", is_flag=True, help="Show detailed field match results")
+@click.option("--save", is_flag=True, help="Save results to validation_results.json")
+def logtest_cmd(mode, rule_id, source, verbose, save):
+    """Validate rules against source events via simulation or live wazuh-logtest."""
+    if rule_id:
+        console.print(f"[bold]Validating rule {rule_id} (mode={mode})...[/]\n")
+        result = logtest_validator.validate_single_rule(rule_id, mode=mode)
+        logtest_validator.print_result(result, verbose=verbose)
+
+        if save:
+            logtest_validator.save_results([result])
+    else:
+        results = logtest_validator.validate_all_rules(mode=mode, source_filter=source)
+
+        if verbose:
+            for r in results:
+                logtest_validator.print_result(r, verbose=True)
+
+        if save and results:
+            logtest_validator.save_results(results)
 
 
 if __name__ == "__main__":

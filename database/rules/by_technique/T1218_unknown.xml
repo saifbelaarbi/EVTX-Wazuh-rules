@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1218_unknown,">
+  <rule id="101749" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\UsageLogs\cmstp\.exe\.log$|\UsageLogs\cscript\.exe\.log$|\UsageLogs\mshta\.exe\.log$|\UsageLogs\msxsl\.exe\.log$|\UsageLogs\regsvr32\.exe\.log$|\UsageLogs\rundll32\.exe\.log$|\UsageLogs\svchost\.exe\.log$|\UsageLogs\wscript\.exe\.log$|\UsageLogs\wmic\.exe\.log$</field>
+    <description>Sigma: Suspicious DotNET CLR Usage Log Artifact</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101777" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\winword\.exe$|\excel\.exe$|\powerpnt\.exe$|\msaccess\.exe$|\mspub\.exe$|\eqnedt32\.exe$|\visio\.exe$|\wordpad\.exe$|\wordview\.exe$|\certutil\.exe$|\certoc\.exe$|\CertReq\.exe$|\Desktopimgdownldr\.exe$|\esentutl\.exe$|\finger\.exe$|\notepad\.exe$|\AcroRd32\.exe$|\RdrCEF\.exe$|\mshta\.exe$|\hh\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.zip$|\.rar$|\.7z$|\.diagcab$|\.appx$</field>
+    <description>Sigma: Legitimate Application Dropped Archive</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101778" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\eqnedt32\.exe$|\wordpad\.exe$|\wordview\.exe$|\certutil\.exe$|\certoc\.exe$|\CertReq\.exe$|\Desktopimgdownldr\.exe$|\esentutl\.exe$|\mshta\.exe$|\AcroRd32\.exe$|\RdrCEF\.exe$|\hh\.exe$|\finger\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.exe$|\.dll$|\.ocx$</field>
+    <description>Sigma: Legitimate Application Dropped Executable</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101779" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\eqnedt32\.exe$|\wordpad\.exe$|\wordview\.exe$|\cmdl32\.exe$|\certutil\.exe$|\certoc\.exe$|\CertReq\.exe$|\bitsadmin\.exe$|\Desktopimgdownldr\.exe$|\esentutl\.exe$|\expand\.exe$|\extrac32\.exe$|\replace\.exe$|\mshta\.exe$|\ftp\.exe$|\Ldifde\.exe$|\RdrCEF\.exe$|\hh\.exe$|\finger\.exe$|\findstr\.exe$</field>
+    <field name="win.eventdata.targetFilename">:\Perflogs|:\ProgramData\|:\Temp\|:\Users\Public\|:\Windows\|\\$Recycle\.Bin\|\AppData\Local\|\AppData\Roaming\|\Contacts\|\Desktop\|\Favorites\|\Favourites\|\inetpub\wwwroot\|\Music\|\Pictures\|\Start Menu\Programs\Startup\|\Users\Default\|\Videos\</field>
+    <description>Sigma: Legitimate Application Writing Files In Uncommon Location</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1105</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101780" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\eqnedt32\.exe$|\wordpad\.exe$|\wordview\.exe$|\certutil\.exe$|\certoc\.exe$|\CertReq\.exe$|\Desktopimgdownldr\.exe$|\esentutl\.exe$|\mshta\.exe$|\AcroRd32\.exe$|\RdrCEF\.exe$|\hh\.exe$|\finger\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.ps1$|\.bat$|\.vbs$|\.scf$|\.wsf$|\.wsh$</field>
+    <description>Sigma: Legitimate Application Dropped Script</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101805" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\cmstp\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\.dll$|\.ocx$</field>
+    <description>Sigma: DLL Loaded From Suspicious Location Via Cmspt.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101810" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\ttdrecord\.dll$|\ttdwriter\.dll$|\ttdloader\.dll$</field>
+    <description>Sigma: Time Travel Debugging Utility Usage - Image</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101817" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\BaaUpdate\.exe$</field>
+    <field name="win.eventdata.imageLoaded">:\Perflogs\|:\Users\Default\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\AppData\Roaming\|\Contacts\|\Favorites\|\Favourites\|\Links\|\Music\|\Pictures\|\ProgramData\|\Temporary Internet|\Videos\</field>
+    <description>Sigma: BaaUpdate.exe Suspicious DLL Load</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1021</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101822" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.image">\addinutil\.exe$</field>
+    <description>Sigma: Network Connection Initiated By AddinUtil.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101824" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">\cmstp\.exe$</field>
+    <field name="win.eventdata.initiated">true</field>
+    <description>Sigma: Outbound Network Connection Initiated By Cmstp.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101897" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
+    <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101936" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">^function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
+    <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101957" level="9">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.callTrace">cmlua\.dll</field>
+    <description>Sigma: CMSTP Execution Process Access</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1559</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101976" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\addinutil\.exe$</field>
+    <description>Sigma: Suspicious AddinUtil.EXE CommandLine Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101978" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -powershell| -remediationScript</field>
+    <field name="win.eventdata.image">\AgentExecutor\.exe$</field>
+    <description>Sigma: Suspicious AgentExecutor PowerShell Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101988" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\baaupdate\.exe$</field>
+    <field name="win.eventdata.image">\bitsadmin\.exe$|\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\schtasks\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Suspicious BitLocker Access Agent Update Utility Execution</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1021</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101997" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\Appdata\Local\Temp\|\Desktop\|\Downloads\|\Users\Public\|C:\Windows\Tasks\|C:\Windows\Temp\</field>
+    <field name="win.eventdata.image">\certoc\.exe$</field>
+    <description>Sigma: Suspicious DLL Loaded via CertOC.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

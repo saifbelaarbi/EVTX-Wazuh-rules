@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1202_unknown,">
+  <rule id="101809" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\msdt\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\sdiageng\.dll$</field>
+    <description>Sigma: Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

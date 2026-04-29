@@ -1,121 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1548_abuse_elevation,">
-  <rule id="103005" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\appdata\</field>
-    <description>DLL loaded from suspicious path: \appdata\</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
-  <rule id="103006" level="8">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4672</field>
-    <description>Special privileges assigned to user: administrator</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
-  <rule id="103007" level="8">
+  <rule id="101620" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">3</field>
-    <description>Remote logon type 3 detected</description>
+    <field name="win.eventdata.authenticationPackageName">Kerberos</field>
+    <field name="win.eventdata.ipAddress">127\.0\.0\.1</field>
+    <field name="win.eventdata.targetUserSid">-500$</field>
+    <description>Sigma: Potential Privilege Escalation via Local Kerberos Relay over LDAP</description>
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103008" level="10">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4698</field>
-    <description>Scheduled task created: \FullPowersTask</description>
+  <rule id="101681" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">NetLogon</field>
+    <field name="win.system.eventID">5829</field>
+    <description>Sigma: Vulnerable Netlogon Secure Channel Connection Allowed</description>
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103009" level="8">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4648</field>
-    <description>Logon with explicit credentials targeting localhost</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
-  <rule id="103010" level="10">
+  <rule id="101790" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\temp\</field>
-    <description>Executable file created in suspicious path: \temp\</description>
+    <field name="win.eventdata.targetFilename">\comctl32\.dll$</field>
+    <description>Sigma: UAC Bypass Using Consent and Comctl32 - File</description>
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103011" level="10">
+  <rule id="101791" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\appdata\</field>
-    <description>Executable file created in suspicious path: \appdata\</description>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\pe386\.dll$</field>
+    <description>Sigma: UAC Bypass Using .NET Code Profiler on MMC</description>
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103012" level="10">
+  <rule id="101793" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\DllHost\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.dll$</field>
+    <description>Sigma: UAC Bypass Using IDiagnostic Profile - File</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101794" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">C:\Program Files\Internet Explorer\IEInstal\.exe</field>
+    <field name="win.eventdata.targetFilename">consent\.exe$</field>
+    <description>Sigma: UAC Bypass Using IEInstal - File</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101795" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\pkgmgr\.exe$</field>
+    <description>Sigma: UAC Bypass Using MSConfig Token Modification - File</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101796" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\api-ms-win-core-kernel32-legacy-l1\.DLL$</field>
+    <description>Sigma: UAC Bypass Using NTFS Reparse Point - File</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101797" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\system32\winsat\.exe$|\AppData\Local\Temp\system32\winmm\.dll$</field>
+    <description>Sigma: UAC Bypass Abusing Winsat Path Parsing - File</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101798" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\OskSupport\.dll$</field>
+    <description>Sigma: UAC Bypass Using Windows Media Player - File</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101799" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">C:\Windows\system32\DllHost\.exe</field>
+    <field name="win.eventdata.targetFilename">C:\Program Files\Windows Media Player\osk\.exe</field>
+    <description>Sigma: UAC Bypass Using Windows Media Player - File</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101819" level="9">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\temp\</field>
-    <description>DLL loaded from suspicious path: \temp\</description>
+    <field name="win.eventdata.image">C:\Windows\SysWOW64\iscsicpl\.exe</field>
+    <field name="win.eventdata.imageLoaded">\iscsiexe\.dll$</field>
+    <description>Sigma: UAC Bypass Using Iscsicpl - ImageLoad</description>
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103014" level="10">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4781</field>
-    <description>Account renamed from 'DC012$' to '01566s-win16-ir'</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
-  <rule id="103018" level="11">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\psexe</field>
-    <description>Known malicious named pipe pattern: \psexe</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
-  <rule id="103020" level="11">
-    <if_sid>61620</if_sid>
-    <field name="win.eventdata.pipeName">\psexe</field>
-    <description>Known malicious named pipe pattern: \psexe</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
-  <rule id="103021" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\public\</field>
-    <description>Executable file created in suspicious path: \public\</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
-  <rule id="103022" level="10">
+  <rule id="102183" level="10">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\public\</field>
-    <description>DLL loaded from suspicious path: \public\</description>
+    <field name="win.eventdata.image">\dism\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\dismcore\.dll$</field>
+    <description>Sigma: UAC Bypass With Fake DLL</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1574</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="101972" level="9">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">\svchost\.exe$</field>
+    <field name="win.eventdata.grantedAccess">0x143a</field>
+    <description>Sigma: Credential Dumping Attempt Via Svchost</description>
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101974" level="9">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.sourceImage">:\Windows\SysWOW64\</field>
+    <field name="win.eventdata.grantedAccess">0x1fffff</field>
+    <field name="win.eventdata.callTrace">^UNKNOWN\(0000000000000000\)\|UNKNOWN\(0000000000000000\)\|</field>
+    <description>Sigma: UAC Bypass Using WOW64 Logger DLL Hijack</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102206" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">WindowsPowerShellWebAccess|/online|/enable-feature</field>
+    <field name="win.eventdata.image">\dism\.exe$</field>
+    <description>Sigma: PowerShell Web Access Feature Enabled Via DISM</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102293" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">SetValue</field>
+    <field name="win.eventdata.targetObject">Classes\ms-settings\shell\open\command\\(Default\)$|Classes\exefile\shell\open\command\\(Default\)$</field>
+    <field name="win.eventdata.details">\Software\Classes\\{</field>
+    <description>Sigma: Shell Open Registry Keys Manipulation</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1546</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
   </rule>
 </group>

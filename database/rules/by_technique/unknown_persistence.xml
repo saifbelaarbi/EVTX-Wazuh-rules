@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,unknown_persistence,">
+  <rule id="102116" level="10">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.serviceName">RTCore64</field>
+    <description>Sigma: RTCore Suspicious Service Installation</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102119" level="10">
+    <if_sid>61617</if_sid>
+    <field name="win.eventdata.contents">://1|://2|://3|://4|://5|://6|://7|://8|://9</field>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\WinGet\</field>
+    <description>Sigma: Potential Suspicious Winget Package Installation</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102151" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">RECYCLERS\.BIN\|RECYCLER\.BIN\</field>
+    <description>Sigma: Suspicious File Creation Activity From Fake Recycle.Bin Folder</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102152" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">RECYCLERS\.BIN\|RECYCLER\.BIN\</field>
+    <description>Sigma: Suspicious File Creation Activity From Fake Recycle.Bin Folder</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102155" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\comctl32\.dll$</field>
+    <description>Sigma: Potential Privilege Escalation Attempt Via .Exe.Local Technique</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102192" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">\Lsa\JD|\Lsa\Skew1|\Lsa\Data|\Lsa\GBG|win32_Ace|\.AccessMask|\.AceType|\.SetSecurityDescriptor</field>
+    <description>Sigma: Potential Persistence Via Security Descriptors - ScriptBlock</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102217" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\keytool\.exe$</field>
+    <field name="win.eventdata.image">\cmd\.exe$|\sh\.exe$|\bash\.exe$|\powershell\.exe$|\pwsh\.exe$|\schtasks\.exe$|\certutil\.exe$|\whoami\.exe$|\bitsadmin\.exe$|\wscript\.exe$|\cscript\.exe$|\scrcons\.exe$|\regsvr32\.exe$|\hh\.exe$|\wmic\.exe$|\mshta\.exe$|\rundll32\.exe$|\forfiles\.exe$|\scriptrunner\.exe$|\mftrace\.exe$|\AppVLP\.exe$|\systeminfo\.exe$|\reg\.exe$|\query\.exe$</field>
+    <description>Sigma: Suspicious Shells Spawn by Java Utility Keytool</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102218" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\java\.exe$</field>
+    <field name="win.eventdata.image">\AppVLP\.exe$|\bitsadmin\.exe$|\certutil\.exe$|\cscript\.exe$|\curl\.exe$|\forfiles\.exe$|\hh\.exe$|\mftrace\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\query\.exe$|\reg\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\schtasks\.exe$|\scrcons\.exe$|\scriptrunner\.exe$|\sh\.exe$|\systeminfo\.exe$|\whoami\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Suspicious Processes Spawned by Java.EXE</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102223" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\sqlservr\.exe$</field>
+    <field name="win.eventdata.parentCommandLine">VEEAMSQL</field>
+    <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wsl\.exe$|\wt\.exe$</field>
+    <field name="win.eventdata.commandLine">-ex |bypass|cscript|DownloadString|http://|https://|mshta|regsvr32|rundll32|wscript|copy </field>
+    <description>Sigma: Suspicious Child Process Of Veeam Dabatase</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102253" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">RECYCLERS\.BIN\|RECYCLER\.BIN\</field>
+    <description>Sigma: Suspicious Process Execution From Fake Recycle.Bin Folder</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102314" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Hangs\Debugger</field>
+    <description>Sigma: Add Debugger Entry To Hangs Key For Persistence</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102315" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\CLSID\\{52A2AAAE-085D-4187-97EA-8C30DB990436\}\InprocServer32\\(Default\)</field>
+    <description>Sigma: Persistence Via Hhctrl.ocx</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102328" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Services\WinSock2\Parameters\AutodialDLL</field>
+    <description>Sigma: Potential Persistence Via AutodialDLL</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102329" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\HtmlHelp Author\Location|\Software\WOW6432Node\Microsoft\HtmlHelp Author\Location</field>
+    <description>Sigma: Potential Persistence Via CHM Helper DLL</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102334" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SYSTEM\CurrentControlSet\Control\LsaExtensionConfig\LsaSrv\Extensions</field>
+    <description>Sigma: Potential Persistence Via LSA Extensions</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102335" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\mpnotify</field>
+    <description>Sigma: Potential Persistence Via Mpnotify</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102336" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\(Default\)$</field>
+    <description>Sigma: Potential Persistence Via MyComputer Registry Keys</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102337" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\StemmerDLLPathOverride|\WBDLLPathOverride|\StemmerClass|\WBreakerClass</field>
+    <description>Sigma: Potential Persistence Via DLLPathOverride</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102342" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths\</field>
+    <description>Sigma: Potential Persistence Via TypedPaths</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102350" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.details">powershell|pwsh</field>
+    <field name="win.eventdata.targetObject">\Environment\</field>
+    <description>Sigma: Suspicious Environment Variable Has Been Registered</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

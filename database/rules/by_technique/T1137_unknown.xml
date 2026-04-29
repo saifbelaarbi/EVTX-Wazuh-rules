@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1137_unknown,">
+  <rule id="102139" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.xlam$|\.xla$|\.ppam$</field>
+    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102140" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.wll$</field>
+    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102141" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.xlam$</field>
+    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102142" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.xll$</field>
+    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102143" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\outlook\.exe$</field>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Microsoft\FORMS\IPM|\Local Settings\Application Data\Microsoft\Forms</field>
+    <description>Sigma: Potential Persistence Via Outlook Form</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102144" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Microsoft\Outlook\VbaProject\.OTM$</field>
+    <description>Sigma: Suspicious Outlook Macro Created</description>
+    <mitre>
+      <id>T1137</id>
+      <id>T1008</id>
+      <id>T1546</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102145" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.xls$|\.xlsm$|\.xlsx$|\.xlt$|\.xltm$</field>
+    <description>Sigma: Potential Persistence Via Microsoft Office Startup Folder</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102188" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">new-object |-ComObject |\.application|\.RegisterXLL</field>
+    <description>Sigma: Code Executed Via Office Add-in XLL File</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102321" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Outlook\LoadMacroProviderOnBoot$</field>
+    <field name="win.eventdata.details">0x00000001</field>
+    <description>Sigma: Potential Persistence Via Outlook LoadMacroProviderOnBoot Setting</description>
+    <mitre>
+      <id>T1137</id>
+      <id>T1008</id>
+      <id>T1546</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102322" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Outlook\Security\Level$</field>
+    <field name="win.eventdata.details">0x00000001</field>
+    <description>Sigma: Outlook Macro Execution Without Warning Setting Enabled</description>
+    <mitre>
+      <id>T1137</id>
+      <id>T1008</id>
+      <id>T1546</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102343" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Excel\Options$</field>
+    <field name="win.eventdata.details">\.xll$</field>
+    <description>Sigma: Potential Persistence Via Excel Add-in - Registry</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

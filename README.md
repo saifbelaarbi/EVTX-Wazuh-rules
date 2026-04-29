@@ -6,13 +6,14 @@ A production-ready system for building and expanding a **Wazuh detection rule da
 
 | Metric | Value |
 |--------|-------|
-| Total rules | **793** |
-| EVTX files processed | 1,314 across 7 sources |
+| Total rules | **1,570** |
+| EVTX-generated rules | 793 from 7 EVTX sources |
+| Sigma-converted rules | 777 from SigmaHQ |
 | Events analyzed | 2,035,484 |
-| MITRE tactics covered | 8 / 12 |
-| MITRE techniques | 9 |
-| Alert level range | 4 - 13 |
-| Sigma rules available | 2,267 convertible |
+| MITRE tactics covered | 12 / 12 |
+| MITRE techniques | 95+ |
+| Alert level range | 3 - 15 |
+| Sigma rules convertible | 2,267 (94.6% of Windows rules) |
 | Validation errors | 0 |
 
 See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [docs/COVERAGE_MATRIX.md](docs/COVERAGE_MATRIX.md) for MITRE ATT&CK coverage, and [docs/SOURCES.md](docs/SOURCES.md) for source attribution.
@@ -65,7 +66,7 @@ See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [doc
 | High/Critical severity | 1,160 |
 | Top category | process_creation (1,177 rules) |
 
-The Sigma analyzer (`generator/sigma_analyzer.py`) assesses which SigmaHQ detection rules can be converted to Wazuh format. Conversion covers process creation, registry, file events, PowerShell, network connections, DNS queries, named pipes, and more.
+The Sigma analyzer (`generator/sigma_analyzer.py`) assesses convertibility, and the converter (`generator/sigma_converter.py`) generates Wazuh XML rules directly from Sigma YAML. Conversion covers process creation, registry, file events, PowerShell, network connections, DNS queries, named pipes, and more.
 
 Wazuh default rules are downloaded from [wazuh/wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) for cross-referencing (133 rule files, 104 decoder files).
 
@@ -80,20 +81,19 @@ python -m collector download-all
 python -m collector download-sigma
 python -m collector download-defaults
 
-# Step 2: Generate rules (as drafts for review)
-python -m generator generate
-
-# Step 2b: Or auto-approve high-confidence rules
+# Step 2: Generate rules from EVTX samples
 python -m generator generate --auto-approve
 
-# Step 3: Review and approve drafts
-python -m generator review
-python -m generator approve draft_XXXXXXXX_XXXXXX.xml
+# Step 3: Convert Sigma rules to Wazuh format
+python -m generator convert-sigma --auto-approve --min-level high
 
 # Step 4: Validate the database
 python -m generator validate
 
-# Step 5: Deploy to Wazuh
+# Step 5: Validate rules against source events
+python -m generator logtest --mode simulate --save
+
+# Step 6: Deploy to Wazuh
 python -m generator export --dest /var/ossec/etc/rules/ --view by_tactic
 sudo systemctl restart wazuh-manager
 ```
@@ -117,6 +117,8 @@ sudo systemctl restart wazuh-manager
 |---------|-------------|
 | `analyze [--source NAME]` | Parse EVTX files and show detection patterns |
 | `generate [--source NAME] [--auto-approve]` | Generate Wazuh rules from EVTX samples |
+| `convert-sigma [--auto-approve] [--category CAT] [--min-level LVL]` | Convert SigmaHQ rules to Wazuh format |
+| `logtest [--mode simulate\|live] [--rule-id ID] [--verbose] [--save]` | Validate rules against source events |
 | `review` | Show pending draft rules |
 | `approve <draft_file>` | Promote a draft into the rule database |
 | `validate` | Validate the entire rule database |
@@ -202,6 +204,8 @@ EVTX-Wazuh-rules/
 │   ├── evtx_parser.py   # Parse EVTX/JSON/XML to normalized events
 │   ├── event_analyzer.py # Extract detection patterns from events
 │   ├── sigma_analyzer.py # Analyze Sigma rules for Wazuh conversion
+│   ├── sigma_converter.py # Convert Sigma YAML → Wazuh XML rules
+│   ├── logtest_validator.py # Rule validation (simulate + live API/SSH)
 │   ├── rule_builder.py  # Build Wazuh XML rules from patterns
 │   ├── rule_correlator.py # Cross-reference with existing rules
 │   ├── alert_leveler.py # Assign severity levels
@@ -239,12 +243,37 @@ EVTX-Wazuh-rules/
 - `lxml` — XML generation and validation
 - `click` — CLI framework
 - `rich` — Terminal output formatting
+- `requests` — Wazuh REST API for live logtest validation
+
+## Logtest Validation
+
+The `logtest` command validates rules against source events in three modes:
+
+| Mode | Description | Requirements |
+|------|-------------|--------------|
+| `simulate` | Offline field matching against source events | None (default) |
+| `live` (API) | Wazuh REST API `/logtest` endpoint | Wazuh API credentials in `config.yaml` |
+| `live` (SSH) | SSH to Wazuh manager, runs `wazuh-logtest` binary | SSH key access to Wazuh host |
+
+Live mode tries API first and falls back to SSH. Configure in `config.yaml`:
+
+```yaml
+wazuh:
+  api_url: https://wazuh-manager:55000
+  api_user: wazuh-wui
+  api_password_file: ~/.wazuh_api_token
+  api_verify_ssl: false
+
+  ssh_host: wazuh-manager
+  ssh_user: wazuh
+  ssh_key: ~/.ssh/wazuh_key
+  logtest_path: /var/ossec/bin/wazuh-logtest
+  sudo: true
+```
 
 ## Future Roadmap (v2)
 
-- Sigma-to-Wazuh converter (generate Wazuh rules directly from the 2,267 convertible Sigma rules)
 - Composite/chained rules (multi-event detection using `if_matched_sid` and frequency)
-- Automated wazuh-logtest validation against sample events
 - CI/CD pipeline for rule generation on new EVTX samples
 - MITRE ATT&CK Navigator layer export
 

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1082_system_info_discovery,">
+  <rule id="106019" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">syscall:::return|lkd\(</field>
+    <description>Sigma: Suspicious Kernel Dump Using Dtrace</description>
+    <mitre>
+      <id>T1082</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106020" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\dtrace\.exe$</field>
+    <field name="win.eventdata.commandLine">lkd\(0\)</field>
+    <description>Sigma: Suspicious Kernel Dump Using Dtrace</description>
+    <mitre>
+      <id>T1082</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106043" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">https://github\.com/carlospolop/PEASS-ng/releases/latest/download/</field>
+    <description>Sigma: HackTool - winPEAS Execution</description>
+    <mitre>
+      <id>T1082</id>
+      <id>T1087</id>
+      <id>T1046</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106044" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> applicationsinfo| browserinfo| eventsinfo| fileanalysis| filesinfo| processinfo| servicesinfo| windowscreds</field>
+    <description>Sigma: HackTool - winPEAS Execution</description>
+    <mitre>
+      <id>T1082</id>
+      <id>T1087</id>
+      <id>T1046</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106045" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentCommandLine"> -linpeas$</field>
+    <description>Sigma: HackTool - winPEAS Execution</description>
+    <mitre>
+      <id>T1082</id>
+      <id>T1087</id>
+      <id>T1046</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106046" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -linpeas$</field>
+    <description>Sigma: HackTool - winPEAS Execution</description>
+    <mitre>
+      <id>T1082</id>
+      <id>T1087</id>
+      <id>T1046</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106047" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">winPEAS\.exe</field>
+    <description>Sigma: HackTool - winPEAS Execution</description>
+    <mitre>
+      <id>T1082</id>
+      <id>T1087</id>
+      <id>T1046</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106048" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\winPEASany_ofs\.exe$|\winPEASany\.exe$|\winPEASx64_ofs\.exe$|\winPEASx64\.exe$|\winPEASx86_ofs\.exe$|\winPEASx86\.exe$</field>
+    <description>Sigma: HackTool - winPEAS Execution</description>
+    <mitre>
+      <id>T1082</id>
+      <id>T1087</id>
+      <id>T1046</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+</group>

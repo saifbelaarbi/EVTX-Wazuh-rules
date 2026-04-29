@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1615_unknown,">
+  <rule id="102213" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\SharpUp\.exe$</field>
+    <description>Sigma: HackTool - SharpUp PrivEsc Tool Execution</description>
+    <mitre>
+      <id>T1615</id>
+      <id>T1569</id>
+      <id>T1574</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102214" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.description">SharpUp</field>
+    <description>Sigma: HackTool - SharpUp PrivEsc Tool Execution</description>
+    <mitre>
+      <id>T1615</id>
+      <id>T1569</id>
+      <id>T1574</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102215" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">HijackablePaths|UnquotedServicePath|ProcessDLLHijack|ModifiableServiceBinaries|ModifiableScheduledTask|DomainGPPPassword|CachedGPPPassword</field>
+    <description>Sigma: HackTool - SharpUp PrivEsc Tool Execution</description>
+    <mitre>
+      <id>T1615</id>
+      <id>T1569</id>
+      <id>T1574</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="106063" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">gatherNetworkInfo\.vbs</field>
+    <description>Sigma: Suspicious Reconnaissance Activity Via GatherNetworkInfo.VBS</description>
+    <mitre>
+      <id>T1615</id>
+      <id>T1059</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+</group>
