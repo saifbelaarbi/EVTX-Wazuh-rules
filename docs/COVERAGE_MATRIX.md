@@ -2,22 +2,29 @@
 
 > 1570 rules across 12 tactics
 
+## Origin Coverage Summary
+
+| Origin | Rules | Tactics Covered | Techniques Covered |
+|--------|-------|-----------------|--------------------|
+| EVTX-derived | 793 | 9 | 9 |
+| Sigma-converted | 777 | 6 | 91 |
+
 ## Coverage Heatmap
 
 | Tactic | ID | Rules | Techniques | Coverage |
 |--------|----|-------|------------|----------|
-| Initial Access | `TA0001` | 1 | 1 | 🟩 |
-| Execution | `TA0002` | 965 | 42 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Persistence | `TA0003` | 337 | 32 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Privilege Escalation | `TA0004` | 18 | 1 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Defense Evasion | `TA0005` | 37 | 1 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Credential Access | `TA0006` | 34 | 1 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Discovery | `TA0007` | 66 | 16 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Lateral Movement | `TA0008` | 24 | 1 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Collection | `TA0009` | 24 | 9 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Command and Control | `TA0011` | 20 | 1 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Exfiltration | `TA0010` | 17 | 4 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
-| Impact | `TA0040` | 27 | 9 | 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 |
+| Initial Access | `TA0001` | 1 | 1 | # |
+| Execution | `TA0002` | 965 | 42 | #################### |
+| Persistence | `TA0003` | 337 | 32 | #################### |
+| Privilege Escalation | `TA0004` | 18 | 1 | ################## |
+| Defense Evasion | `TA0005` | 37 | 1 | #################### |
+| Credential Access | `TA0006` | 34 | 1 | #################### |
+| Discovery | `TA0007` | 66 | 16 | #################### |
+| Lateral Movement | `TA0008` | 24 | 1 | #################### |
+| Collection | `TA0009` | 24 | 9 | #################### |
+| Command and Control | `TA0011` | 20 | 1 | #################### |
+| Exfiltration | `TA0010` | 17 | 4 | ################# |
+| Impact | `TA0040` | 27 | 9 | #################### |
 
 ## Technique Detail
 
@@ -205,5 +212,6 @@
 
 ## Coverage Gaps
 
-Tactics with **no rules yet** (opportunities for expansion):
+Tactics with **no rules yet**:
 
+- None

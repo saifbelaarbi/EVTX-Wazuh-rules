@@ -1,6 +1,6 @@
 # Wazuh Rule Database Report
 
-> Generated: 2026-04-29 09:31 UTC
+> Generated: 2026-04-30 14:20 UTC
 > Pipeline version: 1.0.0
 
 ## Overview
@@ -8,11 +8,29 @@
 | Metric | Value |
 |--------|-------|
 | Total rules generated | **1570** |
-| EVTX files processed | 781 |
-| EVTX sources used | 1 |
+| EVTX-derived rules | 793 |
+| Sigma-converted rules | 777 |
+| EVTX sample files processed | 140 |
+| Sigma rule files processed | 641 |
+| EVTX source repositories used | 5 |
 | MITRE tactics covered | 12 / 12 |
 | MITRE techniques covered | 91 |
 | Rule ID range | 100000 - 120000 |
+
+## Origin Breakdown
+
+| Origin | Rules | Tactics | Techniques | Validation |
+|--------|-------|---------|------------|------------|
+| EVTX-derived | 793 | 9 | 9 | 98/793 passed (12.4%) |
+| Sigma-converted | 777 | 6 | 91 | not run |
+
+## Validation Summary
+
+| Scope | Tested | Passed | Failed | Pass Rate |
+|-------|--------|--------|--------|-----------|
+| Combined | 793 | 98 | 695 | 12.4% |
+| EVTX-derived | 793 | 98 | 695 | 12.4% |
+| Sigma-converted | 0 | 0 | 0 | 0.0% |
 
 ## Alert Level Distribution
 
@@ -20,32 +38,32 @@
 |-------|----------------|-------|------------|
 | 4 | System low | 2 | 0.1%  |
 | 6 | Low relevance | 7 | 0.4%  |
-| 7 | Bad word matching | 63 | 4.0% ██ |
-| 8 | First time seen | 574 | 36.6% ██████████████████ |
-| 9 | Error from invalid source | 414 | 26.4% █████████████ |
-| 10 | Multiple user-generated errors | 318 | 20.3% ██████████ |
-| 11 | Integrity checking warning | 35 | 2.2% █ |
-| 12 | High importance event | 43 | 2.7% █ |
-| 13 | Unusual error (high importance) | 85 | 5.4% ██ |
+| 7 | Bad word matching | 63 | 4.0% ## |
+| 8 | First time seen | 574 | 36.6% ################## |
+| 9 | Error from invalid source | 414 | 26.4% ############# |
+| 10 | Multiple user-generated errors | 318 | 20.3% ########## |
+| 11 | Integrity checking warning | 35 | 2.2% # |
+| 12 | High importance event | 43 | 2.7% # |
+| 13 | Unusual error (high importance) | 85 | 5.4% ## |
 | 14 | High importance security event | 29 | 1.8%  |
 
 ## Detection Confidence Distribution
 
 | Confidence | Count | Description |
 |------------|-------|-------------|
-| high | 880 | Exact tool/process name match |
+| high | 880 | Exact tool or process indicator |
 | medium | 662 | Command-line pattern or behavioral indicator |
-| low | 28 | Heuristic / generic event |
+| low | 28 | Heuristic or generic event |
 
 ## Rules by MITRE ATT&CK Tactic
 
-### Initial Access (TA0001) — 1 rules
+### Initial Access (TA0001) - 1 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
 | `100000` | 6 | `T1566` Phishing | Failed logon attempt | low | 60100 |
 
-### Execution (TA0002) — 965 rules
+### Execution (TA0002) - 965 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1015,7 +1033,7 @@
 | `101998` | 9 | `T1105` Ingress Tool Transfer | Suspicious CertReq Command to Download | high | 61603 |
 | `101999` | 9 | `T1027` Obfuscated Files or Information | File Decoded From Base64/Hex Via Certutil.EXE | high | 61603 |
 
-### Persistence (TA0003) — 337 rules
+### Persistence (TA0003) - 337 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1357,7 +1375,7 @@
 | `102355` | 10 | `T1112` T1112 | Wdigest Enable UseLogonCredential | high | 61615 |
 | `102356` | 10 | `T1547` Boot or Logon Autostart Execution | Winlogon Notify Key Logon Persistence | high | 61615 |
 
-### Privilege Escalation (TA0004) — 18 rules
+### Privilege Escalation (TA0004) - 18 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1380,7 +1398,7 @@
 | `103021` | 10 | `T1548` Abuse Elevation Control Mechanism | Executable dropped in public | medium | 61613 |
 | `103022` | 10 | `T1548` Abuse Elevation Control Mechanism | DLL loaded from suspicious path | medium | 61609 |
 
-### Defense Evasion (TA0005) — 37 rules
+### Defense Evasion (TA0005) - 37 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1422,7 +1440,7 @@
 | `104044` | 10 | `T1055` Process Injection | DLL sideloading by procdump | high | 61609 |
 | `104045` | 13 | `T1055` Process Injection | DLL sideloading by mimikatz | high | 61609 |
 
-### Credential Access (TA0006) — 34 rules
+### Credential Access (TA0006) - 34 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1461,7 +1479,7 @@
 | `105045` | 12 | `T1003` OS Credential Dumping | LSASS memory access | high | 61612 |
 | `105046` | 12 | `T1003` OS Credential Dumping | LSASS memory access | high | 61612 |
 
-### Discovery (TA0007) — 66 rules
+### Discovery (TA0007) - 66 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1532,7 +1550,7 @@
 | `106067` | 7 | `T1033` T1033 | Whoami.EXE Execution From Privileged Process | high | 61603 |
 | `106068` | 7 | `T1033` T1033 | Security Privileges Enumeration Via Whoami.EXE | high | 61603 |
 
-### Lateral Movement (TA0008) — 24 rules
+### Lateral Movement (TA0008) - 24 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1561,7 +1579,7 @@
 | `107031` | 11 | `T1021` Remote Services | Suspicious named pipe: \scerpc | high | 61619 |
 | `107032` | 11 | `T1021` Remote Services | Suspicious named pipe: \scerpc | high | 61620 |
 
-### Collection (TA0009) — 24 rules
+### Collection (TA0009) - 24 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1590,7 +1608,7 @@
 | `108022` | 8 | `T1552` T1552 | Script Interpreter Spawning Credential Scanner - Windows | high | 61603 |
 | `108023` | 8 | `T1125` T1125 | Suspicious Camera and Microphone Access | high | 61615 |
 
-### Command and Control (TA0011) — 20 rules
+### Command and Control (TA0011) - 20 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1615,7 +1633,7 @@
 | `109024` | 10 | `T1071` Application Layer Protocol | Network connection by wmic | high | 61605 |
 | `109025` | 13 | `T1071` Application Layer Protocol | DNS query by mimikatz | medium | 61624 |
 
-### Exfiltration (TA0010) — 17 rules
+### Exfiltration (TA0010) - 17 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1637,7 +1655,7 @@
 | `110015` | 13 | `T1048` T1048 | Suspicious WebDav Client Execution Via Rundll32.EXE | high | 61603 |
 | `110016` | 13 | `T1048` T1048 | Suspicious Redirection to Local Admin Share | high | 61603 |
 
-### Impact (TA0040) — 27 rules
+### Impact (TA0040) - 27 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1671,7 +1689,7 @@
 
 ## Exported Rule Files
 
-Rules are exported in three parallel views. Each view contains the same rules, organized differently:
+Rules are exported in three parallel views. Each view contains the same rules, organized differently.
 
 ### `database/rules/by_tactic/`
 _One XML file per MITRE ATT&CK tactic. Best for broad deployment._
@@ -1692,7 +1710,7 @@ _One XML file per MITRE ATT&CK tactic. Best for broad deployment._
 | `privilege_escalation.xml` | 13 |
 
 ### `database/rules/by_technique/`
-_One XML file per MITRE technique. Best for selective/granular deployment._
+_One XML file per MITRE technique. Best for selective deployment._
 
 | File | Rules |
 |------|-------|
@@ -1793,7 +1811,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `unknown_persistence.xml` | 20 |
 
 ### `database/rules/by_source/`
-_Grouped by Windows event source (Sysmon, Security, PowerShell, System). Aligns with Wazuh decoder structure._
+_Grouped by Windows event source to align with Wazuh decoders._
 
 | File | Rules |
 |------|-------|
@@ -1808,10 +1826,10 @@ _Grouped by Windows event source (Sysmon, Security, PowerShell, System). Aligns 
 Copy the desired view's XML files to your Wazuh manager:
 
 ```bash
-# Option A: Deploy by tactic (recommended)
+# Option A: Deploy by tactic
 sudo cp database/rules/by_tactic/*.xml /var/ossec/etc/rules/
 
-# Option B: Deploy by source (matches Wazuh decoder structure)
+# Option B: Deploy by source
 sudo cp database/rules/by_source/*.xml /var/ossec/etc/rules/
 
 # Restart Wazuh manager to load new rules

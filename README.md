@@ -7,16 +7,17 @@ A production-ready system for building and expanding a **Wazuh detection rule da
 | Metric | Value |
 |--------|-------|
 | Total rules | **1,570** |
-| EVTX-generated rules | 793 from 7 EVTX sources |
-| Sigma-converted rules | 777 from SigmaHQ |
+| EVTX-derived rules | 793 from 140 sample files across 5 source repos |
+| Sigma-converted rules | 777 from 641 Sigma rule files |
 | Events analyzed | 2,035,484 |
 | MITRE tactics covered | 12 / 12 |
-| MITRE techniques | 95+ |
+| MITRE techniques | 91 |
 | Alert level range | 3 - 15 |
 | Sigma rules convertible | 2,267 (94.6% of Windows rules) |
-| Validation errors | 0 |
+| EVTX validation pass rate | 98 / 793 (12.4%) |
+| Sigma validation pass rate | Not run |
 
-See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [docs/COVERAGE_MATRIX.md](docs/COVERAGE_MATRIX.md) for MITRE ATT&CK coverage, and [docs/SOURCES.md](docs/SOURCES.md) for source attribution.
+See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [docs/COVERAGE_MATRIX.md](docs/COVERAGE_MATRIX.md) for MITRE ATT&CK coverage, and [docs/SOURCES.md](docs/SOURCES.md) for split EVTX and Sigma source attribution.
 
 ## Architecture
 
@@ -28,7 +29,7 @@ See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [doc
 │  │   Part 1     │    │                  Part 2                          │ │
 │  │  Collector   │    │              Generator                           │ │
 │  │             │    │                                                   │ │
-│  │ EVTX Sources├───>│ Parser ─> Analyzer ─> Builder ─> Correlator      │ │
+│  │ EVTX + Sigma├───>│ Parser ─> Analyzer ─> Builder ─> Correlator      │ │
 │  │ Wazuh Defs  │    │                                   │              │ │
 │  │ Registry    │    │              Alert Leveler <───────┘              │ │
 │  │             │    │                   │                               │ │
@@ -40,7 +41,7 @@ See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [doc
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Part 1 — Collector** downloads EVTX samples and Wazuh default rules from GitHub. Downloaded binary files stay in `data/` (gitignored).
+**Part 1 — Collector** downloads EVTX samples, Sigma rules, and Wazuh default rules from GitHub. Downloaded source material stays in `data/` (gitignored).
 
 **Part 2 — Generator** parses events, extracts detection patterns, builds Wazuh XML rules, cross-references against existing rules and Wazuh defaults, assigns severity levels, validates, and exports in three views.
 
@@ -132,9 +133,9 @@ python generate_report.py
 ```
 
 Produces three documentation files in `docs/`:
-- **RULES_REPORT.md** — Full rule listing with alert levels, MITRE mapping, confidence scores
-- **COVERAGE_MATRIX.md** — MITRE ATT&CK coverage heatmap and gap analysis
-- **SOURCES.md** — EVTX source attribution and per-source breakdown
+- **RULES_REPORT.md** — Full rule listing with alert levels, MITRE mapping, confidence scores, and origin split
+- **COVERAGE_MATRIX.md** — MITRE ATT&CK coverage heatmap and per-origin coverage summary
+- **SOURCES.md** — EVTX and Sigma source attribution
 
 ## Rule Organization
 

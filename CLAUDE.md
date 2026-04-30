@@ -11,6 +11,10 @@ Before starting deeper rule work, also check:
 - `docs/CURATED_RULE_REVIEW.md`
 - `docs/RULE_CLEANUP_PLAN.md`
 
+Durable repo guidance:
+- `database/metadata/provenance.json` contains both EVTX sample provenance and Sigma rule provenance. Do not treat every provenance entry as an EVTX file.
+- `generate_report.py` is responsible for keeping `docs/RULES_REPORT.md`, `docs/COVERAGE_MATRIX.md`, and `docs/SOURCES.md` split by origin (`evtx` vs `sigma`).
+
 ## Project Overview
 
 EVTX-Wazuh-Rules is a pipeline that builds a Wazuh detection rule database from real-world Windows EVTX attack samples and SigmaHQ rules. It parses EVTX logs, extracts malicious patterns, and generates MITRE ATT&CK-mapped Wazuh XML rules.

@@ -1,0 +1,34 @@
+# Local Execution Plan
+
+Generated: 2026-04-30
+
+## Objective
+
+Separate EVTX-derived and Sigma-converted reporting, fix documentation inconsistencies, and keep the cleanup work local.
+
+## Plan
+
+1. Inspect metadata and report generation to locate where EVTX and Sigma provenance are merged.
+2. Patch the report generator so all generated docs classify rule origin explicitly.
+3. Regenerate `docs/RULES_REPORT.md`, `docs/COVERAGE_MATRIX.md`, and `docs/SOURCES.md`.
+4. Update durable repo docs so future work does not reintroduce mixed provenance reporting.
+5. Verify the new outputs against `rule_index.json`, `provenance.json`, and `validation_results.json`.
+
+## Executed
+
+- Confirmed metadata split:
+  - `793` EVTX-derived rules
+  - `777` Sigma-converted rules
+  - `140` EVTX sample files in provenance
+  - `641` Sigma rule files in provenance
+- Replaced `generate_report.py` to classify origins explicitly.
+- Added split origin, split validation, and split source attribution output to generated docs.
+- Updated `README.md` top-level metrics and doc descriptions.
+- Updated `CLAUDE.md` with durable guidance about mixed provenance.
+
+## Next Local Cleanup Queue
+
+1. Implement generator-side deduplication and canonicalization from `docs/RULE_CLEANUP_PLAN.md`.
+2. Rewrite or remove the generic Security-event families (`4624`, `4625`, `4648`, `4672`, `4698`, `4720`, `7045`).
+3. Preserve and normalize the high-signal credential-dumping and LOLBin detections.
+4. Re-run generation and validation after cleanup logic changes.
