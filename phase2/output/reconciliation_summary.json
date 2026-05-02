@@ -1,0 +1,113 @@
+{
+  "generated_at_utc": "2026-04-30 15:22:46 UTC",
+  "input_gate_open": false,
+  "missing_inputs": [
+    "agent_inventory",
+    "deployed_rules",
+    "candidate_rules",
+    "rule_test_results",
+    "deployment_status"
+  ],
+  "source_export_files": [
+    "260203 - Wazuh_Agent_TC.xlsx",
+    "260203 - Wazuh_SOC_Manager.xlsx"
+  ],
+  "local_rules": {
+    "total": 1570,
+    "evtx": 793,
+    "sigma": 777,
+    "validated_passed": 98
+  },
+  "reconciliation": {
+    "deployed": {
+      "csv_rule_ids": 0,
+      "known_in_repo": 0,
+      "unknown_to_repo": 0
+    },
+    "candidate": {
+      "csv_rule_ids": 0,
+      "already_in_repo": 0,
+      "new_not_in_repo": 0
+    },
+    "testing": {
+      "csv_rule_ids": 0,
+      "known_in_repo": 0
+    },
+    "deployment_status": {
+      "csv_rule_ids": 0,
+      "known_in_repo": 0
+    }
+  },
+  "datasets": {
+    "agent_inventory": {
+      "present": false,
+      "path": "phase2\\csv_inputs\\agent_inventory.csv",
+      "rows": 0,
+      "columns": [],
+      "rule_ids_detected": 0,
+      "agents_detected": 0,
+      "status_counts": {},
+      "status_summary": {
+        "passed": 0,
+        "failed": 0,
+        "deployed_like": 0
+      }
+    },
+    "deployed_rules": {
+      "present": false,
+      "path": "phase2\\csv_inputs\\deployed_rules.csv",
+      "rows": 0,
+      "columns": [],
+      "rule_ids_detected": 0,
+      "agents_detected": 0,
+      "status_counts": {},
+      "status_summary": {
+        "passed": 0,
+        "failed": 0,
+        "deployed_like": 0
+      }
+    },
+    "candidate_rules": {
+      "present": false,
+      "path": "phase2\\csv_inputs\\candidate_rules.csv",
+      "rows": 0,
+      "columns": [],
+      "rule_ids_detected": 0,
+      "agents_detected": 0,
+      "status_counts": {},
+      "status_summary": {
+        "passed": 0,
+        "failed": 0,
+        "deployed_like": 0
+      }
+    },
+    "rule_test_results": {
+      "present": false,
+      "path": "phase2\\csv_inputs\\rule_test_results.csv",
+      "rows": 0,
+      "columns": [],
+      "rule_ids_detected": 0,
+      "agents_detected": 0,
+      "status_counts": {},
+      "status_summary": {
+        "passed": 0,
+        "failed": 0,
+        "deployed_like": 0
+      }
+    },
+    "deployment_status": {
+      "present": false,
+      "path": "phase2\\csv_inputs\\deployment_status.csv",
+      "rows": 0,
+      "columns": [],
+      "rule_ids_detected": 0,
+      "agents_detected": 0,
+      "status_counts": {},
+      "status_summary": {
+        "passed": 0,
+        "failed": 0,
+        "deployed_like": 0
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Wazuh Rule Database Report
 
-> Generated: 2026-04-30 14:20 UTC
+> Generated: 2026-04-30 14:35 UTC
 > Pipeline version: 1.0.0
 
 ## Overview

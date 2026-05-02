@@ -44,8 +44,8 @@
   "initial_access": {
     "range_start": 100000,
     "range_end": 100999,
-    "next_id": 100002,
-    "allocated_count": 2
+    "next_id": 100001,
+    "allocated_count": 1
   },
   "discovery": {
     "range_start": 106000,

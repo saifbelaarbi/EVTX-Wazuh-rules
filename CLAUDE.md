@@ -14,6 +14,9 @@ Before starting deeper rule work, also check:
 Durable repo guidance:
 - `database/metadata/provenance.json` contains both EVTX sample provenance and Sigma rule provenance. Do not treat every provenance entry as an EVTX file.
 - `generate_report.py` is responsible for keeping `docs/RULES_REPORT.md`, `docs/COVERAGE_MATRIX.md`, and `docs/SOURCES.md` split by origin (`evtx` vs `sigma`).
+- Phase-two per-run CSV inputs belong under `phase2/csv_inputs/` and are expected to be refreshed from external scripts rather than hand-maintained here.
+- Raw phase-two spreadsheet exports belong under `phase2/source_exports/` before CSV normalization when upstream delivers `.xlsx` first.
+- `docs/PHASE_TWO_MASTER.md` is the master workflow doc for implemented, to-test, ready-to-deploy, and deployed-state tracking.
 
 ## Project Overview
 
