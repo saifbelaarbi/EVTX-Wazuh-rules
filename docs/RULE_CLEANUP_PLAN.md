@@ -334,10 +334,16 @@ After selecting a canonical rule for each merge group, drop the remaining duplic
 - Keep generic `4624`, `4648`, `4672`, and `4698` detections low-severity and contextual.
 - Do not derive ATT&CK technique purely from the EVTX sample folder name.
 
-## Best Next Implementation Task
+## Status (updated 2026-06-01)
 
-Create a new normalization pass in the generator that:
-- deduplicates by `field_matches + parent_sid`
-- chooses one canonical tactic per detection family
-- suppresses sample-specific values like exact service names
-- flags generic Security event rules for manual review instead of auto-approval
+The following items from this plan have been addressed by the quality-hardening commit:
+
+- **Drop wrong ATT&CK mappings**: 76 rules dropped/fixed in the cleanup commit (da21d29). The remaining rules get correct mappings via `mitre_mapper.py` (semantic indicator→technique table).
+- **Merge duplicate logic across tactics**: `event_analyzer.analyze_events` now deduplicates by `(event_id, field_matches)` independent of tactic, collapsing cross-tactic clones at generation time.
+- **ATT&CK from behavior, not path**: `mitre_mapper.classify_for_pattern` replaces folder-path tactic inference with indicator-driven classification. The old path hint is only a last-resort fallback.
+- **Generic Security event rules**: event-id defaults in `mitre_mapper._EVENTID_DEFAULTS` assign defensible techniques (4625→T1110/brute_force, 4720→T1136.001/local_account, 4624→T1021.001/RDP).
+
+Remaining items for a future pass:
+- Sample-specific service-name rules (101069-101090) need manual review for portable `imagePath` patterns
+- PowerShell rules with weak ATT&CK mapping are now auto-reclassified but may benefit from manual refinement
+- `rule_correlator.check_duplicate` still requires same tactic; cross-tactic dedup happens upstream in analyze_events
