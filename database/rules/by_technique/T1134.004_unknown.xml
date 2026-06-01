@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1134.004_unknown,">
+  <rule id="103162" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\SelectMyParent\.exe$</field>
+    <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
+    <mitre>
+      <id>T1134.004</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103163" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">PPID-spoof|ppid_spoof|spoof-ppid|spoof_ppid|ppidspoof|spoofppid|spoofedppid| -spawnto </field>
+    <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
+    <mitre>
+      <id>T1134.004</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103164" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">PPID-spoof|ppid_spoof|spoof-ppid|spoof_ppid|ppidspoof|spoofppid|spoofedppid</field>
+    <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
+    <mitre>
+      <id>T1134.004</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103165" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.description">SelectMyParent</field>
+    <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
+    <mitre>
+      <id>T1134.004</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103166" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.hashes">IMPHASH=04D974875BD225F00902B4CAD9AF3FBC|IMPHASH=A782AF154C9E743DDF3F3EB2B8F3D16E|IMPHASH=89059503D7FBF470E68F7E63313DA3AD|IMPHASH=CA28337632625C8281AB8A130B3D6BAD</field>
+    <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
+    <mitre>
+      <id>T1134.004</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1546.001_unknown,">
+  <rule id="103136" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">assoc |exefile</field>
+    <field name="win.eventdata.image">\cmd\.exe$</field>
+    <description>Sigma: Change Default File Association To Executable Via Assoc</description>
+    <mitre>
+      <id>T1546.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

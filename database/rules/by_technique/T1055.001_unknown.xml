@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1055.001_unknown,">
+  <rule id="103032" level="13">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.startAddress">0B80$|0C7C$|0C88$</field>
+    <description>Sigma: HackTool - Potential CobaltStrike Process Injection</description>
+    <mitre>
+      <id>T1055.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103141" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> executecmd64 | invokeexe | injectDll </field>
+    <field name="win.eventdata.image">\dctask64\.exe$</field>
+    <description>Sigma: ManageEngine Endpoint Central Dctask64.EXE Potential Abuse</description>
+    <mitre>
+      <id>T1055.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103199" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /INJECTRUNNING </field>
+    <description>Sigma: Mavinject Inject DLL Into Running Process</description>
+    <mitre>
+      <id>T1055.001</id>
+      <id>T1218.013</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103203" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /d | /c </field>
+    <field name="win.eventdata.image">\tracker\.exe$</field>
+    <description>Sigma: Potential DLL Injection Or Execution Using Tracker.exe</description>
+    <mitre>
+      <id>T1055.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103219" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">mavinject32\.exe|mavinject64\.exe</field>
+    <description>Sigma: Renamed Mavinject.EXE Execution</description>
+    <mitre>
+      <id>T1055.001</id>
+      <id>T1218.013</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

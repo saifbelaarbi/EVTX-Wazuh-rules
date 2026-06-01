@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1489_service_stop,">
-  <rule id="111016" level="14">
+  <rule id="111027" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Windows\BitLocker|\Windows\ExploitGuard|\Windows\SystemRestore\SR|\Windows\UpdateOrchestrator\|\Windows\Windows Defender\|\Windows\WindowsBackup\|\Windows\WindowsUpdate\</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -10,17 +10,17 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="111017" level="14">
+  <rule id="111028" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
-    <field name="win.eventdata.commandLine"> /delete |/tn \*| /f</field>
+    <field name="win.eventdata.commandLine"> /delete |/tn \.*| /f</field>
     <description>Sigma: Delete All Scheduled Tasks</description>
     <mitre>
       <id>T1489</id>
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="111018" level="14">
+  <rule id="111029" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Windows\BitLocker|\Windows\ExploitGuard|\Windows\ExploitGuard\ExploitGuard MDM policy Refresh|\Windows\SystemRestore\SR|\Windows\UpdateOrchestrator\|\Windows\Windows Defender\|\Windows\WindowsBackup\|\Windows\WindowsUpdate\</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -30,14 +30,14 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="111021" level="14">
+  <rule id="111034" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> delete |\.delete\(\)| pause | stop |Stop-Service |Remove-Service </field>
     <field name="win.eventdata.originalFileName">net\.exe|net1\.exe|PowerShell_ISE\.EXE|PowerShell\.EXE|psservice\.exe|pwsh\.dll|sc\.exe|wmic\.exe</field>
     <description>Sigma: Suspicious Windows Service Tampering</description>
     <mitre>
       <id>T1489</id>
-      <id>T1562</id>
+      <id>T1685</id>
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>

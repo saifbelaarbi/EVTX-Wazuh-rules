@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1497.001_unknown,">
+  <rule id="106025" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">MSAcpi_ThermalZoneTemperature|Win32_ComputerSystem</field>
+    <description>Sigma: Powershell Detect Virtualization Environment</description>
+    <mitre>
+      <id>T1497.001</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1036_unknown,">
-  <rule id="101769" level="12">
+  <rule id="101039" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4720</field>
+    <field name="win.eventdata.samAccountName">\$</field>
+    <description>Sigma: New or Renamed User Account with '$' Character</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101040" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4781</field>
+    <field name="win.eventdata.newTargetUserName">\$</field>
+    <description>Sigma: New or Renamed User Account with '$' Character</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101127" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\csrss\.exe$|\lsass\.exe$|\RuntimeBroker\.exe$|\sihost\.exe$|\smss\.exe$|\wininit\.exe$|\winlogon\.exe$</field>
     <field name="win.eventdata.targetFilename">\.bat$|\.dll$|\.exe$|\.hta$|\.iso$|\.ps1$|\.txt$|\.vbe$|\.vbs$</field>
@@ -10,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101770" level="9">
+  <rule id="101128" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\dllhost\.exe$|\rundll32\.exe$|\svchost\.exe$</field>
     <field name="win.eventdata.targetFilename">\.bat$|\.hta$|\.iso$|\.ps1$|\.vbe$|\.vbs$</field>
@@ -20,38 +40,389 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101773" level="9">
+  <rule id="101136" level="8">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.rar\.exe$|\.zip\.exe$</field>
-    <description>Sigma: Suspicious Double Extension Files</description>
+    <field name="win.eventdata.targetFilename">а|е|о|р|с|х|ѕ|і|ӏ|ј|һ|ԁ|ԛ|ԝ|ο</field>
+    <description>Sigma: Potential Homoglyph Attack Using Lookalike Characters in Filename</description>
     <mitre>
       <id>T1036</id>
+      <id>T1036.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101774" level="9">
+  <rule id="101137" level="8">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.doc\.|\.docx\.|\.gif\.|\.jpeg\.|\.jpg\.|\.mp3\.|\.mp4\.|\.pdf\.|\.png\.|\.ppt\.|\.pptx\.|\.rtf\.|\.svg\.|\.txt\.|\.xls\.|\.xlsx\.</field>
-    <description>Sigma: Suspicious Double Extension Files</description>
+    <field name="win.eventdata.targetFilename">А|В|Е|К|М|Н|О|Р|С|Т|Х|Ѕ|І|Ј|Ү|Ӏ|Ԍ|Ԛ|Ԝ|Α|Β|Ε|Ζ|Η|Ι|Κ|Μ|Ν|Ο|Ρ|Τ|Υ|Χ</field>
+    <description>Sigma: Potential Homoglyph Attack Using Lookalike Characters in Filename</description>
     <mitre>
       <id>T1036</id>
+      <id>T1036.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101782" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\u202e|\[U\+202E\]|‮</field>
-    <description>Sigma: Potential File Extension Spoofing Using Right-to-Left Override</description>
-    <mitre>
-      <id>T1036</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101995" level="9">
+  <rule id="101343" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\calc\.exe </field>
     <field name="win.eventdata.image">\calc\.exe$</field>
     <description>Sigma: Suspicious Calculator Usage</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101355" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\chcp\.com$</field>
+    <field name="win.eventdata.commandLine"> 936$| 1258$</field>
+    <description>Sigma: Suspicious CodePage Switch Via CHCP</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="105139" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -u | --full | -f | --name |\.dmp </field>
+    <field name="win.eventdata.image">\createdump\.exe$</field>
+    <description>Sigma: CreateDump Process Dump</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105141" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> Full| Mini| WithHeap</field>
+    <field name="win.eventdata.image">\DumpMinitool\.exe$|\DumpMinitool\.x86\.exe$|\DumpMinitool\.arm64\.exe$</field>
+    <description>Sigma: DumpMinitool Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105142" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\DumpMinitool\.exe$|\DumpMinitool\.x86\.exe$|\DumpMinitool\.arm64\.exe$</field>
+    <description>Sigma: Suspicious DumpMinitool Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="101411" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/factory,\{75dff2b7-6936-4c06-a8bb-676a7b00b24b\}</field>
+    <description>Sigma: Explorer Process Tree Break</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101412" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /root,</field>
+    <description>Sigma: Explorer Process Tree Break</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101413" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.lnk$|\.lnk"$|\.lnk'$</field>
+    <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>
+    <description>Sigma: Findstr Launching .lnk File</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1202</id>
+      <id>T1027.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101416" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentCommandLine">\.exe$|\.exe"$</field>
+    <field name="win.eventdata.image">\cmd\.exe$</field>
+    <field name="win.eventdata.commandLine">^/c echo "</field>
+    <description>Sigma: Forfiles.EXE Child Process Masquerading</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="105205" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\xordump\.exe$</field>
+    <description>Sigma: HackTool - XORDump Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105206" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -process lsass\.exe | -m comsvcs | -m dbghelp | -m dbgcore </field>
+    <description>Sigma: HackTool - XORDump Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="101499" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\hxtsr\.exe$</field>
+    <description>Sigma: Potential Fake Instance Of Hxtsr.EXE Executed</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101561" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">=1251$|=866$| cp | select=</field>
+    <field name="win.eventdata.image">\mode\.com$</field>
+    <description>Sigma: CodePage Modification Via MODE.COM To Russian Language</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101568" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\msdt\.exe$</field>
+    <field name="win.eventdata.parentImage">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\schtasks\.exe$|\wmic\.exe$|\wscript\.exe$|\wsl\.exe$</field>
+    <description>Sigma: Suspicious MSDT Parent Process</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="105235" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -u | -f |\.dmp</field>
+    <description>Sigma: Renamed CreateDump Utility Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105236" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> --full | --name |\.dmp</field>
+    <description>Sigma: Renamed CreateDump Utility Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105237" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">FX_VER_INTERNALNAME_STR</field>
+    <description>Sigma: Renamed CreateDump Utility Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="103218" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.hashes">IMPHASH=6834B1B94E49701D77CCB3C0895E1AFD|IMPHASH=1BB6F93B129F398C7C4A76BB97450BBA|IMPHASH=FAA2AC19875FADE461C8D89DCF2710A3|IMPHASH=F1039CED4B91572AB7847D26032E6BBF</field>
+    <description>Sigma: Renamed ZOHO Dctask64 Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1055.001</id>
+      <id>T1202</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="101805" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">Plink</field>
+    <description>Sigma: Renamed Plink Execution</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="105240" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Process Memory Dump Via Comsvcs.DLL</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="101820" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">:\RECYCLER\|:\SystemVolumeInformation\</field>
+    <description>Sigma: Suspicious Process Start Locations</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101821" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">^C:\Windows\Tasks\|^C:\Windows\debug\|^C:\Windows\fonts\|^C:\Windows\help\|^C:\Windows\drivers\|^C:\Windows\addins\|^C:\Windows\cursors\|^C:\Windows\system32\tasks\</field>
+    <description>Sigma: Suspicious Process Start Locations</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101839" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\sdiagnhost\.exe$</field>
+    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\cmd\.exe$|\mshta\.exe$|\cscript\.exe$|\wscript\.exe$|\taskkill\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\calc\.exe$</field>
+    <description>Sigma: Sdiagnhost Calling Suspicious Child Process</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101866" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\Windows\</field>
+    <field name="win.eventdata.commandLine">\\.\.\Windows\|\\.\.\System32\|\\.\.\\.\.\</field>
+    <description>Sigma: Potential Command Line Path Traversal Evasion Attempt</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101867" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.exe\\.\.\</field>
+    <description>Sigma: Potential Command Line Path Traversal Evasion Attempt</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101901" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">:\Perflogs\|:\Users\All Users\|:\Users\Default\|:\Users\NetworkService\|:\Windows\addins\|:\Windows\debug\|:\Windows\Fonts\|:\Windows\Help\|:\Windows\IME\|:\Windows\Media\|:\Windows\repair\|:\Windows\security\|:\Windows\System32\Tasks\|:\Windows\Tasks\|\$Recycle\.bin|\config\systemprofile\|\Intel\Logs\|\RSA\MachineKeys\</field>
+    <description>Sigma: Process Execution From A Potentially Suspicious Folder</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101905" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">а|е|о|р|с|х|ѕ|і|ӏ|ј|һ|ԁ|ԛ|ԝ|ο</field>
+    <description>Sigma: Potential Homoglyph Attack Using Lookalike Characters</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1036.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101906" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">А|В|Е|К|М|Н|О|Р|С|Т|Х|Ѕ|І|Ј|Ү|Ӏ|Ԍ|Ԛ|Ԝ|Α|Β|Ε|Ζ|Η|Ι|Κ|Μ|Ν|Ο|Ρ|Τ|Υ|Χ</field>
+    <description>Sigma: Potential Homoglyph Attack Using Lookalike Characters</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1036.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101920" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\csrss\.exe$|\certutil\.exe$|\eventvwr\.exe$|\calc\.exe$|\notepad\.exe$</field>
+    <description>Sigma: Suspicious Process Parents</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101931" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\atbroker\.exe$|\audiodg\.exe$|\bcdedit\.exe$|\bitsadmin\.exe$|\certreq\.exe$|\certutil\.exe$|\cmstp\.exe$|\conhost\.exe$|\consent\.exe$|\cscript\.exe$|\csrss\.exe$|\dashost\.exe$|\defrag\.exe$|\dfrgui\.exe$|\dism\.exe$|\dllhost\.exe$|\dllhst3g\.exe$|\dwm\.exe$|\eventvwr\.exe$|\fsquirt\.exe$|\finger\.exe$|\logonui\.exe$|\LsaIso\.exe$|\lsass\.exe$|\lsm\.exe$|\msiexec\.exe$|\ntoskrnl\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\runonce\.exe$|\RuntimeBroker\.exe$|\schtasks\.exe$|\services\.exe$|\sihost\.exe$|\smartscreen\.exe$|\smss\.exe$|\spoolsv\.exe$|\svchost\.exe$|\taskhost\.exe$|\taskhostw\.exe$|\Taskmgr\.exe$|\userinit\.exe$|\werfault\.exe$|\werfaultsecure\.exe$|\wininit\.exe$|\winlogon\.exe$|\winver\.exe$|\wlanext\.exe$|\wscript\.exe$|\wsl\.exe$|\wsmprovhost\.exe$</field>
+    <description>Sigma: System File Execution Location Anomaly</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="105267" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\procdump\.exe$|\procdump64\.exe$</field>
+    <description>Sigma: Procdump Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105268" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">copy procdump|move procdump</field>
+    <description>Sigma: Potential SysInternals ProcDump Evasion</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105269" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">2\.dmp|lsass|out\.dmp|\.dmp </field>
+    <description>Sigma: Potential SysInternals ProcDump Evasion</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105270" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">copy lsass\.exe_|move lsass\.exe_</field>
+    <description>Sigma: Potential SysInternals ProcDump Evasion</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105271" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> ls| keyiso| samss</field>
+    <description>Sigma: Potential LSASS Process Dump Via Procdump</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="101958" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.user">AUTHORI|AUTORI</field>
+    <field name="win.eventdata.image">\taskmgr\.exe$</field>
+    <description>Sigma: Taskmgr as LOCAL_SYSTEM</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101977" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -pr </field>
+    <field name="win.eventdata.image">\WerFault\.exe$</field>
+    <description>Sigma: Potential ReflectDebugger Content Execution Via WerFault.EXE</description>
     <mitre>
       <id>T1036</id>
     </mitre>

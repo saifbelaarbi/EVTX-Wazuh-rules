@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1127.001_unknown,">
+  <rule id="101185" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">\msbuild\.exe$</field>
+    <field name="win.eventdata.destinationPort">80|443</field>
+    <field name="win.eventdata.initiated">true</field>
+    <description>Sigma: Silenttrinity Stager Msbuild Activity</description>
+    <mitre>
+      <id>T1127.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

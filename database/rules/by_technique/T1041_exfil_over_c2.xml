@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1041_exfil_over_c2,">
+  <rule id="109047" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.portmap\.io$</field>
+    <description>Sigma: Network Communication Initiated To Portmap.IO Domain</description>
+    <mitre>
+      <id>T1041</id>
+      <id>T1090.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+</group>

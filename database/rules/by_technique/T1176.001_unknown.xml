@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1176.001_unknown,">
+  <rule id="102663" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\brave\.exe$|\chrome\.exe$|\msedge\.exe$|\opera\.exe$|\vivaldi\.exe$</field>
+    <field name="win.eventdata.commandLine">--load-extension=</field>
+    <description>Sigma: Chromium Browser Instance Executed With Custom Extension</description>
+    <mitre>
+      <id>T1176.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102664" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.image">\brave\.exe$|\chrome\.exe$|\msedge\.exe$|\opera\.exe$|\vivaldi\.exe$</field>
+    <field name="win.eventdata.commandLine">--load-extension=</field>
+    <description>Sigma: Suspicious Chromium Browser Instance Executed With Custom Extension</description>
+    <mitre>
+      <id>T1176.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

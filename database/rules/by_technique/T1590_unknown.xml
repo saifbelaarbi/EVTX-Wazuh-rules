@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1590_unknown,">
-  <rule id="106055" level="7">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Crassus\.exe$</field>
-    <description>Sigma: PUA - Crassus Execution</description>
+  <rule id="101085" level="8">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">www\.ip\.cn|l2\.io</field>
+    <description>Sigma: Suspicious DNS Query for IP Lookup Service APIs</description>
     <mitre>
       <id>T1590</id>
     </mitre>
-    <group>discovery,sigma_converted,</group>
-  </rule>
-  <rule id="106056" level="7">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">Crassus\.exe</field>
-    <description>Sigma: PUA - Crassus Execution</description>
-    <mitre>
-      <id>T1590</id>
-    </mitre>
-    <group>discovery,sigma_converted,</group>
-  </rule>
-  <rule id="106057" level="7">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.description">Crassus</field>
-    <description>Sigma: PUA - Crassus Execution</description>
-    <mitre>
-      <id>T1590</id>
-    </mitre>
-    <group>discovery,sigma_converted,</group>
+    <group>execution,sigma_converted,</group>
   </rule>
 </group>

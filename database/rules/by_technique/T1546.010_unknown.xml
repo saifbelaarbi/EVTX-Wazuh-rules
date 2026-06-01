@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1546.010_unknown,">
+  <rule id="103302" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_Dlls$|\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_Dlls$</field>
+    <description>Sigma: New DLL Added to AppInit_DLLs Registry Key</description>
+    <mitre>
+      <id>T1546.010</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

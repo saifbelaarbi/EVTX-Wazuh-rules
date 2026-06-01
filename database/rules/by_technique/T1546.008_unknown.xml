@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1546.008_unknown,">
+  <rule id="103137" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">mklink|\osk\.exe|\cmd\.exe</field>
+    <field name="win.eventdata.image">\cmd\.exe$</field>
+    <description>Sigma: Potential Privilege Escalation Using Symlink Between Osk and Cmd</description>
+    <mitre>
+      <id>T1546.008</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103138" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\winlogon\.exe$</field>
+    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$|\wt\.exe$</field>
+    <field name="win.eventdata.commandLine">sethc\.exe|utilman\.exe|osk\.exe|Magnify\.exe|Narrator\.exe|DisplaySwitch\.exe</field>
+    <description>Sigma: Sticky Key Like Backdoor Execution</description>
+    <mitre>
+      <id>T1546.008</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="102665" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">copy |/y |C:\windows\system32\cmd\.exe C:\windows\system32\sethc\.exe</field>
+    <description>Sigma: Persistence Via Sticky Key Backdoor</description>
+    <mitre>
+      <id>T1546.008</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102697" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">sethc\.exe|utilman\.exe|osk\.exe|magnify\.exe|narrator\.exe|displayswitch\.exe|atbroker\.exe|HelpPane\.exe</field>
+    <description>Sigma: Suspicious Debugger Registration Cmdline</description>
+    <mitre>
+      <id>T1546.008</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="103307" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\utilman\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\osk\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Magnify\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Narrator\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DisplaySwitch\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\atbroker\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\HelpPane\.exe\Debugger$</field>
+    <description>Sigma: Sticky Key Like Backdoor Usage - Registry</description>
+    <mitre>
+      <id>T1546.008</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

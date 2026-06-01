@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1547_boot_autostart,">
-  <rule id="102133" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">C:\program\.exe</field>
-    <description>Sigma: Creation Exe for Service with Unquoted Path</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102138" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\msdt\.exe$</field>
-    <field name="win.eventdata.targetFilename">\Desktop\|\Start Menu\Programs\Startup\|C:\PerfLogs\|C:\ProgramData\|C:\Users\Public\</field>
-    <description>Sigma: File Creation In Suspicious Directory By Msdt.EXE</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102146" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.lnk$</field>
-    <description>Sigma: Potential Startup Shortcut Persistence Via PowerShell.EXE</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102147" level="10">
+  <rule id="103045" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\Startup|\.lnk\.\{0AFACED1-E828-11D1-9187-B532F1E9575D\}</field>
     <field name="win.eventdata.image">\explorer\.exe$</field>
@@ -37,69 +8,28 @@
     <mitre>
       <id>T1547</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102156" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\WinRAR\.exe$|\Rar\.exe$</field>
-    <field name="win.eventdata.targetFilename">\Start Menu\Programs\Startup\</field>
-    <description>Sigma: WinRAR Creating Files in Startup Locations</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="101987" level="9">
+  <rule id="103201" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run| add </field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
-    <description>Sigma: Suspicious Autorun Registry Modified via WMI</description>
+    <field name="win.eventdata.commandLine">-i|/install|-a|/add-driver|\.inf</field>
+    <field name="win.eventdata.image">\pnputil\.exe$</field>
+    <description>Sigma: Suspicious Driver Install by pnputil.exe</description>
     <mitre>
       <id>T1547</id>
-      <id>T1047</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102220" level="10">
+  <rule id="103202" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">grpconv\.exe -o|grpconv -o</field>
     <description>Sigma: Suspicious GrpConv Execution</description>
     <mitre>
       <id>T1547</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102258" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Startup</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\reg\.exe$</field>
-    <description>Sigma: User Shell Folders Registry Modification via CommandLine</description>
-    <mitre>
-      <id>T1547</id>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102286" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.eventType">DeleteValue</field>
-    <field name="win.eventdata.targetObject">\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\DelegateExecute$</field>
-    <description>Sigma: Narrator's Feedback-Hub Persistence</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102287" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\\(Default\)$</field>
-    <description>Sigma: Narrator's Feedback-Hub Persistence</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102289" level="10">
+  <rule id="103303" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">RenameKey</field>
     <field name="win.eventdata.newName">\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E\}\shell\open</field>
@@ -107,9 +37,9 @@
     <mitre>
       <id>T1547</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102290" level="10">
+  <rule id="103304" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">SetValue</field>
     <field name="win.eventdata.targetObject">\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E\}\shell\open\command\\(Default\)</field>
@@ -117,129 +47,15 @@
     <mitre>
       <id>T1547</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102292" level="10">
+  <rule id="103305" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">Software\Microsoft\Windows\CurrentVersion\Run\Backup Mgr$</field>
     <description>Sigma: WINEKEY Registry Modification</description>
     <mitre>
       <id>T1547</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102294" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Control\Lsa\Security Packages$|\Control\Lsa\OSConfig\Security Packages$</field>
-    <description>Sigma: Security Support Provider (SSP) Added to LSA Configuration</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102296" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.image">\AppData\Local\Packages\Microsoft\.Outlook_|\AppData\Local\Microsoft\Olk\Attachments\|\Downloads\|\Temporary Internet Files\Content\.Outlook\|\Local Settings\Temporary Internet Files\</field>
-    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
-    <description>Sigma: Suspicious Run Key from Download</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102297" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">_Classes\mscfile\shell\open\command\\(Default\)$</field>
-    <description>Sigma: Bypass UAC Using Event Viewer</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102298" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber$</field>
-    <description>Sigma: Default RDP Port Changed to Non Standard Port</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102306" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\CustomSD$</field>
-    <description>Sigma: Windows Event Log Access Tampering Via Registry</description>
-    <mitre>
-      <id>T1547</id>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102307" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\ChannelAccess$</field>
-    <description>Sigma: Windows Event Log Access Tampering Via Registry</description>
-    <mitre>
-      <id>T1547</id>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102347" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run$</field>
-    <field name="win.eventdata.details">:\\$Recycle\.bin\|:\ProgramData\|:\Temp\|:\Users\Default\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\</field>
-    <description>Sigma: Registry Persistence via Explorer Run Key</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102348" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
-    <description>Sigma: New RUN Key Pointing to Suspicious Folder</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102349" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Common Startup$|\Startup$</field>
-    <description>Sigma: Modify User Shell Folders Startup Value</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102353" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\DllName$</field>
-    <description>Sigma: New TimeProviders Registered With Uncommon DLL Name</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102354" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">Software\Microsoft\Windows\CurrentVersion</field>
-    <field name="win.eventdata.details">vbscript:|jscript:|mshtml,|RunHTMLApplication|Execute\(|CreateObject|window\.close</field>
-    <description>Sigma: VBScript Payload Stored in Registry</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102356" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify\logon$</field>
-    <field name="win.eventdata.details">\.dll$</field>
-    <description>Sigma: Winlogon Notify Key Logon Persistence</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
 </group>

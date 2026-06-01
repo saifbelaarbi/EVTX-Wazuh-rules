@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1556.002_unknown,">
+  <rule id="102642" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">(Copy-Item|cpi) .{2,128} -Destination .{1,32}\\Windows\\(System32|SysWOW64)</field>
+    <description>Sigma: Powershell Install a DLL in System Directory</description>
+    <mitre>
+      <id>T1556.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102686" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">HKLM\SYSTEM\CurrentControlSet\Control\Lsa|scecli\0.*|reg add</field>
+    <description>Sigma: Dropping Of Password Filter DLL</description>
+    <mitre>
+      <id>T1556.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

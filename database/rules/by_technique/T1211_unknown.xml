@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1211_unknown,">
+  <rule id="102709" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.sh|\.exe|\.dll|\.bin|\.bat|\.cmd|\.js|\.msh|\.reg|\.scr|\.ps|\.vb|\.jar|\.pl|\.inf|\.cpl|\.hta|\.msi|\.vbs</field>
+    <description>Sigma: Writing Of Malicious Files To The Fonts Folder</description>
+    <mitre>
+      <id>T1211</id>
+      <id>T1059</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1686.003_unknown,">
+  <rule id="101304" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText"> -All |Public|Domain|Private| -Enabled | False</field>
+    <description>Sigma: Windows Firewall Profile Disabled</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101589" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> firewall | add </field>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <description>Sigma: New Firewall Rule Added Via Netsh.EXE</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101590" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">:\\$Recycle\.bin\|:\RECYCLER\.BIN\|:\RECYCLERS\.BIN\|:\SystemVolumeInformation\|:\Temp\|:\Users\Default\|:\Users\Desktop\|:\Users\Public\|:\Windows\addins\|:\Windows\cursors\|:\Windows\debug\|:\Windows\drivers\|:\Windows\fonts\|:\Windows\help\|:\Windows\system32\tasks\|:\Windows\Tasks\|:\Windows\Temp\|\Downloads\|\Local Settings\Temporary Internet Files\|\Temporary Internet Files\Content\.Outlook\|%Public%\|%TEMP%|%TMP%|add|allowedprogram</field>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <description>Sigma: Suspicious Program Location Whitelisted In Firewall Via Netsh.EXE</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101591" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">portopening|allow|add |tcp |3389</field>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <description>Sigma: RDP Connection Allowed Via Netsh.EXE</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101592" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">firewall|delete </field>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <description>Sigma: Firewall Rule Deleted Via Netsh.EXE</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101593" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <field name="win.eventdata.commandLine">firewall|set|opmode|disable</field>
+    <description>Sigma: Firewall Disabled via Netsh.EXE</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101594" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">advfirewall|firewall|set|rule|group=|new|enable=Yes</field>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <description>Sigma: Netsh Allow Group Policy on Microsoft Defender Firewall</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

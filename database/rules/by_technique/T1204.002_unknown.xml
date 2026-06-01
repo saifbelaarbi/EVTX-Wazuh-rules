@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1204.002_unknown,">
+  <rule id="101113" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$|\msaccess\.exe$|\mspub\.exe$|\powerpnt\.exe$|\visio\.exe$|\winword\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.bat$|\.cmd$|\.com$|\.dll$|\.exe$|\.hta$|\.ocx$|\.proj$|\.ps1$|\.scf$|\.scr$|\.sys$|\.vbe$|\.vbs$|\.wsf$|\.wsh$</field>
+    <description>Sigma: File With Uncommon Extension Created By An Office Application</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103049" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.bat$|\.cmd$|\.dll$|\.hta$|\.jar$|\.js$|\.jse$|\.msi$|\.ps1$|\.psd1$|\.psm1$|\.scr$|\.url$|\.vba$|\.vbe$|\.vbs$|\.wsf$</field>
+    <description>Sigma: Suspicious Startup Folder Persistence</description>
+    <mitre>
+      <id>T1204.002</id>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="101161" level="8">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\onenote\.exe$|\onenoteim\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
+    <field name="win.eventdata.imageLoaded">^C:\Windows\assembly\</field>
+    <description>Sigma: DotNET Assembly DLL Loaded Via Office Application</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101162" level="8">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\outlook\.exe$|\onenote\.exe$|\onenoteim\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\clr\.dll</field>
+    <description>Sigma: CLR DLL Loaded Via Office Applications</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101163" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\onenote\.exe$|\onenoteim\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
+    <field name="win.eventdata.imageLoaded">^C:\Windows\Microsoft\.NET\assembly\GAC_MSIL</field>
+    <description>Sigma: GAC DLL Loaded Via Office Applications</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101164" level="8">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\.xll$</field>
+    <description>Sigma: Microsoft Excel Add-In Loaded From Uncommon Location</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101165" level="8">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\outlook\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\outlvba\.dll$</field>
+    <description>Sigma: Microsoft VBA For Outlook Addin Loaded Via Outlook</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101167" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\onenote\.exe$|\onenoteim\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\VBE7\.DLL$|\VBEUI\.DLL$|\VBE7INTL\.DLL$</field>
+    <description>Sigma: VBA DLL Loaded Via Office Application</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101168" level="8">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.imageLoaded">^\\\\</field>
+    <description>Sigma: Remote DLL Load Via Rundll32.EXE</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101312" level="9">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.sourceImage">\winword\.exe$</field>
+    <field name="win.eventdata.callTrace">:\Windows\Microsoft\.NET\Framework64\v2\.|UNKNOWN</field>
+    <description>Sigma: HackTool - LittleCorporal Generated Maldoc Injection</description>
+    <mitre>
+      <id>T1204.002</id>
+      <id>T1055.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101560" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">cod\.msc|fdp\.msc|ftr\.msc|lmth\.msc|slx\.msc|tdo\.msc|xcod\.msc|xslx\.msc|xtpp\.msc</field>
+    <field name="win.eventdata.image">\mmc\.exe$</field>
+    <description>Sigma: MMC Executing Files with Reversed Extensions Using RTLO Abuse</description>
+    <mitre>
+      <id>T1204.002</id>
+      <id>T1218.014</id>
+      <id>T1036.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101611" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\OUTLOOK\.EXE$</field>
+    <field name="win.eventdata.image">\AppVLP\.exe$|\bash\.exe$|\cmd\.exe$|\cscript\.exe$|\forfiles\.exe$|\hh\.exe$|\mftrace\.exe$|\msbuild\.exe$|\msdt\.exe$|\mshta\.exe$|\msiexec\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\schtasks\.exe$|\scrcons\.exe$|\scriptrunner\.exe$|\sh\.exe$|\svchost\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Suspicious Outlook Child Process</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101613" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\WINWORD\.EXE$|\EXCEL\.EXE$|\POWERPNT\.exe$|\MSPUB\.exe$|\VISIO\.exe$|\MSACCESS\.exe$|\EQNEDT32\.exe$</field>
+    <field name="win.eventdata.image">\.exe$</field>
+    <description>Sigma: Suspicious Binary In User Directory Spawned From Office Application</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101859" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">Acrobat Reader|Microsoft Office|PDF Reader</field>
+    <field name="win.eventdata.image">\brave\.exe$|\chrome\.exe$|\firefox\.exe$|\msedge\.exe$|\opera\.exe$|\maxthon\.exe$|\seamonkey\.exe$|\vivaldi\.exe$</field>
+    <field name="win.eventdata.commandLine">http</field>
+    <description>Sigma: Potential Suspicious Browser Launch From Document Reader Process</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100027" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">                 |\u0009|\u000A|\u0011|\u0012|\u0013|\u000B|\u000C|\u000D</field>
+    <field name="win.eventdata.parentImage">\explorer\.exe$</field>
+    <description>Sigma: Suspicious LNK Command-Line Padding with Whitespace Characters</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+</group>

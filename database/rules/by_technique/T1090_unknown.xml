@@ -1,49 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1090_unknown,">
-  <rule id="101660" level="9">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">5156</field>
-    <description>Sigma: RDP over Reverse SSH Tunnel WFP</description>
-    <mitre>
-      <id>T1090</id>
-      <id>T1021</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101714" level="9">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.hiddenservice\.net$|\.onion\.ca$|\.onion\.cab$|\.onion\.casa$|\.onion\.city$|\.onion\.direct$|\.onion\.dog$|\.onion\.glass$|\.onion\.gq$|\.onion\.ink$|\.onion\.it$|\.onion\.link$|\.onion\.lt$|\.onion\.lu$|\.onion\.nu$|\.onion\.pet$|\.onion\.plus$|\.onion\.rip$|\.onion\.sh$|\.onion\.to$|\.onion\.top$|\.onion$|\.s1\.tor-gateways\.de$|\.s2\.tor-gateways\.de$|\.s3\.tor-gateways\.de$|\.s4\.tor-gateways\.de$|\.s5\.tor-gateways\.de$|\.t2w\.pw$|\.tor2web\.ae\.org$|\.tor2web\.blutmagie\.de$|\.tor2web\.com$|\.tor2web\.fi$|\.tor2web\.io$|\.tor2web\.org$|\.tor2web\.xyz$|\.torlink\.co$</field>
-    <description>Sigma: DNS Query Tor .Onion Address - Sysmon</description>
+  <rule id="109063" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">\[System\.Net\.HttpWebRequest\]|System\.Net\.Sockets\.TcpListener|AcceptTcpClient</field>
+    <description>Sigma: Suspicious TCP Tunnel Via PowerShell Script</description>
     <mitre>
       <id>T1090</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="101992" level="9">
+  <rule id="109091" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.description">Tor Browser</field>
-    <description>Sigma: Tor Client/Browser Execution</description>
+    <field name="win.eventdata.commandLine">\.exe -tran |\.exe -slave </field>
+    <description>Sigma: HackTool - Htran/NATBypass Execution</description>
     <mitre>
       <id>T1090</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="101993" level="9">
+  <rule id="109092" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.product">Tor Browser</field>
-    <description>Sigma: Tor Client/Browser Execution</description>
+    <field name="win.eventdata.image">\htran\.exe$|\lcx\.exe$</field>
+    <description>Sigma: HackTool - Htran/NATBypass Execution</description>
     <mitre>
       <id>T1090</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="101994" level="9">
+  <rule id="107060" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\tor\.exe$|\Tor Browser\Browser\firefox\.exe$</field>
-    <description>Sigma: Tor Client/Browser Execution</description>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <field name="win.eventdata.commandLine">interface|portproxy|add|v4tov4</field>
+    <description>Sigma: New Port Forwarding Rule Added Via Netsh.EXE</description>
     <mitre>
       <id>T1090</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="107061" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> i| p|=3389| c</field>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <description>Sigma: RDP Port Forwarding Rule Added Via Netsh.EXE</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="109118" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\frpc\.ini</field>
+    <description>Sigma: PUA - Fast Reverse Proxy (FRP) Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109119" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.hashes">MD5=7D9C233B8C9E3F0EA290D2B84593C842|SHA1=06DDC9280E1F1810677935A2477012960905942F|SHA256=57B0936B8D336D8E981C169466A15A5FD21A7D5A2C7DAF62D5E142EE860E387C</field>
+    <description>Sigma: PUA - Fast Reverse Proxy (FRP) Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109120" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\frpc\.exe$|\frps\.exe$</field>
+    <description>Sigma: PUA - Fast Reverse Proxy (FRP) Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109121" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\iox\.exe$</field>
+    <description>Sigma: PUA- IOX Tunneling Tool Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109122" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.exe fwd -l |\.exe fwd -r |\.exe proxy -l |\.exe proxy -r </field>
+    <description>Sigma: PUA- IOX Tunneling Tool Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109123" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.hashes">MD5=9DB2D314DD3F704A02051EF5EA210993|SHA1=039130337E28A6623ECF9A0A3DA7D92C5964D8DD|SHA256=C6CF82919B809967D9D90EA73772A8AA1C1EB3BC59252D977500F64F1A0D6731</field>
+    <description>Sigma: PUA- IOX Tunneling Tool Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109132" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -server=| -vkey=| -password=</field>
+    <description>Sigma: PUA - NPS Tunneling Tool Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109133" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -config=npc</field>
+    <description>Sigma: PUA - NPS Tunneling Tool Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109134" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.hashes">MD5=AE8ACF66BFE3A44148964048B826D005|SHA1=CEA49E9B9B67F3A13AD0BE1C2655293EA3C18181|SHA256=5A456283392FFCEEEACA3D3426C306EB470304637520D72FED1CC1FEBBBD6856</field>
+    <description>Sigma: PUA - NPS Tunneling Tool Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109135" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\npc\.exe$</field>
+    <description>Sigma: PUA - NPS Tunneling Tool Execution</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109136" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-m 1M|-m 2M|-m 3M|restrict=off|-netdev |connect=|-nographic</field>
+    <description>Sigma: Potentially Suspicious Usage Of Qemu</description>
+    <mitre>
+      <id>T1090</id>
+      <id>T1572</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="107073" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Services\PortProxy\v4tov4\tcp\</field>
+    <description>Sigma: New PortProxy Registry Entry Added</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
   </rule>
 </group>

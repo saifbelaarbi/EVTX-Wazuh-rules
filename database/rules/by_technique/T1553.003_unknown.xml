@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1553.003_unknown,">
+  <rule id="102813" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Cryptography\Providers\|\SOFTWARE\Microsoft\Cryptography\OID\EncodingType|\SOFTWARE\WOW6432Node\Microsoft\Cryptography\Providers\|\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType</field>
+    <description>Sigma: Persistence Via New SIP Provider</description>
+    <mitre>
+      <id>T1553.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

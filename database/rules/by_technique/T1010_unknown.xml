@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1010_unknown,">
+  <rule id="106009" level="6">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4656</field>
+    <field name="win.eventdata.objectType">SC_MANAGER OBJECT</field>
+    <field name="win.eventdata.objectName">ServicesActive</field>
+    <field name="win.eventdata.accessMask">0xf003f</field>
+    <description>Sigma: SCM Database Handle Failure</description>
+    <mitre>
+      <id>T1010</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+</group>

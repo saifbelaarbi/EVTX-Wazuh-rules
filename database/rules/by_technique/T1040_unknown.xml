@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1040_unknown,">
+  <rule id="106007" level="6">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">pcap|npcap|npf|nm3|ndiscap|nmnt|windivert|USBPcap|pktmon</field>
+    <description>Sigma: Windows Pcap Drivers</description>
+    <mitre>
+      <id>T1040</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="105110" level="11">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Start-NetEventSession</field>
+    <description>Sigma: Potential Packet Capture Activity Via Start-NetEventSession - ScriptBlock</description>
+    <mitre>
+      <id>T1040</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="106071" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">trace|start</field>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <description>Sigma: New Network Trace Capture Started Via Netsh.EXE</description>
+    <mitre>
+      <id>T1040</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106072" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">wlan| s| p| k|=clear</field>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <description>Sigma: Harvesting Of Wifi Credentials Via Netsh.EXE</description>
+    <mitre>
+      <id>T1040</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106075" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\pktmon\.exe$</field>
+    <description>Sigma: PktMon.EXE Execution</description>
+    <mitre>
+      <id>T1040</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="106076" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">PktMon\.exe</field>
+    <description>Sigma: PktMon.EXE Execution</description>
+    <mitre>
+      <id>T1040</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="105253" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\tshark\.exe$</field>
+    <field name="win.eventdata.commandLine">-i</field>
+    <description>Sigma: Potential Network Sniffing Activity Using Network Tools</description>
+    <mitre>
+      <id>T1040</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105254" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\windump\.exe$</field>
+    <description>Sigma: Potential Network Sniffing Activity Using Network Tools</description>
+    <mitre>
+      <id>T1040</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+</group>

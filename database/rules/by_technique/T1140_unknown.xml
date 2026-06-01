@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1140_unknown,">
+  <rule id="101575" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.7z|\.avi|\.bat|\.bmp|\.conf|\.csv|\.dll|\.doc|\.gif|\.gz|\.ini|\.jpe|\.jpg|\.json|\.lnk|\.log|\.mkv|\.mp3|\.mp4|\.pdf|\.png|\.ppt|\.rar|\.rtf|\.svg|\.tar|\.tmp|\.txt|\.xls|\.xml|\.yaml|\.yml|\.zip|vbscript</field>
+    <field name="win.eventdata.image">\mshta\.exe$</field>
+    <description>Sigma: MSHTA Execution with Suspicious File Extensions</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1218.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101624" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\ping\.exe$</field>
+    <field name="win.eventdata.commandLine">0x[a-fA-F0-9]{8}</field>
+    <description>Sigma: Ping Hex IP</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1027</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101634" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">::FromBase64String</field>
+    <description>Sigma: PowerShell Base64 Encoded FromBase64String Cmdlet</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101635" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">OgA6AEYAcgBvAG0AQgBhAHMAZQA2ADQAUwB0AHIAaQBuAGcA|oAOgBGAHIAbwBtAEIAYQBzAGUANgA0AFMAdAByAGkAbgBnA|6ADoARgByAG8AbQBCAGEAcwBlADYANABTAHQAcgBpAG4AZw</field>
+    <description>Sigma: PowerShell Base64 Encoded FromBase64String Cmdlet</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101860" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">h\^t\^t\^p|h"t"t"p</field>
+    <description>Sigma: Potential Commandline Obfuscation Using Escape Characters</description>
+    <mitre>
+      <id>T1140</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102769" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Google\Chrome\DnsOverHttpsMode$</field>
+    <field name="win.eventdata.details">secure</field>
+    <description>Sigma: DNS-over-HTTPS Enabled by Registry</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102770" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Policies\Microsoft\Edge\BuiltInDnsClientEnabled$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: DNS-over-HTTPS Enabled by Registry</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102771" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Policies\Mozilla\Firefox\DNSOverHTTPS\Enabled$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: DNS-over-HTTPS Enabled by Registry</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

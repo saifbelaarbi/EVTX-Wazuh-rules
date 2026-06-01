@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1110_brute_force,">
+  <rule id="105165" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\^USER\^|\^PASS\^|-p </field>
+    <description>Sigma: HackTool - Hydra Password Bruteforce Execution</description>
+    <mitre>
+      <id>T1110</id>
+      <id>T1110.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+</group>

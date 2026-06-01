@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1547.009_unknown,">
+  <rule id="103018" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.objectType">File</field>
+    <field name="win.eventdata.relativeTargetName">\desktop\.ini$</field>
+    <field name="win.eventdata.accessList">WriteData|DELETE|WriteDAC|AppendData|AddSubdirectory</field>
+    <description>Sigma: Windows Network Access Suspicious desktop.ini Action</description>
+    <mitre>
+      <id>T1547.009</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103036" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">:\Windows\apppatch\Custom\|:\Windows\apppatch\CustomSDB\</field>
+    <description>Sigma: New Custom Shim Database Created</description>
+    <mitre>
+      <id>T1547.009</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103038" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">C:\program\.exe</field>
+    <description>Sigma: Creation Exe for Service with Unquoted Path</description>
+    <mitre>
+      <id>T1547.009</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103039" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\desktop\.ini$</field>
+    <description>Sigma: Desktop.INI Created by Uncommon Process</description>
+    <mitre>
+      <id>T1547.009</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

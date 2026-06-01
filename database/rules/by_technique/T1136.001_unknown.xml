@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1136.001_unknown,">
+  <rule id="102523" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4720</field>
+    <field name="win.eventdata.targetUserName">\$$</field>
+    <description>Sigma: Hidden Local User Creation</description>
+    <mitre>
+      <id>T1136.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102530" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4720</field>
+    <field name="win.eventdata.samAccountName">ANONYMOUS|LOGON</field>
+    <description>Sigma: Suspicious Windows ANONYMOUS LOGON Local Account Created</description>
+    <mitre>
+      <id>T1136.001</id>
+      <id>T1136.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102675" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">user|add</field>
+    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <description>Sigma: New User Created Via Net.EXE</description>
+    <mitre>
+      <id>T1136.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102676" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">user|add|expires:never</field>
+    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <description>Sigma: New User Created Via Net.EXE With Never Expire Option</description>
+    <mitre>
+      <id>T1136.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102737" level="12">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\$\\(Default\)$</field>
+    <field name="win.eventdata.image">\lsass\.exe$</field>
+    <description>Sigma: Creation of a Local Hidden User Account by Registry</description>
+    <mitre>
+      <id>T1136.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

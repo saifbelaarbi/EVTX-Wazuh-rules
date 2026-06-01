@@ -1,0 +1,1292 @@
+{
+  "summary": {
+    "unmapped_logsource": 111,
+    "unexpected": 103
+  },
+  "records": [
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/Other/win_av_relevant_match.yml",
+      "sigma_id": "78bc5783-81d9-4d73-ac97-59f6db4f72a8",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/application_error/win_application_error_lsass_crash.yml",
+      "sigma_id": "a18e0862-127b-43ca-be12-1a542c75c7c5",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/application_error/win_application_error_msmpeng_crash.yml",
+      "sigma_id": "545a5da6-f103-4919-a519-e9aec1026ee4",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/esent/win_esent_ntdsutil_abuse.yml",
+      "sigma_id": "e6e88853-5f20-4c4a-8d26-cd469fd8d31f",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/esent/win_esent_ntdsutil_abuse_susp_location.yml",
+      "sigma_id": "94dc4390-6b7c-4784-8ffc-335334404650",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/microsoft-windows_audit_cve/win_audit_cve.yml",
+      "sigma_id": "48d91a3a-2363-43ba-a456-ca71ac3da5c2",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/microsoft_windows_backup/win_susp_backup_delete.yml",
+      "sigma_id": "9703792d-fd9a-456d-a672-ff92efe4806a",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/microsoft_windows_software_restriction_policies/win_software_restriction_policies_block.yml",
+      "sigma_id": "b4c8da4a-1c12-46b0-8a2b-0a8521d03442",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/msiinstaller/win_msi_install_from_susp_locations.yml",
+      "sigma_id": "c7c8aa1c-5aff-408e-828b-998e3620b341",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/msiinstaller/win_msi_install_from_web.yml",
+      "sigma_id": "5594e67a-7f92-4a04-b65d-1a42fd824a60",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/msiinstaller/win_software_atera_rmm_agent_install.yml",
+      "sigma_id": "87261fb2-69d0-42fe-b9de-88c6b5f65a43",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/mssqlserver/win_mssql_add_sysadmin_account.yml",
+      "sigma_id": "08200f85-2678-463e-9c32-88dce2f073d1",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/mssqlserver/win_mssql_destructive_query.yml",
+      "sigma_id": "00321fee-ca72-4cce-b011-5415af3b9960",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/mssqlserver/win_mssql_disable_audit_settings.yml",
+      "sigma_id": "350dfb37-3706-4cdc-9e2e-5e24bc3a46df",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/mssqlserver/win_mssql_failed_logon_from_external_network.yml",
+      "sigma_id": "ebfe73c2-5bc9-4ed9-aaa8-8b54b2b4777d",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/mssqlserver/win_mssql_sp_procoption_set.yml",
+      "sigma_id": "b3d57a5c-c92e-4b48-9a79-5f124b7cf964",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/mssqlserver/win_mssql_xp_cmdshell_audit_log.yml",
+      "sigma_id": "7f103213-a04e-4d59-8261-213dddf22314",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/mssqlserver/win_mssql_xp_cmdshell_change.yml",
+      "sigma_id": "d08dd86f-681e-4a00-a92c-1db218754417",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/windows_error_reporting/win_application_msmpeng_crash_wer.yml",
+      "sigma_id": "6c82cf5c-090d-4d57-9188-533577631108",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: application"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/applocker/win_applocker_application_was_prevented_from_running.yml",
+      "sigma_id": "401e5d00-b944-11ea-8f9a-00163ecd60ae",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: applocker"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_applocker_block.yml",
+      "sigma_id": "6ae53108-c3a0-4bee-8f45-c7591a2c337f",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxdeployment-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_appx_downloaded_from_file_sharing_domains.yml",
+      "sigma_id": "8b48ad89-10d8-4382-a546-50588c410f0d",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxdeployment-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_appx_package_deployment_failed_signing_requirements.yml",
+      "sigma_id": "898d5fc9-fbc3-43de-93ad-38e97237c344",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxdeployment-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_appx_package_in_staging_directory.yml",
+      "sigma_id": "5cdeaf3d-1489-477c-95ab-c318559fc051",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxdeployment-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_mal_appx_names.yml",
+      "sigma_id": "09d3b48b-be17-47f5-bf4e-94e7e75d09ce",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxdeployment-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_policy_block.yml",
+      "sigma_id": "e021bbb5-407f-41f5-9dc9-1864c45a7a51",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxdeployment-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_uncommon_package_locations.yml",
+      "sigma_id": "c977cb50-3dff-4a9f-b873-9290f56132f1",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxdeployment-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxpackaging_server_full_trust_package_installation.yml",
+      "sigma_id": "e54279c7-4910-4e2c-902c-c56a25b549f6",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxdeployment-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxpackaging_server_unsigned_package_installation.yml",
+      "sigma_id": "9a025188-6f2d-42f8-bb2f-d3a83d24a5af",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxdeployment-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxpackaging_om/win_appxpackaging_om_sups_appx_signature.yml",
+      "sigma_id": "b5aa7d60-c17e-4538-97de-09029d6cd76b",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: appxpackaging-om"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/bits_client/win_bits_client_new_transfer_saving_susp_extensions.yml",
+      "sigma_id": "b85e5894-9b19-4d86-8c87-a2f3b81f0521",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: bits-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/bits_client/win_bits_client_new_transfer_via_file_sharing_domains.yml",
+      "sigma_id": "d635249d-86b5-4dad-a8c7-d7272b788586",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: bits-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/bits_client/win_bits_client_new_transfer_via_ip_address.yml",
+      "sigma_id": "90f138c1-f578-4ac3-8c49-eecfd847c8b7",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: bits-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/bits_client/win_bits_client_new_transfer_via_uncommon_tld.yml",
+      "sigma_id": "6d44fb93-e7d2-475c-9d3d-54c9c1e33427",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: bits-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/bits_client/win_bits_client_new_trasnfer_susp_local_folder.yml",
+      "sigma_id": "f8a56cb7-a363-44ed-a82f-5926bb44cd05",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: bits-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/capi2/win_capi2_acquire_certificate_private_key.yml",
+      "sigma_id": "e2b5163d-7deb-4566-9af3-40afea6858c3",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: capi2"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/certificate_services_client_lifecycle_system/win_certificateservicesclient_lifecycle_system_cert_exported.yml",
+      "sigma_id": "58c0bff0-40a0-46e8-b5e8-b734b84d2017",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: certificateservicesclient-lifecycle-system"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/code_integrity/win_codeintegrity_blocked_protected_process_file.yml",
+      "sigma_id": "5daf11c3-022b-4969-adb9-365e6c078c7c",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: codeintegrity-operational"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/code_integrity/win_codeintegrity_enforced_policy_block.yml",
+      "sigma_id": "e4be5675-4a53-426a-8c81-a8bb2387e947",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: codeintegrity-operational"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/code_integrity/win_codeintegrity_revoked_driver_blocked.yml",
+      "sigma_id": "9b72b82d-f1c5-4632-b589-187159bc6ec1",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: codeintegrity-operational"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/code_integrity/win_codeintegrity_revoked_driver_loaded.yml",
+      "sigma_id": "320fccbf-5e32-4101-82b8-2679c5f007c6",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: codeintegrity-operational"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/code_integrity/win_codeintegrity_revoked_image_blocked.yml",
+      "sigma_id": "6f156c48-3894-4952-baf0-16193e9067d2",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: codeintegrity-operational"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/code_integrity/win_codeintegrity_revoked_image_loaded.yml",
+      "sigma_id": "881b7725-47cc-4055-8000-425823344c59",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: codeintegrity-operational"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/code_integrity/win_codeintegrity_unsigned_driver_loaded.yml",
+      "sigma_id": "951f8d29-f2f6-48a7-859f-0673ff105e6f",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: codeintegrity-operational"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/code_integrity/win_codeintegrity_unsigned_image_loaded.yml",
+      "sigma_id": "c92c24e7-f595-493f-9c98-53d5142f5c18",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: codeintegrity-operational"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/code_integrity/win_codeintegrity_whql_failure.yml",
+      "sigma_id": "2f8cd7a0-9d5a-4f62-9f8b-2c951aa0dd1f",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: codeintegrity-operational"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/diagnosis/scripted/win_diagnosis_scripted_load_remote_diagcab.yml",
+      "sigma_id": "50cb47b8-2c33-4b23-a2e9-4600657d9746",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: diagnosis-scripted"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/dns_client/win_dns_client_anonymfiles_com.yml",
+      "sigma_id": "29f171d7-aa47-42c7-9c7b-3c87938164d9",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: dns-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/dns_client/win_dns_client_mal_cobaltstrike.yml",
+      "sigma_id": "0d18728b-f5bf-4381-9dcf-915539fff6c2",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: dns-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/dns_client/win_dns_client_mega_nz.yml",
+      "sigma_id": "66474410-b883-415f-9f8d-75345a0a66a6",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: dns-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/dns_client/win_dns_client_put_io.yml",
+      "sigma_id": "8b69fd42-9dad-4674-abef-7fdef43ef92a",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: dns-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/dns_client/win_dns_client_tor_onion.yml",
+      "sigma_id": "8384bd26-bde6-4da9-8e5d-4174a7a47ca2",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: dns-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/dns_server/win_dns_server_failed_dns_zone_transfer.yml",
+      "sigma_id": "6d444368-6da1-43fe-b2fc-44202430480e",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: dns-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/dns_server/win_dns_server_susp_server_level_plugin_dll.yml",
+      "sigma_id": "cbe51394-cd93-4473-b555-edf0144952d9",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: dns-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/firewall_as/win_firewall_as_add_rule.yml",
+      "sigma_id": "cde0a575-7d3d-4a49-9817-b8004a7bf105",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: firewall-as"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/firewall_as/win_firewall_as_add_rule_susp_folder.yml",
+      "sigma_id": "9e2575e7-2cb9-4da1-adc8-ed94221dca5e",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: firewall-as"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/firewall_as/win_firewall_as_add_rule_wmiprvse.yml",
+      "sigma_id": "eca81e8d-09e1-4d04-8614-c91f44fd0519",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: firewall-as"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/firewall_as/win_firewall_as_delete_all_rules.yml",
+      "sigma_id": "79609c82-a488-426e-abcf-9f341a39365d",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: firewall-as"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/firewall_as/win_firewall_as_delete_rule.yml",
+      "sigma_id": "c187c075-bb3e-4c62-b4fa-beae0ffc211f",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: firewall-as"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/iis-configuration/win_iis_logging_etw_disabled.yml",
+      "sigma_id": "a5b40a90-baf5-4bf7-a6f7-373494881d22",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: iis-configuration"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/iis-configuration/win_iis_logging_http_disabled.yml",
+      "sigma_id": "e8ebd53a-30c2-45bd-81bb-74befba07bdb",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: iis-configuration"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/iis-configuration/win_iis_module_added.yml",
+      "sigma_id": "dd857d3e-0c6e-457b-9b48-e82ae7f86bd7",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: iis-configuration"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/ldap/win_ldap_recon.yml",
+      "sigma_id": "31d68132-4038-47c7-8f8e-635a39a7c174",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: ldap"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/lsa_server/win_lsa_server_normal_user_admin.yml",
+      "sigma_id": "7ac407cc-0f48-4328-aede-de1d2e6fef41",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: lsa-server"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/msexchange/win_exchange_proxylogon_oabvirtualdir.yml",
+      "sigma_id": "550d3350-bb8a-4ff3-9533-2ba533f4a1c0",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: msexchange-management"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/msexchange/win_exchange_proxyshell_certificate_generation.yml",
+      "sigma_id": "b7bc7038-638b-4ffd-880c-292c692209ef",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: msexchange-management"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/msexchange/win_exchange_proxyshell_mailbox_export.yml",
+      "sigma_id": "516376b4-05cd-4122-bae0-ad7641c38d48",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: msexchange-management"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/msexchange/win_exchange_proxyshell_remove_mailbox_export.yml",
+      "sigma_id": "09570ae5-889e-43ea-aac0-0e1221fb3d95",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: msexchange-management"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/msexchange/win_exchange_set_oabvirtualdirectory_externalurl.yml",
+      "sigma_id": "9db37458-4df2-46a5-95ab-307e7f29e675",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: msexchange-management"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/msexchange/win_exchange_transportagent.yml",
+      "sigma_id": "4fe151c2-ecf9-4fae-95ae-b88ec9c2fca6",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: msexchange-management"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/msexchange/win_exchange_transportagent_failed.yml",
+      "sigma_id": "c7d16cae-aaf3-42e5-9c1c-fb8553faa6fa",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: msexchange-management"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/ntlm/win_susp_ntlm_brute_force.yml",
+      "sigma_id": "9c8acf1a-cbf9-4db6-b63c-74baabe03e59",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: ntlm"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/ntlm/win_susp_ntlm_rdp.yml",
+      "sigma_id": "ce5678bb-b9aa-4fb5-be4b-e57f686256ad",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: ntlm"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/openssh/win_sshd_openssh_server_listening_on_socket.yml",
+      "sigma_id": "3ce8e9a4-bc61-4c9b-8e69-d7e2492a8781",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: openssh"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security_mitigations/win_security_mitigations_defender_load_unsigned_dll.yml",
+      "sigma_id": "0b0ea3cc-99c8-4730-9c53-45deee2a4c86",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: security-mitigations"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security_mitigations/win_security_mitigations_unsigned_dll_from_susp_location.yml",
+      "sigma_id": "8289bf8c-4aca-4f5a-9db3-dc3d7afe5c10",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: security-mitigations"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/servicebus/win_hybridconnectionmgr_svc_running.yml",
+      "sigma_id": "b55d23e5-6821-44ff-8a6e-67218891e49f",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: microsoft-servicebus-client"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/shell_core/win_shell_core_susp_packages_installed.yml",
+      "sigma_id": "83c161b6-ca67-4f33-8ad0-644a0737cf07",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: shell-core"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/smbclient/security/win_smbclient_security_susp_failed_guest_logon.yml",
+      "sigma_id": "71886b70-d7b4-4dbf-acce-87d2ca135262",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: smbclient-security"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/smbserver/connectivity/win_smbserver_connectivity_unsigned_and_unencrypted_share_connection.yml",
+      "sigma_id": "8d91f6e4-9f3b-4c21-ae41-2c5b7d9f7a12",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: smbserver-connectivity"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/taskscheduler/win_taskscheduler_execution_from_susp_locations.yml",
+      "sigma_id": "424273ea-7cf8-43a6-b712-375f925e481f",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: taskscheduler"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/taskscheduler/win_taskscheduler_lolbin_execution_via_task_scheduler.yml",
+      "sigma_id": "f0767f15-0fb3-44b9-851e-e8d9a6d0005d",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: taskscheduler"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/taskscheduler/win_taskscheduler_susp_schtasks_delete_or_disable.yml",
+      "sigma_id": "9e3cb244-bdb8-4632-8c90-6079c8f4f16d",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: taskscheduler"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/terminalservices/win_terminalservices_rdp_ngrok.yml",
+      "sigma_id": "64d51a51-32a6-49f0-9f3d-17e34d640272",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: terminalservices-localsessionmanager"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/win_alert_mimikatz_keywords.yml",
+      "sigma_id": "06d71506-7beb-4f22-8888-e2e5e2ca7fd8",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: (none)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_antimalware_platform_expired.yml",
+      "sigma_id": "360a1340-398a-46b6-8d06-99b905dc69d2",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_asr_lsass_access.yml",
+      "sigma_id": "a0a278fe-2c0e-4de2-ac3c-c68b08a9ba98",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_asr_psexec_wmi.yml",
+      "sigma_id": "97b9ce1e-c5ab-11ea-87d0-0242ac130003",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_config_change_exclusion_added.yml",
+      "sigma_id": "1321dc4e-a1fe-481d-a016-52c45f0c8b4f",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_config_change_exploit_guard_tamper.yml",
+      "sigma_id": "a3ab73f1-bd46-4319-8f06-4b20d0617886",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_malware_and_pua_scan_disabled.yml",
+      "sigma_id": "bc275be9-0bec-4d77-8c8f-281a2df6710f",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_malware_detected_amsi_source.yml",
+      "sigma_id": "ea9bf0fa-edec-4fb8-8b78-b119f2528186",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_real_time_protection_disabled.yml",
+      "sigma_id": "b28e58e4-2a72-4fae-bdee-0fbe904db642",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_real_time_protection_errors.yml",
+      "sigma_id": "dd80db93-6ec2-4f4c-a017-ad40da6ffe81",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_restored_quarantine_file.yml",
+      "sigma_id": "bc92ca75-cd42-4d61-9a37-9d5aa259c88b",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_suspicious_features_tampering.yml",
+      "sigma_id": "801bd44f-ceed-4eb6-887c-11544633c0aa",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_tamper_protection_trigger.yml",
+      "sigma_id": "49e5bc24-8b86-49f1-b743-535f332c2856",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_threat.yml",
+      "sigma_id": "57b649ef-ff42-4fb0-8bf6-62da243a1708",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/windefend/win_defender_virus_scan_disabled.yml",
+      "sigma_id": "686c0b4b-9dd3-4847-9077-d6c1bbe36fcb",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: windefend"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/wmi/win_wmi_persistence.yml",
+      "sigma_id": "0b7889b4-5577-4521-a60a-3376ee7f9f7b",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: wmi"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_executable_detected/file_executable_detected_win_susp_embeded_sed_file.yml",
+      "sigma_id": "ab90dab8-c7da-4010-9193-563528cfa347",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: file_executable_detected"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_classic/posh_pc_remotefxvgpudisablement_abuse.yml",
+      "sigma_id": "f65e22f9-819e-4f96-9c7b-498364ae7a25",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: powershell-classic"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_classic/posh_pc_susp_zip_compress.yml",
+      "sigma_id": "71ff406e-b633-4989-96ec-bc49d825a412",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: powershell-classic"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_classic/posh_pc_tamper_windows_defender_set_mp.yml",
+      "sigma_id": "ec19ebab-72dc-40e1-9728-4c0b805d722c",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: ps_classic_provider_start"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_classic/posh_pc_wsman_com_provider_no_powershell.yml",
+      "sigma_id": "df9a0e0e-fedb-4d6c-8668-d765dfc92aa7",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: powershell-classic"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_recon_service.yml",
+      "sigma_id": "76f55eaa-d27f-4213-9d45-7b0e4b60bbae",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_recon_unquoted_service_search.yml",
+      "sigma_id": "68bcd73b-37ef-49cb-95fc-edc809730be6",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_recon_volume.yml",
+      "sigma_id": "c79da740-5030-45ec-a2e0-479e824a562c",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_remote_execution.yml",
+      "sigma_id": "7773b877-5abb-4a3e-b9c9-fd0369b59b00",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_service_manipulation.yml",
+      "sigma_id": "0b7163dc-7eee-4960-af17-c0cd517f92da",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_service_startup_change.yml",
+      "sigma_id": "c0514f28-fdae-42df-b886-06e2b2bc5b37",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_squiblytwo_bypass.yml",
+      "sigma_id": "8d63dadf-b91b-4187-87b6-34a1114577ea",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_susp_execution_via_office_process.yml",
+      "sigma_id": "e1693bc8-7168-4eab-8718-cdcaa68a1738",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_susp_process_creation.yml",
+      "sigma_id": "3c89a1e8-0fba-449e-8f1b-8409d6267ec8",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_terminate_application.yml",
+      "sigma_id": "49d9671b-0a0a-4c09-8280-d215bfd30662",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_uninstall_application.yml",
+      "sigma_id": "b53317a0-8acf-4fd1-8de8-a5401e776b96",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml",
+      "sigma_id": "847d5ff3-8a31-4737-a970-aeae8fe21765",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_xsl_script_processing.yml",
+      "sigma_id": "05c36dd6-79d6-4a9a-97da-3db20298ab2d",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmiprvse_spawning_process.yml",
+      "sigma_id": "d21374ff-f574-44a7-9998-4a8c8bf33d7d",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmiprvse_spawns_powershell.yml",
+      "sigma_id": "692f0bec-83ba-4d04-af7e-e884a96059b6",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmiprvse_susp_child_processes.yml",
+      "sigma_id": "8a582fe2-0882-4b89-a82a-da6b2dc32937",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wscript_cscript_mshta_dropper.yml",
+      "sigma_id": "cea72823-df4d-4567-950c-0b579eaf0846",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wscript_cscript_susp_child_processes.yml",
+      "sigma_id": "b6676963-0353-4f88-90f5-36c20d443c6a",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wscript_cscript_uncommon_extension_exec.yml",
+      "sigma_id": "99b7460d-c9f1-40d7-a316-1f36f61d52ee",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wsl_child_processes_anomalies.yml",
+      "sigma_id": "2267fe65-0681-42ad-9a6d-46553d3f3480",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wsl_kali_linux_installation.yml",
+      "sigma_id": "eca8ae39-5c3c-4321-b538-9e64fe25822e",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wsl_kali_linux_usage.yml",
+      "sigma_id": "6f1a11aa-4b8a-4b7f-9e13-4d3e4ff0e0d4",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wsl_windows_binaries_execution.yml",
+      "sigma_id": "ed825c86-c009-4014-b413-b76003e33d35",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wuauclt_dll_loading.yml",
+      "sigma_id": "af77cf95-c469-471c-b6a0-946c685c4798",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wuauclt_no_cli_flags_execution.yml",
+      "sigma_id": "52d097e2-063e-4c9c-8fbb-855c8948d135",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wusa_cab_files_extraction_from_susp_paths.yml",
+      "sigma_id": "c74c0390-3e20-41fd-a69a-128f0275a5ea",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wusa_susp_parent_execution.yml",
+      "sigma_id": "ef64fc9c-a45e-43cc-8fd8-7d75d73b4c99",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_xwizard_runwizard_com_object_exec.yml",
+      "sigma_id": "53d4bb30-3f36-4e8a-b078-69d36c4a79ff",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_delete/registry_delete_defender_context_menu.yml",
+      "sigma_id": "72a0369a-2576-4aaf-bfc9-6bb24a574ac6",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_delete/registry_delete_disable_credential_guard.yml",
+      "sigma_id": "d645ef86-2396-48a1-a2b6-b629ca3f57ff",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_delete/registry_delete_exploit_guard_protected_folders.yml",
+      "sigma_id": "272e55a4-9e6b-4211-acb6-78f51f0b1b40",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_delete/registry_delete_removal_amsi_registry_key.yml",
+      "sigma_id": "41d1058a-aea7-4952-9293-29eaaf516465",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_delete/registry_delete_runmru.yml",
+      "sigma_id": "3a9b8c1e-5b2e-4f7a-9d1c-2a7f3b6e1c55",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_index_value_removal.yml",
+      "sigma_id": "526cc8bc-1cdc-48ad-8b26-f19bff969cec",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_delete/registry_delete_schtasks_hide_task_via_sd_value_removal.yml",
+      "sigma_id": "acd74772-5f88-45c7-956b-6a7b36c294d2",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml",
+      "sigma_id": "b6d235fc-1d38-4b12-adbe-325f06728f37",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_defender_threat_action_modified.yml",
+      "sigma_id": "5a9e1b2c-8f7d-4a1e-9b3c-0f6d7e5a4b1f",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_hybridconnectionmgr_svc_installation.yml",
+      "sigma_id": "ac8866c7-ce44-46fd-8c17-b24acff96ca8",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_set_enable_anonymous_connection.yml",
+      "sigma_id": "4d431012-2ab5-4db7-a84e-b29809da2172",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_add_load_service_in_safe_mode.yml",
+      "sigma_id": "1547e27c-3974-43e2-a7d7-7f484fb928ec",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_amsi_com_hijack.yml",
+      "sigma_id": "160d2780-31f7-4922-8b3a-efce30e63e96",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_amsi_disable.yml",
+      "sigma_id": "aa37cbb0-da36-42cb-a90f-fdf216fc7467",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_change_sysmon_driver_altitude.yml",
+      "sigma_id": "4916a35e-bfc4-47d0-8e25-a003d7067061",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_change_winevt_channelaccess.yml",
+      "sigma_id": "7d9263bd-dc47-4a58-bc92-5474abab390c",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_credential_guard_disabled.yml",
+      "sigma_id": "73921b9c-cafd-4446-b0c6-fdb0ace42bc0",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_custom_file_open_handler_powershell_execution.yml",
+      "sigma_id": "7530b96f-ad8e-431d-a04d-ac85cc461fdc",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_defender_exclusions.yml",
+      "sigma_id": "a982fc9c-6333-4ffb-a51d-addb04e8b529",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_devdrv_disallow_antivirus_filter.yml",
+      "sigma_id": "31e124fb-5dc4-42a0-83b3-44a69c77b271",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_deviceguard_hypervisorenforcedcodeintegrity_disabled.yml",
+      "sigma_id": "8b7273a4-ba5d-4d8a-b04f-11f2900d043a",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_deviceguard_hypervisorenforcedpagingtranslation_disabled.yml",
+      "sigma_id": "7f2954d2-99c2-4d42-a065-ca36740f187b",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disable_administrative_share.yml",
+      "sigma_id": "c7dcacd0-cc59-4004-b0a4-1d6cdebe6f3e",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disable_autologger_sessions.yml",
+      "sigma_id": "f37b4bce-49d0-4087-9f5b-58bffda77316",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disable_defender_firewall.yml",
+      "sigma_id": "974515da-6cc5-4c95-ae65-f97f9150ec7f",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disable_macroruntimescanscope.yml",
+      "sigma_id": "ab871450-37dc-4a3a-997f-6662aa8ae0f1",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disable_privacy_settings_experience.yml",
+      "sigma_id": "0372e1f9-0fd2-40f7-be1b-a7b2b848fa7b",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disable_windows_defender_service.yml",
+      "sigma_id": "e1aa95de-610a-427d-b9e7-9b46cfafbe6a",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disable_windows_firewall.yml",
+      "sigma_id": "e78c408a-e2ea-43cd-b5ea-51975cf358c0",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disable_winevt_logging.yml",
+      "sigma_id": "2f78da12-f7c7-430b-8b19-a28f269b77a3",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disabled_exploit_guard_net_protection_on_ms_defender.yml",
+      "sigma_id": "bf9e1387-b040-4393-9851-1598f8ecfae9",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disabled_microsoft_defender_eventlog.yml",
+      "sigma_id": "fcddca7c-b9c0-4ddf-98da-e1e2d18b0157",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disabled_pua_protection_on_microsoft_defender.yml",
+      "sigma_id": "8ffc5407-52e3-478f-9596-0a7371eafe13",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_disabled_tamper_protection_on_microsoft_defender.yml",
+      "sigma_id": "93d298a1-d28f-47f1-a468-d971e7796679",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_enabling_turnoffcheck.yml",
+      "sigma_id": "7d995e63-ec83-4aa3-89d5-8a17b5c87c86",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_evtx_file_key_tamper.yml",
+      "sigma_id": "0cb8d736-995d-4ce7-a31e-1e8d452a1459",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_exploit_guard_susp_allowed_apps.yml",
+      "sigma_id": "42205c73-75c8-4a63-9db1-e3782e06fda0",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_file_association_exefile.yml",
+      "sigma_id": "44a22d59-b175-4f13-8c16-cbaef5b581ff",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_filefix_typedpath_commands.yml",
+      "sigma_id": "4fee3d51-8069-4a4c-a0f7-924fcaff2c70",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_hide_file.yml",
+      "sigma_id": "5a5152f1-463f-436b-b2f5-8eceb3964b42",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_hide_scheduled_task_via_index_tamper.yml",
+      "sigma_id": "5b16df71-8615-4f7f-ac9b-6c43c0509e61",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_hvci_disallowed_images.yml",
+      "sigma_id": "555155a2-03bf-4fe7-af74-d176b3fdbe16",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_ie_security_zone_protocol_defaults_downgrade.yml",
+      "sigma_id": "3fd4c8d7-8362-4557-a8e6-83b29cc0d724",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_ime_non_default_extension.yml",
+      "sigma_id": "b888e3f2-224d-4435-b00b-9dd66e9ea1f1",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_ime_suspicious_paths.yml",
+      "sigma_id": "9d8f9bb8-01af-4e15-a3a2-349071530530",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_internet_explorer_disable_first_run_customize.yml",
+      "sigma_id": "ab567429-1dfb-4674-b6d2-979fd2f9d125",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_office_disable_protected_view_features.yml",
+      "sigma_id": "a5c7a43f-6009-4a8c-80c5-32abf1c53ecc",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_office_disable_python_security_warnings.yml",
+      "sigma_id": "17e53739-a1fc-4a62-b1b9-87711c2d5e44",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_office_enable_dde.yml",
+      "sigma_id": "63647769-326d-4dde-a419-b925cc0caf42",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_persistence_reflectdebugger.yml",
+      "sigma_id": "0cf2e1c6-8d10-4273-8059-738778f981ad",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_policies_associations_tamper.yml",
+      "sigma_id": "a9b6c011-ab69-4ddb-bc0a-c4f21c80ec47",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_policies_attachments_tamper.yml",
+      "sigma_id": "ee77a5db-b0f3-4be2-bfd4-b58be1c6b15a",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_potential_clickfix_execution.yml",
+      "sigma_id": "f5fe36cf-f1ec-4c23-903d-09a3110f6bbb",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_powershell_as_service.yml",
+      "sigma_id": "4a5f5a5e-ac01-474b-9b4e-d61298c9df1d",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_powershell_execution_policy.yml",
+      "sigma_id": "fad91067-08c5-4d1a-8d8c-d96a21b37814",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_provisioning_command_abuse.yml",
+      "sigma_id": "7021255e-5db3-4946-a8b9-0ba7a4644a69",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_pua_sysinternals_renamed_execution_via_eula.yml",
+      "sigma_id": "f50f3c09-557d-492d-81db-9064a8d4e211",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_pua_sysinternals_susp_execution_via_eula.yml",
+      "sigma_id": "c7da8edc-49ae-45a2-9e61-9fd860e4e73d",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_renamed_sysinternals_eula_accepted.yml",
+      "sigma_id": "8023f872-3f1d-4301-a384-801889917ab4",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_runmru_susp_command_execution.yml",
+      "sigma_id": "a7df0e9e-91a5-459a-a003-4cde67c2ff5d",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_scr_file_executed_by_rundll32.yml",
+      "sigma_id": "40b6e656-4e11-4c0c-8772-c1cc6dae34ce",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_sophos_av_tamper.yml",
+      "sigma_id": "9f4662ac-17ca-43aa-8f12-5d7b989d0101",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_special_accounts.yml",
+      "sigma_id": "f8aebc67-a56d-4ec9-9fbe-7b0e8b7b4efd",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_susp_keyboard_layout_load.yml",
+      "sigma_id": "34aa0252-6039-40ff-951f-939fd6ce47d8",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_susp_pendingfilerenameoperations.yml",
+      "sigma_id": "4eec988f-7bf0-49f1-8675-1e6a510b3a2a",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_susp_runmru_space_character.yml",
+      "sigma_id": "7a1b4c5e-8f3d-4b9a-7c2e-1f4a5b8c6d9e",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_susp_service_installed.yml",
+      "sigma_id": "f2485272-a156-4773-82d7-1d178bc4905b",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_susp_typedpaths_space_characters.yml",
+      "sigma_id": "8f2a5c3d-9e4b-4a7c-8d1f-2e5a6b9c3d7e",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_susp_wfp_filter_added.yml",
+      "sigma_id": "1f1d8209-636e-4c6c-a137-781cca8b82f9",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_tls_protocol_old_version_enabled.yml",
+      "sigma_id": "439957a7-ad86-4a8f-9705-a28131c6821b",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_turn_on_dev_features.yml",
+      "sigma_id": "b110ebaf-697f-4da1-afd5-b536fa27a2c1",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_vulnerable_driver_blocklist_disable.yml",
+      "sigma_id": "d526c60a-e236-4011-b165-831ffa52ab70",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_wab_dllpath_reg_change.yml",
+      "sigma_id": "fc014922-5def-4da9-a0fc-28c973f41bfb",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_windows_defender_tamper.yml",
+      "sigma_id": "0eb46774-f1ab-4a74-8238-1155855f2263",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/sysmon/sysmon_config_modification.yml",
+      "sigma_id": "8ac03a65-6c84-4116-acad-dc1558ff7a77",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: sysmon"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/sysmon/sysmon_config_modification_error.yml",
+      "sigma_id": "815cd91b-7dbc-4247-841a-d7dd1392b0a8",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: sysmon_error"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/sysmon/sysmon_config_modification_status.yml",
+      "sigma_id": "1f2b5353-573f-4880-8e33-7d04dcf97744",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: sysmon_status"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/sysmon/sysmon_file_block_executable.yml",
+      "sigma_id": "23b71bc5-953e-4971-be4c-c896cda73fc2",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: sysmon"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/sysmon/sysmon_file_block_shredding.yml",
+      "sigma_id": "c3e5c1b1-45e9-4632-b242-27939c170239",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: sysmon"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/sysmon/sysmon_file_executable_detected.yml",
+      "sigma_id": "693a44e9-7f26-4cb6-b787-214867672d3a",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: sysmon"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/wmi_event/sysmon_wmi_susp_scripting.yml",
+      "sigma_id": "fe21810c-2a8c-478f-8dd3-5a287fb2a0e0",
+      "category": "unexpected",
+      "message": "RuntimeError: ID range exhausted for tactic 'execution' (range 101000-101999)"
+    }
+  ]
+}

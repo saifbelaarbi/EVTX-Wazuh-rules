@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1689_unknown,">
+  <rule id="101557" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">IsPplAutoEnabled|RunAsPPL|RunAsPPLBoot|\Control\Lsa</field>
+    <field name="win.eventdata.image">\reg\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <description>Sigma: LSA PPL Protection Setting Modification via CommandLine</description>
+    <mitre>
+      <id>T1689</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

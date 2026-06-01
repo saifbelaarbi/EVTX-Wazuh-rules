@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1003.003_unknown,">
+  <rule id="105081" level="12">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\ntds\.dit$</field>
+    <field name="win.eventdata.parentImage">\cscript\.exe$|\httpd\.exe$|\nginx\.exe$|\php-cgi\.exe$|\powershell\.exe$|\pwsh\.exe$|\w3wp\.exe$|\wscript\.exe$</field>
+    <description>Sigma: NTDS.DIT Creation By Uncommon Parent Process</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105083" level="12">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\All\.cab$|\.ntds\.cleartext$</field>
+    <description>Sigma: NTDS Exfiltration Filename Patterns</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105096" level="12">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">Get-ADDBAccount|BootKey |DatabasePath </field>
+    <description>Sigma: Suspicious Get-ADDBAccount Usage</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105098" level="12">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Win32_ShadowCopy|\)\.Create\(|ClientAccessible</field>
+    <description>Sigma: Create Volume Shadow Copy with Powershell</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105212" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">snapshot|mount </field>
+    <field name="win.eventdata.image">\ntdsutil\.exe$</field>
+    <description>Sigma: Suspicious Usage Of Active Directory Diagnostic Tool (ntdsutil.exe)</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105213" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\ntdsutil\.exe$</field>
+    <description>Sigma: Invocation of Active Directory Diagnostic Tool (ntdsutil.exe)</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105219" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\config\SAM|\config\SECURITY|\config\SYSTEM|\windows\ntds\ntds\.dit</field>
+    <field name="win.eventdata.image">\print\.exe$</field>
+    <description>Sigma: Sensitive File Dump Via Print.EXE</description>
+    <mitre>
+      <id>T1003.003</id>
+      <id>T1003.002</id>
+      <id>T1218</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105220" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\ditsnap\.exe$</field>
+    <description>Sigma: PUA - DIT Snapshot Viewer</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105221" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ditsnap\.exe</field>
+    <description>Sigma: PUA - DIT Snapshot Viewer</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105255" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ac i ntds|create full</field>
+    <description>Sigma: Suspicious Process Patterns NTDS.DIT Exfil</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105256" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/c copy |\windows\ntds\ntds\.dit</field>
+    <description>Sigma: Suspicious Process Patterns NTDS.DIT Exfil</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105257" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">activate instance ntds|create full</field>
+    <description>Sigma: Suspicious Process Patterns NTDS.DIT Exfil</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105258" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">powershell|ntds\.dit</field>
+    <description>Sigma: Suspicious Process Patterns NTDS.DIT Exfil</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105259" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\NTDSDump\.exe$|\NTDSDumpEx\.exe$</field>
+    <description>Sigma: Suspicious Process Patterns NTDS.DIT Exfil</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105260" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ntds\.dit|system\.hiv</field>
+    <description>Sigma: Suspicious Process Patterns NTDS.DIT Exfil</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105261" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">NTDSgrab\.ps1</field>
+    <description>Sigma: Suspicious Process Patterns NTDS.DIT Exfil</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105275" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\config\SAM|\config\SECURITY|\config\SYSTEM|\Windows\NTDS\NTDS\.dit</field>
+    <field name="win.eventdata.image">\wbadmin\.exe$</field>
+    <description>Sigma: Sensitive File Dump Via Wbadmin.EXE</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105276" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\config\SAM|\config\SECURITY|\config\SYSTEM|\Windows\NTDS\NTDS\.dit|recoveryTarget|itemtype:File</field>
+    <field name="win.eventdata.image">\wbadmin\.exe$</field>
+    <description>Sigma: Sensitive File Recovery From Backup Via Wbadmin.EXE</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+</group>

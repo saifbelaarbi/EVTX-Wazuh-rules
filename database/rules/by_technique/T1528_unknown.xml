@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1528_unknown,">
-  <rule id="101674" level="9">
+  <rule id="105044" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4663</field>
     <field name="win.eventdata.objectName">\Microsoft\Teams\Cookies|\Microsoft\Teams\Local Storage\leveldb</field>
@@ -8,16 +8,54 @@
     <mitre>
       <id>T1528</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="101878" level="9">
+  <rule id="105061" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.fileName">\Microsoft\Teams\Cookies|\Microsoft\Teams\Local Storage\leveldb</field>
+    <description>Sigma: Microsoft Teams Sensitive File Access By Uncommon Applications</description>
+    <mitre>
+      <id>T1528</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="103119" level="11">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\imposecost|\imposingcost</field>
     <description>Sigma: HackTool - Koh Default Named Pipe</description>
     <mitre>
       <id>T1528</id>
-      <id>T1134</id>
+      <id>T1134.001</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="105234" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">BrowserCore\.exe</field>
+    <description>Sigma: Renamed BrowserCore.EXE Execution</description>
+    <mitre>
+      <id>T1528</id>
+      <id>T1036.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105248" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">find |find\.exe|findstr|select-string |strings</field>
+    <description>Sigma: Potentially Suspicious JWT Token Search Via CLI</description>
+    <mitre>
+      <id>T1528</id>
+      <id>T1552.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105273" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\Microsoft\Teams\Cookies|\Microsoft\Teams\Local Storage\leveldb</field>
+    <description>Sigma: Potentially Suspicious Command Targeting Teams Sensitive Files</description>
+    <mitre>
+      <id>T1528</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
   </rule>
 </group>

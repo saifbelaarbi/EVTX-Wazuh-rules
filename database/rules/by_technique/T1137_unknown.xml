@@ -1,52 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1137_unknown,">
-  <rule id="102139" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.xlam$|\.xla$|\.ppam$</field>
-    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
-    <mitre>
-      <id>T1137</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102140" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.wll$</field>
-    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
-    <mitre>
-      <id>T1137</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102141" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.xlam$</field>
-    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
-    <mitre>
-      <id>T1137</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102142" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.xll$</field>
-    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
-    <mitre>
-      <id>T1137</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102143" level="10">
+  <rule id="103042" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\outlook\.exe$</field>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Microsoft\FORMS\IPM|\Local Settings\Application Data\Microsoft\Forms</field>
-    <description>Sigma: Potential Persistence Via Outlook Form</description>
+    <field name="win.eventdata.targetFilename">\Microsoft\Outlook\VbaProject\.OTM$</field>
+    <description>Sigma: New Outlook Macro Created</description>
     <mitre>
       <id>T1137</id>
+      <id>T1008</id>
+      <id>T1546</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102144" level="10">
+  <rule id="103043" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Microsoft\Outlook\VbaProject\.OTM$</field>
     <description>Sigma: Suspicious Outlook Macro Created</description>
@@ -55,9 +21,9 @@
       <id>T1008</id>
       <id>T1546</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102145" level="10">
+  <rule id="102581" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.xls$|\.xlsm$|\.xlsx$|\.xlt$|\.xltm$</field>
     <description>Sigma: Potential Persistence Via Microsoft Office Startup Folder</description>
@@ -66,16 +32,36 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102188" level="10">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">new-object |-ComObject |\.application|\.RegisterXLL</field>
-    <description>Sigma: Code Executed Via Office Add-in XLL File</description>
+  <rule id="102755" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\</field>
+    <description>Sigma: IE Change Domain Zone</description>
     <mitre>
       <id>T1137</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102321" level="10">
+  <rule id="102780" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Hidden$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000002\)</field>
+    <description>Sigma: Registry Modification to Hidden File Extension</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102781" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\HideFileExt$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Registry Modification to Hidden File Extension</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="103336" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Outlook\LoadMacroProviderOnBoot$</field>
     <field name="win.eventdata.details">0x00000001</field>
@@ -85,9 +71,9 @@
       <id>T1008</id>
       <id>T1546</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102322" level="10">
+  <rule id="103337" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Outlook\Security\Level$</field>
     <field name="win.eventdata.details">0x00000001</field>
@@ -97,13 +83,12 @@
       <id>T1008</id>
       <id>T1546</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102343" level="10">
+  <rule id="102788" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Excel\Options$</field>
-    <field name="win.eventdata.details">\.xll$</field>
-    <description>Sigma: Potential Persistence Via Excel Add-in - Registry</description>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Office\|\Outlook\Security\</field>
+    <description>Sigma: Outlook Security Settings Updated - Registry</description>
     <mitre>
       <id>T1137</id>
     </mitre>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1001.003_unknown,">
+  <rule id="109006" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5136</field>
+    <field name="win.eventdata.attributeValue">.*</field>
+    <field name="win.eventdata.attributeLDAPDisplayName">primaryInternationalISDNNumber|otherFacsimileTelephoneNumber|primaryTelexNumber</field>
+    <description>Sigma: Suspicious LDAP-Attributes Used</description>
+    <mitre>
+      <id>T1001.003</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109023" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.sch$</field>
+    <description>Sigma: ADSI-Cache File Creation By Uncommon Tool</description>
+    <mitre>
+      <id>T1001.003</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+</group>

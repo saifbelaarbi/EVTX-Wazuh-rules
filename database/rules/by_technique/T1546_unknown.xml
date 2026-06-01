@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1546_unknown,">
-  <rule id="102150" level="10">
+  <rule id="103048" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">Local\Microsoft\WindowsApps\Get-Variable\.exe$</field>
     <description>Sigma: Suspicious Get-Variable.exe Creation</description>
@@ -8,194 +8,15 @@
       <id>T1546</id>
       <id>T1027</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102157" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">C:\WINDOWS\system32\wbem\scrcons\.exe</field>
-    <description>Sigma: WMI Persistence - Script Event Consumer File Write</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102185" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">C:\Windows\System32\wbem\WmiPrvSE\.exe</field>
-    <field name="win.eventdata.imageLoaded">\wbemcons\.dll$</field>
-    <description>Sigma: WMI Persistence - Command Line Event Consumer</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102201" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">assoc |exefile</field>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
-    <description>Sigma: Change Default File Association To Executable Via Assoc</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102202" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">mklink|\osk\.exe|\cmd\.exe</field>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
-    <description>Sigma: Potential Privilege Escalation Using Symlink Between Osk and Cmd</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102203" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\winlogon\.exe$</field>
-    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$|\wt\.exe$</field>
-    <field name="win.eventdata.commandLine">sethc\.exe|utilman\.exe|osk\.exe|Magnify\.exe|Narrator\.exe|DisplaySwitch\.exe</field>
-    <description>Sigma: Sticky Key Like Backdoor Execution</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102204" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">copy |/y |C:\windows\system32\cmd\.exe C:\windows\system32\sethc\.exe</field>
-    <description>Sigma: Persistence Via Sticky Key Backdoor</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102234" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">sethc\.exe|utilman\.exe|osk\.exe|magnify\.exe|narrator\.exe|displayswitch\.exe|atbroker\.exe|HelpPane\.exe</field>
-    <description>Sigma: Suspicious Debugger Registration Cmdline</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102238" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">-sta |-localserver |\{|\}</field>
-    <field name="win.eventdata.image">\rundll32\.exe$</field>
-    <description>Sigma: Rundll32 Registered COM Objects</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102274" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\EdgeTransport\.exe$</field>
-    <description>Sigma: WMI Backdoor Exchange Transport Agent</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102275" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">ActiveScriptEventConsumer| CREATE </field>
-    <description>Sigma: New ActiveScriptEventConsumer Created Via Wmic.EXE</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102295" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\utilman\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\osk\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Magnify\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Narrator\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DisplaySwitch\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\atbroker\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\HelpPane\.exe\Debugger$</field>
-    <description>Sigma: Sticky Key Like Backdoor Usage - Registry</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102301" level="10">
+  <rule id="102758" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Software\Classes\Folder\shell\open\command\DelegateExecute</field>
     <description>Sigma: COM Hijack via Sdclt</description>
     <mitre>
       <id>T1546</id>
       <id>T1548</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102318" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\NetSh</field>
-    <field name="win.eventdata.details">:\Perflogs\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\Temporary Internet</field>
-    <description>Sigma: New Netsh Helper DLL Registered From A Suspicious Location</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102327" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\(Default\)$|Path$</field>
-    <field name="win.eventdata.details">\Users\Public|\AppData\Local\Temp\|\Windows\Temp\|\Desktop\|\Downloads\|%temp%|%tmp%|iex|Invoke-|rundll32|regsvr32|mshta|cscript|wscript|\.bat|\.hta|\.dll|\.ps1</field>
-    <description>Sigma: Potential Persistence Via App Paths Default Property</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102330" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\InprocServer32\\(Default\)$|\LocalServer32\\(Default\)$</field>
-    <description>Sigma: COM Object Hijacking Via Modification Of Default System CLSID Default Value</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102331" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\CLSID\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6\}\InProcServer32\\(Default\)$</field>
-    <description>Sigma: Potential PSFactoryBuffer COM Hijacking</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102332" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Microsoft\Windows NT\CurrentVersion\|\Image File Execution Options\|\GlobalFlag</field>
-    <description>Sigma: Potential Persistence Via GlobalFlags</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102333" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\ReportingMode|\MonitorProcess|\SilentProcessExit\</field>
-    <description>Sigma: Potential Persistence Via GlobalFlags</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102340" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\csrss\.exe$|\dllhost\.exe$|\explorer\.exe$|\RuntimeBroker\.exe$|\services\.exe$|\sihost\.exe$|\svchost\.exe$|\taskhostw\.exe$|\winlogon\.exe$|\WmiPrvSe\.exe$</field>
-    <description>Sigma: Suspicious Shim Database Patching Activity</description>
-    <mitre>
-      <id>T1546</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102341" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB\|\DatabasePath</field>
-    <description>Sigma: Potential Persistence Via Shim Database In Uncommon Location</description>
-    <mitre>
-      <id>T1546</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>

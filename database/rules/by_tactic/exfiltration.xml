@@ -1,26 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,exfiltration,">
-  <rule id="110000" level="13">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.anonfiles\.com</field>
-    <description>Sigma: DNS Query for Anonfiles.com Domain - Sysmon</description>
+  <rule id="110000" level="12">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">tap0901</field>
+    <description>Sigma: Tap Driver Installation</description>
     <mitre>
-      <id>T1567</id>
+      <id>T1048</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
   <rule id="110001" level="13">
-    <if_sid>61605</if_sid>
-    <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">api\.dropboxapi\.com$|content\.dropboxapi\.com$</field>
-    <description>Sigma: Suspicious Dropbox API Usage</description>
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">\.anonfiles\.com</field>
+    <description>Sigma: DNS Query for Anonfiles.com Domain - Sysmon</description>
     <mitre>
-      <id>T1105</id>
-      <id>T1567</id>
+      <id>T1567.002</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110002" level="13">
+  <rule id="110002" level="12">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">userstorage\.mega\.co\.nz</field>
+    <description>Sigma: DNS Query To MEGA Hosting Website</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110003" level="12">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">:\Users\|\\.config\rclone\</field>
+    <description>Sigma: Rclone Config File Creation</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110004" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.btunnel\.co\.in$</field>
+    <description>Sigma: Network Connection Initiated To BTunnels Domains</description>
+    <mitre>
+      <id>T1567</id>
+      <id>T1572</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110005" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.v2\.argotunnel\.com$|protocol-v2\.argotunnel\.com$|trycloudflare\.com$|update\.argotunnel\.com$</field>
+    <description>Sigma: Network Connection Initiated To Cloudflared Tunnels Domains</description>
+    <mitre>
+      <id>T1567</id>
+      <id>T1572</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110006" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.devtunnels\.ms$</field>
+    <description>Sigma: Network Connection Initiated To DevTunnels Domain</description>
+    <mitre>
+      <id>T1567.001</id>
+      <id>T1572</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110007" level="13">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.destinationHostname">\.ngrok-free\.app$|\.ngrok-free\.dev$|\.ngrok\.app$|\.ngrok\.dev$|\.ngrok\.io$</field>
@@ -32,18 +83,54 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110003" level="13">
+  <rule id="110008" level="13">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.destinationHostname">tunnel\.us\.ngrok\.com|tunnel\.eu\.ngrok\.com|tunnel\.ap\.ngrok\.com|tunnel\.au\.ngrok\.com|tunnel\.sa\.ngrok\.com|tunnel\.jp\.ngrok\.com|tunnel\.in\.ngrok\.com</field>
     <description>Sigma: Communication To Ngrok Tunneling Service Initiated</description>
     <mitre>
       <id>T1567</id>
-      <id>T1568</id>
+      <id>T1568.002</id>
       <id>T1572</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110004" level="13">
+  <rule id="110009" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.tunnels\.api\.visualstudio\.com$</field>
+    <description>Sigma: Network Connection Initiated To Visual Studio Code Tunnels Domain</description>
+    <mitre>
+      <id>T1567</id>
+      <id>T1572</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110010" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.destinationPort">25|587|465|2525</field>
+    <field name="win.eventdata.initiated">true</field>
+    <description>Sigma: Suspicious Outbound SMTP Connections</description>
+    <mitre>
+      <id>T1048.003</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110011" level="12">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">0x52|0x49|0x46|0x57|0x41|0x56|0x45|0xAC</field>
+    <description>Sigma: Potential Data Exfiltration Via Audio File</description>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110012" level="12">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-Object|System\.Net\.NetworkInformation\.Ping|\.Send\(</field>
+    <description>Sigma: PowerShell ICMP Exfiltration</description>
+    <mitre>
+      <id>T1048.003</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110013" level="13">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Invoke-DNSExfiltrator</field>
     <description>Sigma: Powershell DNSExfiltration</description>
@@ -52,88 +139,133 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110005" level="13">
+  <rule id="110014" level="13">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-MailboxExportRequest| -Mailbox | -FilePath \\\\</field>
     <description>Sigma: Suspicious PowerShell Mailbox Export to Share - PS</description>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110006" level="13">
+  <rule id="110015" level="12">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Get-content |foreach|\[System\.Net\.Dns\]::GetHostEntry|Out-File</field>
+    <description>Sigma: PowerShell Script With File Hostname Resolving Capabilities</description>
+    <mitre>
+      <id>T1020</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110016" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ftp://|http://|https://</field>
+    <description>Sigma: Arbitrary File Download Via ConfigSecurityPolicy.EXE</description>
+    <mitre>
+      <id>T1567</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110017" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\csvde\.exe$</field>
+    <field name="win.eventdata.commandLine"> -f</field>
+    <description>Sigma: Active Directory Structure Export Via Csvde.EXE</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110018" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\iodine\.exe$</field>
     <description>Sigma: DNS Exfiltration and Tunneling Tools Execution</description>
     <mitre>
-      <id>T1048</id>
-      <id>T1071</id>
-      <id>T1132</id>
+      <id>T1048.001</id>
+      <id>T1071.004</id>
+      <id>T1132.001</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110007" level="13">
+  <rule id="110019" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\dnscat2</field>
     <description>Sigma: DNS Exfiltration and Tunneling Tools Execution</description>
     <mitre>
-      <id>T1048</id>
-      <id>T1071</id>
-      <id>T1132</id>
+      <id>T1048.001</id>
+      <id>T1071.004</id>
+      <id>T1132.001</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110008" level="13">
+  <rule id="110020" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-f</field>
+    <field name="win.eventdata.image">\ldifde\.exe$</field>
+    <description>Sigma: Active Directory Structure Export Via Ldifde.EXE</description>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110021" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/in:|/out:|/uri:</field>
+    <field name="win.eventdata.image">\DataSvcUtil\.exe$</field>
+    <description>Sigma: LOLBAS Data Exfiltration by DataSvcUtil.exe</description>
+    <mitre>
+      <id>T1567</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110022" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.commandLine">Add-PSSnapin|Get-Recipient|-ExpandProperty|EmailAddresses|SmtpAddress|-hidetableheaders</field>
     <description>Sigma: Email Exifiltration Via Powershell</description>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110009" level="13">
+  <rule id="110023" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">New-MailboxExportRequest| -Mailbox | -FilePath \\\\</field>
     <description>Sigma: Suspicious PowerShell Mailbox Export to Share</description>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110010" level="13">
+  <rule id="110024" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">pass|user|copy|sync|config|lsd|remote|ls|mega|pcloud|ftp|ignore-existing|auto-confirm|transfers|multi-thread-streams|no-check-certificate |--no-check-certificate | copy </field>
     <field name="win.eventdata.image">\rclone\.exe$</field>
     <description>Sigma: PUA - Rclone Execution</description>
     <mitre>
-      <id>T1567</id>
+      <id>T1567.002</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110011" level="13">
+  <rule id="110025" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">sftp:|rest:http|s3:s3\.|s3\.http|azure:| gs:|rclone:|swift:| b2:| init | -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
     <mitre>
       <id>T1048</id>
-      <id>T1567</id>
+      <id>T1567.002</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110012" level="13">
+  <rule id="110026" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--password-file|init| -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
     <mitre>
       <id>T1048</id>
-      <id>T1567</id>
+      <id>T1567.002</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110013" level="13">
+  <rule id="110027" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--use-fs-snapshot|backup| -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
     <mitre>
       <id>T1048</id>
-      <id>T1567</id>
+      <id>T1567.002</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110014" level="13">
+  <rule id="110028" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\system$|\sam$|\security$</field>
     <field name="win.eventdata.image">\regedit\.exe$</field>
@@ -143,7 +275,18 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110015" level="13">
+  <rule id="110029" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">C:\windows\system32\davclnt\.dll,DavSetCookie</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.parentImage">\svchost\.exe$</field>
+    <description>Sigma: WebDav Client Execution Via Rundll32.EXE</description>
+    <mitre>
+      <id>T1048.003</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110030" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\svchost\.exe$</field>
     <field name="win.eventdata.parentCommandLine">-s WebClient</field>
@@ -151,14 +294,23 @@
     <field name="win.eventdata.commandLine">://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}</field>
     <description>Sigma: Suspicious WebDav Client Execution Via Rundll32.EXE</description>
     <mitre>
+      <id>T1048.003</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110031" level="13">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\\\\127\.0\.0\.1\\admin\$\\|\\\\localhost\\admin\$\\</field>
+    <description>Sigma: Suspicious Redirection to Local Admin Share</description>
+    <mitre>
       <id>T1048</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110016" level="13">
+  <rule id="110032" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\\\\127\.0\.0\.1\\admin\$\\|\\\\localhost\\admin\$\\</field>
-    <description>Sigma: Suspicious Redirection to Local Admin Share</description>
+    <field name="win.eventdata.image">\tapinstall\.exe$</field>
+    <description>Sigma: Tap Installer Execution</description>
     <mitre>
       <id>T1048</id>
     </mitre>

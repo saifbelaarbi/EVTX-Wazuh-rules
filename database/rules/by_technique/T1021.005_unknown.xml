@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1021.005_unknown,">
+  <rule id="107070" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-autoreconnect |-connect |-id:</field>
+    <description>Sigma: Suspicious UltraVNC Execution</description>
+    <mitre>
+      <id>T1021.005</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+</group>

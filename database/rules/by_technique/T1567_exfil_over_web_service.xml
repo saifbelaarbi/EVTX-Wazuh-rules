@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1567_exfil_over_web_service,">
-  <rule id="110000" level="13">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.anonfiles\.com</field>
-    <description>Sigma: DNS Query for Anonfiles.com Domain - Sysmon</description>
+  <rule id="110004" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.btunnel\.co\.in$</field>
+    <description>Sigma: Network Connection Initiated To BTunnels Domains</description>
     <mitre>
       <id>T1567</id>
+      <id>T1572</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110002" level="13">
+  <rule id="110005" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.v2\.argotunnel\.com$|protocol-v2\.argotunnel\.com$|trycloudflare\.com$|update\.argotunnel\.com$</field>
+    <description>Sigma: Network Connection Initiated To Cloudflared Tunnels Domains</description>
+    <mitre>
+      <id>T1567</id>
+      <id>T1572</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110007" level="13">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.destinationHostname">\.ngrok-free\.app$|\.ngrok-free\.dev$|\.ngrok\.app$|\.ngrok\.dev$|\.ngrok\.io$</field>
@@ -21,22 +34,42 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110003" level="13">
+  <rule id="110008" level="13">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.destinationHostname">tunnel\.us\.ngrok\.com|tunnel\.eu\.ngrok\.com|tunnel\.ap\.ngrok\.com|tunnel\.au\.ngrok\.com|tunnel\.sa\.ngrok\.com|tunnel\.jp\.ngrok\.com|tunnel\.in\.ngrok\.com</field>
     <description>Sigma: Communication To Ngrok Tunneling Service Initiated</description>
     <mitre>
       <id>T1567</id>
-      <id>T1568</id>
+      <id>T1568.002</id>
       <id>T1572</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110010" level="13">
+  <rule id="110009" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.tunnels\.api\.visualstudio\.com$</field>
+    <description>Sigma: Network Connection Initiated To Visual Studio Code Tunnels Domain</description>
+    <mitre>
+      <id>T1567</id>
+      <id>T1572</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110016" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">pass|user|copy|sync|config|lsd|remote|ls|mega|pcloud|ftp|ignore-existing|auto-confirm|transfers|multi-thread-streams|no-check-certificate |--no-check-certificate | copy </field>
-    <field name="win.eventdata.image">\rclone\.exe$</field>
-    <description>Sigma: PUA - Rclone Execution</description>
+    <field name="win.eventdata.commandLine">ftp://|http://|https://</field>
+    <description>Sigma: Arbitrary File Download Via ConfigSecurityPolicy.EXE</description>
+    <mitre>
+      <id>T1567</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110021" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/in:|/out:|/uri:</field>
+    <field name="win.eventdata.image">\DataSvcUtil\.exe$</field>
+    <description>Sigma: LOLBAS Data Exfiltration by DataSvcUtil.exe</description>
     <mitre>
       <id>T1567</id>
     </mitre>

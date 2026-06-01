@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218_unknown,">
-  <rule id="101749" level="9">
+  <rule id="101107" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\UsageLogs\cmstp\.exe\.log$|\UsageLogs\cscript\.exe\.log$|\UsageLogs\mshta\.exe\.log$|\UsageLogs\msxsl\.exe\.log$|\UsageLogs\regsvr32\.exe\.log$|\UsageLogs\rundll32\.exe\.log$|\UsageLogs\svchost\.exe\.log$|\UsageLogs\wscript\.exe\.log$|\UsageLogs\wmic\.exe\.log$</field>
     <description>Sigma: Suspicious DotNET CLR Usage Log Artifact</description>
@@ -9,7 +9,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101777" level="9">
+  <rule id="101124" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.sed$</field>
+    <description>Sigma: Self Extraction Directive File Created In Potentially Suspicious Location</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101138" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\winword\.exe$|\excel\.exe$|\powerpnt\.exe$|\msaccess\.exe$|\mspub\.exe$|\eqnedt32\.exe$|\visio\.exe$|\wordpad\.exe$|\wordview\.exe$|\certutil\.exe$|\certoc\.exe$|\CertReq\.exe$|\Desktopimgdownldr\.exe$|\esentutl\.exe$|\finger\.exe$|\notepad\.exe$|\AcroRd32\.exe$|\RdrCEF\.exe$|\mshta\.exe$|\hh\.exe$</field>
     <field name="win.eventdata.targetFilename">\.zip$|\.rar$|\.7z$|\.diagcab$|\.appx$</field>
@@ -19,7 +28,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101778" level="9">
+  <rule id="101139" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\eqnedt32\.exe$|\wordpad\.exe$|\wordview\.exe$|\certutil\.exe$|\certoc\.exe$|\CertReq\.exe$|\Desktopimgdownldr\.exe$|\esentutl\.exe$|\mshta\.exe$|\AcroRd32\.exe$|\RdrCEF\.exe$|\hh\.exe$|\finger\.exe$</field>
     <field name="win.eventdata.targetFilename">\.exe$|\.dll$|\.ocx$</field>
@@ -29,7 +38,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101779" level="9">
+  <rule id="109034" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\eqnedt32\.exe$|\wordpad\.exe$|\wordview\.exe$|\cmdl32\.exe$|\certutil\.exe$|\certoc\.exe$|\CertReq\.exe$|\bitsadmin\.exe$|\Desktopimgdownldr\.exe$|\esentutl\.exe$|\expand\.exe$|\extrac32\.exe$|\replace\.exe$|\mshta\.exe$|\ftp\.exe$|\Ldifde\.exe$|\RdrCEF\.exe$|\hh\.exe$|\finger\.exe$|\findstr\.exe$</field>
     <field name="win.eventdata.targetFilename">:\Perflogs|:\ProgramData\|:\Temp\|:\Users\Public\|:\Windows\|\\$Recycle\.Bin\|\AppData\Local\|\AppData\Roaming\|\Contacts\|\Desktop\|\Favorites\|\Favourites\|\inetpub\wwwroot\|\Music\|\Pictures\|\Start Menu\Programs\Startup\|\Users\Default\|\Videos\</field>
@@ -38,9 +47,9 @@
       <id>T1218</id>
       <id>T1105</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="101780" level="9">
+  <rule id="101140" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\eqnedt32\.exe$|\wordpad\.exe$|\wordview\.exe$|\certutil\.exe$|\certoc\.exe$|\CertReq\.exe$|\Desktopimgdownldr\.exe$|\esentutl\.exe$|\mshta\.exe$|\AcroRd32\.exe$|\RdrCEF\.exe$|\hh\.exe$|\finger\.exe$</field>
     <field name="win.eventdata.targetFilename">\.ps1$|\.bat$|\.vbs$|\.scf$|\.wsf$|\.wsh$</field>
@@ -50,38 +59,38 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101805" level="9">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\cmstp\.exe$</field>
-    <field name="win.eventdata.imageLoaded">\.dll$|\.ocx$</field>
-    <description>Sigma: DLL Loaded From Suspicious Location Via Cmspt.EXE</description>
-    <mitre>
-      <id>T1218</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101810" level="9">
+  <rule id="105091" level="12">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\ttdrecord\.dll$|\ttdwriter\.dll$|\ttdloader\.dll$</field>
     <description>Sigma: Time Travel Debugging Utility Usage - Image</description>
     <mitre>
       <id>T1218</id>
-      <id>T1003</id>
+      <id>T1003.001</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="101817" level="9">
+  <rule id="103069" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\coregen\.exe$</field>
+    <description>Sigma: Potential DLL Sideloading Using Coregen.exe</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1055</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107040" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\BaaUpdate\.exe$</field>
     <field name="win.eventdata.imageLoaded">:\Perflogs\|:\Users\Default\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\AppData\Roaming\|\Contacts\|\Favorites\|\Favourites\|\Links\|\Music\|\Pictures\|\ProgramData\|\Temporary Internet|\Videos\</field>
     <description>Sigma: BaaUpdate.exe Suspicious DLL Load</description>
     <mitre>
       <id>T1218</id>
-      <id>T1021</id>
+      <id>T1021.003</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="101822" level="9">
+  <rule id="101177" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.image">\addinutil\.exe$</field>
@@ -91,17 +100,17 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101824" level="9">
+  <rule id="101189" level="8">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">\cmstp\.exe$</field>
-    <field name="win.eventdata.initiated">true</field>
-    <description>Sigma: Outbound Network Connection Initiated By Cmstp.EXE</description>
+    <field name="win.eventdata.image">wuauclt</field>
+    <field name="win.eventdata.commandLine"> /RunHandlerComServer</field>
+    <description>Sigma: Potentially Suspicious Wuauclt Network Connection</description>
     <mitre>
       <id>T1218</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101897" level="9">
+  <rule id="101216" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
     <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module</description>
@@ -110,7 +119,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101936" level="9">
+  <rule id="101225" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.contextInfo">SyncAppvPublishingServer\.exe</field>
+    <description>Sigma: SyncAppvPublishingServer Bypass Powershell Restriction - PS Module</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101263" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">^function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
     <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock</description>
@@ -119,17 +137,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101957" level="9">
-    <if_sid>61612</if_sid>
-    <field name="win.eventdata.callTrace">cmlua\.dll</field>
-    <description>Sigma: CMSTP Execution Process Access</description>
+  <rule id="101292" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">SyncAppvPublishingServer\.exe</field>
+    <description>Sigma: SyncAppvPublishingServer Execution to Bypass Powershell Restriction</description>
     <mitre>
       <id>T1218</id>
-      <id>T1559</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101976" level="9">
+  <rule id="101318" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\addinutil\.exe$</field>
     <description>Sigma: Suspicious AddinUtil.EXE CommandLine Execution</description>
@@ -138,7 +155,45 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101978" level="9">
+  <rule id="101319" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\addinutil\.exe$</field>
+    <description>Sigma: Uncommon Child Process Of AddinUtil.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101320" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-AddInRoot:|-PipelineRoot:</field>
+    <field name="win.eventdata.image">\addinutil\.exe$</field>
+    <description>Sigma: Uncommon AddinUtil.EXE CommandLine Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101321" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\addinutil\.exe$</field>
+    <description>Sigma: AddinUtil.EXE Execution From Uncommon Directory</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101323" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -powershell| -remediationScript</field>
+    <field name="win.eventdata.image">\AgentExecutor\.exe</field>
+    <description>Sigma: AgentExecutor PowerShell Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101324" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -powershell| -remediationScript</field>
     <field name="win.eventdata.image">\AgentExecutor\.exe$</field>
@@ -148,18 +203,47 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101988" level="9">
+  <rule id="101326" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\appvlp\.exe$</field>
+    <description>Sigma: Uncommon Child Process Of Appvlp.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101331" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">start</field>
+    <field name="win.eventdata.image">\AtBroker\.exe$</field>
+    <description>Sigma: Uncommon  Assistive Technology Applications Execution Via AtBroker.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="107048" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\baaupdate\.exe$</field>
     <field name="win.eventdata.image">\bitsadmin\.exe$|\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\schtasks\.exe$|\wmic\.exe$|\wscript\.exe$</field>
     <description>Sigma: Suspicious BitLocker Access Agent Update Utility Execution</description>
     <mitre>
       <id>T1218</id>
-      <id>T1021</id>
+      <id>T1021.003</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="101346" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -LoadDLL </field>
+    <field name="win.eventdata.image">\certoc\.exe$</field>
+    <description>Sigma: DLL Loaded via CertOC.EXE</description>
+    <mitre>
+      <id>T1218</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101997" level="9">
+  <rule id="101347" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Appdata\Local\Temp\|\Desktop\|\Downloads\|\Users\Public\|C:\Windows\Tasks\|C:\Windows\Temp\</field>
     <field name="win.eventdata.image">\certoc\.exe$</field>
@@ -168,5 +252,788 @@
       <id>T1218</id>
     </mitre>
     <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101354" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -syncwithWU | \\\\</field>
+    <field name="win.eventdata.image">\certutil\.exe$</field>
+    <description>Sigma: Potential NTLM Coercion Via Certutil.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="109080" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -c |curl |http|-o|&amp;</field>
+    <description>Sigma: Curl Download And Execute Combination</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="101368" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\cmd\.exe$</field>
+    <field name="win.eventdata.commandLine">&gt;.%APPDATA%\|&gt;.%TEMP%\|&gt;.%TMP%\|&gt;.%USERPROFILE%\|&gt;.C:\ProgramData\|&gt;.C:\Temp\|&gt;.C:\Users\Public\|&gt;.C:\Windows\Temp\</field>
+    <description>Sigma: Potentially Suspicious CMD Shell Output Redirect</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101371" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/vpn|/lan</field>
+    <field name="win.eventdata.image">\cmdl32\.exe$</field>
+    <description>Sigma: Potential Arbitrary File Download Via Cmdl32.EXE</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101392" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\DefaultPack\.exe$</field>
+    <description>Sigma: Uncommon Child Process Of Defaultpack.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101395" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\DeviceCredentialDeployment\.exe$</field>
+    <description>Sigma: DeviceCredentialDeployment Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101396" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -t msi-install | -i http</field>
+    <description>Sigma: Arbitrary MSI Download Via Devinit.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101398" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\diskshadow\.exe$</field>
+    <field name="win.eventdata.image">\certutil\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Potentially Suspicious Child Process Of DiskShadow.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101399" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/]s </field>
+    <field name="win.eventdata.originalFileName">diskshadow\.exe</field>
+    <description>Sigma: Diskshadow Script Mode - Uncommon Script Extension Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101400" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">:\Temp\|:\Windows\Temp\|\AppData\Local\|\AppData\Roaming\|\ProgramData\|\Users\Public\</field>
+    <field name="win.eventdata.originalFileName">diskshadow\.exe</field>
+    <description>Sigma: Diskshadow Script Mode - Execution From Potential Suspicious Location</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101403" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\dnx\.exe$</field>
+    <description>Sigma: Potential Application Whitelisting Bypass via Dnx.EXE</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1027.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101404" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.csproj$|\.csproj"$|\.dll$|\.dll"$|\.csproj'$|\.dll'$</field>
+    <field name="win.eventdata.image">\dotnet\.exe$</field>
+    <description>Sigma: Arbitrary DLL or Csproj Code Execution Via Dotnet.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101405" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-- |collect</field>
+    <field name="win.eventdata.image">\dotnet-trace\.exe$</field>
+    <description>Sigma: Binary Proxy Execution Via Dotnet-Trace.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101406" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">collect</field>
+    <field name="win.eventdata.image">\dotnet-dump\.exe$</field>
+    <description>Sigma: Process Memory Dump Via Dotnet-Dump</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101407" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">GR|GE|GW|GA|WP|WD</field>
+    <field name="win.eventdata.image">\dsacls\.exe$</field>
+    <description>Sigma: Potentially Over Permissive Permissions Granted Using Dsacls.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101408" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/user:|/passwd:</field>
+    <field name="win.eventdata.image">\dsacls\.exe$</field>
+    <description>Sigma: Potential Password Spraying Attempt Using Dsacls.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101409" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -c </field>
+    <field name="win.eventdata.image">\DXCap\.exe$</field>
+    <description>Sigma: New Capture Session Launched Via DXCap.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101410" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\expand\.exe$</field>
+    <field name="win.eventdata.commandLine">:\Perflogs\|:\ProgramData|:\Users\Public\|:\Windows\Temp\|\Admin\$\|\AppData\Local\Temp\|\AppData\Roaming\|\C\$\|\Temporary Internet</field>
+    <description>Sigma: Potentially Suspicious Cabinet File Expansion</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="105145" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\\\\</field>
+    <description>Sigma: Remote File Download Via Findstr.EXE</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1564.004</id>
+      <id>T1552.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="101497" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/delete|Microsoft_Windows_Shell_ZipFolder:filename=|\.zip|/user:</field>
+    <description>Sigma: Suspicious ZipExec Execution</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101501" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">:\ProgramData\|:\Temp\|:\Windows\System32\Tasks\|:\Windows\Tasks\|:\Windows\Temp\|\AppData\Local\Temp\</field>
+    <field name="win.eventdata.image">\iexpress\.exe$</field>
+    <description>Sigma: Self Extracting Package Creation Via Iexpress.EXE From Potentially Suspicious Location</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101508" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">http://|https://</field>
+    <field name="win.eventdata.image">\IMEWDBLD\.exe$</field>
+    <description>Sigma: Arbitrary File Download Via IMEWDBLD.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101509" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">InfDefaultInstall\.exe |\.inf</field>
+    <description>Sigma: InfDefaultInstall.exe .inf Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101510" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ftp://|http://|https://</field>
+    <field name="win.eventdata.image">\InstallUtil\.exe$</field>
+    <description>Sigma: File Download Via InstallUtil.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="109098" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-i|-f</field>
+    <field name="win.eventdata.image">\ldifde\.exe$</field>
+    <description>Sigma: Import LDAP Data Interchange Format File Via Ldifde.EXE</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="101516" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\link\.exe$</field>
+    <field name="win.eventdata.commandLine">LINK /</field>
+    <description>Sigma: Uncommon Link.EXE Parent Process</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101519" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\devtoolslauncher\.exe$</field>
+    <field name="win.eventdata.commandLine">LaunchForDeploy</field>
+    <description>Sigma: Devtoolslauncher.exe Executes Specified Binary</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101522" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /logon| /startup</field>
+    <field name="win.eventdata.image">\gpscript\.exe$</field>
+    <description>Sigma: Gpscript Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101523" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\ie4uinit\.exe$</field>
+    <description>Sigma: Ie4uinit Lolbin Use From Invalid Path</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101526" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\mpiexec\.exe$</field>
+    <field name="win.eventdata.commandLine"> /n 1 | -n 1 </field>
+    <description>Sigma: MpiExec Lolbin</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101527" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">verb:sync|-source:RunCommand|-dest:runCommand</field>
+    <field name="win.eventdata.image">\msdeploy\.exe$</field>
+    <description>Sigma: Execute Files with Msdeploy.exe</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101529" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\OpenWith\.exe$</field>
+    <field name="win.eventdata.commandLine">/c</field>
+    <description>Sigma: OpenWith.exe Executes Specified Binary</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101531" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\pcwrun\.exe$</field>
+    <field name="win.eventdata.commandLine">\.\./</field>
+    <description>Sigma: Execute Pcwrun.EXE To Leverage Follina</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101536" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -d | -p </field>
+    <field name="win.eventdata.image">\rasautou\.exe$</field>
+    <description>Sigma: DLL Execution via Rasautou.exe</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101537" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\register_app\.vbs|-register</field>
+    <description>Sigma: REGISTER_APP.VBS Proxy Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101540" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\runexehelper\.exe$</field>
+    <description>Sigma: Lolbin Runexehelper Use As Proxy</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101542" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -appvscript </field>
+    <field name="win.eventdata.image">\ScriptRunner\.exe$</field>
+    <description>Sigma: Use of Scriptrunner.exe</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101543" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\sftp\.exe$</field>
+    <field name="win.eventdata.commandLine"> -D \.\.| -D C:\</field>
+    <description>Sigma: Use Of The SFTP.EXE Binary As A LOLBIN</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101544" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">"n; </field>
+    <field name="win.eventdata.image">\SyncAppvPublishingServer\.exe$</field>
+    <description>Sigma: SyncAppvPublishingServer Execute Arbitrary PowerShell Code</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101545" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\SyncAppvPublishingServer\.vbs|;</field>
+    <description>Sigma: SyncAppvPublishingServer VBS Execute Arbitrary PowerShell Code</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1216</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="105210" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\tttracer\.exe$</field>
+    <description>Sigma: Time Travel Debugging Utility Usage</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="101548" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /HideWMP</field>
+    <field name="win.eventdata.image">\unregmp2\.exe$</field>
+    <description>Sigma: Lolbin Unregmp2.exe Use As Proxy</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101551" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\VisualUiaVerifyNative\.exe$</field>
+    <description>Sigma: Use of VisualUiaVerifyNative.exe</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101552" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">VisualUiaVerifyNative\.exe</field>
+    <description>Sigma: Use of VisualUiaVerifyNative.exe</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101556" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.vbs -register </field>
+    <field name="win.eventdata.image">\cscript\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Potential Register_App.Vbs LOLScript Abuse</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101562" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wsl\.exe$|\wscript\.exe$|\cscript\.exe$</field>
+    <field name="win.eventdata.image">\mofcomp\.exe$</field>
+    <description>Sigma: Potential Suspicious Mofcomp Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="109103" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">DownloadFile|url</field>
+    <field name="win.eventdata.originalFileName">MpCmdRun\.exe</field>
+    <description>Sigma: File Download Via Windows Defender MpCmpRun.EXE</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="101565" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\msdt\.exe$</field>
+    <field name="win.eventdata.commandLine"> -af </field>
+    <description>Sigma: MSDT Execution Via Answer File</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101569" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">http://|https://</field>
+    <field name="win.eventdata.image">\msedge_proxy\.exe$</field>
+    <description>Sigma: Arbitrary File Download Via MSEDGE_PROXY.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101583" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ftp://|http://|https://</field>
+    <field name="win.eventdata.image">\MSOHTMED\.exe$</field>
+    <description>Sigma: Arbitrary File Download Via MSOHTMED.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101584" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ftp://|http://|https://</field>
+    <field name="win.eventdata.image">\MSPUB\.exe$</field>
+    <description>Sigma: Arbitrary File Download Via MSPUB.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101616" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\OfflineScannerShell\.exe$</field>
+    <description>Sigma: Potential Mpclient.DLL Sideloading Via OfflineScannerShell.EXE Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101683" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Invoke-ATHRemoteFXvGPUDisablementCommand|Invoke-ATHRemoteFXvGPUDisableme</field>
+    <description>Sigma: RemoteFXvGPUDisablement Abuse Via AtomicTestHarnesses</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101704" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">http://|https://|ftp://</field>
+    <field name="win.eventdata.image">\presentationhost\.exe$</field>
+    <description>Sigma: Arbitrary File Download Via PresentationHost.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101705" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.xbap</field>
+    <field name="win.eventdata.image">\presentationhost\.exe$</field>
+    <description>Sigma: XBAP Execution From Uncommon Locations Via PresentationHost.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101706" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\Microsoft\.NodejsTools\.PressAnyKey\.exe$</field>
+    <description>Sigma: Visual Studio NodejsTools PressAnyKey Arbitrary Binary Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101707" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\print\.exe$</field>
+    <field name="win.eventdata.commandLine">^print|/D|\.exe</field>
+    <description>Sigma: Abusing Print Executable</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101708" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ftp://|http://|https://</field>
+    <field name="win.eventdata.image">\protocolhandler\.exe$</field>
+    <description>Sigma: File Download Using ProtocolHandler.exe</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101709" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\provlaunch\.exe$</field>
+    <description>Sigma: Potential Provlaunch.EXE Binary Proxy Execution Abuse</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101710" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\calc\.exe$|\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\notepad\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\provlaunch\.exe$</field>
+    <description>Sigma: Suspicious Provlaunch.EXE Child Process</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101772" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">SOFTWARE\Microsoft\Provisioning\Commands\</field>
+    <description>Sigma: Potential Provisioning Registry Key Abuse For Binary Proxy Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101797" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">megasync\.exe</field>
+    <description>Sigma: Renamed MegaSync Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101806" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">Microsoft\.NodejsTools\.PressAnyKey\.exe</field>
+    <description>Sigma: Visual Studio NodejsTools PressAnyKey Renamed Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101840" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\setres\.exe$</field>
+    <field name="win.eventdata.image">\choice</field>
+    <description>Sigma: Uncommon Child Process Of Setres.EXE</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101846" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">http</field>
+    <field name="win.eventdata.image">\squirrel\.exe$|\update\.exe$</field>
+    <description>Sigma: Arbitrary File Download Via Squirrel.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101847" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">--processStart|--processStartAndWait|--createShortcut</field>
+    <field name="win.eventdata.image">\squirrel\.exe$|\update\.exe$</field>
+    <description>Sigma: Process Proxy Execution Via Squirrel.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101848" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">C:\Windows\System32\OpenSSH\sshd\.exe</field>
+    <field name="win.eventdata.image">\ssh\.exe$</field>
+    <field name="win.eventdata.commandLine">ProxyCommand=</field>
+    <description>Sigma: Program Executed Using Proxy/Local Command Via SSH.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101849" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\stordiag\.exe$</field>
+    <field name="win.eventdata.image">\schtasks\.exe$|\systeminfo\.exe$|\fltmc\.exe$</field>
+    <description>Sigma: Execution via stordiag.exe</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101912" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ms-appinstaller://.source=|http</field>
+    <description>Sigma: Potential File Download Via MS-AppInstaller Protocol Handler</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101932" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\vsjitdebugger\.exe$</field>
+    <description>Sigma: Malicious PE Execution by Microsoft Visual Studio Debugger</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101935" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\control\.exe$</field>
+    <field name="win.eventdata.parentImage">\WorkFolders\.exe$</field>
+    <description>Sigma: Execution via WorkFolders.exe</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101952" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\accesschk64a\.exe$|\ADExplorer64a\.exe$|\ADInsight64a\.exe$|\adrestore64a\.exe$|\Autologon64a\.exe$|\Autoruns64a\.exe$|\autorunsc64a\.exe$|\Clockres64a\.exe$|\Contig64a\.exe$|\Coreinfo64a\.exe$|\Dbgview64a\.exe$|\disk2vhd64a\.exe$|\diskext64a\.exe$|\DiskView64a\.exe$|\du64a\.exe$|\FindLinks64a\.exe$|\handle64a\.exe$|\hex2dec64a\.exe$|\junction64a\.exe$|\LoadOrd64a\.exe$|\LoadOrdC64a\.exe$|\logonsessions64a\.exe$|\movefile64a\.exe$|\notmyfault64a\.exe$|\notmyfaultc64a\.exe$|\pendmoves64a\.exe$|\pipelist64a\.exe$|\procdump64a\.exe$|\procexp64a\.exe$|\Procmon64a\.exe$|\PsExec64a\.exe$|\psfile64a\.exe$|\PsGetsid64a\.exe$|\PsInfo64a\.exe$|\pskill64a\.exe$|\psloglist64a\.exe$|\pspasswd64a\.exe$|\psping64a\.exe$|\PsService64a\.exe$|\pssuspend64a\.exe$|\RAMMap64a\.exe$|\RegDelNull64a\.exe$|\ru64a\.exe$|\sdelete64a\.exe$|\sigcheck64a\.exe$|\streams64a\.exe$|\strings64a\.exe$|\sync64a\.exe$|\Sysmon64a\.exe$|\tcpvcon64a\.exe$|\tcpview64a\.exe$|\vmmap64a\.exe$|\whois64a\.exe$|\Winobj64a\.exe$|\ZoomIt64a\.exe$</field>
+    <description>Sigma: Potential Binary Impersonating Sysinternals Tools</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1202</id>
+      <id>T1036.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101953" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\accesschk\.exe$|\accesschk64\.exe$|\AccessEnum\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADInsight\.exe$|\ADInsight64\.exe$|\adrestore\.exe$|\adrestore64\.exe$|\Autologon\.exe$|\Autologon64\.exe$|\Autoruns\.exe$|\Autoruns64\.exe$|\autorunsc\.exe$|\autorunsc64\.exe$|\Bginfo\.exe$|\Bginfo64\.exe$|\Cacheset\.exe$|\Cacheset64\.exe$|\Clockres\.exe$|\Clockres64\.exe$|\Contig\.exe$|\Contig64\.exe$|\Coreinfo\.exe$|\Coreinfo64\.exe$|\CPUSTRES\.EXE$|\CPUSTRES64\.EXE$|\ctrl2cap\.exe$|\Dbgview\.exe$|\dbgview64\.exe$|\Desktops\.exe$|\Desktops64\.exe$|\disk2vhd\.exe$|\disk2vhd64\.exe$|\diskext\.exe$|\diskext64\.exe$|\Diskmon\.exe$|\Diskmon64\.exe$|\DiskView\.exe$|\DiskView64\.exe$|\du\.exe$|\du64\.exe$|\efsdump\.exe$|\FindLinks\.exe$|\FindLinks64\.exe$|\handle\.exe$|\handle64\.exe$|\hex2dec\.exe$|\hex2dec64\.exe$|\junction\.exe$|\junction64\.exe$|\ldmdump\.exe$|\listdlls\.exe$|\listdlls64\.exe$|\livekd\.exe$|\livekd64\.exe$|\loadOrd\.exe$|\loadOrd64\.exe$|\loadOrdC\.exe$|\loadOrdC64\.exe$|\logonsessions\.exe$|\logonsessions64\.exe$|\movefile\.exe$|\movefile64\.exe$|\notmyfault\.exe$|\notmyfault64\.exe$|\notmyfaultc\.exe$|\notmyfaultc64\.exe$|\ntfsinfo\.exe$|\ntfsinfo64\.exe$|\pendmoves\.exe$|\pendmoves64\.exe$|\pipelist\.exe$|\pipelist64\.exe$|\portmon\.exe$|\procdump\.exe$|\procdump64\.exe$|\procexp\.exe$|\procexp64\.exe$|\Procmon\.exe$|\Procmon64\.exe$|\psExec\.exe$|\psExec64\.exe$|\psfile\.exe$|\psfile64\.exe$|\psGetsid\.exe$|\psGetsid64\.exe$|\psInfo\.exe$|\psInfo64\.exe$|\pskill\.exe$|\pskill64\.exe$|\pslist\.exe$|\pslist64\.exe$|\psLoggedon\.exe$|\psLoggedon64\.exe$|\psloglist\.exe$|\psloglist64\.exe$|\pspasswd\.exe$|\pspasswd64\.exe$|\psping\.exe$|\psping64\.exe$|\psService\.exe$|\psService64\.exe$|\psshutdown\.exe$|\psshutdown64\.exe$|\pssuspend\.exe$|\pssuspend64\.exe$|\RAMMap\.exe$|\RAMMap64\.exe$|\RDCMan\.exe$|\RegDelNull\.exe$|\RegDelNull64\.exe$|\regjump\.exe$|\ru\.exe$|\ru64\.exe$|\sdelete\.exe$|\sdelete64\.exe$|\ShareEnum\.exe$|\ShareEnum64\.exe$|\shellRunas\.exe$|\sigcheck\.exe$|\sigcheck64\.exe$|\streams\.exe$|\streams64\.exe$|\strings\.exe$|\strings64\.exe$|\sync\.exe$|\sync64\.exe$|\Sysmon\.exe$|\Sysmon64\.exe$|\tcpvcon\.exe$|\tcpvcon64\.exe$|\tcpview\.exe$|\tcpview64\.exe$|\Testlimit\.exe$|\Testlimit64\.exe$|\vmmap\.exe$|\vmmap64\.exe$|\Volumeid\.exe$|\Volumeid64\.exe$|\whois\.exe$|\whois64\.exe$|\Winobj\.exe$|\Winobj64\.exe$|\ZoomIt\.exe$|\ZoomIt64\.exe$</field>
+    <description>Sigma: Potential Binary Impersonating Sysinternals Tools</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1202</id>
+      <id>T1036.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101964" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/S|/C</field>
+    <field name="win.eventdata.image">\verclsid\.exe$</field>
+    <description>Sigma: Verclsid.exe Runs COM Object</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101968" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\code\.exe$</field>
+    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\cmd\.exe$</field>
+    <field name="win.eventdata.commandLine">Invoke-Expressions|IEX|Invoke-Command|ICM|DownloadString|rundll32|regsvr32|wscript|cscript</field>
+    <description>Sigma: Potentially Suspicious Child Process Of VsCode</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101969" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">start</field>
+    <field name="win.eventdata.image">\VSDiagnostics\.exe$</field>
+    <description>Sigma: Potential Binary Proxy Execution Via VSDiagnostics.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101971" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\vsls-agent\.exe$</field>
+    <field name="win.eventdata.commandLine">--agentExtensionPath</field>
+    <description>Sigma: Suspicious Vsls-Agent Command With AgentExtensionPath Load</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101992" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\wlrmdr\.exe$</field>
+    <field name="win.eventdata.image">\wlrmdr\.exe$</field>
+    <field name="win.eventdata.commandLine">[-/]u </field>
+    <description>Sigma: Wlrmdr.EXE Uncommon Argument Or Child Process</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103308" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">Software\Microsoft\Windows NT\CurrentVersion\Accessibility\ATs|Software\Microsoft\Windows NT\CurrentVersion\Accessibility\Configuration</field>
+    <description>Sigma: Atbroker Registry Change</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1547</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
 </group>

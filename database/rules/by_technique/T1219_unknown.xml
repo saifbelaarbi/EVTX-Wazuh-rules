@@ -1,44 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1219_unknown,">
-  <rule id="101717" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\AnyDesk\.exe$|\AnyDeskMSI\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.dll$|\.exe$</field>
-    <description>Sigma: Suspicious Binary Writes Via AnyDesk</description>
+  <rule id="109162" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\TacticalAgent\tacticalrmm\.exe</field>
+    <field name="win.eventdata.commandLine">--api|--auth|--client-id|--site-id|--agent-type</field>
+    <description>Sigma: Remote Access Tool - TacticalRMM Agent Registration to Potentially Attacker-Controlled Server</description>
     <mitre>
       <id>T1219</id>
+      <id>T1105</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="101726" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Inveigh-Log\.txt$|\Inveigh-Cleartext\.txt$|\Inveigh-NTLMv1Users\.txt$|\Inveigh-NTLMv2Users\.txt$|\Inveigh-NTLMv1\.txt$|\Inveigh-NTLMv2\.txt$|\Inveigh-FormInput\.txt$|\Inveigh\.dll$|\Inveigh\.exe$|\Inveigh\.ps1$|\Inveigh-Relay\.ps1$</field>
-    <description>Sigma: HackTool - Inveigh Execution Artefacts</description>
-    <mitre>
-      <id>T1219</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101727" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">:\windows\temp\sam\.tmp$|:\windows\temp\sec\.tmp$|:\windows\temp\sys\.tmp$</field>
-    <description>Sigma: HackTool - RemoteKrbRelay SMB Relay Secrets Dump Module Indicators</description>
-    <mitre>
-      <id>T1219</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101789" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\mstsc\.exe$</field>
-    <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\Startup\</field>
-    <description>Sigma: Hijack Legit RDP Session to Move Laterally</description>
-    <mitre>
-      <id>T1219</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102257" level="10">
+  <rule id="109174" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\Velociraptor\.exe$</field>
     <field name="win.eventdata.commandLine">msiexec|/i|http</field>
@@ -46,6 +19,6 @@
     <mitre>
       <id>T1219</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
 </group>

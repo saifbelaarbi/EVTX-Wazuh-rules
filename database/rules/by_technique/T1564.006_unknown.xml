@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1564.006_unknown,">
+  <rule id="101277" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-VM|Set-VMFirmware|Start-VM</field>
+    <description>Sigma: Suspicious Hyper-V Cmdlets</description>
+    <mitre>
+      <id>T1564.006</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1546.003_unknown,">
+  <rule id="102534" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4662</field>
+    <field name="win.eventdata.objectType">WMI Namespace</field>
+    <field name="win.eventdata.objectName">subscription</field>
+    <description>Sigma: WMI Persistence - Security</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="103066" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">C:\WINDOWS\system32\wbem\scrcons\.exe</field>
+    <description>Sigma: WMI Persistence - Script Event Consumer File Write</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107039" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\scrcons\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\vbscript\.dll$|\wbemdisp\.dll$|\wshom\.ocx$|\scrrun\.dll$</field>
+    <description>Sigma: WMI ActiveScriptEventConsumers Activity Via Scrcons.EXE DLL Load</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="103080" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">C:\Windows\System32\wbem\WmiPrvSE\.exe</field>
+    <field name="win.eventdata.imageLoaded">\wbemcons\.dll$</field>
+    <description>Sigma: WMI Persistence - Command Line Event Consumer</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="102654" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-CimInstance |-Namespace root/subscription |-ClassName __EventFilter |-Property </field>
+    <description>Sigma: Powershell WMI Persistence</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="103292" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\EdgeTransport\.exe$</field>
+    <description>Sigma: WMI Backdoor Exchange Transport Agent</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="102730" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">C:\WINDOWS\system32\wbem\scrcons\.exe</field>
+    <field name="win.eventdata.parentImage">C:\Windows\System32\svchost\.exe</field>
+    <description>Sigma: WMI Persistence - Script Event Consumer</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="103294" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ActiveScriptEventConsumer| CREATE </field>
+    <description>Sigma: New ActiveScriptEventConsumer Created Via Wmic.EXE</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="103369" level="10">
+    <if_sid>61621</if_sid>
+    <field name="win.system.eventID">19|20|21</field>
+    <description>Sigma: WMI Event Subscription</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1555.004_unknown,">
+  <rule id="105057" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.fileName">\Microsoft\Protect\CREDHIST$</field>
+    <description>Sigma: Access To Windows Credential History File By Uncommon Applications</description>
+    <mitre>
+      <id>T1555.004</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105059" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.fileName">\Microsoft\Protect\S-1-5-18\|\Microsoft\Protect\S-1-5-21-</field>
+    <description>Sigma: Access To Windows DPAPI Master Keys By Uncommon Applications</description>
+    <mitre>
+      <id>T1555.004</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105239" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">keymgr|KRShowKeyMgr</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Suspicious Key Manager Access</description>
+    <mitre>
+      <id>T1555.004</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="105274" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/listcreds:</field>
+    <field name="win.eventdata.image">\VaultCmd\.exe$</field>
+    <description>Sigma: Windows Credential Manager Access via VaultCmd</description>
+    <mitre>
+      <id>T1555.004</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+</group>

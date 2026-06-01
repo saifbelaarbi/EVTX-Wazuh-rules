@@ -1,13 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1102_unknown,">
-  <rule id="101826" level="9">
+  <rule id="109042" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">azurewebsites\.net$</field>
+    <description>Sigma: Network Connection Initiated To AzureWebsites.NET By Non-Browser Process</description>
+    <mitre>
+      <id>T1102</id>
+      <id>T1102.001</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109043" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.destinationHostname">\.t\.me$|4shared\.com$|abuse\.ch$|anonfiles\.com$|cdn\.discordapp\.com$|cloudflare\.com$|ddns\.net$|discord\.com$|docs\.google\.com$|drive\.google\.com$|dropbox\.com$|dropmefiles\.com$|facebook\.com$|feeds\.rapidfeeds\.com$|fotolog\.com$|ghostbin\.co/$|githubusercontent\.com$|gofile\.io$|hastebin\.com$|imgur\.com$|livejournal\.com$|mediafire\.com$|mega\.co\.nz$|mega\.nz$|onedrive\.com$|pages\.dev$|paste\.ee$|pastebin\.com$|pastebin\.pl$|pastetext\.net$|pixeldrain\.com$|privatlab\.com$|privatlab\.net$|reddit\.com$|send\.exploit\.in$|sendspace\.com$|steamcommunity\.com$|storage\.googleapis\.com$|technet\.microsoft\.com$|temp\.sh$|transfer\.sh$|trycloudflare\.com$|twitter\.com$|ufile\.io$|vimeo\.com$|w3spaces\.com$|wetransfer\.com$|workers\.dev$|youtube\.com$</field>
     <description>Sigma: New Connection Initiated To Potential Dead Drop Resolver Domain</description>
     <mitre>
       <id>T1102</id>
+      <id>T1102.001</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109045" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.destinationHostname">drive\.googleapis\.com|oauth2\.googleapis\.com|sheets\.googleapis\.com|www\.googleapis\.com</field>
+    <description>Sigma: Suspicious Non-Browser Network Communication With Google API</description>
+    <mitre>
+      <id>T1102</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109048" level="9">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.destinationHostname">api\.telegram\.org</field>
+    <description>Sigma: Suspicious Non-Browser Network Communication With Telegram API</description>
+    <mitre>
+      <id>T1102</id>
+      <id>T1567</id>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109078" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-config |-connector-id |cleanup </field>
+    <description>Sigma: Cloudflared Tunnel Connections Cleanup</description>
+    <mitre>
+      <id>T1102</id>
+      <id>T1090</id>
+      <id>T1572</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109079" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-config |-credentials-contents |-credentials-file |-token | run </field>
+    <description>Sigma: Cloudflared Tunnel Execution</description>
+    <mitre>
+      <id>T1102</id>
+      <id>T1090</id>
+      <id>T1572</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="109097" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\ManageEngine\ServiceDesk\|\java\.exe</field>
+    <field name="win.eventdata.image">\AppVLP\.exe$|\bash\.exe$|\bitsadmin\.exe$|\calc\.exe$|\certutil\.exe$|\cscript\.exe$|\curl\.exe$|\forfiles\.exe$|\mftrace\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\notepad\.exe$|\powershell\.exe$|\pwsh\.exe$|\query\.exe$|\reg\.exe$|\schtasks\.exe$|\scrcons\.exe$|\sh\.exe$|\systeminfo\.exe$|\whoami\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Suspicious Child Process Of Manage Engine ServiceDesk</description>
+    <mitre>
+      <id>T1102</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
 </group>

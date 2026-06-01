@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1557.003_unknown,">
+  <rule id="108002" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4662</field>
+    <field name="win.eventdata.additionalInfo">UWhRCA|BAAAA|CN=MicrosoftDNS</field>
+    <description>Sigma: Potential Kerberos Coercion by Spoofing SPNs via DNS Manipulation</description>
+    <mitre>
+      <id>T1557.003</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="108003" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5136|5137</field>
+    <field name="win.eventdata.objectClass">dnsNode</field>
+    <field name="win.eventdata.objectDN">UWhRCA|BAAAA|CN=MicrosoftDNS</field>
+    <description>Sigma: Potential Kerberos Coercion by Spoofing SPNs via DNS Manipulation</description>
+    <mitre>
+      <id>T1557.003</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+</group>

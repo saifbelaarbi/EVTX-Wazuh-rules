@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1567.002_unknown,">
+  <rule id="110001" level="13">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">\.anonfiles\.com</field>
+    <description>Sigma: DNS Query for Anonfiles.com Domain - Sysmon</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110002" level="12">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">userstorage\.mega\.co\.nz</field>
+    <description>Sigma: DNS Query To MEGA Hosting Website</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110003" level="12">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">:\Users\|\\.config\rclone\</field>
+    <description>Sigma: Rclone Config File Creation</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="110024" level="13">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">pass|user|copy|sync|config|lsd|remote|ls|mega|pcloud|ftp|ignore-existing|auto-confirm|transfers|multi-thread-streams|no-check-certificate |--no-check-certificate | copy </field>
+    <field name="win.eventdata.image">\rclone\.exe$</field>
+    <description>Sigma: PUA - Rclone Execution</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+</group>

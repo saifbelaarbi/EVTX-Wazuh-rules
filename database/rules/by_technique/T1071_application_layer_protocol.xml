@@ -1,61 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1071_application_layer_protocol,">
-  <rule id="101711" level="9">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.image">\finger\.exe$</field>
-    <description>Sigma: DNS Query by Finger Utility</description>
-    <mitre>
-      <id>T1071</id>
-      <id>T1059</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101712" level="13">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">^aaa\.stage\.|^post\.1</field>
-    <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - Sysmon</description>
-    <mitre>
-      <id>T1071</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101713" level="13">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.stage\.123456\.</field>
-    <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - Sysmon</description>
-    <mitre>
-      <id>T1071</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101812" level="9">
+  <rule id="109040" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.description">st2stager</field>
     <description>Sigma: HackTool - SILENTTRINITY Stager DLL Load</description>
     <mitre>
       <id>T1071</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="101825" level="9">
-    <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">:\Windows\System32\dialer\.exe$</field>
-    <field name="win.eventdata.initiated">true</field>
-    <description>Sigma: Outbound Network Connection Initiated By Microsoft Dialer</description>
+  <rule id="109095" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.description">st2stager</field>
+    <description>Sigma: HackTool - SILENTTRINITY Stager Execution</description>
     <mitre>
       <id>T1071</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101829" level="9">
-    <if_sid>61605</if_sid>
-    <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\finger\.exe$</field>
-    <description>Sigma: Network Connection Initiated via Finger.EXE</description>
-    <mitre>
-      <id>T1071</id>
-      <id>T1059</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
 </group>
