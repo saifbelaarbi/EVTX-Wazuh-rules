@@ -1,4 +1,4 @@
-"""Manage Wazuh rule ID allocation (range 100000-120000)."""
+"""Manage Wazuh rule ID allocation (range 100000-130000)."""
 
 import json
 from pathlib import Path

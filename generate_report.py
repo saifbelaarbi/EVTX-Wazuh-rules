@@ -135,7 +135,7 @@ def generate_rules_report():
     lines.append(f"| EVTX sources used | {len(sources_used)} |")
     lines.append(f"| MITRE tactics covered | {len(tactics)} / 12 |")
     lines.append(f"| MITRE techniques covered | {len([t for t in techniques if t])} |")
-    lines.append(f"| Rule ID range | 100000 - 120000 |")
+    lines.append(f"| Rule ID range | 100000 - 130000 |")
     lines.append("")
 
     # ── Alert Level Distribution ──
