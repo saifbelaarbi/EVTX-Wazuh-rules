@@ -1,10 +1,55 @@
 """Build Wazuh XML rules from detection patterns."""
 
+import re
+
 from lxml import etree
 from datetime import date
 
+from . import mitre_mapper
 from .event_analyzer import DetectionPattern
 from .id_manager import allocate_id
+
+# Regex metacharacters that must be escaped when an indicator string is meant
+# to be matched literally inside a Wazuh OS-regex <field>.
+_OSREGEX_META = re.compile(r"([.^$*+?()\[\]{}|\\])")
+
+# System fields always retained in a minimized sample event.
+_SAMPLE_SYSTEM_FIELDS = (
+    "event_id", "channel", "provider_name", "computer", "timestamp",
+)
+
+
+def _to_osregex(value: str) -> str:
+    """Escape an indicator string so it matches literally in a Wazuh <field>."""
+    return _OSREGEX_META.sub(r"\\\1", value)
+
+
+def _minimize_event(event: dict, field_matches: dict) -> dict:
+    """Keep system fields + only the eventdata keys referenced by a rule.
+
+    Bounds the size of the persisted sample event while preserving everything
+    needed to validate the rule against its own trigger.
+    """
+    if not isinstance(event, dict):
+        return {}
+    minimal = {k: event.get(k) for k in _SAMPLE_SYSTEM_FIELDS if event.get(k) is not None}
+
+    referenced = set()
+    for key in field_matches:
+        if key.startswith("win.eventdata."):
+            referenced.add(key[len("win.eventdata."):].lower())
+
+    src_data = event.get("event_data", {})
+    if isinstance(src_data, dict) and referenced:
+        kept = {}
+        for k, v in src_data.items():
+            camel = (k[0].lower() + k[1:]) if k else k
+            if camel.lower() in referenced or k.lower() in referenced:
+                kept[k] = v
+        minimal["event_data"] = kept
+    else:
+        minimal["event_data"] = {}
+    return minimal
 
 # Map Sysmon Event IDs to Wazuh parent SIDs (from 0595-win-sysmon_rules.xml)
 PARENT_SID_MAP = {
@@ -58,6 +103,21 @@ TACTIC_TECHNIQUES = {
 }
 
 
+def _source_category_for(pattern: DetectionPattern) -> str:
+    """Classify a pattern into a by_source view category."""
+    provider = (pattern.provider_name or "").lower()
+    channel = (pattern.channel or "").lower()
+    if "sysmon" in provider or "sysmon" in channel:
+        return "sysmon"
+    if "powershell" in provider or "powershell" in channel:
+        return "powershell"
+    if "security-auditing" in provider or "security" in channel:
+        return "security"
+    if "service control manager" in provider or "system" in channel:
+        return "system"
+    return "other"
+
+
 def _resolve_parent_sid(pattern: DetectionPattern) -> int:
     """Determine the correct Wazuh parent SID for a detection pattern."""
     # Try Sysmon-specific mapping
@@ -94,20 +154,22 @@ def build_rule(pattern: DetectionPattern) -> dict:
     if_sid = etree.SubElement(rule_elem, "if_sid")
     if_sid.text = str(parent_sid)
 
-    # Field matches
+    # Field matches (indicator strings are escaped to literal OS-regex)
     for field_name, value in pattern.field_matches.items():
         field_elem = etree.SubElement(rule_elem, "field", name=field_name)
-        # Use regex-safe matching
-        field_elem.text = value
+        field_elem.text = _to_osregex(str(value))
 
     # Description
     desc = etree.SubElement(rule_elem, "description")
     desc.text = pattern.description
 
-    # MITRE ATT&CK mapping
-    if pattern.mitre_ids or pattern.tactic:
+    # MITRE ATT&CK mapping — semantic, never a tactic default
+    mitre_ids = pattern.mitre_ids
+    if not mitre_ids:
+        mapped = mitre_mapper.classify_for_pattern(pattern)
+        mitre_ids = [mapped.technique_id] if mapped.technique_id else []
+    if mitre_ids:
         mitre = etree.SubElement(rule_elem, "mitre")
-        mitre_ids = pattern.mitre_ids or TACTIC_TECHNIQUES.get(pattern.tactic, [])[:1]
         for mid in mitre_ids:
             id_elem = etree.SubElement(mitre, "id")
             id_elem.text = mid
@@ -127,7 +189,9 @@ def build_rule(pattern: DetectionPattern) -> dict:
         "confidence": pattern.confidence,
         "created": date.today().isoformat(),
         "field_matches": pattern.field_matches,
-        "mitre_ids": pattern.mitre_ids or TACTIC_TECHNIQUES.get(pattern.tactic, [])[:1],
+        "mitre_ids": mitre_ids,
+        "source_category": _source_category_for(pattern),
+        "sample_event": _minimize_event(pattern.sample_event, pattern.field_matches),
     }
 
     return {

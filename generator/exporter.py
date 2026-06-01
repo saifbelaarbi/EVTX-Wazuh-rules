@@ -17,6 +17,7 @@ DRAFTS_DIR = PROJECT_ROOT / "database" / "drafts"
 METADATA_DIR = PROJECT_ROOT / "database" / "metadata"
 RULE_INDEX_FILE = METADATA_DIR / "rule_index.json"
 PROVENANCE_FILE = METADATA_DIR / "provenance.json"
+SAMPLE_EVENTS_FILE = METADATA_DIR / "sample_events.json"
 
 # MITRE technique ID -> human-readable name mapping (common ones)
 TECHNIQUE_NAMES = {
@@ -70,6 +71,12 @@ SOURCE_CATEGORIES = {
 
 def _get_source_category(rule: dict) -> str:
     """Determine the event source category for a rule."""
+    # Prefer an explicit category from metadata (set by rule_builder and
+    # sigma_converter); converted Sigma rules have no `pattern` object.
+    meta_cat = rule.get("metadata", {}).get("source_category")
+    if meta_cat:
+        return meta_cat
+
     pattern = rule.get("pattern")
     if pattern:
         provider = pattern.provider_name
@@ -231,13 +238,16 @@ def update_rule_index(rules: list[dict]):
 
     for rule in rules:
         meta = rule["metadata"]
+        mitre_ids = meta.get("mitre_ids", []) or []
         index[str(rule["id"])] = {
             "description": meta.get("technique_name", ""),
             "level": rule["level"],
             "tactic": meta.get("tactic", ""),
-            "technique_id": meta.get("mitre_ids", [""])[0] if meta.get("mitre_ids") else "",
+            "technique_id": mitre_ids[0] if mitre_ids else "",
+            "mitre_ids": mitre_ids,
             "technique_name": meta.get("technique_name", ""),
             "source_evtx": meta.get("source_evtx", ""),
+            "source_category": meta.get("source_category", ""),
             "parent_sid": meta.get("parent_sid", 0),
             "confidence": meta.get("confidence", "medium"),
             "created": meta.get("created", ""),
@@ -248,6 +258,26 @@ def update_rule_index(rules: list[dict]):
         json.dump(index, f, indent=2)
 
     console.print(f"\n[bold green]Rule index updated:[/] {len(index)} total rules")
+    _update_sample_events(rules)
+
+
+def _update_sample_events(rules: list[dict]):
+    """Persist each rule's minimized trigger event to a sidecar file.
+
+    Kept out of rule_index.json so the index stays lean; keyed by rule id.
+    """
+    samples = {}
+    if SAMPLE_EVENTS_FILE.exists():
+        with open(SAMPLE_EVENTS_FILE) as f:
+            samples = json.load(f)
+
+    for rule in rules:
+        sample = rule["metadata"].get("sample_event")
+        if sample:
+            samples[str(rule["id"])] = sample
+
+    with open(SAMPLE_EVENTS_FILE, "w") as f:
+        json.dump(samples, f, indent=2)
 
 
 def update_provenance(rules: list[dict]):

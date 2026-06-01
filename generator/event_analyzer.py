@@ -5,6 +5,8 @@ from pathlib import Path
 
 from rich.console import Console
 
+from . import mitre_mapper
+
 console = Console()
 
 # MITRE ATT&CK tactic normalization
@@ -668,8 +670,28 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
     return patterns
 
 
+def enrich_pattern(pattern: DetectionPattern) -> DetectionPattern:
+    """Reclassify a pattern's tactic + MITRE technique from event semantics.
+
+    Uses mitre_mapper to replace folder-path tactic guesses and tactic-default
+    technique assignments with a defensible mapping derived from the indicator
+    that fired. The original path-inferred tactic is passed only as a last-resort
+    hint inside classify_for_pattern.
+    """
+    mapping = mitre_mapper.classify_for_pattern(pattern)
+    pattern.tactic = mapping.tactic or pattern.tactic or "execution"
+    if mapping.technique_id:
+        pattern.mitre_ids = [mapping.technique_id]
+    return pattern
+
+
 def analyze_events(events: list[dict]) -> list[DetectionPattern]:
-    """Analyze all events and return deduplicated detection patterns."""
+    """Analyze all events and return deduplicated detection patterns.
+
+    Patterns are semantically reclassified (tactic + technique) before
+    deduplication, so cross-tactic clones of the same detection logic collapse
+    into a single rule instead of proliferating across tactics.
+    """
     all_patterns = []
     seen = set()
 
@@ -678,8 +700,9 @@ def analyze_events(events: list[dict]) -> list[DetectionPattern]:
         patterns = analyze_event(event, source)
 
         for p in patterns:
-            # Deduplicate by (event_id, tactic, field_matches key)
-            key = (p.event_id, p.tactic, tuple(sorted(p.field_matches.items())))
+            enrich_pattern(p)
+            # Deduplicate by detection logic (event_id + fields), tactic-independent
+            key = (p.event_id, tuple(sorted(p.field_matches.items())))
             if key not in seen:
                 seen.add(key)
                 all_patterns.append(p)
