@@ -73,7 +73,7 @@ Additional modules:
 - **sigma_converter.py** — Converts Sigma YAML directly to Wazuh XML rules (glob→OS-regex, categorized errors, tactic normalization)
 - **sigma_analyzer.py** — Assesses Sigma rule convertibility
 - **logtest_validator.py** — Validates rules via stored/reparsed/synthetic sample events or live Wazuh API/SSH
-- **id_manager.py** — Allocates rule IDs (100000-120000) partitioned by MITRE tactic
+- **id_manager.py** — Allocates rule IDs within Wazuh's custom range (100000-119999) partitioned by MITRE tactic
 
 ### Key data flow
 - `DetectionPattern` (dataclass in `event_analyzer.py`) is the central data structure passed between pipeline stages
@@ -93,7 +93,7 @@ Draft rules go to `database/drafts/` for human review (default behavior without 
 
 ## Important Conventions
 
-- Rule IDs use range 100000-120000, partitioned per tactic in `config.yaml` under `tactic_id_ranges`
+- Rule IDs use Wazuh's custom range 100000-119999, partitioned per tactic in `config.yaml` under `tactic_id_ranges`
 - Parent SIDs (e.g., `60009` for Sysmon, `60100` for Security) must match Wazuh's built-in rule IDs — defined in `config.yaml` under `wazuh.parent_sids`
 - Generated rules must reference a valid `if_sid` parent that exists in Wazuh defaults
 - All CLI commands use Click groups: `python -m collector <cmd>` and `python -m generator <cmd>`

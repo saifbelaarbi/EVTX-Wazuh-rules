@@ -187,8 +187,8 @@ database/rules/
 ## Rule Quality Controls
 
 ### ID Management
-- Custom rule IDs in range **100000 - 130000**
-- Partitioned by MITRE tactic (2,000 IDs each, plus composite range)
+- Custom rule IDs in Wazuh's standard range **100000 - 119999**
+- Partitioned by MITRE tactic, sized by usage (execution: 4000, persistence: 3000, smaller tactics: 500-1500)
 - Atomic allocation prevents conflicts across runs
 
 ### Correlation
@@ -251,7 +251,7 @@ EVTX-Wazuh-rules/
 │   ├── rule_builder.py     # Build Wazuh XML rules from patterns
 │   ├── rule_correlator.py  # Cross-reference with existing rules
 │   ├── alert_leveler.py    # Assign severity levels
-│   ├── id_manager.py       # Rule ID allocation (100000-130000, 2000 per tactic)
+│   ├── id_manager.py       # Rule ID allocation (100000-119999, sized per tactic)
 │   ├── validator.py        # Rule validation
 │   └── exporter.py         # Export to XML files (3 views)
 │

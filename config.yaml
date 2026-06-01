@@ -1,6 +1,6 @@
 id_range:
   start: 100000
-  end: 124000
+  end: 119999
 
 paths:
   evtx_data: data/evtx_samples
@@ -41,16 +41,16 @@ wazuh:
     windows_powershell: 91801
 
 tactic_id_ranges:
-  initial_access:        { start: 100000, end: 101999 }
-  execution:             { start: 102000, end: 103999 }
-  persistence:           { start: 104000, end: 105999 }
-  privilege_escalation:  { start: 106000, end: 107999 }
-  defense_evasion:       { start: 108000, end: 109999 }
-  credential_access:     { start: 110000, end: 111999 }
-  discovery:             { start: 112000, end: 113999 }
-  lateral_movement:      { start: 114000, end: 115999 }
-  collection:            { start: 116000, end: 117999 }
-  command_and_control:   { start: 118000, end: 119999 }
-  exfiltration:          { start: 120000, end: 121999 }
-  impact:                { start: 122000, end: 123999 }
-  composite:             { start: 124000, end: 129999 }
+  execution:             { start: 100000, end: 103999 }
+  persistence:           { start: 104000, end: 106999 }
+  privilege_escalation:  { start: 107000, end: 108499 }
+  credential_access:     { start: 108500, end: 109999 }
+  command_and_control:   { start: 110000, end: 110999 }
+  discovery:             { start: 111000, end: 111999 }
+  defense_evasion:       { start: 112000, end: 112499 }
+  lateral_movement:      { start: 112500, end: 112999 }
+  initial_access:        { start: 113000, end: 113499 }
+  collection:            { start: 113500, end: 113999 }
+  impact:                { start: 114000, end: 114499 }
+  exfiltration:          { start: 114500, end: 114999 }
+  composite:             { start: 115000, end: 119999 }

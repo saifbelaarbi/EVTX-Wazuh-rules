@@ -1,4 +1,4 @@
-"""Manage Wazuh rule ID allocation (range 100000-130000)."""
+"""Manage Wazuh rule ID allocation within Wazuh's custom range (100000-119999)."""
 
 import json
 from pathlib import Path
@@ -20,21 +20,22 @@ def _save_allocations(allocations: dict):
         json.dump(allocations, f, indent=2)
 
 
-# Default tactic ranges (loaded from config, but hardcoded fallback)
+# Tactic ID ranges within Wazuh's custom range (100000-119999).
+# Sized proportionally: execution/persistence get more room, smaller tactics get 500.
 TACTIC_RANGES = {
-    "initial_access":       (100000, 101999),
-    "execution":            (102000, 103999),
-    "persistence":          (104000, 105999),
-    "privilege_escalation": (106000, 107999),
-    "defense_evasion":      (108000, 109999),
-    "credential_access":    (110000, 111999),
-    "discovery":            (112000, 113999),
-    "lateral_movement":     (114000, 115999),
-    "collection":           (116000, 117999),
-    "command_and_control":  (118000, 119999),
-    "exfiltration":         (120000, 121999),
-    "impact":               (122000, 123999),
-    "composite":            (124000, 129999),
+    "execution":            (100000, 103999),
+    "persistence":          (104000, 106999),
+    "privilege_escalation": (107000, 108499),
+    "credential_access":    (108500, 109999),
+    "command_and_control":  (110000, 110999),
+    "discovery":            (111000, 111999),
+    "defense_evasion":      (112000, 112499),
+    "lateral_movement":     (112500, 112999),
+    "initial_access":       (113000, 113499),
+    "collection":           (113500, 113999),
+    "impact":               (114000, 114499),
+    "exfiltration":         (114500, 114999),
+    "composite":            (115000, 119999),
 }
 
 

@@ -58,8 +58,8 @@ def validate_id_range(rule: dict) -> list[str]:
     """Check rule ID is in the custom range."""
     errors = []
     rule_id = rule["id"]
-    if not (100000 <= rule_id <= 130000):
-        errors.append(f"Rule {rule_id}: ID outside custom range (100000-130000)")
+    if not (100000 <= rule_id <= 119999):
+        errors.append(f"Rule {rule_id}: ID outside Wazuh custom range (100000-119999)")
     return errors
 
 

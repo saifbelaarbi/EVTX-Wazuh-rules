@@ -12,7 +12,7 @@
 | EVTX sources used | 1 |
 | MITRE tactics covered | 12 / 12 |
 | MITRE techniques covered | 270 |
-| Rule ID range | 100000 - 130000 |
+| Rule ID range | 100000 - 119999 |
 
 ## Alert Level Distribution
 
