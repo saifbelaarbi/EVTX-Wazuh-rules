@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1113_unknown,">
-  <rule id="108013" level="7">
+  <rule id="116014" level="7">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">\.CopyFromScreen</field>
     <description>Sigma: Windows Screen Capture with CopyFromScreen</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108033" level="7">
+  <rule id="116034" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\Psr\.exe$</field>
     <field name="win.eventdata.commandLine">/start|-start</field>
@@ -19,7 +19,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108035" level="7">
+  <rule id="116036" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\reg\.exe$</field>
     <field name="win.eventdata.commandLine">add|0|DisableAIDataAnalysis</field>
@@ -29,7 +29,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108046" level="7">
+  <rule id="116047" level="7">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.eventType">DeleteValue</field>
     <field name="win.eventdata.targetObject">\Microsoft\Windows\WindowsAI\DisableAIDataAnalysis$</field>
@@ -39,7 +39,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108048" level="7">
+  <rule id="116049" level="7">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Control\Session Manager\Configuration Manager\EnablePeriodicBackup$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
@@ -49,7 +49,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108049" level="7">
+  <rule id="116050" level="7">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Software\Policies\Microsoft\Windows\WindowsAI\DisableAIDataAnalysis$</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1078_valid_accounts,">
-  <rule id="103005" level="10">
+  <rule id="106013" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4625</field>
     <description>Sigma: Failed Logon From Public IP</description>
@@ -29,7 +29,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="102528" level="9">
+  <rule id="104544" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4625|4776</field>
     <field name="win.eventdata.status">0xC0000072|0xC000006F|0xC0000070|0xC0000413|0xC000018C|0xC000015B</field>
@@ -39,7 +39,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="103024" level="10">
+  <rule id="106032" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4648</field>
     <field name="win.eventdata.processName">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\winrs\.exe$|\wmic\.exe$|\net\.exe$|\net1\.exe$|\reg\.exe$</field>
@@ -60,7 +60,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="103121" level="10">
+  <rule id="106133" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.contextInfo">Reset-ComputerMachinePassword</field>
     <description>Sigma: Suspicious Computer Machine Password by PowerShell</description>

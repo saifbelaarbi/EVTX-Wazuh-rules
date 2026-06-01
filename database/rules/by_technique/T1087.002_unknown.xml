@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1087.002_unknown,">
-  <rule id="106003" level="7">
+  <rule id="112004" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4661</field>
     <field name="win.eventdata.objectType">SAM_USER|SAM_GROUP</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106004" level="6">
+  <rule id="112005" level="6">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4662</field>
     <field name="win.eventdata.objectType">bf967aba-0de6-11d0-a285-00aa003049e2</field>
@@ -22,7 +22,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106010" level="7">
+  <rule id="112011" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4661</field>
     <field name="win.eventdata.accessMask">0x2d</field>
@@ -35,7 +35,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106015" level="6">
+  <rule id="112016" level="6">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
     <field name="win.eventdata.targetFilename">\.dat$</field>
@@ -47,7 +47,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="110017" level="12">
+  <rule id="120020" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\csvde\.exe$</field>
     <field name="win.eventdata.commandLine"> -f</field>
@@ -57,7 +57,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="106081" level="7">
+  <rule id="112082" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-sc admincountdmp</field>
     <description>Sigma: PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE</description>
@@ -66,7 +66,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106082" level="7">
+  <rule id="112083" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-sc exchaddresses</field>
     <description>Sigma: PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE</description>
@@ -75,7 +75,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106083" level="7">
+  <rule id="112084" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">lockoutduration|lockoutthreshold|lockoutobservationwindow|maxpwdage|minpwdage|minpwdlength|pwdhistorylength|pwdproperties</field>
     <description>Sigma: PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE</description>
@@ -84,7 +84,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106084" level="6">
+  <rule id="112085" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\AdFind\.exe$</field>
     <description>Sigma: PUA - AdFind.EXE Execution</description>
@@ -93,7 +93,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106085" level="6">
+  <rule id="112086" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">AdFind\.exe</field>
     <description>Sigma: PUA - AdFind.EXE Execution</description>
@@ -102,7 +102,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106086" level="6">
+  <rule id="112087" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=d144de8117df2beceaba2201ad304764|IMPHASH=12ce1c0f3f5837ecc18a3782408fa975|IMPHASH=bca5675746d13a1f246e2da3c2217492|IMPHASH=4fbf3f084fbbb2470b80b2013134df35|IMPHASH=49b639b4acbecc49d72a01f357aa4930|IMPHASH=53e117a96057eaf19c41380d0e87f1c2|IMPHASH=680dad9e300346e05a85023965867201|IMPHASH=21aa085d54992511b9f115355e468782</field>
     <description>Sigma: PUA - AdFind.EXE Execution</description>
@@ -111,7 +111,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106126" level="6">
+  <rule id="112127" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">snapshot</field>
     <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
@@ -123,7 +123,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106127" level="7">
+  <rule id="112128" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Downloads\|\Users\Public\|\AppData\|\Windows\Temp\</field>
     <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1518.001_unknown,">
-  <rule id="106027" level="6">
+  <rule id="112028" level="6">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">\.*avira\.*|\.*carbonblack\.*|\.*cylance\.*|\.*defender\.*|\.*kaspersky\.*|\.*malware\.*|\.*sentinel\.*|\.*symantec\.*|\.*virus\.*</field>
     <description>Sigma: Security Software Discovery Via Powershell Script</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106043" level="6">
+  <rule id="112044" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> avira$| avira"$| cb$| cb"$| cylance$| cylance"$| defender$| defender"$| kaspersky$| kaspersky"$| kes$| kes"$| mc$| mc"$| sec$| sec"$| sentinel$| sentinel"$| symantec$| symantec"$| virus$| virus"$</field>
     <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>
@@ -19,7 +19,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106044" level="7">
+  <rule id="112045" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> 385201</field>
     <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>

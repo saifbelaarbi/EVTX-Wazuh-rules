@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1553.004_unknown,">
-  <rule id="101264" level="8">
+  <rule id="102313" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Move-Item|Cert:\LocalMachine\Root</field>
     <description>Sigma: Root Certificate Installed - PowerShell</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101265" level="8">
+  <rule id="102314" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Import-Certificate|Cert:\LocalMachine\Root</field>
     <description>Sigma: Root Certificate Installed - PowerShell</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101307" level="8">
+  <rule id="102356" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">X509Enrollment\.CBinaryConverter|884e2002-217d-11da-b2a4-000e7bbb2b09</field>
     <description>Sigma: Suspicious X509Enrollment - Ps Script</description>
@@ -27,7 +27,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101345" level="8">
+  <rule id="102394" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/add|root</field>
     <field name="win.eventdata.image">\CertMgr\.exe$</field>
@@ -37,7 +37,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101348" level="8">
+  <rule id="102397" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">root</field>
     <field name="win.eventdata.image">\certutil\.exe$</field>
@@ -47,7 +47,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101672" level="9">
+  <rule id="102721" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\AppData\Local\Temp\|:\Windows\TEMP\|\Desktop\|\Downloads\|\Perflogs\|:\Users\Public\| -FilePath |Cert:\LocalMachine\Root</field>
     <description>Sigma: Root Certificate Installed From Susp Locations</description>
@@ -56,7 +56,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101702" level="8">
+  <rule id="102751" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">X509Enrollment\.CBinaryConverter|884e2002-217d-11da-b2a4-000e7bbb2b09</field>
     <description>Sigma: Suspicious X509Enrollment - Process Creation</description>

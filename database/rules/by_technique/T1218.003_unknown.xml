@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218.003_unknown,">
-  <rule id="101154" level="9">
+  <rule id="102200" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\cmstp\.exe$</field>
     <field name="win.eventdata.imageLoaded">\.dll$|\.ocx$</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101178" level="9">
+  <rule id="102224" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\cmstp\.exe$</field>
     <field name="win.eventdata.initiated">true</field>
@@ -20,7 +20,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101309" level="9">
+  <rule id="102358" level="9">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.callTrace">cmlua\.dll</field>
     <description>Sigma: CMSTP Execution Process Access</description>
@@ -30,10 +30,19 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101372" level="9">
+  <rule id="102421" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\cmstp\.exe$</field>
     <description>Sigma: CMSTP Execution Process Creation</description>
+    <mitre>
+      <id>T1218.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103088" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\cmmgr32\.exe</field>
+    <description>Sigma: CMSTP Execution Registry Event</description>
     <mitre>
       <id>T1218.003</id>
     </mitre>

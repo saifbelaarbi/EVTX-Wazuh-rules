@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1136.001_unknown,">
-  <rule id="102523" level="10">
+  <rule id="104539" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4720</field>
     <field name="win.eventdata.targetUserName">\$$</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102530" level="10">
+  <rule id="104546" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4720</field>
     <field name="win.eventdata.samAccountName">ANONYMOUS|LOGON</field>
@@ -21,7 +21,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102675" level="9">
+  <rule id="104693" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">user|add</field>
     <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
@@ -31,7 +31,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102676" level="10">
+  <rule id="104694" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">user|add|expires:never</field>
     <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
@@ -41,7 +41,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102737" level="12">
+  <rule id="104755" level="12">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\$\\(Default\)$</field>
     <field name="win.eventdata.image">\lsass\.exe$</field>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1021.001_unknown,">
-  <rule id="107015" level="11">
+  <rule id="114017" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">10</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107023" level="10">
+  <rule id="114025" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4825</field>
     <description>Sigma: Denied Access To Remote Desktop</description>
@@ -20,7 +20,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107041" level="11">
+  <rule id="114044" level="11">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.destinationPort">3389</field>
     <field name="win.eventdata.initiated">true</field>
@@ -30,7 +30,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107056" level="10">
+  <rule id="114059" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /v:</field>
     <field name="win.eventdata.image">\mstsc\.exe$</field>
@@ -40,7 +40,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107063" level="10">
+  <rule id="114066" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">SetAllowTSConnections</field>
     <field name="win.eventdata.image">\wmic\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
@@ -51,7 +51,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="102691" level="10">
+  <rule id="104709" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> add |\CurrentControlSet\Control\Terminal Server|REG_DWORD| /f</field>
     <field name="win.eventdata.image">\reg\.exe$</field>

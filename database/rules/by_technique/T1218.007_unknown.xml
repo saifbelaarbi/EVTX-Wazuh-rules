@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218.007_unknown,">
-  <rule id="101298" level="8">
+  <rule id="102347" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Invoke-CimMethod |-ClassName |Win32_Product |-MethodName |\.msi</field>
     <description>Sigma: PowerShell WMI Win32_Product Install MSI</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101577" level="8">
+  <rule id="102626" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -z </field>
     <field name="win.eventdata.image">\msiexec\.exe$</field>
@@ -19,7 +19,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101578" level="8">
+  <rule id="102627" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\cmd\.exe$</field>
     <field name="win.eventdata.parentCommandLine">MsiExec\.exe|-Embedding </field>
@@ -29,7 +29,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101579" level="8">
+  <rule id="102628" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\msiexec\.exe$</field>
     <field name="win.eventdata.commandLine"> /Y</field>
@@ -39,7 +39,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101580" level="8">
+  <rule id="102629" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">[-/]q</field>
     <field name="win.eventdata.image">\msiexec\.exe$</field>
@@ -49,7 +49,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101581" level="8">
+  <rule id="102630" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">http|\\\\</field>
     <field name="win.eventdata.image">\msiexec\.exe$</field>
@@ -59,7 +59,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="109104" level="9">
+  <rule id="118110" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> msiexec|://</field>
     <description>Sigma: MsiExec Web Install</description>

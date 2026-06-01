@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1048_exfil_over_alt_protocol,">
-  <rule id="110000" level="12">
+  <rule id="120003" level="12">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110013" level="13">
+  <rule id="120016" level="13">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Invoke-DNSExfiltrator</field>
     <description>Sigma: Powershell DNSExfiltration</description>
@@ -20,7 +20,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="101339" level="8">
+  <rule id="102388" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> out | queryout </field>
     <field name="win.eventdata.image">\bcp\.exe$</field>
@@ -30,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="110025" level="13">
+  <rule id="120028" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">sftp:|rest:http|s3:s3\.|s3\.http|azure:| gs:|rclone:|swift:| b2:| init | -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
@@ -40,7 +40,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110026" level="13">
+  <rule id="120029" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--password-file|init| -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
@@ -50,7 +50,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110027" level="13">
+  <rule id="120030" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--use-fs-snapshot|backup| -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
@@ -60,7 +60,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110031" level="13">
+  <rule id="120034" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\\\\127\.0\.0\.1\\admin\$\\|\\\\localhost\\admin\$\\</field>
     <description>Sigma: Suspicious Redirection to Local Admin Share</description>
@@ -69,7 +69,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110032" level="12">
+  <rule id="120035" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\tapinstall\.exe$</field>
     <description>Sigma: Tap Installer Execution</description>

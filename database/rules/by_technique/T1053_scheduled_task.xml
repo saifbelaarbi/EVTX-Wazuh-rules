@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1053_scheduled_task,">
-  <rule id="103050" level="11">
+  <rule id="106062" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Windows\System32\Tasks</field>
     <field name="win.eventdata.image">\AppData\|C:\PerfLogs|\Windows\System32\config\systemprofile</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103173" level="11">
+  <rule id="106185" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -t schtask -c | -t startupfolder -c </field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -19,7 +19,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103174" level="11">
+  <rule id="106186" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -t reg -c | -m add</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -28,7 +28,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103175" level="11">
+  <rule id="106187" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -t service -c | -m add</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -37,7 +37,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103176" level="11">
+  <rule id="106188" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -t schtask -c | -m add</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -46,7 +46,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103177" level="11">
+  <rule id="106189" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharPersist\.exe$</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -55,7 +55,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103178" level="11">
+  <rule id="106190" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">SharPersist</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -64,7 +64,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103356" level="11">
+  <rule id="106368" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\</field>
     <description>Sigma: Scheduled TaskCache Change by Uncommon Program</description>

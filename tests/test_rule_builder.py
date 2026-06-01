@@ -49,8 +49,8 @@ def test_build_rule_structure():
 
         rule = build_rule(pattern)
 
-        assert rule["id"] >= 105000
-        assert rule["id"] <= 105999
+        assert rule["id"] >= 110000
+        assert rule["id"] <= 111999
         assert rule["xml_element"] is not None
 
         xml_str = etree.tostring(rule["xml_element"], encoding="unicode")

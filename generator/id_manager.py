@@ -22,19 +22,19 @@ def _save_allocations(allocations: dict):
 
 # Default tactic ranges (loaded from config, but hardcoded fallback)
 TACTIC_RANGES = {
-    "initial_access":       (100000, 100999),
-    "execution":            (101000, 101999),
-    "persistence":          (102000, 102999),
-    "privilege_escalation": (103000, 103999),
-    "defense_evasion":      (104000, 104999),
-    "credential_access":    (105000, 105999),
-    "discovery":            (106000, 106999),
-    "lateral_movement":     (107000, 107999),
-    "collection":           (108000, 108999),
-    "command_and_control":  (109000, 109999),
-    "exfiltration":         (110000, 110999),
-    "impact":               (111000, 111999),
-    "composite":            (112000, 119999),
+    "initial_access":       (100000, 101999),
+    "execution":            (102000, 103999),
+    "persistence":          (104000, 105999),
+    "privilege_escalation": (106000, 107999),
+    "defense_evasion":      (108000, 109999),
+    "credential_access":    (110000, 111999),
+    "discovery":            (112000, 113999),
+    "lateral_movement":     (114000, 115999),
+    "collection":           (116000, 117999),
+    "command_and_control":  (118000, 119999),
+    "exfiltration":         (120000, 121999),
+    "impact":               (122000, 123999),
+    "composite":            (124000, 129999),
 }
 
 

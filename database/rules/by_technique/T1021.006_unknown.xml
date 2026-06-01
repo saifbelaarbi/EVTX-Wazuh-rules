@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1021.006_unknown,">
-  <rule id="107045" level="10">
+  <rule id="114048" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Enable-PSRemoting </field>
     <description>Sigma: Enable Windows Remote Management</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107046" level="10">
+  <rule id="114049" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">invoke-command | -ComputerName </field>
     <description>Sigma: Execute Invoke-command on Remote Host</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107050" level="10">
+  <rule id="114053" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\ruby\.exe$</field>
     <field name="win.eventdata.commandLine">-i |-u |-p </field>
@@ -28,7 +28,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107071" level="11">
+  <rule id="114074" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\winrs\.exe$</field>
     <field name="win.eventdata.commandLine">/r:localhost|/r:127\.0\.0\.1|/r:\[::1\]|/remote:localhost|/remote:127\.0\.0\.1|/remote:\[::1\]</field>
@@ -39,7 +39,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107072" level="10">
+  <rule id="114075" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\winrshost\.exe$</field>
     <description>Sigma: Potential Lateral Movement via Windows Remote Shell</description>

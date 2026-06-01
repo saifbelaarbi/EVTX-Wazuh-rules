@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1070.006_unknown,">
-  <rule id="101295" level="8">
+  <rule id="102344" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">\.CreationTime =|\.LastWriteTime =|\.LastAccessTime =|\[IO\.File\]::SetCreationTime|\[IO\.File\]::SetLastAccessTime|\[IO\.File\]::SetLastWriteTime</field>
     <description>Sigma: Powershell Timestomp</description>

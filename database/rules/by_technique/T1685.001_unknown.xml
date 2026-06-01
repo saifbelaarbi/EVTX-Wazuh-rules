@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1685.001_unknown,">
-  <rule id="101024" level="9">
+  <rule id="104529" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">29</field>
+    <field name="win.eventdata.configuration">@logTargetW3C$</field>
+    <field name="win.eventdata.oldValue">ETW</field>
+    <description>Sigma: ETW Logging/Processing Option Disabled On IIS Server</description>
+    <mitre>
+      <id>T1685.001</id>
+      <id>T1505.004</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104530" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">29</field>
+    <field name="win.eventdata.configuration">/system\.webServer/httpLogging/@dontLog</field>
+    <field name="win.eventdata.newValue">true</field>
+    <description>Sigma: HTTP Logging Disabled On IIS Server</description>
+    <mitre>
+      <id>T1685.001</id>
+      <id>T1505.004</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104531" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">29</field>
+    <field name="win.eventdata.configuration">/system\.webServer/modules/add</field>
+    <description>Sigma: New Module Module Added To IIS Server</description>
+    <mitre>
+      <id>T1685.001</id>
+      <id>T1505.004</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102054" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4719</field>
     <field name="win.eventdata.subcategoryGuid">\{0CCE9210-69AE-11D9-BED3-505054503030\}|\{0CCE9211-69AE-11D9-BED3-505054503030\}|\{0CCE9212-69AE-11D9-BED3-505054503030\}|\{0CCE9215-69AE-11D9-BED3-505054503030\}|\{0CCE921B-69AE-11D9-BED3-505054503030\}|\{0CCE922B-69AE-11D9-BED3-505054503030\}|\{0CCE922F-69AE-11D9-BED3-505054503030\}|\{0CCE9230-69AE-11D9-BED3-505054503030\}|\{0CCE9235-69AE-11D9-BED3-505054503030\}|\{0CCE9236-69AE-11D9-BED3-505054503030\}|\{0CCE9237-69AE-11D9-BED3-505054503030\}|\{0CCE923F-69AE-11D9-BED3-505054503030\}|\{0CCE9240-69AE-11D9-BED3-505054503030\}|\{0CCE9242-69AE-11D9-BED3-505054503030\}</field>
@@ -11,7 +46,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101025" level="9">
+  <rule id="102055" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4719</field>
     <field name="win.eventdata.subcategoryGuid">\{0CCE9217-69AE-11D9-BED3-505054503030\}</field>
@@ -22,7 +57,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101096" level="8">
+  <rule id="102141" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.evtx$</field>
     <description>Sigma: EVTX Created In Uncommon Location</description>
@@ -31,7 +66,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101160" level="9">
+  <rule id="102206" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=330768A4F172E10ACB6287B87289D83B</field>
     <description>Sigma: HackTool - SharpEvtMute DLL Load</description>
@@ -40,7 +75,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101313" level="9">
+  <rule id="102362" level="9">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">:\Windows\Sysmon\.exe|:\Windows\Sysmon64\.exe</field>
     <field name="win.eventdata.grantedAccess">0x1400</field>
@@ -50,7 +85,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101315" level="9">
+  <rule id="102364" level="9">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">:\Windows\System32\svchost\.exe$</field>
     <field name="win.eventdata.grantedAccess">0x1F3FFF</field>
@@ -61,7 +96,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101334" level="9">
+  <rule id="102383" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/logon:none|/system:none|/sam:none|/privilege:none|/object:none|/process:none|/policy:none</field>
     <description>Sigma: Audit Policy Tampering Via NT Resource Kit Auditpol</description>
@@ -70,7 +105,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101335" level="9">
+  <rule id="102384" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">disable|clear|remove|restore</field>
     <field name="win.eventdata.image">\auditpol\.exe$</field>
@@ -80,7 +115,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101336" level="9">
+  <rule id="102385" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Start|Enabled</field>
     <field name="win.eventdata.image">\reg\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
@@ -90,7 +125,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102668" level="10">
+  <rule id="104686" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> add |\SYSTEM\CurrentControlSet\Control\MiniNt</field>
     <field name="win.eventdata.image">\reg\.exe$</field>
@@ -101,7 +136,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101488" level="9">
+  <rule id="102537" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharpEvtMute\.exe$</field>
     <description>Sigma: HackTool - SharpEvtMute Execution</description>
@@ -110,7 +145,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101489" level="9">
+  <rule id="102538" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">SharpEvtMute</field>
     <description>Sigma: HackTool - SharpEvtMute Execution</description>
@@ -119,7 +154,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101490" level="9">
+  <rule id="102539" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--Filter "rule |--Encoded --Filter \"</field>
     <description>Sigma: HackTool - SharpEvtMute Execution</description>
@@ -128,7 +163,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101502" level="9">
+  <rule id="102551" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">set|config|section:httplogging|dontLog:true</field>
     <field name="win.eventdata.image">\appcmd\.exe$</field>
@@ -138,7 +173,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="108037" level="7">
+  <rule id="116038" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\secedit\.exe$</field>
     <field name="win.eventdata.commandLine">/configure|/db</field>
@@ -150,7 +185,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="102738" level="10">
+  <rule id="104756" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">HKLM\SYSTEM\CurrentControlSet\Control\MiniNt</field>
     <field name="win.eventdata.eventType">CreateKey</field>
@@ -161,7 +196,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102739" level="10">
+  <rule id="104757" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.newName">HKLM\SYSTEM\CurrentControlSet\Control\MiniNt</field>
     <description>Sigma: Disable Security Events Logging Adding Reg Key MiniNt</description>
@@ -171,7 +206,17 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102760" level="10">
+  <rule id="103096" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\ChannelAccess$</field>
+    <field name="win.eventdata.details">\(A;;0x1;;;LA\)|\(A;;0x1;;;SY\)|\(A;;0x5;;;BA\)</field>
+    <description>Sigma: Change Winevt Channel Access Permission Via Registry</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="104778" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">HKLM\System\CurrentControlSet\Control\MiniNt\\(Default\)</field>
     <description>Sigma: Security Event Logging Disabled via MiniNt Registry Key - Registry Set</description>
@@ -180,5 +225,34 @@
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="103104" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Enabled$|\Start$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Potential AutoLogger Sessions Tampering</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103110" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Enabled$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Disable Windows Event Logging Via Registry</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103116" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\File$</field>
+    <description>Sigma: Potential EventLog File Location Tampering</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
   </rule>
 </group>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1133_unknown,">
-  <rule id="103003" level="10">
+  <rule id="106011" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">10</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103004" level="11">
+  <rule id="106012" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">3</field>
@@ -24,7 +24,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102566" level="10">
+  <rule id="104584" level="10">
     <if_sid>61604</if_sid>
     <field name="win.eventdata.image">\dns\.exe$</field>
     <description>Sigma: Unusual File Modification by dns.exe</description>
@@ -33,7 +33,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102567" level="10">
+  <rule id="104585" level="10">
     <if_sid>61625</if_sid>
     <field name="win.eventdata.image">\dns\.exe$</field>
     <description>Sigma: Unusual File Deletion by Dns.exe</description>
@@ -42,7 +42,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102667" level="10">
+  <rule id="104685" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\dns\.exe$</field>
     <description>Sigma: Unusual Child Process of dns.exe</description>
@@ -51,7 +51,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102700" level="9">
+  <rule id="104718" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">e=Access&amp;|y=Guest&amp;|&amp;p=|&amp;c=|&amp;k=</field>
     <description>Sigma: Remote Access Tool - ScreenConnect Installation Execution</description>

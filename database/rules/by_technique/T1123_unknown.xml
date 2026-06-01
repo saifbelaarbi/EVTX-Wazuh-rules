@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1123_unknown,">
-  <rule id="108001" level="7">
+  <rule id="116001" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657|4656|4663</field>
     <field name="win.eventdata.objectName">\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\NonPackaged|\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam\NonPackaged</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108030" level="7">
+  <rule id="116031" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">WindowsAudioDevice-Powershell-Cmdlet|Toggle-AudioDevice|Get-AudioDevice |Set-AudioDevice |Write-AudioDevice </field>
     <description>Sigma: Audio Capture via PowerShell</description>
@@ -19,7 +19,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108038" level="7">
+  <rule id="116039" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SoundRecorder\.exe$</field>
     <field name="win.eventdata.commandLine">/FILE</field>

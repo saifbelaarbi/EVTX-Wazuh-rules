@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1003.002_unknown,">
-  <rule id="105028" level="12">
+  <rule id="110035" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\ADMIN\$</field>
@@ -13,7 +13,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105045" level="12">
+  <rule id="110052" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.relativeTargetName">\mimidrv|\lsass|\windows\minidump\|\hiberfil|\sqldmpr</field>
@@ -25,7 +25,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105047" level="12">
+  <rule id="110055" level="12">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">16</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Kernel-General</field>
@@ -36,7 +36,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105048" level="11">
+  <rule id="110056" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-WER-SystemErrorReporting</field>
     <field name="win.system.eventID">1001</field>
@@ -47,7 +47,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105070" level="12">
+  <rule id="110079" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Temp\SAM-|\.dmp</field>
     <description>Sigma: HackTool - QuarksPwDump Dump File</description>
@@ -56,7 +56,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105082" level="12">
+  <rule id="110091" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\ntds\.dit$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$|\wsl\.exe$|\wt\.exe$</field>
@@ -67,7 +67,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105084" level="12">
+  <rule id="110093" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Temp\sam$|\sam\.sav$|\Intel\sam$|\sam\.hive$|\Perflogs\sam$|\ProgramData\sam$|\Users\Public\sam$|\AppData\Local\sam$|\AppData\Roaming\sam$|_ShadowSteal\.zip$|\Documents\SAM\.export$|:\sam$</field>
     <description>Sigma: Potential SAM Database Dump</description>
@@ -76,7 +76,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105085" level="12">
+  <rule id="110094" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\hive_sam_|\sam\.save|\sam\.export|\~reg_sam\.save|\sam_backup|\sam\.bck|\sam\.backup</field>
     <description>Sigma: Potential SAM Database Dump</description>
@@ -85,7 +85,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105136" level="12">
+  <rule id="110145" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">mklink|HarddiskVolumeShadowCopy</field>
     <description>Sigma: VolumeShadowCopy Symlink Creation Via Mklink</description>
@@ -95,7 +95,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105144" level="12">
+  <rule id="110153" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">vss| /m | /y </field>
     <field name="win.eventdata.image">\esentutl\.exe$</field>
@@ -106,7 +106,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105186" level="12">
+  <rule id="110195" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\pypykatz\.exe$|\python\.exe$</field>
     <field name="win.eventdata.commandLine">live|registry</field>
@@ -116,7 +116,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105187" level="12">
+  <rule id="110196" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -dhl| --dump-hash-local| -dhdc| --dump-hash-domain-cached| --dump-bitlocker| -dhd | --dump-hash-domain |--ntds-file</field>
     <description>Sigma: HackTool - Quarks PwDump Execution</description>
@@ -125,7 +125,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105188" level="12">
+  <rule id="110197" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\QuarksPwDump\.exe$</field>
     <description>Sigma: HackTool - Quarks PwDump Execution</description>
@@ -134,7 +134,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105218" level="12">
+  <rule id="110227" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Copy-Item|cp \$_\.|cpi \$_\.|copy \$_\.|\.File\]::Copy\(|System32\config\sam</field>
     <description>Sigma: PowerShell SAM Copy</description>
@@ -143,7 +143,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105229" level="12">
+  <rule id="110238" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">hklm|hk˪m|hkey_local_machine|hkey_˪ocal_machine|hkey_loca˪_machine|hkey_˪oca˪_machine</field>
     <field name="win.eventdata.image">\reg\.exe$</field>
@@ -155,7 +155,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105279" level="12">
+  <rule id="110288" level="12">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">System\CurrentControlSet\Services\VSS</field>
     <field name="win.eventdata.image">esentutl\.exe$</field>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1098_unknown,">
-  <rule id="103007" level="11">
+  <rule id="106015" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
     <field name="win.eventdata.attributeLDAPDisplayName">ntSecurityDescriptor</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103009" level="11">
+  <rule id="106017" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4704</field>
     <field name="win.eventdata.privilegeList">SeEnableDelegationPrivilege</field>
@@ -21,7 +21,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103010" level="11">
+  <rule id="106018" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4738</field>
     <description>Sigma: Active Directory User Backdoors</description>
@@ -30,7 +30,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103021" level="10">
+  <rule id="106029" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4706</field>
     <description>Sigma: A New Trust Was Created To A Domain</description>
@@ -39,7 +39,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103022" level="11">
+  <rule id="106030" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4794</field>
     <description>Sigma: Password Change on Directory Service Restore Mode (DSRM) Account</description>
@@ -48,7 +48,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103127" level="10">
+  <rule id="106139" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Disable-LocalUser|Enable-LocalUser|Get-LocalUser|Set-LocalUser|New-LocalUser|Rename-LocalUser|Remove-LocalUser</field>
     <description>Sigma: Powershell LocalAccount Manipulation</description>
@@ -57,7 +57,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103248" level="10">
+  <rule id="106260" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">localgroup | /add</field>
     <description>Sigma: User Added to Local Administrators Group</description>
@@ -66,7 +66,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103249" level="11">
+  <rule id="106261" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">localgroup | /add</field>
     <description>Sigma: User Added To Highly Privileged Group</description>

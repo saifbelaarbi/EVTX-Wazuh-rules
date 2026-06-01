@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218.005_unknown,">
-  <rule id="101570" level="9">
+  <rule id="102619" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">http://|https://|ftp://</field>
     <field name="win.eventdata.image">\mshta\.exe$</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101572" level="9">
+  <rule id="102621" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">javascript</field>
     <field name="win.eventdata.image">\mshta\.exe$</field>
@@ -20,7 +20,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101573" level="9">
+  <rule id="102622" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\svchost\.exe$</field>
     <field name="win.eventdata.image">\mshta\.exe$</field>
@@ -30,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101574" level="9">
+  <rule id="102623" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$|\cscript\.exe$|\sh\.exe$|\bash\.exe$|\reg\.exe$|\regsvr32\.exe$|\bitsadmin\.exe$</field>
     <field name="win.eventdata.parentImage">\mshta\.exe$</field>

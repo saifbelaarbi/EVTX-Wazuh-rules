@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1554_unknown,">
-  <rule id="102524" level="10">
+  <rule id="104540" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceName">HybridConnectionManager</field>
@@ -11,7 +11,16 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102553" level="10">
+  <rule id="104551" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">40300|40301|40302</field>
+    <description>Sigma: HybridConnectionManager Service Running</description>
+    <mitre>
+      <id>T1554</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104571" level="10">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.queryName">servicebus\.windows\.net</field>
     <field name="win.eventdata.image">HybridConnectionManager</field>

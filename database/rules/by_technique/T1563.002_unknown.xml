@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1563.002_unknown,">
-  <rule id="107055" level="11">
+  <rule id="114058" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">noconsentprompt|shadow:</field>
     <description>Sigma: Potential MSTSC Shadowing Activity</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107069" level="11">
+  <rule id="114072" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /dest:rdp-tcp#</field>
     <description>Sigma: Suspicious RDP Redirect Using TSCON</description>

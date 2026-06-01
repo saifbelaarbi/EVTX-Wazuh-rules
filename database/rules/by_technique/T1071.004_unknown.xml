@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1071.004_unknown,">
-  <rule id="109012" level="9">
+  <rule id="118006" level="13">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3008</field>
+    <field name="win.eventdata.queryName">^aaa\.stage\.|^post\.1</field>
+    <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - DNS Client</description>
+    <mitre>
+      <id>T1071.004</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="118018" level="9">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.queryName">msapp\.workers\.dev|trycloudflare\.com|infinityfreeapp\.com|my5353\.com|reurl\.cc|lihi\.cc|tinyurl\.com</field>
     <description>Sigma: DNS Query To Common Malware Hosting and Shortener Services</description>
@@ -9,7 +19,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109015" level="10">
+  <rule id="118021" level="10">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.image">\finger\.exe$</field>
     <description>Sigma: DNS Query by Finger Utility</description>
@@ -19,7 +29,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109016" level="13">
+  <rule id="118022" level="13">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.queryName">^aaa\.stage\.|^post\.1</field>
     <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - Sysmon</description>
@@ -28,7 +38,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109017" level="13">
+  <rule id="118023" level="13">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.queryName">\.stage\.123456\.</field>
     <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - Sysmon</description>
@@ -37,7 +47,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109049" level="10">
+  <rule id="118055" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.image">\finger\.exe$</field>

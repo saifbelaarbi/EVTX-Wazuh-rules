@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1552_unknown,">
-  <rule id="105246" level="11">
+  <rule id="110255" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-InstanceId 462.|\.eventid -eq 462.|\.ID -eq 462.|EventCode=.462.|EventIdentifier=.462.|System\[EventID=462.\]|-InstanceId 4778|\.eventid -eq 4778|\.ID -eq 4778|EventCode=.4778.|EventIdentifier=.4778.|System\[EventID=4778\]|-InstanceId 25|\.eventid -eq 25|\.ID -eq 25|EventCode=.25.|EventIdentifier=.25.|System\[EventID=25\]|-InstanceId 1149|\.eventid -eq 1149|\.ID -eq 1149|EventCode=.1149.|EventIdentifier=.1149.|System\[EventID=1149\]|-InstanceId 21|\.eventid -eq 21|\.ID -eq 21|EventCode=.21.|EventIdentifier=.21.|System\[EventID=21\]|-InstanceId 22|\.eventid -eq 22|\.ID -eq 22|EventCode=.22.|EventIdentifier=.22.|System\[EventID=22\]</field>
     <description>Sigma: Potentially Suspicious EventLog Recon Activity Using Log Query Utilities</description>
@@ -10,7 +10,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105247" level="11">
+  <rule id="110256" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Microsoft-Windows-PowerShell|Microsoft-Windows-Security-Auditing|Microsoft-Windows-TerminalServices-LocalSessionManager|Microsoft-Windows-TerminalServices-RemoteConnectionManager|Microsoft-Windows-Windows Defender|PowerShellCore|Security|Windows PowerShell</field>
     <description>Sigma: Potentially Suspicious EventLog Recon Activity Using Log Query Utilities</description>
@@ -20,7 +20,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105263" level="12">
+  <rule id="110272" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">trufflehog\.exe$|gitleaks\.exe$</field>
     <field name="win.eventdata.parentImage">\node\.exe$|\bun\.exe$</field>

@@ -1,6 +1,244 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,system,">
-  <rule id="101051" level="9">
+  <rule id="104522" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">16403</field>
+    <field name="win.eventdata.localName">\.bat$|\.dll$|\.exe$|\.hta$|\.ps1$|\.psd1$|\.sh$|\.vbe$|\.vbs$</field>
+    <description>Sigma: BITS Transfer Job Downloading File Potential Suspicious Extension</description>
+    <mitre>
+      <id>T1197</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104523" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">16403</field>
+    <field name="win.eventdata.remoteName">\.githubusercontent\.com|anonfiles\.com|cdn\.discordapp\.com|ddns\.net|dl\.dropboxusercontent\.com|ghostbin\.co|github\.com|glitch\.me|gofile\.io|hastebin\.com|mediafire\.com|mega\.nz|onrender\.com|pages\.dev|paste\.ee|pastebin\.com|pastebin\.pl|pastetext\.net|pixeldrain\.com|privatlab\.com|privatlab\.net|send\.exploit\.in|sendspace\.com|storage\.googleapis\.com|storjshare\.io|supabase\.co|temp\.sh|transfer\.sh|trycloudflare\.com|ufile\.io|w3spaces\.com|workers\.dev</field>
+    <description>Sigma: BITS Transfer Job Download From File Sharing Domains</description>
+    <mitre>
+      <id>T1197</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104524" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">16403</field>
+    <field name="win.eventdata.remoteName">http://1|http://2|http://3|http://4|http://5|http://6|http://7|http://8|http://9|https://1|https://2|https://3|https://4|https://5|https://6|https://7|https://8|https://9</field>
+    <description>Sigma: BITS Transfer Job Download From Direct IP</description>
+    <mitre>
+      <id>T1197</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104525" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">16403</field>
+    <description>Sigma: BITS Transfer Job With Uncommon Or Suspicious Remote TLD</description>
+    <mitre>
+      <id>T1197</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104526" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">16403</field>
+    <field name="win.eventdata.localName">\Desktop\|C:\Users\Public\|C:\PerfLogs\</field>
+    <description>Sigma: BITS Transfer Job Download To Potential Suspicious Folder</description>
+    <mitre>
+      <id>T1197</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="110028" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">1007</field>
+    <description>Sigma: Certificate Exported From Local Certificate Store</description>
+    <mitre>
+      <id>T1649</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="106001" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3104</field>
+    <description>Sigma: CodeIntegrity - Disallowed File For Protected Processes Has Been Blocked</description>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="104527" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3077</field>
+    <description>Sigma: CodeIntegrity - Blocked Image/Driver Load For Policy Violation</description>
+    <mitre>
+      <id>T1543</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104528" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3023</field>
+    <description>Sigma: CodeIntegrity - Blocked Driver Load With Revoked Certificate</description>
+    <mitre>
+      <id>T1543</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="106002" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3021|3022</field>
+    <description>Sigma: CodeIntegrity - Revoked Kernel Driver Loaded</description>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="106003" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3036</field>
+    <description>Sigma: CodeIntegrity - Blocked Image Load With Revoked Certificate</description>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="106004" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3032|3035</field>
+    <description>Sigma: CodeIntegrity - Revoked Image Loaded</description>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="106005" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3001</field>
+    <description>Sigma: CodeIntegrity - Unsigned Kernel Module Loaded</description>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="106006" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3037</field>
+    <description>Sigma: CodeIntegrity - Unsigned Image Loaded</description>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="106007" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3082|3083</field>
+    <description>Sigma: CodeIntegrity - Unmet WHQL Requirements For Loaded Kernel Module</description>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="102040" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">101</field>
+    <field name="win.eventdata.packagePath">\\\\</field>
+    <description>Sigma: Loading Diagcab Package From Remote Path</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="120001" level="13">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3008</field>
+    <field name="win.eventdata.queryName">\.anonfiles\.com</field>
+    <description>Sigma: DNS Query for Anonfiles.com Domain - DNS Client</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="118006" level="13">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3008</field>
+    <field name="win.eventdata.queryName">^aaa\.stage\.|^post\.1</field>
+    <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - DNS Client</description>
+    <mitre>
+      <id>T1071.004</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="120002" level="12">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3008</field>
+    <field name="win.eventdata.queryName">userstorage\.mega\.co\.nz</field>
+    <description>Sigma: DNS Query To MEGA Hosting Website - DNS Client</description>
+    <mitre>
+      <id>T1567.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="118007" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3008</field>
+    <field name="win.eventdata.queryName">api\.put\.io|upload\.put\.io</field>
+    <description>Sigma: DNS Query To Put.io - DNS Client</description>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="118008" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3008</field>
+    <field name="win.eventdata.queryName">\.hiddenservice\.net$|\.onion\.ca$|\.onion\.cab$|\.onion\.casa$|\.onion\.city$|\.onion\.direct$|\.onion\.dog$|\.onion\.glass$|\.onion\.gq$|\.onion\.guide$|\.onion\.in\.net$|\.onion\.ink$|\.onion\.it$|\.onion\.link$|\.onion\.lt$|\.onion\.lu$|\.onion\.ly$|\.onion\.mn$|\.onion\.network$|\.onion\.nu$|\.onion\.pet$|\.onion\.plus$|\.onion\.pt$|\.onion\.pw$|\.onion\.rip$|\.onion\.sh$|\.onion\.si$|\.onion\.to$|\.onion\.top$|\.onion\.ws$|\.onion$|\.s1\.tor-gateways\.de$|\.s2\.tor-gateways\.de$|\.s3\.tor-gateways\.de$|\.s4\.tor-gateways\.de$|\.s5\.tor-gateways\.de$|\.t2w\.pw$|\.tor2web\.ae\.org$|\.tor2web\.blutmagie\.de$|\.tor2web\.com$|\.tor2web\.fi$|\.tor2web\.io$|\.tor2web\.org$|\.tor2web\.xyz$|\.torlink\.co$</field>
+    <description>Sigma: Query Tor Onion Address - DNS Client</description>
+    <mitre>
+      <id>T1090.003</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="102041" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">6004</field>
+    <description>Sigma: Failed DNS Zone Transfer</description>
+    <mitre>
+      <id>T1590.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="106008" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">150|770|771</field>
+    <description>Sigma: DNS Server Error Failed Loading the ServerLevelPluginDLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="112001" level="6">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">30</field>
+    <field name="win.eventdata.searchFilter">\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483648\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483656\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483652\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483650\)|\(sAMAccountType=805306369\)|\(sAMAccountType=805306368\)|\(sAMAccountType=536870913\)|\(sAMAccountType=536870912\)|\(sAMAccountType=268435457\)|\(sAMAccountType=268435456\)|\(objectCategory=groupPolicyContainer\)|\(objectCategory=organizationalUnit\)|\(objectCategory=nTDSDSA\)|\(objectCategory=server\)|\(objectCategory=domain\)|\(objectCategory=person\)|\(objectCategory=group\)|\(objectCategory=user\)|\(objectClass=trustedDomain\)|\(objectClass=computer\)|\(objectClass=server\)|\(objectClass=group\)|\(objectClass=user\)|\(primaryGroupID=521\)|\(primaryGroupID=516\)|\(primaryGroupID=515\)|\(primaryGroupID=512\)|Domain Admins|objectGUID=\.*|\(schemaIDGUID=\.*\)|admincount=1</field>
+    <description>Sigma: Potential Active Directory Reconnaissance/Enumeration Via LDAP</description>
+    <mitre>
+      <id>T1069.002</id>
+      <id>T1087.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="114013" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">4</field>
+    <field name="win.eventdata.process">sshd</field>
+    <field name="win.eventdata.payload">^Server listening on </field>
+    <description>Sigma: OpenSSH Server Listening On Socket</description>
+    <mitre>
+      <id>T1021.004</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="102081" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">28115</field>
+    <field name="win.eventdata.name">Zenmap|AnyDesk|wireshark|openvpn</field>
+    <description>Sigma: Suspicious Application Installed</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102082" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">28115</field>
+    <field name="win.eventdata.appID">zenmap\.exe|prokzult ad|wireshark|openvpn</field>
+    <description>Sigma: Suspicious Application Installed</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="114032" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">4000</field>
+    <field name="win.eventdata.shareName">IPC\$|ADMIN\$|C\$</field>
+    <field name="win.eventdata.signingUsed">false</field>
+    <description>Sigma: Unsigned or Unencrypted SMB Connection to Share Established</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="102083" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Application Popup</field>
     <field name="win.system.eventID">26</field>
@@ -11,7 +249,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="107030" level="10">
+  <rule id="114033" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">LsaSrv</field>
     <field name="win.system.eventID">6038|6039</field>
@@ -21,7 +259,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="111003" level="13">
+  <rule id="122003" level="13">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">4100</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Iphlpsvc</field>
@@ -32,7 +270,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="103025" level="11">
+  <rule id="106035" level="11">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">1033</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
@@ -42,7 +280,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103026" level="11">
+  <rule id="106036" level="11">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">1031|1032|1034</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
@@ -52,7 +290,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="108005" level="8">
+  <rule id="116005" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DistributedCOM</field>
     <field name="win.system.eventID">10001</field>
@@ -65,7 +303,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="101052" level="8">
+  <rule id="102084" level="8">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">104</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
@@ -75,7 +313,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101053" level="9">
+  <rule id="102085" level="9">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">104</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
@@ -86,14 +324,14 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103027" level="10">
+  <rule id="106037" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Kerberos-Key-Distribution-Center|Microsoft-Windows-Kerberos-Key-Distribution-Center</field>
     <field name="win.system.eventID">39|41</field>
     <description>Sigma: Certificate Use With No Strong Mapping</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="105047" level="12">
+  <rule id="110055" level="12">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">16</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Kernel-General</field>
@@ -104,7 +342,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105048" level="11">
+  <rule id="110056" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-WER-SystemErrorReporting</field>
     <field name="win.system.eventID">1001</field>
@@ -115,7 +353,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="107031" level="11">
+  <rule id="114034" level="11">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">5805|5723</field>
     <description>Sigma: Zerologon Exploitation Using Well-known Tools</description>
@@ -124,7 +362,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="103028" level="11">
+  <rule id="106038" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">NetLogon</field>
     <field name="win.system.eventID">5829</field>
@@ -134,7 +372,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="111004" level="14">
+  <rule id="122004" level="14">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Ntfs</field>
     <field name="win.system.eventID">55</field>
@@ -146,7 +384,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="102535" level="13">
+  <rule id="104552" level="13">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -158,7 +396,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101054" level="8">
+  <rule id="102086" level="8">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">7036</field>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
@@ -170,7 +408,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="107032" level="11">
+  <rule id="114035" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -182,7 +420,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="101055" level="9">
+  <rule id="102087" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -194,7 +432,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101056" level="9">
+  <rule id="102088" level="9">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">\$PSHome\[\s*\d{1,3}\s*\]\s*\+\s*\$PSHome\[</field>
@@ -204,7 +442,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101057" level="9">
+  <rule id="102089" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -216,7 +454,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101058" level="9">
+  <rule id="102090" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -228,7 +466,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101059" level="8">
+  <rule id="102091" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -240,7 +478,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101060" level="8">
+  <rule id="102092" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -252,7 +490,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101061" level="9">
+  <rule id="102093" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -264,7 +502,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101062" level="9">
+  <rule id="102094" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -276,7 +514,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101063" level="9">
+  <rule id="102095" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -288,7 +526,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101064" level="9">
+  <rule id="102096" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -300,7 +538,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101065" level="9">
+  <rule id="102097" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -312,7 +550,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102536" level="10">
+  <rule id="104553" level="10">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.serviceName">KrbSCM</field>
@@ -322,7 +560,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="105049" level="12">
+  <rule id="110057" level="12">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -335,7 +573,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="103029" level="14">
+  <rule id="106039" level="14">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -347,7 +585,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102537" level="10">
+  <rule id="104554" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -358,7 +596,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101066" level="9">
+  <rule id="102098" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -369,7 +607,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102538" level="9">
+  <rule id="104555" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -377,7 +615,7 @@
     <description>Sigma: Anydesk Remote Access Software Service Installation</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101067" level="8">
+  <rule id="102099" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -388,7 +626,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101068" level="9">
+  <rule id="102100" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045|7036</field>
@@ -399,7 +637,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="109008" level="9">
+  <rule id="118013" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -410,7 +648,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="102539" level="9">
+  <rule id="104556" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -418,7 +656,7 @@
     <description>Sigma: NetSupport Manager Service Install</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101069" level="8">
+  <rule id="102101" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -429,7 +667,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102540" level="9">
+  <rule id="104557" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -440,7 +678,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102541" level="9">
+  <rule id="104558" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -451,7 +689,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102542" level="10">
+  <rule id="104559" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -464,7 +702,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101070" level="8">
+  <rule id="102102" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -475,7 +713,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103030" level="10">
+  <rule id="106040" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045|7036</field>
@@ -487,7 +725,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102543" level="9">
+  <rule id="104560" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -495,7 +733,7 @@
     <description>Sigma: Remote Utilities Host Service Install</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102544" level="10">
+  <rule id="104561" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -507,7 +745,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102545" level="10">
+  <rule id="104562" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -518,7 +756,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102546" level="10">
+  <rule id="104563" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -529,7 +767,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101071" level="8">
+  <rule id="102103" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -540,7 +778,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="109009" level="9">
+  <rule id="118014" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -551,7 +789,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="110000" level="12">
+  <rule id="120003" level="12">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -562,7 +800,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="102547" level="9">
+  <rule id="104564" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -572,7 +810,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101072" level="9">
+  <rule id="102104" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7023</field>
@@ -580,7 +818,7 @@
     <description>Sigma: Important Windows Service Terminated With Error</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101073" level="9">
+  <rule id="102105" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7034</field>
@@ -588,7 +826,7 @@
     <description>Sigma: Important Windows Service Terminated Unexpectedly</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102548" level="10">
+  <rule id="104565" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -596,7 +834,7 @@
     <description>Sigma: RTCore Suspicious Service Installation</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102549" level="9">
+  <rule id="104566" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -607,7 +845,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102550" level="10">
+  <rule id="104567" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -618,7 +856,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102551" level="10">
+  <rule id="104568" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.imagePath"> -c | -r | -k </field>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
@@ -628,5 +866,45 @@
       <id>T1543.003</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="106041" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">129</field>
+    <field name="win.eventdata.path">C:\Windows\Temp\|\AppData\Local\Temp\|\Desktop\|\Downloads\|\Users\Public\|C:\Temp\</field>
+    <description>Sigma: Scheduled Task Executed From A Suspicious Location</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="106042" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">129</field>
+    <field name="win.eventdata.path">\calc\.exe$|\cscript\.exe$|\mshta\.exe$|\mspaint\.exe$|\notepad\.exe$|\regsvr32\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Scheduled Task Executed Uncommon LOLBIN</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="122005" level="14">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">141|142</field>
+    <field name="win.eventdata.taskName">\Windows\SystemRestore\SR|\Windows\Windows Defender\|\Windows\BitLocker|\Windows\WindowsBackup\|\Windows\WindowsUpdate\|\Windows\UpdateOrchestrator\|\Windows\ExploitGuard</field>
+    <description>Sigma: Important Scheduled Task Deleted or Disabled</description>
+    <mitre>
+      <id>T1489</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+  <rule id="118015" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">21</field>
+    <field name="win.eventdata.address">16777216</field>
+    <description>Sigma: Ngrok Usage with Remote Desktop Service</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
 </group>

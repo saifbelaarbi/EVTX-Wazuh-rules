@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1553_unknown,">
-  <rule id="101793" level="8">
+  <rule id="102842" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">BOINC\.exe</field>
     <description>Sigma: Renamed BOINC Client Execution</description>

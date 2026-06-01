@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1021.003_unknown,">
-  <rule id="101559" level="9">
+  <rule id="102608" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\svchost\.exe$</field>
     <field name="win.eventdata.image">\mmc\.exe$</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="107054" level="11">
+  <rule id="114057" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\mmc\.exe$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$|\cscript\.exe$|\sh\.exe$|\bash\.exe$|\reg\.exe$|\regsvr32\.exe$</field>
@@ -21,7 +21,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107062" level="11">
+  <rule id="114065" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">foxprow\.exe|schdplus\.exe|winproj\.exe</field>
     <field name="win.eventdata.parentImage">\excel\.exe$</field>
@@ -31,7 +31,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107065" level="11">
+  <rule id="114068" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\SpeechRuntime\.exe$</field>
     <description>Sigma: Suspicious Speech Runtime Binary Child Process</description>

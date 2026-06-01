@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1685_unknown,">
-  <rule id="101019" level="9">
+  <rule id="102049" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5157</field>
     <field name="win.eventdata.application">\AmSvc\.exe$|\cb\.exe$|\CETASvc\.exe$|\CNTAoSMgr\.exe$|\CrAmTray\.exe$|\CrsSvc\.exe$|\CSFalconContainer\.exe$|\CSFalconService\.exe$|\CybereasonAV\.exe$|\CylanceSvc\.exe$|\cyserver\.exe$|\CyveraService\.exe$|\CyvrFsFlt\.exe$|\EIConnector\.exe$|\elastic-agent\.exe$|\elastic-endpoint\.exe$|\EndpointBasecamp\.exe$|\ExecutionPreventionSvc\.exe$|\filebeat\.exe$|\fortiedr\.exe$|\hmpalert\.exe$|\hurukai\.exe$|\LogProcessorService\.exe$|\mcsagent\.exe$|\mcsclient\.exe$|\MsMpEng\.exe$|\MsSense\.exe$|\Ntrtscan\.exe$|\PccNTMon\.exe$|\QualysAgent\.exe$|\RepMgr\.exe$|\RepUtils\.exe$|\RepUx\.exe$|\RepWAV\.exe$|\RepWSC\.exe$|\sedservice\.exe$|\SenseCncProxy\.exe$|\SenseIR\.exe$|\SenseNdr\.exe$|\SenseSampleUploader\.exe$|\SentinelAgent\.exe$|\SentinelAgentWorker\.exe$|\SentinelBrowserNativeHost\.exe$|\SentinelHelperService\.exe$|\SentinelServiceHost\.exe$|\SentinelStaticEngine\.exe$|\SentinelStaticEngineScanner\.exe$|\sfc\.exe$|\sophos ui\.exe$|\sophosfilescanner\.exe$|\sophosfs\.exe$|\sophoshealth\.exe$|\sophosips\.exe$|\sophosLivequeryservice\.exe$|\sophosnetfilter\.exe$|\sophosntpservice\.exe$|\sophososquery\.exe$|\sspservice\.exe$|\TaniumClient\.exe$|\TaniumCX\.exe$|\TaniumDetectEngine\.exe$|\TMBMSRV\.exe$|\TmCCSF\.exe$|\TmListen\.exe$|\TmWSCSvc\.exe$|\Traps\.exe$|\winlogbeat\.exe$|\WSCommunicator\.exe$|\xagt\.exe$</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101021" level="9">
+  <rule id="102051" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4738</field>
     <field name="win.eventdata.newUacValue">8...$|9...$|A...$|B...$|C...$|D...$|E...$|F...$</field>
@@ -20,7 +20,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101026" level="9">
+  <rule id="102056" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5441|5447</field>
     <field name="win.eventdata.filterName">Custom Outbound Filter</field>
@@ -30,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102525" level="10">
+  <rule id="104541" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657</field>
     <field name="win.eventdata.objectName">\REGISTRY\MACHINE\SYSTEM|ControlSet|\Control\Lsa</field>
@@ -42,7 +42,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101047" level="8">
+  <rule id="102077" level="8">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4673</field>
     <field name="win.eventdata.privilegeList">SeLoadDriverPrivilege</field>
@@ -53,7 +53,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101048" level="8">
+  <rule id="102078" level="8">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657</field>
     <field name="win.eventdata.objectName">\Microsoft\Windows Defender\Exclusions\</field>
@@ -63,7 +63,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101049" level="8">
+  <rule id="102079" level="8">
     <if_sid>60100</if_sid>
     <field name="win.eventdata.accessList">%%4417|%%4418</field>
     <field name="win.system.eventID">4656|4663</field>
@@ -74,7 +74,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101051" level="9">
+  <rule id="102083" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Application Popup</field>
     <field name="win.system.eventID">26</field>
@@ -85,7 +85,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101054" level="8">
+  <rule id="102086" level="8">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">7036</field>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
@@ -97,7 +97,102 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101142" level="8">
+  <rule id="102106" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5101</field>
+    <description>Sigma: Windows Defender Grace Period Expired</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102108" level="8">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5007</field>
+    <field name="win.eventdata.newValue">\Microsoft\Windows Defender\Exclusions</field>
+    <description>Sigma: Windows Defender Exclusions Added</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102109" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5007</field>
+    <field name="win.eventdata.newValue">\Users\Public\|\AppData\Local\Temp\|\Desktop\|\PerfLogs\|\Windows\Temp\</field>
+    <field name="win.eventdata.oldValue">\Windows Defender\Windows Defender Exploit Guard\Controlled Folder Access\ProtectedFolders\</field>
+    <description>Sigma: Windows Defender Exploit Guard Tamper</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102110" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5010</field>
+    <description>Sigma: Windows Defender Malware And PUA Scanning Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102112" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5001</field>
+    <description>Sigma: Windows Defender Real-time Protection Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102113" level="8">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">3002|3007</field>
+    <description>Sigma: Windows Defender Real-Time Protection Failure/Restart</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102114" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">1009</field>
+    <description>Sigma: Win Defender Restored Quarantine File</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102115" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5007</field>
+    <field name="win.eventdata.newValue">\Windows Defender\DisableAntiSpyware |\Windows Defender\Scan\DisableRemovableDriveScanning |\Windows Defender\Scan\DisableScanningMappedNetworkDrivesForFullScan |\Windows Defender\SpyNet\DisableBlockAtFirstSeen |\Real-Time Protection\SpyNetReporting </field>
+    <description>Sigma: Windows Defender Configuration Changes</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102116" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5013</field>
+    <field name="win.eventdata.value">\Windows Defender\DisableAntiSpyware$|\Windows Defender\DisableAntiVirus$|\Windows Defender\Scan\DisableArchiveScanning$|\Windows Defender\Scan\DisableScanningNetworkFiles$|\Real-Time Protection\DisableRealtimeMonitoring$|\Real-Time Protection\DisableBehaviorMonitoring$|\Real-Time Protection\DisableIOAVProtection$|\Real-Time Protection\DisableScriptScanning$</field>
+    <description>Sigma: Microsoft Defender Tamper Protection Trigger</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102118" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5012</field>
+    <description>Sigma: Windows Defender Virus Scanning Feature Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102187" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">PROCEXP152\.sys$</field>
     <description>Sigma: Suspicious PROCEXP152.sys File Created In TMP</description>
@@ -106,7 +201,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101228" level="9">
+  <rule id="102244" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.data">HighThreatDefaultAction Allow|htdefac Allow|LowThreatDefaultAction Allow|ltdefac Allow|ModerateThreatDefaultAction Allow|mtdefac Allow|SevereThreatDefaultAction Allow|stdefac Allow</field>
+    <description>Sigma: Tamper Windows Defender - PSClassic</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102277" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">\[Ref\]\.Assembly\.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
     <description>Sigma: AMSI Bypass Pattern Assembly GetType</description>
@@ -115,7 +219,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101229" level="8">
+  <rule id="102278" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">if\(0\)\{\{\{0\}\}\}' -f \$\(0 -as \[char\]\) \+|#&lt;NULL&gt;</field>
     <description>Sigma: Potential AMSI Bypass Script Using NULL Bits</description>
@@ -124,7 +228,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101236" level="9">
+  <rule id="102285" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Windows-Defender-Gui|Windows-Defender-Features|Windows-Defender|Windows-Defender-ApplicationGuard|-Online|-FeatureName</field>
     <description>Sigma: Disable-WindowsOptionalFeature Command PowerShell</description>
@@ -133,7 +237,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101293" level="9">
+  <rule id="102342" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">-ControlledFolderAccessProtectedFolders |-AttackSurfaceReductionRules_Ids |-AttackSurfaceReductionRules_Actions |-CheckForSignaturesBeforeRunningScan </field>
     <description>Sigma: Tamper Windows Defender Remove-MpPreference - ScriptBlockLogging</description>
@@ -142,7 +246,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101294" level="9">
+  <rule id="102343" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Set-MpPreference</field>
     <description>Sigma: Tamper Windows Defender - ScriptBlockLogging</description>
@@ -151,7 +255,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101303" level="8">
+  <rule id="102352" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Add-MpPreference |Set-MpPreference </field>
     <description>Sigma: Windows Defender Exclusions Added - PowerShell</description>
@@ -161,7 +265,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101316" level="9">
+  <rule id="102365" level="9">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.sourceImage">\WerFaultSecure\.exe$</field>
     <field name="win.eventdata.targetImage">\MsMpEng\.exe$</field>
@@ -172,7 +276,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101325" level="9">
+  <rule id="102374" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Software\Microsoft\Windows Script\Settings|AmsiEnable</field>
     <description>Sigma: Windows AMSI Related Registry Tampering Via CommandLine</description>
@@ -181,7 +285,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101379" level="9">
+  <rule id="102428" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">EnableVirtualizationBasedSecurity|RequirePlatformSecurityFeatures|LsaCfgFlags</field>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\reg\.exe$</field>
@@ -191,7 +295,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101393" level="9">
+  <rule id="102442" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Allow|6|NoAction|9</field>
     <description>Sigma: PowerShell Defender Threat Severity Default Action Set to 'Allow' or 'NoAction'</description>
@@ -200,7 +304,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101394" level="9">
+  <rule id="102443" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\shellex\ContextMenuHandlers\EPP</field>
     <field name="win.eventdata.image">\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$|\reg\.exe$</field>
@@ -210,7 +314,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101401" level="8">
+  <rule id="102450" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\Dism\.exe$</field>
     <field name="win.eventdata.commandLine">/Online|/Disable-Feature</field>
@@ -220,7 +324,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101402" level="8">
+  <rule id="102451" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\DismHost\.exe$</field>
     <field name="win.eventdata.parentCommandLine">/Online|/Disable-Feature</field>
@@ -230,7 +334,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101450" level="9">
+  <rule id="102499" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\.exe$</field>
     <description>Sigma: Hacktool - EDR-Freeze Execution</description>
@@ -239,7 +343,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101451" level="9">
+  <rule id="102500" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=1195F7935954A2CD09157390C33F8E8C|IMPHASH=129F58DE3D687FB7F012BF6C3D679997|IMPHASH=2C617A175D0086251642C6619F7CC8BA|IMPHASH=8828F0B906F7844358FB92A899E9520F|IMPHASH=AF76D95157EC554DC1EF178E4E66D447|IMPHASH=E1B04316B61ACA31DD52ABBEC0A37FD5|IMPHASH=8B2D5B54AFCFEC60D54F6B31D80ED4A0|IMPHASH=AB8BB31EDD91D2A05FE7B62A535E9EB7</field>
     <description>Sigma: Hacktool - EDR-Freeze Execution</description>
@@ -248,7 +352,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101452" level="9">
+  <rule id="102501" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\EDRSilencer\.exe$</field>
     <description>Sigma: HackTool - EDRSilencer Execution</description>
@@ -257,7 +361,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101453" level="9">
+  <rule id="102502" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">EDRSilencer\.exe</field>
     <description>Sigma: HackTool - EDRSilencer Execution</description>
@@ -266,7 +370,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101454" level="9">
+  <rule id="102503" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">EDRSilencer</field>
     <description>Sigma: HackTool - EDRSilencer Execution</description>
@@ -275,7 +379,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101482" level="9">
+  <rule id="102531" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\PowerTool\.exe$|\PowerTool64\.exe$</field>
     <description>Sigma: HackTool - PowerTool Execution</description>
@@ -284,7 +388,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101483" level="9">
+  <rule id="102532" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">PowerTool\.exe</field>
     <description>Sigma: HackTool - PowerTool Execution</description>
@@ -293,7 +397,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101498" level="9">
+  <rule id="102547" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">EnableVirtualizationBasedSecurity|HypervisorEnforcedCodeIntegrity</field>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\reg\.exe$</field>
@@ -303,7 +407,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101518" level="9">
+  <rule id="102567" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Circular Kernel Context Logger|EventLog-|SYSMON TRACE|SysmonDnsEtwSession</field>
     <field name="win.eventdata.image">\logman\.exe$</field>
@@ -314,7 +418,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101563" level="9">
+  <rule id="102612" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -RemoveDefinitions| -All</field>
     <field name="win.eventdata.image">\MpCmdRun\.exe$</field>
@@ -324,7 +428,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101628" level="9">
+  <rule id="102677" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">System\.Management\.Automation\.AmsiUtils|amsiInitFailed</field>
     <description>Sigma: Potential AMSI Bypass Via .NET Reflection</description>
@@ -333,7 +437,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101629" level="9">
+  <rule id="102678" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\[Ref\]\.Assembly\.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
     <description>Sigma: Potential AMSI Bypass Via .NET Reflection</description>
@@ -342,7 +446,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101630" level="8">
+  <rule id="102679" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">if\(0\)\{\{\{0\}\}\}' -f \$\(0 -as \[char\]\) \+|#&lt;NULL&gt;</field>
     <description>Sigma: Potential AMSI Bypass Using NULL Bits</description>
@@ -351,7 +455,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101640" level="9">
+  <rule id="102689" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Add-MpPreference |Set-MpPreference |add-mppreference |set-mppreference </field>
     <description>Sigma: Powershell Base64 Encoded MpPreference Cmdlet</description>
@@ -360,7 +464,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101641" level="9">
+  <rule id="102690" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">QQBkAGQALQBNAHAAUAByAGUAZgBlAHIAZQBuAGMAZQAgA|EAZABkAC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIA|BAGQAZAAtAE0AcABQAHIAZQBmAGUAcgBlAG4AYwBlACAA|UwBlAHQALQBNAHAAUAByAGUAZgBlAHIAZQBuAGMAZQAgA|MAZQB0AC0ATQBwAFAAcgBlAGYAZQByAGUAbgBjAGUAIA|TAGUAdAAtAE0AcABQAHIAZQBmAGUAcgBlAG4AYwBlACAA|YQBkAGQALQBtAHAAcAByAGUAZgBlAHIAZQBuAGMAZQAgA|EAZABkAC0AbQBwAHAAcgBlAGYAZQByAGUAbgBjAGUAIA|hAGQAZAAtAG0AcABwAHIAZQBmAGUAcgBlAG4AYwBlACAA|cwBlAHQALQBtAHAAcAByAGUAZgBlAHIAZQBuAGMAZQAgA|MAZQB0AC0AbQBwAHAAcgBlAGYAZQByAGUAbgBjAGUAIA|zAGUAdAAtAG0AcABwAHIAZQBmAGUAcgBlAG4AYwBlACAA</field>
     <description>Sigma: Powershell Base64 Encoded MpPreference Cmdlet</description>
@@ -369,7 +473,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101654" level="9">
+  <rule id="102703" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\$true| 1 </field>
     <description>Sigma: Powershell Defender Disable Scan Feature</description>
@@ -378,7 +482,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101655" level="8">
+  <rule id="102704" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -ExclusionPath | -ExclusionExtension | -ExclusionProcess | -ExclusionIpAddress </field>
     <description>Sigma: Powershell Defender Exclusion</description>
@@ -387,7 +491,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101656" level="9">
+  <rule id="102705" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.commandLine">-DisableBehaviorMonitoring \$true|-DisableRuntimeMonitoring \$true</field>
@@ -397,7 +501,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101657" level="8">
+  <rule id="102706" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -All |Public|Domain|Private| -Enabled | False</field>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\powershell_ise\.exe$</field>
@@ -407,7 +511,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101658" level="9">
+  <rule id="102707" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -name IEHarden | -value 0 </field>
     <description>Sigma: Disabled IE Security Features</description>
@@ -416,7 +520,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101659" level="9">
+  <rule id="102708" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -name DEPOff | -value 1 </field>
     <description>Sigma: Disabled IE Security Features</description>
@@ -425,7 +529,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101660" level="9">
+  <rule id="102709" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -name DisableFirstRunCustomize | -value 2 </field>
     <description>Sigma: Disabled IE Security Features</description>
@@ -434,7 +538,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101684" level="9">
+  <rule id="102733" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-ControlledFolderAccessProtectedFolders |-AttackSurfaceReductionRules_Ids |-AttackSurfaceReductionRules_Actions |-CheckForSignaturesBeforeRunningScan </field>
     <description>Sigma: Tamper Windows Defender Remove-MpPreference</description>
@@ -443,7 +547,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101693" level="8">
+  <rule id="102742" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Disabled|Manual|-StartupType</field>
     <field name="win.eventdata.image">\powershell\.exe$</field>
@@ -453,7 +557,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101700" level="9">
+  <rule id="102749" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Uninstall-WindowsFeature|Remove-WindowsFeature</field>
     <field name="win.eventdata.image">\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
@@ -463,7 +567,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101714" level="9">
+  <rule id="102763" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SepRemovalToolNative_x64\.exe$</field>
     <description>Sigma: PUA - CleanWipe Execution</description>
@@ -472,7 +576,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101715" level="9">
+  <rule id="102764" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\CATClean\.exe$</field>
     <field name="win.eventdata.commandLine">--uninstall</field>
@@ -482,7 +586,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101716" level="9">
+  <rule id="102765" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\NetInstaller\.exe$</field>
     <field name="win.eventdata.commandLine">-r</field>
@@ -492,7 +596,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101717" level="9">
+  <rule id="102766" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\WFPUnins\.exe$</field>
     <field name="win.eventdata.commandLine">/uninstall|/enterprise</field>
@@ -502,7 +606,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101758" level="9">
+  <rule id="102807" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\SYSTEM\CurrentControlSet\Control\SafeBoot</field>
     <field name="win.eventdata.image">\reg\.exe$</field>
@@ -512,7 +616,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101759" level="8">
+  <rule id="102808" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\reg\.exe$</field>
     <field name="win.eventdata.commandLine">SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths|SOFTWARE\Microsoft\Microsoft Antimalware\Exclusions\Paths|ADD |/t |REG_DWORD |/v |/d |0</field>
@@ -522,7 +626,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101761" level="9">
+  <rule id="102810" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> delete |\SYSTEM\CurrentControlSet\Control\SafeBoot</field>
     <field name="win.eventdata.image">reg\.exe$</field>
@@ -532,7 +636,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101762" level="9">
+  <rule id="102811" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\SYSTEM\CurrentControlSet\services\</field>
     <field name="win.eventdata.image">reg\.exe$</field>
@@ -542,7 +646,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101763" level="9">
+  <rule id="102812" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\reg\.exe$</field>
     <field name="win.eventdata.commandLine">\Control\WMI\Autologger\DefenderApiLogger\Start|\Control\WMI\Autologger\DefenderAuditLogger\Start|0</field>
@@ -552,7 +656,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101764" level="9">
+  <rule id="102813" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">reg|add</field>
     <description>Sigma: Security Service Disabled Via Reg.EXE</description>
@@ -561,7 +665,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101765" level="9">
+  <rule id="102814" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Services\VSS\Diag|/d Disabled</field>
     <description>Sigma: Disabled Volume Snapshots</description>
@@ -570,7 +674,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101766" level="9">
+  <rule id="102815" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\reg\.exe$</field>
     <field name="win.eventdata.commandLine">SOFTWARE\Microsoft\Windows Defender\|SOFTWARE\Policies\Microsoft\Windows Defender Security Center|SOFTWARE\Policies\Microsoft\Windows Defender\</field>
@@ -580,7 +684,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101767" level="8">
+  <rule id="102816" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\System\CurrentControlSet\Control|Write Protection|0|storage</field>
     <description>Sigma: Write Protect For Storage Disabled</description>
@@ -589,7 +693,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101771" level="9">
+  <rule id="102820" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> 0|\Excel\Security|PythonFunctionWarnings</field>
     <description>Sigma: Python Function Execution Security Warning Disabled In Excel</description>
@@ -598,7 +702,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101836" level="8">
+  <rule id="102885" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">disabled|demand|start</field>
     <field name="win.eventdata.image">\sc\.exe$</field>
@@ -608,7 +712,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101877" level="9">
+  <rule id="102926" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">taskkill |RaccineSettings\.exe</field>
     <description>Sigma: Raccine Uninstall</description>
@@ -617,7 +721,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101878" level="9">
+  <rule id="102927" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">reg\.exe|delete|Raccine Tray</field>
     <description>Sigma: Raccine Uninstall</description>
@@ -626,7 +730,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101879" level="9">
+  <rule id="102928" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">schtasks|/DELETE|Raccine Rules Updater</field>
     <description>Sigma: Raccine Uninstall</description>
@@ -635,7 +739,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101891" level="9">
+  <rule id="102940" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">COMPlus_ETWEnabled|COMPlus_ETWFlags</field>
     <description>Sigma: ETW Logging Tamper In .NET Processes Via CommandLine</description>
@@ -644,7 +748,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101948" level="9">
+  <rule id="102997" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">msmpeng\.exe</field>
     <field name="win.eventdata.originalFileName">pssuspend\.exe</field>
@@ -654,7 +758,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101950" level="8">
+  <rule id="102999" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">[-/]c</field>
     <field name="win.eventdata.image">\Sysmon64\.exe$|\Sysmon\.exe$</field>
@@ -664,7 +768,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101951" level="9">
+  <rule id="103000" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">[-/]u</field>
     <field name="win.eventdata.image">\Sysmon64\.exe$|\Sysmon\.exe$</field>
@@ -674,7 +778,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101957" level="9">
+  <rule id="103006" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">taskkill| /F | /IM |ccSvcHst\.exe</field>
     <description>Sigma: Taskkill Symantec Endpoint Protection</description>
@@ -683,7 +787,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101963" level="9">
+  <rule id="103012" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\WindowsSensor\.exe| /uninstall| /quiet</field>
     <description>Sigma: Uninstall Crowdstrike Falcon Sensor</description>
@@ -692,7 +796,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101972" level="9">
+  <rule id="103021" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Control\CI\Config|VulnerableDriverBlocklistEnable</field>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\reg\.exe$</field>
@@ -702,7 +806,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="105278" level="12">
+  <rule id="110287" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /h | /pid | /tid | /encfile | /cancel | /type | 268310</field>
     <field name="win.eventdata.image">\WerFaultSecure\.exe$</field>
@@ -713,7 +817,90 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="102744" level="10">
+  <rule id="103060" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">wmic|product where |call|uninstall|/nointeractive</field>
+    <description>Sigma: Potential Tampering With Security Products Via WMIC</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103061" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">call delete|call terminate|caption like </field>
+    <description>Sigma: Potential Tampering With Security Products Via WMIC</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103062" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">process |where |delete</field>
+    <description>Sigma: Potential Tampering With Security Products Via WMIC</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103082" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">\DeviceGuard\EnableVirtualizationBasedSecurity$|\DeviceGuard\LsaCfgFlags$|\DeviceGuard\RequirePlatformSecurityFeatures$|\Lsa\LsaCfgFlags$</field>
+    <description>Sigma: Windows Credential Guard Related Registry Value Deleted - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103083" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.eventType">DeleteValue</field>
+    <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\Windows Defender\Windows Defender Exploit Guard\Controlled Folder Access\ProtectedFolders</field>
+    <description>Sigma: Folder Removed From Exploit Guard ProtectedFolders List - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103084" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">\{2781761E-28E0-4109-99FE-B9D127C57AFE\}$|\{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9\}$</field>
+    <description>Sigma: Removal Of AMSI Provider Registry Keys</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103086" level="8">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\|Index</field>
+    <description>Sigma: Removal Of Index Value to Hide Schedule Task - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103087" level="8">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\|SD</field>
+    <description>Sigma: Removal Of SD Value to Hide Schedule Task - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103089" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\1$|\2$|\4$|\5$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000006\)|DWORD \(0x00000009\)</field>
+    <description>Sigma: Windows Defender Threat Severity Default Action Modified</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="104762" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\lmcompatibilitylevel$|ControlSet|\Control\Lsa</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)|DWORD \(0x00000001\)|DWORD \(0x00000002\)</field>
@@ -723,5 +910,269 @@
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="103091" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Microsoft\WBEM\CIMOM\AllowAnonymousCallback</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Enable Remote Connection Between Anonymous Computer - AllowAnonymousCallback</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103093" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\CLSID\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec\}\InProcServer32\\(Default\)$</field>
+    <description>Sigma: Potential AMSI COM Server Hijacking</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103094" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows Script\Settings\AmsiEnable$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: AMSI Disabled via Registry Modification</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103095" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Instances\Sysmon Instance\Altitude$</field>
+    <description>Sigma: Sysmon Driver Altitude Change</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103097" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\DeviceGuard\EnableVirtualizationBasedSecurity$|\DeviceGuard\LsaCfgFlags$|\Lsa\LsaCfgFlags$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Windows Credential Guard Disabled - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103099" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Microsoft\Windows Defender\Exclusions</field>
+    <description>Sigma: Windows Defender Exclusions Added - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103100" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\FilterManager\FltmgrDevDriveAllowAntivirusFilter$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Antivirus Filter Driver Disallowed On Dev Drive - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103101" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Control\DeviceGuard\HypervisorEnforcedCodeIntegrity$|\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity\Enabled$|\Microsoft\Windows\DeviceGuard\HypervisorEnforcedCodeIntegrity$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Windows Hypervisor Enforced Code Integrity Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103102" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\DisableHypervisorEnforcedPagingTranslation$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Hypervisor Enforced Paging Translation Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103107" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Policies\Microsoft\Windows\OOBE\DisablePrivacyExperience$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Disable Privacy Settings Experience in Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103108" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Services\WinDefend\Start$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000004\)</field>
+    <description>Sigma: Windows Defender Service Disabled - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103111" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">SOFTWARE\Policies\Microsoft\Windows Defender Security Center\App and Browser protection\DisallowExploitProtectionOverride</field>
+    <field name="win.eventdata.details">DWORD \(00000001\)</field>
+    <description>Sigma: Disable Exploit Guard Network Protection on Windows Defender</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103112" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Windows Defender/Operational\Enabled</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Disabled Windows Defender Eventlog</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103113" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Policies\Microsoft\Windows Defender\PUAProtection</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Disable PUA Protection on Windows Defender</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103114" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Microsoft\Windows Defender\Features\TamperProtection</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Disable Tamper Protection on Windows Defender</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103115" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Policies\Microsoft\Windows\ScriptedDiagnostics\TurnOffCheck$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Scripted Diagnostics Turn Off Check Enabled - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103117" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Users\Public\|\AppData\Local\Temp\|\Desktop\|\PerfLogs\|\Windows\Temp\</field>
+    <description>Sigma: Suspicious Application Allowed Through Exploit Guard</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103121" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\|Index</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Hide Schedule Task Via Index Value Tamper</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103124" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Control\Keyboard Layouts\|Ime File</field>
+    <description>Sigma: Uncommon Extension In Keyboard Layout IME File Registry Value</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103125" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Control\Keyboard Layouts\|Ime File</field>
+    <field name="win.eventdata.details">:\Perflogs\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\AppData\Roaming\|\Temporary Internet</field>
+    <description>Sigma: Suspicious Path In Keyboard Layout IME File Registry Value</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103127" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\enabledatabasefileprotectedview$|\enableforeigntextfileprotectedview$|\Security\ProtectedView\</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Microsoft Office Protected View Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103128" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Excel\Security\PythonFunctionWarnings$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Python Function Execution Security Warning Disabled In Excel - Registry</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103143" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Sophos Endpoint Defense\TamperProtection\Config\SAVEnabled|\Sophos Endpoint Defense\TamperProtection\Config\SEDEnabled|\Sophos\SAVService\TamperProtection\Enabled</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Tamper With Sophos AV Registry Keys</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103148" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">HKLM\System\CurrentControlSet\Services\NalDrv\ImagePath|HKLM\System\CurrentControlSet\Services\PROCEXP152\ImagePath</field>
+    <description>Sigma: Suspicious Service Installed</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103150" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\BFE\Parameters\Policy\Persistent\Filter\</field>
+    <description>Sigma: WFP Filter Added via Registry</description>
+    <mitre>
+      <id>T1685</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103153" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Control\CI\Config\VulnerableDriverBlocklistEnable$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Windows Vulnerable Driver Blocklist Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103155" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\DisallowExploitProtectionOverride$|\Features\TamperProtection$|\MpEngine\MpEnablePus$|\PUAProtection$|\Signature Update\ForceUpdateFromMU$|\SpyNet\SpynetReporting$|\SpyNet\SubmitSamplesConsent$|\Windows Defender Exploit Guard\Controlled Folder Access\EnableControlledFolderAccess$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Disable Windows Defender Functionalities Via Registry Keys</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
   </rule>
 </group>

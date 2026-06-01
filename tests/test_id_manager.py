@@ -18,8 +18,8 @@ def test_allocate_id_sequential():
         id1 = id_manager.allocate_id("credential_access")
         id2 = id_manager.allocate_id("credential_access")
 
-        assert id1 == 105000  # Start of credential_access range
-        assert id2 == 105001
+        assert id1 == 110000  # Start of credential_access range
+        assert id2 == 110001
         assert id2 == id1 + 1
 
     tmp_path.unlink()
@@ -36,9 +36,9 @@ def test_allocate_different_tactics():
         exec_id = id_manager.allocate_id("execution")
         disc_id = id_manager.allocate_id("discovery")
 
-        assert 105000 <= cred_id <= 105999
-        assert 101000 <= exec_id <= 101999
-        assert 106000 <= disc_id <= 106999
+        assert 110000 <= cred_id <= 111999
+        assert 102000 <= exec_id <= 103999
+        assert 112000 <= disc_id <= 113999
 
     tmp_path.unlink()
 
@@ -51,6 +51,6 @@ def test_unknown_tactic_uses_composite():
 
     with mock.patch.object(id_manager, "ALLOCATIONS_FILE", tmp_path):
         rule_id = id_manager.allocate_id("totally_unknown_tactic")
-        assert 112000 <= rule_id <= 119999
+        assert 124000 <= rule_id <= 129999
 
     tmp_path.unlink()

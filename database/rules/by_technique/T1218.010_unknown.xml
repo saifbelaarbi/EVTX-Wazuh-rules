@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218.010_unknown,">
-  <rule id="101775" level="8">
+  <rule id="102824" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
     <field name="win.eventdata.commandLine"> -i:</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101776" level="9">
+  <rule id="102825" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
     <field name="win.eventdata.commandLine"> /i:http://1| /i:http://2| /i:http://3| /i:http://4| /i:http://5| /i:http://6| /i:http://7| /i:http://8| /i:http://9| /i:https://1| /i:https://2| /i:https://3| /i:https://4| /i:https://5| /i:https://6| /i:https://7| /i:https://8| /i:https://9| -i:http://1| -i:http://2| -i:http://3| -i:http://4| -i:http://5| -i:http://6| -i:http://7| -i:http://8| -i:http://9| -i:https://1| -i:https://2| -i:https://3| -i:https://4| -i:https://5| -i:https://6| -i:https://7| -i:https://8| -i:https://9</field>
@@ -20,7 +20,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101777" level="8">
+  <rule id="102826" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">ftp|http</field>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
@@ -30,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101778" level="9">
+  <rule id="102827" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> \\\\</field>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
@@ -40,7 +40,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101779" level="9">
+  <rule id="102828" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\regsvr32\.exe$</field>
     <field name="win.eventdata.image">\calc\.exe$|\cscript\.exe$|\explorer\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\nltest\.exe$|\notepad\.exe$|\powershell\.exe$|\pwsh\.exe$|\reg\.exe$|\schtasks\.exe$|\werfault\.exe$|\wscript\.exe$</field>
@@ -50,7 +50,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101780" level="8">
+  <rule id="102829" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">:\ProgramData\|:\Temp\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\AppData\Roaming\</field>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
@@ -60,7 +60,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101781" level="9">
+  <rule id="102830" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
     <description>Sigma: Regsvr32 Execution From Highly Suspicious Location</description>
@@ -69,7 +69,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101782" level="9">
+  <rule id="102831" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.bin$|\.bmp$|\.cr2$|\.dat$|\.eps$|\.gif$|\.ico$|\.jpeg$|\.jpg$|\.log$|\.nef$|\.orf$|\.png$|\.raw$|\.rtf$|\.sr2$|\.temp$|\.tif$|\.tiff$|\.tmp$|\.txt$</field>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
@@ -79,7 +79,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101783" level="8">
+  <rule id="102832" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$</field>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>

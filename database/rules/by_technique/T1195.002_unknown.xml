@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1195.002_unknown,">
-  <rule id="108006" level="7">
+  <rule id="116006" level="7">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.image">\gup\.exe$</field>
     <description>Sigma: Notepad++ Updater DNS Query to Uncommon Domains</description>
@@ -10,7 +10,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108008" level="8">
+  <rule id="116008" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\gup\.exe$</field>
     <description>Sigma: Uncommon File Created by Notepad++ Updater Gup.EXE</description>
@@ -20,7 +20,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108021" level="8">
+  <rule id="116022" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\gup\.exe$</field>
     <field name="win.eventdata.commandLine">bitsadmin|certutil|curl|finger|forfiles|regsvr32|rundll32|wget</field>

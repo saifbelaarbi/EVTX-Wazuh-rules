@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1125_unknown,">
-  <rule id="108047" level="8">
+  <rule id="116048" level="8">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">:#Windows#Temp#|:#\$Recycle\.bin#|:#Temp#|:#Users#Public#|:#Users#Default#|:#Users#Desktop#|\NonPackaged</field>
     <description>Sigma: Suspicious Camera and Microphone Access</description>

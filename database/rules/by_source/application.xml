@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,application,">
+  <rule id="110024" level="12">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">Application Error</field>
+    <field name="win.system.eventID">1000</field>
+    <field name="win.eventdata.appName">lsass\.exe</field>
+    <field name="win.eventdata.exceptionCode">c0000001</field>
+    <description>Sigma: LSASS Process Crashed - Application</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="102019" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">Application Error</field>
+    <field name="win.system.eventID">1000</field>
+    <field name="win.eventdata.data">MsMpEng\.exe|mpengine\.dll</field>
+    <description>Sigma: Microsoft Malware Protection Engine Crash</description>
+    <mitre>
+      <id>T1211</id>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="110025" level="11">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">ESENT</field>
+    <field name="win.system.eventID">216|325|326|327</field>
+    <field name="win.eventdata.data">ntds\.dit</field>
+    <description>Sigma: Ntdsutil Abuse</description>
+    <mitre>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="102020" level="8">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.data">ntds\.dit</field>
+    <field name="win.eventdata.provider_Name">ESENT</field>
+    <field name="win.system.eventID">325</field>
+    <description>Sigma: Dump Ntds.dit To Suspicious Location</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102021" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-Audit-CVE|Audit-CVE</field>
+    <field name="win.system.eventID">1</field>
+    <description>Sigma: Audit CVE Event</description>
+    <mitre>
+      <id>T1203</id>
+      <id>T1068</id>
+      <id>T1211</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102022" level="8">
+    <if_sid>60003</if_sid>
+    <field name="win.system.eventID">524</field>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-Backup</field>
+    <description>Sigma: Backup Catalog Deleted</description>
+    <mitre>
+      <id>T1070.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="114012" level="11">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-SoftwareRestrictionPolicies</field>
+    <field name="win.system.eventID">865|866|867|868|882</field>
+    <description>Sigma: Restricted Software Access By SRP</description>
+    <mitre>
+      <id>T1072</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="102023" level="8">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MsiInstaller</field>
+    <field name="win.system.eventID">1040|1042</field>
+    <field name="win.eventdata.data">:\Windows\TEMP\|\\\\|\Desktop\|\PerfLogs\|\Users\Public\</field>
+    <description>Sigma: MSI Installation From Suspicious Locations</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102024" level="8">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MsiInstaller</field>
+    <field name="win.system.eventID">1040|1042</field>
+    <field name="win.eventdata.data">://</field>
+    <description>Sigma: MSI Installation From Web</description>
+    <mitre>
+      <id>T1218</id>
+      <id>T1218.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="118005" level="10">
+    <if_sid>60003</if_sid>
+    <field name="win.system.eventID">1033</field>
+    <field name="win.eventdata.provider_Name">MsiInstaller</field>
+    <field name="win.eventdata.message">AteraAgent</field>
+    <description>Sigma: Atera Agent Installation</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="104520" level="10">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">33205</field>
+    <field name="win.eventdata.data">object_name:sysadmin|statement:alter server role \[sysadmin\] add member </field>
+    <description>Sigma: MSSQL Add Account To Sysadmin Role</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="120000" level="12">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQLSERVER\$AUDIT</field>
+    <field name="win.system.eventID">33205</field>
+    <field name="win.eventdata.data">statement:TRUNCATE TABLE|statement:DROP TABLE|statement:DROP DATABASE</field>
+    <description>Sigma: MSSQL Destructive Query</description>
+    <mitre>
+      <id>T1485</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="102025" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">33205</field>
+    <field name="win.eventdata.data">statement:ALTER SERVER AUDIT|statement:DROP SERVER AUDIT</field>
+    <description>Sigma: MSSQL Disable Audit Settings</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="110026" level="11">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">18456</field>
+    <description>Sigma: MSSQL Server Failed Logon From External Network</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="104521" level="10">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">33205</field>
+    <field name="win.eventdata.data">object_name:sp_procoption|statement:EXEC</field>
+    <description>Sigma: MSSQL SPProcoption Set</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102026" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">33205</field>
+    <field name="win.eventdata.data">object_name:xp_cmdshell|statement:EXEC</field>
+    <description>Sigma: MSSQL XPCmdshell Suspicious Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102027" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">15457</field>
+    <field name="win.eventdata.data">xp_cmdshell</field>
+    <description>Sigma: MSSQL XPCmdshell Option Change</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102028" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">Windows Error Reporting</field>
+    <field name="win.system.eventID">1001</field>
+    <field name="win.eventdata.data">MsMpEng\.exe|mpengine\.dll</field>
+    <description>Sigma: Microsoft Malware Protection Engine Crash - WER</description>
+    <mitre>
+      <id>T1211</id>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102030" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">412</field>
+    <description>Sigma: Deployment AppX Package Was Blocked By AppLocker</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102031" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">854</field>
+    <field name="win.eventdata.path">\.githubusercontent\.com|anonfiles\.com|cdn\.discordapp\.com|ddns\.net|dl\.dropboxusercontent\.com|ghostbin\.co|github\.com|glitch\.me|gofile\.io|hastebin\.com|mediafire\.com|mega\.nz|onrender\.com|pages\.dev|paste\.ee|pastebin\.com|pastebin\.pl|pastetext\.net|privatlab\.com|privatlab\.net|send\.exploit\.in|sendspace\.com|storage\.googleapis\.com|storjshare\.io|supabase\.co|temp\.sh|transfer\.sh|trycloudflare\.com|ufile\.io|w3spaces\.com|workers\.dev</field>
+    <description>Sigma: Remote AppX Package Downloaded from File Sharing or CDN Domain</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102032" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">401</field>
+    <field name="win.eventdata.errorCode">0x80073cff</field>
+    <description>Sigma: AppX Package Deployment Failed Due to Signing Requirements</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102033" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">854</field>
+    <field name="win.eventdata.path">:\PerfLogs\|:\Users\Public\|:\Windows\Temp\|\AppdData\Local\Temp\|\Desktop\|\Downloads\</field>
+    <description>Sigma: AppX Located in Known Staging Directory Added to Deployment Pipeline</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102034" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">400|401</field>
+    <field name="win.eventdata.packageFullName">3669e262-ec02-4e9d-bcb4-3d008b4afac9</field>
+    <description>Sigma: Potential Malicious AppX Package Installation Attempts</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102035" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">441|442|453|454</field>
+    <description>Sigma: Deployment Of The AppX Package Was Blocked By The Policy</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102036" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">854</field>
+    <description>Sigma: AppX Located in Uncommon Directory Added to Deployment Pipeline</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102037" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">400</field>
+    <field name="win.eventdata.hasFullTrust">True</field>
+    <description>Sigma: Windows AppX Deployment Full Trust Package Installation</description>
+    <mitre>
+      <id>T1204.002</id>
+      <id>T1553.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102038" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">603</field>
+    <field name="win.eventdata.flags">8388608</field>
+    <description>Sigma: Windows AppX Deployment Unsigned Package Installation</description>
+    <mitre>
+      <id>T1204.002</id>
+      <id>T1553.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102039" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">157</field>
+    <field name="win.eventdata.subjectName">CN=Foresee Consulting Inc\., O=Foresee Consulting Inc\., L=North York, S=Ontario, C=CA, SERIALNUMBER=1004913-1, OID\.1\.3\.6\.1\.4\.1\.311\.60\.2\.1\.3=CA, OID\.2\.5\.4\.15=Private Organization</field>
+    <description>Sigma: Suspicious Digital Signature Of AppX Package</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="110027" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">70</field>
+    <description>Sigma: Certificate Private Key Acquired</description>
+    <mitre>
+      <id>T1649</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="102042" level="8">
+    <if_sid>60016</if_sid>
+    <field name="win.system.eventID">2004|2071|2097</field>
+    <description>Sigma: Uncommon New Firewall Rule Added In Windows Firewall Exception List</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102043" level="9">
+    <if_sid>60016</if_sid>
+    <field name="win.system.eventID">2004|2071|2097</field>
+    <field name="win.eventdata.applicationPath">:\PerfLogs\|:\Temp\|:\Tmp\|:\Users\Public\|:\Windows\Tasks\|:\Windows\Temp\|\AppData\Local\Temp\</field>
+    <description>Sigma: New Firewall Rule Added In Windows Firewall Exception List For Potential Suspicious Application</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102044" level="8">
+    <if_sid>60016</if_sid>
+    <field name="win.system.eventID">2004|2071|2097</field>
+    <field name="win.eventdata.action">3</field>
+    <field name="win.eventdata.modifyingApplication">:\Windows\System32\wbem\WmiPrvSE\.exe$</field>
+    <description>Sigma: New Firewall Rule Added In Windows Firewall Exception List Via WmiPrvSE.EXE</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102045" level="9">
+    <if_sid>60016</if_sid>
+    <field name="win.system.eventID">2033|2059</field>
+    <description>Sigma: All Rules Have Been Deleted From The Windows Firewall Configuration</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102046" level="8">
+    <if_sid>60016</if_sid>
+    <field name="win.system.eventID">2006|2052</field>
+    <description>Sigma: A Rule Has Been Deleted From The Windows Firewall Exception List</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="104529" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">29</field>
+    <field name="win.eventdata.configuration">@logTargetW3C$</field>
+    <field name="win.eventdata.oldValue">ETW</field>
+    <description>Sigma: ETW Logging/Processing Option Disabled On IIS Server</description>
+    <mitre>
+      <id>T1685.001</id>
+      <id>T1505.004</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104530" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">29</field>
+    <field name="win.eventdata.configuration">/system\.webServer/httpLogging/@dontLog</field>
+    <field name="win.eventdata.newValue">true</field>
+    <description>Sigma: HTTP Logging Disabled On IIS Server</description>
+    <mitre>
+      <id>T1685.001</id>
+      <id>T1505.004</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104531" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">29</field>
+    <field name="win.eventdata.configuration">/system\.webServer/modules/add</field>
+    <description>Sigma: New Module Module Added To IIS Server</description>
+    <mitre>
+      <id>T1685.001</id>
+      <id>T1505.004</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102047" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.eventdata.">OabVirtualDirectory| -ExternalUrl </field>
+    <description>Sigma: ProxyLogon MSExchange OabVirtualDirectory</description>
+    <mitre>
+      <id>T1587.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="104532" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.eventdata.">New-ExchangeCertificate| -GenerateRequest| -BinaryEncoded| -RequestFile</field>
+    <description>Sigma: Certificate Request Export to Exchange Webserver</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104533" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.eventdata.">New-MailboxExportRequest| -Mailbox </field>
+    <description>Sigma: Mailbox Export to Exchange Webserver</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102048" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.eventdata.">Remove-MailboxExportRequest| -Identity | -Confirm "False"</field>
+    <description>Sigma: Remove Exported Mailbox from Exchange Webserver</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="104534" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.eventdata.">Set-OabVirtualDirectory|ExternalUrl|Page_Load|script</field>
+    <description>Sigma: Exchange Set OabVirtualDirectory ExternalUrl Property</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104535" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">6</field>
+    <field name="win.eventdata.data">Install-TransportAgent</field>
+    <description>Sigma: Failed MSExchange Transport Agent Installation</description>
+    <mitre>
+      <id>T1505.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104551" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">40300|40301|40302</field>
+    <description>Sigma: HybridConnectionManager Service Running</description>
+    <mitre>
+      <id>T1554</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="102106" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5101</field>
+    <description>Sigma: Windows Defender Grace Period Expired</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="110058" level="12">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">1121</field>
+    <field name="win.eventdata.path">\lsass\.exe$</field>
+    <description>Sigma: LSASS Access Detected via Attack Surface Reduction</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="102107" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">1121</field>
+    <field name="win.eventdata.processName">\wmiprvse\.exe$|\psexesvc\.exe$</field>
+    <description>Sigma: PSExec and WMI Process Creations Block</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102108" level="8">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5007</field>
+    <field name="win.eventdata.newValue">\Microsoft\Windows Defender\Exclusions</field>
+    <description>Sigma: Windows Defender Exclusions Added</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102109" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5007</field>
+    <field name="win.eventdata.newValue">\Users\Public\|\AppData\Local\Temp\|\Desktop\|\PerfLogs\|\Windows\Temp\</field>
+    <field name="win.eventdata.oldValue">\Windows Defender\Windows Defender Exploit Guard\Controlled Folder Access\ProtectedFolders\</field>
+    <description>Sigma: Windows Defender Exploit Guard Tamper</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102110" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5010</field>
+    <description>Sigma: Windows Defender Malware And PUA Scanning Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102111" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">1116</field>
+    <field name="win.eventdata.sourceName">AMSI</field>
+    <description>Sigma: Windows Defender AMSI Trigger Detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102112" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5001</field>
+    <description>Sigma: Windows Defender Real-time Protection Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102113" level="8">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">3002|3007</field>
+    <description>Sigma: Windows Defender Real-Time Protection Failure/Restart</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102114" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">1009</field>
+    <description>Sigma: Win Defender Restored Quarantine File</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102115" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5007</field>
+    <field name="win.eventdata.newValue">\Windows Defender\DisableAntiSpyware |\Windows Defender\Scan\DisableRemovableDriveScanning |\Windows Defender\Scan\DisableScanningMappedNetworkDrivesForFullScan |\Windows Defender\SpyNet\DisableBlockAtFirstSeen |\Real-Time Protection\SpyNetReporting </field>
+    <description>Sigma: Windows Defender Configuration Changes</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102116" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5013</field>
+    <field name="win.eventdata.value">\Windows Defender\DisableAntiSpyware$|\Windows Defender\DisableAntiVirus$|\Windows Defender\Scan\DisableArchiveScanning$|\Windows Defender\Scan\DisableScanningNetworkFiles$|\Real-Time Protection\DisableRealtimeMonitoring$|\Real-Time Protection\DisableBehaviorMonitoring$|\Real-Time Protection\DisableIOAVProtection$|\Real-Time Protection\DisableScriptScanning$</field>
+    <description>Sigma: Microsoft Defender Tamper Protection Trigger</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102117" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">1006|1015|1116|1117</field>
+    <description>Sigma: Windows Defender Threat Detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102118" level="9">
+    <if_sid>60005</if_sid>
+    <field name="win.system.eventID">5012</field>
+    <description>Sigma: Windows Defender Virus Scanning Feature Disabled</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

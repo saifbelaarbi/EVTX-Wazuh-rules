@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1543_create_modify_service,">
-  <rule id="102526" level="10">
+  <rule id="104527" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3077</field>
+    <description>Sigma: CodeIntegrity - Blocked Image/Driver Load For Policy Violation</description>
+    <mitre>
+      <id>T1543</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104528" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3023</field>
+    <description>Sigma: CodeIntegrity - Blocked Driver Load With Revoked Certificate</description>
+    <mitre>
+      <id>T1543</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104542" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.clientProcessId">0</field>
@@ -10,7 +28,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102536" level="10">
+  <rule id="104553" level="10">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.serviceName">KrbSCM</field>
@@ -20,7 +38,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102545" level="10">
+  <rule id="104562" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -31,7 +49,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102556" level="10">
+  <rule id="104574" level="10">
     <if_sid>61608</if_sid>
     <field name="win.eventdata.imageLoaded">\kprocesshacker\.sys$</field>
     <description>Sigma: PUA - Process Hacker Driver Load</description>
@@ -40,7 +58,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102557" level="10">
+  <rule id="104575" level="10">
     <if_sid>61608</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=821D74031D3F625BCBD0DF08B70F1E77|IMPHASH=F86759BB4DE4320918615DC06E998A39|IMPHASH=0A64EEB85419257D0CE32BD5D55C3A18|IMPHASH=6E7B34DFC017700B1517B230DF6FF0D0</field>
     <description>Sigma: PUA - Process Hacker Driver Load</description>
@@ -49,7 +67,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102558" level="9">
+  <rule id="104576" level="9">
     <if_sid>61608</if_sid>
     <field name="win.eventdata.imageLoaded">\SystemInformer\.sys$</field>
     <description>Sigma: PUA - System Informer Driver Load</description>
@@ -58,7 +76,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102559" level="9">
+  <rule id="104577" level="9">
     <if_sid>61608</if_sid>
     <field name="win.eventdata.hashes">SHA256=8B9AD98944AC9886EA4CB07700E71B78BE4A2740934BB7E46CA3B56A7C59AD24|SHA256=A41348BEC147CA4D9EA2869817527EB5CEA2E20202AF599D2B30625433BCF454|SHA256=38EE0A88AF8535A11EFE8D8DA9C6812AA07067B75A64D99705A742589BDD846D|SHA256=A773891ACF203A7EB0C0D30942FB1347648F1CD918AE2BFD9A4857B4DCF5081B|SHA256=4C3B81AC88A987BBDF7D41FA0AECC2CEDF5B9BD2F45E7A21F376D05345FC211D|SHA256=3241BC14BEC51CE6A691B9A3562E5C1D52E9D057D27A3D67FD0B245C350B6D34|SHA256=047C42E9BBA28366868847C7DAFC1E043FB038C796422D37220493517D68EE89|SHA256=18931DC81E95D0020466FA091E16869DBE824E543A4C2C8FE644FA71A0F44FEB|SHA256=B4C2EF76C204273132FDE38F0DED641C2C5EE767652E64E4C4071A4A973B6C1B|SHA256=640954AFC268565F7DAA6E6F81A8EE05311E33E34332B501A3C3FE5B22ADEA97|SHA256=251BE949F662C838718F8AA0A5F8211FB90346D02BD63FF91E6B224E0E01B656|SHA256=E2606F272F7BA054DF16BE464FDA57211EF0D14A0D959F9C8DCB0575DF1186E4|SHA256=3A9E1D17BEEB514F1B9B3BACAEE7420285DE5CBDCE89C5319A992C6CBD1DE138</field>
     <description>Sigma: PUA - System Informer Driver Load</description>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1070_indicator_removal,">
-  <rule id="101086" level="8">
+  <rule id="102048" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.eventdata.">Remove-MailboxExportRequest| -Identity | -Confirm "False"</field>
+    <description>Sigma: Remove Exported Mailbox from Exchange Webserver</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102131" level="8">
     <if_sid>61625</if_sid>
     <field name="win.eventdata.targetFilename">\.evtx$</field>
     <description>Sigma: EventLog EVTX File Deleted</description>
@@ -9,7 +18,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101087" level="9">
+  <rule id="102132" level="9">
     <if_sid>61625</if_sid>
     <field name="win.eventdata.targetFilename">_Cmdlet_</field>
     <description>Sigma: Exchange PowerShell Cmdlet History Deleted</description>
@@ -18,7 +27,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101088" level="8">
+  <rule id="102133" level="8">
     <if_sid>61625</if_sid>
     <field name="win.eventdata.targetFilename">\.log$</field>
     <description>Sigma: IIS WebServer Access Logs Deleted</description>
@@ -27,7 +36,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101090" level="8">
+  <rule id="102135" level="8">
     <if_sid>61625</if_sid>
     <field name="win.eventdata.targetFilename">\PSReadLine\ConsoleHost_history\.txt$</field>
     <description>Sigma: PowerShell Console History Logs Deleted</description>
@@ -36,7 +45,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101092" level="8">
+  <rule id="102137" level="8">
     <if_sid>61625</if_sid>
     <field name="win.eventdata.targetFilename">catalina\.|_access_log\.|localhost\.|\logs\</field>
     <description>Sigma: Tomcat WebServer Logs Deleted</description>
@@ -45,7 +54,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101170" level="8">
+  <rule id="102216" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">^C:\Windows\</field>
     <field name="win.eventdata.imageLoaded">^C:\Users\Public\|^C:\PerfLogs\</field>
@@ -55,7 +64,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101233" level="9">
+  <rule id="102282" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">ConsoleHost_history\.txt|\(Get-PSReadlineOption\)\.HistorySavePath</field>
     <description>Sigma: Clearing Windows Console History</description>
@@ -65,7 +74,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101240" level="9">
+  <rule id="102289" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Remove-EtwTraceProvider </field>
     <description>Sigma: Disable of ETW Trace - Powershell</description>
@@ -75,7 +84,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101241" level="9">
+  <rule id="102290" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Set-EtwTraceProvider |0x11</field>
     <description>Sigma: Disable of ETW Trace - Powershell</description>
@@ -85,7 +94,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102656" level="9">
+  <rule id="104674" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">delete|deletevalue|import|safeboot|network</field>
     <field name="win.eventdata.image">\bcdedit\.exe$</field>
@@ -96,7 +105,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101414" level="8">
+  <rule id="102463" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">unload</field>
     <field name="win.eventdata.image">\fltMC\.exe$</field>
@@ -108,7 +117,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101415" level="9">
+  <rule id="102464" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">unload|sysmon</field>
     <field name="win.eventdata.image">\fltMC\.exe$</field>
@@ -120,7 +129,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="111019" level="14">
+  <rule id="122020" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">deletejournal|createjournal|setZeroData</field>
     <field name="win.eventdata.image">\fsutil\.exe$</field>
@@ -131,7 +140,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="101504" level="8">
+  <rule id="102553" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\inetpub\logs\</field>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
@@ -141,7 +150,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101892" level="9">
+  <rule id="102941" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">cl|/Trace</field>
     <description>Sigma: ETW Trace Evasion Activity</description>
@@ -151,7 +160,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101893" level="9">
+  <rule id="102942" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">clear-log|/Trace</field>
     <description>Sigma: ETW Trace Evasion Activity</description>
@@ -161,7 +170,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101894" level="9">
+  <rule id="102943" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">sl|/e:false</field>
     <description>Sigma: ETW Trace Evasion Activity</description>
@@ -171,7 +180,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101895" level="9">
+  <rule id="102944" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">set-log|/e:false</field>
     <description>Sigma: ETW Trace Evasion Activity</description>
@@ -181,7 +190,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101896" level="9">
+  <rule id="102945" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">logman|update|trace|--p|-ets</field>
     <description>Sigma: ETW Trace Evasion Activity</description>
@@ -191,7 +200,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101897" level="9">
+  <rule id="102946" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Remove-EtwTraceProvider</field>
     <description>Sigma: ETW Trace Evasion Activity</description>
@@ -201,7 +210,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101898" level="9">
+  <rule id="102947" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Set-EtwTraceProvider|0x11</field>
     <description>Sigma: ETW Trace Evasion Activity</description>
@@ -211,7 +220,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="111035" level="14">
+  <rule id="122036" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\vssadmin\.exe$</field>
     <field name="win.eventdata.commandLine">unbounded|/MaxSize=|shadowstorage|quiet</field>
@@ -222,7 +231,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="102734" level="10">
+  <rule id="104752" level="10">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.eventType">DeleteValue</field>
     <field name="win.eventdata.targetObject">\Microsoft\Terminal Server Client\Default\MRU</field>
@@ -233,7 +242,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102735" level="10">
+  <rule id="104753" level="10">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.eventType">DeleteKey</field>
     <field name="win.eventdata.targetObject">\Microsoft\Terminal Server Client\Servers\</field>

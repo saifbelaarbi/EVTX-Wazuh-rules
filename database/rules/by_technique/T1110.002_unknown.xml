@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1110.002_unknown,">
-  <rule id="105163" level="12">
+  <rule id="110172" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-a |-m 1000 |-r </field>
     <description>Sigma: HackTool - Hashcat Password Cracker Execution</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105164" level="12">
+  <rule id="110173" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\hashcat\.exe$</field>
     <description>Sigma: HackTool - Hashcat Password Cracker Execution</description>

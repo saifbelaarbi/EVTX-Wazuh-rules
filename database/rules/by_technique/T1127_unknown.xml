@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1127_unknown,">
-  <rule id="101075" level="9">
+  <rule id="102120" level="9">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.sourceImage">\ttdinject\.exe$</field>
     <description>Sigma: Remote Thread Creation Ttdinject.exe Proxy</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="109026" level="10">
+  <rule id="118032" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\ArcSOC\.exe$</field>
     <field name="win.eventdata.targetFilename">\.ahk$|\.aspx$|\.au3$|\.bat$|\.cmd$|\.dll$|\.exe$|\.hta$|\.js$|\.ps1$|\.py$|\.vbe$|\.vbs$|\.wsf$</field>
@@ -21,7 +21,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="101328" level="8">
+  <rule id="102377" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\aspnet_compiler\.exe$</field>
     <description>Sigma: AspNetCompiler Execution</description>
@@ -30,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101329" level="9">
+  <rule id="102378" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\calc\.exe$|\notepad\.exe$</field>
     <field name="win.eventdata.parentImage">\aspnet_compiler\.exe$</field>
@@ -40,7 +40,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101330" level="9">
+  <rule id="102379" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\aspnet_compiler\.exe$</field>
     <field name="win.eventdata.commandLine">\Users\Public\|\AppData\Local\Temp\|\AppData\Local\Roaming\|:\Temp\|:\Windows\Temp\|:\Windows\System32\Tasks\|:\Windows\Tasks\</field>
@@ -50,7 +50,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101382" level="9">
+  <rule id="102431" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\csi\.exe$</field>
     <field name="win.eventdata.parentImage">\powershell\.exe$|\pwsh\.exe$|\powershell_ise\.exe$</field>
@@ -61,7 +61,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101505" level="8">
+  <rule id="102554" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /dll| /exe</field>
     <field name="win.eventdata.image">\ilasm\.exe$</field>
@@ -71,7 +71,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101513" level="9">
+  <rule id="102562" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> run run-cmd </field>
     <description>Sigma: Kavremover Dropped Binary LOLBIN Usage</description>
@@ -80,7 +80,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101538" level="8">
+  <rule id="102587" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\remote\.exe$</field>
     <description>Sigma: Use of Remote.exe</description>
@@ -89,7 +89,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101539" level="8">
+  <rule id="102588" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">remote\.exe</field>
     <description>Sigma: Use of Remote.exe</description>
@@ -98,7 +98,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101546" level="8">
+  <rule id="102595" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">ttdinject\.exe$</field>
     <description>Sigma: Use of TTDInject.exe</description>
@@ -107,7 +107,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101547" level="8">
+  <rule id="102596" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">TTDInject\.EXE</field>
     <description>Sigma: Use of TTDInject.exe</description>
@@ -116,7 +116,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101553" level="8">
+  <rule id="102602" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -p | -a </field>
     <field name="win.eventdata.image">\VSIISExeLauncher\.exe$</field>
@@ -126,7 +126,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101554" level="8">
+  <rule id="102603" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\wfc\.exe$</field>
     <description>Sigma: Use of Wfc.exe</description>
@@ -135,7 +135,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101555" level="8">
+  <rule id="102604" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">wfc\.exe</field>
     <description>Sigma: Use of Wfc.exe</description>
@@ -144,7 +144,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101558" level="8">
+  <rule id="102607" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\mftrace\.exe$</field>
     <description>Sigma: Potential Mftrace.EXE Abuse</description>
@@ -153,7 +153,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101596" level="9">
+  <rule id="102645" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\node\.exe$</field>
     <field name="win.eventdata.commandLine">\.exec\(|net\.socket|\.connect|child_process</field>
@@ -163,7 +163,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101597" level="8">
+  <rule id="102646" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\Adobe Creative Cloud Experience\libs\node\.exe$</field>
     <description>Sigma: Node Process Executions</description>

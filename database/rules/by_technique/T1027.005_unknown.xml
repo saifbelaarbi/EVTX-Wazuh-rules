@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1027.005_unknown,">
-  <rule id="101720" level="9">
+  <rule id="102769" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\DefenderCheck\.exe$</field>
     <description>Sigma: PUA - DefenderCheck Execution</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101721" level="9">
+  <rule id="102770" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">DefenderCheck</field>
     <description>Sigma: PUA - DefenderCheck Execution</description>

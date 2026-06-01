@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1560.001_unknown,">
-  <rule id="108018" level="7">
+  <rule id="116019" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.dmp|\.dump|\.hdmp</field>
     <field name="win.eventdata.description">7-Zip</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108019" level="7">
+  <rule id="116020" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -p</field>
     <field name="win.eventdata.description">7-Zip</field>
@@ -20,7 +20,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108029" level="8">
+  <rule id="116030" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
     <field name="win.eventdata.commandLine"> Järjestelmänvalvoja | Rendszergazda | Администратор | Administrateur | Administrador | Administratör | Administrator | guest | DefaultAccount | "Järjestelmänvalvoja" | "Rendszergazda" | "Администратор" | "Administrateur" | "Administrador" | "Administratör" | "Administrator" | "guest" | "DefaultAccount" | 'Järjestelmänvalvoja' | 'Rendszergazda' | 'Администратор' | 'Administrateur' | 'Administrador' | 'Administratör' | 'Administrator' | 'guest' | 'DefaultAccount' </field>
@@ -30,7 +30,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108034" level="8">
+  <rule id="116035" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -m| a </field>
     <description>Sigma: Rar Usage with Password and Compression Level</description>
@@ -39,7 +39,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108043" level="7">
+  <rule id="116044" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.dmp|\.dump|\.hdmp</field>
     <field name="win.eventdata.image">\rar\.exe$|\winrar\.exe$</field>
@@ -49,7 +49,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108044" level="7">
+  <rule id="116045" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\rar\.exe$|\winrar\.exe$</field>
     <description>Sigma: WinRAR Execution in Non-Standard Folder</description>
@@ -58,7 +58,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="108045" level="7">
+  <rule id="116046" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">winzip\.exe|winzip64\.exe</field>
     <description>Sigma: Compress Data and Lock With Password for Exfiltration With WINZIP</description>

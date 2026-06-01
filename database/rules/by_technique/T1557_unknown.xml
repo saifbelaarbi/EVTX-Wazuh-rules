@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1557_unknown,">
-  <rule id="111003" level="13">
+  <rule id="122003" level="13">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">4100</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Iphlpsvc</field>

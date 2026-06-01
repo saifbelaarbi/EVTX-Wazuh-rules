@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1547.010_unknown,">
-  <rule id="103311" level="10">
+  <rule id="106323" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Control\Print\Monitors\</field>
     <field name="win.eventdata.details">\.dll$</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103326" level="11">
+  <rule id="106338" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">_Classes\mscfile\shell\open\command\\(Default\)$</field>
     <description>Sigma: Bypass UAC Using Event Viewer</description>
@@ -19,7 +19,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103328" level="11">
+  <rule id="106340" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber$</field>
     <description>Sigma: Default RDP Port Changed to Non Standard Port</description>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1087_account_discovery,">
-  <rule id="106005" level="7">
+  <rule id="112006" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4776</field>
     <field name="win.eventdata.workstation">RULER</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106016" level="6">
+  <rule id="112017" level="6">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">True</field>
     <field name="win.eventdata.destinationPort">9389</field>
@@ -22,7 +22,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106066" level="7">
+  <rule id="112067" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -c | --cachefilename | -o | --outputdirectory</field>
     <description>Sigma: HackTool - SOAPHound Execution</description>
@@ -31,7 +31,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106074" level="7">
+  <rule id="112075" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">nslookup|_ldap\._tcp\.dc\._msdcs\.</field>
     <description>Sigma: Network Reconnaissance Activity</description>
@@ -41,7 +41,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106128" level="6">
+  <rule id="112129" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -d| -x| -s| -c| -g</field>
     <field name="win.eventdata.originalFileName">psloglist\.exe</field>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1574.007_unknown,">
-  <rule id="102638" level="10">
+  <rule id="104656" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">:\Windows \System32\|:\Windows \SysWOW64\</field>
     <description>Sigma: Trusted Path Bypass via Windows Directory Spoofing</description>

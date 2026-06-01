@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1547_boot_autostart,">
-  <rule id="103045" level="11">
+  <rule id="106057" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\Startup|\.lnk\.\{0AFACED1-E828-11D1-9187-B532F1E9575D\}</field>
     <field name="win.eventdata.image">\explorer\.exe$</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103201" level="10">
+  <rule id="106213" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-i|/install|-a|/add-driver|\.inf</field>
     <field name="win.eventdata.image">\pnputil\.exe$</field>
@@ -20,7 +20,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103202" level="11">
+  <rule id="106214" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">grpconv\.exe -o|grpconv -o</field>
     <description>Sigma: Suspicious GrpConv Execution</description>
@@ -29,7 +29,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103303" level="11">
+  <rule id="106315" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">RenameKey</field>
     <field name="win.eventdata.newName">\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E\}\shell\open</field>
@@ -39,7 +39,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103304" level="11">
+  <rule id="106316" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">SetValue</field>
     <field name="win.eventdata.targetObject">\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E\}\shell\open\command\\(Default\)</field>
@@ -49,7 +49,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103305" level="11">
+  <rule id="106317" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">Software\Microsoft\Windows\CurrentVersion\Run\Backup Mgr$</field>
     <description>Sigma: WINEKEY Registry Modification</description>

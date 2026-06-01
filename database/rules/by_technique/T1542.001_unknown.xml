@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1542.001_unknown,">
-  <rule id="102594" level="10">
+  <rule id="104612" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">C:\Windows\System32\wpbbin\.exe</field>
     <description>Sigma: UEFI Persistence Via Wpbbin - FileCreation</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102732" level="10">
+  <rule id="104750" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">C:\Windows\System32\wpbbin\.exe</field>
     <description>Sigma: UEFI Persistence Via Wpbbin - ProcessCreation</description>

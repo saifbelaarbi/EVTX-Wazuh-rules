@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1564.003_unknown,">
-  <rule id="101290" level="8">
+  <rule id="102339" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">powershell|WindowStyle|Hidden</field>
     <description>Sigma: Suspicious PowerShell WindowStyle Option</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101359" level="8">
+  <rule id="102408" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/b |/b"|/min |/min"</field>
     <field name="win.eventdata.image">\cmd\.exe$</field>
@@ -19,7 +19,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101711" level="8">
+  <rule id="102760" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">AdvancedRun\.exe</field>
     <description>Sigma: PUA - AdvancedRun Execution</description>
@@ -30,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101712" level="8">
+  <rule id="102761" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /EXEFilename | /Run</field>
     <description>Sigma: PUA - AdvancedRun Execution</description>
@@ -41,7 +41,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101713" level="8">
+  <rule id="102762" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /WindowState 0| /RunAs | /CommandLine </field>
     <description>Sigma: PUA - AdvancedRun Execution</description>

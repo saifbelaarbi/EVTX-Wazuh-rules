@@ -31,9 +31,11 @@ class SigmaConvertError(Exception):
 def _source_category_from_mapping(mapping: dict) -> str:
     """Derive a by_source view category from a Sigma logsource mapping."""
     channel = mapping.get("channel", "")
-    if channel in ("powershell", "security", "system"):
+    if channel in ("powershell", "security", "system", "sysmon"):
         return channel
-    return "sysmon"
+    if channel in ("application", "windefend", "firewall"):
+        return "application"
+    return "other"
 
 SIGMA_FIELD_TO_WAZUH_EXTENDED = {
     **SIGMA_FIELD_TO_WAZUH,

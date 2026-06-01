@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1587_unknown,">
-  <rule id="101484" level="9">
+  <rule id="102533" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">xyz123456\.exe|PurpleSharp</field>
     <description>Sigma: HackTool - PurpleSharp Execution</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101485" level="9">
+  <rule id="102534" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\purplesharp</field>
     <description>Sigma: HackTool - PurpleSharp Execution</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101486" level="9">
+  <rule id="102535" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">PurpleSharp\.exe</field>
     <description>Sigma: HackTool - PurpleSharp Execution</description>

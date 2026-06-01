@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1615_unknown,">
-  <rule id="106045" level="6">
+  <rule id="112046" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\gpresult\.exe$</field>
     <field name="win.eventdata.commandLine">/z|/v</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="102669" level="10">
+  <rule id="104687" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharpUp\.exe$</field>
     <description>Sigma: HackTool - SharpUp PrivEsc Tool Execution</description>
@@ -21,7 +21,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102670" level="10">
+  <rule id="104688" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">SharpUp</field>
     <description>Sigma: HackTool - SharpUp PrivEsc Tool Execution</description>
@@ -32,7 +32,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102671" level="10">
+  <rule id="104689" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">HijackablePaths|UnquotedServicePath|ProcessDLLHijack|ModifiableServiceBinaries|ModifiableScheduledTask|DomainGPPPassword|CachedGPPPassword</field>
     <description>Sigma: HackTool - SharpUp PrivEsc Tool Execution</description>
@@ -43,7 +43,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106069" level="6">
+  <rule id="112070" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">gatherNetworkInfo\.vbs</field>
     <field name="win.eventdata.image">\cscript\.exe$|\wscript\.exe$</field>
@@ -54,7 +54,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106121" level="7">
+  <rule id="112122" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">gatherNetworkInfo\.vbs</field>
     <description>Sigma: Suspicious Reconnaissance Activity Via GatherNetworkInfo.VBS</description>

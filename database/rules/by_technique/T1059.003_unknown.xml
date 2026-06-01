@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1059.003_unknown,">
-  <rule id="101275" level="8">
+  <rule id="102324" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Start-Process</field>
     <description>Sigma: Powershell Execute Batch Script</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101358" level="8">
+  <rule id="102407" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$</field>
     <field name="win.eventdata.commandLine">http|://|%AppData%</field>
@@ -21,7 +21,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101365" level="9">
+  <rule id="102414" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">/\.\./\.\./</field>
     <field name="win.eventdata.parentImage">\cmd\.exe$</field>
@@ -31,7 +31,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101369" level="8">
+  <rule id="102418" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">&lt;</field>
     <field name="win.eventdata.originalFileName">Cmd\.Exe</field>
@@ -41,7 +41,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101373" level="8">
+  <rule id="102422" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--pty</field>
     <field name="win.eventdata.parentImage">\ITSMService\.exe$</field>
@@ -54,7 +54,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101375" level="9">
+  <rule id="102424" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">conhost</field>
     <field name="win.eventdata.commandLine">/\.\./\.\./</field>
@@ -64,7 +64,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101433" level="13">
+  <rule id="102482" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">psinject|spawnas|make_token|remote-exec|rev2self|dcsync|logonpasswords|execute-assembly|getsystem</field>
     <field name="win.eventdata.originalFileName">Cmd\.Exe</field>
@@ -74,7 +74,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101434" level="13">
+  <rule id="102483" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Invoke-UserHunter|Invoke-ShareFinder|Invoke-Kerberoast|Invoke-SMBAutoBrute|Invoke-Nightmare|zerologon|av_query</field>
     <field name="win.eventdata.originalFileName">Cmd\.Exe</field>
@@ -84,7 +84,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101475" level="8">
+  <rule id="102524" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\cmd\.exe$</field>
     <field name="win.eventdata.parentCommandLine">\.bat$</field>
@@ -96,7 +96,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101476" level="9">
+  <rule id="102525" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/q|/c|chcp</field>
     <field name="win.eventdata.image">\cmd\.exe$</field>
@@ -108,7 +108,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101864" level="8">
+  <rule id="102913" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">for /f|tokens=|in \(|dir</field>
     <description>Sigma: Suspicious Usage of For Loop with Recursive Directory Search in CMD</description>
@@ -118,7 +118,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101865" level="8">
+  <rule id="102914" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">for /f|tokens=|in \(|dir</field>
     <description>Sigma: Suspicious Usage of For Loop with Recursive Directory Search in CMD</description>

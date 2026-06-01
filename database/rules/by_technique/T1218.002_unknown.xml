@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218.002_unknown,">
-  <rule id="103139" level="11">
+  <rule id="106151" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">add|CurrentVersion\Control Panel\CPLs</field>
     <field name="win.eventdata.image">\reg\.exe$</field>

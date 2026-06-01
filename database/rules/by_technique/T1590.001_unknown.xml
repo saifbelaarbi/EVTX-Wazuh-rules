@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1590.001_unknown,">
-  <rule id="106096" level="7">
+  <rule id="112097" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\Crassus\.exe$</field>
     <description>Sigma: PUA - Crassus Execution</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106097" level="7">
+  <rule id="112098" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">Crassus\.exe</field>
     <description>Sigma: PUA - Crassus Execution</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106098" level="7">
+  <rule id="112099" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Crassus</field>
     <description>Sigma: PUA - Crassus Execution</description>

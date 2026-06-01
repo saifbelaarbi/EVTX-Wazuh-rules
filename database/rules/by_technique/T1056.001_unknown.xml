@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1056.001_unknown,">
-  <rule id="105107" level="11">
+  <rule id="110116" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Get-Keystrokes</field>
     <description>Sigma: Powershell Keylogging</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105108" level="11">
+  <rule id="110117" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Get-ProcAddress user32\.dll GetAsyncKeyState|Get-ProcAddress user32\.dll GetForegroundWindow</field>
     <description>Sigma: Powershell Keylogging</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108014" level="7">
+  <rule id="116015" level="7">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">\[Windows\.Input\.Keyboard\]::IsKeyDown\(\[System\.Windows\.Input\.Key\]::</field>
     <description>Sigma: Potential Keylogger Activity</description>

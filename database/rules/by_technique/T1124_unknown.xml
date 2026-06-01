@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1124_unknown,">
-  <rule id="106129" level="7">
+  <rule id="112130" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/stripchart|/computer:|/period:|/dataonly|/samples:</field>
     <field name="win.eventdata.image">\w32tm\.exe$</field>

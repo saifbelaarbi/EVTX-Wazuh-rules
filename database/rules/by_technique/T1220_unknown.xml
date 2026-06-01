@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1220_unknown,">
-  <rule id="101174" level="8">
+  <rule id="102220" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\wmic\.exe$</field>
     <field name="win.eventdata.imageLoaded">\jscript\.dll$|\vbscript\.dll$</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101587" level="8">
+  <rule id="102636" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\msxsl\.exe$</field>
     <description>Sigma: Msxsl.EXE Execution</description>
@@ -19,7 +19,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101588" level="9">
+  <rule id="102637" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\msxsl\.exe$</field>
     <field name="win.eventdata.commandLine">http</field>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218.011_unknown,">
-  <rule id="101074" level="8">
+  <rule id="102119" level="8">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.sourceImage">\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.targetImage">\rundll32\.exe$|\regsvr32\.exe$</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101109" level="8">
+  <rule id="102154" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.scr$</field>
     <description>Sigma: SCR File Write Event</description>
@@ -20,7 +20,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101172" level="8">
+  <rule id="102218" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\InstallUtil\.exe$|\RegAsm\.exe$|\RegSvcs\.exe$|\regsvr32\.exe$|\rundll32\.exe$</field>
     <description>Sigma: Unsigned DLL Loaded by Windows Utility</description>
@@ -30,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101184" level="8">
+  <rule id="102230" level="8">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
     <field name="win.eventdata.initiated">true</field>
@@ -40,7 +40,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101188" level="8">
+  <rule id="102234" level="8">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\winlogon\.exe$</field>
     <field name="win.eventdata.initiated">true</field>
@@ -50,7 +50,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="105134" level="12">
+  <rule id="110143" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\TrolleyExpress 7|\TrolleyExpress 8|\TrolleyExpress 9|\TrolleyExpress\.exe 7|\TrolleyExpress\.exe 8|\TrolleyExpress\.exe 9|\TrolleyExpress\.exe -ma </field>
     <field name="win.eventdata.image">\TrolleyExpress\.exe$</field>
@@ -61,7 +61,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="101432" level="9">
+  <rule id="102481" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">rundll32\.exe|\.dll|StartNodeRelay</field>
     <description>Sigma: HackTool - F-Secure C3 Load by Rundll32</description>
@@ -70,7 +70,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101435" level="13">
+  <rule id="102484" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> StartW$|,StartW$</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -80,7 +80,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101532" level="8">
+  <rule id="102581" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">pcwutl|LaunchApplication</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -90,7 +90,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101815" level="8">
+  <rule id="102864" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">InstallScreenSaver</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -100,7 +100,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101822" level="8">
+  <rule id="102871" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\runonce\.exe$</field>
     <field name="win.eventdata.parentImage">\rundll32\.exe$</field>
@@ -111,7 +111,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101823" level="9">
+  <rule id="102872" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">%AppData%|%LocalAppData%|%Temp%|%tmp%|\AppData\|\Temp\|\Users\Public\|Control_RunDLL</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -121,7 +121,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101825" level="9">
+  <rule id="102874" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\rundll32\.exe$</field>
     <field name="win.eventdata.image">\explorer\.exe$</field>
@@ -131,7 +131,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101826" level="8">
+  <rule id="102875" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">javascript:|\.RegisterXLL</field>
     <description>Sigma: Potentially Suspicious Rundll32 Activity</description>
@@ -140,7 +140,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101827" level="9">
+  <rule id="102876" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
     <field name="win.eventdata.parentImage">\System32\control\.exe$</field>
@@ -150,7 +150,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101828" level="9">
+  <rule id="102877" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.bmp|\.cr2|\.eps|\.gif|\.ico|\.jpeg|\.jpg|\.nef|\.orf|\.png|\.raw|\.sr2|\.tif|\.tiff</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -160,7 +160,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101830" level="9">
+  <rule id="102879" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">#568|#570|#572|#576</field>
     <description>Sigma: Suspicious ShellExec_RunDLL Call Via Ordinal</description>
@@ -169,7 +169,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101831" level="9">
+  <rule id="102880" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.sys,|\.sys </field>
     <description>Sigma: Suspicious Rundll32 Activity Invoking Sys File</description>
@@ -178,7 +178,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101832" level="8">
+  <rule id="102881" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.udl$|,OpenDSLFile |\\Users\\.*\\Downloads\\</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -190,7 +190,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101834" level="8">
+  <rule id="102883" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
     <description>Sigma: Rundll32 Execution With Uncommon DLL Extension</description>
@@ -199,7 +199,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101854" level="9">
+  <rule id="102903" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regasm\.exe$</field>
     <field name="win.eventdata.commandLine">regasm\.exe$</field>
@@ -209,7 +209,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101855" level="9">
+  <rule id="102904" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regsvcs\.exe$</field>
     <field name="win.eventdata.commandLine">regsvcs\.exe$</field>
@@ -219,7 +219,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101856" level="9">
+  <rule id="102905" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
     <field name="win.eventdata.commandLine">regsvr32\.exe$</field>
@@ -229,7 +229,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101857" level="9">
+  <rule id="102906" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
     <field name="win.eventdata.commandLine">rundll32\.exe$</field>
@@ -239,7 +239,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101858" level="9">
+  <rule id="102907" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\WerFault\.exe$</field>
     <field name="win.eventdata.commandLine">WerFault\.exe$</field>
@@ -249,11 +249,22 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101921" level="9">
+  <rule id="102970" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Default\.GetString|DownloadString|FromBase64String|ICM |IEX |Invoke-Command|Invoke-Expression</field>
     <field name="win.eventdata.image">\InstallUtil\.exe$|\RegAsm\.exe$|\RegSvcs\.exe$|\regsvr32\.exe$|\rundll32\.exe$</field>
     <description>Sigma: Potential PowerShell Execution Via DLL</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103142" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.targetObject">\Control Panel\Desktop\SCRNSAVE\.EXE</field>
+    <field name="win.eventdata.details">\.scr$</field>
+    <description>Sigma: ScreenSaver Registry Key Set</description>
     <mitre>
       <id>T1218.011</id>
     </mitre>

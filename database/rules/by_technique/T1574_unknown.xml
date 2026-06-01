@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1574_unknown,">
-  <rule id="103215" level="10">
+  <rule id="106227" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\register-cimprovider\.exe$</field>
     <field name="win.eventdata.commandLine">-path|dll</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103217" level="10">
+  <rule id="106229" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
     <description>Sigma: Regsvr32 DLL Execution With Uncommon Extension</description>
@@ -19,7 +19,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103329" level="10">
+  <rule id="106341" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Microsoft\\.NETFramework\DbgManagedDebugger$</field>
     <description>Sigma: Potential Registry Persistence Attempt Via DbgManagedDebugger</description>
@@ -28,7 +28,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102815" level="10">
+  <rule id="104833" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Control\Print\Environments\Windows x64\Drivers|\Manufacturer</field>
     <field name="win.eventdata.details">\(Empty\)</field>

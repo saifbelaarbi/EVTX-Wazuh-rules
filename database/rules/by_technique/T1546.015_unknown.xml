@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1546.015_unknown,">
-  <rule id="103130" level="10">
+  <rule id="106142" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">::GetTypeFromCLSID\(|\.ShellExecute\(</field>
     <description>Sigma: Suspicious GetTypeFromCLSID ShellExecute</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103223" level="11">
+  <rule id="106235" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-sta |-localserver |\{|\}</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -19,7 +19,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103340" level="10">
+  <rule id="106352" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\DebugPath$</field>
     <description>Sigma: Potential Persistence Using DebugPath</description>
@@ -28,7 +28,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103341" level="10">
+  <rule id="106353" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\\(Default\)$</field>
     <description>Sigma: Potential Persistence Using DebugPath</description>
@@ -37,7 +37,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103342" level="11">
+  <rule id="106354" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\InprocServer32\\(Default\)$|\LocalServer32\\(Default\)$</field>
     <description>Sigma: COM Object Hijacking Via Modification Of Default System CLSID Default Value</description>
@@ -46,7 +46,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103343" level="10">
+  <rule id="106355" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">HKU\|Classes\CLSID\|\TreatAs</field>
     <description>Sigma: Potential COM Object Hijacking Via TreatAs Subkey - Registry</description>
@@ -55,7 +55,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103344" level="11">
+  <rule id="106356" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\CLSID\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6\}\InProcServer32\\(Default\)$</field>
     <description>Sigma: Potential PSFactoryBuffer COM Hijacking</description>
@@ -64,7 +64,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103348" level="10">
+  <rule id="106360" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">InprocServer32\\(Default\)$</field>
     <field name="win.eventdata.details">C:\WINDOWS\system32\scrobj\.dll</field>
@@ -74,7 +74,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103358" level="10">
+  <rule id="106370" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">TreatAs\\(Default\)$</field>
     <description>Sigma: COM Hijacking via TreatAs</description>

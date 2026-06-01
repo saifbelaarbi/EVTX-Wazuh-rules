@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1569.002_unknown,">
-  <rule id="101041" level="9">
+  <rule id="102071" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceFileName">powershell|pwsh</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101066" level="9">
+  <rule id="102098" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -21,7 +21,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101067" level="8">
+  <rule id="102099" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -32,7 +32,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101068" level="9">
+  <rule id="102100" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045|7036</field>
@@ -43,7 +43,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101069" level="8">
+  <rule id="102101" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -54,7 +54,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101070" level="8">
+  <rule id="102102" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -65,7 +65,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101071" level="8">
+  <rule id="102103" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -76,7 +76,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101100" level="8">
+  <rule id="102145" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\csexecsvc\.exe$</field>
     <description>Sigma: CSExec Service File Creation</description>
@@ -85,7 +85,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101123" level="8">
+  <rule id="102168" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\RemComSvc\.exe$</field>
     <description>Sigma: RemCom Service File Creation</description>
@@ -94,7 +94,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101191" level="8">
+  <rule id="102237" level="8">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\PAExec</field>
     <description>Sigma: PUA - PAExec Default Named Pipe</description>
@@ -103,7 +103,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101193" level="8">
+  <rule id="102239" level="8">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\PSEXESVC</field>
     <field name="win.eventdata.image">:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\Desktop\|\Downloads\</field>
@@ -113,7 +113,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101722" level="8">
+  <rule id="102771" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> execmd |\.exe script |\.exe shexec | runinteractive </field>
     <description>Sigma: PUA - NirCmd Execution</description>
@@ -122,7 +122,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101723" level="8">
+  <rule id="102772" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\NirCmd\.exe$</field>
     <description>Sigma: PUA - NirCmd Execution</description>
@@ -131,7 +131,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101724" level="8">
+  <rule id="102773" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">NirCmd\.exe</field>
     <description>Sigma: PUA - NirCmd Execution</description>
@@ -140,7 +140,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101725" level="9">
+  <rule id="102774" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> runassystem </field>
     <description>Sigma: PUA - NirCmd Execution As LOCAL SYSTEM</description>
@@ -149,7 +149,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101726" level="9">
+  <rule id="102775" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-U:S |-U:T |-U:E |-P:E |-M:S |-M:H |-U=S |-U=T |-U=E |-P=E |-M=S |-M=H |-ShowWindowMode:Hide</field>
     <field name="win.eventdata.image">\NSudo\.exe$|\NSudoLC\.exe$|\NSudoLG\.exe$</field>
@@ -159,10 +159,20 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101744" level="9">
+  <rule id="102793" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/exec=</field>
     <description>Sigma: PUA - RunXCmd Execution</description>
+    <mitre>
+      <id>T1569.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="103135" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\ImagePath$</field>
+    <field name="win.eventdata.details">powershell|pwsh</field>
+    <description>Sigma: PowerShell as a Service in Registry</description>
     <mitre>
       <id>T1569.002</id>
     </mitre>

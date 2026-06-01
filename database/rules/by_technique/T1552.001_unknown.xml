@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1552.001_unknown,">
-  <rule id="105066" level="12">
+  <rule id="110075" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\hive_sam_|\SAM-2021-|\SAM-2022-|\SAM-2023-|\SAM-haxx|\Sam\.save</field>
     <description>Sigma: HackTool - Typical HiveNightmare SAM File Export</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105067" level="12">
+  <rule id="110076" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">C:\windows\temp\sam</field>
     <description>Sigma: HackTool - Typical HiveNightmare SAM File Export</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105116" level="11">
+  <rule id="110125" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">ls| -R|select-string |-Pattern </field>
     <description>Sigma: Extracting Information with PowerShell</description>
@@ -27,7 +27,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="105214" level="11">
+  <rule id="110223" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">ConsoleHost_history\.txt|\(Get-PSReadLineOption\)\.HistorySavePath</field>
     <description>Sigma: Potential PowerShell Console History Access Attempt via History File</description>

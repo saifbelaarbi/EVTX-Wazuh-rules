@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1547.009_unknown,">
-  <rule id="103018" level="10">
+  <rule id="106026" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.objectType">File</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103036" level="10">
+  <rule id="106048" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">:\Windows\apppatch\Custom\|:\Windows\apppatch\CustomSDB\</field>
     <description>Sigma: New Custom Shim Database Created</description>
@@ -21,7 +21,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103038" level="11">
+  <rule id="106050" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">C:\program\.exe</field>
     <description>Sigma: Creation Exe for Service with Unquoted Path</description>
@@ -30,7 +30,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="103039" level="10">
+  <rule id="106051" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\desktop\.ini$</field>
     <description>Sigma: Desktop.INI Created by Uncommon Process</description>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1071.001_unknown,">
-  <rule id="109011" level="9">
+  <rule id="118017" level="9">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.queryName">\.v2\.argotunnel\.com$|protocol-v2\.argotunnel\.com$|trycloudflare\.com$|update\.argotunnel\.com$</field>
     <description>Sigma: Cloudflared Tunnels Related DNS Requests</description>
@@ -10,7 +10,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109013" level="9">
+  <rule id="118019" level="9">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.queryName">\.devtunnels\.ms$</field>
     <description>Sigma: DNS Query To Devtunnels Domain</description>
@@ -20,7 +20,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109022" level="9">
+  <rule id="118028" level="9">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.queryName">\.tunnels\.api\.visualstudio\.com$</field>
     <description>Sigma: DNS Query To Visual Studio Code Tunnels Domain</description>
@@ -29,7 +29,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="101179" level="9">
+  <rule id="102225" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">:\Windows\System32\dialer\.exe$</field>
     <field name="win.eventdata.initiated">true</field>
@@ -39,7 +39,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="109062" level="9">
+  <rule id="118068" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Invoke-WebRequest|Invoke-RestMethod| irm |iwr </field>
     <description>Sigma: Change User Agents with WebRequest</description>
@@ -48,7 +48,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109180" level="9">
+  <rule id="118186" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName"></field>
     <field name="win.eventdata.commandLine">\.exe tunnel$</field>
@@ -59,7 +59,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109181" level="9">
+  <rule id="118187" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine"> tunnel$</field>
     <field name="win.eventdata.image">\cmd\.exe$</field>
@@ -71,7 +71,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109182" level="9">
+  <rule id="118188" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.exe tunnel|--accept-server-license-terms</field>
     <description>Sigma: Visual Studio Code Tunnel Execution</description>
@@ -81,7 +81,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109183" level="9">
+  <rule id="118189" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\server\node\.exe$</field>
     <field name="win.eventdata.parentCommandLine">\.vscode-server</field>
@@ -93,7 +93,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109184" level="10">
+  <rule id="118190" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName"></field>
     <field name="win.eventdata.commandLine">\.exe tunnel$</field>
@@ -104,7 +104,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="109185" level="9">
+  <rule id="118191" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">tunnel |service|internal-run|tunnel-service\.log</field>
     <description>Sigma: Visual Studio Code Tunnel Service Installation</description>

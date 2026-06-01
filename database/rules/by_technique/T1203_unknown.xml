@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1203_unknown,">
-  <rule id="101180" level="9">
+  <rule id="102021" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-Audit-CVE|Audit-CVE</field>
+    <field name="win.system.eventID">1</field>
+    <description>Sigma: Audit CVE Event</description>
+    <mitre>
+      <id>T1203</id>
+      <id>T1068</id>
+      <id>T1211</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102226" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\eqnedt32\.exe$</field>
     <description>Sigma: Network Connection Initiated By Eqnedt32.EXE</description>
@@ -9,7 +21,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101181" level="8">
+  <rule id="102227" level="8">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\excel\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$|\wordview\.exe$</field>
     <field name="win.eventdata.initiated">true</field>
@@ -19,7 +31,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101512" level="8">
+  <rule id="102561" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">jre1\.|jdk1\.</field>
     <description>Sigma: Java Running with Remote Debugging</description>
@@ -28,7 +40,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102674" level="9">
+  <rule id="104692" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
     <field name="win.eventdata.parentImage">\KeyScrambler\.exe$</field>
@@ -39,7 +51,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="101845" level="9">
+  <rule id="102894" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\spoolsv\.exe$</field>
     <field name="win.eventdata.integrityLevel">System|S-1-16-16384</field>
@@ -50,7 +62,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101987" level="8">
+  <rule id="103036" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
     <field name="win.eventdata.parentImage">\WinRAR\.exe$</field>

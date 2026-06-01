@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1021.002_unknown,">
-  <rule id="102520" level="13">
+  <rule id="104536" level="13">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceFileName">ADMIN\$|\.exe</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="107016" level="10">
+  <rule id="114018" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -23,7 +23,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107017" level="11">
+  <rule id="114019" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.relativeTargetName">\Internet Explorer\iertutil\.dll$</field>
@@ -34,7 +34,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107018" level="11">
+  <rule id="114020" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -45,7 +45,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107019" level="11">
+  <rule id="114021" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -55,7 +55,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107020" level="11">
+  <rule id="114022" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4625|4624</field>
     <field name="win.eventdata.logonType">3</field>
@@ -67,7 +67,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107021" level="11">
+  <rule id="114023" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4776</field>
     <field name="win.eventdata.workstation">^[A-Za-z0-9]{16}$</field>
@@ -77,7 +77,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107022" level="11">
+  <rule id="114024" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceFileName">^%systemroot%\\[a-zA-Z]{8}\.exe$</field>
@@ -92,7 +92,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107024" level="11">
+  <rule id="114026" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">IPC</field>
@@ -103,7 +103,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107026" level="11">
+  <rule id="114028" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">C\$$</field>
@@ -114,7 +114,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107028" level="11">
+  <rule id="114030" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -125,7 +125,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107029" level="10">
+  <rule id="114031" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -137,7 +137,18 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="102535" level="13">
+  <rule id="114032" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">4000</field>
+    <field name="win.eventdata.shareName">IPC\$|ADMIN\$|C\$</field>
+    <field name="win.eventdata.signingUsed">false</field>
+    <description>Sigma: Unsigned or Unencrypted SMB Connection to Share Established</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="104552" level="13">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -149,7 +160,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="107032" level="11">
+  <rule id="114035" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -161,7 +172,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107033" level="11">
+  <rule id="114036" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">System</field>
     <field name="win.eventdata.targetFilename">\Internet Explorer\iertutil\.dll$</field>
@@ -172,7 +183,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="101102" level="9">
+  <rule id="102147" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\nxc-windows-latest\</field>
     <description>Sigma: HackTool - NetExec File Indicators</description>
@@ -182,7 +193,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101103" level="9">
+  <rule id="102148" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Temp\_MEI|\nxc\data\</field>
     <description>Sigma: HackTool - NetExec File Indicators</description>
@@ -192,7 +203,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="107038" level="11">
+  <rule id="114041" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\Internet Explorer\iexplore\.exe$</field>
     <field name="win.eventdata.imageLoaded">\Internet Explorer\iertutil\.dll$</field>
@@ -203,7 +214,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107042" level="10">
+  <rule id="114045" level="10">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\csexecsvc</field>
     <description>Sigma: PUA - CSExec Default Named Pipe</description>
@@ -213,7 +224,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107043" level="10">
+  <rule id="114046" level="10">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\RemCom</field>
     <description>Sigma: PUA - RemCom Default Named Pipe</description>
@@ -223,7 +234,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107047" level="10">
+  <rule id="114050" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-PSDrive|-psprovider |filesystem|-root |\\\\|\$</field>
     <description>Sigma: Suspicious New-PSDrive to Admin Share</description>
@@ -232,7 +243,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107051" level="11">
+  <rule id="114054" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharpMove\.exe$</field>
     <field name="win.eventdata.commandLine">action=create|action=dcom|action=executevbs|action=hijackdcom|action=modschtask|action=modsvc|action=query|action=scm|action=startservice|action=taskscheduler</field>
@@ -242,7 +253,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107058" level="10">
+  <rule id="114061" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> use | \\\\.*\\.*\$</field>
     <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
@@ -252,7 +263,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="107059" level="11">
+  <rule id="114062" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> use | http</field>
     <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
@@ -273,7 +284,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="101833" level="9">
+  <rule id="102882" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> \\\\</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -284,7 +295,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="107064" level="11">
+  <rule id="114067" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">rundll32\.exe|rundll32</field>
     <description>Sigma: Rundll32 Execution Without Parameters</description>
@@ -295,7 +306,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="102757" level="13">
+  <rule id="104775" level="13">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.details">ADMIN\$|\.exe</field>
     <field name="win.eventdata.targetObject">\System\CurrentControlSet\Services</field>
