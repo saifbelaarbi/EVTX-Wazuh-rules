@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <group name="windows,powershell,">
   <rule id="105017" level="11">
     <if_sid>91801</if_sid>
@@ -32,36 +32,36 @@
     <field name="win.eventdata.payload">invoke-mimikatz</field>
     <description>PowerShell module logging captured: 'invoke-mimikatz'</description>
     <mitre>
-      <id>T1055</id>
+      <id>T1003</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>credential_access,evtx_generated,</group>
   </rule>
   <rule id="104026" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">invoke-expression</field>
     <description>PowerShell module logging captured: 'invoke-expression'</description>
     <mitre>
-      <id>T1055</id>
+      <id>T1059</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,evtx_generated,</group>
   </rule>
   <rule id="104027" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">downloadstring</field>
     <description>PowerShell module logging captured: 'downloadstring'</description>
     <mitre>
-      <id>T1055</id>
+      <id>T1059</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>execution,evtx_generated,</group>
   </rule>
   <rule id="104028" level="13">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">sekurlsa::</field>
     <description>PowerShell module logging captured: 'sekurlsa::'</description>
     <mitre>
-      <id>T1055</id>
+      <id>T1003</id>
     </mitre>
-    <group>defense_evasion,evtx_generated,</group>
+    <group>credential_access,evtx_generated,</group>
   </rule>
   <rule id="105033" level="11">
     <if_sid>91801</if_sid>
@@ -77,18 +77,18 @@
     <field name="win.eventdata.scriptBlockText">invoke-wmimethod</field>
     <description>Suspicious PowerShell script block containing 'invoke-wmimethod'</description>
     <mitre>
-      <id>T1003</id>
+      <id>T1047</id>
     </mitre>
-    <group>credential_access,evtx_generated,</group>
+    <group>execution,evtx_generated,</group>
   </rule>
   <rule id="105035" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">stop-service</field>
     <description>Suspicious PowerShell script block containing 'stop-service'</description>
     <mitre>
-      <id>T1003</id>
+      <id>T1489</id>
     </mitre>
-    <group>credential_access,evtx_generated,</group>
+    <group>impact,evtx_generated,</group>
   </rule>
   <rule id="101560" level="8">
     <if_sid>91801</if_sid>

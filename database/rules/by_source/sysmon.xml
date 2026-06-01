@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <group name="windows,sysmon,">
   <rule id="101027" level="8">
     <if_sid>61613</if_sid>
@@ -26,15 +26,6 @@
       <id>T1055</id>
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
-  </rule>
-  <rule id="102017" level="9">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\public\</field>
-    <description>DLL loaded from suspicious path: \public\</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,evtx_generated,</group>
   </rule>
   <rule id="104008" level="9">
     <if_sid>61609</if_sid>
@@ -117,15 +108,6 @@
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="105014" level="11">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\public\</field>
-    <description>DLL loaded from suspicious path: \public\</description>
-    <mitre>
-      <id>T1003</id>
-    </mitre>
-    <group>credential_access,evtx_generated,</group>
-  </rule>
   <rule id="105024" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">procdump</field>
@@ -198,15 +180,6 @@
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="104020" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\appdata\</field>
-    <description>Executable file created in suspicious path: \appdata\</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
   <rule id="106003" level="7">
     <if_sid>61620</if_sid>
     <field name="win.eventdata.pipeName">\ntsvcs</field>
@@ -234,24 +207,6 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="101045" level="8">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\programdata\</field>
-    <description>DLL loaded from suspicious path: \programdata\</description>
-    <mitre>
-      <id>T1059</id>
-    </mitre>
-    <group>execution,evtx_generated,</group>
-  </rule>
-  <rule id="101048" level="8">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\programdata\</field>
-    <description>Executable file created in suspicious path: \programdata\</description>
-    <mitre>
-      <id>T1059</id>
-    </mitre>
-    <group>execution,evtx_generated,</group>
-  </rule>
   <rule id="101055" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">shadow copy</field>
@@ -270,73 +225,10 @@
     </mitre>
     <group>lateral_movement,evtx_generated,</group>
   </rule>
-  <rule id="107018" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\programdata\</field>
-    <description>Executable file created in suspicious path: \programdata\</description>
-    <mitre>
-      <id>T1021</id>
-    </mitre>
-    <group>lateral_movement,evtx_generated,</group>
-  </rule>
-  <rule id="107019" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\appdata\</field>
-    <description>Executable file created in suspicious path: \appdata\</description>
-    <mitre>
-      <id>T1021</id>
-    </mitre>
-    <group>lateral_movement,evtx_generated,</group>
-  </rule>
-  <rule id="107023" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\programdata\</field>
-    <description>DLL loaded from suspicious path: \programdata\</description>
-    <mitre>
-      <id>T1021</id>
-    </mitre>
-    <group>lateral_movement,evtx_generated,</group>
-  </rule>
-  <rule id="102030" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\programdata\</field>
-    <description>Executable file created in suspicious path: \programdata\</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,evtx_generated,</group>
-  </rule>
   <rule id="102031" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\downloads\</field>
     <description>Executable file created in suspicious path: \downloads\</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,evtx_generated,</group>
-  </rule>
-  <rule id="102032" level="9">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\programdata\</field>
-    <description>DLL loaded from suspicious path: \programdata\</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,evtx_generated,</group>
-  </rule>
-  <rule id="102033" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\temp\</field>
-    <description>Executable file created in suspicious path: \temp\</description>
-    <mitre>
-      <id>T1547</id>
-    </mitre>
-    <group>persistence,evtx_generated,</group>
-  </rule>
-  <rule id="102036" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\appdata\</field>
-    <description>Executable file created in suspicious path: \appdata\</description>
     <mitre>
       <id>T1547</id>
     </mitre>
@@ -396,24 +288,6 @@
     </mitre>
     <group>privilege_escalation,evtx_generated,</group>
   </rule>
-  <rule id="103010" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\temp\</field>
-    <description>Executable file created in suspicious path: \temp\</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
-  <rule id="103011" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\appdata\</field>
-    <description>Executable file created in suspicious path: \appdata\</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
   <rule id="103012" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\temp\</field>
@@ -445,15 +319,6 @@
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\public\</field>
     <description>Executable file created in suspicious path: \public\</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>privilege_escalation,evtx_generated,</group>
-  </rule>
-  <rule id="103022" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\public\</field>
-    <description>DLL loaded from suspicious path: \public\</description>
     <mitre>
       <id>T1548</id>
     </mitre>
@@ -495,28 +360,10 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="104029" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\temp\</field>
-    <description>Executable file created in suspicious path: \temp\</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>defense_evasion,evtx_generated,</group>
-  </rule>
   <rule id="107025" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\downloads\</field>
     <description>DLL loaded from suspicious path: \downloads\</description>
-    <mitre>
-      <id>T1021</id>
-    </mitre>
-    <group>lateral_movement,evtx_generated,</group>
-  </rule>
-  <rule id="107026" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\temp\</field>
-    <description>Executable file created in suspicious path: \temp\</description>
     <mitre>
       <id>T1021</id>
     </mitre>
@@ -569,15 +416,6 @@
       <id>T1071</id>
     </mitre>
     <group>command_and_control,evtx_generated,</group>
-  </rule>
-  <rule id="101565" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">psexesvc</field>
-    <description>Suspicious process 'psexesvc' execution detected</description>
-    <mitre>
-      <id>T1059</id>
-    </mitre>
-    <group>execution,evtx_generated,</group>
   </rule>
   <rule id="104034" level="10">
     <if_sid>61609</if_sid>
@@ -677,15 +515,6 @@
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">invoke-expression</field>
     <description>Suspicious command-line pattern 'invoke-expression' detected</description>
-    <mitre>
-      <id>T1059</id>
-    </mitre>
-    <group>execution,evtx_generated,</group>
-  </rule>
-  <rule id="101570" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">-nop </field>
-    <description>Suspicious command-line pattern '-nop ' detected</description>
     <mitre>
       <id>T1059</id>
     </mitre>

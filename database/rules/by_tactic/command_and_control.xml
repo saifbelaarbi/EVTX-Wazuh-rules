@@ -1,33 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <group name="windows,command_and_control,">
-  <rule id="109012" level="7">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4648</field>
-    <description>Logon with explicit credentials targeting localhost</description>
-    <mitre>
-      <id>T1071</id>
-    </mitre>
-    <group>command_and_control,evtx_generated,</group>
-  </rule>
-  <rule id="109013" level="7">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4672</field>
-    <description>Special privileges assigned to user: admin01</description>
-    <mitre>
-      <id>T1071</id>
-    </mitre>
-    <group>command_and_control,evtx_generated,</group>
-  </rule>
-  <rule id="109014" level="7">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4624</field>
-    <field name="win.eventdata.logonType">3</field>
-    <description>Remote logon type 3 detected</description>
-    <mitre>
-      <id>T1071</id>
-    </mitre>
-    <group>command_and_control,evtx_generated,</group>
-  </rule>
   <rule id="109015" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>

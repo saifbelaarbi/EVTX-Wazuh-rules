@@ -371,20 +371,6 @@
       "win.eventdata.grantedAccess": "0x1f1fff"
     }
   },
-  "105004": {
-    "description": "Suspicious command: -nop ",
-    "level": 11,
-    "tactic": "credential_access",
-    "technique_id": "T1003",
-    "technique_name": "Suspicious command: -nop ",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/discovery_sysmon_1_iis_pwd_and_config_discovery_appcmd.evtx",
-    "parent_sid": 61603,
-    "confidence": "medium",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.commandLine": "-nop "
-    }
-  },
   "105005": {
     "description": "LSASS memory access",
     "level": 12,
@@ -430,20 +416,6 @@
       "win.eventdata.grantedAccess": "0x1fffff"
     }
   },
-  "105008": {
-    "description": "Suspicious process: rundll32",
-    "level": 12,
-    "tactic": "credential_access",
-    "technique_id": "T1003",
-    "technique_name": "Suspicious process: rundll32",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx",
-    "parent_sid": 61603,
-    "confidence": "high",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.image": "rundll32"
-    }
-  },
   "105009": {
     "description": "LSASS memory access",
     "level": 12,
@@ -457,20 +429,6 @@
     "field_matches": {
       "win.eventdata.targetImage": "lsass",
       "win.eventdata.grantedAccess": "0x143a"
-    }
-  },
-  "104000": {
-    "description": "Suspicious process: rundll32",
-    "level": 10,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
-    "technique_name": "Suspicious process: rundll32",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/Sysmon 7  Update Session Orchestrator Dll Hijack.evtx",
-    "parent_sid": 61603,
-    "confidence": "high",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.image": "rundll32"
     }
   },
   "104001": {
@@ -678,20 +636,6 @@
       "win.eventdata.destinationPort": "55683"
     }
   },
-  "107002": {
-    "description": "Suspicious command: -nop ",
-    "level": 10,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "Suspicious command: -nop ",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_sysmon_psexec_smb_meterpreter.evtx",
-    "parent_sid": 61603,
-    "confidence": "medium",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.commandLine": "-nop "
-    }
-  },
   "107003": {
     "description": "Suspicious command: -w hidden",
     "level": 10,
@@ -720,20 +664,6 @@
       "win.eventdata.commandLine": "net user"
     }
   },
-  "107005": {
-    "description": "Suspicious process: rundll32",
-    "level": 11,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "Suspicious process: rundll32",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_wmi_PoisonHandler_Mr-Un1k0d3r_sysmon_1_13.evtx",
-    "parent_sid": 61603,
-    "confidence": "high",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.image": "rundll32"
-    }
-  },
   "107006": {
     "description": "Suspicious process: psexesvc",
     "level": 11,
@@ -746,34 +676,6 @@
     "created": "2026-04-27",
     "field_matches": {
       "win.eventdata.image": "psexesvc"
-    }
-  },
-  "102007": {
-    "description": "Suspicious process: psexesvc",
-    "level": 10,
-    "tactic": "persistence",
-    "technique_id": "T1547",
-    "technique_name": "Suspicious process: psexesvc",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx",
-    "parent_sid": 61603,
-    "confidence": "high",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.image": "psexesvc"
-    }
-  },
-  "102008": {
-    "description": "Suspicious process: rundll32",
-    "level": 10,
-    "tactic": "persistence",
-    "technique_id": "T1547",
-    "technique_name": "Suspicious process: rundll32",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx",
-    "parent_sid": 61603,
-    "confidence": "high",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.image": "rundll32"
     }
   },
   "102009": {
@@ -833,20 +735,6 @@
       "win.eventdata.image": "wmic"
     }
   },
-  "103000": {
-    "description": "Suspicious process: rundll32",
-    "level": 11,
-    "tactic": "privilege_escalation",
-    "technique_id": "T1548",
-    "technique_name": "Suspicious process: rundll32",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/privesc_unquoted_svc_sysmon_1_11.evtx",
-    "parent_sid": 61603,
-    "confidence": "high",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.image": "rundll32"
-    }
-  },
   "103001": {
     "description": "Suspicious command: bypass",
     "level": 10,
@@ -904,20 +792,6 @@
       "win.eventdata.image": "psexec"
     }
   },
-  "103004": {
-    "description": "Suspicious process: psexesvc",
-    "level": 11,
-    "tactic": "privilege_escalation",
-    "technique_id": "T1548",
-    "technique_name": "Suspicious process: psexesvc",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_psexec_dwell.evtx",
-    "parent_sid": 61603,
-    "confidence": "high",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.image": "psexesvc"
-    }
-  },
   "101019": {
     "description": "Suspicious process: psexec",
     "level": 9,
@@ -945,20 +819,6 @@
     "field_matches": {
       "win.eventdata.image": "psexec",
       "win.eventdata.queryName": "fs03vuln"
-    }
-  },
-  "100000": {
-    "description": "Failed logon attempt",
-    "level": 6,
-    "tactic": "initial_access",
-    "technique_id": "T1566",
-    "technique_name": "Failed logon attempt",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0001-Initial access/T1078-Valid accounts/ID4625-failed login with denied access due to account restriction.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.system.eventID": "4625"
     }
   },
   "101021": {
@@ -1061,20 +921,6 @@
       "win.eventdata.scriptBlockText": "set-mppreference -disablerealtimemonitoring"
     }
   },
-  "104006": {
-    "description": "Suspicious PowerShell: bypass",
-    "level": 9,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
-    "technique_name": "Suspicious PowerShell: bypass",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1562.004-Impair Defenses-Disable or Modify System Firewall/ID4103-4104-2004-OpenSSH firewall rule activation.evtx",
-    "parent_sid": 91801,
-    "confidence": "medium",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.scriptBlockText": "bypass"
-    }
-  },
   "105011": {
     "description": "Suspicious process: mimikatz",
     "level": 13,
@@ -1115,34 +961,6 @@
     "created": "2026-04-27",
     "field_matches": {
       "win.eventdata.scriptBlockText": "invoke-webrequest"
-    }
-  },
-  "106002": {
-    "description": "Suspicious PowerShell: bypass",
-    "level": 6,
-    "tactic": "discovery",
-    "technique_id": "T1087",
-    "technique_name": "Suspicious PowerShell: bypass",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0007-Discovery/T1016-System Network Configuration Discovery/ID800-4103-4104-Firewall configuration enumerated (PowerShell).evtx",
-    "parent_sid": 91801,
-    "confidence": "medium",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.scriptBlockText": "bypass"
-    }
-  },
-  "107007": {
-    "description": "Suspicious PowerShell: bypass",
-    "level": 10,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "Suspicious PowerShell: bypass",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0008-Lateral Movement/T1021.004-Remote Service SSH/ID4103-4104-OpenSSH server activation and config.evtx",
-    "parent_sid": 91801,
-    "confidence": "medium",
-    "created": "2026-04-27",
-    "field_matches": {
-      "win.eventdata.scriptBlockText": "bypass"
     }
   },
   "101023": {
@@ -1241,20 +1059,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.imageLoaded": "\\appdata\\"
-    }
-  },
-  "102017": {
-    "description": "DLL loaded from suspicious path",
-    "level": 9,
-    "tactic": "persistence",
-    "technique_id": "T1547",
-    "technique_name": "DLL loaded from suspicious path",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.evtx",
-    "parent_sid": 61609,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.imageLoaded": "\\public\\"
     }
   },
   "104008": {
@@ -1383,49 +1187,6 @@
       "win.eventdata.image": "mshta"
     }
   },
-  "109012": {
-    "description": "Explicit credential logon",
-    "level": 7,
-    "tactic": "command_and_control",
-    "technique_id": "T1071",
-    "technique_name": "Explicit credential logon",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Command and Control/DE_RDP_Tunnel_5156.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4648"
-    }
-  },
-  "109013": {
-    "description": "Special privilege assignment",
-    "level": 7,
-    "tactic": "command_and_control",
-    "technique_id": "T1071",
-    "technique_name": "Special privilege assignment",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Command and Control/DE_RDP_Tunnel_5156.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4672"
-    }
-  },
-  "109014": {
-    "description": "Remote logon (type 3)",
-    "level": 7,
-    "tactic": "command_and_control",
-    "technique_id": "T1071",
-    "technique_name": "Remote logon (type 3)",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Command and Control/DE_RDP_Tunnel_5156.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4624",
-      "win.eventdata.logonType": "3"
-    }
-  },
   "109015": {
     "description": "Remote logon (type 10)",
     "level": 7,
@@ -1441,20 +1202,6 @@
       "win.eventdata.logonType": "10"
     }
   },
-  "105014": {
-    "description": "DLL loaded from suspicious path",
-    "level": 11,
-    "tactic": "credential_access",
-    "technique_id": "T1003",
-    "technique_name": "DLL loaded from suspicious path",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_keefarce_keepass_credump.evtx",
-    "parent_sid": 61609,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.imageLoaded": "\\public\\"
-    }
-  },
   "105017": {
     "description": "Suspicious PowerShell: minidump",
     "level": 11,
@@ -1467,35 +1214,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.scriptBlockText": "minidump"
-    }
-  },
-  "105018": {
-    "description": "Remote logon (type 3)",
-    "level": 9,
-    "tactic": "credential_access",
-    "technique_id": "T1003",
-    "technique_name": "Remote logon (type 3)",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/Zerologon_VoidSec_CVE-2020-1472_4626_LT3_Anonym_follwedby_4742_DC_Anony_DC.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4624",
-      "win.eventdata.logonType": "3"
-    }
-  },
-  "105023": {
-    "description": "Special privilege assignment",
-    "level": 9,
-    "tactic": "credential_access",
-    "technique_id": "T1003",
-    "technique_name": "Special privilege assignment",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/remote_sam_registry_access_via_backup_operator_priv.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4672"
     }
   },
   "105024": {
@@ -1554,20 +1272,6 @@
       "win.eventdata.commandLine": "minidump"
     }
   },
-  "104012": {
-    "description": "User account created",
-    "level": 9,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
-    "technique_name": "User account created",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/DE_Fake_ComputerAccount_4720.evtx",
-    "parent_sid": 60100,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4720"
-    }
-  },
   "104013": {
     "description": "Executable dropped in downloads",
     "level": 9,
@@ -1594,21 +1298,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.imageLoaded": "\\downloads\\"
-    }
-  },
-  "104015": {
-    "description": "Remote logon (type 3)",
-    "level": 7,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
-    "technique_name": "Remote logon (type 3)",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/DE_suspicious_remote_eventlog_svc_access_5145.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4624",
-      "win.eventdata.logonType": "3"
     }
   },
   "104018": {
@@ -1639,20 +1328,6 @@
       "win.eventdata.targetFilename": "\\programdata\\"
     }
   },
-  "104020": {
-    "description": "Executable dropped in appdata",
-    "level": 9,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
-    "technique_name": "Executable dropped in appdata",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/sysmon_2_11_evasion_timestomp_MACE.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\appdata\\"
-    }
-  },
   "106003": {
     "description": "Suspicious named pipe: \\ntsvcs",
     "level": 7,
@@ -1681,35 +1356,6 @@
       "win.eventdata.pipeName": "\\scerpc"
     }
   },
-  "106005": {
-    "description": "Special privilege assignment",
-    "level": 4,
-    "tactic": "discovery",
-    "technique_id": "T1087",
-    "technique_name": "Special privilege assignment",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Discovery/dicovery_4661_net_group_domain_admins_target.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4672"
-    }
-  },
-  "106006": {
-    "description": "Remote logon (type 3)",
-    "level": 4,
-    "tactic": "discovery",
-    "technique_id": "T1087",
-    "technique_name": "Remote logon (type 3)",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Discovery/dicovery_4661_net_group_domain_admins_target.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4624",
-      "win.eventdata.logonType": "3"
-    }
-  },
   "101043": {
     "description": "DLL sideloading by msiexec",
     "level": 9,
@@ -1724,34 +1370,6 @@
       "win.eventdata.image": "msiexec"
     }
   },
-  "101045": {
-    "description": "DLL loaded from suspicious path",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "DLL loaded from suspicious path",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/evasion_execution_imageload_wuauclt_lolbas.evtx",
-    "parent_sid": 61609,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.imageLoaded": "\\programdata\\"
-    }
-  },
-  "101048": {
-    "description": "Executable dropped in programdata",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Executable dropped in programdata",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\programdata\\"
-    }
-  },
   "101055": {
     "description": "Suspicious command: shadow copy",
     "level": 8,
@@ -1764,20 +1382,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.commandLine": "shadow copy"
-    }
-  },
-  "101057": {
-    "description": "Scheduled task created",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Scheduled task created",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/temp_scheduled_task_4698_4699.evtx",
-    "parent_sid": 60100,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4698"
     }
   },
   "107008": {
@@ -1795,48 +1399,6 @@
       "win.eventdata.logonType": "3"
     }
   },
-  "107009": {
-    "description": "Special privilege assignment",
-    "level": 8,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "Special privilege assignment",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4672"
-    }
-  },
-  "107012": {
-    "description": "Scheduled task created",
-    "level": 10,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "Scheduled task created",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx",
-    "parent_sid": 60100,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4698"
-    }
-  },
-  "107013": {
-    "description": "Explicit credential logon",
-    "level": 8,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "Explicit credential logon",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_WMIC_4648_rpcss.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4648"
-    }
-  },
   "107014": {
     "description": "Suspicious named pipe: \\ntsvcs",
     "level": 11,
@@ -1849,48 +1411,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.pipeName": "\\ntsvcs"
-    }
-  },
-  "107018": {
-    "description": "Executable dropped in programdata",
-    "level": 10,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "Executable dropped in programdata",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_tsclient_startup_folder.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\programdata\\"
-    }
-  },
-  "107019": {
-    "description": "Executable dropped in appdata",
-    "level": 10,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "Executable dropped in appdata",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_tsclient_startup_folder.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\appdata\\"
-    }
-  },
-  "107023": {
-    "description": "DLL loaded from suspicious path",
-    "level": 10,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "DLL loaded from suspicious path",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/sharprdp_sysmon_7_mstscax.dll.evtx",
-    "parent_sid": 61609,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.imageLoaded": "\\programdata\\"
     }
   },
   "102029": {
@@ -1907,20 +1427,6 @@
       "win.system.eventID": "4732"
     }
   },
-  "102030": {
-    "description": "Executable dropped in programdata",
-    "level": 9,
-    "tactic": "persistence",
-    "technique_id": "T1547",
-    "technique_name": "Executable dropped in programdata",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\programdata\\"
-    }
-  },
   "102031": {
     "description": "Executable dropped in downloads",
     "level": 9,
@@ -1933,48 +1439,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.targetFilename": "\\downloads\\"
-    }
-  },
-  "102032": {
-    "description": "DLL loaded from suspicious path",
-    "level": 9,
-    "tactic": "persistence",
-    "technique_id": "T1547",
-    "technique_name": "DLL loaded from suspicious path",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.evtx",
-    "parent_sid": 61609,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.imageLoaded": "\\programdata\\"
-    }
-  },
-  "102033": {
-    "description": "Executable dropped in temp",
-    "level": 9,
-    "tactic": "persistence",
-    "technique_id": "T1547",
-    "technique_name": "Executable dropped in temp",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\temp\\"
-    }
-  },
-  "102036": {
-    "description": "Executable dropped in appdata",
-    "level": 9,
-    "tactic": "persistence",
-    "technique_id": "T1547",
-    "technique_name": "Executable dropped in appdata",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/sysmon_13_1_persistence_via_winlogon_shell.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\appdata\\"
     }
   },
   "102041": {
@@ -2075,77 +1539,6 @@
       "win.system.eventID": "4672"
     }
   },
-  "103007": {
-    "description": "Remote logon (type 3)",
-    "level": 8,
-    "tactic": "privilege_escalation",
-    "technique_id": "T1548",
-    "technique_name": "Remote logon (type 3)",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/NTLM2SelfRelay-med0x2e-security_4624_4688.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4624",
-      "win.eventdata.logonType": "3"
-    }
-  },
-  "103008": {
-    "description": "Scheduled task created",
-    "level": 10,
-    "tactic": "privilege_escalation",
-    "technique_id": "T1548",
-    "technique_name": "Scheduled task created",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/PrivEsc_SeImpersonatePriv_enabled_back_for_upnp_localsvc_4698.evtx",
-    "parent_sid": 60100,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4698"
-    }
-  },
-  "103009": {
-    "description": "Explicit credential logon",
-    "level": 8,
-    "tactic": "privilege_escalation",
-    "technique_id": "T1548",
-    "technique_name": "Explicit credential logon",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/Runas_4624_4648_Webshell_CreateProcessAsUserA.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4648"
-    }
-  },
-  "103010": {
-    "description": "Executable dropped in temp",
-    "level": 10,
-    "tactic": "privilege_escalation",
-    "technique_id": "T1548",
-    "technique_name": "Executable dropped in temp",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/Sysmon_UACME_22.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\temp\\"
-    }
-  },
-  "103011": {
-    "description": "Executable dropped in appdata",
-    "level": 10,
-    "tactic": "privilege_escalation",
-    "technique_id": "T1548",
-    "technique_name": "Executable dropped in appdata",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/Sysmon_UACME_22.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\appdata\\"
-    }
-  },
   "103012": {
     "description": "DLL loaded from suspicious path",
     "level": 10,
@@ -2216,20 +1609,6 @@
       "win.eventdata.targetFilename": "\\public\\"
     }
   },
-  "103022": {
-    "description": "DLL loaded from suspicious path",
-    "level": 10,
-    "tactic": "privilege_escalation",
-    "technique_id": "T1548",
-    "technique_name": "DLL loaded from suspicious path",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_uacbypass_CDSSync_schtask_hijack_byeintegrity5.evtx",
-    "parent_sid": 61609,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.imageLoaded": "\\public\\"
-    }
-  },
   "101060": {
     "description": "Suspicious named pipe: \\psexe",
     "level": 9,
@@ -2270,35 +1649,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.system.eventID": "4698"
-    }
-  },
-  "101063": {
-    "description": "Special privilege assignment",
-    "level": 6,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Special privilege assignment",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID4688,5140,5145-WMIexec execution via SMB (GLOBAL).evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4672"
-    }
-  },
-  "101064": {
-    "description": "Remote logon (type 3)",
-    "level": 6,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Remote logon (type 3)",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID4688,5140,5145-WMIexec execution via SMB (GLOBAL).evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4624",
-      "win.eventdata.logonType": "3"
     }
   },
   "102047": {
@@ -2355,336 +1705,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.payload": "iex("
-    }
-  },
-  "101069": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KIyBUaGlzIFBvd2Vyc2",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101070": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KIyBUaGlzIFBvd2Vyc2",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101071": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "hlbGwgc2NyaXB0IGluY2x1ZGVzIHRocmVlIG9wdGlvbnMgZm9yIEVQUyBkYXRhIGNvbGxlY3Rpb246DQojDQojIE9wdGlvbiAxKSBTY2FuIHRoZSBldmVudCBsb2cocykgb2YgdGhlIGxvY2FsIFdp",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101072": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "hlbGwgc2NyaXB0IGluY2x1ZGVzIHRocmVlIG9wdGlvbnMgZm9yIEVQUyBkYXRhIGNvbGxlY3Rpb246DQojDQojIE9wdGlvbiAxKSBTY2FuIHRoZSBldmVudCBsb2cocykgb2YgdGhlIGxvY2FsIFdp",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101073": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "bmRvd3MgaG9zdCB0byBkZXRlcm1pbmUgdGhlIEV2ZW50cyBQZXIgU2Vjb25kIA0KIyAgICAgICAgICAgKEVQUykgcmF0ZS4NCiMgT3B0aW9uIDIpIFNjYW4gYSBsaXN0IG9mIElQIGFkZHJlc3Nlcy",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101074": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "bmRvd3MgaG9zdCB0byBkZXRlcm1pbmUgdGhlIEV2ZW50cyBQZXIgU2Vjb25kIA0KIyAgICAgICAgICAgKEVQUykgcmF0ZS4NCiMgT3B0aW9uIDIpIFNjYW4gYSBsaXN0IG9mIElQIGFkZHJlc3Nlcy",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101075": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "Bwcm92aWRlZCBieSB0aGUgdXNlci4gVGhlIHJlbW90ZSBzeXN0ZW1zIEV2ZW50IExvZyhzKSBhcmUgDQojICAgICAgICAgICBzY2FubmVkIHRvIGRldGVybWluZSB0aGUgRXZlbnRzIFBlciBTZWNv",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101076": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "Bwcm92aWRlZCBieSB0aGUgdXNlci4gVGhlIHJlbW90ZSBzeXN0ZW1zIEV2ZW50IExvZyhzKSBhcmUgDQojICAgICAgICAgICBzY2FubmVkIHRvIGRldGVybWluZSB0aGUgRXZlbnRzIFBlciBTZWNv",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101077": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "bmQgKEVQUykgcmF0ZSBvZiBlYWNoIGhvc3QgaW4gdGhlIGxpc3QuDQojIE9wdGlvbiAzKSBTY2FuIHRoZSBsb2NhbCBkb21haW4gd2hlcmUgdGhlIHNjcmlwdCBpcyBydW4gdG8gZGV0ZXJtaW5lIH",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101078": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "bmQgKEVQUykgcmF0ZSBvZiBlYWNoIGhvc3QgaW4gdGhlIGxpc3QuDQojIE9wdGlvbiAzKSBTY2FuIHRoZSBsb2NhbCBkb21haW4gd2hlcmUgdGhlIHNjcmlwdCBpcyBydW4gdG8gZGV0ZXJtaW5lIH",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101079": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "RoZSBFdmVudHMgUGVyIFNlY29uZCAoRVBTKSANCiMgICAgICAgICAgIHJhdGUgb2YgYWxsIFdpbmRvd3MgaG9zdHMgd2l0aGluIHRoZSBkb21haW4uDQojDQojIE5vdGU6IFBvd2VyU2hlbGwgbXVz",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101080": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "RoZSBFdmVudHMgUGVyIFNlY29uZCAoRVBTKSANCiMgICAgICAgICAgIHJhdGUgb2YgYWxsIFdpbmRvd3MgaG9zdHMgd2l0aGluIHRoZSBkb21haW4uDQojDQojIE5vdGU6IFBvd2VyU2hlbGwgbXVz",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101081": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "dCBiZSBydW4gYXMgbG9jYWwgYWRtaW4gJiB1c2VycyBtdXN0IHJ1biBTZXQtRXhlY3V0aW9uUG9saWN5IFJlbW90ZVNpZ25lZA0KIyAgICAgICBUbyB1c2UgT3B0aW9uIDMgZm9yIGRvbWFpbiBzY2",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101082": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "dCBiZSBydW4gYXMgbG9jYWwgYWRtaW4gJiB1c2VycyBtdXN0IHJ1biBTZXQtRXhlY3V0aW9uUG9saWN5IFJlbW90ZVNpZ25lZA0KIyAgICAgICBUbyB1c2UgT3B0aW9uIDMgZm9yIGRvbWFpbiBzY2",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101083": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "FucywgUG93ZXJzaGVsbCBkb21haW4gY21kbGV0cyBuZWVkIHRvIGJlIGluc3RhbGxlZC4NCiMNCiMgUHJlLXJlcXVpc2l0ZXM6IFRoaXMgc2NyaXB0IHJlcXVpcmVzIFBvd2Vyc2hlbGwgMy4wIG9y",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101084": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "FucywgUG93ZXJzaGVsbCBkb21haW4gY21kbGV0cyBuZWVkIHRvIGJlIGluc3RhbGxlZC4NCiMNCiMgUHJlLXJlcXVpc2l0ZXM6IFRoaXMgc2NyaXB0IHJlcXVpcmVzIFBvd2Vyc2hlbGwgMy4wIG9y",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101085": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "IDQuMC4gUG93ZXJzaGVsbCBpcyB0aGUgcHJvcGVydHkgb2YNCiMgICAgICAgICAgICAgICAgTWljcm9zb2Z0LiBGb3IgbW9yZSBpbmZvcm1hdGlvbiBvbiBQb3dlcnNoZWxsIG9yIGRvd25sb2Fkcy",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101086": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "IDQuMC4gUG93ZXJzaGVsbCBpcyB0aGUgcHJvcGVydHkgb2YNCiMgICAgICAgICAgICAgICAgTWljcm9zb2Z0LiBGb3IgbW9yZSBpbmZvcm1hdGlvbiBvbiBQb3dlcnNoZWxsIG9yIGRvd25sb2Fkcy",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101087": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "wgc2VlIHRoZSBmb2xsb3dpbmcNCiMgICAgICAgICAgICAgICAgd2Vic2l0ZTogaHR0cHM6Ly90ZWNobmV0Lm1pY3Jvc29mdC5jb20vZW4tdXMvc2NyaXB0Y2VudGVyL2RkNzQyNDE5LmFzcHgNCiMN",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101088": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "wgc2VlIHRoZSBmb2xsb3dpbmcNCiMgICAgICAgICAgICAgICAgd2Vic2l0ZTogaHR0cHM6Ly90ZWNobmV0Lm1pY3Jvc29mdC5jb20vZW4tdXMvc2NyaXB0Y2VudGVyL2RkNzQyNDE5LmFzcHgNCiMN",
-      "win.eventdata.imagePath": "powershell"
-    }
-  },
-  "101089": {
-    "description": "Suspicious service path: cmd.exe /c",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: cmd.exe /c",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "CiMNCiMgQXV0aG9yczogIEphbWllIFdoZWF0b24gLy8gV2lsbGlhbSBEZWxvbmcNCiMgDQojDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy",
-      "win.eventdata.imagePath": "cmd.exe /c"
-    }
-  },
-  "101090": {
-    "description": "Suspicious service path: powershell",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious service path: powershell",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
-    "parent_sid": 60106,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.serviceName": "CiMNCiMgQXV0aG9yczogIEphbWllIFdoZWF0b24gLy8gV2lsbGlhbSBEZWxvbmcNCiMgDQojDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy",
-      "win.eventdata.imagePath": "powershell"
     }
   },
   "101091": {
@@ -9677,21 +8697,6 @@
       "win.eventdata.imagePath": "powershell"
     }
   },
-  "102048": {
-    "description": "Remote logon (type 3)",
-    "level": 7,
-    "tactic": "persistence",
-    "technique_id": "T1547",
-    "technique_name": "Remote logon (type 3)",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0003-Persistence/T1098.xxx-Account manipulation/ID4724-5145-password reset with setNTLM (Mimikatz).evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4624",
-      "win.eventdata.logonType": "3"
-    }
-  },
   "102049": {
     "description": "Account renamed",
     "level": 9,
@@ -9734,25 +8739,11 @@
       "win.eventdata.consumer": " \"Evil\""
     }
   },
-  "101559": {
-    "description": "Explicit credential logon",
-    "level": 6,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Explicit credential logon",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0004-Privilege Escalation/T1134-Access Token Manipulation/ID4688,4648,4624-Runas execution with different user.evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4648"
-    }
-  },
   "104025": {
     "description": "PowerShell module: invoke-mimikatz",
     "level": 13,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
+    "tactic": "credential_access",
+    "technique_id": "T1003",
     "technique_name": "PowerShell module: invoke-mimikatz",
     "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1027-Obfuscated Files or Information/ID4103-4104-CrackMapExec payload execution.evtx",
     "parent_sid": 91801,
@@ -9765,8 +8756,8 @@
   "104026": {
     "description": "PowerShell module: invoke-expression",
     "level": 9,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
+    "tactic": "execution",
+    "technique_id": "T1059",
     "technique_name": "PowerShell module: invoke-expression",
     "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1027-Obfuscated Files or Information/ID4103-4104-CrackMapExec payload execution.evtx",
     "parent_sid": 91801,
@@ -9779,8 +8770,8 @@
   "104027": {
     "description": "PowerShell module: downloadstring",
     "level": 9,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
+    "tactic": "execution",
+    "technique_id": "T1059",
     "technique_name": "PowerShell module: downloadstring",
     "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1027-Obfuscated Files or Information/ID4103-4104-CrackMapExec payload execution.evtx",
     "parent_sid": 91801,
@@ -9793,8 +8784,8 @@
   "104028": {
     "description": "PowerShell module: sekurlsa::",
     "level": 13,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
+    "tactic": "credential_access",
+    "technique_id": "T1003",
     "technique_name": "PowerShell module: sekurlsa::",
     "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1027-Obfuscated Files or Information/ID4103-4104-CrackMapExec payload execution.evtx",
     "parent_sid": 91801,
@@ -9802,34 +8793,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.payload": "sekurlsa::"
-    }
-  },
-  "104029": {
-    "description": "Executable dropped in temp",
-    "level": 9,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
-    "technique_name": "Executable dropped in temp",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1112-Modify registry/ID11,13-SMBexec service registration.evtx",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\temp\\"
-    }
-  },
-  "104030": {
-    "description": "Special privilege assignment",
-    "level": 7,
-    "tactic": "defense_evasion",
-    "technique_id": "T1055",
-    "technique_name": "Special privilege assignment",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense Evasion/T1112-Modify registry/ID4624,4670,4688,4674-Registry permission change via WMI (DAMP).evtx",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4672"
     }
   },
   "105033": {
@@ -9849,8 +8812,8 @@
   "105034": {
     "description": "Suspicious PowerShell: invoke-wmimethod",
     "level": 11,
-    "tactic": "credential_access",
-    "technique_id": "T1003",
+    "tactic": "execution",
+    "technique_id": "T1047",
     "technique_name": "Suspicious PowerShell: invoke-wmimethod",
     "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0006-Credential Access/T1003-Credential dumping/ID800-4103-4104-LSASS dump with LSASSY (PowerShell).evtx",
     "parent_sid": 91801,
@@ -9863,8 +8826,8 @@
   "105035": {
     "description": "Suspicious PowerShell: stop-service",
     "level": 11,
-    "tactic": "credential_access",
-    "technique_id": "T1003",
+    "tactic": "impact",
+    "technique_id": "T1489",
     "technique_name": "Suspicious PowerShell: stop-service",
     "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0006-Credential Access/T1003-Credential dumping/ID800-4103-4104-LSASS dump with LSASSY (PowerShell).evtx",
     "parent_sid": 91801,
@@ -9900,20 +8863,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.imageLoaded": "\\downloads\\"
-    }
-  },
-  "107026": {
-    "description": "Executable dropped in temp",
-    "level": 10,
-    "tactic": "lateral_movement",
-    "technique_id": "T1021",
-    "technique_name": "Executable dropped in temp",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/atomic/windows/lateral_movement/host/purplesharp_ad_playbook_I_2020-10-22042947.json",
-    "parent_sid": 61613,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.targetFilename": "\\temp\\"
     }
   },
   "107027": {
@@ -10071,20 +9020,6 @@
     "field_matches": {
       "win.eventdata.image": "psexec",
       "win.eventdata.destinationPort": "135"
-    }
-  },
-  "101565": {
-    "description": "Suspicious process: psexesvc",
-    "level": 9,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious process: psexesvc",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/apt29_evals_day1_manual_2020-05-01225525.json",
-    "parent_sid": 61603,
-    "confidence": "high",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.image": "psexesvc"
     }
   },
   "104034": {
@@ -10257,20 +9192,6 @@
     "created": "2026-04-28",
     "field_matches": {
       "win.eventdata.commandLine": "invoke-expression"
-    }
-  },
-  "101570": {
-    "description": "Suspicious command: -nop ",
-    "level": 8,
-    "tactic": "execution",
-    "technique_id": "T1059",
-    "technique_name": "Suspicious command: -nop ",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/apt29_evals_day1_manual_2020-05-01225525.json",
-    "parent_sid": 61603,
-    "confidence": "medium",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.eventdata.commandLine": "-nop "
     }
   },
   "101571": {
@@ -10825,20 +9746,6 @@
     "field_matches": {
       "win.eventdata.targetImage": "lsass",
       "win.eventdata.grantedAccess": "0x1038"
-    }
-  },
-  "102062": {
-    "description": "Special privilege assignment",
-    "level": 7,
-    "tactic": "persistence",
-    "technique_id": "T1547",
-    "technique_name": "Special privilege assignment",
-    "source_evtx": "/home/user/EVTX-Wazuh-rules/data/evtx_samples/Security-Datasets/datasets/extracted_windows/empire_persistence_registry_modification_run_keys_elevated_user_2020-07-22001847.json",
-    "parent_sid": 60100,
-    "confidence": "low",
-    "created": "2026-04-28",
-    "field_matches": {
-      "win.system.eventID": "4672"
     }
   },
   "102063": {
