@@ -86,7 +86,8 @@ def analyze(source):
 @cli.command("generate")
 @click.option("--source", default=None, help="Generate from specific EVTX source")
 @click.option("--auto-approve", is_flag=True, help="Skip review for high-confidence rules")
-def generate(source, auto_approve):
+@click.option("--diff-only", is_flag=True, help="Report what would change without writing")
+def generate(source, auto_approve, diff_only):
     """Generate Wazuh rules from EVTX samples (creates drafts by default)."""
     config = load_config()
     data_dir = PROJECT_ROOT / config["paths"]["evtx_data"]
@@ -148,6 +149,10 @@ def generate(source, auto_approve):
         console.print(f"[yellow]Validation warnings ({len(errors)}):[/]")
         for err in errors[:10]:
             console.print(f"  - {err}")
+
+    if diff_only:
+        console.print(f"\n[cyan]--diff-only:[/] would add/update {len(kept_rules)} rules. No files written.")
+        return
 
     if auto_approve:
         # Export directly to rule database
