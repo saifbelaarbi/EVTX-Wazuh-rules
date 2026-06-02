@@ -1,0 +1,58 @@
+# Composite / chained correlation rule templates.
+#
+# Each template describes a multi-stage attack chain that Wazuh detects with a
+# correlation rule (<if_matched_sid> + <frequency>/<timeframe> + <same_field>).
+#
+# The `if_sid` / `if_matched_sid` values are placeholders (0). Wire them to the
+# real Wazuh rule ids that fire for each stage before deploying. The builder
+# emits valid XML regardless so the rule shape can be reviewed/tested.
+#
+# Stage dict keys:
+#   if_sid:          a prerequisite rule that must have already fired
+#   if_matched_sid:  the rule whose repeated/correlated firing triggers the alert
+#   same_field:      Wazuh field that must match across correlated events
+#   comment:         human note describing the stage (ignored by the builder)
+
+- name: discovery_then_lateral_movement
+  description: Host/network discovery followed by remote logon by the same user within 5 minutes
+  tactic: lateral_movement
+  frequency: 2
+  timeframe: 300
+  level: 12
+  mitre_ids: [T1021, T1087]
+  stages:
+    - {if_sid: 0, comment: "discovery rule (e.g. net.exe / whoami enumeration)"}
+    - {if_matched_sid: 0, same_field: "win.eventdata.user", comment: "remote logon by same user"}
+
+- name: credential_access_then_exfil
+  description: Credential dumping followed by outbound data transfer from the same host within 5 minutes
+  tactic: exfiltration
+  frequency: 2
+  timeframe: 300
+  level: 13
+  mitre_ids: [T1003, T1041]
+  stages:
+    - {if_sid: 0, comment: "credential access rule (e.g. LSASS access / mimikatz)"}
+    - {if_matched_sid: 0, same_field: "win.system.computer", comment: "outbound transfer from same host"}
+
+- name: brute_force_then_logon
+  description: Repeated failed logons followed by a successful logon for the same account within 5 minutes
+  tactic: credential_access
+  frequency: 5
+  timeframe: 300
+  level: 12
+  mitre_ids: [T1110]
+  stages:
+    - {if_sid: 0, comment: "failed logon rule (Security 4625)"}
+    - {if_matched_sid: 0, same_field: "win.eventdata.targetUserName", comment: "successful logon same account"}
+
+- name: service_install_then_network
+  description: New service installation followed by an outbound network connection by the same image within 5 minutes
+  tactic: persistence
+  frequency: 2
+  timeframe: 300
+  level: 12
+  mitre_ids: [T1543, T1071]
+  stages:
+    - {if_sid: 0, comment: "service install rule (System 7045 / Sysmon)"}
+    - {if_matched_sid: 0, same_field: "win.eventdata.image", comment: "network connection same image"}
