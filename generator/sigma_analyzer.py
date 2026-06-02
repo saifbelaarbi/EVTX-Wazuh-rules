@@ -133,14 +133,19 @@ SIGMA_FIELD_TO_WAZUH = {
 
 
 def parse_sigma_rule(file_path: Path) -> dict | None:
-    """Parse a single Sigma YAML rule file."""
+    """Parse a single Sigma rule file (YAML or JSON; they map 1:1)."""
     try:
         with open(file_path) as f:
             content = f.read()
-        docs = list(yaml.safe_load_all(content))
-        if not docs:
-            return None
-        rule = docs[0]
+        if str(file_path).endswith(".json"):
+            import json
+
+            rule = json.loads(content)
+        else:
+            docs = list(yaml.safe_load_all(content))
+            if not docs:
+                return None
+            rule = docs[0]
         if not isinstance(rule, dict) or "title" not in rule:
             return None
         rule["_file_path"] = str(file_path)

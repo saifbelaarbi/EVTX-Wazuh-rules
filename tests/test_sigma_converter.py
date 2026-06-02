@@ -103,7 +103,30 @@ def test_re_passthrough():
 
 def test_windash():
     result = _apply_modifiers("-enc", ["windash"])
-    assert "[-/]" in result
+    assert "[-/" in result
+
+
+def test_cidr_modifier():
+    result = _apply_modifiers("10.0.0.0/8", ["cidr"])
+    assert result.startswith("^10\\.")
+
+
+def test_cidr_slash16():
+    result = _apply_modifiers("192.168.0.0/16", ["cidr"])
+    assert result.startswith("^192\\.168\\.")
+
+
+def test_base64offset_modifier():
+    # encodes 'cmd' in 3 offset variants, OR-joined
+    result = _apply_modifiers("cmd", ["base64offset", "contains"])
+    assert "|" in result
+    assert "cmd" not in result  # value is encoded, not literal
+
+
+def test_numeric_comparator_passthrough():
+    # Wazuh can't express inequalities; literal threshold is kept
+    result = _apply_modifiers("100", ["gt"])
+    assert "100" in result
 
 
 # ── Source category routing ──
@@ -244,6 +267,29 @@ def test_cloud_logsource_maps_to_wazuh_cloud_fields():
     from generator.sigma_converter import _resolve_field
 
     assert _resolve_field("eventName", channel="cloud") == "data.aws.eventName"
+
+
+# ── keywords detection ──
+
+
+def test_keywords_map_to_full_log():
+    rule = {
+        "title": "Keyword rule",
+        "level": "high",
+        "logsource": {"category": "process_creation"},
+        "detection": {
+            "keywords": ["mimikatz", "sekurlsa"],
+            "condition": "keywords",
+        },
+        "tags": ["attack.credential-access"],
+    }
+    with mock.patch("generator.sigma_converter.allocate_id", side_effect=range(100001, 100010)):
+        results = convert_sigma_rule(rule)
+    from lxml import etree
+
+    xml = " ".join(etree.tostring(r["xml_element"], encoding="unicode") for r in results)
+    assert "full_log" in xml
+    assert "mimikatz" in xml
 
 
 # ── Successful conversion ──

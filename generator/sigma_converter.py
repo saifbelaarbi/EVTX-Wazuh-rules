@@ -179,18 +179,72 @@ def _escape_osregex_with_globs(value: str) -> str:
     return "".join(out)
 
 
+def _cidr_to_regex(cidr: str) -> str:
+    """Best-effort CIDR -> Wazuh OS-regex prefix match (IPv4).
+
+    Wazuh <field> cannot do true CIDR maths, so we anchor on the network
+    portion implied by the prefix length (/8, /16, /24). Other prefixes fall
+    back to matching the leading octets present before the mask.
+    """
+    try:
+        net, bits = cidr.split("/")
+        bits = int(bits)
+        octets = net.split(".")
+    except (ValueError, IndexError):
+        return _escape_osregex_with_globs(cidr)
+    keep = {8: 1, 16: 2, 24: 3, 32: 4}.get(bits, max(1, bits // 8))
+    prefix = ".".join(octets[:keep])
+    return "^" + prefix.replace(".", "\\.") + "\\."
+
+
+def _base64_variants(value: str, utf16: bool = False) -> list[str]:
+    """Return the 3 base64offset encodings of a value (optionally UTF-16LE)."""
+    import base64
+
+    raw = value.encode("utf-16-le") if utf16 else value.encode()
+    variants = []
+    for off in range(3):
+        encoded = base64.b64encode(b"\x00" * off + raw).decode()
+        # Trim the bytes affected by the offset padding, like Sigma does.
+        start = (off * 8 + 5) // 6 if off else 0
+        end = len(encoded) - (len(encoded) % 4 if off else 0)
+        variants.append(encoded[start:end].rstrip("="))
+    return [v for v in dict.fromkeys(variants) if v]
+
+
 def _apply_modifiers(value: str, modifiers: list[str]) -> str:
-    """Convert a Sigma value + modifiers to a Wazuh OS regex pattern."""
+    """Convert a Sigma value + modifiers to a Wazuh OS regex pattern.
+
+    Supports the SigmaHQ modifier set: contains/startswith/endswith, re, cidr,
+    windash, base64/base64offset (+wide/utf16le), and numeric lt/lte/gt/gte
+    (best-effort, since Wazuh <field> regex cannot express true inequalities).
+    """
     # `re` values are raw regex; pass through untouched.
     if "re" in modifiers:
         return value
 
+    if "cidr" in modifiers:
+        return _cidr_to_regex(value)
+
+    # base64 family: match the encoded form(s) as an unanchored alternation.
+    if "base64offset" in modifiers or "base64" in modifiers:
+        utf16 = any(m in modifiers for m in ("wide", "utf16", "utf16le"))
+        variants = _base64_variants(value, utf16=utf16)
+        if variants:
+            return "|".join(_escape_osregex_with_globs(v) for v in variants)
+
     escaped = _escape_osregex_with_globs(value)
 
+    # Numeric comparators: Wazuh can't do inequalities in <field>; match the
+    # literal threshold so the rule is at least anchored on the boundary value.
+    if any(m in modifiers for m in ("lt", "lte", "gt", "gte")):
+        return escaped
+
     if "windash" in modifiers:
+        # Match Windows flag variants: - / and the unicode dashes – —.
         if escaped.startswith("-") or escaped.startswith("\\-"):
             clean = escaped.lstrip("\\-")
-            escaped = "[-/]" + clean
+            escaped = "[-/–—]" + clean
 
     # endswith/startswith anchor; contains/(none) stay unanchored substrings.
     if "endswith" in modifiers:
@@ -261,7 +315,8 @@ def _selection_to_field_matches(selection, modifiers_override=None) -> list[dict
             if isinstance(item, dict):
                 results.extend(_selection_to_field_matches(item, modifiers_override))
             else:
-                results.append({"_raw": str(item)})
+                # Bare 'keywords' string -> match Wazuh's decoded full_log.
+                results.append({"full_log": _escape_osregex_with_globs(str(item))})
         return results
 
     if not isinstance(selection, dict):
@@ -697,7 +752,8 @@ def convert_all(
     unsupported_condition, empty_rule_spec, parse_error, unexpected) and
     summarized so the skipped rules are explainable rather than opaque.
     """
-    yml_files = sorted(rules_dir.rglob("*.yml"))
+    yml_files = sorted(rules_dir.rglob("*.yml")) + sorted(rules_dir.rglob("*.yaml"))
+    yml_files += sorted(rules_dir.rglob("*.json"))
     console.print(f"[bold]Scanning {len(yml_files)} Sigma rule files...[/]")
 
     min_idx = SIGMA_LEVEL_ORDER.index(min_level) if min_level in SIGMA_LEVEL_ORDER else 0
