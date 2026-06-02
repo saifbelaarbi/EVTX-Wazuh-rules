@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1550.002_unknown,">
-  <rule id="114014" level="11">
+  <rule id="112514" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">9</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114015" level="10">
+  <rule id="112515" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.subjectUserSid">S-1-0-0</field>
@@ -25,7 +25,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114016" level="10">
+  <rule id="112516" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">9</field>
@@ -36,7 +36,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114033" level="10">
+  <rule id="112533" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">LsaSrv</field>
     <field name="win.system.eventID">6038|6039</field>

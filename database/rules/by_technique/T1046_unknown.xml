@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1046_unknown,">
-  <rule id="112013" level="6">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\Advanced IP Scanner 2</field>
-    <description>Sigma: Advanced IP Scanner - File Event</description>
-    <mitre>
-      <id>T1046</id>
-    </mitre>
-    <group>discovery,sigma_converted,</group>
-  </rule>
-  <rule id="112019" level="6">
-    <if_sid>61605</if_sid>
-    <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\python|\.exe</field>
-    <description>Sigma: Python Initiated Connection</description>
-    <mitre>
-      <id>T1046</id>
-    </mitre>
-    <group>discovery,sigma_converted,</group>
-  </rule>
-  <rule id="110115" level="12">
+  <rule id="108615" level="12">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Offline_Winpwn|WinPwn |WinPwn\.exe|WinPwn\.ps1</field>
     <description>Sigma: HackTool - WinPwn Execution - ScriptBlock</description>
@@ -30,7 +11,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="110210" level="12">
+  <rule id="108710" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Offline_Winpwn|WinPwn |WinPwn\.exe|WinPwn\.ps1</field>
     <description>Sigma: HackTool - WinPwn Execution</description>
@@ -41,7 +22,26 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="112089" level="6">
+  <rule id="111013" level="6">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\Advanced IP Scanner 2</field>
+    <description>Sigma: Advanced IP Scanner - File Event</description>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111019" level="6">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.image">\python|\.exe</field>
+    <description>Sigma: Python Initiated Connection</description>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111089" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/portable|/lng</field>
     <description>Sigma: PUA - Advanced IP Scanner Execution</description>
@@ -51,7 +51,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112090" level="6">
+  <rule id="111090" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\advanced_ip_scanner</field>
     <description>Sigma: PUA - Advanced IP Scanner Execution</description>
@@ -61,7 +61,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112091" level="6">
+  <rule id="111091" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">advanced_ip_scanner</field>
     <description>Sigma: PUA - Advanced IP Scanner Execution</description>
@@ -71,7 +71,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112092" level="6">
+  <rule id="111092" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Advanced IP Scanner</field>
     <description>Sigma: PUA - Advanced IP Scanner Execution</description>
@@ -81,7 +81,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112093" level="6">
+  <rule id="111093" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/portable|/lng</field>
     <description>Sigma: PUA - Advanced Port Scanner Execution</description>
@@ -91,7 +91,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112094" level="6">
+  <rule id="111094" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\advanced_port_scanner</field>
     <description>Sigma: PUA - Advanced Port Scanner Execution</description>
@@ -101,7 +101,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112095" level="6">
+  <rule id="111095" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">advanced_port_scanner</field>
     <description>Sigma: PUA - Advanced Port Scanner Execution</description>
@@ -111,7 +111,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112096" level="6">
+  <rule id="111096" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Advanced Port Scanner</field>
     <description>Sigma: PUA - Advanced Port Scanner Execution</description>
@@ -121,7 +121,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112100" level="6">
+  <rule id="111100" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\netscan\.exe$</field>
     <description>Sigma: PUA - SoftPerfect Netscan Execution</description>
@@ -130,7 +130,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112101" level="6">
+  <rule id="111101" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">Network Scanner</field>
     <description>Sigma: PUA - SoftPerfect Netscan Execution</description>
@@ -139,7 +139,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112102" level="6">
+  <rule id="111102" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Application for scanning networks</field>
     <description>Sigma: PUA - SoftPerfect Netscan Execution</description>
@@ -148,7 +148,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112103" level="6">
+  <rule id="111103" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\NimScan\.exe$</field>
     <description>Sigma: PUA - NimScan Execution</description>
@@ -157,7 +157,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112104" level="6">
+  <rule id="111104" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=41BB1C7571B3A724EB83A1D2B96DBB8C|IMPHASH=B1B6ADACB172795480179EFD18A29549|IMPHASH=0D1F896DC7642AD8384F9042F30279C2</field>
     <description>Sigma: PUA - NimScan Execution</description>
@@ -166,7 +166,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112105" level="6">
+  <rule id="111105" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\nmap\.exe$|\zennmap\.exe$</field>
     <description>Sigma: PUA - Nmap/Zenmap Execution</description>
@@ -175,7 +175,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112106" level="6">
+  <rule id="111106" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">nmap\.exe|zennmap\.exe</field>
     <description>Sigma: PUA - Nmap/Zenmap Execution</description>

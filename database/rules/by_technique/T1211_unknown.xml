@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1211_unknown,">
-  <rule id="102019" level="9">
+  <rule id="100019" level="9">
     <if_sid>60003</if_sid>
     <field name="win.eventdata.provider_Name">Application Error</field>
     <field name="win.system.eventID">1000</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102028" level="9">
+  <rule id="100028" level="9">
     <if_sid>60003</if_sid>
     <field name="win.eventdata.provider_Name">Windows Error Reporting</field>
     <field name="win.system.eventID">1001</field>

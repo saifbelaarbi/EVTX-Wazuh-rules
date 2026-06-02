@@ -17,7 +17,7 @@ A production-ready system for building and expanding a **Wazuh detection rule da
 | Sigma conversion errors | 2 |
 | Validation errors | 0 |
 | Test suite | 93 tests |
-| Logtest pass rate | 41.5% (93.1% EVTX stored, 29.6% Sigma synthetic) |
+| Logtest pass rate | 55.2% (93.1% EVTX stored, 46.5% Sigma synthetic) |
 
 ### Tactic Distribution
 
@@ -320,7 +320,7 @@ The `logtest` command validates rules against source events using a three-tier e
 | Resolution | Description | Pass Rate |
 |------------|-------------|-----------|
 | `stored` | Original trigger event persisted from EVTX parsing | 93.1% (619 rules) |
-| `synthetic` | Auto-generated event satisfying all field patterns | 29.6% (2,670 rules) |
+| `synthetic` | Auto-generated event satisfying all field patterns | 46.5% (2,670 rules) |
 | `reparsed` | Re-parses source EVTX to find matching event | Fallback |
 
 Events that cannot be resolved are marked **inconclusive** (no false passes from wrong-event fallback).

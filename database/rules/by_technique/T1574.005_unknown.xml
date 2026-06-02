@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1574.005_unknown,">
-  <rule id="106258" level="10">
+  <rule id="107258" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">C:\Windows\SysWOW64\setup16\.exe</field>
     <field name="win.eventdata.parentCommandLine"> -m </field>

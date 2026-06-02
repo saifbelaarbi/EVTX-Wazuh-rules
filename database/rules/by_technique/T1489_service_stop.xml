@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1489_service_stop,">
-  <rule id="122005" level="14">
+  <rule id="114001" level="13">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">stop-service</field>
+    <description>Suspicious PowerShell script block containing 'stop-service'</description>
+    <mitre>
+      <id>T1489</id>
+    </mitre>
+    <group>impact,evtx_generated,</group>
+  </rule>
+  <rule id="114005" level="14">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">141|142</field>
     <field name="win.eventdata.taskName">\Windows\SystemRestore\SR|\Windows\Windows Defender\|\Windows\BitLocker|\Windows\WindowsBackup\|\Windows\WindowsUpdate\|\Windows\UpdateOrchestrator\|\Windows\ExploitGuard</field>
@@ -10,7 +19,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122028" level="14">
+  <rule id="114028" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Windows\BitLocker|\Windows\ExploitGuard|\Windows\SystemRestore\SR|\Windows\UpdateOrchestrator\|\Windows\Windows Defender\|\Windows\WindowsBackup\|\Windows\WindowsUpdate\</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -20,7 +29,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122029" level="14">
+  <rule id="114029" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine"> /delete |/tn \.*| /f</field>
@@ -30,7 +39,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122030" level="14">
+  <rule id="114030" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Windows\BitLocker|\Windows\ExploitGuard|\Windows\ExploitGuard\ExploitGuard MDM policy Refresh|\Windows\SystemRestore\SR|\Windows\UpdateOrchestrator\|\Windows\Windows Defender\|\Windows\WindowsBackup\|\Windows\WindowsUpdate\</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -40,7 +49,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122035" level="14">
+  <rule id="114035" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> delete |\.delete\(\)| pause | stop |Stop-Service |Remove-Service </field>
     <field name="win.eventdata.originalFileName">net\.exe|net1\.exe|PowerShell_ISE\.EXE|PowerShell\.EXE|psservice\.exe|pwsh\.dll|sc\.exe|wmic\.exe</field>

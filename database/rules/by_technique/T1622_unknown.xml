@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1622_unknown,">
-  <rule id="112107" level="6">
+  <rule id="111107" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\ProcessHacker_</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
@@ -11,7 +11,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112108" level="6">
+  <rule id="111108" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\ProcessHacker\.exe$</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
@@ -22,7 +22,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112109" level="6">
+  <rule id="111109" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">ProcessHacker\.exe|Process Hacker</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
@@ -33,7 +33,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112110" level="6">
+  <rule id="111110" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Process Hacker</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
@@ -44,7 +44,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112111" level="6">
+  <rule id="111111" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">Process Hacker</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
@@ -55,7 +55,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112112" level="6">
+  <rule id="111112" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">MD5=68F9B52895F4D34E74112F3129B3B00D|MD5=B365AF317AE730A67C936F21432B9C71|SHA1=A0BDFAC3CE1880B32FF9B696458327CE352E3B1D|SHA1=C5E2018BF7C0F314FED4FD7FE7E69FA2E648359E|SHA256=D4A0FE56316A2C45B9BA9AC1005363309A3EDC7ACF9E4DF64D326A0FF273E80F|SHA256=BD2C2CF0631D881ED382817AFCCE2B093F4E412FFB170A719E2762F250ABFEA4|IMPHASH=3695333C60DEDECDCAFF1590409AA462|IMPHASH=04DE0AD9C37EB7BD52043D2ECAC958DF</field>
     <description>Sigma: PUA - Process Hacker Execution</description>

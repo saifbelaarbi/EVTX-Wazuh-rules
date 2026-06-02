@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1134.002_unknown,">
-  <rule id="106221" level="11">
+  <rule id="107221" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /RunAs 8 | /RunAs 4 | /RunAs 10 | /RunAs 11 </field>
     <description>Sigma: PUA - AdvancedRun Suspicious Execution</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106264" level="11">
+  <rule id="107264" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentUser">\NETWORK SERVICE$|\LOCAL SERVICE$</field>
     <field name="win.eventdata.user">\SYSTEM$|\Système$|\СИСТЕМА$</field>

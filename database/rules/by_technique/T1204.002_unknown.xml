@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1204.002_unknown,">
-  <rule id="102029" level="8">
+  <rule id="100029" level="8">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">8004|8007|8022|8025</field>
     <description>Sigma: AppLocker Prevented Application or Script from Running</description>
@@ -11,7 +11,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102037" level="8">
+  <rule id="100037" level="8">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">400</field>
     <field name="win.eventdata.hasFullTrust">True</field>
@@ -22,7 +22,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102038" level="8">
+  <rule id="100038" level="8">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">603</field>
     <field name="win.eventdata.flags">8388608</field>
@@ -33,7 +33,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102158" level="9">
+  <rule id="100158" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\excel\.exe$|\msaccess\.exe$|\mspub\.exe$|\powerpnt\.exe$|\visio\.exe$|\winword\.exe$</field>
     <field name="win.eventdata.targetFilename">\.bat$|\.cmd$|\.com$|\.dll$|\.exe$|\.hta$|\.ocx$|\.proj$|\.ps1$|\.scf$|\.scr$|\.sys$|\.vbe$|\.vbs$|\.wsf$|\.wsh$</field>
@@ -43,17 +43,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="106061" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.bat$|\.cmd$|\.dll$|\.hta$|\.jar$|\.js$|\.jse$|\.msi$|\.ps1$|\.psd1$|\.psm1$|\.scr$|\.url$|\.vba$|\.vbe$|\.vbs$|\.wsf$</field>
-    <description>Sigma: Suspicious Startup Folder Persistence</description>
-    <mitre>
-      <id>T1204.002</id>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="102207" level="8">
+  <rule id="100207" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\onenote\.exe$|\onenoteim\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
     <field name="win.eventdata.imageLoaded">^C:\Windows\assembly\</field>
@@ -63,7 +53,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102208" level="8">
+  <rule id="100208" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\outlook\.exe$|\onenote\.exe$|\onenoteim\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
     <field name="win.eventdata.imageLoaded">\clr\.dll</field>
@@ -73,7 +63,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102209" level="9">
+  <rule id="100209" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\onenote\.exe$|\onenoteim\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
     <field name="win.eventdata.imageLoaded">^C:\Windows\Microsoft\.NET\assembly\GAC_MSIL</field>
@@ -83,7 +73,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102210" level="8">
+  <rule id="100210" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\excel\.exe$</field>
     <field name="win.eventdata.imageLoaded">\.xll$</field>
@@ -93,7 +83,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102211" level="8">
+  <rule id="100211" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\outlook\.exe$</field>
     <field name="win.eventdata.imageLoaded">\outlvba\.dll$</field>
@@ -103,7 +93,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102213" level="9">
+  <rule id="100213" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\onenote\.exe$|\onenoteim\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
     <field name="win.eventdata.imageLoaded">\VBE7\.DLL$|\VBEUI\.DLL$|\VBE7INTL\.DLL$</field>
@@ -113,7 +103,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102214" level="8">
+  <rule id="100214" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
     <field name="win.eventdata.imageLoaded">^\\\\</field>
@@ -123,7 +113,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102361" level="9">
+  <rule id="100361" level="9">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.sourceImage">\winword\.exe$</field>
     <field name="win.eventdata.callTrace">:\Windows\Microsoft\.NET\Framework64\v2\.|UNKNOWN</field>
@@ -134,7 +124,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102609" level="9">
+  <rule id="100609" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">cod\.msc|fdp\.msc|ftr\.msc|lmth\.msc|slx\.msc|tdo\.msc|xcod\.msc|xslx\.msc|xtpp\.msc</field>
     <field name="win.eventdata.image">\mmc\.exe$</field>
@@ -146,7 +136,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102660" level="9">
+  <rule id="100660" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\OUTLOOK\.EXE$</field>
     <field name="win.eventdata.image">\AppVLP\.exe$|\bash\.exe$|\cmd\.exe$|\cscript\.exe$|\forfiles\.exe$|\hh\.exe$|\mftrace\.exe$|\msbuild\.exe$|\msdt\.exe$|\mshta\.exe$|\msiexec\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\schtasks\.exe$|\scrcons\.exe$|\scriptrunner\.exe$|\sh\.exe$|\svchost\.exe$|\wmic\.exe$|\wscript\.exe$</field>
@@ -156,7 +146,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102662" level="9">
+  <rule id="100662" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\WINWORD\.EXE$|\EXCEL\.EXE$|\POWERPNT\.exe$|\MSPUB\.exe$|\VISIO\.exe$|\MSACCESS\.exe$|\EQNEDT32\.exe$</field>
     <field name="win.eventdata.image">\.exe$</field>
@@ -166,7 +156,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102908" level="8">
+  <rule id="100908" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">Acrobat Reader|Microsoft Office|PDF Reader</field>
     <field name="win.eventdata.image">\brave\.exe$|\chrome\.exe$|\firefox\.exe$|\msedge\.exe$|\opera\.exe$|\maxthon\.exe$|\seamonkey\.exe$|\vivaldi\.exe$</field>
@@ -177,17 +167,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100027" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">                 |\u0009|\u000A|\u0011|\u0012|\u0013|\u000B|\u000C|\u000D</field>
-    <field name="win.eventdata.parentImage">\explorer\.exe$</field>
-    <description>Sigma: Suspicious LNK Command-Line Padding with Whitespace Characters</description>
-    <mitre>
-      <id>T1204.002</id>
-    </mitre>
-    <group>initial_access,sigma_converted,</group>
-  </rule>
-  <rule id="103056" level="9">
+  <rule id="101056" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\WINWORD\.EXE$|\EXCEL\.EXE$|\POWERPNT\.exe$|\MSPUB\.exe$|\VISIO\.exe$|\MSACCESS\.EXE$|\EQNEDT32\.EXE$|\ONENOTE\.EXE$|\wordpad\.exe$|\wordview\.exe$</field>
     <field name="win.eventdata.commandLine">regsvr32|rundll32|msiexec|mshta|verclsid|wscript|cscript|create|call</field>
@@ -199,5 +179,25 @@
       <id>T1218.010</id>
     </mitre>
     <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="107061" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.bat$|\.cmd$|\.dll$|\.hta$|\.jar$|\.js$|\.jse$|\.msi$|\.ps1$|\.psd1$|\.psm1$|\.scr$|\.url$|\.vba$|\.vbe$|\.vbs$|\.wsf$</field>
+    <description>Sigma: Suspicious Startup Folder Persistence</description>
+    <mitre>
+      <id>T1204.002</id>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="113027" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">                 |\u0009|\u000A|\u0011|\u0012|\u0013|\u000B|\u000C|\u000D</field>
+    <field name="win.eventdata.parentImage">\explorer\.exe$</field>
+    <description>Sigma: Suspicious LNK Command-Line Padding with Whitespace Characters</description>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
   </rule>
 </group>

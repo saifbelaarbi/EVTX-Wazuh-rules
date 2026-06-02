@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1548_abuse_elevation,">
-  <rule id="106014" level="11">
+  <rule id="107014" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">3</field>
@@ -13,7 +13,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106027" level="10">
+  <rule id="107027" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4674</field>
     <field name="win.eventdata.objectType">SC_MANAGER OBJECT</field>
@@ -25,7 +25,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106038" level="11">
+  <rule id="107038" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">NetLogon</field>
     <field name="win.system.eventID">5829</field>
@@ -35,7 +35,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106144" level="11">
+  <rule id="107144" level="11">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">\svchost\.exe$</field>
     <field name="win.eventdata.grantedAccess">0x143a</field>
@@ -45,7 +45,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106226" level="11">
+  <rule id="107226" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regedit\.exe$</field>
     <field name="win.eventdata.parentImage">\TrustedInstaller\.exe$|\ProcessHacker\.exe$</field>
@@ -55,7 +55,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106259" level="12">
+  <rule id="107259" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\cmd\.exe$</field>
     <field name="win.eventdata.parentImage">\winlogon\.exe$|\services\.exe$|\lsass\.exe$|\csrss\.exe$|\smss\.exe$|\wininit\.exe$|\spoolsv\.exe$|\searchindexer\.exe$</field>
@@ -66,7 +66,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106286" level="10">
+  <rule id="107286" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\mmc\.exe$</field>
     <field name="win.eventdata.parentCommandLine">WF\.msc</field>

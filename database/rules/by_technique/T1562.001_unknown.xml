@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1562.001_unknown,">
-  <rule id="108031" level="9">
+  <rule id="112031" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">set-mppreference -disablerealtimemonitoring</field>
     <description>Suspicious PowerShell script block containing 'set-mppreference -disablerealtimemonitoring'</description>

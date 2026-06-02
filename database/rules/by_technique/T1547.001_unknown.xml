@@ -1,74 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1547.001_unknown,">
-  <rule id="106053" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\msdt\.exe$</field>
-    <field name="win.eventdata.targetFilename">\Desktop\|\Start Menu\Programs\Startup\|C:\PerfLogs\|C:\ProgramData\|C:\Users\Public\</field>
-    <description>Sigma: File Creation In Suspicious Directory By Msdt.EXE</description>
+  <rule id="104000" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">currentversion\\run</field>
+    <description>Registry modification in persistence key: currentversion\run</description>
     <mitre>
       <id>T1547.001</id>
     </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
+    <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="106056" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.lnk$</field>
-    <description>Sigma: Potential Startup Shortcut Persistence Via PowerShell.EXE</description>
+  <rule id="104001" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">currentversion\\run</field>
+    <description>Registry modification in persistence key: currentversion\run</description>
     <mitre>
       <id>T1547.001</id>
     </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
+    <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="106058" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\StartUp</field>
-    <description>Sigma: Startup Folder File Write</description>
+  <rule id="104002" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">currentversion\\runonce</field>
+    <description>Registry modification in persistence key: currentversion\runonce</description>
     <mitre>
       <id>T1547.001</id>
     </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
+    <group>persistence,evtx_generated,</group>
   </rule>
-  <rule id="106077" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\WinRAR\.exe$|\Rar\.exe$</field>
-    <field name="win.eventdata.targetFilename">\Start Menu\Programs\Startup\</field>
-    <description>Sigma: WinRAR Creating Files in Startup Locations</description>
+  <rule id="104003" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">currentversion\\runonce</field>
+    <description>Registry modification in persistence key: currentversion\runonce</description>
     <mitre>
       <id>T1547.001</id>
     </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106147" level="11">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run| add </field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
-    <description>Sigma: Suspicious Autorun Registry Modified via WMI</description>
-    <mitre>
-      <id>T1547.001</id>
-      <id>T1047</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106222" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\reg\.exe$</field>
-    <field name="win.eventdata.commandLine">Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run| add </field>
-    <description>Sigma: Potential Persistence Attempt Via Run Keys Using Reg.EXE</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106223" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\software\Microsoft\Windows\CurrentVersion\Run|\software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run|\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit|\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell|\software\Microsoft\Windows NT\CurrentVersion\Windows|\system\CurrentControlSet\Control\SafeBoot\AlternateShell</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
-    <description>Sigma: Direct Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
+    <group>persistence,evtx_generated,</group>
   </rule>
   <rule id="104732" level="10">
     <if_sid>61603</if_sid>
@@ -81,202 +47,6 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106310" level="11">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.eventType">DeleteValue</field>
-    <field name="win.eventdata.targetObject">\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\DelegateExecute$</field>
-    <description>Sigma: Narrator's Feedback-Hub Persistence</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106311" level="11">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\\(Default\)$</field>
-    <description>Sigma: Narrator's Feedback-Hub Persistence</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106321" level="11">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.image">\AppData\Local\Packages\Microsoft\.Outlook_|\AppData\Local\Microsoft\Olk\Attachments\|\Downloads\|\Temporary Internet Files\Content\.Outlook\|\Local Settings\Temporary Internet Files\</field>
-    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
-    <description>Sigma: Suspicious Run Key from Download</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106324" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Folder\ShellEx\ExtShellFolderViews|\Folder\ShellEx\DragDropHandlers|\Folder\Shellex\ColumnHandlers|\Filter|\Exefile\Shell\Open\Command\\(Default\)|\Directory\Shellex\DragDropHandlers|\Directory\Shellex\CopyHookHandlers|\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\Instance|\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\Instance|\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\Instance|\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\Instance|\Classes\AllFileSystemObjects\ShellEx\DragDropHandlers|\\.exe|\\.cmd|\ShellEx\PropertySheetHandlers|\ShellEx\ContextMenuHandlers</field>
-    <description>Sigma: Classes Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106325" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Wow6432Node\Microsoft\Windows CE Services\AutoStart|\Software\Wow6432Node\Microsoft\Command Processor\Autorun|\SOFTWARE\Wow6432Node\Microsoft\Active Setup\Installed Components|\SOFTWARE\Microsoft\Windows CE Services\AutoStartOnDisconnect|\SOFTWARE\Microsoft\Windows CE Services\AutoStartOnConnect|\SYSTEM\Setup\CmdLine|\Software\Microsoft\Ctf\LangBarAddin|\Software\Microsoft\Command Processor\Autorun|\SOFTWARE\Microsoft\Active Setup\Installed Components|\SOFTWARE\Classes\Protocols\Handler|\SOFTWARE\Classes\Protocols\Filter|\SOFTWARE\Classes\Htmlfile\Shell\Open\Command\\(Default\)|\Environment\UserInitMprLogonScript|\SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop\Scrnsave\.exe|\Software\Microsoft\Internet Explorer\UrlSearchHooks|\SOFTWARE\Microsoft\Internet Explorer\Desktop\Components|\Software\Classes\Clsid\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5\}\Inprocserver32|\Control Panel\Desktop\Scrnsave\.exe</field>
-    <description>Sigma: Common Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106326" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Terminal Server\WinStations\RDP-Tcp\InitialProgram|\Terminal Server\Wds\rdpwd\StartupPrograms|\SecurityProviders\SecurityProviders|\SafeBoot\AlternateShell|\Print\Providers|\Print\Monitors|\NetworkProvider\Order|\Lsa\Notification Packages|\Lsa\Authentication Packages|\BootVerificationProgram\ImagePath</field>
-    <description>Sigma: CurrentControlSet Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106327" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\ShellServiceObjectDelayLoad|\Run\|\RunOnce\|\RunOnceEx\|\RunServices\|\RunServicesOnce\|\Policies\System\Shell|\Policies\Explorer\Run|\Group Policy\Scripts\Startup|\Group Policy\Scripts\Shutdown|\Group Policy\Scripts\Logon|\Group Policy\Scripts\Logoff|\Explorer\ShellServiceObjects|\Explorer\ShellIconOverlayIdentifiers|\Explorer\ShellExecuteHooks|\Explorer\SharedTaskScheduler|\Explorer\Browser Helper Objects|\Authentication\PLAP Providers|\Authentication\Credential Providers|\Authentication\Credential Provider Filters</field>
-    <description>Sigma: CurrentVersion Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106328" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion</field>
-    <description>Sigma: CurrentVersion NT Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106329" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Toolbar|\Extensions|\Explorer Bars</field>
-    <description>Sigma: Internet Explorer Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106330" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Wow6432Node\Microsoft\Office|\Software\Microsoft\Office</field>
-    <description>Sigma: Office Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106331" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SetupExecute|\S0InitialCommand|\KnownDlls|\Execute|\BootExecute|\AppCertDlls</field>
-    <description>Sigma: Session Manager Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-      <id>T1546.009</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106332" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Startup|\Shutdown|\Logon|\Logoff</field>
-    <description>Sigma: System Scripts Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106333" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Protocol_Catalog9\Catalog_Entries|\NameSpace_Catalog5\Catalog_Entries</field>
-    <description>Sigma: WinSock2 Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106334" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\ShellServiceObjectDelayLoad|\Run\|\RunOnce\|\RunOnceEx\|\RunServices\|\RunServicesOnce\|\Explorer\ShellServiceObjects|\Explorer\ShellIconOverlayIdentifiers|\Explorer\ShellExecuteHooks|\Explorer\SharedTaskScheduler|\Explorer\Browser Helper Objects</field>
-    <description>Sigma: Wow6432Node CurrentVersion Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106335" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Folder\ShellEx\ExtShellFolderViews|\Folder\ShellEx\DragDropHandlers|\Folder\ShellEx\ColumnHandlers|\Directory\Shellex\DragDropHandlers|\Directory\Shellex\CopyHookHandlers|\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\Instance|\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\Instance|\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\Instance|\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\Instance|\AllFileSystemObjects\ShellEx\DragDropHandlers|\ShellEx\PropertySheetHandlers|\ShellEx\ContextMenuHandlers</field>
-    <description>Sigma: Wow6432Node Classes Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106336" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion</field>
-    <description>Sigma: Wow6432Node Windows NT CurrentVersion Autorun Keys Modification</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106343" level="11">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\CustomSD$</field>
-    <description>Sigma: Windows Event Log Access Tampering Via Registry</description>
-    <mitre>
-      <id>T1547.001</id>
-      <id>T1112</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106344" level="11">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\ChannelAccess$</field>
-    <description>Sigma: Windows Event Log Access Tampering Via Registry</description>
-    <mitre>
-      <id>T1547.001</id>
-      <id>T1112</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106364" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
-    <field name="win.eventdata.details">powershell|pwsh |FromBase64String|\.DownloadFile\(|\.DownloadString\(| -w hidden | -w 1 |-windowstyle hidden|-window hidden| -nop | -encodedcommand |-ExecutionPolicy Bypass|Invoke-Expression|IEX \(|Invoke-Command|ICM -|Invoke-WebRequest|IWR |Invoke-RestMethod|IRM | -noni | -noninteractive </field>
-    <description>Sigma: Suspicious PowerShell In Registry Run Keys</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106365" level="11">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run$</field>
-    <field name="win.eventdata.details">:\\$Recycle\.bin\|:\ProgramData\|:\Temp\|:\Users\Default\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\</field>
-    <description>Sigma: Registry Persistence via Explorer Run Key</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106366" level="11">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
-    <description>Sigma: New RUN Key Pointing to Suspicious Folder</description>
-    <mitre>
-      <id>T1547.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104834" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Common Startup$|\Startup$</field>
@@ -286,7 +56,273 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106379" level="11">
+  <rule id="107053" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\msdt\.exe$</field>
+    <field name="win.eventdata.targetFilename">\Desktop\|\Start Menu\Programs\Startup\|C:\PerfLogs\|C:\ProgramData\|C:\Users\Public\</field>
+    <description>Sigma: File Creation In Suspicious Directory By Msdt.EXE</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107056" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.lnk$</field>
+    <description>Sigma: Potential Startup Shortcut Persistence Via PowerShell.EXE</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107058" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\StartUp</field>
+    <description>Sigma: Startup Folder File Write</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107077" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\WinRAR\.exe$|\Rar\.exe$</field>
+    <field name="win.eventdata.targetFilename">\Start Menu\Programs\Startup\</field>
+    <description>Sigma: WinRAR Creating Files in Startup Locations</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107147" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run| add </field>
+    <field name="win.eventdata.image">\wmic\.exe$</field>
+    <description>Sigma: Suspicious Autorun Registry Modified via WMI</description>
+    <mitre>
+      <id>T1547.001</id>
+      <id>T1047</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107222" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine">Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run| add </field>
+    <description>Sigma: Potential Persistence Attempt Via Run Keys Using Reg.EXE</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107223" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\software\Microsoft\Windows\CurrentVersion\Run|\software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run|\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit|\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell|\software\Microsoft\Windows NT\CurrentVersion\Windows|\system\CurrentControlSet\Control\SafeBoot\AlternateShell</field>
+    <field name="win.eventdata.image">\reg\.exe$</field>
+    <description>Sigma: Direct Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107310" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">DeleteValue</field>
+    <field name="win.eventdata.targetObject">\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\DelegateExecute$</field>
+    <description>Sigma: Narrator's Feedback-Hub Persistence</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107311" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\\(Default\)$</field>
+    <description>Sigma: Narrator's Feedback-Hub Persistence</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107321" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.image">\AppData\Local\Packages\Microsoft\.Outlook_|\AppData\Local\Microsoft\Olk\Attachments\|\Downloads\|\Temporary Internet Files\Content\.Outlook\|\Local Settings\Temporary Internet Files\</field>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
+    <description>Sigma: Suspicious Run Key from Download</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107324" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Folder\ShellEx\ExtShellFolderViews|\Folder\ShellEx\DragDropHandlers|\Folder\Shellex\ColumnHandlers|\Filter|\Exefile\Shell\Open\Command\\(Default\)|\Directory\Shellex\DragDropHandlers|\Directory\Shellex\CopyHookHandlers|\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\Instance|\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\Instance|\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\Instance|\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\Instance|\Classes\AllFileSystemObjects\ShellEx\DragDropHandlers|\\.exe|\\.cmd|\ShellEx\PropertySheetHandlers|\ShellEx\ContextMenuHandlers</field>
+    <description>Sigma: Classes Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107325" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Wow6432Node\Microsoft\Windows CE Services\AutoStart|\Software\Wow6432Node\Microsoft\Command Processor\Autorun|\SOFTWARE\Wow6432Node\Microsoft\Active Setup\Installed Components|\SOFTWARE\Microsoft\Windows CE Services\AutoStartOnDisconnect|\SOFTWARE\Microsoft\Windows CE Services\AutoStartOnConnect|\SYSTEM\Setup\CmdLine|\Software\Microsoft\Ctf\LangBarAddin|\Software\Microsoft\Command Processor\Autorun|\SOFTWARE\Microsoft\Active Setup\Installed Components|\SOFTWARE\Classes\Protocols\Handler|\SOFTWARE\Classes\Protocols\Filter|\SOFTWARE\Classes\Htmlfile\Shell\Open\Command\\(Default\)|\Environment\UserInitMprLogonScript|\SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop\Scrnsave\.exe|\Software\Microsoft\Internet Explorer\UrlSearchHooks|\SOFTWARE\Microsoft\Internet Explorer\Desktop\Components|\Software\Classes\Clsid\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5\}\Inprocserver32|\Control Panel\Desktop\Scrnsave\.exe</field>
+    <description>Sigma: Common Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107326" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Terminal Server\WinStations\RDP-Tcp\InitialProgram|\Terminal Server\Wds\rdpwd\StartupPrograms|\SecurityProviders\SecurityProviders|\SafeBoot\AlternateShell|\Print\Providers|\Print\Monitors|\NetworkProvider\Order|\Lsa\Notification Packages|\Lsa\Authentication Packages|\BootVerificationProgram\ImagePath</field>
+    <description>Sigma: CurrentControlSet Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107327" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\ShellServiceObjectDelayLoad|\Run\|\RunOnce\|\RunOnceEx\|\RunServices\|\RunServicesOnce\|\Policies\System\Shell|\Policies\Explorer\Run|\Group Policy\Scripts\Startup|\Group Policy\Scripts\Shutdown|\Group Policy\Scripts\Logon|\Group Policy\Scripts\Logoff|\Explorer\ShellServiceObjects|\Explorer\ShellIconOverlayIdentifiers|\Explorer\ShellExecuteHooks|\Explorer\SharedTaskScheduler|\Explorer\Browser Helper Objects|\Authentication\PLAP Providers|\Authentication\Credential Providers|\Authentication\Credential Provider Filters</field>
+    <description>Sigma: CurrentVersion Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107328" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion</field>
+    <description>Sigma: CurrentVersion NT Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107329" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Toolbar|\Extensions|\Explorer Bars</field>
+    <description>Sigma: Internet Explorer Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107330" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Wow6432Node\Microsoft\Office|\Software\Microsoft\Office</field>
+    <description>Sigma: Office Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107331" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SetupExecute|\S0InitialCommand|\KnownDlls|\Execute|\BootExecute|\AppCertDlls</field>
+    <description>Sigma: Session Manager Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+      <id>T1546.009</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107332" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Startup|\Shutdown|\Logon|\Logoff</field>
+    <description>Sigma: System Scripts Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107333" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Protocol_Catalog9\Catalog_Entries|\NameSpace_Catalog5\Catalog_Entries</field>
+    <description>Sigma: WinSock2 Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107334" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\ShellServiceObjectDelayLoad|\Run\|\RunOnce\|\RunOnceEx\|\RunServices\|\RunServicesOnce\|\Explorer\ShellServiceObjects|\Explorer\ShellIconOverlayIdentifiers|\Explorer\ShellExecuteHooks|\Explorer\SharedTaskScheduler|\Explorer\Browser Helper Objects</field>
+    <description>Sigma: Wow6432Node CurrentVersion Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107335" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Folder\ShellEx\ExtShellFolderViews|\Folder\ShellEx\DragDropHandlers|\Folder\ShellEx\ColumnHandlers|\Directory\Shellex\DragDropHandlers|\Directory\Shellex\CopyHookHandlers|\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\Instance|\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\Instance|\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\Instance|\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\Instance|\AllFileSystemObjects\ShellEx\DragDropHandlers|\ShellEx\PropertySheetHandlers|\ShellEx\ContextMenuHandlers</field>
+    <description>Sigma: Wow6432Node Classes Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107336" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion</field>
+    <description>Sigma: Wow6432Node Windows NT CurrentVersion Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107343" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\CustomSD$</field>
+    <description>Sigma: Windows Event Log Access Tampering Via Registry</description>
+    <mitre>
+      <id>T1547.001</id>
+      <id>T1112</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107344" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\ChannelAccess$</field>
+    <description>Sigma: Windows Event Log Access Tampering Via Registry</description>
+    <mitre>
+      <id>T1547.001</id>
+      <id>T1112</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107364" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
+    <field name="win.eventdata.details">powershell|pwsh |FromBase64String|\.DownloadFile\(|\.DownloadString\(| -w hidden | -w 1 |-windowstyle hidden|-window hidden| -nop | -encodedcommand |-ExecutionPolicy Bypass|Invoke-Expression|IEX \(|Invoke-Command|ICM -|Invoke-WebRequest|IWR |Invoke-RestMethod|IRM | -noni | -noninteractive </field>
+    <description>Sigma: Suspicious PowerShell In Registry Run Keys</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107365" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run$</field>
+    <field name="win.eventdata.details">:\\$Recycle\.bin\|:\ProgramData\|:\Temp\|:\Users\Default\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\</field>
+    <description>Sigma: Registry Persistence via Explorer Run Key</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107366" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
+    <description>Sigma: New RUN Key Pointing to Suspicious Folder</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107379" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">Software\Microsoft\Windows\CurrentVersion</field>
     <field name="win.eventdata.details">vbscript:|jscript:|mshtml,|RunHTMLApplication|Execute\(|CreateObject|window\.close</field>

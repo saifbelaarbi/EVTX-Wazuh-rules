@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1012_unknown,">
-  <rule id="112002" level="6">
+  <rule id="111002" level="6">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656|4663</field>
     <field name="win.eventdata.objectType">Key</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112003" level="6">
+  <rule id="111003" level="6">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656|4663</field>
     <field name="win.eventdata.objectType">Key</field>
@@ -22,7 +22,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112009" level="7">
+  <rule id="111009" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656</field>
     <field name="win.eventdata.objectType">Key</field>
@@ -34,7 +34,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112012" level="7">
+  <rule id="111012" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656|4663</field>
     <field name="win.eventdata.objectType">key</field>
@@ -45,7 +45,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112115" level="6">
+  <rule id="111115" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">currentVersion\windows|winlogon\|currentVersion\shellServiceObjectDelayLoad|currentVersion\run|currentVersion\policies\explorer\run|currentcontrolset\services</field>
     <field name="win.eventdata.image">\reg\.exe$</field>
@@ -56,7 +56,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="120031" level="13">
+  <rule id="114531" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\system$|\sam$|\security$</field>
     <field name="win.eventdata.image">\regedit\.exe$</field>

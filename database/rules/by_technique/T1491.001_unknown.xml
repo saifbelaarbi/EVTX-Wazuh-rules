@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1491.001_unknown,">
-  <rule id="122043" level="14">
+  <rule id="114043" level="14">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\LegalNoticeCaption|\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\LegalNoticeText</field>
     <field name="win.eventdata.details">encrypted|Unlock-Password|paying</field>

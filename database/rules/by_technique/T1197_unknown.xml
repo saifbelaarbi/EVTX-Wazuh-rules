@@ -116,4 +116,13 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
+  <rule id="112004" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">bitsadmin</field>
+    <description>Suspicious process 'bitsadmin' execution detected</description>
+    <mitre>
+      <id>T1197</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
 </group>

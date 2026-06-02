@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1590_unknown,">
-  <rule id="102130" level="8">
+  <rule id="100130" level="8">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.queryName">www\.ip\.cn|l2\.io</field>
     <description>Sigma: Suspicious DNS Query for IP Lookup Service APIs</description>

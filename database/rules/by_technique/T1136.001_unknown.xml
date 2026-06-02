@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1136.001_unknown,">
+  <rule id="104008" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4720</field>
+    <description>New user account created: $</description>
+    <mitre>
+      <id>T1136.001</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
   <rule id="104539" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4720</field>

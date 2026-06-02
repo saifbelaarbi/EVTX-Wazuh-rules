@@ -1,28 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1137_unknown,">
-  <rule id="106054" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\outlook\.exe$</field>
-    <field name="win.eventdata.targetFilename">\Microsoft\Outlook\VbaProject\.OTM$</field>
-    <description>Sigma: New Outlook Macro Created</description>
-    <mitre>
-      <id>T1137</id>
-      <id>T1008</id>
-      <id>T1546</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106055" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Microsoft\Outlook\VbaProject\.OTM$</field>
-    <description>Sigma: Suspicious Outlook Macro Created</description>
-    <mitre>
-      <id>T1137</id>
-      <id>T1008</id>
-      <id>T1546</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104599" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.xls$|\.xlsm$|\.xlsx$|\.xlt$|\.xltm$</field>
@@ -61,7 +38,39 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106348" level="11">
+  <rule id="104806" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Office\|\Outlook\Security\</field>
+    <description>Sigma: Outlook Security Settings Updated - Registry</description>
+    <mitre>
+      <id>T1137</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="107054" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\outlook\.exe$</field>
+    <field name="win.eventdata.targetFilename">\Microsoft\Outlook\VbaProject\.OTM$</field>
+    <description>Sigma: New Outlook Macro Created</description>
+    <mitre>
+      <id>T1137</id>
+      <id>T1008</id>
+      <id>T1546</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107055" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Microsoft\Outlook\VbaProject\.OTM$</field>
+    <description>Sigma: Suspicious Outlook Macro Created</description>
+    <mitre>
+      <id>T1137</id>
+      <id>T1008</id>
+      <id>T1546</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107348" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Outlook\LoadMacroProviderOnBoot$</field>
     <field name="win.eventdata.details">0x00000001</field>
@@ -73,7 +82,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106349" level="11">
+  <rule id="107349" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Outlook\Security\Level$</field>
     <field name="win.eventdata.details">0x00000001</field>
@@ -84,14 +93,5 @@
       <id>T1546</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="104806" level="9">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Office\|\Outlook\Security\</field>
-    <description>Sigma: Outlook Security Settings Updated - Registry</description>
-    <mitre>
-      <id>T1137</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
   </rule>
 </group>

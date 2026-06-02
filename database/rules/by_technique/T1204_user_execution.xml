@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1204_user_execution,">
-  <rule id="102188" level="9">
+  <rule id="100188" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.bat$|\.dll$|\.exe$|\.hta$|\.js$|\.ps1$|\.vbe$|\.vbs$</field>
     <description>Sigma: Suspicious Binaries and Scripts in Public Folder</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102902" level="8">
+  <rule id="100902" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.SettingContent-ms</field>
     <description>Sigma: Arbitrary Shell Command Execution Via Settingcontent-Ms</description>

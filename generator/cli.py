@@ -308,6 +308,7 @@ def validate_cmd():
         console.print(f"\n[red]Found {len(errors)} validation errors:[/]")
         for err in errors:
             console.print(f"  - {err}")
+        raise SystemExit(1)
     else:
         xml_count = sum(1 for _ in rules_dir.rglob("*.xml"))
         console.print(f"[bold green]All rules valid![/] ({xml_count} XML files checked)")

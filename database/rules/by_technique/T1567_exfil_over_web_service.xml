@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1567_exfil_over_web_service,">
-  <rule id="120007" level="12">
+  <rule id="114507" level="12">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.destinationHostname">\.btunnel\.co\.in$</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="120008" level="12">
+  <rule id="114508" level="12">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.destinationHostname">\.v2\.argotunnel\.com$|protocol-v2\.argotunnel\.com$|trycloudflare\.com$|update\.argotunnel\.com$</field>
@@ -22,7 +22,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="120010" level="13">
+  <rule id="114510" level="13">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.destinationHostname">\.ngrok-free\.app$|\.ngrok-free\.dev$|\.ngrok\.app$|\.ngrok\.dev$|\.ngrok\.io$</field>
@@ -34,7 +34,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="120011" level="13">
+  <rule id="114511" level="13">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.destinationHostname">tunnel\.us\.ngrok\.com|tunnel\.eu\.ngrok\.com|tunnel\.ap\.ngrok\.com|tunnel\.au\.ngrok\.com|tunnel\.sa\.ngrok\.com|tunnel\.jp\.ngrok\.com|tunnel\.in\.ngrok\.com</field>
     <description>Sigma: Communication To Ngrok Tunneling Service Initiated</description>
@@ -45,7 +45,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="120012" level="12">
+  <rule id="114512" level="12">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.destinationHostname">\.tunnels\.api\.visualstudio\.com$</field>
@@ -56,7 +56,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="120019" level="12">
+  <rule id="114519" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">ftp://|http://|https://</field>
     <description>Sigma: Arbitrary File Download Via ConfigSecurityPolicy.EXE</description>
@@ -65,7 +65,7 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="120024" level="12">
+  <rule id="114524" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/in:|/out:|/uri:</field>
     <field name="win.eventdata.image">\DataSvcUtil\.exe$</field>

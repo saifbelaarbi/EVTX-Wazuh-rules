@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1070.004_unknown,">
-  <rule id="102022" level="8">
+  <rule id="100022" level="8">
     <if_sid>60003</if_sid>
     <field name="win.system.eventID">524</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Backup</field>
@@ -10,7 +10,63 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="122002" level="13">
+  <rule id="100136" level="9">
+    <if_sid>61625</if_sid>
+    <field name="win.eventdata.targetFilename">\.pf$</field>
+    <description>Sigma: Prefetch File Deleted</description>
+    <mitre>
+      <id>T1070.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100138" level="8">
+    <if_sid>61625</if_sid>
+    <field name="win.eventdata.targetFilename">\.AAA$|\.ZZZ$</field>
+    <description>Sigma: File Deleted Via Sysinternals SDelete</description>
+    <mitre>
+      <id>T1070.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100139" level="8">
+    <if_sid>61625</if_sid>
+    <field name="win.eventdata.targetFilename">:Zone\.Identifier$</field>
+    <description>Sigma: ADS Zone.Identifier Deleted By Uncommon Application</description>
+    <mitre>
+      <id>T1070.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100405" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\\\.*\.au3|\\\.*\.dll|\\\.*\.exe|\\\.*\.js</field>
+    <field name="win.eventdata.image">\cmd\.exe$</field>
+    <description>Sigma: Greedy File Deletion Using Del</description>
+    <mitre>
+      <id>T1070.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100415" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -y |copy </field>
+    <field name="win.eventdata.image">\cmd\.exe$</field>
+    <description>Sigma: Potentially Suspicious Ping/Copy Command Combination</description>
+    <mitre>
+      <id>T1070.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100416" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Nul|del </field>
+    <description>Sigma: Suspicious Ping/Del Command Combination</description>
+    <mitre>
+      <id>T1070.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="114002" level="13">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656|4663|4658</field>
     <field name="win.eventdata.objectName">\.AAA$|\.ZZZ$</field>
@@ -21,61 +77,5 @@
       <id>T1485</id>
     </mitre>
     <group>impact,sigma_converted,</group>
-  </rule>
-  <rule id="102136" level="9">
-    <if_sid>61625</if_sid>
-    <field name="win.eventdata.targetFilename">\.pf$</field>
-    <description>Sigma: Prefetch File Deleted</description>
-    <mitre>
-      <id>T1070.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102138" level="8">
-    <if_sid>61625</if_sid>
-    <field name="win.eventdata.targetFilename">\.AAA$|\.ZZZ$</field>
-    <description>Sigma: File Deleted Via Sysinternals SDelete</description>
-    <mitre>
-      <id>T1070.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102139" level="8">
-    <if_sid>61625</if_sid>
-    <field name="win.eventdata.targetFilename">:Zone\.Identifier$</field>
-    <description>Sigma: ADS Zone.Identifier Deleted By Uncommon Application</description>
-    <mitre>
-      <id>T1070.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102405" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\\\.*\.au3|\\\.*\.dll|\\\.*\.exe|\\\.*\.js</field>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
-    <description>Sigma: Greedy File Deletion Using Del</description>
-    <mitre>
-      <id>T1070.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102415" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> -y |copy </field>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
-    <description>Sigma: Potentially Suspicious Ping/Copy Command Combination</description>
-    <mitre>
-      <id>T1070.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102416" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Nul|del </field>
-    <description>Sigma: Suspicious Ping/Del Command Combination</description>
-    <mitre>
-      <id>T1070.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
   </rule>
 </group>

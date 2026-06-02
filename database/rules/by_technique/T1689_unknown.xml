@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1689_unknown,">
-  <rule id="102606" level="8">
+  <rule id="100606" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">IsPplAutoEnabled|RunAsPPL|RunAsPPLBoot|\Control\Lsa</field>
     <field name="win.eventdata.image">\reg\.exe$|\powershell\.exe$|\pwsh\.exe$</field>

@@ -1,29 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1133_unknown,">
-  <rule id="106011" level="10">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4624</field>
-    <field name="win.eventdata.logonType">10</field>
-    <description>Sigma: External Remote RDP Logon from Public IP</description>
-    <mitre>
-      <id>T1133</id>
-      <id>T1078</id>
-      <id>T1110</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106012" level="11">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4624</field>
-    <field name="win.eventdata.logonType">3</field>
-    <description>Sigma: External Remote SMB Logon from Public IP</description>
-    <mitre>
-      <id>T1133</id>
-      <id>T1078</id>
-      <id>T1110</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104584" level="10">
     <if_sid>61604</if_sid>
     <field name="win.eventdata.image">\dns\.exe$</field>
@@ -60,7 +36,31 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="100024" level="9">
+  <rule id="107011" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">10</field>
+    <description>Sigma: External Remote RDP Logon from Public IP</description>
+    <mitre>
+      <id>T1133</id>
+      <id>T1078</id>
+      <id>T1110</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107012" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Sigma: External Remote SMB Logon from Public IP</description>
+    <mitre>
+      <id>T1133</id>
+      <id>T1078</id>
+      <id>T1110</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="113024" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">localgroup | /add</field>
     <description>Sigma: User Added to Remote Desktop Users Group</description>
@@ -71,7 +71,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100031" level="9">
+  <rule id="113031" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">fdcgdnkidjaadafnichfpabhfomcebme|fcfhplploccackoneaefokcmbjfbkenj|bihmplhobchoageeokmgbdihknkjbknd|gkojfkhlekighikafcpjkiklfbnlmeio|jajilbjjinjmgcibalaakngmkilboobh|gjknjjomckknofjidppipffbpoekiipm|nabbmpekekjknlbkgpodfndbodhijjem|kpiecbcckbofpmkkkdibbllpinceiihk|nlbejmccbhkncgokjcmghpfloaajcffj|omghfjlpggmjjaagoclmmobgdodcjboh|bibjcjfmgapbfoljiojpipaooddpkpai|mpcaainmfjjigeicjnlkdfajbioopjko|jljopmgdobloagejpohpldgkiellmfnc|lochiccbgeohimldjooaakjllnafhaid|nhnfcgpcbfclhfafjlooihdfghaeinfc|ookhnhpkphagefgdiemllfajmkdkcaim|namfblliamklmeodpcelkokjbffgmeoo|nbcojefnccbanplpoffopkoepjmhgdgh|majdfhpaihoncoakbjgbdhglocklcgno|lnfdmdhmfbimhhpaeocncdlhiodoblbd|eppiocemhmnlbhjplcgkofciiegomcon|cocfojppfigjeefejbpfmedgjbpchcng|foiopecknacmiihiocgdjgbjokkpkohc|hhdobjgopfphlmjbmnpglhfcgppchgje|jgbaghohigdbgbolncodkdlpenhcmcge|inligpkjkhbpifecbdjhmdpcfhnlelja|higioemojdadgdbhbbbkfbebbdlfjbip|hipncndjamdcmphkgngojegjblibadbe|iolonopooapdagdemdoaihahlfkncfgg|nhfjkakglbnnpkpldhjmpmmfefifedcj|jpgljfpmoofbmlieejglhonfofmahini|fgddmllnllkalaagkghckoinaemmogpe|ejkaocphofnobjdedneohbbiilggdlbi|keodbianoliadkoelloecbhllnpiocoi|hoapmlpnmpaehilehggglehfdlnoegck|poeojclicodamonabcabmapamjkkmnnk|dfkdflfgjdajbhocmfjolpjbebdkcjog|kcdahmgmaagjhocpipbodaokikjkampi|klnkiajpmpkkkgpgbogmcgfjhdoljacg|lneaocagcijjdpkcabeanfpdbmapcjjg|pgfpignfckbloagkfnamnolkeaecfgfh|jplnlifepflhkbkgonidnobkakhmpnmh|jliodmnojccaloajphkingdnpljdhdok|hnmpcagpplmpfojmgmnngilcnanddlhb|ffbkglfijbcbgblgflchnbphjdllaogb|kcndmbbelllkmioekdagahekgimemejo|jdgilggpfmjpbodmhndmhojklgfdlhob|bihhflimonbpcfagfadcnbbdngpopnjb|ppajinakbfocjfnijggfndbdmjggcmde|oofgbpoabipfcfjapgnbbjjaenockbdp|bhnhkdgoefpmekcgnccpnhjfdgicfebm|knmmpciebaoojcpjjoeonlcjacjopcpf|dhadilbmmjiooceioladdphemaliiobo|jedieiamjmoflcknjdjhpieklepfglin|mhngpdlhojliikfknhfaglpnddniijfh|omdakjcmkglenbhjadbccaookpfjihpa|npgimkapccfidfkfoklhpkgmhgfejhbj|akeehkgglkmpapdnanoochpfmeghfdln|gbmdmipapolaohpinhblmcnpmmlgfgje|aigmfoeogfnljhnofglledbhhfegannp|cgojmfochfikphincbhokimmmjenhhgk|ficajfeojakddincjafebjmfiefcmanc|ifnaibldjfdmaipaddffmgcmekjhiloa|jbnmpdkcfkochpanomnkhnafobppmccn|apcfdffemoinopelidncddjbhkiblecc|mjolnodfokkkaichkcjipfgblbfgojpa|oifjbnnafapeiknapihcmpeodaeblbkn|plpmggfglncceinmilojdkiijhmajkjh|mjnbclmflcpookeapghfhapeffmpodij|bblcccknbdbplgmdjnnikffefhdlobhp|aojlhgbkmkahabcmcpifbolnoichfeep|lcmammnjlbmlbcaniggmlejfjpjagiia|knajdeaocbpmfghhmijicidfcmdgbdpm|bdlcnpceagnkjnjlbbbcepohejbheilk|edknjdjielmpdlnllkdmaghlbpnmjmgb|eidnihaadmmancegllknfbliaijfmkgo|ckiahbcmlmkpfiijecbpflfahoimklke|macdlemfnignjhclfcfichcdhiomgjjb|chioafkonnhbpajpengbalkececleldf|amnoibeflfphhplmckdbiajkjaoomgnj|llbhddikeonkpbhpncnhialfbpnilcnc|pcienlhnoficegnepejpfiklggkioccm|iocnglnmfkgfedpcemdflhkchokkfeii|igahhbkcppaollcjeaaoapkijbnphfhb|njpmifchgidinihmijhcfpbdmglecdlb|ggackgngljinccllcmbgnpgpllcjepgc|kchocjcihdgkoplngjemhpplmmloanja|bnijmipndnicefcdbhgcjoognndbgkep|lklekjodgannjcccdlbicoamibgbdnmi|dbdbnchagbkhknegmhgikkleoogjcfge|egblhcjfjmbjajhjhpmnlekffgaemgfh|ehbhfpfdkmhcpaehaooegfdflljcnfec|bkkgdjpomdnfemhhkalfkogckjdkcjkg|almalgbpmcfpdaopimbdchdliminoign|akkbkhnikoeojlhiiomohpdnkhbkhieh|gbfgfbopcfokdpkdigfmoeaajfmpkbnh|bniikohfmajhdcffljgfeiklcbgffppl|lejgfmmlngaigdmmikblappdafcmkndb|ffhhkmlgedgcliajaedapkdfigdobcif|gcknhkkoolaabfmlnjonogaaifnjlfnp|pooljnboifbodgifngpppfklhifechoe|fjoaledfpmneenckfbpdfhkmimnjocfa|aakchaleigkohafkfjfjbblobjifikek|dpplabbmogkhghncfbfdeeokoefdjegm|padekgcemlokbadohgkifijomclgjgif|bfidboloedlamgdmenmlbipfnccokknp</field>
     <description>Sigma: Running Chrome VPN Extensions via the Registry 2 VPN Extension</description>

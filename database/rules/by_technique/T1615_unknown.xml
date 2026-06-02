@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1615_unknown,">
-  <rule id="112046" level="6">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\gpresult\.exe$</field>
-    <field name="win.eventdata.commandLine">/z|/v</field>
-    <description>Sigma: Gpresult Display Group Policy Information</description>
-    <mitre>
-      <id>T1615</id>
-    </mitre>
-    <group>discovery,sigma_converted,</group>
-  </rule>
   <rule id="104687" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharpUp\.exe$</field>
@@ -43,7 +33,17 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="112070" level="6">
+  <rule id="111046" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\gpresult\.exe$</field>
+    <field name="win.eventdata.commandLine">/z|/v</field>
+    <description>Sigma: Gpresult Display Group Policy Information</description>
+    <mitre>
+      <id>T1615</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111070" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">gatherNetworkInfo\.vbs</field>
     <field name="win.eventdata.image">\cscript\.exe$|\wscript\.exe$</field>
@@ -54,7 +54,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112122" level="7">
+  <rule id="111122" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">gatherNetworkInfo\.vbs</field>
     <description>Sigma: Suspicious Reconnaissance Activity Via GatherNetworkInfo.VBS</description>

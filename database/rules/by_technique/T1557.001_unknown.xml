@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1557.001_unknown,">
-  <rule id="116000" level="8">
+  <rule id="113500" level="8">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">3</field>
@@ -13,7 +13,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116005" level="8">
+  <rule id="113505" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DistributedCOM</field>
     <field name="win.system.eventID">10001</field>
@@ -26,7 +26,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116007" level="8">
+  <rule id="113507" level="8">
     <if_sid>61624</if_sid>
     <field name="win.eventdata.queryName">UWhRCA|BAAAA</field>
     <description>Sigma: Suspicious DNS Query Indicating Kerberos Coercion via DNS Object SPN Spoofing</description>
@@ -36,7 +36,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116023" level="8">
+  <rule id="113523" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> --adcs | --port </field>
     <description>Sigma: HackTool - ADCSPwn Execution</description>
@@ -45,7 +45,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116024" level="8">
+  <rule id="113524" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\goldenPac|\karmaSMB|\kintercept|\ntlmrelayx|\rpcdump|\samrdump|\secretsdump|\smbexec|\smbrelayx|\wmiexec|\wmipersist</field>
     <description>Sigma: HackTool - Impacket Tools Execution</description>
@@ -54,7 +54,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116025" level="13">
+  <rule id="113525" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\atexec_windows\.exe$|\dcomexec_windows\.exe$|\dpapi_windows\.exe$|\findDelegation_windows\.exe$|\GetADUsers_windows\.exe$|\GetNPUsers_windows\.exe$|\getPac_windows\.exe$|\getST_windows\.exe$|\getTGT_windows\.exe$|\GetUserSPNs_windows\.exe$|\ifmap_windows\.exe$|\mimikatz_windows\.exe$|\netview_windows\.exe$|\nmapAnswerMachine_windows\.exe$|\opdump_windows\.exe$|\psexec_windows\.exe$|\rdp_check_windows\.exe$|\sambaPipe_windows\.exe$|\smbclient_windows\.exe$|\smbserver_windows\.exe$|\sniff_windows\.exe$|\sniffer_windows\.exe$|\split_windows\.exe$|\ticketer_windows\.exe$</field>
     <description>Sigma: HackTool - Impacket Tools Execution</description>
@@ -63,7 +63,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116026" level="8">
+  <rule id="113526" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\}" -z$</field>
     <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
@@ -72,7 +72,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116027" level="8">
+  <rule id="113527" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">PetitPotam|RottenPotato|HotPotato|JuicyPotato|\just_dce_|Juicy Potato|\temp\rot\.exe|\Potato\.exe|\SpoolSample\.exe|\Responder\.exe|\smbrelayx|\ntlmrelayx|\LocalPotato</field>
     <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
@@ -81,7 +81,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116028" level="8">
+  <rule id="113528" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Invoke-Tater| smbrelay| ntlmrelay|cme smb | /ntlm:NTLMhash |Invoke-PetitPotam|\.exe -t .* -p </field>
     <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
@@ -90,7 +90,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116029" level="8">
+  <rule id="113529" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">UWhRCA|BAAAA</field>
     <description>Sigma: Attempts of Kerberos Coercion Via DNS SPN Spoofing</description>

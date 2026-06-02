@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1686.003_unknown,">
-  <rule id="102042" level="8">
+  <rule id="100042" level="8">
     <if_sid>60016</if_sid>
     <field name="win.system.eventID">2004|2071|2097</field>
     <description>Sigma: Uncommon New Firewall Rule Added In Windows Firewall Exception List</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102043" level="9">
+  <rule id="100043" level="9">
     <if_sid>60016</if_sid>
     <field name="win.system.eventID">2004|2071|2097</field>
     <field name="win.eventdata.applicationPath">:\PerfLogs\|:\Temp\|:\Tmp\|:\Users\Public\|:\Windows\Tasks\|:\Windows\Temp\|\AppData\Local\Temp\</field>
@@ -19,7 +19,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102044" level="8">
+  <rule id="100044" level="8">
     <if_sid>60016</if_sid>
     <field name="win.system.eventID">2004|2071|2097</field>
     <field name="win.eventdata.action">3</field>
@@ -30,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102045" level="9">
+  <rule id="100045" level="9">
     <if_sid>60016</if_sid>
     <field name="win.system.eventID">2033|2059</field>
     <description>Sigma: All Rules Have Been Deleted From The Windows Firewall Configuration</description>
@@ -39,7 +39,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102046" level="8">
+  <rule id="100046" level="8">
     <if_sid>60016</if_sid>
     <field name="win.system.eventID">2006|2052</field>
     <description>Sigma: A Rule Has Been Deleted From The Windows Firewall Exception List</description>
@@ -48,7 +48,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102353" level="8">
+  <rule id="100353" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText"> -All |Public|Domain|Private| -Enabled | False</field>
     <description>Sigma: Windows Firewall Profile Disabled</description>
@@ -57,7 +57,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102638" level="8">
+  <rule id="100638" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> firewall | add </field>
     <field name="win.eventdata.image">\netsh\.exe$</field>
@@ -67,7 +67,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102639" level="9">
+  <rule id="100639" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">:\\$Recycle\.bin\|:\RECYCLER\.BIN\|:\RECYCLERS\.BIN\|:\SystemVolumeInformation\|:\Temp\|:\Users\Default\|:\Users\Desktop\|:\Users\Public\|:\Windows\addins\|:\Windows\cursors\|:\Windows\debug\|:\Windows\drivers\|:\Windows\fonts\|:\Windows\help\|:\Windows\system32\tasks\|:\Windows\Tasks\|:\Windows\Temp\|\Downloads\|\Local Settings\Temporary Internet Files\|\Temporary Internet Files\Content\.Outlook\|%Public%\|%TEMP%|%TMP%|add|allowedprogram</field>
     <field name="win.eventdata.image">\netsh\.exe$</field>
@@ -77,7 +77,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102640" level="9">
+  <rule id="100640" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">portopening|allow|add |tcp |3389</field>
     <field name="win.eventdata.image">\netsh\.exe$</field>
@@ -87,7 +87,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102641" level="8">
+  <rule id="100641" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">firewall|delete </field>
     <field name="win.eventdata.image">\netsh\.exe$</field>
@@ -97,7 +97,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102642" level="8">
+  <rule id="100642" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\netsh\.exe$</field>
     <field name="win.eventdata.commandLine">firewall|set|opmode|disable</field>
@@ -107,7 +107,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102643" level="8">
+  <rule id="100643" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">advfirewall|firewall|set|rule|group=|new|enable=Yes</field>
     <field name="win.eventdata.image">\netsh\.exe$</field>
@@ -117,7 +117,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103105" level="8">
+  <rule id="101105" level="8">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\EnableFirewall$</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
@@ -127,7 +127,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103109" level="8">
+  <rule id="101109" level="8">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile\EnableFirewall$|\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\EnableFirewall$</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>

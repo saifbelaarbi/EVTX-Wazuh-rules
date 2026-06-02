@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1216_unknown,">
-  <rule id="102196" level="8">
+  <rule id="100196" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">WsmPty\.xsl$|WsmTxt\.xsl$</field>
     <description>Sigma: AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl - File</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102440" level="9">
+  <rule id="100440" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\CustomShellHost\.exe$</field>
     <description>Sigma: Suspicious CustomShellHost Execution</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102574" level="9">
+  <rule id="100574" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">manage-bde\.wsf</field>
     <field name="win.eventdata.image">\wscript\.exe$</field>
@@ -28,7 +28,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102598" level="8">
+  <rule id="100598" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">UtilityFunctions\.ps1|RegSnapin </field>
     <description>Sigma: UtilityFunctions.ps1 Proxy Dll</description>
@@ -37,7 +37,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102694" level="8">
+  <rule id="100694" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">SyncInvoke </field>
     <description>Sigma: Potential Process Execution Proxy Via CL_Invocation.ps1</description>
@@ -46,7 +46,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102695" level="8">
+  <rule id="100695" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">LoadAssemblyFromPath |LoadAssemblyFromNS </field>
     <description>Sigma: Assembly Loading Via CL_LoadAssembly.ps1</description>
@@ -55,7 +55,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102696" level="8">
+  <rule id="100696" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.image">\powershell\.exe$</field>
@@ -66,7 +66,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102891" level="8">
+  <rule id="100891" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\sigverif\.exe$</field>
     <description>Sigma: Uncommon Sigverif.EXE Child Process</description>
@@ -75,7 +75,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103037" level="8">
+  <rule id="101037" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">format:pretty|format:"pretty"|format:"text"|format:text</field>
     <description>Sigma: AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl</description>
@@ -84,7 +84,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103038" level="8">
+  <rule id="101038" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">winrm|invoke Create wmicimv2/Win32_|-r:http</field>
     <field name="win.eventdata.image">\cscript\.exe$</field>

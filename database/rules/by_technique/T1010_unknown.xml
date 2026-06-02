@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1010_unknown,">
-  <rule id="112010" level="6">
+  <rule id="111010" level="6">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656</field>
     <field name="win.eventdata.objectType">SC_MANAGER OBJECT</field>

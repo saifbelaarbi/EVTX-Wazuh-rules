@@ -376,8 +376,23 @@ def _literal_from_pattern(pattern: str) -> str:
     p = pattern.split("|")[0]  # first alternative
     p = p.lstrip("^").rstrip("$")  # drop anchors
     p = p.replace("[-/]", "-")  # windash alternation
-    p = p.replace(".*", "x").replace(".", "x")
-    p = p.replace("\\", "")  # unescape
+    # Protect escaped metacharacters with placeholders so the wildcard
+    # substitution below converts only real regex dots, not literal ones.
+    # (Otherwise ``lsass\.exe`` collapses to ``lsassxexe`` and no longer
+    # satisfies its own pattern.)
+    protected = {
+        "\\\\": "\x00BS\x00",
+        "\\.": "\x00DOT\x00",
+        "\\(": "(",
+        "\\)": ")",
+        "\\[": "[",
+        "\\]": "]",
+    }
+    for esc, ph in protected.items():
+        p = p.replace(esc, ph)
+    p = p.replace(".*", "x").replace(".", "x")  # wildcards -> literal
+    p = p.replace("\\", "")  # drop any remaining escapes
+    p = p.replace("\x00DOT\x00", ".").replace("\x00BS\x00", "\\")  # restore literals
     return p or "x"
 
 

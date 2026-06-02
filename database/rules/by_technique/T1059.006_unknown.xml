@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1059.006_unknown,">
-  <rule id="102799" level="9">
+  <rule id="100799" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.decode|b16decode|b32decode|b32hexdecode|b64decode|b85decode|z85decode|base64| -c</field>
     <field name="win.eventdata.image">\python</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102951" level="8">
+  <rule id="100951" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\Downloads\</field>
     <description>Sigma: Suspicious File Characteristics Due to Missing Fields</description>

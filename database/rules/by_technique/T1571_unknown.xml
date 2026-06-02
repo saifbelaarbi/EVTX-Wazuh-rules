@@ -20,7 +20,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="118070" level="9">
+  <rule id="110070" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Test-NetConnection|-ComputerName |-port </field>
     <description>Sigma: Testing Usage of Uncommonly Used Port</description>

@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1072_unknown,">
-  <rule id="114012" level="11">
+  <rule id="100666" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.description">PDQ Deploy Console</field>
+    <description>Sigma: PDQ Deploy Remote Adminstartion Tool Execution</description>
+    <mitre>
+      <id>T1072</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100667" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.product">PDQ Deploy</field>
+    <description>Sigma: PDQ Deploy Remote Adminstartion Tool Execution</description>
+    <mitre>
+      <id>T1072</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100668" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.company">PDQ\.com</field>
+    <description>Sigma: PDQ Deploy Remote Adminstartion Tool Execution</description>
+    <mitre>
+      <id>T1072</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100669" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">PDQDeployConsole\.exe</field>
+    <description>Sigma: PDQ Deploy Remote Adminstartion Tool Execution</description>
+    <mitre>
+      <id>T1072</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100789" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.description">Radmin Viewer</field>
+    <description>Sigma: PUA - Radmin Viewer Utility Execution</description>
+    <mitre>
+      <id>T1072</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100790" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.product">Radmin Viewer</field>
+    <description>Sigma: PUA - Radmin Viewer Utility Execution</description>
+    <mitre>
+      <id>T1072</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100791" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">Radmin\.exe</field>
+    <description>Sigma: PUA - Radmin Viewer Utility Execution</description>
+    <mitre>
+      <id>T1072</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="112512" level="11">
     <if_sid>60003</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-SoftwareRestrictionPolicies</field>
     <field name="win.system.eventID">865|866|867|868|882</field>
@@ -10,7 +73,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114052" level="10">
+  <rule id="112552" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">Microsoft Corporation</field>
     <field name="win.eventdata.image">\csi\.exe$|\rcsi\.exe$</field>
@@ -20,68 +83,5 @@
       <id>T1218</id>
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="102666" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.description">PDQ Deploy Console</field>
-    <description>Sigma: PDQ Deploy Remote Adminstartion Tool Execution</description>
-    <mitre>
-      <id>T1072</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102667" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.product">PDQ Deploy</field>
-    <description>Sigma: PDQ Deploy Remote Adminstartion Tool Execution</description>
-    <mitre>
-      <id>T1072</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102668" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.company">PDQ\.com</field>
-    <description>Sigma: PDQ Deploy Remote Adminstartion Tool Execution</description>
-    <mitre>
-      <id>T1072</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102669" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">PDQDeployConsole\.exe</field>
-    <description>Sigma: PDQ Deploy Remote Adminstartion Tool Execution</description>
-    <mitre>
-      <id>T1072</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102789" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.description">Radmin Viewer</field>
-    <description>Sigma: PUA - Radmin Viewer Utility Execution</description>
-    <mitre>
-      <id>T1072</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102790" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.product">Radmin Viewer</field>
-    <description>Sigma: PUA - Radmin Viewer Utility Execution</description>
-    <mitre>
-      <id>T1072</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102791" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">Radmin\.exe</field>
-    <description>Sigma: PUA - Radmin Viewer Utility Execution</description>
-    <mitre>
-      <id>T1072</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
   </rule>
 </group>

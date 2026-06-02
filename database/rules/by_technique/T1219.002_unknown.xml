@@ -1,176 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1219.002_unknown,">
-  <rule id="118005" level="10">
-    <if_sid>60003</if_sid>
-    <field name="win.system.eventID">1033</field>
-    <field name="win.eventdata.provider_Name">MsiInstaller</field>
-    <field name="win.eventdata.message">AteraAgent</field>
-    <description>Sigma: Atera Agent Installation</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118009" level="9">
-    <if_sid>60000</if_sid>
-    <field name="win.system.eventID">8001</field>
-    <field name="win.eventdata.targetName">^TERMSRV</field>
-    <description>Sigma: Potential Remote Desktop Connection to Non-Domain Host</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118013" level="9">
-    <if_sid>60106</if_sid>
-    <field name="win.eventdata.provider_Name">Service Control Manager</field>
-    <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">MeshAgent\.exe</field>
-    <description>Sigma: Mesh Agent Service Installation</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118014" level="9">
-    <if_sid>60106</if_sid>
-    <field name="win.eventdata.provider_Name">Service Control Manager</field>
-    <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">tacticalrmm\.exe</field>
-    <description>Sigma: TacticalRMM Service Installation</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118020" level="9">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">azurewebsites\.net$</field>
-    <description>Sigma: DNS Query To AzureWebsites.NET By Non-Browser Process</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118024" level="9">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">agent\.jumpcloud\.com$|agentreporting\.atera\.com$|ammyy\.com$|api\.parsec\.app$|api\.playanext\.com$|api\.splashtop\.com$|app\.atera\.com$|assist\.zoho\.com$|authentication\.logmeininc\.com$|beyondtrustcloud\.com$|cdn\.kaseya\.net$|client\.teamviewer\.com$|comserver\.corporate\.beanywhere\.com$|control\.connectwise\.com$|downloads\.zohocdn\.com$|dwservice\.net$|express\.gotoassist\.com$|getgo\.com$|getscreen\.me$|integratedchat\.teamviewer\.com$|join\.zoho\.com$|kickstart\.jumpcloud\.com$|license\.bomgar\.com$|logmein-gateway\.com$|logmein\.com$|logmeincdn\.http\.internapcdn\.net$|n-able\.com$|net\.anydesk\.com$|netsupportsoftware\.com$|parsecusercontent\.com$|pubsub\.atera\.com$|relay\.kaseya\.net$|relay\.screenconnect\.com$|relay\.splashtop\.com$|remoteassistance\.support\.services\.microsoft\.com$|remotedesktop-pa\.googleapis\.com$|remoteutilities\.com$|secure\.logmeinrescue\.com$|services\.vnc\.com$|static\.remotepc\.com$|swi-rc\.com$|swi-tc\.com$|tailscale\.com$|telemetry\.servers\.qetqo\.com$|tmate\.io$|twingate\.com$|zohoassist\.com$</field>
-    <description>Sigma: DNS Query To Remote Access Software Domain From Non-Browser App</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118025" level="9">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">^rs-</field>
-    <description>Sigma: DNS Query To Remote Access Software Domain From Non-Browser App</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118026" level="9">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">taf\.teamviewer\.com|udp\.ping\.teamviewer\.com</field>
-    <description>Sigma: TeamViewer Domain Query By Non-TeamViewer Application</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118030" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Roaming\AnyDesk\user\.conf|\AppData\Roaming\AnyDesk\system\.conf</field>
-    <description>Sigma: Anydesk Temporary Artefact</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118031" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\AnyDesk\.exe$|\AnyDeskMSI\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.dll$|\.exe$</field>
-    <description>Sigma: Suspicious Binary Writes Via AnyDesk</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118034" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\LogMeInInc\GoToAssist Remote Support Expert\</field>
-    <description>Sigma: GoToAssist Temporary Installation Artefact</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118035" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Inveigh-Log\.txt$|\Inveigh-Cleartext\.txt$|\Inveigh-NTLMv1Users\.txt$|\Inveigh-NTLMv2Users\.txt$|\Inveigh-NTLMv1\.txt$|\Inveigh-NTLMv2\.txt$|\Inveigh-FormInput\.txt$|\Inveigh\.dll$|\Inveigh\.exe$|\Inveigh\.ps1$|\Inveigh-Relay\.ps1$</field>
-    <description>Sigma: HackTool - Inveigh Execution Artefacts</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118036" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">:\windows\temp\sam\.tmp$|:\windows\temp\sec\.tmp$|:\windows\temp\sys\.tmp$</field>
-    <description>Sigma: HackTool - RemoteKrbRelay SMB Relay Secrets Dump Module Indicators</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118037" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\TeamViewer_Desktop\.exe$</field>
-    <description>Sigma: Installation of TeamViewer Desktop</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118038" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Bin\ScreenConnect\.</field>
-    <description>Sigma: ScreenConnect Temporary Installation Artefact</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118041" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\TeamViewer\RemotePrinting\tvprint\.db$|\TeamViewer\TVNetwork\.log$</field>
-    <description>Sigma: TeamViewer Remote Session</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118042" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\TeamViewer|_Logfile\.log</field>
-    <description>Sigma: TeamViewer Remote Session</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="118043" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\mstsc\.exe$</field>
-    <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\Startup\</field>
-    <description>Sigma: Hijack Legit RDP Session to Move Laterally</description>
-    <mitre>
-      <id>T1219.002</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
   <rule id="104657" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\AnyDesk\.exe$|\AnyDeskMSI\.exe$</field>
@@ -181,7 +10,178 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="118111" level="10">
+  <rule id="110005" level="10">
+    <if_sid>60003</if_sid>
+    <field name="win.system.eventID">1033</field>
+    <field name="win.eventdata.provider_Name">MsiInstaller</field>
+    <field name="win.eventdata.message">AteraAgent</field>
+    <description>Sigma: Atera Agent Installation</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110009" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">8001</field>
+    <field name="win.eventdata.targetName">^TERMSRV</field>
+    <description>Sigma: Potential Remote Desktop Connection to Non-Domain Host</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110013" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">MeshAgent\.exe</field>
+    <description>Sigma: Mesh Agent Service Installation</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110014" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">tacticalrmm\.exe</field>
+    <description>Sigma: TacticalRMM Service Installation</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110020" level="9">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">azurewebsites\.net$</field>
+    <description>Sigma: DNS Query To AzureWebsites.NET By Non-Browser Process</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110024" level="9">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">agent\.jumpcloud\.com$|agentreporting\.atera\.com$|ammyy\.com$|api\.parsec\.app$|api\.playanext\.com$|api\.splashtop\.com$|app\.atera\.com$|assist\.zoho\.com$|authentication\.logmeininc\.com$|beyondtrustcloud\.com$|cdn\.kaseya\.net$|client\.teamviewer\.com$|comserver\.corporate\.beanywhere\.com$|control\.connectwise\.com$|downloads\.zohocdn\.com$|dwservice\.net$|express\.gotoassist\.com$|getgo\.com$|getscreen\.me$|integratedchat\.teamviewer\.com$|join\.zoho\.com$|kickstart\.jumpcloud\.com$|license\.bomgar\.com$|logmein-gateway\.com$|logmein\.com$|logmeincdn\.http\.internapcdn\.net$|n-able\.com$|net\.anydesk\.com$|netsupportsoftware\.com$|parsecusercontent\.com$|pubsub\.atera\.com$|relay\.kaseya\.net$|relay\.screenconnect\.com$|relay\.splashtop\.com$|remoteassistance\.support\.services\.microsoft\.com$|remotedesktop-pa\.googleapis\.com$|remoteutilities\.com$|secure\.logmeinrescue\.com$|services\.vnc\.com$|static\.remotepc\.com$|swi-rc\.com$|swi-tc\.com$|tailscale\.com$|telemetry\.servers\.qetqo\.com$|tmate\.io$|twingate\.com$|zohoassist\.com$</field>
+    <description>Sigma: DNS Query To Remote Access Software Domain From Non-Browser App</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110025" level="9">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">^rs-</field>
+    <description>Sigma: DNS Query To Remote Access Software Domain From Non-Browser App</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110026" level="9">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">taf\.teamviewer\.com|udp\.ping\.teamviewer\.com</field>
+    <description>Sigma: TeamViewer Domain Query By Non-TeamViewer Application</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110030" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Roaming\AnyDesk\user\.conf|\AppData\Roaming\AnyDesk\system\.conf</field>
+    <description>Sigma: Anydesk Temporary Artefact</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110031" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\AnyDesk\.exe$|\AnyDeskMSI\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.dll$|\.exe$</field>
+    <description>Sigma: Suspicious Binary Writes Via AnyDesk</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110034" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\LogMeInInc\GoToAssist Remote Support Expert\</field>
+    <description>Sigma: GoToAssist Temporary Installation Artefact</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110035" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Inveigh-Log\.txt$|\Inveigh-Cleartext\.txt$|\Inveigh-NTLMv1Users\.txt$|\Inveigh-NTLMv2Users\.txt$|\Inveigh-NTLMv1\.txt$|\Inveigh-NTLMv2\.txt$|\Inveigh-FormInput\.txt$|\Inveigh\.dll$|\Inveigh\.exe$|\Inveigh\.ps1$|\Inveigh-Relay\.ps1$</field>
+    <description>Sigma: HackTool - Inveigh Execution Artefacts</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110036" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">:\windows\temp\sam\.tmp$|:\windows\temp\sec\.tmp$|:\windows\temp\sys\.tmp$</field>
+    <description>Sigma: HackTool - RemoteKrbRelay SMB Relay Secrets Dump Module Indicators</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110037" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\TeamViewer_Desktop\.exe$</field>
+    <description>Sigma: Installation of TeamViewer Desktop</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110038" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Bin\ScreenConnect\.</field>
+    <description>Sigma: ScreenConnect Temporary Installation Artefact</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110041" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\TeamViewer\RemotePrinting\tvprint\.db$|\TeamViewer\TVNetwork\.log$</field>
+    <description>Sigma: TeamViewer Remote Session</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110042" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\TeamViewer|_Logfile\.log</field>
+    <description>Sigma: TeamViewer Remote Session</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110043" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\mstsc\.exe$</field>
+    <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\Startup\</field>
+    <description>Sigma: Hijack Legit RDP Session to Move Laterally</description>
+    <mitre>
+      <id>T1219.002</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110111" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">:\Users\Public\|:\Windows\System32\spool\drivers\color|:\Windows\System32\Tasks_Migrated |:\Windows\Tasks\|:\Windows\Temp\|:\Windows\Tracing\|\AppData\Local\Temp\|\Downloads\</field>
     <field name="win.eventdata.image">\mstsc\.exe$</field>
@@ -191,7 +191,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118143" level="9">
+  <rule id="110143" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\AnyDesk\.exe$|\AnyDeskMSI\.exe$</field>
     <description>Sigma: Remote Access Tool - AnyDesk Execution</description>
@@ -200,7 +200,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118144" level="9">
+  <rule id="110144" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">AnyDesk</field>
     <description>Sigma: Remote Access Tool - AnyDesk Execution</description>
@@ -209,7 +209,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118145" level="9">
+  <rule id="110145" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">AnyDesk</field>
     <description>Sigma: Remote Access Tool - AnyDesk Execution</description>
@@ -218,7 +218,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118146" level="9">
+  <rule id="110146" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">AnyDesk Software GmbH</field>
     <description>Sigma: Remote Access Tool - AnyDesk Execution</description>
@@ -227,7 +227,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118147" level="9">
+  <rule id="110147" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/c |echo |\.exe --set-password</field>
     <description>Sigma: Remote Access Tool - AnyDesk Piped Password Via CLI</description>
@@ -236,7 +236,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118148" level="10">
+  <rule id="110148" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--install|--start-with-win|--silent</field>
     <description>Sigma: Remote Access Tool - AnyDesk Silent Installation</description>
@@ -245,7 +245,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118149" level="10">
+  <rule id="110149" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\AnyDesk\.exe$|\AnyDeskMSI\.exe$</field>
     <description>Sigma: Remote Access Tool - Anydesk Execution From Suspicious Folder</description>
@@ -254,7 +254,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118150" level="9">
+  <rule id="110150" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">GoTo Opener</field>
     <description>Sigma: Remote Access Tool - GoToAssist Execution</description>
@@ -263,7 +263,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118151" level="9">
+  <rule id="110151" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">GoTo Opener</field>
     <description>Sigma: Remote Access Tool - GoToAssist Execution</description>
@@ -272,7 +272,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118152" level="9">
+  <rule id="110152" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">LogMeIn, Inc\.</field>
     <description>Sigma: Remote Access Tool - GoToAssist Execution</description>
@@ -281,7 +281,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118153" level="9">
+  <rule id="110153" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">LMIGuardianSvc</field>
     <description>Sigma: Remote Access Tool - LogMeIn Execution</description>
@@ -290,7 +290,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118154" level="9">
+  <rule id="110154" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">LMIGuardianSvc</field>
     <description>Sigma: Remote Access Tool - LogMeIn Execution</description>
@@ -299,7 +299,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118155" level="9">
+  <rule id="110155" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">LogMeIn, Inc\.</field>
     <description>Sigma: Remote Access Tool - LogMeIn Execution</description>
@@ -308,7 +308,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118156" level="9">
+  <rule id="110156" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--meshServiceName</field>
     <description>Sigma: Remote Access Tool - Potential MeshAgent Execution - Windows</description>
@@ -317,7 +317,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118157" level="9">
+  <rule id="110157" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\meshagent\.exe$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
@@ -327,7 +327,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118158" level="9">
+  <rule id="110158" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">NetSupport Client Configurator</field>
     <description>Sigma: Remote Access Tool - NetSupport Execution</description>
@@ -336,7 +336,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118159" level="9">
+  <rule id="110159" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">NetSupport Remote Control</field>
     <description>Sigma: Remote Access Tool - NetSupport Execution</description>
@@ -345,7 +345,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118160" level="9">
+  <rule id="110160" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">NetSupport Ltd</field>
     <description>Sigma: Remote Access Tool - NetSupport Execution</description>
@@ -354,7 +354,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118161" level="9">
+  <rule id="110161" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">PCICFGUI\.EXE</field>
     <description>Sigma: Remote Access Tool - NetSupport Execution</description>
@@ -363,7 +363,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118162" level="10">
+  <rule id="110162" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--meshServiceName</field>
     <description>Sigma: Remote Access Tool - Renamed MeshAgent Execution - Windows</description>
@@ -373,7 +373,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118163" level="9">
+  <rule id="110163" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">ScreenConnect Service</field>
     <description>Sigma: Remote Access Tool - ScreenConnect Execution</description>
@@ -382,7 +382,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118164" level="9">
+  <rule id="110164" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">ScreenConnect</field>
     <description>Sigma: Remote Access Tool - ScreenConnect Execution</description>
@@ -391,7 +391,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118165" level="9">
+  <rule id="110165" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">ScreenConnect Software</field>
     <description>Sigma: Remote Access Tool - ScreenConnect Execution</description>
@@ -400,7 +400,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118166" level="9">
+  <rule id="110166" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">:\Windows\TEMP\ScreenConnect\|run\.cmd</field>
     <field name="win.eventdata.image">\bitsadmin\.exe$|\cmd\.exe$|\curl\.exe$|\dllhost\.exe$|\net\.exe$|\nltest\.exe$|\powershell\.exe$|\pwsh\.exe$|\rundll32\.exe$|\wevtutil\.exe$</field>
@@ -410,7 +410,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118167" level="9">
+  <rule id="110167" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SimpleService\.exe$</field>
     <description>Sigma: Remote Access Tool - Simple Help Execution</description>
@@ -419,7 +419,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118169" level="9">
+  <rule id="110169" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">UltraViewer</field>
     <description>Sigma: Remote Access Tool - UltraViewer Execution</description>
@@ -428,7 +428,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118170" level="9">
+  <rule id="110170" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">DucFabulous Co,ltd</field>
     <description>Sigma: Remote Access Tool - UltraViewer Execution</description>
@@ -437,7 +437,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118171" level="9">
+  <rule id="110171" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">UltraViewer_Desktop\.exe</field>
     <description>Sigma: Remote Access Tool - UltraViewer Execution</description>
@@ -446,7 +446,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118178" level="9">
+  <rule id="110178" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\amazon-ssm-agent\.exe$</field>
     <field name="win.eventdata.commandLine">-register |-code |-id |-region </field>
@@ -456,7 +456,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118181" level="10">
+  <rule id="110181" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.user">AUTHORI|AUTORI</field>
     <field name="win.eventdata.image">\tscon\.exe$</field>
@@ -466,7 +466,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118182" level="9">
+  <rule id="110182" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">VNCViewer</field>
     <description>Sigma: Use of UltraVNC Remote Access Software</description>
@@ -475,7 +475,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118183" level="9">
+  <rule id="110183" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">UltraVNC VNCViewer</field>
     <description>Sigma: Use of UltraVNC Remote Access Software</description>
@@ -484,7 +484,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118184" level="9">
+  <rule id="110184" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">UltraVNC</field>
     <description>Sigma: Use of UltraVNC Remote Access Software</description>
@@ -493,7 +493,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118185" level="9">
+  <rule id="110185" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">VNCViewer\.exe</field>
     <description>Sigma: Use of UltraVNC Remote Access Software</description>

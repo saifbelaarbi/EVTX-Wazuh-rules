@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1037.001_unknown,">
-  <rule id="106228" level="11">
+  <rule id="107228" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">UserInitMprLogonScript</field>
     <description>Sigma: Potential Persistence Via Logon Scripts - CommandLine</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106300" level="11">
+  <rule id="107300" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\userinit\.exe$</field>
     <description>Sigma: Uncommon Userinit Child Process</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106359" level="10">
+  <rule id="107359" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">UserInitMprLogonScript</field>
     <description>Sigma: Potential Persistence Via Logon Scripts - Registry</description>

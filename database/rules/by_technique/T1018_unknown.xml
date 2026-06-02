@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1018_unknown,">
-  <rule id="112027" level="6">
+  <rule id="111027" level="6">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-Object |System\.DirectoryServices\.DirectorySearcher|\.PropertiesToLoad\.Add|\.findall\(\)|Properties\.name</field>
     <description>Sigma: DirectorySearcher Powershell Exploitation</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112030" level="6">
+  <rule id="111030" level="6">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">-Properties.*TrustedForDelegation|-Properties.*TrustedToAuthForDelegation|-Properties.*msDS-AllowedToDelegateTo|-Properties.*PrincipalsAllowedToDelegateToAccount|-LDAPFilter.*\(userAccountControl:1\.2\.840\.113556\.1\.4\.803:=524288\)</field>
     <description>Sigma: Potential Unconstrained Delegation Discovery Via Get-ADComputer - ScriptBlock</description>
@@ -20,7 +20,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112056" level="7">
+  <rule id="111056" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\nxc\.exe$</field>
     <field name="win.eventdata.commandLine"> ftp | ldap | mssql | nfs | rdp | smb | ssh | vnc | winrm | wmi </field>
@@ -31,7 +31,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112088" level="7">
+  <rule id="111088" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">domainlist|trustdmp|dcmodes|adinfo|-sc dclist|computer_pwdnotreqd|objectcategory=|-subnets -f|name="Domain Admins"|-sc u:|domainncs|dompol| oudmp |subnetdmp|gpodmp|fspdmp|users_noexpire|computers_active|computers_pwdnotreqd</field>
     <description>Sigma: PUA - AdFind Suspicious Execution</description>
@@ -42,7 +42,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112118" level="7">
+  <rule id="111118" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">domainlist|trustdmp|dcmodes|adinfo| dclist |computer_pwdnotreqd|objectcategory=|-subnets -f|name="Domain Admins"|-sc u:|domainncs|dompol| oudmp |subnetdmp|gpodmp|fspdmp|users_noexpire|computers_active|computers_pwdnotreqd</field>
     <description>Sigma: Renamed AdFind Execution</description>
@@ -53,7 +53,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112119" level="7">
+  <rule id="111119" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=BCA5675746D13A1F246E2DA3C2217492|IMPHASH=53E117A96057EAF19C41380D0E87F1C2|IMPHASH=d144de8117df2beceaba2201ad304764|IMPHASH=12ce1c0f3f5837ecc18a3782408fa975|IMPHASH=4fbf3f084fbbb2470b80b2013134df35|IMPHASH=49b639b4acbecc49d72a01f357aa4930|IMPHASH=680dad9e300346e05a85023965867201|IMPHASH=21aa085d54992511b9f115355e468782</field>
     <description>Sigma: Renamed AdFind Execution</description>
@@ -64,7 +64,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112120" level="7">
+  <rule id="111120" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">AdFind\.exe</field>
     <description>Sigma: Renamed AdFind Execution</description>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1486_data_encrypted_for_impact,">
-  <rule id="122007" level="13">
+  <rule id="114007" level="13">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.sourceFilename">\.doc$|\.docx$|\.jpeg$|\.jpg$|\.lnk$|\.pdf$|\.png$|\.pst$|\.rtf$|\.xls$|\.xlsx$</field>
     <field name="win.eventdata.targetFilename">\.doc\.|\.docx\.|\.jpeg\.|\.jpg\.|\.lnk\.|\.pdf\.|\.png\.|\.pst\.|\.rtf\.|\.xls\.|\.xlsx\.</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122008" level="14">
+  <rule id="114008" level="14">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\RstrtMgr\.dll$</field>
     <field name="win.eventdata.image">:\Perflogs\|:\Users\Public\|\Temporary Internet</field>
@@ -21,7 +21,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122021" level="13">
+  <rule id="114021" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\gpg\.exe$|\gpg2\.exe$</field>
     <description>Sigma: Portable Gpg.EXE Execution</description>
@@ -30,7 +30,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122024" level="14">
+  <rule id="114024" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">EnableBDEWithNoTPM|UseAdvancedStartup|UseTPM|UseTPMKey|UseTPMKeyPIN|RecoveryKeyMessageSource|UseTPMPIN|RecoveryKeyMessage|ADD|\SOFTWARE\Policies\Microsoft\FVE|/v|/f</field>
     <description>Sigma: Suspicious Reg Add BitLocker</description>
@@ -39,7 +39,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122026" level="14">
+  <rule id="114026" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">gpg\.exe</field>
     <description>Sigma: Renamed Gpg.EXE Execution</description>

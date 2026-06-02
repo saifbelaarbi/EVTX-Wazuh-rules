@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1053.005_unknown,">
-  <rule id="106021" level="11">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">5136</field>
-    <field name="win.eventdata.attributeLDAPDisplayName">gPCMachineExtensionNames|gPCUserExtensionNames</field>
-    <field name="win.eventdata.attributeValue">CAB54552-DEEA-4691-817E-ED4A4D1AFC72|AADCED64-746C-4633-A97C-D61349046527</field>
-    <description>Sigma: Persistence and Execution at Scale via GPO Scheduled Task</description>
-    <mitre>
-      <id>T1053.005</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106022" level="11">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.shareName">\SYSVOL$</field>
-    <field name="win.eventdata.relativeTargetName">ScheduledTasks\.xml$</field>
-    <field name="win.eventdata.accessList">WriteData|%%4417</field>
-    <description>Sigma: Persistence and Execution at Scale via GPO Scheduled Task</description>
-    <mitre>
-      <id>T1053.005</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="102074" level="9">
+  <rule id="100074" level="9">
     <if_sid>60100</if_sid>
     <field name="win.eventdata.taskContent">\AppData\Local\Temp\|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|C:\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\</field>
     <field name="win.system.eventID">4698</field>
@@ -33,7 +10,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102075" level="9">
+  <rule id="100075" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4699|4701</field>
     <field name="win.eventdata.taskName">\Windows\SystemRestore\SR|\Windows\Windows Defender\|\Windows\BitLocker|\Windows\WindowsBackup\|\Windows\WindowsUpdate\|\Windows\UpdateOrchestrator\Schedule|\Windows\ExploitGuard</field>
@@ -43,7 +20,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102076" level="9">
+  <rule id="100076" level="9">
     <if_sid>60100</if_sid>
     <field name="win.eventdata.taskContentNew">\AppData\Local\Temp\|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|C:\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\</field>
     <field name="win.system.eventID">4702</field>
@@ -53,45 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="106041" level="10">
-    <if_sid>60000</if_sid>
-    <field name="win.system.eventID">129</field>
-    <field name="win.eventdata.path">C:\Windows\Temp\|\AppData\Local\Temp\|\Desktop\|\Downloads\|\Users\Public\|C:\Temp\</field>
-    <description>Sigma: Scheduled Task Executed From A Suspicious Location</description>
-    <mitre>
-      <id>T1053.005</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106042" level="10">
-    <if_sid>60000</if_sid>
-    <field name="win.system.eventID">129</field>
-    <field name="win.eventdata.path">\calc\.exe$|\cscript\.exe$|\mshta\.exe$|\mspaint\.exe$|\notepad\.exe$|\regsvr32\.exe$|\wscript\.exe$</field>
-    <description>Sigma: Scheduled Task Executed Uncommon LOLBIN</description>
-    <mitre>
-      <id>T1053.005</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106134" level="10">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Invoke-CimMethod|-ClassName|PS_ScheduledTask|-NameSpace|Root\Microsoft\Windows\TaskScheduler</field>
-    <description>Sigma: Powershell Create Scheduled Task</description>
-    <mitre>
-      <id>T1053.005</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106135" level="10">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">New-ScheduledTaskAction|New-ScheduledTaskTrigger|New-ScheduledTaskPrincipal|New-ScheduledTaskSettingsSet|New-ScheduledTask|Register-ScheduledTask</field>
-    <description>Sigma: Powershell Create Scheduled Task</description>
-    <mitre>
-      <id>T1053.005</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="102530" level="12">
+  <rule id="100530" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -103,7 +42,87 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="106239" level="11">
+  <rule id="100886" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">once|00:00</field>
+    <field name="win.eventdata.image">\schtasks\.exe</field>
+    <description>Sigma: Uncommon One Time Only Scheduled Task At 00:00</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="104009" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4698</field>
+    <description>Scheduled task created: \CYAlyNSS</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="107021" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5136</field>
+    <field name="win.eventdata.attributeLDAPDisplayName">gPCMachineExtensionNames|gPCUserExtensionNames</field>
+    <field name="win.eventdata.attributeValue">CAB54552-DEEA-4691-817E-ED4A4D1AFC72|AADCED64-746C-4633-A97C-D61349046527</field>
+    <description>Sigma: Persistence and Execution at Scale via GPO Scheduled Task</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107022" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.shareName">\SYSVOL$</field>
+    <field name="win.eventdata.relativeTargetName">ScheduledTasks\.xml$</field>
+    <field name="win.eventdata.accessList">WriteData|%%4417</field>
+    <description>Sigma: Persistence and Execution at Scale via GPO Scheduled Task</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107041" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">129</field>
+    <field name="win.eventdata.path">C:\Windows\Temp\|\AppData\Local\Temp\|\Desktop\|\Downloads\|\Users\Public\|C:\Temp\</field>
+    <description>Sigma: Scheduled Task Executed From A Suspicious Location</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107042" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">129</field>
+    <field name="win.eventdata.path">\calc\.exe$|\cscript\.exe$|\mshta\.exe$|\mspaint\.exe$|\notepad\.exe$|\regsvr32\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Scheduled Task Executed Uncommon LOLBIN</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107134" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Invoke-CimMethod|-ClassName|PS_ScheduledTask|-NameSpace|Root\Microsoft\Windows\TaskScheduler</field>
+    <description>Sigma: Powershell Create Scheduled Task</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107135" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-ScheduledTaskAction|New-ScheduledTaskTrigger|New-ScheduledTaskPrincipal|New-ScheduledTaskSettingsSet|New-ScheduledTask|Register-ScheduledTask</field>
+    <description>Sigma: Powershell Create Scheduled Task</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107239" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">NT AUT| SYSTEM |/RU|/TR|C:\Users\|\AppData\Local\</field>
@@ -114,7 +133,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106240" level="11">
+  <rule id="107240" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">\AppData\Local\Temp|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\|%ProgramData%|%appdata%|%comspec%|%localappdata%| /TN </field>
@@ -124,7 +143,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106241" level="11">
+  <rule id="107241" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine"> /create | /sc once |\Temp\</field>
@@ -134,7 +153,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106242" level="10">
+  <rule id="107242" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">powershell|http|-o</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -146,7 +165,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106243" level="10">
+  <rule id="107243" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">:\Perflogs|:\Windows\Temp|\Users\Public|%Public%</field>
@@ -157,7 +176,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106244" level="11">
+  <rule id="107244" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /create </field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -167,7 +186,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106245" level="10">
+  <rule id="107245" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/TN "\{|/TN '\{|/TN \{</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -177,17 +196,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102886" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">once|00:00</field>
-    <field name="win.eventdata.image">\schtasks\.exe</field>
-    <description>Sigma: Uncommon One Time Only Scheduled Task At 00:00</description>
-    <mitre>
-      <id>T1053.005</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="106246" level="11">
+  <rule id="107246" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine"> /create |ssh\.exe|-i</field>
@@ -197,7 +206,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106247" level="10">
+  <rule id="107247" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">run |\Application Experience\Microsoft Compatibility Appraiser</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -207,7 +216,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106248" level="11">
+  <rule id="107248" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">C:\WINDOWS\System32\svchost\.exe</field>
     <field name="win.eventdata.parentCommandLine">-k netsvcs|-s Schedule</field>
@@ -219,7 +228,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106249" level="10">
+  <rule id="107249" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">HKCU:|HKLM:|registry::|HKEY_</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -230,7 +239,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106250" level="11">
+  <rule id="107250" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">HKCU:|HKLM:|registry::|HKEY_</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -241,7 +250,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106251" level="11">
+  <rule id="107251" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine"> ONLOGON | ONSTART | ONCE | ONIDLE </field>
@@ -251,7 +260,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106252" level="10">
+  <rule id="107252" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine"> ONLOGON | ONSTART | ONCE | ONIDLE </field>
@@ -261,7 +270,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106254" level="11">
+  <rule id="107254" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">/Create </field>
@@ -271,7 +280,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106255" level="11">
+  <rule id="107255" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">NT AUT| SYSTEM </field>
@@ -281,7 +290,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106256" level="12">
+  <rule id="107256" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> audiodg| conhost| dwm\.exe| explorer| lsass| lsm| mmc| msiexec| regsvr32| rundll32| services| spoolsv| svchost| taskeng| taskhost| wininit| winlogon</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -293,7 +302,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106369" level="11">
+  <rule id="107369" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Command$</field>
     <field name="win.eventdata.details">\.bat|\.bin|\.cmd|\.dat|\.dll|\.exe|\.hta|\.jar|\.js|\.msi|\.ps|\.sh|\.vb</field>

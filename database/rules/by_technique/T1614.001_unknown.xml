@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1614.001_unknown,">
-  <rule id="112035" level="6">
+  <rule id="111035" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\cmd\.exe$</field>
     <field name="win.eventdata.parentCommandLine"> -c | -r | -k </field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112117" level="6">
+  <rule id="111117" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">query|Control\Nls\Language</field>
     <field name="win.eventdata.image">\reg\.exe$</field>

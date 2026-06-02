@@ -122,6 +122,51 @@ def _build_xml_group(rules: list[dict], group_name: str) -> str:
     return xml_decl + xml_str
 
 
+def _load_existing_rule_elements(out_file: Path) -> dict[str, etree._Element]:
+    """Read existing <rule> elements from an XML group file, keyed by rule id.
+
+    Lets the by_tactic / by_technique / by_source exports MERGE with rules
+    already on disk instead of overwriting them. Without this, running
+    ``generate`` (EVTX) then ``convert-sigma`` (Sigma) would clobber the shared
+    per-tactic files and leave the rule index pointing at rules that no longer
+    exist in any XML (phantom entries).
+    """
+    existing: dict[str, etree._Element] = {}
+    if not out_file.exists():
+        return existing
+    try:
+        tree = etree.parse(str(out_file))
+    except etree.XMLSyntaxError:
+        return existing
+    for rule_elem in tree.getroot().iter("rule"):
+        rid = rule_elem.get("id")
+        if rid:
+            existing[rid] = rule_elem
+    return existing
+
+
+def _write_group_merged(out_file: Path, new_rules: list[dict], group_name: str):
+    """Merge ``new_rules`` into any rules already in ``out_file`` and write.
+
+    New rules win on id collision. Output is sorted by rule id for stable diffs.
+    """
+    merged = _load_existing_rule_elements(out_file)
+    for rule in new_rules:
+        merged[str(rule["id"])] = rule["xml_element"]
+
+    root = etree.Element("group", name=f"{group_name},")
+    root.addprevious(etree.Comment(f" EVTX-Wazuh-Rules | Auto-generated | {group_name} "))
+    for rid in sorted(merged, key=int):
+        root.append(merged[rid])
+
+    etree.indent(root, space="  ")
+    xml_decl = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_str = etree.tostring(root, pretty_print=True, encoding="unicode")
+    with open(out_file, "w") as f:
+        f.write(xml_decl + xml_str)
+    return len(merged)
+
+
 def export_drafts(rules: list[dict]) -> Path:
     """Export rules as drafts for review."""
     DRAFTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -172,11 +217,9 @@ def export_by_tactic(rules: list[dict]):
         by_tactic[tactic].append(rule)
 
     for tactic, tactic_rules in by_tactic.items():
-        xml_content = _build_xml_group(tactic_rules, f"windows,{tactic}")
         out_file = out_dir / f"{tactic}.xml"
-        with open(out_file, "w") as f:
-            f.write(xml_content)
-        console.print(f"  [green]{tactic}.xml[/]: {len(tactic_rules)} rules")
+        total = _write_group_merged(out_file, tactic_rules, f"windows,{tactic}")
+        console.print(f"  [green]{tactic}.xml[/]: +{len(tactic_rules)} ({total} total)")
 
 
 def export_by_technique(rules: list[dict]):
@@ -190,11 +233,9 @@ def export_by_technique(rules: list[dict]):
         by_technique[slug].append(rule)
 
     for slug, tech_rules in by_technique.items():
-        xml_content = _build_xml_group(tech_rules, f"windows,{slug}")
         out_file = out_dir / f"{slug}.xml"
-        with open(out_file, "w") as f:
-            f.write(xml_content)
-        console.print(f"  [green]{slug}.xml[/]: {len(tech_rules)} rules")
+        total = _write_group_merged(out_file, tech_rules, f"windows,{slug}")
+        console.print(f"  [green]{slug}.xml[/]: +{len(tech_rules)} ({total} total)")
 
 
 def export_by_source(rules: list[dict]):
@@ -208,11 +249,9 @@ def export_by_source(rules: list[dict]):
         by_source[source].append(rule)
 
     for source, source_rules in by_source.items():
-        xml_content = _build_xml_group(source_rules, f"windows,{source}")
         out_file = out_dir / f"{source}.xml"
-        with open(out_file, "w") as f:
-            f.write(xml_content)
-        console.print(f"  [green]{source}.xml[/]: {len(source_rules)} rules")
+        total = _write_group_merged(out_file, source_rules, f"windows,{source}")
+        console.print(f"  [green]{source}.xml[/]: +{len(source_rules)} ({total} total)")
 
 
 def export_all_views(rules: list[dict]):

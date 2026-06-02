@@ -1,34 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1078_valid_accounts,">
-  <rule id="106013" level="10">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4625</field>
-    <description>Sigma: Failed Logon From Public IP</description>
-    <mitre>
-      <id>T1078</id>
-      <id>T1190</id>
-      <id>T1133</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="100002" level="9">
-    <if_sid>60100</if_sid>
-    <field name="win.eventdata.samAccountName">\$$</field>
-    <description>Sigma: Win Susp Computer Name Containing Samtheadmin</description>
-    <mitre>
-      <id>T1078</id>
-    </mitre>
-    <group>initial_access,sigma_converted,</group>
-  </rule>
-  <rule id="100003" level="9">
-    <if_sid>60100</if_sid>
-    <field name="win.eventdata.targetUserName">\$$</field>
-    <description>Sigma: Win Susp Computer Name Containing Samtheadmin</description>
-    <mitre>
-      <id>T1078</id>
-    </mitre>
-    <group>initial_access,sigma_converted,</group>
-  </rule>
   <rule id="104544" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4625|4776</field>
@@ -39,7 +10,27 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106032" level="10">
+  <rule id="107000" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: admin01</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="107013" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4625</field>
+    <description>Sigma: Failed Logon From Public IP</description>
+    <mitre>
+      <id>T1078</id>
+      <id>T1190</id>
+      <id>T1133</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107032" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4648</field>
     <field name="win.eventdata.processName">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\winrs\.exe$|\wmic\.exe$|\net\.exe$|\net1\.exe$|\reg\.exe$</field>
@@ -49,7 +40,43 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="100005" level="8">
+  <rule id="107133" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.contextInfo">Reset-ComputerMachinePassword</field>
+    <description>Sigma: Suspicious Computer Machine Password by PowerShell</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="112500" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting localhost</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="113002" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.eventdata.samAccountName">\$$</field>
+    <description>Sigma: Win Susp Computer Name Containing Samtheadmin</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113003" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.eventdata.targetUserName">\$$</field>
+    <description>Sigma: Win Susp Computer Name Containing Samtheadmin</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113005" level="8">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4732</field>
     <field name="win.eventdata.targetUserName">^Administr</field>
@@ -59,14 +86,5 @@
       <id>T1098</id>
     </mitre>
     <group>initial_access,sigma_converted,</group>
-  </rule>
-  <rule id="106133" level="10">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">Reset-ComputerMachinePassword</field>
-    <description>Sigma: Suspicious Computer Machine Password by PowerShell</description>
-    <mitre>
-      <id>T1078</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
   </rule>
 </group>

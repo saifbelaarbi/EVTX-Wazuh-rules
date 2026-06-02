@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1555.004_unknown,">
-  <rule id="110066" level="11">
+  <rule id="108566" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.fileName">\Microsoft\Protect\CREDHIST$</field>
     <description>Sigma: Access To Windows Credential History File By Uncommon Applications</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="110068" level="11">
+  <rule id="108568" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.fileName">\Microsoft\Protect\S-1-5-18\|\Microsoft\Protect\S-1-5-21-</field>
     <description>Sigma: Access To Windows DPAPI Master Keys By Uncommon Applications</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="110248" level="12">
+  <rule id="108748" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">keymgr|KRShowKeyMgr</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -28,7 +28,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="110283" level="11">
+  <rule id="108783" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/listcreds:</field>
     <field name="win.eventdata.image">\VaultCmd\.exe$</field>

@@ -1,6 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,lateral_movement,">
-  <rule id="114012" level="11">
+  <rule id="112500" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <description>Logon with explicit credentials targeting localhost</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112501" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1021.001</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112502" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">10</field>
+    <description>Remote logon type 10 detected</description>
+    <mitre>
+      <id>T1021.001</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112503" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\\ntsvcs</field>
+    <description>Known malicious named pipe pattern: \ntsvcs</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112504" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\\scerpc</field>
+    <description>Known malicious named pipe pattern: \scerpc</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112505" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexesvc</field>
+    <description>Suspicious process 'psexesvc' execution detected</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112506" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <description>Suspicious process 'psexec' execution detected</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112507" level="11">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\psexe</field>
+    <description>Known malicious named pipe pattern: \psexe</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112508" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\\psexe</field>
+    <description>Known malicious named pipe pattern: \psexe</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112509" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <description>File created by suspicious process 'psexec'</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112510" level="10">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <field name="win.eventdata.queryName">fs03vuln</field>
+    <description>DNS query from suspicious process 'psexec'</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112511" level="11">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">PSEXESVC</field>
+    <field name="win.eventdata.imagePath">psexesvc</field>
+    <description>Suspicious service 'PSEXESVC' installed</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112512" level="11">
     <if_sid>60003</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-SoftwareRestrictionPolicies</field>
     <field name="win.system.eventID">865|866|867|868|882</field>
@@ -10,7 +122,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114013" level="10">
+  <rule id="112513" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">4</field>
     <field name="win.eventdata.process">sshd</field>
@@ -21,7 +133,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114014" level="11">
+  <rule id="112514" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">9</field>
@@ -33,7 +145,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114015" level="10">
+  <rule id="112515" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.subjectUserSid">S-1-0-0</field>
@@ -46,7 +158,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114016" level="10">
+  <rule id="112516" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">9</field>
@@ -57,7 +169,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114017" level="11">
+  <rule id="112517" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">10</field>
@@ -68,7 +180,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114018" level="10">
+  <rule id="112518" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -79,7 +191,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114019" level="11">
+  <rule id="112519" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.relativeTargetName">\Internet Explorer\iertutil\.dll$</field>
@@ -90,7 +202,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114020" level="11">
+  <rule id="112520" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -101,7 +213,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114021" level="11">
+  <rule id="112521" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -111,7 +223,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114022" level="11">
+  <rule id="112522" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4625|4624</field>
     <field name="win.eventdata.logonType">3</field>
@@ -123,7 +235,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114023" level="11">
+  <rule id="112523" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4776</field>
     <field name="win.eventdata.workstation">^[A-Za-z0-9]{16}$</field>
@@ -133,7 +245,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114024" level="11">
+  <rule id="112524" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceFileName">^%systemroot%\\[a-zA-Z]{8}\.exe$</field>
@@ -148,7 +260,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114025" level="10">
+  <rule id="112525" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4825</field>
     <description>Sigma: Denied Access To Remote Desktop</description>
@@ -157,7 +269,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114026" level="11">
+  <rule id="112526" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">IPC</field>
@@ -168,7 +280,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114027" level="11">
+  <rule id="112527" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4611</field>
     <field name="win.eventdata.logonProcessName">User32LogonProcesss</field>
@@ -178,7 +290,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114028" level="11">
+  <rule id="112528" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">C\$$</field>
@@ -189,7 +301,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114029" level="10">
+  <rule id="112529" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5156</field>
     <field name="win.eventdata.destPort">88</field>
@@ -199,7 +311,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114030" level="11">
+  <rule id="112530" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -210,7 +322,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114031" level="10">
+  <rule id="112531" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -222,7 +334,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114032" level="10">
+  <rule id="112532" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">4000</field>
     <field name="win.eventdata.shareName">IPC\$|ADMIN\$|C\$</field>
@@ -233,7 +345,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114033" level="10">
+  <rule id="112533" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">LsaSrv</field>
     <field name="win.system.eventID">6038|6039</field>
@@ -243,7 +355,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114034" level="11">
+  <rule id="112534" level="11">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">5805|5723</field>
     <description>Sigma: Zerologon Exploitation Using Well-known Tools</description>
@@ -252,7 +364,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114035" level="11">
+  <rule id="112535" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -264,7 +376,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114036" level="11">
+  <rule id="112536" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">System</field>
     <field name="win.eventdata.targetFilename">\Internet Explorer\iertutil\.dll$</field>
@@ -275,7 +387,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114037" level="11">
+  <rule id="112537" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.key$</field>
     <description>Sigma: PSEXEC Remote Execution File Artefact</description>
@@ -286,7 +398,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114038" level="11">
+  <rule id="112538" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\Windows\\__1\d{9}\.\d{1,7}$</field>
     <description>Sigma: Wmiexec Default Output File</description>
@@ -295,7 +407,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114039" level="11">
+  <rule id="112539" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">C:\\__1\d{9}\.\d{1,7}$</field>
     <description>Sigma: Wmiexec Default Output File</description>
@@ -304,7 +416,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114040" level="11">
+  <rule id="112540" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">D:\\__1\d{9}\.\d{1,7}$</field>
     <description>Sigma: Wmiexec Default Output File</description>
@@ -313,7 +425,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114041" level="11">
+  <rule id="112541" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\Internet Explorer\iexplore\.exe$</field>
     <field name="win.eventdata.imageLoaded">\Internet Explorer\iertutil\.dll$</field>
@@ -324,7 +436,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114042" level="10">
+  <rule id="112542" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\scrcons\.exe$</field>
     <field name="win.eventdata.imageLoaded">\vbscript\.dll$|\wbemdisp\.dll$|\wshom\.ocx$|\scrrun\.dll$</field>
@@ -334,7 +446,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114043" level="11">
+  <rule id="112543" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\BaaUpdate\.exe$</field>
     <field name="win.eventdata.imageLoaded">:\Perflogs\|:\Users\Default\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\AppData\Roaming\|\Contacts\|\Favorites\|\Favourites\|\Links\|\Music\|\Pictures\|\ProgramData\|\Temporary Internet|\Videos\</field>
@@ -345,7 +457,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114044" level="11">
+  <rule id="112544" level="11">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.destinationPort">3389</field>
     <field name="win.eventdata.initiated">true</field>
@@ -355,7 +467,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114045" level="10">
+  <rule id="112545" level="10">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\csexecsvc</field>
     <description>Sigma: PUA - CSExec Default Named Pipe</description>
@@ -365,7 +477,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114046" level="10">
+  <rule id="112546" level="10">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\RemCom</field>
     <description>Sigma: PUA - RemCom Default Named Pipe</description>
@@ -375,14 +487,14 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114047" level="11">
+  <rule id="112547" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.contextInfo">:\Windows\System32\wsmprovhost\.exe|:\Windows\SysWOW64\wsmprovhost\.exe</field>
     <field name="win.eventdata.payload">value="\(get-location\)\.path|value="\(get-item.*\)\.length|Invoke-Binary |Donut-Loader -process_id.*-donutfile|Bypass-4MSI|IEX \(\[System\.Text\.Encoding\]::ASCII\.GetString\(\[System\.Convert\]::FromBase64String\(\$a\)\)\)\.replace\('...',''\)</field>
     <description>Sigma: HackTool - Evil-WinRm Execution - PowerShell Module</description>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114048" level="10">
+  <rule id="112548" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Enable-PSRemoting </field>
     <description>Sigma: Enable Windows Remote Management</description>
@@ -391,7 +503,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114049" level="10">
+  <rule id="112549" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">invoke-command | -ComputerName </field>
     <description>Sigma: Execute Invoke-command on Remote Host</description>
@@ -400,7 +512,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114050" level="10">
+  <rule id="112550" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-PSDrive|-psprovider |filesystem|-root |\\\\|\$</field>
     <description>Sigma: Suspicious New-PSDrive to Admin Share</description>
@@ -409,7 +521,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114051" level="11">
+  <rule id="112551" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\baaupdate\.exe$</field>
     <field name="win.eventdata.image">\bitsadmin\.exe$|\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\schtasks\.exe$|\wmic\.exe$|\wscript\.exe$</field>
@@ -420,7 +532,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114052" level="10">
+  <rule id="112552" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">Microsoft Corporation</field>
     <field name="win.eventdata.image">\csi\.exe$|\rcsi\.exe$</field>
@@ -431,7 +543,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114053" level="10">
+  <rule id="112553" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\ruby\.exe$</field>
     <field name="win.eventdata.commandLine">-i |-u |-p </field>
@@ -441,7 +553,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114054" level="11">
+  <rule id="112554" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharpMove\.exe$</field>
     <field name="win.eventdata.commandLine">action=create|action=dcom|action=executevbs|action=hijackdcom|action=modschtask|action=modsvc|action=query|action=scm|action=startservice|action=taskscheduler</field>
@@ -451,13 +563,13 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114055" level="11">
+  <rule id="112555" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-NoP -NoL -sta -NonI -W Hidden -Exec Bypass -Enc</field>
     <description>Sigma: HackTool - Wmiexec Default Powershell Command</description>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114056" level="10">
+  <rule id="112556" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\java\.exe$|\javaw\.exe$</field>
     <field name="win.eventdata.parentCommandLine">SysAidServer</field>
@@ -467,7 +579,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114057" level="11">
+  <rule id="112557" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\mmc\.exe$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$|\cscript\.exe$|\sh\.exe$|\bash\.exe$|\reg\.exe$|\regsvr32\.exe$</field>
@@ -477,7 +589,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114058" level="11">
+  <rule id="112558" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">noconsentprompt|shadow:</field>
     <description>Sigma: Potential MSTSC Shadowing Activity</description>
@@ -486,7 +598,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114059" level="10">
+  <rule id="112559" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /v:</field>
     <field name="win.eventdata.image">\mstsc\.exe$</field>
@@ -496,14 +608,14 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114060" level="11">
+  <rule id="112560" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\mstsc\.exe$</field>
     <field name="win.eventdata.parentImage">\brave\.exe$|\CCleanerBrowser\.exe$|\chrome\.exe$|\chromium\.exe$|\firefox\.exe$|\iexplore\.exe$|\microsoftedge\.exe$|\msedge\.exe$|\opera\.exe$|\vivaldi\.exe$|\whale\.exe$|\outlook\.exe$</field>
     <description>Sigma: Mstsc.EXE Execution From Uncommon Parent</description>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114061" level="10">
+  <rule id="112561" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> use | \\\\.*\\.*\$</field>
     <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
@@ -513,7 +625,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114062" level="11">
+  <rule id="112562" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> use | http</field>
     <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
@@ -523,7 +635,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114063" level="10">
+  <rule id="112563" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\netsh\.exe$</field>
     <field name="win.eventdata.commandLine">interface|portproxy|add|v4tov4</field>
@@ -533,7 +645,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114064" level="11">
+  <rule id="112564" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> i| p|=3389| c</field>
     <field name="win.eventdata.image">\netsh\.exe$</field>
@@ -543,7 +655,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114065" level="11">
+  <rule id="112565" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">foxprow\.exe|schdplus\.exe|winproj\.exe</field>
     <field name="win.eventdata.parentImage">\excel\.exe$</field>
@@ -553,7 +665,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114066" level="10">
+  <rule id="112566" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">SetAllowTSConnections</field>
     <field name="win.eventdata.image">\wmic\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
@@ -564,7 +676,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114067" level="11">
+  <rule id="112567" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">rundll32\.exe|rundll32</field>
     <description>Sigma: Rundll32 Execution Without Parameters</description>
@@ -575,7 +687,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114068" level="11">
+  <rule id="112568" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\SpeechRuntime\.exe$</field>
     <description>Sigma: Suspicious Speech Runtime Binary Child Process</description>
@@ -585,7 +697,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114069" level="10">
+  <rule id="112569" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\\\\.*\\.*\$|\Sysvol\</field>
     <description>Sigma: Copy From Or To Admin Share Or Sysvol Folder</description>
@@ -596,7 +708,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114070" level="11">
+  <rule id="112570" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">echo|&gt;|\\\\\.\\pipe\\</field>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$</field>
@@ -606,7 +718,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114071" level="10">
+  <rule id="112571" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -L | -P | -R | -pw | -ssh </field>
     <description>Sigma: Potential Remote Desktop Tunneling</description>
@@ -615,7 +727,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114072" level="11">
+  <rule id="112572" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /dest:rdp-tcp#</field>
     <description>Sigma: Suspicious RDP Redirect Using TSCON</description>
@@ -625,7 +737,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114073" level="11">
+  <rule id="112573" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-autoreconnect |-connect |-id:</field>
     <description>Sigma: Suspicious UltraVNC Execution</description>
@@ -634,7 +746,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114074" level="11">
+  <rule id="112574" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\winrs\.exe$</field>
     <field name="win.eventdata.commandLine">/r:localhost|/r:127\.0\.0\.1|/r:\[::1\]|/remote:localhost|/remote:127\.0\.0\.1|/remote:\[::1\]</field>
@@ -645,7 +757,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114075" level="10">
+  <rule id="112575" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\winrshost\.exe$</field>
     <description>Sigma: Potential Lateral Movement via Windows Remote Shell</description>
@@ -654,7 +766,7 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="114076" level="10">
+  <rule id="112576" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Services\PortProxy\v4tov4\tcp\</field>
     <description>Sigma: New PortProxy Registry Entry Added</description>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1115_unknown,">
-  <rule id="116011" level="7">
+  <rule id="113511" level="7">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">Get-Clipboard</field>
     <description>Sigma: PowerShell Get Clipboard</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116032" level="7">
+  <rule id="113532" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Get-Clipboard</field>
     <description>Sigma: PowerShell Get-Clipboard Cmdlet Via CLI</description>

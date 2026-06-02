@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1546_unknown,">
-  <rule id="106060" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">Local\Microsoft\WindowsApps\Get-Variable\.exe$</field>
-    <description>Sigma: Suspicious Get-Variable.exe Creation</description>
-    <mitre>
-      <id>T1546</id>
-      <id>T1027</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104776" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Software\Classes\Folder\shell\open\command\DelegateExecute</field>
@@ -19,5 +9,15 @@
       <id>T1548</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="107060" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">Local\Microsoft\WindowsApps\Get-Variable\.exe$</field>
+    <description>Sigma: Suspicious Get-Variable.exe Creation</description>
+    <mitre>
+      <id>T1546</id>
+      <id>T1027</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
 </group>

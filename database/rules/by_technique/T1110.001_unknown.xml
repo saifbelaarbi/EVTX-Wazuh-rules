@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1110.001_unknown,">
-  <rule id="110054" level="11">
+  <rule id="108554" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">31017</field>
     <field name="win.eventdata.userName"></field>

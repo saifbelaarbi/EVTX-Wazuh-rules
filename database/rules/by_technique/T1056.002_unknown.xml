@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1056.002_unknown,">
-  <rule id="110098" level="11">
+  <rule id="108598" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\credui\.dll$|\wincredui\.dll$</field>
     <description>Sigma: CredUI.DLL Loaded By Uncommon Process</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="110232" level="11">
+  <rule id="108732" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">Mouse Lock</field>
     <description>Sigma: PUA - Mouse Lock Execution</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="110233" level="11">
+  <rule id="108733" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">Misc314</field>
     <description>Sigma: PUA - Mouse Lock Execution</description>
@@ -27,7 +27,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="110234" level="11">
+  <rule id="108734" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Mouse Lock_</field>
     <description>Sigma: PUA - Mouse Lock Execution</description>

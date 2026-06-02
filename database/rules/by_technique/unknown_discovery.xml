@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,unknown_discovery,">
-  <rule id="112015" level="6">
+  <rule id="111015" level="6">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Hotfixinfo\.txt$|\netiostate\.txt$|\sysportslog\.txt$|\VmSwitchLog\.evtx$</field>
     <description>Sigma: GatherNetworkInfo.VBS Reconnaissance Script Output</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112020" level="6">
+  <rule id="111020" level="6">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">Microsoft\.ActiveDirectory\.Management\.dll</field>
     <description>Sigma: Potential Active Directory Enumeration Using AD Module - PsModule</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112021" level="6">
+  <rule id="111021" level="6">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Import-Module |Microsoft\.ActiveDirectory\.Management\.dll</field>
     <description>Sigma: Potential Active Directory Enumeration Using AD Module - PsScript</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112022" level="6">
+  <rule id="111022" level="6">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">ipmo Microsoft\.ActiveDirectory\.Management\.dll</field>
     <description>Sigma: Potential Active Directory Enumeration Using AD Module - PsScript</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112029" level="6">
+  <rule id="111029" level="6">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Win32_QuickFixEngineering|HotFixID</field>
     <description>Sigma: PowerShell Hotfix Enumeration</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112036" level="6">
+  <rule id="111036" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/enumrecords|/enumzones|/ZonePrint|/info</field>
     <field name="win.eventdata.image">\dnscmd\.exe$</field>
     <description>Sigma: Potential Discovery Activity Via Dnscmd.EXE</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112037" level="7">
+  <rule id="111037" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">driverquery\.exe$</field>
     <field name="win.eventdata.parentImage">\cscript\.exe$|\mshta\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
     <description>Sigma: Potential Recon Activity Using DriverQuery.EXE</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112038" level="6">
+  <rule id="111038" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">driverquery\.exe$</field>
     <description>Sigma: DriverQuery.EXE Execution</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112057" level="6">
+  <rule id="111057" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/user:|/pass:|/dcip:</field>
     <description>Sigma: HackTool - SharpLDAPmonitor Execution</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112058" level="6">
+  <rule id="111058" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharpLDAPmonitor\.exe$</field>
     <description>Sigma: HackTool - SharpLDAPmonitor Execution</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112059" level="6">
+  <rule id="111059" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">SharpLDAPmonitor\.exe</field>
     <description>Sigma: HackTool - SharpLDAPmonitor Execution</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112078" level="6">
+  <rule id="111078" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Microsoft\.ActiveDirectory\.Management\.dll</field>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
     <description>Sigma: Potential Active Directory Enumeration Using AD Module - ProcCreation</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112123" level="6">
+  <rule id="111123" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> 0x|//0x|\.0x|\.00x</field>
     <description>Sigma: Obfuscated IP Download Activity</description>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112124" level="6">
+  <rule id="111124" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\ping\.exe$|\arp\.exe$</field>
     <field name="win.eventdata.commandLine"> 0x|//0x|\.0x|\.00x</field>

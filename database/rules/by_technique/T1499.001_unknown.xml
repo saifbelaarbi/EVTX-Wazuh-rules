@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1499.001_unknown,">
-  <rule id="122004" level="14">
+  <rule id="114004" level="14">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Ntfs</field>
     <field name="win.system.eventID">55</field>

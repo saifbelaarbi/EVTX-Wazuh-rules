@@ -94,7 +94,7 @@ def export_navigator_layer(
             entry["tactic"] = tactic_names[0]
 
         if sub:
-            entry["techniqueID"] = base
+            entry["techniqueID"] = tid
             entry["comment"] = f"[{tid}] {entry['comment']}"
 
         techniques.append(entry)

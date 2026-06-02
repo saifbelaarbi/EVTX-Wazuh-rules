@@ -19,7 +19,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106350" level="10">
+  <rule id="107350" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers\</field>
     <field name="win.eventdata.details">REGISTERAPPRESTART</field>
@@ -29,7 +29,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106361" level="10">
+  <rule id="107361" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB\|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Custom\</field>
     <description>Sigma: Potential Persistence Via Shim Database Modification</description>
@@ -38,7 +38,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106362" level="11">
+  <rule id="107362" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\csrss\.exe$|\dllhost\.exe$|\explorer\.exe$|\RuntimeBroker\.exe$|\services\.exe$|\sihost\.exe$|\svchost\.exe$|\taskhostw\.exe$|\winlogon\.exe$|\WmiPrvSe\.exe$</field>
     <description>Sigma: Suspicious Shim Database Patching Activity</description>
@@ -47,7 +47,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106363" level="11">
+  <rule id="107363" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB\|\DatabasePath</field>
     <description>Sigma: Potential Persistence Via Shim Database In Uncommon Location</description>

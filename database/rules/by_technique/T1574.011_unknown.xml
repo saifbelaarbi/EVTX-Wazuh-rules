@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1574.011_unknown,">
-  <rule id="106138" level="10">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">get-acl|REGISTRY::HKLM\SYSTEM\CurrentControlSet\Services\</field>
-    <description>Sigma: Service Registry Permissions Weakness Check</description>
-    <mitre>
-      <id>T1574.011</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104668" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">;;;IU|;;;SU|;;;BA|;;;SY|;;;WD|D;;</field>
@@ -36,16 +27,6 @@
       <id>T1574.011</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="106225" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\reg\.exe$</field>
-    <field name="win.eventdata.commandLine"> -d |SYSTEM\CurrentControlSet\Services\| ImagePath </field>
-    <description>Sigma: Changing Existing Service ImagePath Value Via Reg.EXE</description>
-    <mitre>
-      <id>T1574.011</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="104716" level="10">
     <if_sid>61603</if_sid>
@@ -87,5 +68,24 @@
       <id>T1574.011</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="107138" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">get-acl|REGISTRY::HKLM\SYSTEM\CurrentControlSet\Services\</field>
+    <description>Sigma: Service Registry Permissions Weakness Check</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107225" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine"> -d |SYSTEM\CurrentControlSet\Services\| ImagePath </field>
+    <description>Sigma: Changing Existing Service ImagePath Value Via Reg.EXE</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
 </group>

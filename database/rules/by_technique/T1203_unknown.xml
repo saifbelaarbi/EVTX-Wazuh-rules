@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1203_unknown,">
-  <rule id="102021" level="9">
+  <rule id="100021" level="9">
     <if_sid>60003</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Audit-CVE|Audit-CVE</field>
     <field name="win.system.eventID">1</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102226" level="9">
+  <rule id="100226" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\eqnedt32\.exe$</field>
     <description>Sigma: Network Connection Initiated By Eqnedt32.EXE</description>
@@ -21,7 +21,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102227" level="8">
+  <rule id="100227" level="8">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\excel\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$|\wordview\.exe$</field>
     <field name="win.eventdata.initiated">true</field>
@@ -31,10 +31,31 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102561" level="8">
+  <rule id="100561" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">jre1\.|jdk1\.</field>
     <description>Sigma: Java Running with Remote Debugging</description>
+    <mitre>
+      <id>T1203</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100894" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\spoolsv\.exe$</field>
+    <field name="win.eventdata.integrityLevel">System|S-1-16-16384</field>
+    <description>Sigma: Suspicious Spool Service Child Process</description>
+    <mitre>
+      <id>T1203</id>
+      <id>T1068</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101036" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\WinRAR\.exe$</field>
+    <description>Sigma: Potentially Suspicious Child Process Of WinRAR.EXE</description>
     <mitre>
       <id>T1203</id>
     </mitre>
@@ -50,26 +71,5 @@
       <id>T1574.001</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="102894" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\spoolsv\.exe$</field>
-    <field name="win.eventdata.integrityLevel">System|S-1-16-16384</field>
-    <description>Sigma: Suspicious Spool Service Child Process</description>
-    <mitre>
-      <id>T1203</id>
-      <id>T1068</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="103036" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
-    <field name="win.eventdata.parentImage">\WinRAR\.exe$</field>
-    <description>Sigma: Potentially Suspicious Child Process Of WinRAR.EXE</description>
-    <mitre>
-      <id>T1203</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
   </rule>
 </group>

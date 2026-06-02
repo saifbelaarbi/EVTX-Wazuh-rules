@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1005_data_from_local_system,">
-  <rule id="116009" level="7">
+  <rule id="113509" level="7">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\MICROSOFT##WID\tsql\query</field>
     <description>Sigma: ADFS Database Named Pipe Connection By Uncommon Tool</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116021" level="7">
+  <rule id="113521" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Windows\WebCache</field>
     <field name="win.eventdata.image">\esentutl\.exe$</field>
@@ -19,7 +19,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116040" level="7">
+  <rule id="113540" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">VeeamBackup|From </field>
     <field name="win.eventdata.image">\sqlcmd\.exe$</field>
@@ -29,7 +29,7 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
-  <rule id="116041" level="8">
+  <rule id="113541" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">SELECT|TOP|\[VeeamBackup\]\.\[dbo\]\.\[Credentials\]</field>
     <field name="win.eventdata.image">\sqlcmd\.exe$</field>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1021.004_unknown,">
-  <rule id="114013" level="10">
+  <rule id="112513" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">4</field>
     <field name="win.eventdata.process">sshd</field>

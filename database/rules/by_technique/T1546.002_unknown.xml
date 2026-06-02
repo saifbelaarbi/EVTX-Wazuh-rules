@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1546.002_unknown,">
-  <rule id="106049" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.scr$</field>
-    <description>Sigma: Suspicious Screensaver Binary File Creation</description>
-    <mitre>
-      <id>T1546.002</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106079" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\\\127\.0\.0|\ADMIN\$\</field>
-    <description>Sigma: Writing Local Admin Share</description>
-    <mitre>
-      <id>T1546.002</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104710" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\reg\.exe$</field>
@@ -36,5 +18,23 @@
       <id>T1546.002</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="107049" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.scr$</field>
+    <description>Sigma: Suspicious Screensaver Binary File Creation</description>
+    <mitre>
+      <id>T1546.002</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107079" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\\\\127\.0\.0|\ADMIN\$\</field>
+    <description>Sigma: Writing Local Admin Share</description>
+    <mitre>
+      <id>T1546.002</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
 </group>

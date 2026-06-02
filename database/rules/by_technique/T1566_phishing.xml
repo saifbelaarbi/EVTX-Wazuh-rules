@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1566_phishing,">
-  <rule id="106052" level="10">
+  <rule id="107052" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\winword\.exe$|\excel\.exe$|\powerpnt\.exe$|\MSACCESS\.EXE$|\MSPUB\.EXE$|\fltldr\.exe$|\cmd\.exe$|\certutil\.exe$|\mshta\.exe$|\cscript\.exe$|\wscript\.exe$|\curl\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.targetFilename">\Microsoft\OneDrive\|\Microsoft OneDrive\|\Microsoft\Teams\|\Local\slack\app-|\Local\Programs\Microsoft VS Code\|\Users\|\AppData\</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="100021" level="9">
+  <rule id="113021" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\onenote\.exe$</field>
     <field name="win.eventdata.image">\explorer\.exe$</field>
@@ -24,7 +24,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100025" level="9">
+  <rule id="113025" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\Winrar\.exe$|\7zFM\.exe$|\peazip\.exe$</field>
     <field name="win.eventdata.image">\isoburn\.exe$|\PowerISO\.exe$|\ImgBurn\.exe$</field>

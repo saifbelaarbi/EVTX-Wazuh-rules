@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1070.003_unknown,">
-  <rule id="102248" level="8">
+  <rule id="100248" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">Set-PSReadlineOption|–HistorySaveStyle|SaveNothing</field>
     <description>Sigma: Clear PowerShell History - PowerShell Module</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102249" level="8">
+  <rule id="100249" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">Set-PSReadlineOption|-HistorySaveStyle|SaveNothing</field>
     <description>Sigma: Clear PowerShell History - PowerShell Module</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102280" level="8">
+  <rule id="100280" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Set-PSReadlineOption|–HistorySaveStyle|SaveNothing</field>
     <description>Sigma: Clear PowerShell History - PowerShell</description>
@@ -27,7 +27,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102281" level="8">
+  <rule id="100281" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Set-PSReadlineOption|-HistorySaveStyle|SaveNothing</field>
     <description>Sigma: Clear PowerShell History - PowerShell</description>
@@ -36,7 +36,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102284" level="9">
+  <rule id="100284" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Remove-Module|psreadline</field>
     <description>Sigma: Disable Powershell Command History</description>
@@ -45,7 +45,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102334" level="8">
+  <rule id="100334" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-Object|IO\.FileStream|\\\\\.\\</field>
     <description>Sigma: Suspicious IO.FileStream</description>
@@ -54,7 +54,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102809" level="9">
+  <rule id="100809" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> del|\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU</field>
     <field name="win.eventdata.image">\reg\.exe$</field>
@@ -64,7 +64,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103085" level="9">
+  <rule id="101085" level="9">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU$</field>
     <description>Sigma: RunMRU Registry Key Deletion - Registry</description>

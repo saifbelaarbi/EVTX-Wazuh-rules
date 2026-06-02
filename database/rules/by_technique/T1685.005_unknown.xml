@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1685.005_unknown,">
-  <rule id="102052" level="9">
+  <rule id="100052" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">1102</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102053" level="9">
+  <rule id="100053" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">517</field>
     <field name="win.eventdata.provider_Name">Security</field>
@@ -20,7 +20,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102084" level="8">
+  <rule id="100084" level="8">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">104</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
@@ -30,7 +30,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102085" level="9">
+  <rule id="100085" level="9">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">104</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
@@ -41,7 +41,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102320" level="8">
+  <rule id="100320" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Clear-EventLog |Remove-EventLog |Limit-EventLog |Clear-WinEvent </field>
     <description>Sigma: Suspicious Eventlog Clear</description>
@@ -50,7 +50,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102321" level="8">
+  <rule id="100321" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Eventing\.Reader\.EventLogSession|ClearLog</field>
     <description>Sigma: Suspicious Eventlog Clear</description>
@@ -59,7 +59,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102322" level="8">
+  <rule id="100322" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Diagnostics\.EventLog|Clear</field>
     <description>Sigma: Suspicious Eventlog Clear</description>
@@ -68,7 +68,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102948" level="9">
+  <rule id="100948" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\powershell_ise\.exe$|\pwsh\.exe$|\wmic\.exe$</field>
     <field name="win.eventdata.commandLine">ClearEventLog</field>

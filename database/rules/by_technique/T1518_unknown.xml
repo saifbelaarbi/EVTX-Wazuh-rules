@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1518_unknown,">
-  <rule id="112032" level="6">
+  <rule id="111032" level="6">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">get-itemProperty|\software\|select-object|format-table</field>
     <description>Sigma: Detected Windows Software Discovery - PowerShell</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="112116" level="6">
+  <rule id="111116" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\reg\.exe$</field>
     <field name="win.eventdata.commandLine">query|\software\|/v|svcversion</field>

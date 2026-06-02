@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1059_command_scripting,">
-  <rule id="102111" level="9">
+  <rule id="100111" level="9">
     <if_sid>60005</if_sid>
     <field name="win.system.eventID">1116</field>
     <field name="win.eventdata.sourceName">AMSI</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102117" level="9">
+  <rule id="100117" level="9">
     <if_sid>60005</if_sid>
     <field name="win.system.eventID">1006|1015|1116|1117</field>
     <description>Sigma: Windows Defender Threat Detected</description>
@@ -19,7 +19,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102160" level="9">
+  <rule id="100160" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Temp\ba9ea7344a4a5f591d6e5dc32a13494b\</field>
     <description>Sigma: PCRE.NET Package Temp Files</description>
@@ -28,7 +28,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102161" level="8">
+  <rule id="100161" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.7z$|\.bat$|\.bin$|\.chm$|\.dll$|\.exe$|\.hta$|\.lnk$|\.ps1$|\.psm1$|\.py$|\.scr$|\.sys$|\.vbe$|\.vbs$|\.zip$</field>
     <description>Sigma: Suspicious File Created In PerfLogs</description>
@@ -37,7 +37,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102170" level="9">
+  <rule id="100170" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\bash\.exe$|\cmd\.exe$|\cscript\.exe$|\msbuild\.exe$|\powershell\.exe$|\pwsh\.exe$|\sh\.exe$|\wscript\.exe$</field>
     <field name="win.eventdata.targetFilename">^C:\PerfLogs\|^C:\Users\Public\</field>
@@ -47,7 +47,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102171" level="9">
+  <rule id="100171" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\certutil\.exe$|\forfiles\.exe$|\mshta\.exe$|\schtasks\.exe$|\scriptrunner\.exe$|\wmic\.exe$</field>
     <field name="win.eventdata.targetFilename">C:\PerfLogs\|C:\Users\Public\|C:\Windows\Temp\</field>
@@ -57,7 +57,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102199" level="8">
+  <rule id="100199" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\clfs\.sys$</field>
     <field name="win.eventdata.image">:\Perflogs\|:\Users\Public\|\Temporary Internet|\Windows\Temp\</field>
@@ -67,7 +67,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102202" level="9">
+  <rule id="100202" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\AppData\Local\Temp\ba9ea7344a4a5f591d6e5dc32a13494b\</field>
     <description>Sigma: PCRE.NET Package Image Load</description>
@@ -76,7 +76,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102215" level="9">
+  <rule id="100215" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">:\Perflogs\|:\Users\Public\|\Temporary Internet|\Windows\Temp\</field>
     <description>Sigma: Abusable DLL Potential Sideloading From Suspicious Location</description>
@@ -85,7 +85,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102376" level="9">
+  <rule id="100376" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\ArcSOC\.exe$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wmic\.exe$|\wscript\.exe$</field>
@@ -96,7 +96,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102406" level="8">
+  <rule id="100406" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\^\^|\^\|\^|,;,|;;;;|;; ;;|\(,\(,|%COMSPEC:~| c\^m\^d|\^c\^m\^d| c\^md| cm\^d|\^cm\^d| s\^et | s\^e\^t | se\^t </field>
     <description>Sigma: Potential Dosfuscation Activity</description>
@@ -105,7 +105,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102419" level="12">
+  <rule id="100419" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$</field>
     <field name="win.eventdata.parentImage">\csrss\.exe$|\ctfmon\.exe$|\dllhost\.exe$|\epad\.exe$|\FlashPlayerUpdateService\.exe$|\GoogleUpdate\.exe$|\jucheck\.exe$|\jusched\.exe$|\LogonUI\.exe$|\lsass\.exe$|\regsvr32\.exe$|\SearchIndexer\.exe$|\SearchProtocolHost\.exe$|\SIHClient\.exe$|\sihost\.exe$|\slui\.exe$|\spoolsv\.exe$|\sppsvc\.exe$|\taskhostw\.exe$|\unsecapp\.exe$|\WerFault\.exe$|\wermgr\.exe$|\wlanext\.exe$|\WUDFHost\.exe$</field>
@@ -115,7 +115,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102427" level="12">
+  <rule id="100427" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\conhost\.exe$</field>
     <field name="win.eventdata.parentImage">\explorer\.exe$|\lsass\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\services\.exe$|\smss\.exe$|\spoolsv\.exe$|\svchost\.exe$|\userinit\.exe$|\wininit\.exe$|\winlogon\.exe$</field>
@@ -125,7 +125,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102466" level="8">
+  <rule id="100466" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -c </field>
     <field name="win.eventdata.image">\forfiles\.exe$</field>
@@ -135,7 +135,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102468" level="8">
+  <rule id="100468" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\fsi\.exe$|\fsianycpu\.exe$</field>
     <description>Sigma: Use of FSharp Interpreters</description>
@@ -144,7 +144,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102469" level="8">
+  <rule id="100469" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">fsi\.exe|fsianycpu\.exe</field>
     <description>Sigma: Use of FSharp Interpreters</description>
@@ -153,7 +153,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102470" level="8">
+  <rule id="100470" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">R2L:1|R2R:1|L2L:1|behavior|set|SymlinkEvaluation</field>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
@@ -164,7 +164,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102471" level="8">
+  <rule id="100471" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\ftp\.exe$</field>
     <field name="win.eventdata.image">\ftp\.exe$</field>
@@ -176,7 +176,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102485" level="13">
+  <rule id="100485" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">cmd\.exe /C echo| &gt; \\\\\.\\pipe</field>
     <field name="win.eventdata.commandLine">conhost\.exe 0xffffffff -ForceV1$</field>
@@ -186,7 +186,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102486" level="13">
+  <rule id="100486" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">/C whoami$</field>
     <field name="win.eventdata.commandLine">conhost\.exe 0xffffffff -ForceV1$</field>
@@ -196,7 +196,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102487" level="13">
+  <rule id="100487" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">cmd\.exe /C whoami$</field>
     <field name="win.eventdata.parentImage">^C:\Temp\</field>
@@ -206,7 +206,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102488" level="13">
+  <rule id="100488" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\runonce\.exe$|\dllhost\.exe$</field>
     <field name="win.eventdata.commandLine">cmd\.exe /c echo|&gt; \\\\\.\\pipe</field>
@@ -216,7 +216,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102541" level="9">
+  <rule id="100541" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-NoExit -Command \[Console\]::OutputEncoding=\[Text\.UTF8Encoding\]::UTF8</field>
     <description>Sigma: HackTool - Sliver C2 Implant Activity Pattern</description>
@@ -225,7 +225,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102542" level="9">
+  <rule id="100542" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\Stracciatella\.exe$</field>
     <description>Sigma: HackTool - Stracciatella Execution</description>
@@ -235,7 +235,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102543" level="9">
+  <rule id="100543" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">Stracciatella\.exe</field>
     <description>Sigma: HackTool - Stracciatella Execution</description>
@@ -245,7 +245,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102544" level="9">
+  <rule id="100544" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Stracciatella</field>
     <description>Sigma: HackTool - Stracciatella Execution</description>
@@ -255,7 +255,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102545" level="9">
+  <rule id="100545" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">SHA256=9d25e61ec1527e2a69d7c2a4e3fe2fe15890710c198a66a9f25d99fdf6c7b956|SHA256=fd16609bd9830c63b9413671678bb159b89c357d21942ddbb6b93add808d121a</field>
     <description>Sigma: HackTool - Stracciatella Execution</description>
@@ -265,7 +265,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102577" level="8">
+  <rule id="100577" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">OpenConsole\.exe</field>
     <description>Sigma: Use of OpenConsole</description>
@@ -274,7 +274,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102579" level="8">
+  <rule id="100579" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\pcalua\.exe$</field>
     <field name="win.eventdata.commandLine"> -a</field>
@@ -284,7 +284,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102590" level="8">
+  <rule id="100590" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\Runscripthelper\.exe$</field>
     <field name="win.eventdata.commandLine">surfacecheck</field>
@@ -295,7 +295,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102620" level="8">
+  <rule id="100620" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Wscript\.|\.Shell|\.Run</field>
     <description>Sigma: Wscript Shell Run In CommandLine</description>
@@ -304,7 +304,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102659" level="9">
+  <rule id="100659" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Outlook\Security\EnableUnsafeClientMailRules</field>
     <description>Sigma: Outlook EnableUnsafeClientMailRules Setting Enabled</description>
@@ -314,7 +314,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102661" level="9">
+  <rule id="100661" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\outlook\.exe$</field>
     <field name="win.eventdata.image">^\\\\</field>
@@ -325,7 +325,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102671" level="8">
+  <rule id="100671" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -e</field>
     <field name="win.eventdata.image">\perl\.exe$</field>
@@ -335,7 +335,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102672" level="8">
+  <rule id="100672" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -r</field>
     <field name="win.eventdata.image">\php\.exe$</field>
@@ -345,7 +345,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102712" level="9">
+  <rule id="100712" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">;iex \$|\| IEX|\|IEX |I`E`X|I`EX|IE`X|iex |IEX \(|IEX\(|Invoke-Expression</field>
     <description>Sigma: PowerShell Download and Execution Cradles</description>
@@ -354,7 +354,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102736" level="9">
+  <rule id="100736" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.commandLine">\s-\s*&lt;</field>
@@ -364,7 +364,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102794" level="9">
+  <rule id="100794" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-u System|-uSystem|-u TrustedInstaller|-uTrustedInstaller| --ti </field>
     <description>Sigma: PUA - Wsudo Suspicious Execution</description>
@@ -373,7 +373,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102795" level="9">
+  <rule id="100795" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\wsudo\.exe$</field>
     <description>Sigma: PUA - Wsudo Suspicious Execution</description>
@@ -382,7 +382,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102796" level="9">
+  <rule id="100796" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">wsudo\.exe</field>
     <description>Sigma: PUA - Wsudo Suspicious Execution</description>
@@ -391,7 +391,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102797" level="9">
+  <rule id="100797" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Windows sudo utility</field>
     <description>Sigma: PUA - Wsudo Suspicious Execution</description>
@@ -400,7 +400,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102798" level="9">
+  <rule id="100798" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\wsudo-bridge\.exe$</field>
     <description>Sigma: PUA - Wsudo Suspicious Execution</description>
@@ -409,7 +409,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102800" level="8">
+  <rule id="100800" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -c</field>
     <field name="win.eventdata.originalFileName">python\.exe</field>
@@ -419,7 +419,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102801" level="9">
+  <rule id="100801" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">python\.exe$|python3\.exe$|python2\.exe$</field>
     <field name="win.eventdata.commandLine">import pty|\.spawn\(</field>
@@ -429,7 +429,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102803" level="9">
+  <rule id="100803" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\rar\.exe$</field>
     <description>Sigma: Suspicious Greedy Compression Using Rar.EXE</description>
@@ -438,7 +438,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102804" level="9">
+  <rule id="100804" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Command line RAR</field>
     <description>Sigma: Suspicious Greedy Compression Using Rar.EXE</description>
@@ -447,7 +447,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102805" level="9">
+  <rule id="100805" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.exe a | a -m</field>
     <description>Sigma: Suspicious Greedy Compression Using Rar.EXE</description>
@@ -456,7 +456,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102806" level="8">
+  <rule id="100806" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">rasdial\.exe$</field>
     <description>Sigma: Suspicious RASdial Activity</description>
@@ -465,7 +465,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102843" level="8">
+  <rule id="100843" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">curl\.exe</field>
     <description>Sigma: Renamed CURL.EXE Execution</description>
@@ -475,7 +475,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102844" level="8">
+  <rule id="100844" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">ftp\.exe</field>
     <description>Sigma: Renamed FTP.EXE Execution</description>
@@ -485,7 +485,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102850" level="9">
+  <rule id="100850" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">NirCmd\.exe</field>
     <description>Sigma: Renamed NirCmd.EXE Execution</description>
@@ -495,7 +495,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102853" level="9">
+  <rule id="100853" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">PingCastleReporting\.exe|PingCastleCloud\.exe|PingCastle\.exe</field>
     <description>Sigma: Renamed PingCastle Binary Execution</description>
@@ -505,7 +505,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102861" level="8">
+  <rule id="100861" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -e</field>
     <field name="win.eventdata.image">\ruby\.exe$</field>
@@ -515,18 +515,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="106266" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\powershell_ise\.exe$|\pwsh\.exe$|\cmd\.exe$</field>
-    <field name="win.eventdata.user">AUTHORI|AUTORI</field>
-    <field name="win.eventdata.logonId">0x3e7</field>
-    <description>Sigma: Elevated System Shell Spawned From Uncommon Parent Location</description>
-    <mitre>
-      <id>T1059</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="102962" level="8">
+  <rule id="100962" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">nslookup|ping</field>
     <description>Sigma: Suspicious Scan Loop Network</description>
@@ -536,7 +525,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102971" level="13">
+  <rule id="100971" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">inject\.ps1|Invoke-CVE|pupy\.ps1|payload\.ps1|beacon\.ps1|PowerView\.ps1|bypass\.ps1|obfuscated\.ps1|obfusc\.ps1|obfus\.ps1|obfs\.ps1|evil\.ps1|MiniDogz\.ps1|_enc\.ps1|\shell\.ps1|\rshell\.ps1|revshell\.ps1|\av\.ps1|\av_test\.ps1|adrecon\.ps1|mimikatz\.ps1|\PowerUp_|powerup\.ps1|\Temp\a\.ps1|\Temp\p\.ps1|\Temp\1\.ps1|Hound\.ps1|encode\.ps1|powercat\.ps1</field>
     <description>Sigma: Suspicious Program Names</description>
@@ -545,7 +534,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102972" level="9">
+  <rule id="100972" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\CVE-202|\CVE202</field>
     <description>Sigma: Suspicious Program Names</description>
@@ -554,7 +543,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102973" level="14">
+  <rule id="100973" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\poc\.exe$|\artifact\.exe$|\artifact64\.exe$|\artifact_protected\.exe$|\artifact32\.exe$|\artifact32big\.exe$|obfuscated\.exe$|obfusc\.exe$|\meterpreter$</field>
     <description>Sigma: Suspicious Program Names</description>
@@ -563,7 +552,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102975" level="9">
+  <rule id="100975" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -ep bypass | -ExecutionPolicy bypass | -w hidden |/e:javascript |/e:Jscript |/e:vbscript </field>
     <description>Sigma: Script Interpreter Execution From Suspicious Folder</description>
@@ -572,7 +561,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102976" level="9">
+  <rule id="100976" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\cscript\.exe$|\mshta\.exe$|\wscript\.exe$</field>
     <description>Sigma: Script Interpreter Execution From Suspicious Folder</description>
@@ -581,7 +570,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102977" level="9">
+  <rule id="100977" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">cscript\.exe|mshta\.exe|wscript\.exe</field>
     <description>Sigma: Script Interpreter Execution From Suspicious Folder</description>
@@ -590,7 +579,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103003" level="8">
+  <rule id="101003" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\sysprep\.exe$</field>
     <field name="win.eventdata.commandLine">\AppData\</field>
@@ -600,7 +589,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103014" level="8">
+  <rule id="101014" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> script | set </field>
     <field name="win.eventdata.image">\VMwareToolBoxCmd\.exe$</field>
@@ -610,7 +599,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103015" level="9">
+  <rule id="101015" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">:\PerfLogs\|:\Temp\|:\Windows\System32\Tasks\|:\Windows\Tasks\|:\Windows\Temp\|\AppData\Local\Temp| set </field>
     <field name="win.eventdata.image">\VMwareToolBoxCmd\.exe$</field>
@@ -620,7 +609,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103016" level="9">
+  <rule id="101016" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
     <field name="win.eventdata.parentImage">\vmtoolsd\.exe$</field>
@@ -630,7 +619,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103032" level="8">
+  <rule id="101032" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">source |add </field>
     <field name="win.eventdata.image">\winget\.exe$</field>
@@ -640,7 +629,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103033" level="9">
+  <rule id="101033" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">source |add |http://</field>
     <field name="win.eventdata.image">\winget\.exe$</field>
@@ -650,7 +639,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103034" level="8">
+  <rule id="101034" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|add </field>
     <field name="win.eventdata.image">\winget\.exe$</field>
@@ -660,7 +649,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103035" level="8">
+  <rule id="101035" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\winget\.exe$</field>
     <field name="win.eventdata.commandLine">-m |--manifest</field>
@@ -670,7 +659,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="103071" level="9">
+  <rule id="101071" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\wsl\.exe$</field>
     <field name="win.eventdata.commandLine">kali</field>
@@ -679,5 +668,16 @@
       <id>T1059</id>
     </mitre>
     <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="107266" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\powershell\.exe$|\powershell_ise\.exe$|\pwsh\.exe$|\cmd\.exe$</field>
+    <field name="win.eventdata.user">AUTHORI|AUTORI</field>
+    <field name="win.eventdata.logonId">0x3e7</field>
+    <description>Sigma: Elevated System Shell Spawned From Uncommon Parent Location</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
 </group>

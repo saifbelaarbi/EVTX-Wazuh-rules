@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1564_unknown,">
-  <rule id="102174" level="9">
+  <rule id="100174" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\colorcpl\.exe$</field>
     <description>Sigma: Suspicious Creation with Colorcpl</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102179" level="9">
+  <rule id="100179" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">:\\$Recycle\.Bin\.exe$|:\Documents and Settings\.exe$|:\MSOCache\.exe$|:\PerfLogs\.exe$|:\Recovery\.exe$|\.bat\.exe$|\.sys\.exe$</field>
     <description>Sigma: Suspicious Executable File Creation</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102949" level="9">
+  <rule id="100949" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\bitsadmin\.exe$|\certutil\.exe$|\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
     <field name="win.eventdata.parentImage">:\Users\Public\</field>
@@ -26,6 +26,24 @@
     <mitre>
       <id>T1564</id>
       <id>T1059</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101157" level="9">
+    <if_sid>60004</if_sid>
+    <field name="win.eventdata.description">Failed to open service configuration with error|Failed to connect to the driver to update configuration</field>
+    <description>Sigma: Sysmon Configuration Error</description>
+    <mitre>
+      <id>T1564</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101158" level="9">
+    <if_sid>60004</if_sid>
+    <field name="win.eventdata.state">Stopped</field>
+    <description>Sigma: Sysmon Configuration Modification</description>
+    <mitre>
+      <id>T1564</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
@@ -39,23 +57,5 @@
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="103157" level="9">
-    <if_sid>60004</if_sid>
-    <field name="win.eventdata.description">Failed to open service configuration with error|Failed to connect to the driver to update configuration</field>
-    <description>Sigma: Sysmon Configuration Error</description>
-    <mitre>
-      <id>T1564</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="103158" level="9">
-    <if_sid>60004</if_sid>
-    <field name="win.eventdata.state">Stopped</field>
-    <description>Sigma: Sysmon Configuration Modification</description>
-    <mitre>
-      <id>T1564</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
   </rule>
 </group>

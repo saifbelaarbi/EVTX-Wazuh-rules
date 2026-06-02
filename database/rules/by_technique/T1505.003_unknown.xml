@@ -68,17 +68,6 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="100018" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\sqlservr\.exe$</field>
-    <field name="win.eventdata.image">\bash\.exe$|\bitsadmin\.exe$|\cmd\.exe$|\netstat\.exe$|\nltest\.exe$|\ping\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\sh\.exe$|\systeminfo\.exe$|\tasklist\.exe$|\wsl\.exe$</field>
-    <description>Sigma: Suspicious Child Process Of SQL Server</description>
-    <mitre>
-      <id>T1505.003</id>
-      <id>T1190</id>
-    </mitre>
-    <group>initial_access,sigma_converted,</group>
-  </rule>
   <rule id="104735" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo \[E\]|&amp;echo \[S\]</field>
@@ -217,5 +206,16 @@
       <id>T1505.003</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="113018" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\sqlservr\.exe$</field>
+    <field name="win.eventdata.image">\bash\.exe$|\bitsadmin\.exe$|\cmd\.exe$|\netstat\.exe$|\nltest\.exe$|\ping\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\sh\.exe$|\systeminfo\.exe$|\tasklist\.exe$|\wsl\.exe$</field>
+    <description>Sigma: Suspicious Child Process Of SQL Server</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1190</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
   </rule>
 </group>

@@ -135,7 +135,8 @@ def _build_all_rules(wb, index, validation):
     for rid in sorted(index, key=lambda x: int(x)):
         meta = index[rid]
         val = validation.get(rid, {})
-        is_sigma = bool(meta.get("sigma_id"))
+        src = meta.get("source_evtx", "")
+        is_sigma = bool(meta.get("sigma_id")) or src.endswith((".yml", ".yaml"))
         origin = "Sigma" if is_sigma else "EVTX"
 
         tested = "Yes" if rid in validation else "No"

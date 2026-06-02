@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1572_unknown,">
-  <rule id="118052" level="10">
+  <rule id="110052" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.destinationHostname">\.localto\.net$|\.localtonet\.com$</field>
     <field name="win.eventdata.initiated">true</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118058" level="10">
+  <rule id="110058" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.destinationIp">127\.0\.0\.0/8|::1/128</field>
     <field name="win.eventdata.image">\svchost\.exe$</field>
@@ -25,7 +25,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118059" level="10">
+  <rule id="110059" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\svchost\.exe$</field>
     <field name="win.eventdata.initiated">true</field>
@@ -38,7 +38,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118112" level="10">
+  <rule id="110112" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Command-line SSH, Telnet, and Rlogin client</field>
     <field name="win.eventdata.commandLine"> -R </field>
@@ -49,7 +49,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118113" level="10">
+  <rule id="110113" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\plink\.exe$</field>
     <field name="win.eventdata.commandLine"> -P 443| -P 22</field>
@@ -59,7 +59,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118120" level="10">
+  <rule id="110120" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\3proxy\.exe$</field>
     <description>Sigma: PUA - 3Proxy Execution</description>
@@ -68,7 +68,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118121" level="10">
+  <rule id="110121" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.exe -i127\.0\.0\.1 -p</field>
     <description>Sigma: PUA - 3Proxy Execution</description>
@@ -77,7 +77,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118122" level="10">
+  <rule id="110122" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">3proxy - tiny proxy server</field>
     <description>Sigma: PUA - 3Proxy Execution</description>
@@ -86,7 +86,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118132" level="10">
+  <rule id="110132" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> tcp 139| tcp 445| tcp 3389| tcp 5985| tcp 5986</field>
     <description>Sigma: PUA - Ngrok Execution</description>
@@ -95,7 +95,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118133" level="10">
+  <rule id="110133" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> start |--all|--config|\.yml</field>
     <description>Sigma: PUA - Ngrok Execution</description>
@@ -104,7 +104,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118134" level="10">
+  <rule id="110134" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">ngrok\.exe$</field>
     <field name="win.eventdata.commandLine"> tcp | http | authtoken </field>
@@ -114,7 +114,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118135" level="10">
+  <rule id="110135" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.exe authtoken |\.exe start --all</field>
     <description>Sigma: PUA - Ngrok Execution</description>
@@ -123,7 +123,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118176" level="9">
+  <rule id="110176" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\ssh\.exe$</field>
     <field name="win.eventdata.commandLine"> -R </field>
@@ -135,7 +135,7 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
-  <rule id="118177" level="10">
+  <rule id="110177" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\ssh\.exe$</field>
     <field name="win.eventdata.commandLine">:3389</field>

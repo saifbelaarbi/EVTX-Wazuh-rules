@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,initial_access,">
-  <rule id="100000" level="8">
+  <rule id="113000" level="8">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">6423</field>
     <description>Sigma: Device Installation Blocked</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100001" level="8">
+  <rule id="113001" level="8">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4663</field>
     <field name="win.eventdata.objectServer">Security</field>
@@ -21,7 +21,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100002" level="9">
+  <rule id="113002" level="9">
     <if_sid>60100</if_sid>
     <field name="win.eventdata.samAccountName">\$$</field>
     <description>Sigma: Win Susp Computer Name Containing Samtheadmin</description>
@@ -30,7 +30,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100003" level="9">
+  <rule id="113003" level="9">
     <if_sid>60100</if_sid>
     <field name="win.eventdata.targetUserName">\$$</field>
     <description>Sigma: Win Susp Computer Name Containing Samtheadmin</description>
@@ -39,7 +39,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100004" level="9">
+  <rule id="113004" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5379</field>
     <field name="win.eventdata.targetName">Microsoft_Windows_Shell_ZipFolder:filename|\Temporary Internet Files\Content\.Outlook</field>
@@ -50,7 +50,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100005" level="8">
+  <rule id="113005" level="8">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4732</field>
     <field name="win.eventdata.targetUserName">^Administr</field>
@@ -61,7 +61,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100006" level="9">
+  <rule id="113006" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.iso$|\.zip\</field>
     <description>Sigma: ISO File Created Within Temp Folders</description>
@@ -70,7 +70,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100007" level="9">
+  <rule id="113007" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.iso$</field>
     <description>Sigma: ISO File Created Within Temp Folders</description>
@@ -79,7 +79,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100008" level="8">
+  <rule id="113008" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Microsoft\Windows\Recent\</field>
     <description>Sigma: ISO or Image Mount Indicator in Recent Files</description>
@@ -88,7 +88,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100009" level="9">
+  <rule id="113009" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Microsoft\Cache134\.dat$|\AppData\Local\Microsoft\ExplorerSync\.db$</field>
     <description>Sigma: Octopus Scanner Malware</description>
@@ -98,7 +98,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100010" level="9">
+  <rule id="113010" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\cscript\.exe$|\mshta\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
     <field name="win.eventdata.targetFilename">\.docm$|\.dotm$|\.xlsm$|\.xltm$|\.potm$|\.pptm$</field>
@@ -108,7 +108,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100011" level="9">
+  <rule id="113011" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Packages\Microsoft\.Outlook_|\AppData\Local\Microsoft\Olk\Attachments\</field>
     <description>Sigma: Suspicious File Created in Outlook Temporary Directory</description>
@@ -117,7 +117,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100012" level="9">
+  <rule id="113012" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\MSExchangeMailboxReplication\.exe$</field>
     <field name="win.eventdata.targetFilename">\.aspx$|\.asp$</field>
@@ -128,7 +128,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100013" level="9">
+  <rule id="113013" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$|\w3wp\.exe$</field>
     <field name="win.eventdata.targetFilename">\.asax$|\.ascx$|\.ashx$|\.asmx$|\.asp$|\.aspx$|\.bat$|\.cmd$|\.cer$|\.config$|\.hta$|\.js$|\.jsp$|\.jspx$|\.php$|\.ps1$|\.vbs$</field>
@@ -139,7 +139,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100014" level="9">
+  <rule id="113014" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\Hwp\.exe$</field>
     <field name="win.eventdata.image">\gbb\.exe$</field>
@@ -151,28 +151,28 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100015" level="9">
+  <rule id="113015" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\keytool\.exe$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\sh\.exe$|\bash\.exe$|\powershell\.exe$|\pwsh\.exe$|\schtasks\.exe$|\certutil\.exe$|\whoami\.exe$|\bitsadmin\.exe$|\wscript\.exe$|\cscript\.exe$|\scrcons\.exe$|\regsvr32\.exe$|\hh\.exe$|\wmic\.exe$|\mshta\.exe$|\rundll32\.exe$|\forfiles\.exe$|\scriptrunner\.exe$|\mftrace\.exe$|\AppVLP\.exe$|\systeminfo\.exe$|\reg\.exe$|\query\.exe$</field>
     <description>Sigma: Suspicious Shells Spawn by Java Utility Keytool</description>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100016" level="9">
+  <rule id="113016" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\java\.exe$</field>
     <field name="win.eventdata.image">\AppVLP\.exe$|\bitsadmin\.exe$|\certutil\.exe$|\cscript\.exe$|\curl\.exe$|\forfiles\.exe$|\hh\.exe$|\mftrace\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\query\.exe$|\reg\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\schtasks\.exe$|\scrcons\.exe$|\scriptrunner\.exe$|\sh\.exe$|\systeminfo\.exe$|\whoami\.exe$|\wmic\.exe$|\wscript\.exe$</field>
     <description>Sigma: Suspicious Processes Spawned by Java.EXE</description>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100017" level="8">
+  <rule id="113017" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\java\.exe$</field>
     <field name="win.eventdata.image">\bash\.exe$|\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
     <description>Sigma: Shell Process Spawned by Java.EXE</description>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100018" level="9">
+  <rule id="113018" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\sqlservr\.exe$</field>
     <field name="win.eventdata.image">\bash\.exe$|\bitsadmin\.exe$|\cmd\.exe$|\netstat\.exe$|\nltest\.exe$|\ping\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\sh\.exe$|\systeminfo\.exe$|\tasklist\.exe$|\wsl\.exe$</field>
@@ -183,7 +183,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100019" level="9">
+  <rule id="113019" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\sqlservr\.exe$</field>
     <field name="win.eventdata.parentCommandLine">VEEAMSQL</field>
@@ -192,7 +192,7 @@
     <description>Sigma: Suspicious Child Process Of Veeam Dabatase</description>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100020" level="8">
+  <rule id="113020" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> use |:.*\\|/USER:.* .*</field>
     <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
@@ -203,7 +203,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100021" level="9">
+  <rule id="113021" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\onenote\.exe$</field>
     <field name="win.eventdata.image">\explorer\.exe$</field>
@@ -215,7 +215,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100022" level="9">
+  <rule id="113022" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\Temporary Internet Files\Content\.Outlook\</field>
     <description>Sigma: Suspicious Execution From Outlook Temporary Folder</description>
@@ -224,7 +224,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100023" level="9">
+  <rule id="113023" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\ScreenConnect\.Service\.exe$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\csc\.exe$</field>
@@ -234,7 +234,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100024" level="9">
+  <rule id="113024" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">localgroup | /add</field>
     <description>Sigma: User Added to Remote Desktop Users Group</description>
@@ -245,7 +245,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100025" level="9">
+  <rule id="113025" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\Winrar\.exe$|\7zFM\.exe$|\peazip\.exe$</field>
     <field name="win.eventdata.image">\isoburn\.exe$|\PowerISO\.exe$|\ImgBurn\.exe$</field>
@@ -255,7 +255,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100026" level="9">
+  <rule id="113026" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">      \.exe$|______\.exe$|\.doc\.exe$|\.doc\.js$|\.docx\.exe$|\.docx\.js$|\.gif\.exe$|\.jpeg\.exe$|\.jpg\.exe$|\.mkv\.exe$|\.mov\.exe$|\.mp3\.exe$|\.mp4\.exe$|\.pdf\.exe$|\.pdf\.js$|\.png\.exe$|\.ppt\.exe$|\.ppt\.js$|\.pptx\.exe$|\.pptx\.js$|\.rtf\.exe$|\.rtf\.js$|\.svg\.exe$|\.txt\.exe$|\.txt\.js$|\.xls\.exe$|\.xls\.js$|\.xlsx\.exe$|\.xlsx\.js$|⠀⠀⠀⠀⠀⠀\.exe$</field>
     <field name="win.eventdata.commandLine">      \.exe|______\.exe|\.doc\.exe|\.doc\.js|\.docx\.exe|\.docx\.js|\.gif\.exe|\.jpeg\.exe|\.jpg\.exe|\.mkv\.exe|\.mov\.exe|\.mp3\.exe|\.mp4\.exe|\.pdf\.exe|\.pdf\.js|\.png\.exe|\.ppt\.exe|\.ppt\.js|\.pptx\.exe|\.pptx\.js|\.rtf\.exe|\.rtf\.js|\.svg\.exe|\.txt\.exe|\.txt\.js|\.xls\.exe|\.xls\.js|\.xlsx\.exe|\.xlsx\.js|⠀⠀⠀⠀⠀⠀\.exe</field>
@@ -265,7 +265,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100027" level="9">
+  <rule id="113027" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">                 |\u0009|\u000A|\u0011|\u0012|\u0013|\u000B|\u000C|\u000D</field>
     <field name="win.eventdata.parentImage">\explorer\.exe$</field>
@@ -275,7 +275,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100028" level="9">
+  <rule id="113028" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">\svchost\.exe|termsvcs</field>
     <description>Sigma: Terminal Service Process Spawn</description>
@@ -285,7 +285,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100029" level="9">
+  <rule id="113029" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\wsmprovhost\.exe$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\sh\.exe$|\bash\.exe$|\powershell\.exe$|\pwsh\.exe$|\wsl\.exe$|\schtasks\.exe$|\certutil\.exe$|\whoami\.exe$|\bitsadmin\.exe$</field>
@@ -295,7 +295,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100030" level="8">
+  <rule id="113030" level="8">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Security\Trusted Documents\TrustRecords</field>
     <description>Sigma: Windows Registry Trust Record Modification</description>
@@ -304,7 +304,7 @@
     </mitre>
     <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="100031" level="9">
+  <rule id="113031" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">fdcgdnkidjaadafnichfpabhfomcebme|fcfhplploccackoneaefokcmbjfbkenj|bihmplhobchoageeokmgbdihknkjbknd|gkojfkhlekighikafcpjkiklfbnlmeio|jajilbjjinjmgcibalaakngmkilboobh|gjknjjomckknofjidppipffbpoekiipm|nabbmpekekjknlbkgpodfndbodhijjem|kpiecbcckbofpmkkkdibbllpinceiihk|nlbejmccbhkncgokjcmghpfloaajcffj|omghfjlpggmjjaagoclmmobgdodcjboh|bibjcjfmgapbfoljiojpipaooddpkpai|mpcaainmfjjigeicjnlkdfajbioopjko|jljopmgdobloagejpohpldgkiellmfnc|lochiccbgeohimldjooaakjllnafhaid|nhnfcgpcbfclhfafjlooihdfghaeinfc|ookhnhpkphagefgdiemllfajmkdkcaim|namfblliamklmeodpcelkokjbffgmeoo|nbcojefnccbanplpoffopkoepjmhgdgh|majdfhpaihoncoakbjgbdhglocklcgno|lnfdmdhmfbimhhpaeocncdlhiodoblbd|eppiocemhmnlbhjplcgkofciiegomcon|cocfojppfigjeefejbpfmedgjbpchcng|foiopecknacmiihiocgdjgbjokkpkohc|hhdobjgopfphlmjbmnpglhfcgppchgje|jgbaghohigdbgbolncodkdlpenhcmcge|inligpkjkhbpifecbdjhmdpcfhnlelja|higioemojdadgdbhbbbkfbebbdlfjbip|hipncndjamdcmphkgngojegjblibadbe|iolonopooapdagdemdoaihahlfkncfgg|nhfjkakglbnnpkpldhjmpmmfefifedcj|jpgljfpmoofbmlieejglhonfofmahini|fgddmllnllkalaagkghckoinaemmogpe|ejkaocphofnobjdedneohbbiilggdlbi|keodbianoliadkoelloecbhllnpiocoi|hoapmlpnmpaehilehggglehfdlnoegck|poeojclicodamonabcabmapamjkkmnnk|dfkdflfgjdajbhocmfjolpjbebdkcjog|kcdahmgmaagjhocpipbodaokikjkampi|klnkiajpmpkkkgpgbogmcgfjhdoljacg|lneaocagcijjdpkcabeanfpdbmapcjjg|pgfpignfckbloagkfnamnolkeaecfgfh|jplnlifepflhkbkgonidnobkakhmpnmh|jliodmnojccaloajphkingdnpljdhdok|hnmpcagpplmpfojmgmnngilcnanddlhb|ffbkglfijbcbgblgflchnbphjdllaogb|kcndmbbelllkmioekdagahekgimemejo|jdgilggpfmjpbodmhndmhojklgfdlhob|bihhflimonbpcfagfadcnbbdngpopnjb|ppajinakbfocjfnijggfndbdmjggcmde|oofgbpoabipfcfjapgnbbjjaenockbdp|bhnhkdgoefpmekcgnccpnhjfdgicfebm|knmmpciebaoojcpjjoeonlcjacjopcpf|dhadilbmmjiooceioladdphemaliiobo|jedieiamjmoflcknjdjhpieklepfglin|mhngpdlhojliikfknhfaglpnddniijfh|omdakjcmkglenbhjadbccaookpfjihpa|npgimkapccfidfkfoklhpkgmhgfejhbj|akeehkgglkmpapdnanoochpfmeghfdln|gbmdmipapolaohpinhblmcnpmmlgfgje|aigmfoeogfnljhnofglledbhhfegannp|cgojmfochfikphincbhokimmmjenhhgk|ficajfeojakddincjafebjmfiefcmanc|ifnaibldjfdmaipaddffmgcmekjhiloa|jbnmpdkcfkochpanomnkhnafobppmccn|apcfdffemoinopelidncddjbhkiblecc|mjolnodfokkkaichkcjipfgblbfgojpa|oifjbnnafapeiknapihcmpeodaeblbkn|plpmggfglncceinmilojdkiijhmajkjh|mjnbclmflcpookeapghfhapeffmpodij|bblcccknbdbplgmdjnnikffefhdlobhp|aojlhgbkmkahabcmcpifbolnoichfeep|lcmammnjlbmlbcaniggmlejfjpjagiia|knajdeaocbpmfghhmijicidfcmdgbdpm|bdlcnpceagnkjnjlbbbcepohejbheilk|edknjdjielmpdlnllkdmaghlbpnmjmgb|eidnihaadmmancegllknfbliaijfmkgo|ckiahbcmlmkpfiijecbpflfahoimklke|macdlemfnignjhclfcfichcdhiomgjjb|chioafkonnhbpajpengbalkececleldf|amnoibeflfphhplmckdbiajkjaoomgnj|llbhddikeonkpbhpncnhialfbpnilcnc|pcienlhnoficegnepejpfiklggkioccm|iocnglnmfkgfedpcemdflhkchokkfeii|igahhbkcppaollcjeaaoapkijbnphfhb|njpmifchgidinihmijhcfpbdmglecdlb|ggackgngljinccllcmbgnpgpllcjepgc|kchocjcihdgkoplngjemhpplmmloanja|bnijmipndnicefcdbhgcjoognndbgkep|lklekjodgannjcccdlbicoamibgbdnmi|dbdbnchagbkhknegmhgikkleoogjcfge|egblhcjfjmbjajhjhpmnlekffgaemgfh|ehbhfpfdkmhcpaehaooegfdflljcnfec|bkkgdjpomdnfemhhkalfkogckjdkcjkg|almalgbpmcfpdaopimbdchdliminoign|akkbkhnikoeojlhiiomohpdnkhbkhieh|gbfgfbopcfokdpkdigfmoeaajfmpkbnh|bniikohfmajhdcffljgfeiklcbgffppl|lejgfmmlngaigdmmikblappdafcmkndb|ffhhkmlgedgcliajaedapkdfigdobcif|gcknhkkoolaabfmlnjonogaaifnjlfnp|pooljnboifbodgifngpppfklhifechoe|fjoaledfpmneenckfbpdfhkmimnjocfa|aakchaleigkohafkfjfjbblobjifikek|dpplabbmogkhghncfbfdeeokoefdjegm|padekgcemlokbadohgkifijomclgjgif|bfidboloedlamgdmenmlbipfnccokknp</field>
     <description>Sigma: Running Chrome VPN Extensions via the Registry 2 VPN Extension</description>

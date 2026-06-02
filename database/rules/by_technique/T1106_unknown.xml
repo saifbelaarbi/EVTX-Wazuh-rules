@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1106_unknown,">
-  <rule id="102359" level="13">
+  <rule id="100359" level="13">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.callTrace">^C:\\Windows\\SYSTEM32\\ntdll\.dll\+[a-z0-9]{4,6}\|C:\\Windows\\System32\\KERNELBASE\.dll\+[a-z0-9]{4,6}\|UNKNOWN\([A-Z0-9]{16}\)$</field>
     <field name="win.eventdata.grantedAccess">0x1028|0x1fffff</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102360" level="12">
+  <rule id="100360" level="12">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">\lsass\.exe$</field>
     <field name="win.eventdata.grantedAccess">0x1440</field>
@@ -23,7 +23,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102363" level="8">
+  <rule id="100363" level="8">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.callTrace">^UNKNOWN</field>
     <description>Sigma: Potential Direct Syscall of NtOpenProcess</description>
@@ -32,7 +32,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102393" level="8">
+  <rule id="100393" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -c | -cf </field>
     <field name="win.eventdata.image">\cdb\.exe$</field>
@@ -44,7 +44,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102536" level="9">
+  <rule id="100536" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\rundll32\.exe$|\cmd\.exe$</field>
     <field name="win.eventdata.commandLine">gthread-3\.6\.dll|\Windows\Temp\tmp\.bat|sigcmm-2\.4\.dll</field>
@@ -56,7 +56,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102625" level="9">
+  <rule id="100625" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\mshta\.exe$</field>
     <field name="win.eventdata.parentImage">\cmd\.exe$|\cscript\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
@@ -67,7 +67,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102959" level="9">
+  <rule id="100959" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">AddSecurityPackage|AdjustTokenPrivileges|Advapi32|CloseHandle|CreateProcessWithToken|CreatePseudoConsole|CreateRemoteThread|CreateThread|CreateUserThread|DangerousGetHandle|DuplicateTokenEx|EnumerateSecurityPackages|FreeHGlobal|FreeLibrary|GetDelegateForFunctionPointer|GetLogonSessionData|GetModuleHandle|GetProcAddress|GetProcessHandle|GetTokenInformation|ImpersonateLoggedOnUser|kernel32|LoadLibrary|memcpy|MiniDumpWriteDump|ntdll|OpenDesktop|OpenProcess|OpenProcessToken|OpenThreadToken|OpenWindowStation|PtrToString|QueueUserApc|ReadProcessMemory|RevertToSelf|RtlCreateUserThread|secur32|SetThreadToken|VirtualAlloc|VirtualFree|VirtualProtect|WaitForSingleObject|WriteInt32|WriteProcessMemory|ZeroFreeGlobalAllocUnicode</field>
     <description>Sigma: Potential WinAPI Calls Via CommandLine</description>

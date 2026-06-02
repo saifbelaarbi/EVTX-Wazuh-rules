@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1207_unknown,">
-  <rule id="110042" level="11">
+  <rule id="108542" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4742</field>
     <field name="win.eventdata.servicePrincipalNames">GC/</field>
@@ -10,7 +10,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="110043" level="11">
+  <rule id="108543" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
     <field name="win.eventdata.attributeLDAPDisplayName">servicePrincipalName</field>

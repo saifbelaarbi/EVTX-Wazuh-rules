@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1490_unknown,">
-  <rule id="122006" level="13">
+  <rule id="114000" level="13">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">shadow copy</field>
+    <description>Suspicious command-line pattern 'shadow copy' detected</description>
+    <mitre>
+      <id>T1490</id>
+    </mitre>
+    <group>impact,evtx_generated,</group>
+  </rule>
+  <rule id="114006" level="13">
     <if_sid>61625</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wt\.exe$|\rundll32\.exe$|\regsvr32\.exe$</field>
     <field name="win.eventdata.targetFilename">\.VHD$|\.bac$|\.bak$|\.wbcat$|\.bkf$|\.set$|\.win$|\.dsk$</field>
@@ -10,7 +19,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122009" level="14">
+  <rule id="114009" level="14">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\vss_ps\.dll$</field>
     <description>Sigma: Suspicious Volume Shadow Copy VSS_PS.dll Load</description>
@@ -19,7 +28,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122010" level="14">
+  <rule id="114010" level="14">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\vssapi\.dll$</field>
     <description>Sigma: Suspicious Volume Shadow Copy Vssapi.dll Load</description>
@@ -28,7 +37,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122011" level="13">
+  <rule id="114011" level="13">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\vsstrace\.dll$</field>
     <description>Sigma: Potentially Suspicious Volume Shadow Copy Vsstrace.dll Load</description>
@@ -37,7 +46,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122013" level="14">
+  <rule id="114013" level="14">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.data">Delete\(\)|Remove-WmiObject|Win32_ShadowCopy</field>
     <description>Sigma: Delete Volume Shadow Copies Via WMI With PowerShell</description>
@@ -46,7 +55,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122016" level="14">
+  <rule id="114016" level="14">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Win32_ShadowCopy</field>
     <description>Sigma: Deletion of Volume Shadow Copies via WMI with PowerShell - PS Script</description>
@@ -55,7 +64,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122017" level="14">
+  <rule id="114017" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">set|ignoreallfailures</field>
     <field name="win.eventdata.image">\bcdedit\.exe$</field>
@@ -65,7 +74,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122019" level="14">
+  <rule id="114019" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">copy |\\\\\.\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy</field>
     <description>Sigma: Copy From VolumeShadowCopy Via Cmd.EXE</description>
@@ -74,7 +83,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122022" level="14">
+  <rule id="114022" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Win32_ShadowCopy</field>
     <description>Sigma: Deletion of Volume Shadow Copies via WMI with PowerShell</description>
@@ -83,7 +92,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122023" level="13">
+  <rule id="114023" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/disable</field>
     <field name="win.eventdata.image">\reagentc\.exe$</field>
@@ -93,7 +102,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122025" level="14">
+  <rule id="114025" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore</field>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\reg\.exe$</field>
@@ -103,7 +112,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122034" level="14">
+  <rule id="114034" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\\NTDS\.dit|\\SYSTEM|\\SECURITY</field>
     <description>Sigma: Sensitive File Access Via Volume Shadow Copy Backup</description>
@@ -112,7 +121,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122038" level="14">
+  <rule id="114038" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">keepVersions:0|backup</field>
     <field name="win.eventdata.image">\wbadmin\.exe$</field>
@@ -122,7 +131,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122039" level="13">
+  <rule id="114039" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">delete |backup</field>
     <field name="win.eventdata.image">\wbadmin\.exe$</field>
@@ -132,7 +141,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122040" level="13">
+  <rule id="114040" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> recovery|recoveryTarget|itemtype:File</field>
     <field name="win.eventdata.image">\wbadmin\.exe$</field>
@@ -142,7 +151,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122041" level="14">
+  <rule id="114041" level="14">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">DisableConfig$|DisableSR$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
@@ -152,7 +161,7 @@
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>
-  <rule id="122042" level="13">
+  <rule id="114042" level="13">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Blob$</field>
     <field name="win.eventdata.details">Binary Data</field>

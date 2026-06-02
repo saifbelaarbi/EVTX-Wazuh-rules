@@ -1,54 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1574.001_unknown,">
-  <rule id="106008" level="11">
-    <if_sid>60000</if_sid>
-    <field name="win.system.eventID">150|770|771</field>
-    <description>Sigma: DNS Server Error Failed Loading the ServerLevelPluginDLL</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106033" level="11">
-    <if_sid>60000</if_sid>
-    <field name="win.system.eventID">11|12</field>
-    <field name="win.eventdata.processPath">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
-    <description>Sigma: Microsoft Defender Blocked from Loading Unsigned DLL</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106034" level="11">
-    <if_sid>60000</if_sid>
-    <field name="win.system.eventID">11|12</field>
-    <field name="win.eventdata.imageName">\Users\Public\|\PerfLogs\|\Desktop\|\Downloads\|\AppData\Local\Temp\|C:\Windows\TEMP\</field>
-    <description>Sigma: Unsigned Binary Loaded From Suspicious Location</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106035" level="11">
-    <if_sid>60106</if_sid>
-    <field name="win.system.eventID">1033</field>
-    <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
-    <description>Sigma: DHCP Server Loaded the CallOut DLL</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106036" level="11">
-    <if_sid>60106</if_sid>
-    <field name="win.system.eventID">1031|1032|1034</field>
-    <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
-    <description>Sigma: DHCP Server Error Failed Loading the CallOut DLL</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104586" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">:\Windows\System32\axeonoffhelper\.dll$|:\Windows\System32\cdpsgshims\.dll$|:\Windows\System32\oci\.dll$|:\Windows\System32\offdmpsvc\.dll$|:\Windows\System32\shellchromeapi\.dll$|:\Windows\System32\TSMSISrv\.dll$|:\Windows\System32\TSVIPSrv\.dll$|:\Windows\System32\wbem\wbemcomn\.dll$|:\Windows\System32\WLBSCTRL\.dll$|:\Windows\System32\wow64log\.dll$|:\Windows\System32\WptsExtensions\.dll$|\SprintCSP\.dll$</field>
@@ -86,15 +37,6 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106076" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\WerFault\.exe$|\wer\.dll$</field>
-    <description>Sigma: Creation of WerFault.exe/Wer.dll in Unusual Folder</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104613" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\log\.dll$</field>
@@ -112,16 +54,6 @@
       <id>T1574.001</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="106080" level="11">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\arubanetsvc\.exe$</field>
-    <field name="win.eventdata.imageLoaded">\wtsapi32\.dll$|\msvcr100\.dll$|\msvcp100\.dll$|\dbghelp\.dll$|\dbgcore\.dll$|\wininet\.dll$|\iphlpapi\.dll$|\version\.dll$|\cryptsp\.dll$|\cryptbase\.dll$|\wldp\.dll$|\profapi\.dll$|\sspicli\.dll$|\winsta\.dll$|\dpapi\.dll$</field>
-    <description>Sigma: Aruba Network Service Potential DLL Sideloading</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="104615" level="9">
     <if_sid>61609</if_sid>
@@ -203,15 +135,6 @@
       <id>T1574.001</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="106082" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\dbgmodel\.dll$</field>
-    <description>Sigma: Potential DLL Sideloading Of DbgModel.DLL</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="104624" level="10">
     <if_sid>61609</if_sid>
@@ -323,24 +246,6 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106083" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\MpSvc\.dll$</field>
-    <description>Sigma: Potential DLL Sideloading Of MpSvc.DLL</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="106084" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\mscorsvc\.dll$</field>
-    <description>Sigma: Potential DLL Sideloading Of MsCorSvc.DLL</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104636" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">:\Windows\System32\axeonoffhelper\.dll$|:\Windows\System32\cdpsgshims\.dll$|:\Windows\System32\oci\.dll$|:\Windows\System32\offdmpsvc\.dll$|:\Windows\System32\shellchromeapi\.dll$|:\Windows\System32\TSMSISrv\.dll$|:\Windows\System32\TSVIPSrv\.dll$|:\Windows\System32\wbem\wbemcomn\.dll$|:\Windows\System32\WLBSCTRL\.dll$|:\Windows\System32\wow64log\.dll$|:\Windows\System32\WptsExtensions\.dll$</field>
@@ -358,15 +263,6 @@
       <id>T1574.001</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="106085" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\python39\.dll$|\python310\.dll$|\python311\.dll$|\python312\.dll$</field>
-    <description>Sigma: Potential Python DLL SideLoading</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="104638" level="10">
     <if_sid>61609</if_sid>
@@ -451,16 +347,6 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106086" level="11">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\fxssvc\.exe$</field>
-    <field name="win.eventdata.imageLoaded">ualapi\.dll$</field>
-    <description>Sigma: Fax Service DLL Search Order Hijack</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104647" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\vcruntime140\.dll$</field>
@@ -510,16 +396,6 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106087" level="11">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\VMwareXferlogs\.exe$</field>
-    <field name="win.eventdata.imageLoaded">\glib-2\.0\.dll$</field>
-    <description>Sigma: Potential DLL Sideloading Via VMware Xfer</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104652" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\waveedit\.dll$</field>
@@ -538,16 +414,6 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106088" level="11">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\mpclient\.dll$</field>
-    <field name="win.eventdata.image">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
-    <description>Sigma: Potential Mpclient.DLL Sideloading</description>
-    <mitre>
-      <id>T1574.001</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
   <rule id="104654" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\wwlib\.dll$</field>
@@ -557,7 +423,141 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="106089" level="10">
+  <rule id="107008" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">150|770|771</field>
+    <description>Sigma: DNS Server Error Failed Loading the ServerLevelPluginDLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107033" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">11|12</field>
+    <field name="win.eventdata.processPath">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
+    <description>Sigma: Microsoft Defender Blocked from Loading Unsigned DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107034" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">11|12</field>
+    <field name="win.eventdata.imageName">\Users\Public\|\PerfLogs\|\Desktop\|\Downloads\|\AppData\Local\Temp\|C:\Windows\TEMP\</field>
+    <description>Sigma: Unsigned Binary Loaded From Suspicious Location</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107035" level="11">
+    <if_sid>60106</if_sid>
+    <field name="win.system.eventID">1033</field>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
+    <description>Sigma: DHCP Server Loaded the CallOut DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107036" level="11">
+    <if_sid>60106</if_sid>
+    <field name="win.system.eventID">1031|1032|1034</field>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
+    <description>Sigma: DHCP Server Error Failed Loading the CallOut DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107076" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\WerFault\.exe$|\wer\.dll$</field>
+    <description>Sigma: Creation of WerFault.exe/Wer.dll in Unusual Folder</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107080" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\arubanetsvc\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\wtsapi32\.dll$|\msvcr100\.dll$|\msvcp100\.dll$|\dbghelp\.dll$|\dbgcore\.dll$|\wininet\.dll$|\iphlpapi\.dll$|\version\.dll$|\cryptsp\.dll$|\cryptbase\.dll$|\wldp\.dll$|\profapi\.dll$|\sspicli\.dll$|\winsta\.dll$|\dpapi\.dll$</field>
+    <description>Sigma: Aruba Network Service Potential DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107082" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\dbgmodel\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of DbgModel.DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107083" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\MpSvc\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of MpSvc.DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107084" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\mscorsvc\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of MsCorSvc.DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107085" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\python39\.dll$|\python310\.dll$|\python311\.dll$|\python312\.dll$</field>
+    <description>Sigma: Potential Python DLL SideLoading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107086" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\fxssvc\.exe$</field>
+    <field name="win.eventdata.imageLoaded">ualapi\.dll$</field>
+    <description>Sigma: Fax Service DLL Search Order Hijack</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107087" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\VMwareXferlogs\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\glib-2\.0\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Via VMware Xfer</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107088" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\mpclient\.dll$</field>
+    <field name="win.eventdata.image">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
+    <description>Sigma: Potential Mpclient.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107089" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\AppData\Local\Apps\2\.0\</field>
     <field name="win.eventdata.signed">false</field>
@@ -567,7 +567,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106090" level="11">
+  <rule id="107090" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\thor\.exe$|\thor64\.exe$</field>
     <field name="win.eventdata.imageLoaded">\thor\.exe$|\thor64\.exe$</field>
@@ -577,7 +577,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106154" level="10">
+  <rule id="107154" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/PhoneDeepLink</field>
     <field name="win.eventdata.image">\deviceenroller\.exe$</field>
@@ -587,7 +587,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106156" level="11">
+  <rule id="107156" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\VMwareXferlogs\.exe$</field>
     <description>Sigma: DLL Sideloading by VMware Xfer Utility</description>
@@ -596,7 +596,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106158" level="11">
+  <rule id="107158" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\dnscmd\.exe$</field>
     <field name="win.eventdata.commandLine">/config|/serverlevelplugindll</field>
@@ -607,7 +607,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106161" level="11">
+  <rule id="107161" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\GUP\.exe$</field>
     <description>Sigma: Suspicious GUP Usage</description>
@@ -616,7 +616,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106217" level="11">
+  <rule id="107217" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
     <description>Sigma: Potential Mpclient.DLL Sideloading Via Defender Binaries</description>
@@ -625,7 +625,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106232" level="11">
+  <rule id="107232" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">vmnat\.exe</field>
     <description>Sigma: Renamed Vmnat.exe Execution</description>
@@ -634,7 +634,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106270" level="11">
+  <rule id="107270" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> C:\Windows\System32\Tasks\| C:\Windows\SysWow64\Tasks\</field>
     <description>Sigma: Tasks Folder Evasion</description>
@@ -643,7 +643,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106307" level="11">
+  <rule id="107307" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\xwizard\.exe$</field>
     <description>Sigma: Xwizard.EXE Execution From Non-Default Location</description>
@@ -652,7 +652,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106342" level="11">
+  <rule id="107342" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Services\DHCPServer\Parameters\CalloutDlls$|\Services\DHCPServer\Parameters\CalloutEnabled$</field>
     <description>Sigma: DHCP Callout DLL Installation</description>
@@ -662,7 +662,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106345" level="11">
+  <rule id="107345" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\services\DNS\Parameters\ServerLevelPluginDll$</field>
     <description>Sigma: New DNS ServerLevelPluginDll Installed</description>

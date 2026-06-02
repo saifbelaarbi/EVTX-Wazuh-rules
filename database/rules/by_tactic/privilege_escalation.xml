@@ -1,48 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,privilege_escalation,">
-  <rule id="106001" level="11">
+  <rule id="107000" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4672</field>
+    <description>Special privileges assigned to user: admin01</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+    <group>privilege_escalation,evtx_generated,</group>
+  </rule>
+  <rule id="107001" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3104</field>
     <description>Sigma: CodeIntegrity - Disallowed File For Protected Processes Has Been Blocked</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106002" level="11">
+  <rule id="107002" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3021|3022</field>
     <description>Sigma: CodeIntegrity - Revoked Kernel Driver Loaded</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106003" level="11">
+  <rule id="107003" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3036</field>
     <description>Sigma: CodeIntegrity - Blocked Image Load With Revoked Certificate</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106004" level="11">
+  <rule id="107004" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3032|3035</field>
     <description>Sigma: CodeIntegrity - Revoked Image Loaded</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106005" level="11">
+  <rule id="107005" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3001</field>
     <description>Sigma: CodeIntegrity - Unsigned Kernel Module Loaded</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106006" level="11">
+  <rule id="107006" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3037</field>
     <description>Sigma: CodeIntegrity - Unsigned Image Loaded</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106007" level="11">
+  <rule id="107007" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3082|3083</field>
     <description>Sigma: CodeIntegrity - Unmet WHQL Requirements For Loaded Kernel Module</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106008" level="11">
+  <rule id="107008" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">150|770|771</field>
     <description>Sigma: DNS Server Error Failed Loading the ServerLevelPluginDLL</description>
@@ -51,7 +60,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106009" level="10">
+  <rule id="107009" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">9</field>
@@ -64,7 +73,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106010" level="11">
+  <rule id="107010" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">9</field>
@@ -72,7 +81,7 @@
     <description>Sigma: DiagTrackEoP Default Login Username</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106011" level="10">
+  <rule id="107011" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">10</field>
@@ -84,7 +93,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106012" level="11">
+  <rule id="107012" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">3</field>
@@ -96,7 +105,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106013" level="10">
+  <rule id="107013" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4625</field>
     <description>Sigma: Failed Logon From Public IP</description>
@@ -107,7 +116,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106014" level="11">
+  <rule id="107014" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">3</field>
@@ -120,7 +129,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106015" level="11">
+  <rule id="107015" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
     <field name="win.eventdata.attributeLDAPDisplayName">ntSecurityDescriptor</field>
@@ -131,7 +140,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106016" level="11">
+  <rule id="107016" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4898</field>
     <field name="win.eventdata.templateContent">1\.3\.6\.1\.5\.5\.7\.3\.2|1\.3\.6\.1\.5\.2\.3\.4|1\.3\.6\.1\.4\.1\.311\.20\.2\.2|2\.5\.29\.37\.0</field>
@@ -139,7 +148,7 @@
     <description>Sigma: ADCS Certificate Template Configuration Vulnerability with Risky EKU</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106017" level="11">
+  <rule id="107017" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4704</field>
     <field name="win.eventdata.privilegeList">SeEnableDelegationPrivilege</field>
@@ -149,7 +158,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106018" level="11">
+  <rule id="107018" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4738</field>
     <description>Sigma: Active Directory User Backdoors</description>
@@ -158,7 +167,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106019" level="10">
+  <rule id="107019" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
@@ -170,7 +179,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106020" level="10">
+  <rule id="107020" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
     <field name="win.eventdata.objectClass">groupPolicyContainer</field>
@@ -181,7 +190,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106021" level="11">
+  <rule id="107021" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
     <field name="win.eventdata.attributeLDAPDisplayName">gPCMachineExtensionNames|gPCUserExtensionNames</field>
@@ -192,7 +201,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106022" level="11">
+  <rule id="107022" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.shareName">\SYSVOL$</field>
@@ -204,7 +213,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106023" level="11">
+  <rule id="107023" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5447</field>
     <field name="win.eventdata.filterName">RonPolicy</field>
@@ -215,7 +224,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106024" level="11">
+  <rule id="107024" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5449</field>
     <field name="win.eventdata.providerContextName">RonPolicy</field>
@@ -226,7 +235,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106025" level="14">
+  <rule id="107025" level="14">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceFileName">cmd|%COMSPEC%|echo|\pipe\</field>
@@ -237,7 +246,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106026" level="10">
+  <rule id="107026" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
     <field name="win.eventdata.objectType">File</field>
@@ -249,7 +258,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106027" level="10">
+  <rule id="107027" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4674</field>
     <field name="win.eventdata.objectType">SC_MANAGER OBJECT</field>
@@ -261,7 +270,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106028" level="10">
+  <rule id="107028" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceName">AmmyyAdmin|AnyDesk|Atera|BASupportExpressSrvcUpdater|BASupportExpressStandaloneService|chromoting|GoToAssist|GoToMyPC|jumpcloud|LMIGuardianSvc|LogMeIn|monblanking|Parsec|RManService|RPCPerformanceService|RPCService|SplashtopRemoteService|SSUService|TeamViewer|TightVNC|vncserver|Zoho</field>
@@ -272,7 +281,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106029" level="10">
+  <rule id="107029" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4706</field>
     <description>Sigma: A New Trust Was Created To A Domain</description>
@@ -281,7 +290,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106030" level="11">
+  <rule id="107030" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4794</field>
     <description>Sigma: Password Change on Directory Service Restore Mode (DSRM) Account</description>
@@ -290,7 +299,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106031" level="10">
+  <rule id="107031" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
     <field name="win.eventdata.attributeLDAPDisplayName">gPCMachineExtensionNames</field>
@@ -301,7 +310,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106032" level="10">
+  <rule id="107032" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4648</field>
     <field name="win.eventdata.processName">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\winrs\.exe$|\wmic\.exe$|\net\.exe$|\net1\.exe$|\reg\.exe$</field>
@@ -311,7 +320,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106033" level="11">
+  <rule id="107033" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">11|12</field>
     <field name="win.eventdata.processPath">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
@@ -321,7 +330,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106034" level="11">
+  <rule id="107034" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">11|12</field>
     <field name="win.eventdata.imageName">\Users\Public\|\PerfLogs\|\Desktop\|\Downloads\|\AppData\Local\Temp\|C:\Windows\TEMP\</field>
@@ -331,7 +340,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106035" level="11">
+  <rule id="107035" level="11">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">1033</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
@@ -341,7 +350,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106036" level="11">
+  <rule id="107036" level="11">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">1031|1032|1034</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
@@ -351,14 +360,14 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106037" level="10">
+  <rule id="107037" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Kerberos-Key-Distribution-Center|Microsoft-Windows-Kerberos-Key-Distribution-Center</field>
     <field name="win.system.eventID">39|41</field>
     <description>Sigma: Certificate Use With No Strong Mapping</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106038" level="11">
+  <rule id="107038" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">NetLogon</field>
     <field name="win.system.eventID">5829</field>
@@ -368,7 +377,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106039" level="14">
+  <rule id="107039" level="14">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -380,7 +389,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106040" level="10">
+  <rule id="107040" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045|7036</field>
@@ -392,7 +401,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106041" level="10">
+  <rule id="107041" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">129</field>
     <field name="win.eventdata.path">C:\Windows\Temp\|\AppData\Local\Temp\|\Desktop\|\Downloads\|\Users\Public\|C:\Temp\</field>
@@ -402,7 +411,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106042" level="10">
+  <rule id="107042" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">129</field>
     <field name="win.eventdata.path">\calc\.exe$|\cscript\.exe$|\mshta\.exe$|\mspaint\.exe$|\notepad\.exe$|\regsvr32\.exe$|\wscript\.exe$</field>
@@ -412,7 +421,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106043" level="11">
+  <rule id="107043" level="11">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.sourceImage">\System32\cscript\.exe$|\System32\wscript\.exe$|\System32\mshta\.exe$|\winword\.exe$|\excel\.exe$</field>
     <field name="win.eventdata.targetImage">\SysWOW64\</field>
@@ -425,7 +434,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106044" level="13">
+  <rule id="107044" level="13">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.startAddress">0B80$|0C7C$|0C88$</field>
     <description>Sigma: HackTool - Potential CobaltStrike Process Injection</description>
@@ -434,7 +443,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106045" level="11">
+  <rule id="107045" level="11">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.sourceImage">\bash\.exe$|\cscript\.exe$|\cvtres\.exe$|\defrag\.exe$|\dialer\.exe$|\dnx\.exe$|\esentutl\.exe$|\excel\.exe$|\expand\.exe$|\find\.exe$|\findstr\.exe$|\forfiles\.exe$|\gpupdate\.exe$|\hh\.exe$|\installutil\.exe$|\lync\.exe$|\makecab\.exe$|\mDNSResponder\.exe$|\monitoringhost\.exe$|\msbuild\.exe$|\mshta\.exe$|\mspaint\.exe$|\outlook\.exe$|\ping\.exe$|\provtool\.exe$|\python\.exe$|\regsvr32\.exe$|\robocopy\.exe$|\runonce\.exe$|\sapcimc\.exe$|\smartscreen\.exe$|\spoolsv\.exe$|\tstheme\.exe$|\userinit\.exe$|\vssadmin\.exe$|\vssvc\.exe$|\w3wp\.exe$|\winscp\.exe$|\winword\.exe$|\wmic\.exe$|\wscript\.exe$</field>
     <description>Sigma: Rare Remote Thread Creation By Uncommon Source Image</description>
@@ -443,7 +452,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106046" level="10">
+  <rule id="107046" level="10">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.sourceImage">\explorer\.exe$|\iexplore\.exe$|\msiexec\.exe$|\powerpnt\.exe$|\schtasks\.exe$|\winlogon\.exe$</field>
     <description>Sigma: Remote Thread Creation By Uncommon Source Image</description>
@@ -452,7 +461,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106047" level="10">
+  <rule id="107047" level="10">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.targetImage">\calc\.exe$|\calculator\.exe$|\mspaint\.exe$|\notepad\.exe$|\ping\.exe$|\sethc\.exe$|\spoolsv\.exe$|\wordpad\.exe$|\write\.exe$</field>
     <description>Sigma: Remote Thread Creation In Uncommon Target Image</description>
@@ -461,7 +470,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106048" level="10">
+  <rule id="107048" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">:\Windows\apppatch\Custom\|:\Windows\apppatch\CustomSDB\</field>
     <description>Sigma: New Custom Shim Database Created</description>
@@ -470,7 +479,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106049" level="10">
+  <rule id="107049" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.scr$</field>
     <description>Sigma: Suspicious Screensaver Binary File Creation</description>
@@ -479,7 +488,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106050" level="11">
+  <rule id="107050" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">C:\program\.exe</field>
     <description>Sigma: Creation Exe for Service with Unquoted Path</description>
@@ -488,7 +497,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106051" level="10">
+  <rule id="107051" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\desktop\.ini$</field>
     <description>Sigma: Desktop.INI Created by Uncommon Process</description>
@@ -497,7 +506,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106052" level="10">
+  <rule id="107052" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\winword\.exe$|\excel\.exe$|\powerpnt\.exe$|\MSACCESS\.EXE$|\MSPUB\.EXE$|\fltldr\.exe$|\cmd\.exe$|\certutil\.exe$|\mshta\.exe$|\cscript\.exe$|\wscript\.exe$|\curl\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.targetFilename">\Microsoft\OneDrive\|\Microsoft OneDrive\|\Microsoft\Teams\|\Local\slack\app-|\Local\Programs\Microsoft VS Code\|\Users\|\AppData\</field>
@@ -509,7 +518,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106053" level="11">
+  <rule id="107053" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\msdt\.exe$</field>
     <field name="win.eventdata.targetFilename">\Desktop\|\Start Menu\Programs\Startup\|C:\PerfLogs\|C:\ProgramData\|C:\Users\Public\</field>
@@ -519,7 +528,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106054" level="10">
+  <rule id="107054" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\outlook\.exe$</field>
     <field name="win.eventdata.targetFilename">\Microsoft\Outlook\VbaProject\.OTM$</field>
@@ -531,7 +540,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106055" level="11">
+  <rule id="107055" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Microsoft\Outlook\VbaProject\.OTM$</field>
     <description>Sigma: Suspicious Outlook Macro Created</description>
@@ -542,7 +551,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106056" level="11">
+  <rule id="107056" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.targetFilename">\.lnk$</field>
@@ -552,7 +561,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106057" level="11">
+  <rule id="107057" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\Startup|\.lnk\.\{0AFACED1-E828-11D1-9187-B532F1E9575D\}</field>
     <field name="win.eventdata.image">\explorer\.exe$</field>
@@ -562,7 +571,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106058" level="10">
+  <rule id="107058" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\StartUp</field>
     <description>Sigma: Startup Folder File Write</description>
@@ -571,7 +580,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106059" level="10">
+  <rule id="107059" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\mobsync\.exe$</field>
     <field name="win.eventdata.targetFilename">\.dll$|\.exe$</field>
@@ -582,7 +591,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106060" level="11">
+  <rule id="107060" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">Local\Microsoft\WindowsApps\Get-Variable\.exe$</field>
     <description>Sigma: Suspicious Get-Variable.exe Creation</description>
@@ -592,7 +601,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106061" level="11">
+  <rule id="107061" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.bat$|\.cmd$|\.dll$|\.hta$|\.jar$|\.js$|\.jse$|\.msi$|\.ps1$|\.psd1$|\.psm1$|\.scr$|\.url$|\.vba$|\.vbe$|\.vbs$|\.wsf$</field>
     <description>Sigma: Suspicious Startup Folder Persistence</description>
@@ -602,7 +611,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106062" level="11">
+  <rule id="107062" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Windows\System32\Tasks</field>
     <field name="win.eventdata.image">\AppData\|C:\PerfLogs|\Windows\System32\config\systemprofile</field>
@@ -612,7 +621,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106063" level="10">
+  <rule id="107063" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$</field>
     <field name="win.eventdata.targetFilename">\AppData\Local\Packages\Microsoft\.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings\.json$</field>
@@ -622,26 +631,26 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106064" level="11">
+  <rule id="107064" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">C:\Windows\livekd\.dmp</field>
     <description>Sigma: LiveKD Kernel Memory Dump File Created</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106065" level="10">
+  <rule id="107065" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">C:\Windows\System32\drivers\LiveKdD\.SYS</field>
     <field name="win.eventdata.image">\livekd\.exe$|\livek64\.exe$</field>
     <description>Sigma: LiveKD Driver Creation</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106066" level="11">
+  <rule id="107066" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">C:\Windows\System32\drivers\LiveKdD\.SYS</field>
     <description>Sigma: LiveKD Driver Creation By Uncommon Process</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106067" level="11">
+  <rule id="107067" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\comctl32\.dll$</field>
     <description>Sigma: UAC Bypass Using Consent and Comctl32 - File</description>
@@ -650,7 +659,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106068" level="11">
+  <rule id="107068" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Temp\pe386\.dll$</field>
     <description>Sigma: UAC Bypass Using .NET Code Profiler on MMC</description>
@@ -659,13 +668,13 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106069" level="11">
+  <rule id="107069" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\Microsoft\Event Viewer\RecentViews$|\Microsoft\EventV~1\RecentViews$</field>
     <description>Sigma: UAC Bypass Using EventVwr</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106070" level="11">
+  <rule id="107070" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">C:\Program Files\Internet Explorer\IEInstal\.exe</field>
     <field name="win.eventdata.targetFilename">consent\.exe$</field>
@@ -675,7 +684,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106071" level="11">
+  <rule id="107071" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Temp\pkgmgr\.exe$</field>
     <description>Sigma: UAC Bypass Using MSConfig Token Modification - File</description>
@@ -684,7 +693,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106072" level="11">
+  <rule id="107072" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Temp\api-ms-win-core-kernel32-legacy-l1\.DLL$</field>
     <description>Sigma: UAC Bypass Using NTFS Reparse Point - File</description>
@@ -693,7 +702,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106073" level="11">
+  <rule id="107073" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Temp\system32\winsat\.exe$|\AppData\Local\Temp\system32\winmm\.dll$</field>
     <description>Sigma: UAC Bypass Abusing Winsat Path Parsing - File</description>
@@ -702,7 +711,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106074" level="11">
+  <rule id="107074" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Temp\OskSupport\.dll$</field>
     <description>Sigma: UAC Bypass Using Windows Media Player - File</description>
@@ -711,7 +720,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106075" level="11">
+  <rule id="107075" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">C:\Windows\system32\DllHost\.exe</field>
     <field name="win.eventdata.targetFilename">C:\Program Files\Windows Media Player\osk\.exe</field>
@@ -721,7 +730,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106076" level="10">
+  <rule id="107076" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\WerFault\.exe$|\wer\.dll$</field>
     <description>Sigma: Creation of WerFault.exe/Wer.dll in Unusual Folder</description>
@@ -730,7 +739,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106077" level="11">
+  <rule id="107077" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\WinRAR\.exe$|\Rar\.exe$</field>
     <field name="win.eventdata.targetFilename">\Start Menu\Programs\Startup\</field>
@@ -740,7 +749,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106078" level="11">
+  <rule id="107078" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">C:\WINDOWS\system32\wbem\scrcons\.exe</field>
     <description>Sigma: WMI Persistence - Script Event Consumer File Write</description>
@@ -749,7 +758,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106079" level="10">
+  <rule id="107079" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\\\127\.0\.0|\ADMIN\$\</field>
     <description>Sigma: Writing Local Admin Share</description>
@@ -758,7 +767,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106080" level="11">
+  <rule id="107080" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\arubanetsvc\.exe$</field>
     <field name="win.eventdata.imageLoaded">\wtsapi32\.dll$|\msvcr100\.dll$|\msvcp100\.dll$|\dbghelp\.dll$|\dbgcore\.dll$|\wininet\.dll$|\iphlpapi\.dll$|\version\.dll$|\cryptsp\.dll$|\cryptbase\.dll$|\wldp\.dll$|\profapi\.dll$|\sspicli\.dll$|\winsta\.dll$|\dpapi\.dll$</field>
@@ -768,7 +777,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106081" level="10">
+  <rule id="107081" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\coregen\.exe$</field>
     <description>Sigma: Potential DLL Sideloading Using Coregen.exe</description>
@@ -778,7 +787,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106082" level="10">
+  <rule id="107082" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\dbgmodel\.dll$</field>
     <description>Sigma: Potential DLL Sideloading Of DbgModel.DLL</description>
@@ -787,7 +796,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106083" level="10">
+  <rule id="107083" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\MpSvc\.dll$</field>
     <description>Sigma: Potential DLL Sideloading Of MpSvc.DLL</description>
@@ -796,7 +805,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106084" level="10">
+  <rule id="107084" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\mscorsvc\.dll$</field>
     <description>Sigma: Potential DLL Sideloading Of MsCorSvc.DLL</description>
@@ -805,7 +814,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106085" level="10">
+  <rule id="107085" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\python39\.dll$|\python310\.dll$|\python311\.dll$|\python312\.dll$</field>
     <description>Sigma: Potential Python DLL SideLoading</description>
@@ -814,7 +823,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106086" level="11">
+  <rule id="107086" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\fxssvc\.exe$</field>
     <field name="win.eventdata.imageLoaded">ualapi\.dll$</field>
@@ -824,7 +833,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106087" level="11">
+  <rule id="107087" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\VMwareXferlogs\.exe$</field>
     <field name="win.eventdata.imageLoaded">\glib-2\.0\.dll$</field>
@@ -834,7 +843,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106088" level="11">
+  <rule id="107088" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\mpclient\.dll$</field>
     <field name="win.eventdata.image">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
@@ -844,7 +853,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106089" level="10">
+  <rule id="107089" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\AppData\Local\Apps\2\.0\</field>
     <field name="win.eventdata.signed">false</field>
@@ -854,7 +863,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106090" level="11">
+  <rule id="107090" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\thor\.exe$|\thor64\.exe$</field>
     <field name="win.eventdata.imageLoaded">\thor\.exe$|\thor64\.exe$</field>
@@ -864,7 +873,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106091" level="11">
+  <rule id="107091" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">C:\Windows\SysWOW64\iscsicpl\.exe</field>
     <field name="win.eventdata.imageLoaded">\iscsiexe\.dll$</field>
@@ -874,7 +883,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106092" level="11">
+  <rule id="107092" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">C:\Windows\System32\wbem\WmiPrvSE\.exe</field>
     <field name="win.eventdata.imageLoaded">\wbemcons\.dll$</field>
@@ -884,7 +893,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106093" level="11">
+  <rule id="107093" level="11">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\notepad\.exe$</field>
     <description>Sigma: Network Connection Initiated Via Notepad.EXE</description>
@@ -893,7 +902,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106094" level="10">
+  <rule id="107094" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">\mobsync\.exe$</field>
     <description>Sigma: Microsoft Sync Center Suspicious Network Connections</description>
@@ -903,7 +912,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106095" level="13">
+  <rule id="107095" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\MSSE-|-server</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -912,7 +921,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106096" level="13">
+  <rule id="107096" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\interprocess_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -921,7 +930,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106097" level="13">
+  <rule id="107097" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\lsarpc_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -930,7 +939,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106098" level="13">
+  <rule id="107098" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\mojo_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -939,7 +948,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106099" level="13">
+  <rule id="107099" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\msagent_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -948,7 +957,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106100" level="13">
+  <rule id="107100" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\netlogon_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -957,7 +966,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106101" level="13">
+  <rule id="107101" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\postex_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -966,7 +975,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106102" level="13">
+  <rule id="107102" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\samr_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -975,7 +984,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106103" level="13">
+  <rule id="107103" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\srvsvc_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -984,7 +993,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106104" level="13">
+  <rule id="107104" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\status_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -993,7 +1002,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106105" level="13">
+  <rule id="107105" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\wkssvc_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
@@ -1002,7 +1011,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106106" level="13">
+  <rule id="107106" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\mojo\.5688\.8052\.(?:183894939787088877|35780273329370473)[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1011,7 +1020,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106107" level="13">
+  <rule id="107107" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\wkssvc_?[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1020,7 +1029,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106108" level="13">
+  <rule id="107108" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\ntsvcs[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1029,7 +1038,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106109" level="13">
+  <rule id="107109" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\DserNamePipe[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1038,7 +1047,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106110" level="13">
+  <rule id="107110" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\SearchTextHarvester[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1047,7 +1056,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106111" level="13">
+  <rule id="107111" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\mypipe-(?:f|h)[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1056,7 +1065,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106112" level="13">
+  <rule id="107112" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\windows\.update\.manager[0-9a-f]{2,3}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1065,7 +1074,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106113" level="13">
+  <rule id="107113" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\ntsvcs_[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1074,7 +1083,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106114" level="13">
+  <rule id="107114" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\scerpc_?[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1083,7 +1092,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106115" level="13">
+  <rule id="107115" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\PGMessagePipe[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1092,7 +1101,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106116" level="13">
+  <rule id="107116" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\MsFteWds[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1101,7 +1110,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106117" level="13">
+  <rule id="107117" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\f4c3[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1110,7 +1119,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106118" level="13">
+  <rule id="107118" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\fullduplex_[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1119,7 +1128,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106119" level="13">
+  <rule id="107119" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\msrpc_[0-9a-f]{4}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1128,7 +1137,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106120" level="13">
+  <rule id="107120" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\win\\msrpc_[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1137,7 +1146,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106121" level="13">
+  <rule id="107121" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\f53f[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1146,7 +1155,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106122" level="13">
+  <rule id="107122" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\rpc_[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1155,7 +1164,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106123" level="13">
+  <rule id="107123" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\spoolss_[0-9a-f]{2}</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1164,7 +1173,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106124" level="13">
+  <rule id="107124" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\\Winsock2\\CatalogChangeListener-[0-9a-f]{3}-0,</field>
     <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
@@ -1173,7 +1182,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106125" level="13">
+  <rule id="107125" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">-0,$</field>
     <description>Sigma: CobaltStrike Named Pipe Patterns</description>
@@ -1182,7 +1191,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106126" level="13">
+  <rule id="107126" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">^\DserNamePipe|^\f4c3|^\f53f|^\fullduplex_|^\mojo\.5688\.8052\.183894939787088877|^\mojo\.5688\.8052\.35780273329370473|^\MsFteWds|^\msrpc_|^\mypipe-f|^\mypipe-h|^\ntsvcs|^\PGMessagePipe|^\rpc_|^\scerpc|^\SearchTextHarvester|^\spoolss|^\win_svc|^\win\msrpc_|^\windows\.update\.manager|^\wkssvc</field>
     <description>Sigma: CobaltStrike Named Pipe Patterns</description>
@@ -1191,7 +1200,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106127" level="13">
+  <rule id="107127" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\demoagent_11|\demoagent_22</field>
     <description>Sigma: CobaltStrike Named Pipe Patterns</description>
@@ -1200,7 +1209,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106128" level="11">
+  <rule id="107128" level="11">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\coerced\</field>
     <description>Sigma: HackTool - CoercedPotato Named Pipe Creation</description>
@@ -1209,13 +1218,13 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106129" level="11">
+  <rule id="107129" level="11">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">thisispipe</field>
     <description>Sigma: HackTool - DiagTrackEoP Default Named Pipe</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106130" level="11">
+  <rule id="107130" level="11">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\pipe\|\pipe\srvsvc</field>
     <description>Sigma: HackTool - EfsPotato Named Pipe Creation</description>
@@ -1224,7 +1233,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106131" level="11">
+  <rule id="107131" level="11">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\imposecost|\imposingcost</field>
     <description>Sigma: HackTool - Koh Default Named Pipe</description>
@@ -1234,7 +1243,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106132" level="12">
+  <rule id="107132" level="12">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">\46a676ab7f179e511e30dd2dc41bd388|\583da945-62af-10e8-4902-a8f205c72b2e|\6e7645c4-32c5-4fe3-aabf-e94c2f4370e7|\9f81f59bc58452127884ce513865ed20|\adschemerpc|\ahexec|\AnonymousPipe|\bc31a7|\bc367|\bizkaz|\csexecsvc|\dce_3d|\e710f28d59aa529d6792ca6ff0ca1b34|\gruntsvc|\isapi_dg|\isapi_dg2|\isapi_http|\jaccdpqnvbrrxlaf|\lsassw|\NamePipe_MoreWindows|\pcheap_reuse|\Posh.*|\rpchlp_3|\sdlrpc|\svcctl|\testPipe|\winsession</field>
     <description>Sigma: Malicious Named Pipe Created</description>
@@ -1243,7 +1252,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106133" level="10">
+  <rule id="107133" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.contextInfo">Reset-ComputerMachinePassword</field>
     <description>Sigma: Suspicious Computer Machine Password by PowerShell</description>
@@ -1252,7 +1261,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106134" level="10">
+  <rule id="107134" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Invoke-CimMethod|-ClassName|PS_ScheduledTask|-NameSpace|Root\Microsoft\Windows\TaskScheduler</field>
     <description>Sigma: Powershell Create Scheduled Task</description>
@@ -1261,7 +1270,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106135" level="10">
+  <rule id="107135" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-ScheduledTaskAction|New-ScheduledTaskTrigger|New-ScheduledTaskPrincipal|New-ScheduledTaskSettingsSet|New-ScheduledTask|Register-ScheduledTask</field>
     <description>Sigma: Powershell Create Scheduled Task</description>
@@ -1270,7 +1279,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106136" level="10">
+  <rule id="107136" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">\$env:COR_ENABLE_PROFILING|\$env:COR_PROFILER|\$env:COR_PROFILER_PATH</field>
     <description>Sigma: Registry-Free Process Scope COR_PROFILER</description>
@@ -1279,7 +1288,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106137" level="10">
+  <rule id="107137" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-ADServiceAccount|-CreateDelegatedServiceAccount|-path</field>
     <description>Sigma: DMSA Service Account Created in Specific OUs - PowerShell</description>
@@ -1289,7 +1298,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106138" level="10">
+  <rule id="107138" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">get-acl|REGISTRY::HKLM\SYSTEM\CurrentControlSet\Services\</field>
     <description>Sigma: Service Registry Permissions Weakness Check</description>
@@ -1298,7 +1307,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106139" level="10">
+  <rule id="107139" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Disable-LocalUser|Enable-LocalUser|Get-LocalUser|Set-LocalUser|New-LocalUser|Rename-LocalUser|Remove-LocalUser</field>
     <description>Sigma: Powershell LocalAccount Manipulation</description>
@@ -1307,7 +1316,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106140" level="10">
+  <rule id="107140" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">\SOFTWARE\Policies\Microsoft\Windows\System</field>
     <description>Sigma: Modify Group Policy Settings - ScriptBlockLogging</description>
@@ -1316,7 +1325,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106141" level="11">
+  <rule id="107141" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">OiCAAAAYInlM|OiJAAAAYInlM</field>
     <description>Sigma: PowerShell ShellCode</description>
@@ -1326,7 +1335,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106142" level="10">
+  <rule id="107142" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">::GetTypeFromCLSID\(|\.ShellExecute\(</field>
     <description>Sigma: Suspicious GetTypeFromCLSID ShellExecute</description>
@@ -1335,7 +1344,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106143" level="10">
+  <rule id="107143" level="10">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Set-ItemProperty|New-Item</field>
     <description>Sigma: Winlogon Helper DLL</description>
@@ -1344,7 +1353,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106144" level="11">
+  <rule id="107144" level="11">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">\svchost\.exe$</field>
     <field name="win.eventdata.grantedAccess">0x143a</field>
@@ -1354,7 +1363,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106145" level="10">
+  <rule id="107145" level="10">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.callTrace">editionupgrademanagerobj\.dll</field>
     <description>Sigma: Function Call From Undocumented COM Interface EditionUpgradeManager</description>
@@ -1363,7 +1372,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106146" level="11">
+  <rule id="107146" level="11">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.sourceImage">:\Windows\SysWOW64\</field>
     <field name="win.eventdata.grantedAccess">0x1fffff</field>
@@ -1374,7 +1383,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106147" level="11">
+  <rule id="107147" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run| add </field>
     <field name="win.eventdata.image">\wmic\.exe$</field>
@@ -1385,7 +1394,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106148" level="11">
+  <rule id="107148" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">assoc |exefile</field>
     <field name="win.eventdata.image">\cmd\.exe$</field>
@@ -1395,7 +1404,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106149" level="11">
+  <rule id="107149" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">mklink|\osk\.exe|\cmd\.exe</field>
     <field name="win.eventdata.image">\cmd\.exe$</field>
@@ -1405,7 +1414,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106150" level="11">
+  <rule id="107150" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\winlogon\.exe$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$|\wt\.exe$</field>
@@ -1416,7 +1425,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106151" level="11">
+  <rule id="107151" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">add|CurrentVersion\Control Panel\CPLs</field>
     <field name="win.eventdata.image">\reg\.exe$</field>
@@ -1427,7 +1436,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106152" level="10">
+  <rule id="107152" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">New-ADServiceAccount|-CreateDelegatedServiceAccount|-path</field>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\powershell_ise\.exe$</field>
@@ -1438,7 +1447,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106153" level="11">
+  <rule id="107153" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> executecmd64 | invokeexe | injectDll </field>
     <field name="win.eventdata.image">\dctask64\.exe$</field>
@@ -1448,7 +1457,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106154" level="10">
+  <rule id="107154" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/PhoneDeepLink</field>
     <field name="win.eventdata.image">\deviceenroller\.exe$</field>
@@ -1458,7 +1467,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106155" level="11">
+  <rule id="107155" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">WindowsPowerShellWebAccess|/online|/enable-feature</field>
     <field name="win.eventdata.image">\dism\.exe$</field>
@@ -1468,7 +1477,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106156" level="11">
+  <rule id="107156" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\VMwareXferlogs\.exe$</field>
     <description>Sigma: DLL Sideloading by VMware Xfer Utility</description>
@@ -1477,7 +1486,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106157" level="11">
+  <rule id="107157" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\dllhost\.exe$</field>
     <field name="win.eventdata.commandLine">dllhost\.exe|dllhost</field>
@@ -1487,7 +1496,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106158" level="11">
+  <rule id="107158" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\dnscmd\.exe$</field>
     <field name="win.eventdata.commandLine">/config|/serverlevelplugindll</field>
@@ -1498,7 +1507,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106159" level="11">
+  <rule id="107159" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\eventvwr\.exe$</field>
     <description>Sigma: Potentially Suspicious Event Viewer Child Process</description>
@@ -1507,7 +1516,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106160" level="11">
+  <rule id="107160" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\explorer\.exe$</field>
     <field name="win.eventdata.commandLine">/NOUACCHECK</field>
@@ -1517,7 +1526,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106161" level="11">
+  <rule id="107161" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\GUP\.exe$</field>
     <description>Sigma: Suspicious GUP Usage</description>
@@ -1526,7 +1535,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106162" level="11">
+  <rule id="107162" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\CoercedPotato\.exe$</field>
     <description>Sigma: HackTool - CoercedPotato Execution</description>
@@ -1535,7 +1544,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106163" level="11">
+  <rule id="107163" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=A75D7669DB6B2E107A44C4057FF7F7D6|IMPHASH=F91624350E2C678C5DCBE5E1F24E22C9|IMPHASH=14C81850A079A87E83D50CA41C709A15</field>
     <description>Sigma: HackTool - CoercedPotato Execution</description>
@@ -1544,7 +1553,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106164" level="11">
+  <rule id="107164" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> --exploitId </field>
     <description>Sigma: HackTool - CoercedPotato Execution</description>
@@ -1553,7 +1562,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106165" level="11">
+  <rule id="107165" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">cmd\.exe /Q /c .* 1&gt; \\\\.*\\.*\\.* 2&gt;&amp;1|cmd\.exe /C .* &gt; \\\\.*\\.*\\.* 2&gt;&amp;1|cmd\.exe /C .* &gt; .*\\Temp\\.* 2&gt;&amp;1|powershell\.exe -exec bypass -noni -nop -w 1 -C "|powershell\.exe -noni -nop -w 1 -enc </field>
     <description>Sigma: HackTool - CrackMapExec Execution Patterns</description>
@@ -1564,7 +1573,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106166" level="11">
+  <rule id="107166" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /am51| /password</field>
     <description>Sigma: HackTool - DInjector PowerShell Cradle Execution</description>
@@ -1573,7 +1582,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106167" level="12">
+  <rule id="107167" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -NoP -NonI -w Hidden -c \$x=\$\(\(gp HKCU:Software\Microsoft\Windows Update\)\.Update\)| -NoP -NonI -c \$x=\$\(\(gp HKCU:Software\Microsoft\Windows Update\)\.Update\);</field>
     <description>Sigma: HackTool - Empire PowerShell UAC Bypass</description>
@@ -1582,7 +1591,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106168" level="11">
+  <rule id="107168" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\HollowReaper\.exe$</field>
     <description>Sigma: HackTool - HollowReaper Execution</description>
@@ -1591,7 +1600,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106169" level="10">
+  <rule id="107169" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> list | exec | adduser </field>
     <description>Sigma: HackTool - Impersonate Execution</description>
@@ -1601,25 +1610,25 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106170" level="11">
+  <rule id="107170" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.exe -i C:\|-o Windows\</field>
     <description>Sigma: HackTool - LocalPotato Execution</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106171" level="11">
+  <rule id="107171" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=E1742EE971D6549E8D4D81115F88F1FC|IMPHASH=DD82066EFBA94D7556EF582F247C8BB5</field>
     <description>Sigma: HackTool - LocalPotato Execution</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106172" level="11">
+  <rule id="107172" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\LocalPotato\.exe$</field>
     <description>Sigma: HackTool - LocalPotato Execution</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106173" level="14">
+  <rule id="107173" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\services\.exe$</field>
     <field name="win.eventdata.commandLine">cmd|%COMSPEC%|echo|\pipe\</field>
@@ -1630,7 +1639,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106174" level="11">
+  <rule id="107174" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SelectMyParent\.exe$</field>
     <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
@@ -1639,7 +1648,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106175" level="11">
+  <rule id="107175" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">PPID-spoof|ppid_spoof|spoof-ppid|spoof_ppid|ppidspoof|spoofppid|spoofedppid| -spawnto </field>
     <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
@@ -1648,7 +1657,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106176" level="11">
+  <rule id="107176" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">PPID-spoof|ppid_spoof|spoof-ppid|spoof_ppid|ppidspoof|spoofppid|spoofedppid</field>
     <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
@@ -1657,7 +1666,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106177" level="11">
+  <rule id="107177" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">SelectMyParent</field>
     <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
@@ -1666,7 +1675,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106178" level="11">
+  <rule id="107178" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=04D974875BD225F00902B4CAD9AF3FBC|IMPHASH=A782AF154C9E743DDF3F3EB2B8F3D16E|IMPHASH=89059503D7FBF470E68F7E63313DA3AD|IMPHASH=CA28337632625C8281AB8A130B3D6BAD</field>
     <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
@@ -1675,7 +1684,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106179" level="11">
+  <rule id="107179" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /file:| /machine| /mkfile:| /password:| /pvk:| /server:| /target:| /unprotect</field>
     <description>Sigma: HackTool - SharpDPAPI Execution</description>
@@ -1685,7 +1694,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106180" level="11">
+  <rule id="107180" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> user:| binary:</field>
     <description>Sigma: HackTool - SharpImpersonation Execution</description>
@@ -1695,7 +1704,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106181" level="11">
+  <rule id="107181" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> user:| shellcode:</field>
     <description>Sigma: HackTool - SharpImpersonation Execution</description>
@@ -1705,7 +1714,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106182" level="11">
+  <rule id="107182" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> technique:CreateProcessAsUserW| technique:ImpersonateLoggedOnuser</field>
     <description>Sigma: HackTool - SharpImpersonation Execution</description>
@@ -1715,7 +1724,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106183" level="11">
+  <rule id="107183" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharpImpersonation\.exe$</field>
     <description>Sigma: HackTool - SharpImpersonation Execution</description>
@@ -1725,7 +1734,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106184" level="11">
+  <rule id="107184" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">SharpImpersonation\.exe</field>
     <description>Sigma: HackTool - SharpImpersonation Execution</description>
@@ -1735,7 +1744,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106185" level="11">
+  <rule id="107185" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -t schtask -c | -t startupfolder -c </field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -1744,7 +1753,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106186" level="11">
+  <rule id="107186" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -t reg -c | -m add</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -1753,7 +1762,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106187" level="11">
+  <rule id="107187" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -t service -c | -m add</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -1762,7 +1771,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106188" level="11">
+  <rule id="107188" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -t schtask -c | -m add</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -1771,7 +1780,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106189" level="11">
+  <rule id="107189" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharPersist\.exe$</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -1780,7 +1789,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106190" level="11">
+  <rule id="107190" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">SharPersist</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
@@ -1789,7 +1798,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106191" level="11">
+  <rule id="107191" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharpSuccessor\.exe$</field>
     <description>Sigma: HKTL - SharpSuccessor Privilege Escalation Tool Execution</description>
@@ -1798,7 +1807,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106192" level="11">
+  <rule id="107192" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">SharpSuccessor\.exe</field>
     <description>Sigma: HKTL - SharpSuccessor Privilege Escalation Tool Execution</description>
@@ -1807,7 +1816,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106193" level="11">
+  <rule id="107193" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">SharpSuccessor</field>
     <description>Sigma: HKTL - SharpSuccessor Privilege Escalation Tool Execution</description>
@@ -1816,7 +1825,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106194" level="11">
+  <rule id="107194" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> add | /impersonate| /path| /account| /name</field>
     <description>Sigma: HKTL - SharpSuccessor Privilege Escalation Tool Execution</description>
@@ -1825,7 +1834,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106195" level="11">
+  <rule id="107195" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=22F4089EB8ABA31E1BB162C6D9BF72E5|IMPHASH=5123FA4C4384D431CD0D893EEB49BBEC</field>
     <description>Sigma: HackTool - SysmonEOP Execution</description>
@@ -1834,7 +1843,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106196" level="11">
+  <rule id="107196" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SysmonEOP\.exe$</field>
     <description>Sigma: HackTool - SysmonEOP Execution</description>
@@ -1843,7 +1852,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106197" level="11">
+  <rule id="107197" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=767637C23BB42CD5D7397CF58B0BE688|IMPHASH=14C4E4C72BA075E9069EE67F39188AD8|IMPHASH=3C782813D4AFCE07BBFC5A9772ACDBDC|IMPHASH=7D010C6BB6A3726F327F7E239166D127|IMPHASH=89159BA4DD04E4CE5559F132A9964EB3|IMPHASH=6F33F4A5FC42B8CEC7314947BD13F30F|IMPHASH=5834ED4291BDEB928270428EBBAF7604|IMPHASH=5A8A8A43F25485E7EE1B201EDCBC7A38|IMPHASH=DC7D30B90B2D8ABF664FBED2B1B59894|IMPHASH=41923EA1F824FE63EA5BEB84DB7A3E74|IMPHASH=3DE09703C8E79ED2CA3F01074719906B</field>
     <description>Sigma: HackTool - UACMe Akagi Execution</description>
@@ -1852,7 +1861,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106198" level="11">
+  <rule id="107198" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\Akagi64\.exe$|\Akagi\.exe$</field>
     <description>Sigma: HackTool - UACMe Akagi Execution</description>
@@ -1861,7 +1870,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106199" level="11">
+  <rule id="107199" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.product">UACMe</field>
     <description>Sigma: HackTool - UACMe Akagi Execution</description>
@@ -1870,7 +1879,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106200" level="11">
+  <rule id="107200" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">REvol Corp|APT 92|UG North|Hazardous Environments|CD Project Rekt</field>
     <description>Sigma: HackTool - UACMe Akagi Execution</description>
@@ -1879,7 +1888,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106201" level="11">
+  <rule id="107201" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">UACMe main module|Pentesting utility</field>
     <description>Sigma: HackTool - UACMe Akagi Execution</description>
@@ -1888,7 +1897,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106202" level="11">
+  <rule id="107202" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">Akagi\.exe|Akagi64\.exe</field>
     <description>Sigma: HackTool - UACMe Akagi Execution</description>
@@ -1897,7 +1906,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106203" level="11">
+  <rule id="107203" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">https://github\.com/carlospolop/PEASS-ng/releases/latest/download/</field>
     <description>Sigma: HackTool - winPEAS Execution</description>
@@ -1908,7 +1917,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106204" level="11">
+  <rule id="107204" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> applicationsinfo| browserinfo| eventsinfo| fileanalysis| filesinfo| processinfo| servicesinfo| windowscreds</field>
     <description>Sigma: HackTool - winPEAS Execution</description>
@@ -1919,7 +1928,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106205" level="11">
+  <rule id="107205" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine"> -linpeas$</field>
     <description>Sigma: HackTool - winPEAS Execution</description>
@@ -1930,7 +1939,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106206" level="11">
+  <rule id="107206" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -linpeas$</field>
     <description>Sigma: HackTool - winPEAS Execution</description>
@@ -1941,7 +1950,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106207" level="11">
+  <rule id="107207" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">winPEAS\.exe</field>
     <description>Sigma: HackTool - winPEAS Execution</description>
@@ -1952,7 +1961,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106208" level="11">
+  <rule id="107208" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\winPEASany_ofs\.exe$|\winPEASany\.exe$|\winPEASx64_ofs\.exe$|\winPEASx64\.exe$|\winPEASx86_ofs\.exe$|\winPEASx86\.exe$</field>
     <description>Sigma: HackTool - winPEAS Execution</description>
@@ -1963,19 +1972,19 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106209" level="10">
+  <rule id="107209" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\kd\.exe$</field>
     <description>Sigma: Windows Kernel Debugger Execution</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106210" level="10">
+  <rule id="107210" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">kd\.exe</field>
     <description>Sigma: Windows Kernel Debugger Execution</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106211" level="11">
+  <rule id="107211" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /INJECTRUNNING </field>
     <description>Sigma: Mavinject Inject DLL Into Running Process</description>
@@ -1985,7 +1994,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106212" level="11">
+  <rule id="107212" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">cmd\.exe /c|RoamDiag\.cmd|-outputpath</field>
     <description>Sigma: Using SettingSyncHost.exe as LOLBin</description>
@@ -1994,7 +2003,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106213" level="10">
+  <rule id="107213" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-i|/install|-a|/add-driver|\.inf</field>
     <field name="win.eventdata.image">\pnputil\.exe$</field>
@@ -2004,7 +2013,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106214" level="11">
+  <rule id="107214" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">grpconv\.exe -o|grpconv -o</field>
     <description>Sigma: Suspicious GrpConv Execution</description>
@@ -2013,7 +2022,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106215" level="10">
+  <rule id="107215" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /d | /c </field>
     <field name="win.eventdata.image">\tracker\.exe$</field>
@@ -2023,7 +2032,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106216" level="10">
+  <rule id="107216" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">gpme\.msc|gpobject:</field>
     <field name="win.eventdata.image">\mmc\.exe$</field>
@@ -2033,7 +2042,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106217" level="11">
+  <rule id="107217" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
     <description>Sigma: Potential Mpclient.DLL Sideloading Via Defender Binaries</description>
@@ -2042,7 +2051,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106218" level="11">
+  <rule id="107218" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\msra\.exe$</field>
     <field name="win.eventdata.parentCommandLine">msra\.exe$</field>
@@ -2053,7 +2062,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106219" level="10">
+  <rule id="107219" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">add|helper</field>
     <field name="win.eventdata.originalFileName">netsh\.exe</field>
@@ -2063,7 +2072,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106220" level="11">
+  <rule id="107220" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\pwsh\.exe$</field>
     <field name="win.eventdata.commandLine">;;;IU|;;;SU|;;;BA|;;;SY|;;;WD|D;;</field>
@@ -2073,7 +2082,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106221" level="11">
+  <rule id="107221" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /RunAs 8 | /RunAs 4 | /RunAs 10 | /RunAs 11 </field>
     <description>Sigma: PUA - AdvancedRun Suspicious Execution</description>
@@ -2082,7 +2091,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106222" level="10">
+  <rule id="107222" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\reg\.exe$</field>
     <field name="win.eventdata.commandLine">Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run| add </field>
@@ -2092,7 +2101,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106223" level="10">
+  <rule id="107223" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\software\Microsoft\Windows\CurrentVersion\Run|\software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run|\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit|\software\Microsoft\Windows NT\CurrentVersion\Winlogon\Shell|\software\Microsoft\Windows NT\CurrentVersion\Windows|\system\CurrentControlSet\Control\SafeBoot\AlternateShell</field>
     <field name="win.eventdata.image">\reg\.exe$</field>
@@ -2102,7 +2111,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106224" level="10">
+  <rule id="107224" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\SOFTWARE\Policies\Microsoft\Windows\System</field>
     <field name="win.eventdata.image">\reg\.exe$</field>
@@ -2112,7 +2121,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106225" level="10">
+  <rule id="107225" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\reg\.exe$</field>
     <field name="win.eventdata.commandLine"> -d |SYSTEM\CurrentControlSet\Services\| ImagePath </field>
@@ -2122,7 +2131,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106226" level="11">
+  <rule id="107226" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regedit\.exe$</field>
     <field name="win.eventdata.parentImage">\TrustedInstaller\.exe$|\ProcessHacker\.exe$</field>
@@ -2132,7 +2141,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106227" level="10">
+  <rule id="107227" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\register-cimprovider\.exe$</field>
     <field name="win.eventdata.commandLine">-path|dll</field>
@@ -2142,7 +2151,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106228" level="11">
+  <rule id="107228" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">UserInitMprLogonScript</field>
     <description>Sigma: Potential Persistence Via Logon Scripts - CommandLine</description>
@@ -2151,7 +2160,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106229" level="10">
+  <rule id="107229" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\regsvr32\.exe$</field>
     <description>Sigma: Regsvr32 DLL Execution With Uncommon Extension</description>
@@ -2160,7 +2169,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106230" level="11">
+  <rule id="107230" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=6834B1B94E49701D77CCB3C0895E1AFD|IMPHASH=1BB6F93B129F398C7C4A76BB97450BBA|IMPHASH=FAA2AC19875FADE461C8D89DCF2710A3|IMPHASH=F1039CED4B91572AB7847D26032E6BBF</field>
     <description>Sigma: Renamed ZOHO Dctask64 Execution</description>
@@ -2171,7 +2180,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106231" level="11">
+  <rule id="107231" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">mavinject32\.exe|mavinject64\.exe</field>
     <description>Sigma: Renamed Mavinject.EXE Execution</description>
@@ -2181,7 +2190,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106232" level="11">
+  <rule id="107232" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">vmnat\.exe</field>
     <description>Sigma: Renamed Vmnat.exe Execution</description>
@@ -2190,7 +2199,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106233" level="11">
+  <rule id="107233" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">rundll32\.exe|Execute|RegRead|window\.close</field>
     <description>Sigma: Suspicious Rundll32 Invoking Inline VBScript</description>
@@ -2199,7 +2208,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106234" level="11">
+  <rule id="107234" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">spoolss|srvsvc|/print/pipe/|http</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -2209,7 +2218,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106235" level="11">
+  <rule id="107235" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-sta |-localserver |\{|\}</field>
     <field name="win.eventdata.image">\rundll32\.exe$</field>
@@ -2219,7 +2228,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106236" level="11">
+  <rule id="107236" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\sc\.exe$</field>
     <field name="win.eventdata.commandLine">;IU|;SU|;BA|;SY|;WD|A;</field>
@@ -2229,7 +2238,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106237" level="11">
+  <rule id="107237" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\sc\.exe$</field>
     <field name="win.eventdata.commandLine">;IU|;SU|;BA|;SY|;WD|D;</field>
@@ -2239,7 +2248,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106238" level="10">
+  <rule id="107238" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\.sh|\.exe|\.dll|\.bin\$|\.bat|\.cmd|\.js|\.msh\$|\.reg\$|\.scr|\.ps|\.vb|\.jar|\.pl|add |FailureCommand</field>
     <description>Sigma: Potential Persistence Attempt Via Existing Service Tampering</description>
@@ -2249,7 +2258,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106239" level="11">
+  <rule id="107239" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">NT AUT| SYSTEM |/RU|/TR|C:\Users\|\AppData\Local\</field>
@@ -2260,7 +2269,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106240" level="11">
+  <rule id="107240" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">\AppData\Local\Temp|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\|%ProgramData%|%appdata%|%comspec%|%localappdata%| /TN </field>
@@ -2270,7 +2279,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106241" level="11">
+  <rule id="107241" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine"> /create | /sc once |\Temp\</field>
@@ -2280,7 +2289,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106242" level="10">
+  <rule id="107242" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">powershell|http|-o</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -2292,7 +2301,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106243" level="10">
+  <rule id="107243" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">:\Perflogs|:\Windows\Temp|\Users\Public|%Public%</field>
@@ -2303,7 +2312,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106244" level="11">
+  <rule id="107244" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /create </field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -2313,7 +2322,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106245" level="10">
+  <rule id="107245" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/TN "\{|/TN '\{|/TN \{</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -2323,7 +2332,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106246" level="11">
+  <rule id="107246" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine"> /create |ssh\.exe|-i</field>
@@ -2333,7 +2342,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106247" level="10">
+  <rule id="107247" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">run |\Application Experience\Microsoft Compatibility Appraiser</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -2343,7 +2352,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106248" level="11">
+  <rule id="107248" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">C:\WINDOWS\System32\svchost\.exe</field>
     <field name="win.eventdata.parentCommandLine">-k netsvcs|-s Schedule</field>
@@ -2355,7 +2364,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106249" level="10">
+  <rule id="107249" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">HKCU:|HKLM:|registry::|HKEY_</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -2366,7 +2375,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106250" level="11">
+  <rule id="107250" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">HKCU:|HKLM:|registry::|HKEY_</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -2377,7 +2386,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106251" level="11">
+  <rule id="107251" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine"> ONLOGON | ONSTART | ONCE | ONIDLE </field>
@@ -2387,7 +2396,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106252" level="10">
+  <rule id="107252" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine"> ONLOGON | ONSTART | ONCE | ONIDLE </field>
@@ -2397,7 +2406,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106253" level="10">
+  <rule id="107253" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/xml|-xml</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -2408,7 +2417,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106254" level="11">
+  <rule id="107254" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">/Create </field>
@@ -2418,7 +2427,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106255" level="11">
+  <rule id="107255" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
     <field name="win.eventdata.commandLine">NT AUT| SYSTEM </field>
@@ -2428,7 +2437,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106256" level="12">
+  <rule id="107256" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> audiodg| conhost| dwm\.exe| explorer| lsass| lsm| mmc| msiexec| regsvr32| rundll32| services| spoolsv| svchost| taskeng| taskhost| wininit| winlogon</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -2440,7 +2449,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106257" level="10">
+  <rule id="107257" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\sdclt\.exe$</field>
     <description>Sigma: Sdclt Child Processes</description>
@@ -2449,7 +2458,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106258" level="10">
+  <rule id="107258" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">C:\Windows\SysWOW64\setup16\.exe</field>
     <field name="win.eventdata.parentCommandLine"> -m </field>
@@ -2459,7 +2468,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106259" level="12">
+  <rule id="107259" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\cmd\.exe$</field>
     <field name="win.eventdata.parentImage">\winlogon\.exe$|\services\.exe$|\lsass\.exe$|\csrss\.exe$|\smss\.exe$|\wininit\.exe$|\spoolsv\.exe$|\searchindexer\.exe$</field>
@@ -2470,7 +2479,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106260" level="10">
+  <rule id="107260" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">localgroup | /add</field>
     <description>Sigma: User Added to Local Administrators Group</description>
@@ -2479,7 +2488,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106261" level="11">
+  <rule id="107261" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">localgroup | /add</field>
     <description>Sigma: User Added To Highly Privileged Group</description>
@@ -2488,7 +2497,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106262" level="10">
+  <rule id="107262" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">tmp$|msi</field>
     <description>Sigma: Always Install Elevated Windows Installer</description>
@@ -2497,7 +2506,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106263" level="10">
+  <rule id="107263" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\msiexec\.exe$</field>
     <field name="win.eventdata.integrityLevel">System|S-1-16-16384</field>
@@ -2507,7 +2516,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106264" level="11">
+  <rule id="107264" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentUser">\NETWORK SERVICE$|\LOCAL SERVICE$</field>
     <field name="win.eventdata.user">\SYSTEM$|\Système$|\СИСТЕМА$</field>
@@ -2518,7 +2527,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106265" level="10">
+  <rule id="107265" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.parentImage">tmp$|msi</field>
@@ -2528,7 +2537,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106266" level="10">
+  <rule id="107266" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\powershell_ise\.exe$|\pwsh\.exe$|\cmd\.exe$</field>
     <field name="win.eventdata.user">AUTHORI|AUTORI</field>
@@ -2539,13 +2548,13 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106267" level="10">
+  <rule id="107267" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -u system | --user system | -u NT| -u "NT| -u 'NT| --system | -u administrator </field>
     <description>Sigma: Suspicious RunAs-Like Flag Combination</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106268" level="10">
+  <rule id="107268" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\ms-settings\shell\open\command</field>
     <description>Sigma: Registry Modification of MS-settings Protocol Handler</description>
@@ -2556,7 +2565,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106269" level="10">
+  <rule id="107269" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">:\Windows\Sysnative\</field>
     <description>Sigma: Process Creation Using Sysnative Folder</description>
@@ -2565,7 +2574,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106270" level="11">
+  <rule id="107270" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> C:\Windows\System32\Tasks\| C:\Windows\SysWow64\Tasks\</field>
     <description>Sigma: Tasks Folder Evasion</description>
@@ -2574,7 +2583,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106271" level="10">
+  <rule id="107271" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\userinit\.exe$</field>
     <description>Sigma: Suspicious Userinit Child Process</description>
@@ -2583,7 +2592,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106272" level="11">
+  <rule id="107272" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">svchost\.exe$</field>
     <field name="win.eventdata.image">\svchost\.exe$</field>
@@ -2593,7 +2602,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106273" level="11">
+  <rule id="107273" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\svchost\.exe$</field>
     <description>Sigma: Uncommon Svchost Command Line Parameter</description>
@@ -2604,7 +2613,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106274" level="10">
+  <rule id="107274" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">psservice\.exe</field>
     <description>Sigma: Sysinternals PsService Execution</description>
@@ -2613,7 +2622,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106275" level="10">
+  <rule id="107275" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\PsService\.exe$|\PsService64\.exe$</field>
     <description>Sigma: Sysinternals PsService Execution</description>
@@ -2622,7 +2631,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106276" level="10">
+  <rule id="107276" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">pssuspend\.exe</field>
     <description>Sigma: Sysinternals PsSuspend Execution</description>
@@ -2631,7 +2640,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106277" level="10">
+  <rule id="107277" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\pssuspend\.exe$|\pssuspend64\.exe$</field>
     <description>Sigma: Sysinternals PsSuspend Execution</description>
@@ -2640,7 +2649,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106278" level="11">
+  <rule id="107278" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\changepk\.exe$</field>
     <field name="win.eventdata.parentImage">\slui\.exe$</field>
@@ -2651,7 +2660,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106279" level="11">
+  <rule id="107279" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">"\system32\cleanmgr\.exe /autoclean /d C:$</field>
     <field name="win.eventdata.parentCommandLine">C:\Windows\system32\svchost\.exe -k netsvcs -p -s Schedule</field>
@@ -2662,7 +2671,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106280" level="11">
+  <rule id="107280" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/s|-s|/au|-au|/ni|-ni</field>
     <field name="win.eventdata.image">\cmstp\.exe$</field>
@@ -2673,7 +2682,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106281" level="11">
+  <rule id="107281" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
     <field name="win.eventdata.image">C:\Windows\System32\ComputerDefaults\.exe</field>
@@ -2683,7 +2692,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106282" level="11">
+  <rule id="107282" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\consent\.exe$</field>
     <field name="win.eventdata.image">\werfault\.exe$</field>
@@ -2694,7 +2703,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106283" level="11">
+  <rule id="107283" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">C:\Users\|\AppData\Local\Temp\|\DismHost\.exe</field>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
@@ -2704,13 +2713,13 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106284" level="11">
+  <rule id="107284" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">&gt;</field>
     <description>Sigma: UAC Bypass Using Event Viewer RecentViews</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106285" level="11">
+  <rule id="107285" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\fodhelper\.exe$</field>
     <description>Sigma: Bypass UAC via Fodhelper.exe</description>
@@ -2719,7 +2728,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106286" level="10">
+  <rule id="107286" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\mmc\.exe$</field>
     <field name="win.eventdata.parentCommandLine">WF\.msc</field>
@@ -2729,7 +2738,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106287" level="11">
+  <rule id="107287" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\dllhost\.exe$</field>
     <field name="win.eventdata.parentCommandLine">/Processid:\{3E5FC7F9-9A51-4367-9063-A120244FBEC7\}|/Processid:\{D2E7041B-2927-42FB-8E9F-7CE93B6DC937\}</field>
@@ -2739,7 +2748,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106288" level="11">
+  <rule id="107288" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
     <field name="win.eventdata.parentImage">\ieinstal\.exe$</field>
@@ -2750,7 +2759,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106289" level="11">
+  <rule id="107289" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
     <field name="win.eventdata.parentImage">\AppData\Local\Temp\pkgmgr\.exe$</field>
@@ -2761,7 +2770,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106290" level="11">
+  <rule id="107290" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\AppData\Local\Temp\update\.msu$</field>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
@@ -2771,7 +2780,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106291" level="11">
+  <rule id="107291" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">"C:\Windows\system32\dism\.exe" /online /quiet /norestart /add-package /packagepath:"C:\Windows\system32\pe386" /ignorecheck</field>
     <field name="win.eventdata.integrityLevel">High|System</field>
@@ -2783,7 +2792,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106292" level="11">
+  <rule id="107292" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\pkgmgr\.exe$</field>
     <field name="win.eventdata.image">\dism\.exe$</field>
@@ -2794,7 +2803,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106293" level="10">
+  <rule id="107293" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">sdclt\.exe$</field>
     <field name="win.eventdata.integrityLevel">High|S-1-16-12288</field>
@@ -2804,7 +2813,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106294" level="11">
+  <rule id="107294" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">C:\Windows \System32\|C:\Windows \SysWOW64\</field>
     <description>Sigma: TrustedPath UAC Bypass Pattern</description>
@@ -2813,7 +2822,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106295" level="11">
+  <rule id="107295" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
     <field name="win.eventdata.parentImage">\AppData\Local\Temp\system32\winsat\.exe$</field>
@@ -2824,7 +2833,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106296" level="11">
+  <rule id="107296" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">C:\Program Files\Windows Media Player\osk\.exe</field>
     <description>Sigma: UAC Bypass Using Windows Media Player - Process</description>
@@ -2833,7 +2842,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106297" level="11">
+  <rule id="107297" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">C:\Windows\System32\cmd\.exe</field>
     <field name="win.eventdata.parentCommandLine">"C:\Windows\system32\mmc\.exe" "C:\Windows\system32\eventvwr\.msc" /s</field>
@@ -2843,7 +2852,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106298" level="11">
+  <rule id="107298" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\wsreset\.exe$</field>
     <description>Sigma: Bypass UAC via WSReset.exe</description>
@@ -2852,7 +2861,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106299" level="11">
+  <rule id="107299" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\wsreset\.exe$</field>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
@@ -2862,7 +2871,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106300" level="11">
+  <rule id="107300" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\userinit\.exe$</field>
     <description>Sigma: Uncommon Userinit Child Process</description>
@@ -2871,7 +2880,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106301" level="11">
+  <rule id="107301" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\wermgr\.exe$</field>
     <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\ipconfig\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\netstat\.exe$|\nslookup\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\systeminfo\.exe$|\whoami\.exe$|\wscript\.exe$</field>
@@ -2882,7 +2891,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106302" level="11">
+  <rule id="107302" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">whoami\.exe</field>
     <field name="win.eventdata.user">AUTHORI|AUTORI|TrustedInstaller</field>
@@ -2892,7 +2901,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106303" level="11">
+  <rule id="107303" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /priv| -priv</field>
     <field name="win.eventdata.image">\whoami\.exe$</field>
@@ -2902,7 +2911,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106304" level="11">
+  <rule id="107304" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\EdgeTransport\.exe$</field>
     <description>Sigma: WMI Backdoor Exchange Transport Agent</description>
@@ -2911,7 +2920,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106305" level="10">
+  <rule id="107305" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">useraccount| set |passwordexpires|false</field>
     <field name="win.eventdata.image">\wmic\.exe$</field>
@@ -2922,7 +2931,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106306" level="11">
+  <rule id="107306" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">ActiveScriptEventConsumer| CREATE </field>
     <description>Sigma: New ActiveScriptEventConsumer Created Via Wmic.EXE</description>
@@ -2931,7 +2940,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106307" level="11">
+  <rule id="107307" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\xwizard\.exe$</field>
     <description>Sigma: Xwizard.EXE Execution From Non-Default Location</description>
@@ -2940,7 +2949,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106308" level="10">
+  <rule id="107308" level="10">
     <if_sid>61627</if_sid>
     <field name="win.eventdata.type">Image is replaced</field>
     <description>Sigma: Potential Process Hollowing Activity</description>
@@ -2949,7 +2958,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106309" level="11">
+  <rule id="107309" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\AppX82a6gwre4fdg3bt635tn5ctqjf8msdd2\Shell\open\command$</field>
     <description>Sigma: UAC Bypass Via Wsreset</description>
@@ -2958,7 +2967,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106310" level="11">
+  <rule id="107310" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">DeleteValue</field>
     <field name="win.eventdata.targetObject">\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\DelegateExecute$</field>
@@ -2968,7 +2977,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106311" level="11">
+  <rule id="107311" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\AppXypsaf9f1qserqevf0sws76dx4k9a5206\Shell\open\command\\(Default\)$</field>
     <description>Sigma: Narrator's Feedback-Hub Persistence</description>
@@ -2977,7 +2986,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106312" level="10">
+  <rule id="107312" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\AppCertDlls</field>
     <description>Sigma: New DLL Added to AppCertDlls Registry Key</description>
@@ -2986,7 +2995,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106313" level="10">
+  <rule id="107313" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.newName">HKLM\SYSTEM\CurentControlSet\Control\Session Manager\AppCertDlls</field>
     <description>Sigma: New DLL Added to AppCertDlls Registry Key</description>
@@ -2995,7 +3004,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106314" level="10">
+  <rule id="107314" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_Dlls$|\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_Dlls$</field>
     <description>Sigma: New DLL Added to AppInit_DLLs Registry Key</description>
@@ -3004,7 +3013,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106315" level="11">
+  <rule id="107315" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">RenameKey</field>
     <field name="win.eventdata.newName">\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E\}\shell\open</field>
@@ -3014,7 +3023,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106316" level="11">
+  <rule id="107316" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">SetValue</field>
     <field name="win.eventdata.targetObject">\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E\}\shell\open\command\\(Default\)</field>
@@ -3024,7 +3033,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106317" level="11">
+  <rule id="107317" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">Software\Microsoft\Windows\CurrentVersion\Run\Backup Mgr$</field>
     <description>Sigma: WINEKEY Registry Modification</description>
@@ -3033,7 +3042,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106318" level="11">
+  <rule id="107318" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Control\Lsa\Security Packages$|\Control\Lsa\OSConfig\Security Packages$</field>
     <description>Sigma: Security Support Provider (SSP) Added to LSA Configuration</description>
@@ -3042,7 +3051,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106319" level="11">
+  <rule id="107319" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\utilman\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\osk\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Magnify\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Narrator\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DisplaySwitch\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\atbroker\.exe\Debugger$|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\HelpPane\.exe\Debugger$</field>
     <description>Sigma: Sticky Key Like Backdoor Usage - Registry</description>
@@ -3051,7 +3060,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106320" level="10">
+  <rule id="107320" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">Software\Microsoft\Windows NT\CurrentVersion\Accessibility\ATs|Software\Microsoft\Windows NT\CurrentVersion\Accessibility\Configuration</field>
     <description>Sigma: Atbroker Registry Change</description>
@@ -3061,7 +3070,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106321" level="11">
+  <rule id="107321" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.image">\AppData\Local\Packages\Microsoft\.Outlook_|\AppData\Local\Microsoft\Olk\Attachments\|\Downloads\|\Temporary Internet Files\Content\.Outlook\|\Local Settings\Temporary Internet Files\</field>
     <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
@@ -3071,7 +3080,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106322" level="12">
+  <rule id="107322" level="12">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\CurrentControlSet\Services\NTDS\DirectoryServiceExtPt|\CurrentControlSet\Services\NTDS\LsaDbExtPt</field>
     <description>Sigma: DLL Load via LSASS</description>
@@ -3080,7 +3089,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106323" level="10">
+  <rule id="107323" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Control\Print\Monitors\</field>
     <field name="win.eventdata.details">\.dll$</field>
@@ -3090,7 +3099,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106324" level="10">
+  <rule id="107324" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Folder\ShellEx\ExtShellFolderViews|\Folder\ShellEx\DragDropHandlers|\Folder\Shellex\ColumnHandlers|\Filter|\Exefile\Shell\Open\Command\\(Default\)|\Directory\Shellex\DragDropHandlers|\Directory\Shellex\CopyHookHandlers|\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\Instance|\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\Instance|\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\Instance|\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\Instance|\Classes\AllFileSystemObjects\ShellEx\DragDropHandlers|\\.exe|\\.cmd|\ShellEx\PropertySheetHandlers|\ShellEx\ContextMenuHandlers</field>
     <description>Sigma: Classes Autorun Keys Modification</description>
@@ -3099,7 +3108,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106325" level="10">
+  <rule id="107325" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Wow6432Node\Microsoft\Windows CE Services\AutoStart|\Software\Wow6432Node\Microsoft\Command Processor\Autorun|\SOFTWARE\Wow6432Node\Microsoft\Active Setup\Installed Components|\SOFTWARE\Microsoft\Windows CE Services\AutoStartOnDisconnect|\SOFTWARE\Microsoft\Windows CE Services\AutoStartOnConnect|\SYSTEM\Setup\CmdLine|\Software\Microsoft\Ctf\LangBarAddin|\Software\Microsoft\Command Processor\Autorun|\SOFTWARE\Microsoft\Active Setup\Installed Components|\SOFTWARE\Classes\Protocols\Handler|\SOFTWARE\Classes\Protocols\Filter|\SOFTWARE\Classes\Htmlfile\Shell\Open\Command\\(Default\)|\Environment\UserInitMprLogonScript|\SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop\Scrnsave\.exe|\Software\Microsoft\Internet Explorer\UrlSearchHooks|\SOFTWARE\Microsoft\Internet Explorer\Desktop\Components|\Software\Classes\Clsid\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5\}\Inprocserver32|\Control Panel\Desktop\Scrnsave\.exe</field>
     <description>Sigma: Common Autorun Keys Modification</description>
@@ -3108,7 +3117,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106326" level="10">
+  <rule id="107326" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Terminal Server\WinStations\RDP-Tcp\InitialProgram|\Terminal Server\Wds\rdpwd\StartupPrograms|\SecurityProviders\SecurityProviders|\SafeBoot\AlternateShell|\Print\Providers|\Print\Monitors|\NetworkProvider\Order|\Lsa\Notification Packages|\Lsa\Authentication Packages|\BootVerificationProgram\ImagePath</field>
     <description>Sigma: CurrentControlSet Autorun Keys Modification</description>
@@ -3117,7 +3126,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106327" level="10">
+  <rule id="107327" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\ShellServiceObjectDelayLoad|\Run\|\RunOnce\|\RunOnceEx\|\RunServices\|\RunServicesOnce\|\Policies\System\Shell|\Policies\Explorer\Run|\Group Policy\Scripts\Startup|\Group Policy\Scripts\Shutdown|\Group Policy\Scripts\Logon|\Group Policy\Scripts\Logoff|\Explorer\ShellServiceObjects|\Explorer\ShellIconOverlayIdentifiers|\Explorer\ShellExecuteHooks|\Explorer\SharedTaskScheduler|\Explorer\Browser Helper Objects|\Authentication\PLAP Providers|\Authentication\Credential Providers|\Authentication\Credential Provider Filters</field>
     <description>Sigma: CurrentVersion Autorun Keys Modification</description>
@@ -3126,7 +3135,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106328" level="10">
+  <rule id="107328" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion</field>
     <description>Sigma: CurrentVersion NT Autorun Keys Modification</description>
@@ -3135,7 +3144,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106329" level="10">
+  <rule id="107329" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Toolbar|\Extensions|\Explorer Bars</field>
     <description>Sigma: Internet Explorer Autorun Keys Modification</description>
@@ -3144,7 +3153,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106330" level="10">
+  <rule id="107330" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Software\Wow6432Node\Microsoft\Office|\Software\Microsoft\Office</field>
     <description>Sigma: Office Autorun Keys Modification</description>
@@ -3153,7 +3162,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106331" level="10">
+  <rule id="107331" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SetupExecute|\S0InitialCommand|\KnownDlls|\Execute|\BootExecute|\AppCertDlls</field>
     <description>Sigma: Session Manager Autorun Keys Modification</description>
@@ -3163,7 +3172,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106332" level="10">
+  <rule id="107332" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Startup|\Shutdown|\Logon|\Logoff</field>
     <description>Sigma: System Scripts Autorun Keys Modification</description>
@@ -3172,7 +3181,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106333" level="10">
+  <rule id="107333" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Protocol_Catalog9\Catalog_Entries|\NameSpace_Catalog5\Catalog_Entries</field>
     <description>Sigma: WinSock2 Autorun Keys Modification</description>
@@ -3181,7 +3190,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106334" level="10">
+  <rule id="107334" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\ShellServiceObjectDelayLoad|\Run\|\RunOnce\|\RunOnceEx\|\RunServices\|\RunServicesOnce\|\Explorer\ShellServiceObjects|\Explorer\ShellIconOverlayIdentifiers|\Explorer\ShellExecuteHooks|\Explorer\SharedTaskScheduler|\Explorer\Browser Helper Objects</field>
     <description>Sigma: Wow6432Node CurrentVersion Autorun Keys Modification</description>
@@ -3190,7 +3199,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106335" level="10">
+  <rule id="107335" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Folder\ShellEx\ExtShellFolderViews|\Folder\ShellEx\DragDropHandlers|\Folder\ShellEx\ColumnHandlers|\Directory\Shellex\DragDropHandlers|\Directory\Shellex\CopyHookHandlers|\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\Instance|\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\Instance|\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\Instance|\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\Instance|\AllFileSystemObjects\ShellEx\DragDropHandlers|\ShellEx\PropertySheetHandlers|\ShellEx\ContextMenuHandlers</field>
     <description>Sigma: Wow6432Node Classes Autorun Keys Modification</description>
@@ -3199,7 +3208,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106336" level="10">
+  <rule id="107336" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion</field>
     <description>Sigma: Wow6432Node Windows NT CurrentVersion Autorun Keys Modification</description>
@@ -3208,7 +3217,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106337" level="11">
+  <rule id="107337" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\open\command\DelegateExecute$</field>
     <field name="win.eventdata.details">\(Empty\)</field>
@@ -3218,7 +3227,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106338" level="11">
+  <rule id="107338" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">_Classes\mscfile\shell\open\command\\(Default\)$</field>
     <description>Sigma: Bypass UAC Using Event Viewer</description>
@@ -3227,7 +3236,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106339" level="11">
+  <rule id="107339" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Environment\windir$</field>
     <description>Sigma: Bypass UAC Using SilentCleanup Task</description>
@@ -3236,7 +3245,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106340" level="11">
+  <rule id="107340" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Control\Terminal Server\WinStations\RDP-Tcp\PortNumber$</field>
     <description>Sigma: Default RDP Port Changed to Non Standard Port</description>
@@ -3245,7 +3254,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106341" level="10">
+  <rule id="107341" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Microsoft\\.NETFramework\DbgManagedDebugger$</field>
     <description>Sigma: Potential Registry Persistence Attempt Via DbgManagedDebugger</description>
@@ -3254,7 +3263,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106342" level="11">
+  <rule id="107342" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Services\DHCPServer\Parameters\CalloutDlls$|\Services\DHCPServer\Parameters\CalloutEnabled$</field>
     <description>Sigma: DHCP Callout DLL Installation</description>
@@ -3264,7 +3273,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106343" level="11">
+  <rule id="107343" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\CustomSD$</field>
     <description>Sigma: Windows Event Log Access Tampering Via Registry</description>
@@ -3274,7 +3283,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106344" level="11">
+  <rule id="107344" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\ChannelAccess$</field>
     <description>Sigma: Windows Event Log Access Tampering Via Registry</description>
@@ -3284,7 +3293,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106345" level="11">
+  <rule id="107345" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\services\DNS\Parameters\ServerLevelPluginDll$</field>
     <description>Sigma: New DNS ServerLevelPluginDll Installed</description>
@@ -3294,7 +3303,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106346" level="11">
+  <rule id="107346" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\NetSh</field>
     <field name="win.eventdata.details">:\Perflogs\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\Temporary Internet</field>
@@ -3304,7 +3313,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106347" level="10">
+  <rule id="107347" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\NetSh</field>
     <field name="win.eventdata.details">\.dll</field>
@@ -3314,7 +3323,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106348" level="11">
+  <rule id="107348" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Outlook\LoadMacroProviderOnBoot$</field>
     <field name="win.eventdata.details">0x00000001</field>
@@ -3326,7 +3335,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106349" level="11">
+  <rule id="107349" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Outlook\Security\Level$</field>
     <field name="win.eventdata.details">0x00000001</field>
@@ -3338,7 +3347,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106350" level="10">
+  <rule id="107350" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers\</field>
     <field name="win.eventdata.details">REGISTERAPPRESTART</field>
@@ -3348,7 +3357,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106351" level="11">
+  <rule id="107351" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\(Default\)$|Path$</field>
     <field name="win.eventdata.details">\Users\Public|\AppData\Local\Temp\|\Windows\Temp\|\Desktop\|\Downloads\|%temp%|%tmp%|iex|Invoke-|rundll32|regsvr32|mshta|cscript|wscript|\.bat|\.hta|\.dll|\.ps1</field>
@@ -3358,7 +3367,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106352" level="10">
+  <rule id="107352" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\DebugPath$</field>
     <description>Sigma: Potential Persistence Using DebugPath</description>
@@ -3367,7 +3376,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106353" level="10">
+  <rule id="107353" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\\(Default\)$</field>
     <description>Sigma: Potential Persistence Using DebugPath</description>
@@ -3376,7 +3385,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106354" level="11">
+  <rule id="107354" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\InprocServer32\\(Default\)$|\LocalServer32\\(Default\)$</field>
     <description>Sigma: COM Object Hijacking Via Modification Of Default System CLSID Default Value</description>
@@ -3385,7 +3394,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106355" level="10">
+  <rule id="107355" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">HKU\|Classes\CLSID\|\TreatAs</field>
     <description>Sigma: Potential COM Object Hijacking Via TreatAs Subkey - Registry</description>
@@ -3394,7 +3403,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106356" level="11">
+  <rule id="107356" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\CLSID\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6\}\InProcServer32\\(Default\)$</field>
     <description>Sigma: Potential PSFactoryBuffer COM Hijacking</description>
@@ -3403,7 +3412,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106357" level="11">
+  <rule id="107357" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Microsoft\Windows NT\CurrentVersion\|\Image File Execution Options\|\GlobalFlag</field>
     <description>Sigma: Potential Persistence Via GlobalFlags</description>
@@ -3412,7 +3421,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106358" level="11">
+  <rule id="107358" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\ReportingMode|\MonitorProcess|\SilentProcessExit\</field>
     <description>Sigma: Potential Persistence Via GlobalFlags</description>
@@ -3421,7 +3430,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106359" level="10">
+  <rule id="107359" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">UserInitMprLogonScript</field>
     <description>Sigma: Potential Persistence Via Logon Scripts - Registry</description>
@@ -3430,7 +3439,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106360" level="10">
+  <rule id="107360" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">InprocServer32\\(Default\)$</field>
     <field name="win.eventdata.details">C:\WINDOWS\system32\scrobj\.dll</field>
@@ -3440,7 +3449,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106361" level="10">
+  <rule id="107361" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB\|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Custom\</field>
     <description>Sigma: Potential Persistence Via Shim Database Modification</description>
@@ -3449,7 +3458,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106362" level="11">
+  <rule id="107362" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\csrss\.exe$|\dllhost\.exe$|\explorer\.exe$|\RuntimeBroker\.exe$|\services\.exe$|\sihost\.exe$|\svchost\.exe$|\taskhostw\.exe$|\winlogon\.exe$|\WmiPrvSe\.exe$</field>
     <description>Sigma: Suspicious Shim Database Patching Activity</description>
@@ -3458,7 +3467,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106363" level="11">
+  <rule id="107363" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB\|\DatabasePath</field>
     <description>Sigma: Potential Persistence Via Shim Database In Uncommon Location</description>
@@ -3467,7 +3476,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106364" level="10">
+  <rule id="107364" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
     <field name="win.eventdata.details">powershell|pwsh |FromBase64String|\.DownloadFile\(|\.DownloadString\(| -w hidden | -w 1 |-windowstyle hidden|-window hidden| -nop | -encodedcommand |-ExecutionPolicy Bypass|Invoke-Expression|IEX \(|Invoke-Command|ICM -|Invoke-WebRequest|IWR |Invoke-RestMethod|IRM | -noni | -noninteractive </field>
@@ -3477,7 +3486,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106365" level="11">
+  <rule id="107365" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run$</field>
     <field name="win.eventdata.details">:\\$Recycle\.bin\|:\ProgramData\|:\Temp\|:\Users\Default\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\</field>
@@ -3487,7 +3496,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106366" level="11">
+  <rule id="107366" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Run|\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</field>
     <description>Sigma: New RUN Key Pointing to Suspicious Folder</description>
@@ -3496,7 +3505,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106367" level="10">
+  <rule id="107367" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\shell\open\command\</field>
     <field name="win.eventdata.details">\\$Recycle\.Bin\|\AppData\Local\Temp\|\Contacts\|\Music\|\PerfLogs\|\Photos\|\Pictures\|\Users\Public\|\Videos\|\Windows\Temp\|%AppData%|%LocalAppData%|%Temp%|%tmp%</field>
@@ -3507,7 +3516,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106368" level="11">
+  <rule id="107368" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\</field>
     <description>Sigma: Scheduled TaskCache Change by Uncommon Program</description>
@@ -3517,7 +3526,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106369" level="11">
+  <rule id="107369" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Command$</field>
     <field name="win.eventdata.details">\.bat|\.bin|\.cmd|\.dat|\.dll|\.exe|\.hta|\.jar|\.js|\.msi|\.ps|\.sh|\.vb</field>
@@ -3527,7 +3536,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106370" level="10">
+  <rule id="107370" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">TreatAs\\(Default\)$</field>
     <description>Sigma: COM Hijacking via TreatAs</description>
@@ -3536,7 +3545,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106371" level="11">
+  <rule id="107371" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\mscfile\shell\open\command$</field>
     <description>Sigma: UAC Bypass via Event Viewer</description>
@@ -3545,7 +3554,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106372" level="11">
+  <rule id="107372" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">Software\Classes\exefile\shell\runas\command\isolatedCommand$</field>
     <description>Sigma: UAC Bypass via Sdclt</description>
@@ -3554,7 +3563,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106373" level="11">
+  <rule id="107373" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">Software\Classes\Folder\shell\open\command\SymbolicLinkValue$</field>
     <field name="win.eventdata.details">-1[0-9]{3}\\Software\\Classes\\</field>
@@ -3564,7 +3573,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106374" level="11">
+  <rule id="107374" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\LowerCaseLongPath$</field>
     <field name="win.eventdata.details">\appdata\local\temp\system32\winsat\.exe$</field>
@@ -3574,7 +3583,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106375" level="11">
+  <rule id="107375" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Compatibility Assistant\Store\C:\Program Files\Windows Media Player\osk\.exe$</field>
     <field name="win.eventdata.details">Binary Data</field>
@@ -3584,7 +3593,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106376" level="10">
+  <rule id="107376" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
@@ -3594,7 +3603,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106377" level="10">
+  <rule id="107377" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Microsoft\Security Center\UACDisableNotify</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
@@ -3604,7 +3613,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106378" level="10">
+  <rule id="107378" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\Microsoft\Windows\CurrentVersion\Policies\System\PromptOnSecureDesktop</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
@@ -3614,7 +3623,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106379" level="11">
+  <rule id="107379" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">Software\Microsoft\Windows\CurrentVersion</field>
     <field name="win.eventdata.details">vbscript:|jscript:|mshtml,|RunHTMLApplication|Execute\(|CreateObject|window\.close</field>
@@ -3624,7 +3633,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106380" level="11">
+  <rule id="107380" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify\logon$</field>
     <field name="win.eventdata.details">\.dll$</field>
@@ -3634,7 +3643,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106381" level="10">
+  <rule id="107381" level="10">
     <if_sid>61621</if_sid>
     <field name="win.system.eventID">19|20|21</field>
     <description>Sigma: WMI Event Subscription</description>
@@ -3643,7 +3652,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="106382" level="11">
+  <rule id="107382" level="11">
     <if_sid>61621</if_sid>
     <field name="win.eventdata.destination">WriteProcessMemory|This program cannot be run in DOS mode|This program must be run under Win32</field>
     <description>Sigma: Suspicious Encoded Scripts in a WMI Consumer</description>

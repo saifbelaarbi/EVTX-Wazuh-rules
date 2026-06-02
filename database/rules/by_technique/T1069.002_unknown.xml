@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1069.002_unknown,">
-  <rule id="112001" level="6">
+  <rule id="111001" level="6">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">30</field>
     <field name="win.eventdata.searchFilter">\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483648\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483656\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483652\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483650\)|\(sAMAccountType=805306369\)|\(sAMAccountType=805306368\)|\(sAMAccountType=536870913\)|\(sAMAccountType=536870912\)|\(sAMAccountType=268435457\)|\(sAMAccountType=268435456\)|\(objectCategory=groupPolicyContainer\)|\(objectCategory=organizationalUnit\)|\(objectCategory=nTDSDSA\)|\(objectCategory=server\)|\(objectCategory=domain\)|\(objectCategory=person\)|\(objectCategory=group\)|\(objectCategory=user\)|\(objectClass=trustedDomain\)|\(objectClass=computer\)|\(objectClass=server\)|\(objectClass=group\)|\(objectClass=user\)|\(primaryGroupID=521\)|\(primaryGroupID=516\)|\(primaryGroupID=515\)|\(primaryGroupID=512\)|Domain Admins|objectGUID=\.*|\(schemaIDGUID=\.*\)|admincount=1</field>

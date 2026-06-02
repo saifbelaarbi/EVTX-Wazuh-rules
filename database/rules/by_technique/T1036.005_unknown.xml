@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1036.005_unknown,">
-  <rule id="102142" level="8">
+  <rule id="100142" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\secur32\.dll$|\tdh\.dll$</field>
     <description>Sigma: Files With System DLL Name In Unsuspected Locations</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102143" level="12">
+  <rule id="100143" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AtBroker\.exe$|\audiodg\.exe$|\backgroundTaskHost\.exe$|\bcdedit\.exe$|\bitsadmin\.exe$|\cmdl32\.exe$|\cmstp\.exe$|\conhost\.exe$|\csrss\.exe$|\dasHost\.exe$|\dfrgui\.exe$|\dllhost\.exe$|\dwm\.exe$|\eventcreate\.exe$|\eventvwr\.exe$|\explorer\.exe$|\extrac32\.exe$|\fontdrvhost\.exe$|\fsquirt\.exe$|\ipconfig\.exe$|\iscsicli\.exe$|\iscsicpl\.exe$|\logman\.exe$|\LogonUI\.exe$|\LsaIso\.exe$|\lsass\.exe$|\lsm\.exe$|\msiexec\.exe$|\msinfo32\.exe$|\mstsc\.exe$|\nbtstat\.exe$|\odbcconf\.exe$|\powershell\.exe$|\pwsh\.exe$|\regini\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\RuntimeBroker\.exe$|\schtasks\.exe$|\SearchFilterHost\.exe$|\SearchIndexer\.exe$|\SearchProtocolHost\.exe$|\SecurityHealthService\.exe$|\SecurityHealthSystray\.exe$|\services\.exe$|\ShellAppRuntime\.exe$|\sihost\.exe$|\smartscreen\.exe$|\smss\.exe$|\spoolsv\.exe$|\svchost\.exe$|\SystemSettingsBroker\.exe$|\taskhost\.exe$|\taskhostw\.exe$|\Taskmgr\.exe$|\TiWorker\.exe$|\vssadmin\.exe$|\w32tm\.exe$|\WerFault\.exe$|\WerFaultSecure\.exe$|\wermgr\.exe$|\wevtutil\.exe$|\wininit\.exe$|\winlogon\.exe$|\winrshost\.exe$|\WinRTNetMUAHostServer\.exe$|\wlanext\.exe$|\wlrmdr\.exe$|\WmiPrvSE\.exe$|\wslhost\.exe$|\WSReset\.exe$|\WUDFHost\.exe$|\WWAHost\.exe$</field>
     <description>Sigma: Files With System Process Name In Unsuspected Locations</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102175" level="8">
+  <rule id="100175" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.dll$|\.exe$</field>
     <description>Sigma: Suspicious Files in Default GPO Folder</description>
@@ -27,7 +27,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102631" level="9">
+  <rule id="100631" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\msiexec\.exe$</field>
     <description>Sigma: Potential MsiExec Masquerading</description>
@@ -36,7 +36,25 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="106253" level="10">
+  <rule id="100985" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\svchost\.exe$</field>
+    <description>Sigma: Suspicious Process Masquerading As SvcHost.EXE</description>
+    <mitre>
+      <id>T1036.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100986" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\svchost\.exe$</field>
+    <description>Sigma: Uncommon Svchost Parent Process</description>
+    <mitre>
+      <id>T1036.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="107253" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/xml|-xml</field>
     <field name="win.eventdata.image">\schtasks\.exe$</field>
@@ -47,16 +65,7 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102985" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\svchost\.exe$</field>
-    <description>Sigma: Suspicious Process Masquerading As SvcHost.EXE</description>
-    <mitre>
-      <id>T1036.005</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="106273" level="11">
+  <rule id="107273" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\svchost\.exe$</field>
     <description>Sigma: Uncommon Svchost Command Line Parameter</description>
@@ -66,14 +75,5 @@
       <id>T1055.012</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="102986" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\svchost\.exe$</field>
-    <description>Sigma: Uncommon Svchost Parent Process</description>
-    <mitre>
-      <id>T1036.005</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
   </rule>
 </group>

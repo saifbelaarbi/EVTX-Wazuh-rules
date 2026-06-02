@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1547.015_unknown,">
-  <rule id="106063" level="10">
+  <rule id="107063" level="10">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$</field>
     <field name="win.eventdata.targetFilename">\AppData\Local\Packages\Microsoft\.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings\.json$</field>
