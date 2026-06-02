@@ -73,6 +73,16 @@ def calculate_level(rule: dict) -> int:
         if indicator in description:
             level = max(level, override_level)
 
+    # Feedback loop: rules with repeated reported false positives are demoted.
+    rule_id = metadata.get("rule_id")
+    if rule_id is not None:
+        try:
+            from . import fp_tracker
+
+            level += fp_tracker.level_penalty(str(rule_id))
+        except Exception:
+            pass
+
     # Clamp to valid Wazuh range (0-15)
     level = max(1, min(15, level))
 

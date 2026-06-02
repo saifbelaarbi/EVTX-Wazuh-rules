@@ -527,5 +527,140 @@ def navigator_cmd(output):
     console.print("  Open at https://mitre-attack.github.io/attack-navigator/ → Open Existing Layer")
 
 
+@cli.command("export-sigma")
+@click.option("--output", default=None, type=click.Path(), help="Output directory for Sigma YAML")
+def export_sigma_cmd(output):
+    """Back-convert EVTX-generated rules to Sigma YAML for sharing."""
+    from .sigma_exporter import export_evtx_rules_to_sigma
+
+    out_dir = Path(output) if output else None
+    count = export_evtx_rules_to_sigma(out_dir=out_dir)
+    dest = output or "database/exports/sigma"
+    console.print(f"[bold green]Exported {count} EVTX-derived rules to Sigma YAML:[/] {dest}")
+
+
+@cli.command("build-composites")
+@click.option("--auto-approve", is_flag=True, help="Export directly to rule database")
+def build_composites_cmd(auto_approve):
+    """Build composite/chained correlation rules from templates."""
+    from . import composite_builder
+
+    rules = composite_builder.build_from_templates()
+    if not rules:
+        console.print("[yellow]No composite templates found.[/]")
+        return
+    console.print(f"[bold]Built {len(rules)} composite rules.[/]")
+    if auto_approve:
+        exporter.export_all_views(rules)
+        exporter.update_rule_index(rules)
+        console.print("[bold green]Composite rules exported.[/]")
+    else:
+        exporter.export_drafts(rules)
+        console.print("[dim]Composite rules written to drafts (use --auto-approve to publish).[/]")
+
+
+@cli.command("generate-atomic")
+@click.option("--auto-approve", is_flag=True, help="Export directly to rule database")
+def generate_atomic_cmd(auto_approve):
+    """Generate rules from a cloned Atomic Red Team repo (data/atomic-red-team)."""
+    from collector.atomic_collector import parse_atomic_repo
+
+    config = load_config()
+    atomic_dir = PROJECT_ROOT / config["paths"].get("evtx_data", "data/evtx_samples")
+    repo = PROJECT_ROOT / "data" / "atomic-red-team"
+    if not repo.exists():
+        console.print(f"[red]Atomic Red Team repo not found at {repo}.[/]")
+        console.print("[dim]Clone redcanaryco/atomic-red-team into data/atomic-red-team first.[/]")
+        return
+
+    patterns = parse_atomic_repo(repo)
+    console.print(f"[bold]Parsed {len(patterns)} Atomic test patterns.[/]")
+    rules = [rule_builder.build_rule(p) for p in patterns]
+    rules = alert_leveler.apply_levels(rules)
+    rules = [r for r in rules if r]
+    if auto_approve:
+        exporter.export_all_views(rules)
+        exporter.update_rule_index(rules)
+        exporter.update_provenance(rules)
+        console.print(f"[bold green]Exported {len(rules)} Atomic-derived rules.[/]")
+    else:
+        exporter.export_drafts(rules)
+        console.print(f"[dim]{len(rules)} rules written to drafts (use --auto-approve).[/]")
+    _ = atomic_dir  # reserved for future per-source layout
+
+
+@cli.command("report-fp")
+@click.option("--rule-id", required=True, help="Rule ID that produced a false positive")
+@click.option("--reason", required=True, help="Why this is a false positive")
+@click.option("--reporter", default="", help="Who reported it")
+def report_fp_cmd(rule_id, reason, reporter):
+    """Record a false positive for a rule."""
+    from . import fp_tracker
+
+    rec = fp_tracker.record_fp(rule_id, reason, reporter=reporter)
+    console.print(f"[bold green]Recorded FP for rule {rec.rule_id}[/] at {rec.timestamp}")
+
+
+@cli.command("fp-summary")
+@click.option("--threshold", default=3, help="FP count at which to suggest a level drop")
+def fp_summary_cmd(threshold):
+    """Summarize reported false positives and suggested level adjustments."""
+    from . import fp_tracker
+
+    counts = fp_tracker.fp_counts()
+    if not counts:
+        console.print("[dim]No false positives recorded.[/]")
+        return
+    suggestions = fp_tracker.suggest_level_adjustments(threshold=threshold)
+    table = Table(title="False Positive Summary")
+    table.add_column("Rule ID")
+    table.add_column("FP Count", justify="right")
+    table.add_column("Suggested Δlevel", justify="right")
+    for rid in sorted(counts, key=lambda r: -counts[r]):
+        table.add_row(rid, str(counts[rid]), str(suggestions.get(rid, 0)))
+    console.print(table)
+
+
+@cli.command("changelog")
+@click.option("--limit", default=20, help="Number of recent entries to show")
+def changelog_cmd(limit):
+    """Show recent rule database changes (adds/modifications)."""
+    changelog_file = PROJECT_ROOT / "database" / "metadata" / "changelog.json"
+    if not changelog_file.exists():
+        console.print("[dim]No changelog yet.[/]")
+        return
+    import json as _json
+
+    history = _json.loads(changelog_file.read_text())
+    table = Table(title=f"Rule Changelog (last {limit})")
+    table.add_column("Timestamp")
+    table.add_column("Rule ID")
+    table.add_column("Action")
+    table.add_column("Version", justify="right")
+    for entry in history[-limit:]:
+        table.add_row(
+            entry.get("timestamp", "")[:19],
+            entry.get("rule_id", ""),
+            entry.get("action", ""),
+            str(entry.get("version", "")),
+        )
+    console.print(table)
+
+
+@cli.command("serve")
+@click.option("--host", default="127.0.0.1", help="Bind host")
+@click.option("--port", default=8000, type=int, help="Bind port")
+def serve_cmd(host, port):
+    """Launch the read-only web dashboard (requires the [web] extra)."""
+    try:
+        import uvicorn
+
+        from web.app import create_app
+    except ImportError:
+        console.print("[red]Web extra not installed.[/] Run: pip install -e '.[web]'")
+        return
+    uvicorn.run(create_app(), host=host, port=port)
+
+
 if __name__ == "__main__":
     cli()
