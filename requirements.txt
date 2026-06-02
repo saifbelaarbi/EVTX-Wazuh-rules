@@ -1,3 +1,5 @@
+# Core dependencies — also defined in pyproject.toml
+# For development: pip install -e ".[dev]"
 python-evtx>=0.7.4
 pyyaml>=6.0
 lxml>=4.9

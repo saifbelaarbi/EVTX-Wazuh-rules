@@ -103,7 +103,7 @@ Wazuh default rules are downloaded from [wazuh/wazuh-ruleset](https://github.com
 
 ```bash
 # Install dependencies
-pip install -r requirements.txt
+pip install -e .
 
 # Step 1: Download EVTX samples, Sigma rules, and Wazuh defaults
 python -m collector download-all
@@ -125,6 +125,13 @@ python -m generator logtest --mode simulate --save
 # Step 6: Deploy to Wazuh
 python -m generator export --dest /var/ossec/etc/rules/ --view by_tactic
 sudo systemctl restart wazuh-manager
+```
+
+### Docker
+
+```bash
+docker build -t evtx-wazuh-rules .
+docker run -v $(pwd)/database:/app/database evtx-wazuh-rules
 ```
 
 ## CLI Reference
@@ -152,6 +159,7 @@ sudo systemctl restart wazuh-manager
 | `approve <draft_file>` | Promote a draft into the rule database |
 | `validate` | Validate the entire rule database |
 | `stats` | Show ID allocation and rule statistics |
+| `navigator [--output PATH]` | Export MITRE ATT&CK Navigator layer JSON |
 | `export --dest PATH [--view VIEW]` | Export rules for Wazuh deployment |
 
 ### Report Generator
@@ -245,6 +253,7 @@ EVTX-Wazuh-rules/
 │   ├── evtx_parser.py      # Parse EVTX/JSON/XML to normalized events
 │   ├── event_analyzer.py   # Extract detection patterns from events
 │   ├── mitre_mapper.py     # Semantic MITRE ATT&CK classification (indicator→technique)
+│   ├── navigator_export.py # MITRE ATT&CK Navigator layer export
 │   ├── sigma_analyzer.py   # Analyze Sigma rules for Wazuh conversion (61+ logsource mappings)
 │   ├── sigma_converter.py  # Convert Sigma YAML → Wazuh XML (glob→OS-regex, modifiers, errors)
 │   ├── logtest_validator.py # Rule validation (stored/synthetic/reparsed events + live API/SSH)
@@ -259,6 +268,7 @@ EVTX-Wazuh-rules/
 │   ├── metadata/           # rule_index.json, provenance.json, id_allocations.json,
 │   │                       # sample_events.json, sigma_conversion_errors.json,
 │   │                       # validation_results.json
+│   ├── navigator_layer.json # MITRE ATT&CK Navigator layer (importable)
 │   ├── drafts/             # Candidate rules awaiting review
 │   └── rules/              # Approved rules (by_tactic/, by_technique/, by_source/)
 │
@@ -284,16 +294,24 @@ EVTX-Wazuh-rules/
 └── generate_excel_report.py # Excel tracker with dashboard, per-tactic sheets, deployment tracking
 ```
 
+## Installation
+
+```bash
+pip install -e .            # core dependencies
+pip install -e ".[dev]"     # + pytest, ruff, pre-commit
+pip install -e ".[report]"  # + openpyxl for Excel reports
+```
+
 ## Dependencies
 
 - Python 3.10+
-- `evtx` — Rust-based EVTX parser (fast, no C build dependencies)
+- `python-evtx` — Rust-based EVTX parser (fast, no C build dependencies)
 - `pyyaml` — Config file parsing
 - `lxml` — XML generation and validation
 - `click` — CLI framework
 - `rich` — Terminal output formatting
 - `requests` — Wazuh REST API for live logtest validation
-- `openpyxl` — Excel report generation (optional, for `generate_excel_report.py`)
+- `openpyxl` — Excel report generation (optional)
 
 ## Logtest Validation
 

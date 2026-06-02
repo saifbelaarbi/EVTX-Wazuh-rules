@@ -474,5 +474,22 @@ def logtest_cmd(mode, rule_id, source, verbose, save):
             logtest_validator.save_results(results)
 
 
+@cli.command("navigator")
+@click.option("--output", default=None, type=click.Path(), help="Output path for Navigator JSON layer")
+def navigator_cmd(output):
+    """Export a MITRE ATT&CK Navigator layer from the rule database."""
+    from .navigator_export import export_navigator_layer
+
+    output_path = Path(output) if output else None
+    layer = export_navigator_layer(output_path=output_path)
+
+    tech_count = len(layer["techniques"])
+    total = layer["metadata"][0]["value"] if layer["metadata"] else "?"
+    dest = output or "database/navigator_layer.json"
+    console.print(f"[bold green]Navigator layer exported:[/] {dest}")
+    console.print(f"  {total} rules → {tech_count} technique entries")
+    console.print("  Open at https://mitre-attack.github.io/attack-navigator/ → Open Existing Layer")
+
+
 if __name__ == "__main__":
     cli()

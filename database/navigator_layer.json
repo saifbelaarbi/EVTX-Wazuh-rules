@@ -1,0 +1,2639 @@
+{
+  "name": "EVTX-Wazuh-Rules Coverage",
+  "versions": {
+    "attack": "14",
+    "navigator": "4.9.1",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "Auto-generated from 3289 Wazuh detection rules. 288 techniques covered.",
+  "filters": {
+    "platforms": [
+      "Windows"
+    ]
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": true,
+    "showName": true
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1105",
+      "score": 62,
+      "color": "#00441b",
+      "comment": "62 rules: 118000, 118001, 118002, 118003, 118004, 118012, 118016, 118032, 118033, 118039",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1574",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1574.002] 5 rules: 108000, 108003, 108019, 108021, 108029",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "defense-evasion"
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 37,
+      "color": "#006d2c",
+      "comment": "[T1547.001] 37 rules: 104000, 104001, 104002, 104003, 106053, 106056, 106058, 106061, 106077, 106147",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 35,
+      "color": "#006d2c",
+      "comment": "[T1218.011] 35 rules: 108001, 108002, 108016, 108017, 108020, 108025, 102119, 102154, 102218, 102230",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1197",
+      "score": 12,
+      "color": "#238b45",
+      "comment": "12 rules: 108004, 104522, 104523, 104524, 104525, 104526, 104675, 104676, 104677, 104678",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "defense-evasion"
+    },
+    {
+      "techniqueID": "T1003",
+      "score": 27,
+      "color": "#006d2c",
+      "comment": "[T1003.002] 27 rules: 110000, 110035, 110038, 110052, 110055, 110056, 110057, 110071, 110072, 110079",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1047",
+      "score": 58,
+      "color": "#00441b",
+      "comment": "58 rules: 102000, 102002, 102003, 102005, 102006, 102015, 102080, 102107, 114038, 114039",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 19,
+      "color": "#238b45",
+      "comment": "[T1218.010] 19 rules: 108005, 108006, 108007, 108026, 102129, 102218, 102229, 102663, 102824, 102825",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "defense-evasion"
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1547.004] 4 rules: 104004, 104011, 106143, 106380",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 21,
+      "color": "#238b45",
+      "comment": "[T1546.003] 21 rules: 104005, 104006, 104007, 104012, 104013, 104014, 104015, 104016, 104505, 104506",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1140",
+      "score": 13,
+      "color": "#238b45",
+      "comment": "13 rules: 108008, 108009, 108018, 102624, 102673, 102683, 102684, 102719, 102752, 102909",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "defense-evasion"
+    },
+    {
+      "techniqueID": "T1003",
+      "score": 119,
+      "color": "#00441b",
+      "comment": "[T1003.001] 119 rules: 110001, 110002, 110003, 110006, 110007, 110008, 110009, 110010, 110011, 110012",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1003",
+      "score": 29,
+      "color": "#006d2c",
+      "comment": "[T1003.003] 29 rules: 110004, 110025, 110035, 110052, 110071, 110072, 110090, 110091, 110092, 110105",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1218.004] 2 rules: 108010, 108034",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "defense-evasion"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 12,
+      "color": "#238b45",
+      "comment": "[T1218.005] 12 rules: 108011, 108012, 108013, 108014, 108027, 108028, 102430, 102619, 102621, 102622",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "defense-evasion"
+    },
+    {
+      "techniqueID": "T1059",
+      "score": 205,
+      "color": "#00441b",
+      "comment": "[T1059.001] 205 rules: 102001, 102004, 102007, 102008, 102009, 102010, 102011, 102012, 102013, 102014",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "[T1218.003] 8 rules: 108015, 102200, 102224, 102358, 102421, 106280, 103010, 103088",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 12,
+      "color": "#238b45",
+      "comment": "12 rules: 114000, 106000, 106011, 106012, 106013, 100002, 100003, 104544, 106032, 100005",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1021",
+      "score": 15,
+      "color": "#238b45",
+      "comment": "[T1021.001] 15 rules: 114001, 114002, 114017, 114025, 118010, 114044, 118058, 118059, 114059, 118112",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "initial-access"
+    },
+    {
+      "techniqueID": "T1110",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "6 rules: 110005, 110026, 110030, 106011, 106012, 110174",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1136",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "[T1136.001] 8 rules: 104008, 104539, 104546, 102283, 104693, 104694, 100024, 104755",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "initial-access"
+    },
+    {
+      "techniqueID": "T1112",
+      "score": 86,
+      "color": "#00441b",
+      "comment": "86 rules: 108022, 108023, 108032, 104537, 104538, 104541, 104548, 104549, 104671, 106158",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1021",
+      "score": 42,
+      "color": "#006d2c",
+      "comment": "[T1021.002] 42 rules: 114003, 114004, 114005, 114006, 114007, 114008, 114009, 114010, 114011, 104536",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "initial-access"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 10,
+      "color": "#41ab5d",
+      "comment": "[T1218.007] 10 rules: 108024, 102024, 102347, 102626, 102627, 102628, 102629, 102630, 118110, 102700",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1490",
+      "score": 19,
+      "color": "#238b45",
+      "comment": "19 rules: 122000, 122006, 122009, 122010, 122011, 122013, 122016, 122017, 122019, 122022",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1053",
+      "score": 33,
+      "color": "#006d2c",
+      "comment": "[T1053.005] 33 rules: 104009, 106021, 106022, 102074, 102075, 102076, 106041, 106042, 106134, 106135",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1087",
+      "score": 15,
+      "color": "#238b45",
+      "comment": "[T1087.001] 15 rules: 112000, 112014, 102263, 102303, 112047, 112048, 112049, 112050, 112051, 112052",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1098",
+      "score": 15,
+      "color": "#238b45",
+      "comment": "15 rules: 104010, 104507, 104508, 106015, 106017, 106018, 106029, 106030, 100005, 106137",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1036",
+      "score": 48,
+      "color": "#006d2c",
+      "comment": "48 rules: 108030, 102069, 102070, 118012, 102172, 102173, 102181, 102182, 102392, 102404",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1543",
+      "score": 538,
+      "color": "#00441b",
+      "comment": "[T1543.003] 538 rules: 104017, 104018, 104019, 104020, 104021, 104022, 104023, 104024, 104025, 104026",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1003",
+      "score": 33,
+      "color": "#006d2c",
+      "comment": "33 rules: 110018, 110019, 110021, 110023, 110039, 110045, 110065, 110067, 110080, 110102",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1562",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1562.001] 1 rules: 108031",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "defense-evasion"
+    },
+    {
+      "techniqueID": "T1489",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "6 rules: 122001, 122005, 122028, 122029, 122030, 122035",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1027",
+      "score": 89,
+      "color": "#00441b",
+      "comment": "89 rules: 108033, 102057, 102058, 102059, 102060, 102061, 102062, 102063, 102064, 102065",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1211",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 102019, 102021, 102028, 104727",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1685",
+      "score": 153,
+      "color": "#00441b",
+      "comment": "153 rules: 102019, 102028, 102049, 102051, 104537, 104538, 102056, 104541, 102077, 102078",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1203",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "9 rules: 102021, 102226, 102227, 102376, 100014, 102561, 104692, 102894, 103036",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "initial-access"
+    },
+    {
+      "techniqueID": "T1068",
+      "score": 13,
+      "color": "#238b45",
+      "comment": "13 rules: 102021, 104572, 104573, 104579, 104608, 104609, 106191, 106192, 106193, 106194",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1070",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "[T1070.004] 8 rules: 102022, 122002, 102136, 102138, 102139, 102405, 102415, 102416",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1072",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "9 rules: 114012, 114052, 102666, 102667, 102668, 102669, 102789, 102790, 102791",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 128,
+      "color": "#00441b",
+      "comment": "128 rules: 102024, 102152, 102169, 106059, 102183, 102184, 118040, 102185, 102198, 110100",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1219",
+      "score": 54,
+      "color": "#00441b",
+      "comment": "[T1219.002] 54 rules: 118005, 118009, 118013, 118014, 118020, 118024, 118025, 118026, 118030, 118031",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1485",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "6 rules: 120000, 122002, 122018, 122020, 122027, 122037",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1204",
+      "score": 21,
+      "color": "#238b45",
+      "comment": "[T1204.002] 21 rules: 102029, 102037, 102038, 102158, 106061, 102207, 102208, 102209, 102210, 102211",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1059",
+      "score": 31,
+      "color": "#006d2c",
+      "comment": "[T1059.003] 31 rules: 102029, 118021, 118055, 102324, 102407, 102414, 102418, 102422, 102423, 102424",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1553",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1553.005] 4 rules: 102037, 102038, 102315, 102338",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1649",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 110027, 110028, 112054, 112055",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1543",
+      "score": 20,
+      "color": "#238b45",
+      "comment": "20 rules: 104527, 104528, 104542, 104553, 104562, 104574, 104575, 104576, 104577, 112107",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1567",
+      "score": 10,
+      "color": "#41ab5d",
+      "comment": "[T1567.002] 10 rules: 120001, 120002, 120004, 120005, 120006, 118050, 120027, 120028, 120029, 120030",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1071",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "[T1071.004] 9 rules: 118006, 118018, 118021, 118022, 118023, 118055, 102279, 120021, 120022",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1090",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1090.003] 5 rules: 118008, 118027, 118073, 118074, 118075",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1590",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1590.002] 1 rules: 102041",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1574",
+      "score": 76,
+      "color": "#00441b",
+      "comment": "[T1574.001] 76 rules: 106008, 106033, 106034, 106035, 106036, 104586, 104587, 104591, 104592, 106076",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1686",
+      "score": 14,
+      "color": "#238b45",
+      "comment": "[T1686.003] 14 rules: 102042, 102043, 102044, 102045, 102046, 102353, 102638, 102639, 102640, 102641",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1685",
+      "score": 28,
+      "color": "#006d2c",
+      "comment": "[T1685.001] 28 rules: 104529, 104530, 104531, 102054, 102055, 102141, 102206, 102362, 102364, 102383",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1505",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1505.004] 4 rules: 104529, 104530, 104531, 104691",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1069",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "[T1069.002] 8 rules: 112001, 112011, 112016, 112064, 112065, 112066, 112127, 112128",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1087",
+      "score": 28,
+      "color": "#006d2c",
+      "comment": "[T1087.002] 28 rules: 112001, 112004, 112005, 112011, 112014, 112016, 120020, 112047, 112048, 112049",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1482",
+      "score": 26,
+      "color": "#006d2c",
+      "comment": "26 rules: 112001, 112014, 112016, 102263, 102303, 112039, 112047, 112048, 112049, 112050",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1587",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "[T1587.001] 8 rules: 102047, 102159, 102195, 102767, 102768, 102992, 102993, 102998",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1505",
+      "score": 24,
+      "color": "#238b45",
+      "comment": "[T1505.003] 24 rules: 104532, 104533, 104534, 104589, 104590, 100012, 104603, 100013, 104611, 104690",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "initial-access"
+    },
+    {
+      "techniqueID": "T1070",
+      "score": 25,
+      "color": "#238b45",
+      "comment": "25 rules: 102048, 102131, 102132, 102133, 102135, 102137, 102216, 102282, 102289, 102290",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1505",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1505.002] 2 rules: 104535, 104697",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1021",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1021.004] 3 rules: 114013, 102422, 118176",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1134",
+      "score": 14,
+      "color": "#238b45",
+      "comment": "[T1134.001] 14 rules: 106009, 106023, 106024, 106025, 106039, 106131, 106169, 106173, 106179, 106180",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1550",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1550.002] 4 rules: 114014, 114015, 114016, 114033",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "lateral-movement"
+    },
+    {
+      "techniqueID": "T1133",
+      "score": 10,
+      "color": "#41ab5d",
+      "comment": "10 rules: 106011, 106012, 106013, 104584, 104585, 118032, 104685, 104718, 100024, 100031",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1190",
+      "score": 12,
+      "color": "#238b45",
+      "comment": "12 rules: 106013, 104590, 100012, 104603, 100013, 100018, 100023, 100028, 104742, 104743",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1548",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "8 rules: 106014, 106027, 106038, 106144, 106226, 106259, 106286, 104776",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1557",
+      "score": 12,
+      "color": "#238b45",
+      "comment": "[T1557.001] 12 rules: 116000, 116005, 116007, 110063, 110064, 116023, 116024, 116025, 116026, 116027",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1012",
+      "score": 11,
+      "color": "#238b45",
+      "comment": "11 rules: 112002, 112003, 112009, 112012, 102526, 102527, 102528, 102529, 112115, 120031",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1222",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1222.001] 3 rules: 102050, 102470, 103005",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1003",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1003.006] 3 rules: 110031, 110032, 110113",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1087",
+      "score": 17,
+      "color": "#238b45",
+      "comment": "17 rules: 112006, 112017, 102263, 102303, 112067, 106203, 106204, 106205, 106206, 106207",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1114",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 112006, 102743",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1059",
+      "score": 74,
+      "color": "#00441b",
+      "comment": "74 rules: 112006, 102111, 102117, 102160, 102161, 102170, 102171, 102199, 102202, 102215",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1053",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1053.002] 2 rules: 106019, 104673",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1685",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "[T1685.005] 9 rules: 102052, 102053, 102084, 102085, 102320, 102321, 102322, 102567, 102948",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1123",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 116001, 116031, 116039, 116048",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1569",
+      "score": 37,
+      "color": "#006d2c",
+      "comment": "[T1569.002] 37 rules: 104536, 114024, 102071, 106028, 104552, 114035, 102098, 102099, 102100, 102101",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1021",
+      "score": 13,
+      "color": "#238b45",
+      "comment": "[T1021.003] 13 rules: 114019, 114036, 114041, 114043, 102222, 102245, 114051, 102507, 102508, 102608",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1484",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "[T1484.001] 6 rules: 106020, 106031, 104545, 106140, 106216, 106224",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1200",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 100000",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "initial-access"
+    },
+    {
+      "techniqueID": "T1003",
+      "score": 11,
+      "color": "#238b45",
+      "comment": "[T1003.004] 11 rules: 110033, 110034, 110035, 110038, 110057, 110104, 110192, 110193, 110194, 110231",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1134",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 106023, 106024, 110274",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1554",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 104540, 104551, 104571",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1566",
+      "score": 14,
+      "color": "#238b45",
+      "comment": "[T1566.001] 14 rules: 100001, 100004, 106052, 100006, 100007, 100008, 100010, 100011, 100014, 100021",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1558",
+      "score": 24,
+      "color": "#238b45",
+      "comment": "[T1558.003] 24 rules: 110036, 114027, 114029, 110050, 110053, 110114, 110124, 110179, 110180, 110181",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1557",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1557.003] 2 rules: 116002, 116003",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1570",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 114024, 118033, 114037, 114067",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1134",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "[T1134.002] 8 rules: 106025, 106039, 106173, 102760, 102761, 102762, 106221, 106264",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1547.009] 4 rules: 106026, 106048, 106050, 106051",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1201",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 112007",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1040",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "8 rules: 112008, 110119, 112072, 112073, 112076, 112077, 110262, 110263",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1187",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 110040, 110041, 116007, 116029",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1207",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 110042, 110043",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1090",
+      "score": 10,
+      "color": "#41ab5d",
+      "comment": "[T1090.001] 10 rules: 118010, 118082, 118083, 118099, 118100, 118123, 118172, 118173, 118174, 118175",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1090",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1090.002] 2 rules: 118010, 118053",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1558",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 110044, 110077, 110103, 112030",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1552",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1552.002] 4 rules: 112009, 110239, 110240, 110241",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1010",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 112010",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1027",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1027.005] 5 rules: 122002, 102498, 102769, 102770, 102792",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1134",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1134.005] 1 rules: 104543",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "8 rules: 104545, 106057, 106213, 106214, 106315, 106316, 106317, 106320",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1212",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 110046, 106234",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1001",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1001.003] 2 rules: 118011, 118029",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1136",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1136.002] 3 rules: 104546, 114037, 104661",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "lateral-movement"
+    },
+    {
+      "techniqueID": "T1556",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 104547, 110291",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1039",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 116004, 114069",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1528",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "6 rules: 110051, 110070, 106131, 110243, 110257, 110282",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1110",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1110.001] 2 rules: 110054, 110174",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1557",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 122003, 116006, 116008, 116022",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1565",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1565.002] 1 rules: 122003",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1005",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "8 rules: 110056, 116009, 116021, 116040, 116041, 110252, 110253, 110272",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1210",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 114034, 102540, 114056, 100028",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "initial-access"
+    },
+    {
+      "techniqueID": "T1499",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1499.001] 1 rules: 122004",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1048",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "9 rules: 120003, 120016, 102388, 120028, 120029, 120030, 114069, 120034, 120035",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1090",
+      "score": 21,
+      "color": "#238b45",
+      "comment": "21 rules: 118015, 118052, 118069, 118084, 118085, 118097, 118098, 114063, 114064, 118124",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1055",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1055.012] 4 rules: 106043, 106168, 106273, 106308",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1059",
+      "score": 22,
+      "color": "#238b45",
+      "comment": "[T1059.005] 22 rules: 106043, 102144, 102147, 102148, 102149, 102150, 102219, 104671, 102389, 102390",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1059",
+      "score": 12,
+      "color": "#238b45",
+      "comment": "[T1059.007] 12 rules: 106043, 102144, 102149, 102150, 102430, 102525, 102624, 102646, 102958, 110272",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1055",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "[T1055.001] 6 rules: 106044, 106153, 106211, 106215, 106230, 106231",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1555",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1555.005] 1 rules: 110059",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1055",
+      "score": 56,
+      "color": "#00441b",
+      "comment": "56 rules: 106045, 106046, 106059, 106081, 102217, 106093, 106094, 106095, 106096, 106097",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1055",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1055.003] 2 rules: 106047, 102361",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1127",
+      "score": 21,
+      "color": "#238b45",
+      "comment": "21 rules: 102120, 118032, 102377, 102378, 102379, 102393, 102431, 102554, 102562, 102587",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1564",
+      "score": 20,
+      "color": "#238b45",
+      "comment": "[T1564.004] 20 rules: 102121, 102123, 102124, 102125, 102126, 102127, 102180, 102307, 102319, 110154",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1071",
+      "score": 11,
+      "color": "#238b45",
+      "comment": "[T1071.001] 11 rules: 118017, 118019, 118028, 102225, 118068, 118186, 118187, 118188, 118189, 118190",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1572",
+      "score": 26,
+      "color": "#006d2c",
+      "comment": "26 rules: 118017, 118019, 120007, 120008, 120009, 118052, 120010, 120011, 120012, 118058",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1195",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1195.002] 3 rules: 116006, 116008, 116022",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1559",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1559.001] 3 rules: 102129, 102229, 102358",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1590",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 102130",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1599",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1599.001] 2 rules: 110063, 110064",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1555",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1555.004] 4 rules: 110066, 110068, 110248, 110283",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1552",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1552.006] 5 rules: 110069, 110155, 110156, 110157, 110275",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1046",
+      "score": 25,
+      "color": "#238b45",
+      "comment": "25 rules: 112013, 112019, 110115, 106203, 106204, 106205, 106206, 106207, 106208, 110210",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1219",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "8 rules: 118033, 102422, 118168, 118180, 118186, 118187, 118188, 118190",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1546.002] 4 rules: 106049, 106079, 104710, 104761",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1036",
+      "score": 12,
+      "color": "#238b45",
+      "comment": "[T1036.005] 12 rules: 102142, 102143, 102175, 102205, 102631, 106253, 106256, 102985, 106273, 102986",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1552",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "[T1552.001] 8 rules: 110075, 110076, 110125, 110154, 110223, 112114, 116042, 110257",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1566",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 106052, 100021, 100025",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1574",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "5 rules: 106052, 106227, 106229, 106341, 104833",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1195",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 100009",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "initial-access"
+    },
+    {
+      "techniqueID": "T1195",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1195.001] 1 rules: 100009",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "initial-access"
+    },
+    {
+      "techniqueID": "T1137",
+      "score": 7,
+      "color": "#41ab5d",
+      "comment": "[T1137.006] 7 rules: 104594, 104595, 104596, 104597, 104663, 104821, 104825",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1137",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "9 rules: 106054, 106055, 104599, 104773, 104798, 104799, 106348, 106349, 104806",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1008",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 106054, 106055, 106348, 106349",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 7,
+      "color": "#41ab5d",
+      "comment": "7 rules: 106054, 106055, 106060, 106151, 104776, 106348, 106349",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1137",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1137.003] 1 rules: 104598",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1564",
+      "score": 17,
+      "color": "#238b45",
+      "comment": "17 rules: 102174, 102179, 112107, 112108, 112109, 112110, 112111, 112112, 104699, 104700",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1036",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1036.007] 5 rules: 102177, 102178, 102186, 102929, 102930",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1555",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "9 rules: 110095, 110108, 110109, 110110, 110111, 110205, 110206, 110207, 110250",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1552",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1552.004] 5 rules: 110095, 110112, 110224, 110225, 110271",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1036",
+      "score": 30,
+      "color": "#006d2c",
+      "comment": "[T1036.003] 30 rules: 102181, 102182, 102337, 104675, 104676, 104677, 104678, 104679, 102792, 118162",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1546.013] 3 rules: 104604, 104607, 104669",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1204",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 102188, 102902, 103025",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1036",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1036.002] 3 rules: 102189, 102609, 102974",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1053",
+      "score": 16,
+      "color": "#238b45",
+      "comment": "16 rules: 106062, 102491, 102492, 102493, 102494, 102495, 102496, 102497, 106165, 106185",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1547.015] 1 rules: 106063",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1548",
+      "score": 64,
+      "color": "#00441b",
+      "comment": "[T1548.002] 64 rules: 106067, 106068, 102194, 106070, 106071, 106072, 106073, 106074, 106075, 106091",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1216",
+      "score": 13,
+      "color": "#238b45",
+      "comment": "13 rules: 102196, 102440, 102574, 102582, 102583, 102594, 102598, 102694, 102695, 102696",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1542",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1542.001] 2 rules: 104612, 104750",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1486",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "5 rules: 122007, 122008, 122021, 122024, 122026",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1056",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1056.002] 4 rules: 110098, 110232, 110233, 110234",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1202",
+      "score": 41,
+      "color": "#006d2c",
+      "comment": "41 rules: 102203, 102325, 102386, 102387, 102389, 102390, 102420, 102425, 102426, 102462",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1129",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 102205",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1071",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 118046, 118095, 118101, 102881",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1218.014] 2 rules: 102219, 102609",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1574",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1574.007] 1 rules: 104656",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1220",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "5 rules: 102220, 102636, 102637, 103055, 103063",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1102",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "9 rules: 118048, 118049, 118051, 118052, 120010, 118054, 118084, 118085, 118103",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1102",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1102.001] 2 rules: 118048, 118049",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1567",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "8 rules: 120007, 120008, 120010, 120011, 118054, 120012, 120019, 120024",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1496",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 122012, 122033",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1567",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1567.001] 1 rules: 120009",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1016",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 112018, 112074",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1568",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1568.002] 1 rules: 120011",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1041",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 118053",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1218.009] 3 rules: 102228, 102817, 102818",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1127",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1127.001] 1 rules: 102231",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1571",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 104658, 104659, 118070",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1550",
+      "score": 11,
+      "color": "#238b45",
+      "comment": "[T1550.003] 11 rules: 110103, 110114, 110185, 110186, 110187, 110188, 110189, 110198, 110199, 110200",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1048",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1048.003] 4 rules: 120013, 120015, 120032, 120033",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1021",
+      "score": 10,
+      "color": "#41ab5d",
+      "comment": "[T1021.006] 10 rules: 102233, 102264, 114048, 114049, 110134, 114053, 103039, 103040, 114074, 114075",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1095",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 118065, 118130, 118131",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1074",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1074.001] 4 rules: 116010, 116012, 116018, 116033",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1070",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "[T1070.003] 9 rules: 102248, 102249, 102280, 102281, 102282, 102284, 102334, 102809, 103085",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1115",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 116011, 116032",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1555",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1555.003] 5 rules: 110106, 110235, 110236, 110252, 110254",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1565",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 122014",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1033",
+      "score": 24,
+      "color": "#238b45",
+      "comment": "24 rules: 112024, 112025, 112034, 112060, 112061, 112062, 112063, 112079, 112081, 112121",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1119",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 116013, 116017, 116042, 116043",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1113",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "6 rules: 116014, 116034, 116036, 116047, 116049, 116050",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1556",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1556.002] 2 rules: 104660, 104704",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1574",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1574.012] 3 rules: 106136, 104792, 104793",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1078",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1078.002] 2 rules: 106137, 106152",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1497",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1497.001] 1 rules: 112026",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1018",
+      "score": 15,
+      "color": "#238b45",
+      "comment": "15 rules: 112027, 112030, 112056, 112088, 112118, 112119, 112120, 102962, 104735, 104736",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1620",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 102286, 102691",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1132",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1132.001] 5 rules: 118067, 120021, 120022, 118114, 118117",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1574",
+      "score": 10,
+      "color": "#41ab5d",
+      "comment": "[T1574.011] 10 rules: 106138, 104668, 104670, 104695, 106225, 104716, 104720, 104722, 104723, 106238",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1518",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1518.001] 3 rules: 112028, 112044, 112045",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1082",
+      "score": 23,
+      "color": "#238b45",
+      "comment": "23 rules: 110115, 112040, 112041, 102526, 102527, 102528, 102529, 106203, 106204, 106205",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1106",
+      "score": 13,
+      "color": "#238b45",
+      "comment": "13 rules: 110115, 102348, 102349, 102350, 102351, 102359, 102360, 102363, 102393, 102536",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1056",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1056.001] 3 rules: 110116, 110117, 116015",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1589",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1589.002] 1 rules: 112030",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1020",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 120018",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1553",
+      "score": 7,
+      "color": "#41ab5d",
+      "comment": "[T1553.004] 7 rules: 102313, 102314, 102356, 102394, 102397, 102721, 102751",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1083",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "4 rules: 112031, 112033, 112113, 112114",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1222",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 102316",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1518",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 112032, 112116",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "[T1546.015] 9 rules: 106142, 106235, 106352, 106353, 106354, 106355, 106356, 106360, 106370",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1564",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1564.006] 1 rules: 102326",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1114",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1114.001] 1 rules: 116016",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1070",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1070.005] 2 rules: 102336, 103103",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1531",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 122015",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1564",
+      "score": 10,
+      "color": "#41ab5d",
+      "comment": "[T1564.003] 10 rules: 102339, 110140, 118071, 102408, 102423, 102489, 102490, 102760, 102761, 102762",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1070",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1070.006] 1 rules: 102344",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1560",
+      "score": 7,
+      "color": "#41ab5d",
+      "comment": "[T1560.001] 7 rules: 116019, 116020, 116030, 116035, 116044, 116045, 116046",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1564",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "[T1564.001] 6 rules: 102381, 102382, 102549, 103092, 103120, 104827",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1542",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1542.003] 1 rules: 104674",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1185",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 110140, 110141, 110142",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1176",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1176.001] 2 rules: 104681, 104682",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1614",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1614.001] 2 rules: 112035, 112117",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1546.001] 4 rules: 106148, 106268, 104766, 106367",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1546.008] 5 rules: 106149, 106150, 104683, 104715, 106319",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1003",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1003.005] 3 rules: 110146, 110147, 110238",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1218.002] 1 rules: 106151",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1027",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1027.004] 3 rules: 102429, 102452, 102599",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1048",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1048.001] 2 rules: 120021, 120022",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "exfiltration"
+    },
+    {
+      "techniqueID": "T1135",
+      "score": 9,
+      "color": "#41ab5d",
+      "comment": "9 rules: 112042, 112089, 112090, 112091, 112092, 112093, 112094, 112095, 112096",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1027",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1027.003] 1 rules: 102462",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1057",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "5 rules: 112043, 102526, 102527, 102528, 102529",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1593",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1593.003] 1 rules: 102472",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1102",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1102.002] 1 rules: 118095",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1615",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "6 rules: 112046, 104687, 104688, 104689, 112070, 112122",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1218.001] 2 rules: 102478, 102658",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1588",
+      "score": 7,
+      "color": "#41ab5d",
+      "comment": "[T1588.002] 7 rules: 110167, 110168, 102858, 103138, 103139, 103140, 103145",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1110",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1110.002] 2 rules: 110172, 110173",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1134",
+      "score": 7,
+      "color": "#41ab5d",
+      "comment": "[T1134.003] 7 rules: 106169, 106179, 106180, 106181, 106182, 106183, 106184",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1021",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "5 rules: 112056, 114070, 114071, 102990, 102991",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1587",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 102533, 102534, 102535",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1134",
+      "score": 5,
+      "color": "#74c476",
+      "comment": "[T1134.004] 5 rules: 106174, 106175, 106176, 106177, 106178",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1574",
+      "score": 4,
+      "color": "#74c476",
+      "comment": "[T1574.005] 4 rules: 104687, 104688, 104689, 106258",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1049",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 112064, 112065, 112066",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1216",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1216.001] 2 rules: 102573, 102584",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1218.013] 2 rules: 106211, 106231",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1574",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1574.008] 1 rules: 106212",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1689",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 102606",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1563",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1563.002] 2 rules: 114058, 114072",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "lateral-movement"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1546.007] 3 rules: 106219, 106346, 106347",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1218",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "[T1218.008] 8 rules: 102648, 102649, 102650, 102651, 102652, 102653, 102654, 102655",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1027",
+      "score": 8,
+      "color": "#41ab5d",
+      "comment": "[T1027.010] 8 rules: 102700, 102799, 102867, 102912, 102913, 102914, 103147, 103149",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1027",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1027.009] 1 rules: 102748",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1590",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1590.001] 3 rules: 112097, 112098, 112099",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1595",
+      "score": 13,
+      "color": "#238b45",
+      "comment": "13 rules: 102776, 102777, 102778, 102779, 102780, 102781, 102782, 102783, 102784, 102785",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1622",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "6 rules: 112107, 112108, 112109, 112110, 112111, 112112",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1526",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 112113",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1059",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1059.006] 2 rules: 102799, 102951",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1491",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1491.001] 3 rules: 104705, 104781, 122043",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1007",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 112115",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1037",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1037.001] 3 rules: 106228, 106300, 106359",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1564",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1564.002] 2 rules: 102823, 103144",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1553",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 102842",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1036",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1036.004] 1 rules: 106256",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "[T1546.011] 6 rules: 104725, 104726, 106350, 106361, 106362, 106363",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1505",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1505.005] 1 rules: 116038",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1529",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 122031, 122032",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "impact"
+    },
+    {
+      "techniqueID": "T1539",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 110252, 110253",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1204",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1204.001] 2 rules: 102911, 103134",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1204",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "[T1204.004] 6 rules: 102911, 102912, 102952, 103119, 103147, 103149",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1608",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 118179, 103090",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1552",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 110255, 110256, 110272",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "credential-access"
+    },
+    {
+      "techniqueID": "T1069",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1069.001] 1 rules: 112126",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1569",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 102990, 102991",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1021",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1021.005] 1 rules: 114073",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "lateral-movement"
+    },
+    {
+      "techniqueID": "T1124",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 112130",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "discovery"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1546.009] 3 rules: 106312, 106313, 106331",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1546.010] 1 rules: 106314",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1137",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1137.002] 1 rules: 104763",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1547.005] 1 rules: 106318",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1547.008] 1 rules: 106322",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1125",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "1 rules: 116048",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "collection"
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1547.010] 3 rules: 106323, 106338, 106340",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1559",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1559.002] 2 rules: 103129, 103130",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1546",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "[T1546.012] 3 rules: 106351, 106357, 106358",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "privilege-escalation"
+    },
+    {
+      "techniqueID": "T1553",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1553.003] 1 rules: 104831",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    },
+    {
+      "techniqueID": "T1547",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1547.003] 1 rules: 104839",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#a1d99b",
+      "#00441b"
+    ],
+    "minValue": 0,
+    "maxValue": 538
+  },
+  "metadata": [
+    {
+      "name": "generated",
+      "value": "2026-06-02 16:08 UTC"
+    },
+    {
+      "name": "total_rules",
+      "value": "3289"
+    },
+    {
+      "name": "techniques_covered",
+      "value": "288"
+    }
+  ]
+}

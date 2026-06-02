@@ -19,7 +19,7 @@ EVTX-Wazuh-Rules is a pipeline that builds a Wazuh detection rule database from 
 
 ### Setup
 ```bash
-pip install -r requirements.txt
+pip install -e ".[dev]"
 ```
 
 ### Full pipeline
@@ -73,6 +73,7 @@ Additional modules:
 - **sigma_converter.py** — Converts Sigma YAML directly to Wazuh XML rules (glob→OS-regex, categorized errors, tactic normalization)
 - **sigma_analyzer.py** — Assesses Sigma rule convertibility
 - **logtest_validator.py** — Validates rules via stored/reparsed/synthetic sample events or live Wazuh API/SSH
+- **navigator_export.py** — Exports MITRE ATT&CK Navigator layer JSON from the rule database
 - **id_manager.py** — Allocates rule IDs within Wazuh's custom range (100000-119999) partitioned by MITRE tactic
 
 ### Key data flow
