@@ -29,7 +29,7 @@ class SigmaConvertError(Exception):
 def _source_category_from_mapping(mapping: dict) -> str:
     """Derive a by_source view category from a Sigma logsource mapping."""
     channel = mapping.get("channel", "")
-    if channel in ("powershell", "security", "system", "sysmon"):
+    if channel in ("powershell", "security", "system", "sysmon", "linux", "cloud"):
         return channel
     if channel in ("application", "windefend", "firewall"):
         return "application"
@@ -103,8 +103,57 @@ def _escape_osregex(value: str) -> str:
     return "".join(result)
 
 
-def _resolve_field(sigma_field: str) -> str | None:
-    """Map a Sigma field name to a Wazuh field path."""
+# Linux / cloud Sigma field names → Wazuh decoded field paths.
+LINUX_CLOUD_FIELD_MAP = {
+    # Linux auditd / syslog (Wazuh audit + syslog decoders)
+    "exe": "data.audit.exe",
+    "comm": "data.audit.command",
+    "syscall": "data.audit.syscall",
+    "a0": "data.audit.execve.a0",
+    "a1": "data.audit.execve.a1",
+    "key": "data.audit.key",
+    "uid": "data.audit.uid",
+    "auid": "data.audit.auid",
+    "CommandLine": "data.audit.execve.command",
+    "Image": "data.audit.exe",
+    "User": "data.audit.uid",
+    # Cloud (AWS / Azure / GCP / Okta via Wazuh integrations)
+    "eventName": "data.aws.eventName",
+    "eventSource": "data.aws.eventSource",
+    "sourceIPAddress": "data.aws.sourceIPAddress",
+    "userIdentity.type": "data.aws.userIdentity.type",
+    "errorCode": "data.aws.errorCode",
+    "operationName": "data.azure.operationName",
+    "ResultType": "data.azure.resultType",
+    "OperationName": "data.azure.OperationName",
+    "properties.message": "data.azure.properties.message",
+    "methodName": "data.gcp.protoPayload.methodName",
+    "displayMessage": "data.okta.displayMessage",
+    "eventtype": "data.okta.eventType",
+}
+
+
+# Conversion-time channel context. Set per rule in convert_sigma_rule so the
+# field resolver can pick Windows vs Linux/cloud field paths without threading
+# the channel through every _resolve_condition / _selection helper. Conversion
+# is single-threaded per call, so a module-level value is safe here.
+_ACTIVE_CHANNEL = ""
+
+
+def _resolve_field(sigma_field: str, channel: str | None = None) -> str | None:
+    """Map a Sigma field name to a Wazuh field path.
+
+    ``channel`` ("linux"/"cloud") selects non-Windows decoded field paths so
+    converted Linux/cloud rules reference real Wazuh fields instead of
+    ``win.eventdata.*``. Defaults to the active conversion channel.
+    """
+    if channel is None:
+        channel = _ACTIVE_CHANNEL
+    if channel in ("linux", "cloud"):
+        if sigma_field in LINUX_CLOUD_FIELD_MAP:
+            return LINUX_CLOUD_FIELD_MAP[sigma_field]
+        lower = sigma_field[0].lower() + sigma_field[1:] if sigma_field else sigma_field
+        return f"data.{lower}"
     if sigma_field in SIGMA_FIELD_TO_WAZUH_EXTENDED:
         return SIGMA_FIELD_TO_WAZUH_EXTENDED[sigma_field]
     lower = sigma_field[0].lower() + sigma_field[1:] if sigma_field else sigma_field
@@ -347,10 +396,9 @@ def _resolve_condition(condition: str, selections: dict) -> list[list[dict]]:
     return []
 
 
+# Aggregations we still cannot model in Wazuh (statistical reducers / temporal).
 _AGG_TOKENS = (
     " near ",
-    "| count",
-    "|count",
     "| min",
     "|min",
     "| max",
@@ -362,12 +410,70 @@ _AGG_TOKENS = (
     " | temporal",
 )
 
+# `... | count() > 5` or `... | count(field) by user > 5`
+_AGG_COUNT_RE = re.compile(
+    r"\|\s*count\(\s*([\w.]*)\s*\)\s*(?:by\s+([\w.]+)\s*)?([<>=]+)\s*(\d+)",
+    re.IGNORECASE,
+)
 
-def convert_sigma_rule(sigma_rule: dict) -> list[dict]:
+DEFAULT_FREQ_TIMEFRAME = 300
+
+
+def _split_aggregation(condition_str: str):
+    """Split a Sigma condition into (base_condition, count_spec).
+
+    count_spec is None when there is no supported aggregation, else a dict with
+    keys: count_field, group_field, op, threshold. The base_condition is the
+    detection logic before the ``|`` pipe.
+    """
+    m = _AGG_COUNT_RE.search(condition_str)
+    if not m:
+        return condition_str, None
+    base = condition_str[: condition_str.index("|")].strip()
+    count_field, group_field, op, threshold = m.groups()
+    return base, {
+        "count_field": count_field or "",
+        "group_field": group_field or "",
+        "op": op,
+        "threshold": int(threshold),
+    }
+
+
+def _extract_negation(condition: str, selections: dict) -> dict:
+    """Collect the combined field matches of negated (filter) selections.
+
+    Handles ``and not <name>``, ``and not 1 of filter*`` and
+    ``and not all of filter*``. Returns the merged field dict to be used as a
+    Wazuh suppression child rule (level 0). Empty dict when there is no usable
+    negation.
+    """
+    neg_fields: dict = {}
+    # Find every "not <something>" clause.
+    for m in re.finditer(r"not\s+(1 of\s+[\w*]+|all of\s+[\w*]+|[\w]+)", condition):
+        target = m.group(1).strip()
+        of_match = re.match(r"(?:1|all) of\s+([\w]+)\*?", target)
+        if of_match:
+            prefix = of_match.group(1)
+            names = [k for k in selections if k.startswith(prefix)]
+        elif target in selections:
+            names = [target]
+        else:
+            names = []
+        for name in names:
+            for fg in _selection_to_field_matches(selections[name]):
+                neg_fields.update(fg)
+    neg_fields = {k.split("#")[0]: v for k, v in neg_fields.items() if k != "_raw"}
+    return neg_fields
+
+
+def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[dict]:
     """Convert a parsed Sigma rule to one or more Wazuh rule dicts.
 
     Raises SigmaConvertError(category) when a rule cannot be converted so the
     batch driver can report *why* each rule was skipped.
+
+    When ``with_negation`` is set, ``and not <filter>`` clauses are emitted as
+    Wazuh level-0 suppression child rules instead of being dropped.
     """
     logsource = sigma_rule.get("logsource", {})
     category = logsource.get("category", "")
@@ -381,14 +487,21 @@ def convert_sigma_rule(sigma_rule: dict) -> list[dict]:
     parent_sid = mapping["parent_sid"]
     source_category = _source_category_from_mapping(mapping)
 
+    global _ACTIVE_CHANNEL
+    _ACTIVE_CHANNEL = mapping.get("channel", "")
+
     detection = sigma_rule.get("detection", {})
     if not detection or "condition" not in detection:
         raise SigmaConvertError("no_detection")
 
     condition_raw = detection.get("condition", "")
     condition_str = condition_raw if isinstance(condition_raw, str) else " ".join(condition_raw)
+    # Reject only the aggregations we still cannot model; count() is handled below.
     if any(tok in f" {condition_str.lower()} " for tok in _AGG_TOKENS):
         raise SigmaConvertError("unsupported_condition", condition_str)
+
+    # Split off a supported count() aggregation, if present.
+    base_condition_str, count_spec = _split_aggregation(condition_str)
 
     tactic, base_ids, full_ids = _extract_tags(sigma_rule)
     mitre_ids = full_ids or base_ids
@@ -398,10 +511,15 @@ def convert_sigma_rule(sigma_rule: dict) -> list[dict]:
     sigma_id = sigma_rule.get("id", "")
 
     selections, condition = _parse_selections(detection)
+    if count_spec:
+        # Re-parse only the base (pre-pipe) condition for the detection rule.
+        condition = base_condition_str
     rule_specs = _resolve_condition(condition, selections)
 
     if not rule_specs:
         raise SigmaConvertError("empty_rule_spec", condition_str)
+
+    negation_fields = _extract_negation(condition, selections) if with_negation else {}
 
     rules = []
     for spec_group in rule_specs:
@@ -467,6 +585,90 @@ def convert_sigma_rule(sigma_rule: dict) -> list[dict]:
             }
         )
 
+        # Negation -> Wazuh level-0 suppression child rule.
+        if negation_fields:
+            sup_id = allocate_id(tactic)
+            sup_elem = etree.Element("rule", id=str(sup_id), level="0")
+            sup_if = etree.SubElement(sup_elem, "if_sid")
+            sup_if.text = str(rule_id)
+            for fname, fpat in negation_fields.items():
+                fe = etree.SubElement(sup_elem, "field", name=fname)
+                fe.text = fpat
+            sup_desc = etree.SubElement(sup_elem, "description")
+            sup_desc.text = f"Sigma: {title} (excluded by filter)"
+            sup_group = etree.SubElement(sup_elem, "group")
+            sup_group.text = f"{tactic},sigma_negation,"
+            rules.append(
+                {
+                    "id": sup_id,
+                    "level": 0,
+                    "xml_element": sup_elem,
+                    "metadata": {
+                        "rule_id": sup_id,
+                        "tactic": tactic,
+                        "technique_name": f"{title} (suppression)",
+                        "source_evtx": sigma_rule.get("_file_path", ""),
+                        "source_category": source_category,
+                        "parent_sid": rule_id,
+                        "confidence": "medium",
+                        "created": "",
+                        "field_matches": negation_fields,
+                        "mitre_ids": mitre_ids[:3],
+                        "sigma_id": sigma_id,
+                        "sigma_level": sigma_level,
+                    },
+                    "pattern": None,
+                }
+            )
+
+        # count() aggregation -> Wazuh frequency correlation rule.
+        if count_spec and count_spec["threshold"] > 0:
+            freq_id = allocate_id(tactic)
+            freq_elem = etree.Element(
+                "rule",
+                id=str(freq_id),
+                level=str(min(wazuh_level + 2, 15)),
+                frequency=str(count_spec["threshold"]),
+                timeframe=str(DEFAULT_FREQ_TIMEFRAME),
+            )
+            freq_if = etree.SubElement(freq_elem, "if_matched_sid")
+            freq_if.text = str(rule_id)
+            if count_spec["group_field"]:
+                gf = _resolve_field(count_spec["group_field"])
+                if gf:
+                    etree.SubElement(freq_elem, "same_field", name=gf)
+            freq_desc = etree.SubElement(freq_elem, "description")
+            freq_desc.text = f"Sigma: {title} (>= {count_spec['threshold']} in {DEFAULT_FREQ_TIMEFRAME}s)"
+            if mitre_ids:
+                fm = etree.SubElement(freq_elem, "mitre")
+                for mid in mitre_ids[:3]:
+                    ie = etree.SubElement(fm, "id")
+                    ie.text = mid
+            freq_group = etree.SubElement(freq_elem, "group")
+            freq_group.text = f"{tactic},sigma_correlation,"
+            rules.append(
+                {
+                    "id": freq_id,
+                    "level": min(wazuh_level + 2, 15),
+                    "xml_element": freq_elem,
+                    "metadata": {
+                        "rule_id": freq_id,
+                        "tactic": tactic,
+                        "technique_name": f"{title} (frequency)",
+                        "source_evtx": sigma_rule.get("_file_path", ""),
+                        "source_category": source_category,
+                        "parent_sid": rule_id,
+                        "confidence": "high",
+                        "created": "",
+                        "field_matches": clean_fields,
+                        "mitre_ids": mitre_ids[:3],
+                        "sigma_id": sigma_id,
+                        "sigma_level": sigma_level,
+                    },
+                    "pattern": None,
+                }
+            )
+
     if not rules:
         raise SigmaConvertError("empty_rule_spec", "no fields after cleaning")
 
@@ -487,6 +689,7 @@ def convert_all(
     min_level: str = "low",
     max_rules: int | None = None,
     write_error_report: bool = True,
+    with_negation: bool = False,
 ) -> list[dict]:
     """Convert all Sigma rules from a directory to Wazuh rules.
 
@@ -523,7 +726,7 @@ def convert_all(
             continue
 
         try:
-            wazuh_rules = convert_sigma_rule(sigma_rule)
+            wazuh_rules = convert_sigma_rule(sigma_rule, with_negation=with_negation)
             all_rules.extend(wazuh_rules)
             converted += 1
         except SigmaConvertError as e:

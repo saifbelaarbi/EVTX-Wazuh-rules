@@ -367,7 +367,15 @@ def export_cmd(dest, view):
     help="Minimum Sigma severity level to convert",
 )
 @click.option("--max-rules", default=None, type=int, help="Maximum number of rules to generate")
-def convert_sigma_cmd(auto_approve, category, min_level, max_rules):
+@click.option("--with-negation", is_flag=True, help="Emit Wazuh level-0 suppression rules for 'not' filters")
+@click.option(
+    "--platform",
+    default="windows",
+    type=click.Choice(["windows", "linux", "cloud", "all"]),
+    help="Which Sigma rule platform(s) to convert",
+)
+@click.option("--diff-only", is_flag=True, help="Report what would change without writing")
+def convert_sigma_cmd(auto_approve, category, min_level, max_rules, with_negation, platform, diff_only):
     """Convert SigmaHQ detection rules to Wazuh XML rules."""
     config = load_config()
     sigma_dir = PROJECT_ROOT / config["paths"]["sigma_data"]
@@ -376,29 +384,43 @@ def convert_sigma_cmd(auto_approve, category, min_level, max_rules):
         console.print("[red]No Sigma rules found. Run 'python -m collector download-sigma' first.[/]")
         return
 
-    rules_path = sigma_dir
+    # Locate the SigmaHQ rules root (handles a few clone layouts).
+    rules_root = sigma_dir
     for candidate in [
-        sigma_dir / "SigmaHQ" / "rules" / "windows",
-        sigma_dir / "sigma" / "rules" / "windows",
-        sigma_dir / "rules" / "windows",
-        sigma_dir / "windows",
+        sigma_dir / "SigmaHQ" / "rules",
+        sigma_dir / "sigma" / "rules",
+        sigma_dir / "rules",
+        sigma_dir,
     ]:
         if candidate.exists():
-            rules_path = candidate
+            rules_root = candidate
             break
 
-    console.print(f"[bold]Converting Sigma rules from {rules_path}...[/]\n")
-
-    # Step 1: Convert
-    rules = sigma_converter.convert_all(
-        rules_dir=rules_path,
-        category=category,
-        min_level=min_level,
-        max_rules=max_rules,
-    )
+    platforms = ["windows", "linux", "cloud"] if platform == "all" else [platform]
+    rules = []
+    for plat in platforms:
+        plat_path = rules_root / plat
+        if not plat_path.exists():
+            console.print(f"[yellow]No '{plat}' Sigma rules at {plat_path}, skipping.[/]")
+            continue
+        console.print(f"[bold]Converting {plat} Sigma rules from {plat_path}...[/]")
+        rules.extend(
+            sigma_converter.convert_all(
+                rules_dir=plat_path,
+                category=category,
+                min_level=min_level,
+                max_rules=max_rules,
+                with_negation=with_negation,
+                write_error_report=(plat == platforms[-1]),
+            )
+        )
 
     if not rules:
         console.print("[yellow]No rules converted.[/]")
+        return
+
+    if diff_only:
+        console.print(f"[cyan]--diff-only:[/] would add/update {len(rules)} rules. No files written.")
         return
 
     # Step 2: Correlate against existing database

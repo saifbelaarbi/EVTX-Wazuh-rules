@@ -148,13 +148,102 @@ def test_aggregation_condition_raises():
     rule = {
         "logsource": {"category": "process_creation"},
         "detection": {
-            "condition": "selection | count() > 5",
+            "condition": "selection | near other",
             "selection": {"Image": "test"},
         },
     }
     with pytest.raises(SigmaConvertError) as exc_info:
         convert_sigma_rule(rule)
     assert exc_info.value.category == "unsupported_condition"
+
+
+# ── Aggregation (count) ──
+
+
+def test_count_aggregation_produces_frequency_rule():
+    rule = {
+        "title": "Brute force",
+        "level": "high",
+        "logsource": {"category": "process_creation"},
+        "detection": {
+            "condition": "selection | count() by User > 5",
+            "selection": {"Image": "\\\\net.exe"},
+        },
+        "tags": ["attack.credential-access", "attack.t1110"],
+    }
+    with mock.patch("generator.sigma_converter.allocate_id", side_effect=[100001, 100002]):
+        results = convert_sigma_rule(rule)
+    # base detection rule + frequency correlation rule
+    assert len(results) == 2
+    from lxml import etree
+
+    freq = next(r for r in results if r["xml_element"].get("frequency"))
+    assert freq["xml_element"].get("frequency") == "5"
+    xml = etree.tostring(freq["xml_element"], encoding="unicode")
+    assert "if_matched_sid" in xml
+    assert "same_field" in xml
+
+
+# ── Negation (suppression) ──
+
+
+def test_negation_produces_suppression_rule():
+    rule = {
+        "title": "Suspicious thing",
+        "level": "high",
+        "logsource": {"category": "process_creation"},
+        "detection": {
+            "selection": {"Image": "\\\\powershell.exe"},
+            "filter": {"User": "SYSTEM"},
+            "condition": "selection and not filter",
+        },
+        "tags": ["attack.execution"],
+    }
+    with mock.patch("generator.sigma_converter.allocate_id", side_effect=[100001, 100002]):
+        results = convert_sigma_rule(rule, with_negation=True)
+    assert len(results) == 2
+    sup = next(r for r in results if r["level"] == 0)
+    from lxml import etree
+
+    xml = etree.tostring(sup["xml_element"], encoding="unicode")
+    assert "if_sid" in xml
+    assert "100001" in xml  # child references positive rule
+    assert "sigma_negation" in xml
+
+
+def test_negation_off_by_default_drops_filter():
+    rule = {
+        "title": "Suspicious thing",
+        "level": "high",
+        "logsource": {"category": "process_creation"},
+        "detection": {
+            "selection": {"Image": "\\\\powershell.exe"},
+            "filter": {"User": "SYSTEM"},
+            "condition": "selection and not filter",
+        },
+        "tags": ["attack.execution"],
+    }
+    with mock.patch("generator.sigma_converter.allocate_id", side_effect=range(100001, 100010)):
+        results = convert_sigma_rule(rule)  # with_negation defaults False
+    assert all(r["level"] != 0 for r in results)
+
+
+# ── Multi-platform field resolution ──
+
+
+def test_linux_logsource_uses_data_fields():
+    from generator.sigma_converter import _resolve_field
+
+    assert _resolve_field("exe", channel="linux") == "data.audit.exe"
+    assert _resolve_field("CommandLine", channel="linux").startswith("data.")
+    # Windows default unchanged
+    assert _resolve_field("Image", channel="").startswith("win.eventdata.")
+
+
+def test_cloud_logsource_maps_to_wazuh_cloud_fields():
+    from generator.sigma_converter import _resolve_field
+
+    assert _resolve_field("eventName", channel="cloud") == "data.aws.eventName"
 
 
 # ── Successful conversion ──
