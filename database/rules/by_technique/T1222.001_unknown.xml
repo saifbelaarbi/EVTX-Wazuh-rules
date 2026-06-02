@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1222.001_unknown,">
+  <rule id="100050" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4662</field>
+    <field name="win.eventdata.objectServer">DS</field>
+    <field name="win.eventdata.accessMask">0x40000</field>
+    <field name="win.eventdata.objectType">19195a5b-6da0-11d0-afd3-00c04fd930c9|domainDNS</field>
+    <description>Sigma: AD Object WriteDAC Access</description>
+    <mitre>
+      <id>T1222.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101005" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\takeown\.exe$</field>
+    <field name="win.eventdata.commandLine">/f |/r</field>
+    <description>Sigma: Suspicious Recursive Takeown</description>
+    <mitre>
+      <id>T1222.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1574.011_unknown,">
+  <rule id="104668" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">;;;IU|;;;SU|;;;BA|;;;SY|;;;WD|D;;</field>
+    <description>Sigma: Suspicious Service DACL Modification Via Set-Service Cmdlet - PS</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104670" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">-SecurityDescriptorSddl |-sd |DCLCWPDTSD</field>
+    <description>Sigma: Abuse of Service Permissions to Hide Services Via Set-Service - PS</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104695" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Set-Service |DCLCWPDTSD</field>
+    <field name="win.eventdata.image">\pwsh\.exe$</field>
+    <description>Sigma: Abuse of Service Permissions to Hide Services Via Set-Service</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104716" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.integrityLevel">Medium|S-1-16-8192</field>
+    <field name="win.eventdata.commandLine">\ImagePath|\FailureCommand|\ServiceDll|services</field>
+    <description>Sigma: Potential Privilege Escalation via Service Permissions Weakness</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104720" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\sc\.exe$</field>
+    <field name="win.eventdata.integrityLevel">Medium|S-1-16-8192</field>
+    <field name="win.eventdata.commandLine">config|binPath</field>
+    <description>Sigma: Possible Privilege Escalation via Weak Service Permissions</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104722" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">sdset|DCLCWPDTSD</field>
+    <field name="win.eventdata.image">\sc\.exe$</field>
+    <description>Sigma: Service DACL Abuse To Hide Services Via Sc.EXE</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104723" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">sdset</field>
+    <field name="win.eventdata.image">\sc\.exe$</field>
+    <description>Sigma: Service Security Descriptor Tampering Via Sc.EXE</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="107138" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">get-acl|REGISTRY::HKLM\SYSTEM\CurrentControlSet\Services\</field>
+    <description>Sigma: Service Registry Permissions Weakness Check</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107225" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine"> -d |SYSTEM\CurrentControlSet\Services\| ImagePath </field>
+    <description>Sigma: Changing Existing Service ImagePath Value Via Reg.EXE</description>
+    <mitre>
+      <id>T1574.011</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

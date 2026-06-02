@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1087.001_unknown,">
+  <rule id="111000" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">net user</field>
+    <description>Suspicious command-line pattern 'net user' detected</description>
+    <mitre>
+      <id>T1087.001</id>
+    </mitre>
+    <group>discovery,evtx_generated,</group>
+  </rule>
+  <rule id="111014" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">BloodHound\.zip$|_computers\.json$|_containers\.json$|_gpos\.json$|_groups\.json$|_ous\.json$|_users\.json$</field>
+    <description>Sigma: BloodHound Collection Files</description>
+    <mitre>
+      <id>T1087.001</id>
+      <id>T1087.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111047" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -CollectionMethod All | --CollectionMethods Session | --Loop --Loopduration | --PortScanTimeout |\.exe -c All -d |Invoke-Bloodhound|Get-BloodHoundData</field>
+    <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
+    <mitre>
+      <id>T1087.001</id>
+      <id>T1087.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111048" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -JsonFolder | -ZipFileName </field>
+    <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
+    <mitre>
+      <id>T1087.001</id>
+      <id>T1087.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111049" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> DCOnly | --NoSaveCache </field>
+    <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
+    <mitre>
+      <id>T1087.001</id>
+      <id>T1087.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111050" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.product">SharpHound</field>
+    <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
+    <mitre>
+      <id>T1087.001</id>
+      <id>T1087.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111051" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.description">SharpHound</field>
+    <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
+    <mitre>
+      <id>T1087.001</id>
+      <id>T1087.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111052" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.company">SpecterOps|evil corp</field>
+    <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
+    <mitre>
+      <id>T1087.001</id>
+      <id>T1087.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111053" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\Bloodhound\.exe|\SharpHound\.exe</field>
+    <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
+    <mitre>
+      <id>T1087.001</id>
+      <id>T1087.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111071" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <field name="win.eventdata.commandLine"> group | localgroup </field>
+    <description>Sigma: Suspicious Group And Account Reconnaissance Activity Using Net.EXE</description>
+    <mitre>
+      <id>T1087.001</id>
+      <id>T1087.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111080" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">domain admins| administrator| administrateur|enterprise admins|Exchange Trusted Subsystem|Remote Desktop Users|Utilisateurs du Bureau à distance|Usuarios de escritorio remoto</field>
+    <description>Sigma: Suspicious Reconnaissance Activity Using Get-LocalGroupMember Cmdlet</description>
+    <mitre>
+      <id>T1087.001</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+</group>

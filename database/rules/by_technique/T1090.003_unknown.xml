@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1090.003_unknown,">
+  <rule id="110008" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">3008</field>
+    <field name="win.eventdata.queryName">\.hiddenservice\.net$|\.onion\.ca$|\.onion\.cab$|\.onion\.casa$|\.onion\.city$|\.onion\.direct$|\.onion\.dog$|\.onion\.glass$|\.onion\.gq$|\.onion\.guide$|\.onion\.in\.net$|\.onion\.ink$|\.onion\.it$|\.onion\.link$|\.onion\.lt$|\.onion\.lu$|\.onion\.ly$|\.onion\.mn$|\.onion\.network$|\.onion\.nu$|\.onion\.pet$|\.onion\.plus$|\.onion\.pt$|\.onion\.pw$|\.onion\.rip$|\.onion\.sh$|\.onion\.si$|\.onion\.to$|\.onion\.top$|\.onion\.ws$|\.onion$|\.s1\.tor-gateways\.de$|\.s2\.tor-gateways\.de$|\.s3\.tor-gateways\.de$|\.s4\.tor-gateways\.de$|\.s5\.tor-gateways\.de$|\.t2w\.pw$|\.tor2web\.ae\.org$|\.tor2web\.blutmagie\.de$|\.tor2web\.com$|\.tor2web\.fi$|\.tor2web\.io$|\.tor2web\.org$|\.tor2web\.xyz$|\.torlink\.co$</field>
+    <description>Sigma: Query Tor Onion Address - DNS Client</description>
+    <mitre>
+      <id>T1090.003</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110027" level="10">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">\.hiddenservice\.net$|\.onion\.ca$|\.onion\.cab$|\.onion\.casa$|\.onion\.city$|\.onion\.direct$|\.onion\.dog$|\.onion\.glass$|\.onion\.gq$|\.onion\.ink$|\.onion\.it$|\.onion\.link$|\.onion\.lt$|\.onion\.lu$|\.onion\.nu$|\.onion\.pet$|\.onion\.plus$|\.onion\.rip$|\.onion\.sh$|\.onion\.to$|\.onion\.top$|\.onion$|\.s1\.tor-gateways\.de$|\.s2\.tor-gateways\.de$|\.s3\.tor-gateways\.de$|\.s4\.tor-gateways\.de$|\.s5\.tor-gateways\.de$|\.t2w\.pw$|\.tor2web\.ae\.org$|\.tor2web\.blutmagie\.de$|\.tor2web\.com$|\.tor2web\.fi$|\.tor2web\.io$|\.tor2web\.org$|\.tor2web\.xyz$|\.torlink\.co$</field>
+    <description>Sigma: DNS Query Tor .Onion Address - Sysmon</description>
+    <mitre>
+      <id>T1090.003</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110073" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.description">Tor Browser</field>
+    <description>Sigma: Tor Client/Browser Execution</description>
+    <mitre>
+      <id>T1090.003</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110074" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.product">Tor Browser</field>
+    <description>Sigma: Tor Client/Browser Execution</description>
+    <mitre>
+      <id>T1090.003</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110075" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\tor\.exe$|\Tor Browser\Browser\firefox\.exe$</field>
+    <description>Sigma: Tor Client/Browser Execution</description>
+    <mitre>
+      <id>T1090.003</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+</group>

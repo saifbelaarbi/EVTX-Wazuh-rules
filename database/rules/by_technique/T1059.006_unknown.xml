@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1059.006_unknown,">
+  <rule id="100799" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.decode|b16decode|b32decode|b32hexdecode|b64decode|b85decode|z85decode|base64| -c</field>
+    <field name="win.eventdata.image">\python</field>
+    <description>Sigma: Python One-Liners with Base64 Decoding</description>
+    <mitre>
+      <id>T1059.006</id>
+      <id>T1027.010</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100951" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\Downloads\</field>
+    <description>Sigma: Suspicious File Characteristics Due to Missing Fields</description>
+    <mitre>
+      <id>T1059.006</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1529_unknown,">
+  <rule id="114031" level="13">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\shutdown\.exe$</field>
+    <field name="win.eventdata.commandLine">/r |/s </field>
+    <description>Sigma: Suspicious Execution of Shutdown</description>
+    <mitre>
+      <id>T1529</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+  <rule id="114032" level="13">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\shutdown\.exe$</field>
+    <field name="win.eventdata.commandLine">/l</field>
+    <description>Sigma: Suspicious Execution of Shutdown to Log Out</description>
+    <mitre>
+      <id>T1529</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1134.005_unknown,">
+  <rule id="104543" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4738</field>
+    <field name="win.eventdata.sidHistory">-|%%1793</field>
+    <description>Sigma: Addition of SID History to Active Directory Object</description>
+    <mitre>
+      <id>T1134.005</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

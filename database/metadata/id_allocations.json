@@ -1,74 +1,74 @@
 {
-  "persistence": {
-    "range_start": 102000,
-    "range_end": 102999,
-    "next_id": 102357,
-    "allocated_count": 357
-  },
-  "execution": {
-    "range_start": 101000,
-    "range_end": 101999,
-    "next_id": 102000,
-    "allocated_count": 1000
-  },
   "command_and_control": {
-    "range_start": 109000,
-    "range_end": 109999,
-    "next_id": 109026,
-    "allocated_count": 26
-  },
-  "credential_access": {
-    "range_start": 105000,
-    "range_end": 105999,
-    "next_id": 105047,
-    "allocated_count": 47
-  },
-  "defense_evasion": {
-    "range_start": 104000,
-    "range_end": 104999,
-    "next_id": 104046,
-    "allocated_count": 46
-  },
-  "lateral_movement": {
-    "range_start": 107000,
-    "range_end": 107999,
-    "next_id": 107033,
-    "allocated_count": 33
-  },
-  "privilege_escalation": {
-    "range_start": 103000,
-    "range_end": 103999,
-    "next_id": 103023,
-    "allocated_count": 23
-  },
-  "initial_access": {
-    "range_start": 100000,
-    "range_end": 100999,
-    "next_id": 100002,
-    "allocated_count": 2
-  },
-  "discovery": {
-    "range_start": 106000,
-    "range_end": 106999,
-    "next_id": 106069,
-    "allocated_count": 69
-  },
-  "collection": {
-    "range_start": 108000,
-    "range_end": 108999,
-    "next_id": 108024,
-    "allocated_count": 24
-  },
-  "impact": {
-    "range_start": 111000,
-    "range_end": 111999,
-    "next_id": 111027,
-    "allocated_count": 27
-  },
-  "exfiltration": {
     "range_start": 110000,
     "range_end": 110999,
-    "next_id": 110017,
-    "allocated_count": 17
+    "next_id": 110193,
+    "allocated_count": 193
+  },
+  "defense_evasion": {
+    "range_start": 112000,
+    "range_end": 112499,
+    "next_id": 112035,
+    "allocated_count": 35
+  },
+  "persistence": {
+    "range_start": 104000,
+    "range_end": 106999,
+    "next_id": 104843,
+    "allocated_count": 843
+  },
+  "credential_access": {
+    "range_start": 108500,
+    "range_end": 109999,
+    "next_id": 108795,
+    "allocated_count": 295
+  },
+  "execution": {
+    "range_start": 100000,
+    "range_end": 103999,
+    "next_id": 101163,
+    "allocated_count": 1163
+  },
+  "lateral_movement": {
+    "range_start": 112500,
+    "range_end": 112999,
+    "next_id": 112577,
+    "allocated_count": 77
+  },
+  "privilege_escalation": {
+    "range_start": 107000,
+    "range_end": 108499,
+    "next_id": 107383,
+    "allocated_count": 383
+  },
+  "impact": {
+    "range_start": 114000,
+    "range_end": 114499,
+    "next_id": 114044,
+    "allocated_count": 44
+  },
+  "discovery": {
+    "range_start": 111000,
+    "range_end": 111999,
+    "next_id": 111137,
+    "allocated_count": 137
+  },
+  "exfiltration": {
+    "range_start": 114500,
+    "range_end": 114999,
+    "next_id": 114536,
+    "allocated_count": 36
+  },
+  "collection": {
+    "range_start": 113500,
+    "range_end": 113999,
+    "next_id": 113551,
+    "allocated_count": 51
+  },
+  "initial_access": {
+    "range_start": 113000,
+    "range_end": 113499,
+    "next_id": 113032,
+    "allocated_count": 32
   }
 }

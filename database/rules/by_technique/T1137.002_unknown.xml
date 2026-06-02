@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1137.002_unknown,">
+  <rule id="104763" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Office test\Special\Perf</field>
+    <description>Sigma: Office Application Startup - Office Test</description>
+    <mitre>
+      <id>T1137.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

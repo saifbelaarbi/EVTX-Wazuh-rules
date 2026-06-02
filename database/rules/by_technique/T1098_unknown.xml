@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1098_unknown,">
-  <rule id="102090" level="10">
+  <rule id="104010" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4732</field>
+    <description>Member added to group: Administrators</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104507" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4731</field>
+    <description>Security group created: Backup Operators</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104508" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4735</field>
+    <description>Security group changed: Backup Operators</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="107015" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
     <field name="win.eventdata.attributeLDAPDisplayName">ntSecurityDescriptor</field>
@@ -9,9 +36,9 @@
     <mitre>
       <id>T1098</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102091" level="10">
+  <rule id="107017" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4704</field>
     <field name="win.eventdata.privilegeList">SeEnableDelegationPrivilege</field>
@@ -19,33 +46,60 @@
     <mitre>
       <id>T1098</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102092" level="10">
+  <rule id="107018" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4738</field>
     <description>Sigma: Active Directory User Backdoors</description>
     <mitre>
       <id>T1098</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102102" level="10">
+  <rule id="107029" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4706</field>
+    <description>Sigma: A New Trust Was Created To A Domain</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107030" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4794</field>
     <description>Sigma: Password Change on Directory Service Restore Mode (DSRM) Account</description>
     <mitre>
       <id>T1098</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102250" level="10">
+  <rule id="107139" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Disable-LocalUser|Enable-LocalUser|Get-LocalUser|Set-LocalUser|New-LocalUser|Rename-LocalUser|Remove-LocalUser</field>
+    <description>Sigma: Powershell LocalAccount Manipulation</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107260" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">localgroup | /add</field>
+    <description>Sigma: User Added to Local Administrators Group</description>
+    <mitre>
+      <id>T1098</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107261" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">localgroup | /add</field>
     <description>Sigma: User Added To Highly Privileged Group</description>
     <mitre>
       <id>T1098</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
 </group>

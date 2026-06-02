@@ -1,124 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1557_unknown,">
-  <rule id="108000" level="8">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4624</field>
-    <field name="win.eventdata.logonType">3</field>
-    <field name="win.eventdata.targetUserName">ANONYMOUS LOGON</field>
-    <field name="win.eventdata.workstationName">-</field>
-    <field name="win.eventdata.ipAddress">127\.0\.0\.1|::1</field>
-    <description>Sigma: RottenPotato Like Attack Pattern</description>
-    <mitre>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108001" level="8">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4662</field>
-    <field name="win.eventdata.additionalInfo">UWhRCA|BAAAA|CN=MicrosoftDNS</field>
-    <description>Sigma: Potential Kerberos Coercion by Spoofing SPNs via DNS Manipulation</description>
-    <mitre>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108002" level="8">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">5136|5137</field>
-    <field name="win.eventdata.objectClass">dnsNode</field>
-    <field name="win.eventdata.objectDN">UWhRCA|BAAAA|CN=MicrosoftDNS</field>
-    <description>Sigma: Potential Kerberos Coercion by Spoofing SPNs via DNS Manipulation</description>
-    <mitre>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108003" level="8">
+  <rule id="114003" level="13">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.provider_Name">Microsoft-Windows-DistributedCOM</field>
-    <field name="win.system.eventID">10001</field>
-    <field name="win.eventdata.param1">C:\Program Files\Common Files\microsoft shared\ink\TabTip\.exe</field>
-    <field name="win.eventdata.param2">2147943140</field>
-    <field name="win.eventdata.param3">\{054AAE20-4BEA-4347-8A35-64A533254A9D\}</field>
-    <description>Sigma: Local Privilege Escalation Indicator TabTip</description>
+    <field name="win.system.eventID">4100</field>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-Iphlpsvc</field>
+    <description>Sigma: ISATAP Router Address Was Set</description>
     <mitre>
       <id>T1557</id>
+      <id>T1565.002</id>
     </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108004" level="8">
-    <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">UWhRCA|BAAAA</field>
-    <description>Sigma: Suspicious DNS Query Indicating Kerberos Coercion via DNS Object SPN Spoofing</description>
-    <mitre>
-      <id>T1557</id>
-      <id>T1187</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108010" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> --adcs | --port </field>
-    <description>Sigma: HackTool - ADCSPwn Execution</description>
-    <mitre>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108011" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\goldenPac|\karmaSMB|\kintercept|\ntlmrelayx|\rpcdump|\samrdump|\secretsdump|\smbexec|\smbrelayx|\wmiexec|\wmipersist</field>
-    <description>Sigma: HackTool - Impacket Tools Execution</description>
-    <mitre>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108012" level="13">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\atexec_windows\.exe$|\dcomexec_windows\.exe$|\dpapi_windows\.exe$|\findDelegation_windows\.exe$|\GetADUsers_windows\.exe$|\GetNPUsers_windows\.exe$|\getPac_windows\.exe$|\getST_windows\.exe$|\getTGT_windows\.exe$|\GetUserSPNs_windows\.exe$|\ifmap_windows\.exe$|\mimikatz_windows\.exe$|\netview_windows\.exe$|\nmapAnswerMachine_windows\.exe$|\opdump_windows\.exe$|\psexec_windows\.exe$|\rdp_check_windows\.exe$|\sambaPipe_windows\.exe$|\smbclient_windows\.exe$|\smbserver_windows\.exe$|\sniff_windows\.exe$|\sniffer_windows\.exe$|\split_windows\.exe$|\ticketer_windows\.exe$</field>
-    <description>Sigma: HackTool - Impacket Tools Execution</description>
-    <mitre>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108013" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\}" -z$</field>
-    <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
-    <mitre>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108014" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">PetitPotam|RottenPotato|HotPotato|JuicyPotato|\just_dce_|Juicy Potato|\temp\rot\.exe|\Potato\.exe|\SpoolSample\.exe|\Responder\.exe|\smbrelayx|\ntlmrelayx|\LocalPotato</field>
-    <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
-    <mitre>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108015" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Invoke-Tater| smbrelay| ntlmrelay|cme smb | /ntlm:NTLMhash |Invoke-PetitPotam|\.exe -t * -p </field>
-    <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
-    <mitre>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="108016" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">UWhRCA|BAAAA</field>
-    <description>Sigma: Attempts of Kerberos Coercion Via DNS SPN Spoofing</description>
-    <mitre>
-      <id>T1557</id>
-      <id>T1187</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
+    <group>impact,sigma_converted,</group>
   </rule>
 </group>

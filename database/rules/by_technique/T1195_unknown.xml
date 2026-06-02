@@ -1,33 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1195_unknown,">
-  <rule id="108007" level="8">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\gup\.exe$</field>
-    <description>Sigma: Uncommon File Created by Notepad++ Updater Gup.EXE</description>
-    <mitre>
-      <id>T1195</id>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
-  </rule>
-  <rule id="101747" level="9">
+  <rule id="113009" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\AppData\Local\Microsoft\Cache134\.dat$|\AppData\Local\Microsoft\ExplorerSync\.db$</field>
     <description>Sigma: Octopus Scanner Malware</description>
     <mitre>
       <id>T1195</id>
+      <id>T1195.001</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="108009" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\gup\.exe$</field>
-    <field name="win.eventdata.commandLine">bitsadmin|certutil|curl|finger|forfiles|regsvr32|rundll32|wget</field>
-    <description>Sigma: Suspicious Child Process of Notepad++ Updater - GUP.Exe</description>
-    <mitre>
-      <id>T1195</id>
-      <id>T1557</id>
-    </mitre>
-    <group>collection,sigma_converted,</group>
+    <group>initial_access,sigma_converted,</group>
   </rule>
 </group>

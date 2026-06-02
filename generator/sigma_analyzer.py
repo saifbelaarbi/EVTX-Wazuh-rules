@@ -1,7 +1,7 @@
 """Analyze SigmaHQ Sigma rules and assess conversion potential to Wazuh format."""
 
-from pathlib import Path
 from collections import defaultdict
+from pathlib import Path
 
 import yaml
 from rich.console import Console
@@ -13,32 +13,72 @@ console = Console()
 SIGMA_STATUS_PRIORITY = {"stable": 3, "test": 2, "experimental": 1, "deprecated": 0}
 
 SIGMA_LOGSOURCE_TO_WAZUH = {
-    "process_creation": {"sysmon_eid": 1, "parent_sid": 61603},
-    "network_connection": {"sysmon_eid": 3, "parent_sid": 61605},
-    "driver_load": {"sysmon_eid": 6, "parent_sid": 61608},
-    "image_load": {"sysmon_eid": 7, "parent_sid": 61609},
-    "create_remote_thread": {"sysmon_eid": 8, "parent_sid": 61610},
-    "process_access": {"sysmon_eid": 10, "parent_sid": 61612},
-    "file_event": {"sysmon_eid": 11, "parent_sid": 61613},
-    "registry_event": {"sysmon_eid": 13, "parent_sid": 61615},
-    "registry_set": {"sysmon_eid": 13, "parent_sid": 61615},
-    "registry_add": {"sysmon_eid": 12, "parent_sid": 61614},
-    "registry_delete": {"sysmon_eid": 12, "parent_sid": 61614},
-    "registry_rename": {"sysmon_eid": 14, "parent_sid": 61616},
-    "file_access": {"sysmon_eid": 11, "parent_sid": 61613},
-    "file_delete": {"sysmon_eid": 23, "parent_sid": 61625},
-    "file_change": {"sysmon_eid": 2, "parent_sid": 61604},
-    "file_rename": {"sysmon_eid": 11, "parent_sid": 61613},
-    "dns_query": {"sysmon_eid": 22, "parent_sid": 61624},
-    "pipe_created": {"sysmon_eid": 17, "parent_sid": 61619},
-    "create_stream_hash": {"sysmon_eid": 15, "parent_sid": 61617},
-    "wmi_event": {"sysmon_eid": 19, "parent_sid": 61621},
-    "process_tampering": {"sysmon_eid": 25, "parent_sid": 61627},
+    # Sysmon categories (channel: Microsoft-Windows-Sysmon/Operational)
+    "process_creation": {"sysmon_eid": 1, "parent_sid": 61603, "channel": "sysmon"},
+    "network_connection": {"sysmon_eid": 3, "parent_sid": 61605, "channel": "sysmon"},
+    "driver_load": {"sysmon_eid": 6, "parent_sid": 61608, "channel": "sysmon"},
+    "image_load": {"sysmon_eid": 7, "parent_sid": 61609, "channel": "sysmon"},
+    "create_remote_thread": {"sysmon_eid": 8, "parent_sid": 61610, "channel": "sysmon"},
+    "process_access": {"sysmon_eid": 10, "parent_sid": 61612, "channel": "sysmon"},
+    "file_event": {"sysmon_eid": 11, "parent_sid": 61613, "channel": "sysmon"},
+    "registry_event": {"sysmon_eid": 13, "parent_sid": 61615, "channel": "sysmon"},
+    "registry_set": {"sysmon_eid": 13, "parent_sid": 61615, "channel": "sysmon"},
+    "registry_add": {"sysmon_eid": 12, "parent_sid": 61614, "channel": "sysmon"},
+    "registry_delete": {"sysmon_eid": 12, "parent_sid": 61614, "channel": "sysmon"},
+    "registry_rename": {"sysmon_eid": 14, "parent_sid": 61616, "channel": "sysmon"},
+    "file_access": {"sysmon_eid": 11, "parent_sid": 61613, "channel": "sysmon"},
+    "file_delete": {"sysmon_eid": 23, "parent_sid": 61625, "channel": "sysmon"},
+    "file_change": {"sysmon_eid": 2, "parent_sid": 61604, "channel": "sysmon"},
+    "file_rename": {"sysmon_eid": 11, "parent_sid": 61613, "channel": "sysmon"},
+    "file_executable_detected": {"sysmon_eid": 29, "parent_sid": 61613, "channel": "sysmon"},
+    "dns_query": {"sysmon_eid": 22, "parent_sid": 61624, "channel": "sysmon"},
+    "pipe_created": {"sysmon_eid": 17, "parent_sid": 61619, "channel": "sysmon"},
+    "create_stream_hash": {"sysmon_eid": 15, "parent_sid": 61617, "channel": "sysmon"},
+    "wmi_event": {"sysmon_eid": 19, "parent_sid": 61621, "channel": "sysmon"},
+    "wmi": {"sysmon_eid": 19, "parent_sid": 61621, "channel": "sysmon"},
+    "process_tampering": {"sysmon_eid": 25, "parent_sid": 61627, "channel": "sysmon"},
+    "sysmon_status": {"parent_sid": 60004, "channel": "sysmon"},
+    "sysmon_error": {"parent_sid": 60004, "channel": "sysmon"},
+    "sysmon": {"parent_sid": 60004, "channel": "sysmon"},
+    # PowerShell
     "ps_script": {"channel": "powershell", "parent_sid": 91801},
     "ps_module": {"channel": "powershell", "parent_sid": 91801},
     "ps_classic_start": {"channel": "powershell", "parent_sid": 91801},
+    "ps_classic_provider_start": {"channel": "powershell", "parent_sid": 91801},
+    "powershell-classic": {"channel": "powershell", "parent_sid": 91801},
+    # Core Windows channels
     "security": {"channel": "security", "parent_sid": 60100},
     "system": {"channel": "system", "parent_sid": 60106},
+    "application": {"channel": "application", "parent_sid": 60003},
+    # Windows Defender (parent 60005 in Wazuh defaults)
+    "windefend": {"channel": "windefend", "parent_sid": 60005},
+    # Windows Firewall (parent 60016 in Wazuh defaults)
+    "firewall-as": {"channel": "firewall", "parent_sid": 60016},
+    # Other Windows services → generic eventchannel parent (60000)
+    "appxdeployment-server": {"channel": "application", "parent_sid": 60000},
+    "appxpackaging-om": {"channel": "application", "parent_sid": 60000},
+    "codeintegrity-operational": {"channel": "system", "parent_sid": 60000},
+    "bits-client": {"channel": "system", "parent_sid": 60000},
+    "dns-client": {"channel": "system", "parent_sid": 60000},
+    "dns-server": {"channel": "system", "parent_sid": 60000},
+    "taskscheduler": {"channel": "system", "parent_sid": 60000},
+    "iis-configuration": {"channel": "application", "parent_sid": 60000},
+    "ntlm": {"channel": "security", "parent_sid": 60000},
+    "security-mitigations": {"channel": "security", "parent_sid": 60000},
+    "applocker": {"channel": "security", "parent_sid": 60000},
+    "ldap": {"channel": "system", "parent_sid": 60000},
+    "lsa-server": {"channel": "security", "parent_sid": 60000},
+    "openssh": {"channel": "system", "parent_sid": 60000},
+    "microsoft-servicebus-client": {"channel": "application", "parent_sid": 60000},
+    "shell-core": {"channel": "system", "parent_sid": 60000},
+    "smbclient-security": {"channel": "security", "parent_sid": 60000},
+    "smbserver-connectivity": {"channel": "system", "parent_sid": 60000},
+    "terminalservices-localsessionmanager": {"channel": "system", "parent_sid": 60000},
+    "capi2": {"channel": "application", "parent_sid": 60000},
+    "certificateservicesclient-lifecycle-system": {"channel": "system", "parent_sid": 60000},
+    "diagnosis-scripted": {"channel": "system", "parent_sid": 60000},
+    "msexchange-management": {"channel": "application", "parent_sid": 60000},
+    "raw_access_thread": {"sysmon_eid": 9, "parent_sid": 61611, "channel": "sysmon"},
 }
 
 SIGMA_FIELD_TO_WAZUH = {
@@ -195,7 +235,7 @@ def analyze_sigma_directory(rules_dir: Path) -> dict:
 
 def _print_report(report: dict):
     """Print a summary of the Sigma analysis."""
-    console.print(f"\n[bold green]Sigma Analysis Complete[/]")
+    console.print("\n[bold green]Sigma Analysis Complete[/]")
     console.print(f"  Total rules analyzed: {report['total_rules']}")
     console.print(f"  Convertible to Wazuh: {report['convertible']}")
     console.print(f"  High/Critical value: {report['high_value']}")
@@ -227,6 +267,6 @@ def _print_report(report: dict):
             table3.add_row(cx, str(report["complexity_stats"][cx]))
     console.print(table3)
 
-    console.print(f"\n[bold]Top MITRE techniques in Sigma rules:[/]")
+    console.print("\n[bold]Top MITRE techniques in Sigma rules:[/]")
     for tech, count in sorted(report["mitre_techniques"].items(), key=lambda x: -x[1])[:15]:
         console.print(f"  {tech}: {count} rules")

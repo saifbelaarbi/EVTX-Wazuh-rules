@@ -17,6 +17,7 @@ DRAFTS_DIR = PROJECT_ROOT / "database" / "drafts"
 METADATA_DIR = PROJECT_ROOT / "database" / "metadata"
 RULE_INDEX_FILE = METADATA_DIR / "rule_index.json"
 PROVENANCE_FILE = METADATA_DIR / "provenance.json"
+SAMPLE_EVENTS_FILE = METADATA_DIR / "sample_events.json"
 
 # MITRE technique ID -> human-readable name mapping (common ones)
 TECHNIQUE_NAMES = {
@@ -70,6 +71,12 @@ SOURCE_CATEGORIES = {
 
 def _get_source_category(rule: dict) -> str:
     """Determine the event source category for a rule."""
+    # Prefer an explicit category from metadata (set by rule_builder and
+    # sigma_converter); converted Sigma rules have no `pattern` object.
+    meta_cat = rule.get("metadata", {}).get("source_category")
+    if meta_cat:
+        return meta_cat
+
     pattern = rule.get("pattern")
     if pattern:
         provider = pattern.provider_name
@@ -103,9 +110,7 @@ def _build_xml_group(rules: list[dict], group_name: str) -> str:
     root = etree.Element("group", name=f"{group_name},")
 
     # Add comment header
-    root.addprevious(etree.Comment(
-        f" EVTX-Wazuh-Rules | Auto-generated | {group_name} "
-    ))
+    root.addprevious(etree.Comment(f" EVTX-Wazuh-Rules | Auto-generated | {group_name} "))
 
     for rule in rules:
         root.append(rule["xml_element"])
@@ -115,6 +120,51 @@ def _build_xml_group(rules: list[dict], group_name: str) -> str:
     xml_decl = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml_str = etree.tostring(root, pretty_print=True, encoding="unicode")
     return xml_decl + xml_str
+
+
+def _load_existing_rule_elements(out_file: Path) -> dict[str, etree._Element]:
+    """Read existing <rule> elements from an XML group file, keyed by rule id.
+
+    Lets the by_tactic / by_technique / by_source exports MERGE with rules
+    already on disk instead of overwriting them. Without this, running
+    ``generate`` (EVTX) then ``convert-sigma`` (Sigma) would clobber the shared
+    per-tactic files and leave the rule index pointing at rules that no longer
+    exist in any XML (phantom entries).
+    """
+    existing: dict[str, etree._Element] = {}
+    if not out_file.exists():
+        return existing
+    try:
+        tree = etree.parse(str(out_file))
+    except etree.XMLSyntaxError:
+        return existing
+    for rule_elem in tree.getroot().iter("rule"):
+        rid = rule_elem.get("id")
+        if rid:
+            existing[rid] = rule_elem
+    return existing
+
+
+def _write_group_merged(out_file: Path, new_rules: list[dict], group_name: str):
+    """Merge ``new_rules`` into any rules already in ``out_file`` and write.
+
+    New rules win on id collision. Output is sorted by rule id for stable diffs.
+    """
+    merged = _load_existing_rule_elements(out_file)
+    for rule in new_rules:
+        merged[str(rule["id"])] = rule["xml_element"]
+
+    root = etree.Element("group", name=f"{group_name},")
+    root.addprevious(etree.Comment(f" EVTX-Wazuh-Rules | Auto-generated | {group_name} "))
+    for rid in sorted(merged, key=int):
+        root.append(merged[rid])
+
+    etree.indent(root, space="  ")
+    xml_decl = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml_str = etree.tostring(root, pretty_print=True, encoding="unicode")
+    with open(out_file, "w") as f:
+        f.write(xml_decl + xml_str)
+    return len(merged)
 
 
 def export_drafts(rules: list[dict]) -> Path:
@@ -133,16 +183,18 @@ def export_drafts(rules: list[dict]) -> Path:
     manifest_file = DRAFTS_DIR / f"draft_{timestamp}_manifest.json"
     manifest = []
     for rule in rules:
-        manifest.append({
-            "rule_id": rule["id"],
-            "level": rule["level"],
-            "tactic": rule["metadata"]["tactic"],
-            "technique": rule["metadata"]["technique_name"],
-            "confidence": rule["metadata"]["confidence"],
-            "description": rule["metadata"].get("technique_name", ""),
-            "source_evtx": rule["metadata"]["source_evtx"],
-            "field_matches": rule["metadata"]["field_matches"],
-        })
+        manifest.append(
+            {
+                "rule_id": rule["id"],
+                "level": rule["level"],
+                "tactic": rule["metadata"]["tactic"],
+                "technique": rule["metadata"]["technique_name"],
+                "confidence": rule["metadata"]["confidence"],
+                "description": rule["metadata"].get("technique_name", ""),
+                "source_evtx": rule["metadata"]["source_evtx"],
+                "field_matches": rule["metadata"]["field_matches"],
+            }
+        )
 
     with open(manifest_file, "w") as f:
         json.dump(manifest, f, indent=2)
@@ -165,11 +217,9 @@ def export_by_tactic(rules: list[dict]):
         by_tactic[tactic].append(rule)
 
     for tactic, tactic_rules in by_tactic.items():
-        xml_content = _build_xml_group(tactic_rules, f"windows,{tactic}")
         out_file = out_dir / f"{tactic}.xml"
-        with open(out_file, "w") as f:
-            f.write(xml_content)
-        console.print(f"  [green]{tactic}.xml[/]: {len(tactic_rules)} rules")
+        total = _write_group_merged(out_file, tactic_rules, f"windows,{tactic}")
+        console.print(f"  [green]{tactic}.xml[/]: +{len(tactic_rules)} ({total} total)")
 
 
 def export_by_technique(rules: list[dict]):
@@ -183,11 +233,9 @@ def export_by_technique(rules: list[dict]):
         by_technique[slug].append(rule)
 
     for slug, tech_rules in by_technique.items():
-        xml_content = _build_xml_group(tech_rules, f"windows,{slug}")
         out_file = out_dir / f"{slug}.xml"
-        with open(out_file, "w") as f:
-            f.write(xml_content)
-        console.print(f"  [green]{slug}.xml[/]: {len(tech_rules)} rules")
+        total = _write_group_merged(out_file, tech_rules, f"windows,{slug}")
+        console.print(f"  [green]{slug}.xml[/]: +{len(tech_rules)} ({total} total)")
 
 
 def export_by_source(rules: list[dict]):
@@ -201,11 +249,9 @@ def export_by_source(rules: list[dict]):
         by_source[source].append(rule)
 
     for source, source_rules in by_source.items():
-        xml_content = _build_xml_group(source_rules, f"windows,{source}")
         out_file = out_dir / f"{source}.xml"
-        with open(out_file, "w") as f:
-            f.write(xml_content)
-        console.print(f"  [green]{source}.xml[/]: {len(source_rules)} rules")
+        total = _write_group_merged(out_file, source_rules, f"windows,{source}")
+        console.print(f"  [green]{source}.xml[/]: +{len(source_rules)} ({total} total)")
 
 
 def export_all_views(rules: list[dict]):
@@ -231,13 +277,16 @@ def update_rule_index(rules: list[dict]):
 
     for rule in rules:
         meta = rule["metadata"]
+        mitre_ids = meta.get("mitre_ids", []) or []
         index[str(rule["id"])] = {
             "description": meta.get("technique_name", ""),
             "level": rule["level"],
             "tactic": meta.get("tactic", ""),
-            "technique_id": meta.get("mitre_ids", [""])[0] if meta.get("mitre_ids") else "",
+            "technique_id": mitre_ids[0] if mitre_ids else "",
+            "mitre_ids": mitre_ids,
             "technique_name": meta.get("technique_name", ""),
             "source_evtx": meta.get("source_evtx", ""),
+            "source_category": meta.get("source_category", ""),
             "parent_sid": meta.get("parent_sid", 0),
             "confidence": meta.get("confidence", "medium"),
             "created": meta.get("created", ""),
@@ -248,6 +297,26 @@ def update_rule_index(rules: list[dict]):
         json.dump(index, f, indent=2)
 
     console.print(f"\n[bold green]Rule index updated:[/] {len(index)} total rules")
+    _update_sample_events(rules)
+
+
+def _update_sample_events(rules: list[dict]):
+    """Persist each rule's minimized trigger event to a sidecar file.
+
+    Kept out of rule_index.json so the index stays lean; keyed by rule id.
+    """
+    samples = {}
+    if SAMPLE_EVENTS_FILE.exists():
+        with open(SAMPLE_EVENTS_FILE) as f:
+            samples = json.load(f)
+
+    for rule in rules:
+        sample = rule["metadata"].get("sample_event")
+        if sample:
+            samples[str(rule["id"])] = sample
+
+    with open(SAMPLE_EVENTS_FILE, "w") as f:
+        json.dump(samples, f, indent=2)
 
 
 def update_provenance(rules: list[dict]):

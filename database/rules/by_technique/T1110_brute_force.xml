@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1110_brute_force,">
+  <rule id="108505" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4625</field>
+    <description>Failed logon attempt (type 2)</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108526" level="11">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">18456</field>
+    <description>Sigma: MSSQL Server Failed Logon From External Network</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108530" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">8004</field>
+    <field name="win.eventdata.workstationName">Rdesktop|Remmina|Freerdp|Windows7|Windows8|Windows2012|Windows2016|Windows2019</field>
+    <description>Sigma: NTLM Brute Force</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108674" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\^USER\^|\^PASS\^|-p </field>
+    <description>Sigma: HackTool - Hydra Password Bruteforce Execution</description>
+    <mitre>
+      <id>T1110</id>
+      <id>T1110.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+</group>

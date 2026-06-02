@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1055.003_unknown,">
+  <rule id="107047" level="10">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.targetImage">\calc\.exe$|\calculator\.exe$|\mspaint\.exe$|\notepad\.exe$|\ping\.exe$|\sethc\.exe$|\spoolsv\.exe$|\wordpad\.exe$|\write\.exe$</field>
+    <description>Sigma: Remote Thread Creation In Uncommon Target Image</description>
+    <mitre>
+      <id>T1055.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

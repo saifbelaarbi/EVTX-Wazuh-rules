@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1548_abuse_elevation,">
-  <rule id="101620" level="9">
+  <rule id="107014" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">3</field>
@@ -11,9 +11,21 @@
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="101681" level="9">
+  <rule id="107027" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4674</field>
+    <field name="win.eventdata.objectType">SC_MANAGER OBJECT</field>
+    <field name="win.eventdata.objectName">servicesactive</field>
+    <field name="win.eventdata.privilegeList">SeTakeOwnershipPrivilege</field>
+    <description>Sigma: SCM Database Privileged Operation</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107038" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">NetLogon</field>
     <field name="win.system.eventID">5829</field>
@@ -21,114 +33,9 @@
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="101790" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\comctl32\.dll$</field>
-    <description>Sigma: UAC Bypass Using Consent and Comctl32 - File</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101791" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\pe386\.dll$</field>
-    <description>Sigma: UAC Bypass Using .NET Code Profiler on MMC</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101793" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\DllHost\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.dll$</field>
-    <description>Sigma: UAC Bypass Using IDiagnostic Profile - File</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101794" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">C:\Program Files\Internet Explorer\IEInstal\.exe</field>
-    <field name="win.eventdata.targetFilename">consent\.exe$</field>
-    <description>Sigma: UAC Bypass Using IEInstal - File</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101795" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\pkgmgr\.exe$</field>
-    <description>Sigma: UAC Bypass Using MSConfig Token Modification - File</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101796" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\api-ms-win-core-kernel32-legacy-l1\.DLL$</field>
-    <description>Sigma: UAC Bypass Using NTFS Reparse Point - File</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101797" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\system32\winsat\.exe$|\AppData\Local\Temp\system32\winmm\.dll$</field>
-    <description>Sigma: UAC Bypass Abusing Winsat Path Parsing - File</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101798" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\OskSupport\.dll$</field>
-    <description>Sigma: UAC Bypass Using Windows Media Player - File</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101799" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">C:\Windows\system32\DllHost\.exe</field>
-    <field name="win.eventdata.targetFilename">C:\Program Files\Windows Media Player\osk\.exe</field>
-    <description>Sigma: UAC Bypass Using Windows Media Player - File</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101819" level="9">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">C:\Windows\SysWOW64\iscsicpl\.exe</field>
-    <field name="win.eventdata.imageLoaded">\iscsiexe\.dll$</field>
-    <description>Sigma: UAC Bypass Using Iscsicpl - ImageLoad</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102183" level="10">
-    <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\dism\.exe$</field>
-    <field name="win.eventdata.imageLoaded">\dismcore\.dll$</field>
-    <description>Sigma: UAC Bypass With Fake DLL</description>
-    <mitre>
-      <id>T1548</id>
-      <id>T1574</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="101972" level="9">
+  <rule id="107144" level="11">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">\svchost\.exe$</field>
     <field name="win.eventdata.grantedAccess">0x143a</field>
@@ -136,39 +43,37 @@
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="101974" level="9">
-    <if_sid>61612</if_sid>
-    <field name="win.eventdata.sourceImage">:\Windows\SysWOW64\</field>
-    <field name="win.eventdata.grantedAccess">0x1fffff</field>
-    <field name="win.eventdata.callTrace">^UNKNOWN\(0000000000000000\)\|UNKNOWN\(0000000000000000\)\|</field>
-    <description>Sigma: UAC Bypass Using WOW64 Logger DLL Hijack</description>
-    <mitre>
-      <id>T1548</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="102206" level="10">
+  <rule id="107226" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">WindowsPowerShellWebAccess|/online|/enable-feature</field>
-    <field name="win.eventdata.image">\dism\.exe$</field>
-    <description>Sigma: PowerShell Web Access Feature Enabled Via DISM</description>
+    <field name="win.eventdata.image">\regedit\.exe$</field>
+    <field name="win.eventdata.parentImage">\TrustedInstaller\.exe$|\ProcessHacker\.exe$</field>
+    <description>Sigma: Regedit as Trusted Installer</description>
     <mitre>
       <id>T1548</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="102293" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.eventType">SetValue</field>
-    <field name="win.eventdata.targetObject">Classes\ms-settings\shell\open\command\\(Default\)$|Classes\exefile\shell\open\command\\(Default\)$</field>
-    <field name="win.eventdata.details">\Software\Classes\\{</field>
-    <description>Sigma: Shell Open Registry Keys Manipulation</description>
+  <rule id="107259" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\cmd\.exe$</field>
+    <field name="win.eventdata.parentImage">\winlogon\.exe$|\services\.exe$|\lsass\.exe$|\csrss\.exe$|\smss\.exe$|\wininit\.exe$|\spoolsv\.exe$|\searchindexer\.exe$</field>
+    <field name="win.eventdata.user">AUTHORI|AUTORI</field>
+    <description>Sigma: Abused Debug Privilege by Arbitrary Parent Processes</description>
     <mitre>
       <id>T1548</id>
-      <id>T1546</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107286" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\mmc\.exe$</field>
+    <field name="win.eventdata.parentCommandLine">WF\.msc</field>
+    <description>Sigma: UAC Bypass via Windows Firewall Snap-In Hijack</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
 </group>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1574.012_unknown,">
+  <rule id="104792" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\COR_ENABLE_PROFILING$|\COR_PROFILER$|\CORECLR_ENABLE_PROFILING$</field>
+    <description>Sigma: Enabling COR Profiler Environment Variables</description>
+    <mitre>
+      <id>T1574.012</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104793" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\CORECLR_PROFILER_PATH</field>
+    <description>Sigma: Enabling COR Profiler Environment Variables</description>
+    <mitre>
+      <id>T1574.012</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="107136" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">\$env:COR_ENABLE_PROFILING|\$env:COR_PROFILER|\$env:COR_PROFILER_PATH</field>
+    <description>Sigma: Registry-Free Process Scope COR_PROFILER</description>
+    <mitre>
+      <id>T1574.012</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

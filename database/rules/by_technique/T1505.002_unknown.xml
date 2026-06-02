@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1505.002_unknown,">
+  <rule id="104535" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">6</field>
+    <field name="win.eventdata.data">Install-TransportAgent</field>
+    <description>Sigma: Failed MSExchange Transport Agent Installation</description>
+    <mitre>
+      <id>T1505.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104697" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Install-TransportAgent</field>
+    <description>Sigma: MSExchange Transport Agent Installation</description>
+    <mitre>
+      <id>T1505.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

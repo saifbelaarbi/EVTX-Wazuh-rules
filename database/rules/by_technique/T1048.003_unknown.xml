@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1048.003_unknown,">
+  <rule id="114513" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.destinationPort">25|587|465|2525</field>
+    <field name="win.eventdata.initiated">true</field>
+    <description>Sigma: Suspicious Outbound SMTP Connections</description>
+    <mitre>
+      <id>T1048.003</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="114515" level="12">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-Object|System\.Net\.NetworkInformation\.Ping|\.Send\(</field>
+    <description>Sigma: PowerShell ICMP Exfiltration</description>
+    <mitre>
+      <id>T1048.003</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="114532" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">C:\windows\system32\davclnt\.dll,DavSetCookie</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.parentImage">\svchost\.exe$</field>
+    <description>Sigma: WebDav Client Execution Via Rundll32.EXE</description>
+    <mitre>
+      <id>T1048.003</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="114533" level="13">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\svchost\.exe$</field>
+    <field name="win.eventdata.parentCommandLine">-s WebClient</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.commandLine">://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}</field>
+    <description>Sigma: Suspicious WebDav Client Execution Via Rundll32.EXE</description>
+    <mitre>
+      <id>T1048.003</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+</group>

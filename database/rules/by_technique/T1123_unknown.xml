@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1123_unknown,">
+  <rule id="113501" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4657|4656|4663</field>
+    <field name="win.eventdata.objectName">\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\NonPackaged|\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam\NonPackaged</field>
+    <description>Sigma: Processes Accessing the Microphone and Webcam</description>
+    <mitre>
+      <id>T1123</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="113531" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">WindowsAudioDevice-Powershell-Cmdlet|Toggle-AudioDevice|Get-AudioDevice |Set-AudioDevice |Write-AudioDevice </field>
+    <description>Sigma: Audio Capture via PowerShell</description>
+    <mitre>
+      <id>T1123</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="113539" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\SoundRecorder\.exe$</field>
+    <field name="win.eventdata.commandLine">/FILE</field>
+    <description>Sigma: Audio Capture via SoundRecorder</description>
+    <mitre>
+      <id>T1123</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+</group>

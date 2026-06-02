@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1204.004_unknown,">
+  <rule id="100912" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\explorer\.exe$</field>
+    <field name="win.eventdata.commandLine">            |            |            |            |            |            |            |            |            |            |            |            |            </field>
+    <description>Sigma: Suspicious Explorer Process with Whitespace Padding - ClickFix/FileFix</description>
+    <mitre>
+      <id>T1204.004</id>
+      <id>T1027.010</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100952" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\brave\.exe$|\chrome\.exe$|\firefox\.exe$|\msedge\.exe$</field>
+    <field name="win.eventdata.commandLine">account|anti-bot|botcheck|captcha|challenge|confirmation|fraud|human|identification|identificator|identity|robot|validation|verification|verify</field>
+    <description>Sigma: Suspicious FileFix Execution Pattern</description>
+    <mitre>
+      <id>T1204.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101119" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths\url1$</field>
+    <field name="win.eventdata.details">account|anti-bot|botcheck|captcha|challenge|confirmation|fraud|human|identification|identificator|identity|robot|validation|verification|verify|http</field>
+    <description>Sigma: FileFix - Command Evidence in TypedPaths</description>
+    <mitre>
+      <id>T1204.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101147" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU\</field>
+    <field name="win.eventdata.details">            |            |            |            |            |            |            |            |            |            |            |            |            </field>
+    <description>Sigma: Suspicious Space Characters in RunMRU Registry Path - ClickFix</description>
+    <mitre>
+      <id>T1204.004</id>
+      <id>T1027.010</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101149" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths\url1$</field>
+    <field name="win.eventdata.details">            |            |            |            |            |            |            |            |            |            |            |            |            </field>
+    <description>Sigma: Suspicious Space Characters in TypedPaths Registry Path - FileFix</description>
+    <mitre>
+      <id>T1204.004</id>
+      <id>T1027.010</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

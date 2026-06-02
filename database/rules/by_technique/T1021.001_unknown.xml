@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1021.001_unknown,">
+  <rule id="104709" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> add |\CurrentControlSet\Control\Terminal Server|REG_DWORD| /f</field>
+    <field name="win.eventdata.image">\reg\.exe$</field>
+    <description>Sigma: Potential Tampering With RDP Related Registry Keys Via Reg.EXE</description>
+    <mitre>
+      <id>T1021.001</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="112501" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Remote logon type 3 detected</description>
+    <mitre>
+      <id>T1021.001</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112502" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">10</field>
+    <description>Remote logon type 10 detected</description>
+    <mitre>
+      <id>T1021.001</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112517" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">10</field>
+    <field name="win.eventdata.ipAddress">::1|127\.0\.0\.1</field>
+    <description>Sigma: RDP Login from Localhost</description>
+    <mitre>
+      <id>T1021.001</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112525" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4825</field>
+    <description>Sigma: Denied Access To Remote Desktop</description>
+    <mitre>
+      <id>T1021.001</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112544" level="11">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.destinationPort">3389</field>
+    <field name="win.eventdata.initiated">true</field>
+    <description>Sigma: Outbound RDP Connections Over Non-Standard Tools</description>
+    <mitre>
+      <id>T1021.001</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112559" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /v:</field>
+    <field name="win.eventdata.image">\mstsc\.exe$</field>
+    <description>Sigma: New Remote Desktop Connection Initiated Via Mstsc.EXE</description>
+    <mitre>
+      <id>T1021.001</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112566" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">SetAllowTSConnections</field>
+    <field name="win.eventdata.image">\wmic\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <description>Sigma: RDP Enable or Disable via Win32_TerminalServiceSetting WMI Class</description>
+    <mitre>
+      <id>T1021.001</id>
+      <id>T1047</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+</group>

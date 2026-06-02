@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1055.012_unknown,">
+  <rule id="107043" level="11">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.sourceImage">\System32\cscript\.exe$|\System32\wscript\.exe$|\System32\mshta\.exe$|\winword\.exe$|\excel\.exe$</field>
+    <field name="win.eventdata.targetImage">\SysWOW64\</field>
+    <field name="win.eventdata.startModule"></field>
+    <description>Sigma: HackTool - CACTUSTORCH Remote Thread Creation</description>
+    <mitre>
+      <id>T1055.012</id>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107168" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\HollowReaper\.exe$</field>
+    <description>Sigma: HackTool - HollowReaper Execution</description>
+    <mitre>
+      <id>T1055.012</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107308" level="10">
+    <if_sid>61627</if_sid>
+    <field name="win.eventdata.type">Image is replaced</field>
+    <description>Sigma: Potential Process Hollowing Activity</description>
+    <mitre>
+      <id>T1055.012</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

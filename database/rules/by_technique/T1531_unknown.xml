@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1531_unknown,">
+  <rule id="114015" level="13">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Remove-ADGroupMember|-Identity |-Members </field>
+    <description>Sigma: Remove Account From Domain Admin Group</description>
+    <mitre>
+      <id>T1531</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+</group>

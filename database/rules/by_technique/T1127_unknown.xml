@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1127_unknown,">
-  <rule id="101705" level="9">
+  <rule id="100120" level="9">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.sourceImage">\ttdinject\.exe$</field>
     <description>Sigma: Remote Thread Creation Ttdinject.exe Proxy</description>
@@ -9,30 +9,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="102132" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\ArcSOC\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.ahk$|\.aspx$|\.au3$|\.bat$|\.cmd$|\.dll$|\.exe$|\.hta$|\.js$|\.ps1$|\.py$|\.vbe$|\.vbs$|\.wsf$</field>
-    <description>Sigma: Suspicious File Created by ArcSOC.exe</description>
-    <mitre>
-      <id>T1127</id>
-      <id>T1105</id>
-      <id>T1133</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="101835" level="9">
-    <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">\msbuild\.exe$</field>
-    <field name="win.eventdata.destinationPort">80|443</field>
-    <field name="win.eventdata.initiated">true</field>
-    <description>Sigma: Silenttrinity Stager Msbuild Activity</description>
+  <rule id="100377" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\aspnet_compiler\.exe$</field>
+    <description>Sigma: AspNetCompiler Execution</description>
     <mitre>
       <id>T1127</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101981" level="9">
+  <rule id="100378" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\calc\.exe$|\notepad\.exe$</field>
     <field name="win.eventdata.parentImage">\aspnet_compiler\.exe$</field>
@@ -42,7 +28,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101982" level="9">
+  <rule id="100379" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\aspnet_compiler\.exe$</field>
     <field name="win.eventdata.commandLine">\Users\Public\|\AppData\Local\Temp\|\AppData\Local\Roaming\|:\Temp\|:\Windows\Temp\|:\Windows\System32\Tasks\|:\Windows\Tasks\</field>
@@ -51,5 +37,140 @@
       <id>T1127</id>
     </mitre>
     <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100431" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\csi\.exe$</field>
+    <field name="win.eventdata.parentImage">\powershell\.exe$|\pwsh\.exe$|\powershell_ise\.exe$</field>
+    <field name="win.eventdata.originalFileName">csi\.exe</field>
+    <description>Sigma: Suspicious Use of CSharp Interactive Console</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100554" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /dll| /exe</field>
+    <field name="win.eventdata.image">\ilasm\.exe$</field>
+    <description>Sigma: C# IL Code Compilation Via Ilasm.EXE</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100562" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> run run-cmd </field>
+    <description>Sigma: Kavremover Dropped Binary LOLBIN Usage</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100587" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\remote\.exe$</field>
+    <description>Sigma: Use of Remote.exe</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100588" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">remote\.exe</field>
+    <description>Sigma: Use of Remote.exe</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100595" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">ttdinject\.exe$</field>
+    <description>Sigma: Use of TTDInject.exe</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100596" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">TTDInject\.EXE</field>
+    <description>Sigma: Use of TTDInject.exe</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100602" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -p | -a </field>
+    <field name="win.eventdata.image">\VSIISExeLauncher\.exe$</field>
+    <description>Sigma: Use of VSIISExeLauncher.exe</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100603" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\wfc\.exe$</field>
+    <description>Sigma: Use of Wfc.exe</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100604" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">wfc\.exe</field>
+    <description>Sigma: Use of Wfc.exe</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100607" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\mftrace\.exe$</field>
+    <description>Sigma: Potential Mftrace.EXE Abuse</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100645" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\node\.exe$</field>
+    <field name="win.eventdata.commandLine">\.exec\(|net\.socket|\.connect|child_process</field>
+    <description>Sigma: Potential Arbitrary Code Execution Via Node.EXE</description>
+    <mitre>
+      <id>T1127</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100646" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\Adobe Creative Cloud Experience\libs\node\.exe$</field>
+    <description>Sigma: Node Process Executions</description>
+    <mitre>
+      <id>T1127</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="110032" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\ArcSOC\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.ahk$|\.aspx$|\.au3$|\.bat$|\.cmd$|\.dll$|\.exe$|\.hta$|\.js$|\.ps1$|\.py$|\.vbe$|\.vbs$|\.wsf$</field>
+    <description>Sigma: Suspicious File Created by ArcSOC.exe</description>
+    <mitre>
+      <id>T1127</id>
+      <id>T1105</id>
+      <id>T1133</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
   </rule>
 </group>

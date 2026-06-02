@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1210_unknown,">
-  <rule id="101680" level="9">
+  <rule id="100540" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -PayloadArgs | -PayloadFile </field>
+    <description>Sigma: HackTool - SharpWSUS/WSUSpendu Execution</description>
+    <mitre>
+      <id>T1210</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="112534" level="11">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">5805|5723</field>
     <description>Sigma: Zerologon Exploitation Using Well-known Tools</description>
     <mitre>
       <id>T1210</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112556" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\java\.exe$|\javaw\.exe$</field>
+    <field name="win.eventdata.parentCommandLine">SysAidServer</field>
+    <description>Sigma: Suspicious SysAidServer Child</description>
+    <mitre>
+      <id>T1210</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
   </rule>
 </group>

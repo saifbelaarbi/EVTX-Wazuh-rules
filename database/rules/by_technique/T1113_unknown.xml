@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1113_unknown,">
+  <rule id="113514" level="7">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">\.CopyFromScreen</field>
+    <description>Sigma: Windows Screen Capture with CopyFromScreen</description>
+    <mitre>
+      <id>T1113</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="113534" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\Psr\.exe$</field>
+    <field name="win.eventdata.commandLine">/start|-start</field>
+    <description>Sigma: Screen Capture Activity Via Psr.EXE</description>
+    <mitre>
+      <id>T1113</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="113536" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine">add|0|DisableAIDataAnalysis</field>
+    <description>Sigma: Windows Recall Feature Enabled Via Reg.EXE</description>
+    <mitre>
+      <id>T1113</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="113547" level="7">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.eventType">DeleteValue</field>
+    <field name="win.eventdata.targetObject">\Microsoft\Windows\WindowsAI\DisableAIDataAnalysis$</field>
+    <description>Sigma: Windows Recall Feature Enabled - DisableAIDataAnalysis Value Deleted</description>
+    <mitre>
+      <id>T1113</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="113549" level="7">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Control\Session Manager\Configuration Manager\EnablePeriodicBackup$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Periodic Backup For System Registry Hives Enabled</description>
+    <mitre>
+      <id>T1113</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="113550" level="7">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Policies\Microsoft\Windows\WindowsAI\DisableAIDataAnalysis$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Windows Recall Feature Enabled - Registry</description>
+    <mitre>
+      <id>T1113</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+</group>

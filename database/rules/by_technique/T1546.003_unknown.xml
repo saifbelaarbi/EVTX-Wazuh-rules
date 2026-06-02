@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1546.003_unknown,">
+  <rule id="104005" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.eventdata.consumer"> "AtomicRedTeam-WMIPersistence-Example"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104006" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer"> "AtomicRedTeam-WMIPersistence-Example"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104007" level="9">
+    <if_sid>61623</if_sid>
+    <field name="win.eventdata.consumer"> "\\\\\\\\\.\\\\ROOT\\\\subscription:CommandLineEventConsumer\.Name=\\"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104012" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer"> "BotConsumer23"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104013" level="9">
+    <if_sid>61623</if_sid>
+    <field name="win.eventdata.consumer"> "CommandLineEventConsumer\.Name=\\"BotConsumer23\\""</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104014" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.eventdata.consumer"> "BotFilter82"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104015" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer"> "ProbeScriptFint"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104016" level="9">
+    <if_sid>61623</if_sid>
+    <field name="win.eventdata.consumer"> "\\\\\\\\\.\\\\root\\\\subscription:ActiveScriptEventConsumer\.Name=\\</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104505" level="9">
+    <if_sid>61622</if_sid>
+    <field name="win.eventdata.consumer"> "Evil"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104506" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.eventdata.consumer"> "Evil"</field>
+    <description>WMI event subscription activity detected</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104550" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4662</field>
+    <field name="win.eventdata.objectType">WMI Namespace</field>
+    <field name="win.eventdata.objectName">subscription</field>
+    <description>Sigma: WMI Persistence - Security</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104569" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.system.eventID">5861</field>
+    <description>Sigma: WMI Persistence</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104672" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-CimInstance |-Namespace root/subscription |-ClassName __EventFilter |-Property </field>
+    <description>Sigma: Powershell WMI Persistence</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104748" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">C:\WINDOWS\system32\wbem\scrcons\.exe</field>
+    <field name="win.eventdata.parentImage">C:\Windows\System32\svchost\.exe</field>
+    <description>Sigma: WMI Persistence - Script Event Consumer</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="107078" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">C:\WINDOWS\system32\wbem\scrcons\.exe</field>
+    <description>Sigma: WMI Persistence - Script Event Consumer File Write</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107092" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">C:\Windows\System32\wbem\WmiPrvSE\.exe</field>
+    <field name="win.eventdata.imageLoaded">\wbemcons\.dll$</field>
+    <description>Sigma: WMI Persistence - Command Line Event Consumer</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107304" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\EdgeTransport\.exe$</field>
+    <description>Sigma: WMI Backdoor Exchange Transport Agent</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107306" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ActiveScriptEventConsumer| CREATE </field>
+    <description>Sigma: New ActiveScriptEventConsumer Created Via Wmic.EXE</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107381" level="10">
+    <if_sid>61621</if_sid>
+    <field name="win.system.eventID">19|20|21</field>
+    <description>Sigma: WMI Event Subscription</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="112542" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\scrcons\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\vbscript\.dll$|\wbemdisp\.dll$|\wshom\.ocx$|\scrrun\.dll$</field>
+    <description>Sigma: WMI ActiveScriptEventConsumers Activity Via Scrcons.EXE DLL Load</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+</group>

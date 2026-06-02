@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1574.002_unknown,">
+  <rule id="112000" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\appdata\\</field>
+    <description>DLL loaded from suspicious path: \appdata\</description>
+    <mitre>
+      <id>T1574.002</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112003" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\public\\</field>
+    <description>DLL loaded from suspicious path: \public\</description>
+    <mitre>
+      <id>T1574.002</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112019" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\downloads\\</field>
+    <description>DLL loaded from suspicious path: \downloads\</description>
+    <mitre>
+      <id>T1574.002</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112021" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\programdata\\</field>
+    <description>DLL loaded from suspicious path: \programdata\</description>
+    <mitre>
+      <id>T1574.002</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112029" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\temp\\</field>
+    <description>DLL loaded from suspicious path: \temp\</description>
+    <mitre>
+      <id>T1574.002</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+</group>

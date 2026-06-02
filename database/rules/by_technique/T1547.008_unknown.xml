@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1547.008_unknown,">
+  <rule id="107322" level="12">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\CurrentControlSet\Services\NTDS\DirectoryServiceExtPt|\CurrentControlSet\Services\NTDS\LsaDbExtPt</field>
+    <description>Sigma: DLL Load via LSASS</description>
+    <mitre>
+      <id>T1547.008</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

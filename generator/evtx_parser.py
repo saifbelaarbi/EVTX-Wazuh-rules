@@ -1,7 +1,7 @@
 """Parse EVTX binary files and JSON/XML exports into normalized event dicts."""
 
-import json
 import hashlib
+import json
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -37,6 +37,7 @@ def parse_evtx_binary(file_path: Path) -> list[dict]:
         for record in parser.records_json():
             try:
                 import json as _json
+
                 raw = _json.loads(record["data"])
                 event = _normalize_evtx_rs_record(raw)
                 if event:
@@ -209,28 +210,60 @@ def _normalize_json_event(raw: dict) -> dict:
         event["event_id"] = int(event["event_id"].get("#text", 0))
 
     event["channel"] = raw.get("Channel") or raw.get("channel") or raw.get("Event.System.Channel") or ""
-    event["provider_name"] = (raw.get("Provider") or raw.get("SourceName")
-                               or raw.get("provider_name") or "")
+    event["provider_name"] = raw.get("Provider") or raw.get("SourceName") or raw.get("provider_name") or ""
     event["computer"] = raw.get("Computer") or raw.get("Hostname") or raw.get("computer") or ""
-    event["timestamp"] = (raw.get("Timestamp") or raw.get("TimeCreated")
-                           or raw.get("EventTime") or raw.get("@timestamp")
-                           or raw.get("timestamp") or "")
+    event["timestamp"] = (
+        raw.get("Timestamp")
+        or raw.get("TimeCreated")
+        or raw.get("EventTime")
+        or raw.get("@timestamp")
+        or raw.get("timestamp")
+        or ""
+    )
 
     event_data = raw.get("EventData") or raw.get("event_data") or {}
     if not event_data:
         _SYSTEM_FIELDS = {
-            "EventID", "Channel", "Provider", "Computer", "Timestamp",
-            "TimeCreated", "event_id", "channel", "provider_name",
-            "computer", "timestamp", "Level", "Task", "SourceName",
-            "Hostname", "EventTime", "@timestamp", "@version", "tags",
-            "EventType", "Version", "ThreadID", "OpcodeValue",
-            "RecordNumber", "EventReceivedTime", "SourceModuleName",
-            "SourceModuleType", "Severity", "SeverityValue", "UserID",
-            "ProviderGuid", "AccountType", "Domain", "AccountName",
-            "ExecutionProcessID", "host", "port", "Message",
+            "EventID",
+            "Channel",
+            "Provider",
+            "Computer",
+            "Timestamp",
+            "TimeCreated",
+            "event_id",
+            "channel",
+            "provider_name",
+            "computer",
+            "timestamp",
+            "Level",
+            "Task",
+            "SourceName",
+            "Hostname",
+            "EventTime",
+            "@timestamp",
+            "@version",
+            "tags",
+            "EventType",
+            "Version",
+            "ThreadID",
+            "OpcodeValue",
+            "RecordNumber",
+            "EventReceivedTime",
+            "SourceModuleName",
+            "SourceModuleType",
+            "Severity",
+            "SeverityValue",
+            "UserID",
+            "ProviderGuid",
+            "AccountType",
+            "Domain",
+            "AccountName",
+            "ExecutionProcessID",
+            "host",
+            "port",
+            "Message",
         }
-        event_data = {k: str(v) for k, v in raw.items()
-                      if k not in _SYSTEM_FIELDS and v is not None}
+        event_data = {k: str(v) for k, v in raw.items() if k not in _SYSTEM_FIELDS and v is not None}
 
     event["event_data"] = event_data
     return event

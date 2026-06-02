@@ -1,40 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1566_phishing,">
-  <rule id="101736" level="9">
+  <rule id="107052" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.iso$|\.zip\</field>
-    <description>Sigma: ISO File Created Within Temp Folders</description>
+    <field name="win.eventdata.image">\winword\.exe$|\excel\.exe$|\powerpnt\.exe$|\MSACCESS\.EXE$|\MSPUB\.EXE$|\fltldr\.exe$|\cmd\.exe$|\certutil\.exe$|\mshta\.exe$|\cscript\.exe$|\wscript\.exe$|\curl\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.targetFilename">\Microsoft\OneDrive\|\Microsoft OneDrive\|\Microsoft\Teams\|\Local\slack\app-|\Local\Programs\Microsoft VS Code\|\Users\|\AppData\</field>
+    <description>Sigma: Potential Initial Access via DLL Search Order Hijacking</description>
     <mitre>
       <id>T1566</id>
+      <id>T1566.001</id>
+      <id>T1574</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="101737" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.iso$</field>
-    <description>Sigma: ISO File Created Within Temp Folders</description>
+  <rule id="113021" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\onenote\.exe$</field>
+    <field name="win.eventdata.image">\explorer\.exe$</field>
+    <field name="win.eventdata.commandLine">\.hta|\.vb|\.wsh|\.js|\.ps|\.scr|\.pif|\.bat|\.cmd</field>
+    <description>Sigma: Suspicious Microsoft OneNote Child Process</description>
     <mitre>
       <id>T1566</id>
+      <id>T1566.001</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="101754" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\cscript\.exe$|\mshta\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.docm$|\.dotm$|\.xlsm$|\.xltm$|\.potm$|\.pptm$</field>
-    <description>Sigma: Office Macro File Creation From Suspicious Process</description>
+  <rule id="113025" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\Winrar\.exe$|\7zFM\.exe$|\peazip\.exe$</field>
+    <field name="win.eventdata.image">\isoburn\.exe$|\PowerISO\.exe$|\ImgBurn\.exe$</field>
+    <description>Sigma: Phishing Pattern ISO in Archive</description>
     <mitre>
       <id>T1566</id>
     </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101756" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Packages\Microsoft\.Outlook_|\AppData\Local\Microsoft\Olk\Attachments\</field>
-    <description>Sigma: Suspicious File Created in Outlook Temporary Directory</description>
-    <mitre>
-      <id>T1566</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
+    <group>initial_access,sigma_converted,</group>
   </rule>
 </group>

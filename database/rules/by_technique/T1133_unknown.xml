@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1133_unknown,">
-  <rule id="102130" level="10">
+  <rule id="104584" level="10">
     <if_sid>61604</if_sid>
     <field name="win.eventdata.image">\dns\.exe$</field>
     <description>Sigma: Unusual File Modification by dns.exe</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102131" level="10">
+  <rule id="104585" level="10">
     <if_sid>61625</if_sid>
     <field name="win.eventdata.image">\dns\.exe$</field>
     <description>Sigma: Unusual File Deletion by Dns.exe</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102208" level="10">
+  <rule id="104685" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\dns\.exe$</field>
     <description>Sigma: Unusual Child Process of dns.exe</description>
@@ -27,24 +27,57 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="102251" level="10">
+  <rule id="104718" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">e=Access&amp;|y=Guest&amp;|&amp;p=|&amp;c=|&amp;k=</field>
+    <description>Sigma: Remote Access Tool - ScreenConnect Installation Execution</description>
+    <mitre>
+      <id>T1133</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="107011" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">10</field>
+    <description>Sigma: External Remote RDP Logon from Public IP</description>
+    <mitre>
+      <id>T1133</id>
+      <id>T1078</id>
+      <id>T1110</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107012" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <description>Sigma: External Remote SMB Logon from Public IP</description>
+    <mitre>
+      <id>T1133</id>
+      <id>T1078</id>
+      <id>T1110</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="113024" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">localgroup | /add</field>
     <description>Sigma: User Added to Remote Desktop Users Group</description>
     <mitre>
       <id>T1133</id>
-      <id>T1136</id>
-      <id>T1021</id>
+      <id>T1136.001</id>
+      <id>T1021.001</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>initial_access,sigma_converted,</group>
   </rule>
-  <rule id="102299" level="10">
+  <rule id="113031" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">fdcgdnkidjaadafnichfpabhfomcebme|fcfhplploccackoneaefokcmbjfbkenj|bihmplhobchoageeokmgbdihknkjbknd|gkojfkhlekighikafcpjkiklfbnlmeio|jajilbjjinjmgcibalaakngmkilboobh|gjknjjomckknofjidppipffbpoekiipm|nabbmpekekjknlbkgpodfndbodhijjem|kpiecbcckbofpmkkkdibbllpinceiihk|nlbejmccbhkncgokjcmghpfloaajcffj|omghfjlpggmjjaagoclmmobgdodcjboh|bibjcjfmgapbfoljiojpipaooddpkpai|mpcaainmfjjigeicjnlkdfajbioopjko|jljopmgdobloagejpohpldgkiellmfnc|lochiccbgeohimldjooaakjllnafhaid|nhnfcgpcbfclhfafjlooihdfghaeinfc|ookhnhpkphagefgdiemllfajmkdkcaim|namfblliamklmeodpcelkokjbffgmeoo|nbcojefnccbanplpoffopkoepjmhgdgh|majdfhpaihoncoakbjgbdhglocklcgno|lnfdmdhmfbimhhpaeocncdlhiodoblbd|eppiocemhmnlbhjplcgkofciiegomcon|cocfojppfigjeefejbpfmedgjbpchcng|foiopecknacmiihiocgdjgbjokkpkohc|hhdobjgopfphlmjbmnpglhfcgppchgje|jgbaghohigdbgbolncodkdlpenhcmcge|inligpkjkhbpifecbdjhmdpcfhnlelja|higioemojdadgdbhbbbkfbebbdlfjbip|hipncndjamdcmphkgngojegjblibadbe|iolonopooapdagdemdoaihahlfkncfgg|nhfjkakglbnnpkpldhjmpmmfefifedcj|jpgljfpmoofbmlieejglhonfofmahini|fgddmllnllkalaagkghckoinaemmogpe|ejkaocphofnobjdedneohbbiilggdlbi|keodbianoliadkoelloecbhllnpiocoi|hoapmlpnmpaehilehggglehfdlnoegck|poeojclicodamonabcabmapamjkkmnnk|dfkdflfgjdajbhocmfjolpjbebdkcjog|kcdahmgmaagjhocpipbodaokikjkampi|klnkiajpmpkkkgpgbogmcgfjhdoljacg|lneaocagcijjdpkcabeanfpdbmapcjjg|pgfpignfckbloagkfnamnolkeaecfgfh|jplnlifepflhkbkgonidnobkakhmpnmh|jliodmnojccaloajphkingdnpljdhdok|hnmpcagpplmpfojmgmnngilcnanddlhb|ffbkglfijbcbgblgflchnbphjdllaogb|kcndmbbelllkmioekdagahekgimemejo|jdgilggpfmjpbodmhndmhojklgfdlhob|bihhflimonbpcfagfadcnbbdngpopnjb|ppajinakbfocjfnijggfndbdmjggcmde|oofgbpoabipfcfjapgnbbjjaenockbdp|bhnhkdgoefpmekcgnccpnhjfdgicfebm|knmmpciebaoojcpjjoeonlcjacjopcpf|dhadilbmmjiooceioladdphemaliiobo|jedieiamjmoflcknjdjhpieklepfglin|mhngpdlhojliikfknhfaglpnddniijfh|omdakjcmkglenbhjadbccaookpfjihpa|npgimkapccfidfkfoklhpkgmhgfejhbj|akeehkgglkmpapdnanoochpfmeghfdln|gbmdmipapolaohpinhblmcnpmmlgfgje|aigmfoeogfnljhnofglledbhhfegannp|cgojmfochfikphincbhokimmmjenhhgk|ficajfeojakddincjafebjmfiefcmanc|ifnaibldjfdmaipaddffmgcmekjhiloa|jbnmpdkcfkochpanomnkhnafobppmccn|apcfdffemoinopelidncddjbhkiblecc|mjolnodfokkkaichkcjipfgblbfgojpa|oifjbnnafapeiknapihcmpeodaeblbkn|plpmggfglncceinmilojdkiijhmajkjh|mjnbclmflcpookeapghfhapeffmpodij|bblcccknbdbplgmdjnnikffefhdlobhp|aojlhgbkmkahabcmcpifbolnoichfeep|lcmammnjlbmlbcaniggmlejfjpjagiia|knajdeaocbpmfghhmijicidfcmdgbdpm|bdlcnpceagnkjnjlbbbcepohejbheilk|edknjdjielmpdlnllkdmaghlbpnmjmgb|eidnihaadmmancegllknfbliaijfmkgo|ckiahbcmlmkpfiijecbpflfahoimklke|macdlemfnignjhclfcfichcdhiomgjjb|chioafkonnhbpajpengbalkececleldf|amnoibeflfphhplmckdbiajkjaoomgnj|llbhddikeonkpbhpncnhialfbpnilcnc|pcienlhnoficegnepejpfiklggkioccm|iocnglnmfkgfedpcemdflhkchokkfeii|igahhbkcppaollcjeaaoapkijbnphfhb|njpmifchgidinihmijhcfpbdmglecdlb|ggackgngljinccllcmbgnpgpllcjepgc|kchocjcihdgkoplngjemhpplmmloanja|bnijmipndnicefcdbhgcjoognndbgkep|lklekjodgannjcccdlbicoamibgbdnmi|dbdbnchagbkhknegmhgikkleoogjcfge|egblhcjfjmbjajhjhpmnlekffgaemgfh|ehbhfpfdkmhcpaehaooegfdflljcnfec|bkkgdjpomdnfemhhkalfkogckjdkcjkg|almalgbpmcfpdaopimbdchdliminoign|akkbkhnikoeojlhiiomohpdnkhbkhieh|gbfgfbopcfokdpkdigfmoeaajfmpkbnh|bniikohfmajhdcffljgfeiklcbgffppl|lejgfmmlngaigdmmikblappdafcmkndb|ffhhkmlgedgcliajaedapkdfigdobcif|gcknhkkoolaabfmlnjonogaaifnjlfnp|pooljnboifbodgifngpppfklhifechoe|fjoaledfpmneenckfbpdfhkmimnjocfa|aakchaleigkohafkfjfjbblobjifikek|dpplabbmogkhghncfbfdeeokoefdjegm|padekgcemlokbadohgkifijomclgjgif|bfidboloedlamgdmenmlbipfnccokknp</field>
     <description>Sigma: Running Chrome VPN Extensions via the Registry 2 VPN Extension</description>
     <mitre>
       <id>T1133</id>
     </mitre>
-    <group>persistence,sigma_converted,</group>
+    <group>initial_access,sigma_converted,</group>
   </rule>
 </group>

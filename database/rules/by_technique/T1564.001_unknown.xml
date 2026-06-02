@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1564.001_unknown,">
+  <rule id="100381" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> \+h </field>
+    <field name="win.eventdata.image">\attrib\.exe$</field>
+    <description>Sigma: Hiding Files with Attrib.exe</description>
+    <mitre>
+      <id>T1564.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100382" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> %|\Users\Public\|\AppData\Local\|\ProgramData\|\Downloads\|\Windows\Temp\</field>
+    <field name="win.eventdata.image">\attrib\.exe$</field>
+    <description>Sigma: Set Suspicious Files as System Files Using Attrib.EXE</description>
+    <mitre>
+      <id>T1564.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100549" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/deny|.*S-1-1-0:</field>
+    <field name="win.eventdata.originalFileName">iCACLS\.EXE</field>
+    <description>Sigma: Use Icacls to Hide File to Everyone</description>
+    <mitre>
+      <id>T1564.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101092" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\(Default\)$</field>
+    <field name="win.eventdata.details">Service</field>
+    <description>Sigma: Registry Persistence via Service in Safe Mode</description>
+    <mitre>
+      <id>T1564.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101120" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowSuperHidden$|\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Hidden$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Displaying Hidden Files Feature Disabled</description>
+    <mitre>
+      <id>T1564.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="104827" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\ModuleLogging\EnableModuleLogging$|\ScriptBlockLogging\EnableScriptBlockLogging$|\ScriptBlockLogging\EnableScriptBlockInvocationLogging$|\Transcription\EnableTranscripting$|\Transcription\EnableInvocationHeader$|\EnableScripts$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: PowerShell Logging Disabled Via Registry Key Tampering</description>
+    <mitre>
+      <id>T1564.001</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+</group>

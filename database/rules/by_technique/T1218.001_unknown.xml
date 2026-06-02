@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1218.001_unknown,">
+  <rule id="100478" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">http://|https://|\\\\</field>
+    <field name="win.eventdata.originalFileName">HH\.exe</field>
+    <description>Sigma: Remote CHM File Download/Execution Via HH.EXE</description>
+    <mitre>
+      <id>T1218.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100658" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\onenote\.exe$</field>
+    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.commandLine">\exported\|\onenoteofflinecache_files\</field>
+    <description>Sigma: OneNote.EXE Execution of Malicious Embedded Scripts</description>
+    <mitre>
+      <id>T1218.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

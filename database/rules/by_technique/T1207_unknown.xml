@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1207_unknown,">
+  <rule id="108542" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4742</field>
+    <field name="win.eventdata.servicePrincipalNames">GC/</field>
+    <description>Sigma: Possible DC Shadow Attack</description>
+    <mitre>
+      <id>T1207</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108543" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5136</field>
+    <field name="win.eventdata.attributeLDAPDisplayName">servicePrincipalName</field>
+    <field name="win.eventdata.attributeValue">^GC/</field>
+    <description>Sigma: Possible DC Shadow Attack</description>
+    <mitre>
+      <id>T1207</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+</group>

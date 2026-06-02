@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1070.003_unknown,">
+  <rule id="100248" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">Set-PSReadlineOption|–HistorySaveStyle|SaveNothing</field>
+    <description>Sigma: Clear PowerShell History - PowerShell Module</description>
+    <mitre>
+      <id>T1070.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100249" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">Set-PSReadlineOption|-HistorySaveStyle|SaveNothing</field>
+    <description>Sigma: Clear PowerShell History - PowerShell Module</description>
+    <mitre>
+      <id>T1070.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100280" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Set-PSReadlineOption|–HistorySaveStyle|SaveNothing</field>
+    <description>Sigma: Clear PowerShell History - PowerShell</description>
+    <mitre>
+      <id>T1070.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100281" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Set-PSReadlineOption|-HistorySaveStyle|SaveNothing</field>
+    <description>Sigma: Clear PowerShell History - PowerShell</description>
+    <mitre>
+      <id>T1070.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100284" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Remove-Module|psreadline</field>
+    <description>Sigma: Disable Powershell Command History</description>
+    <mitre>
+      <id>T1070.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100334" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-Object|IO\.FileStream|\\\\\.\\</field>
+    <description>Sigma: Suspicious IO.FileStream</description>
+    <mitre>
+      <id>T1070.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100809" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> del|\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU</field>
+    <field name="win.eventdata.image">\reg\.exe$</field>
+    <description>Sigma: RunMRU Registry Key Deletion</description>
+    <mitre>
+      <id>T1070.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101085" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU$</field>
+    <description>Sigma: RunMRU Registry Key Deletion - Registry</description>
+    <mitre>
+      <id>T1070.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

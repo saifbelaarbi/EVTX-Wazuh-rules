@@ -1,22 +1,46 @@
 # EVTX-Wazuh-Rules
 
-A production-ready system for building and expanding a **Wazuh detection rule database** from real-world Windows EVTX attack samples. Parses EVTX logs from security research repositories, extracts malicious patterns, and generates categorized, MITRE ATT&CK-mapped Wazuh rules.
+A production-ready system for building and expanding a **Wazuh detection rule database** from real-world Windows EVTX attack samples and SigmaHQ detection rules. Parses EVTX logs from security research repositories, converts Sigma YAML rules, extracts malicious patterns, and generates categorized, MITRE ATT&CK-mapped Wazuh rules with semantic technique classification.
 
 ## Current Database
 
 | Metric | Value |
 |--------|-------|
-| Total rules | **1,570** |
-| EVTX-generated rules | 793 from 7 EVTX sources |
-| Sigma-converted rules | 777 from SigmaHQ |
-| Events analyzed | 2,035,484 |
+| Total rules | **3,289** |
+| EVTX-generated rules | 619 from 7 EVTX sources |
+| Sigma-converted rules | 2,670 from SigmaHQ |
+| EVTX files processed | 2,292 |
 | MITRE tactics covered | 12 / 12 |
-| MITRE techniques | 95+ |
-| Alert level range | 3 - 15 |
-| Sigma rules convertible | 2,267 (94.6% of Windows rules) |
+| MITRE techniques | 270+ |
+| Alert level range | 6 - 14 |
+| Sigma rules converted | 2,670 (from 2,230 convertible Windows rules) |
+| Sigma conversion errors | 2 |
 | Validation errors | 0 |
+| Test suite | 93 tests |
+| Logtest pass rate | 55.2% (93.1% EVTX stored, 46.5% Sigma synthetic) |
 
-See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [docs/COVERAGE_MATRIX.md](docs/COVERAGE_MATRIX.md) for MITRE ATT&CK coverage, and [docs/SOURCES.md](docs/SOURCES.md) for source attribution.
+### Tactic Distribution
+
+| Tactic | Rules | Tactic | Rules |
+|--------|------:|--------|------:|
+| Execution | 1,163 | Discovery | 137 |
+| Persistence | 843 | Lateral Movement | 77 |
+| Privilege Escalation | 383 | Collection | 51 |
+| Credential Access | 295 | Impact | 44 |
+| Command & Control | 193 | Exfiltration | 36 |
+| Defense Evasion | 35 | Initial Access | 32 |
+
+### Source Distribution
+
+| Source | Rules |
+|--------|------:|
+| Sysmon | 2,258 |
+| System | 591 |
+| PowerShell | 226 |
+| Security | 156 |
+| Application | 58 |
+
+See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [docs/COVERAGE_MATRIX.md](docs/COVERAGE_MATRIX.md) for MITRE ATT&CK coverage, [docs/SOURCES.md](docs/SOURCES.md) for source attribution, and [docs/PLAYBOOK.md](docs/PLAYBOOK.md) for the end-to-end workflow.
 
 ## Architecture
 
@@ -40,9 +64,9 @@ See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [doc
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Part 1 — Collector** downloads EVTX samples and Wazuh default rules from GitHub. Downloaded binary files stay in `data/` (gitignored).
+**Part 1 — Collector** downloads EVTX samples, SigmaHQ rules, and Wazuh default rules from GitHub. Downloaded data stays in `data/` (gitignored).
 
-**Part 2 — Generator** parses events, extracts detection patterns, builds Wazuh XML rules, cross-references against existing rules and Wazuh defaults, assigns severity levels, validates, and exports in three views.
+**Part 2 — Generator** parses events, extracts detection patterns, classifies MITRE ATT&CK techniques via semantic indicator mapping, builds Wazuh XML rules, converts Sigma YAML rules, cross-references against existing rules and Wazuh defaults, assigns severity levels, validates, and exports in three views.
 
 ## EVTX Sources
 
@@ -62,11 +86,16 @@ See [docs/RULES_REPORT.md](docs/RULES_REPORT.md) for the full rule listing, [doc
 |--------|-------|
 | Source | [SigmaHQ/sigma](https://github.com/SigmaHQ/sigma) |
 | Total Windows rules | 2,396 |
-| Convertible to Wazuh | 2,267 (94.6%) |
-| High/Critical severity | 1,160 |
-| Top category | process_creation (1,177 rules) |
+| Converted to Wazuh | 2,670 rules from 2,230 files |
+| Conversion errors | 2 (down from 214 after logsource expansion) |
+| Logsource mappings | 61+ (sysmon, security, powershell, system, application, windefend, etc.) |
+| Top category | process_creation |
 
-The Sigma analyzer (`generator/sigma_analyzer.py`) assesses convertibility, and the converter (`generator/sigma_converter.py`) generates Wazuh XML rules directly from Sigma YAML. Conversion covers process creation, registry, file events, PowerShell, network connections, DNS queries, named pipes, and more.
+The Sigma analyzer (`generator/sigma_analyzer.py`) assesses convertibility with 61+ logsource-to-Wazuh mappings. The converter (`generator/sigma_converter.py`) generates Wazuh XML rules directly from Sigma YAML with:
+- Glob-to-OS-regex translation (`*`→`.*`, `?`→`.`)
+- Full modifier support (endswith, startswith, contains, re, windash)
+- Tactic normalization (hyphenated ATT&CK tags → snake_case)
+- Categorized error reporting (`database/metadata/sigma_conversion_errors.json`)
 
 Wazuh default rules are downloaded from [wazuh/wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) for cross-referencing (133 rule files, 104 decoder files).
 
@@ -74,7 +103,7 @@ Wazuh default rules are downloaded from [wazuh/wazuh-ruleset](https://github.com
 
 ```bash
 # Install dependencies
-pip install -r requirements.txt
+pip install -e .
 
 # Step 1: Download EVTX samples, Sigma rules, and Wazuh defaults
 python -m collector download-all
@@ -85,7 +114,7 @@ python -m collector download-defaults
 python -m generator generate --auto-approve
 
 # Step 3: Convert Sigma rules to Wazuh format
-python -m generator convert-sigma --auto-approve --min-level high
+python -m generator convert-sigma --auto-approve --min-level medium
 
 # Step 4: Validate the database
 python -m generator validate
@@ -96,6 +125,13 @@ python -m generator logtest --mode simulate --save
 # Step 6: Deploy to Wazuh
 python -m generator export --dest /var/ossec/etc/rules/ --view by_tactic
 sudo systemctl restart wazuh-manager
+```
+
+### Docker
+
+```bash
+docker build -t evtx-wazuh-rules .
+docker run -v $(pwd)/database:/app/database evtx-wazuh-rules
 ```
 
 ## CLI Reference
@@ -123,18 +159,25 @@ sudo systemctl restart wazuh-manager
 | `approve <draft_file>` | Promote a draft into the rule database |
 | `validate` | Validate the entire rule database |
 | `stats` | Show ID allocation and rule statistics |
+| `navigator [--output PATH]` | Export MITRE ATT&CK Navigator layer JSON |
 | `export --dest PATH [--view VIEW]` | Export rules for Wazuh deployment |
 
 ### Report Generator
 
 ```bash
-python generate_report.py
+python generate_report.py           # Markdown reports
+python generate_excel_report.py     # Excel tracker (requires openpyxl)
 ```
 
-Produces three documentation files in `docs/`:
+Markdown reports in `docs/`:
 - **RULES_REPORT.md** — Full rule listing with alert levels, MITRE mapping, confidence scores
 - **COVERAGE_MATRIX.md** — MITRE ATT&CK coverage heatmap and gap analysis
 - **SOURCES.md** — EVTX source attribution and per-source breakdown
+
+Excel tracker (`EVTX_Wazuh_Rules_Tracker.xlsx`):
+- Dashboard with charts and summary stats
+- Per-tactic sheets with all rule details
+- Validation results, Sigma conversion errors, deployment tracking
 
 ## Rule Organization
 
@@ -152,8 +195,8 @@ database/rules/
 ## Rule Quality Controls
 
 ### ID Management
-- Custom rule IDs in range **100000 - 120000**
-- Partitioned by MITRE tactic (1,000 IDs each)
+- Custom rule IDs in Wazuh's standard range **100000 - 119999**
+- Partitioned by MITRE tactic, sized by usage (execution: 4000, persistence: 3000, smaller tactics: 500-1500)
 - Atomic allocation prevents conflicts across runs
 
 ### Correlation
@@ -170,6 +213,12 @@ Severity is computed from three factors:
 
 ### Semi-Automated Workflow
 Rules are generated as **drafts** for human review by default. Use `--auto-approve` only when confident in the source data. Each draft includes a manifest with confidence scores and review notes.
+
+### MITRE ATT&CK Mapping
+Semantic indicator-driven classification via `generator/mitre_mapper.py`:
+- Indicator table (lsass→T1003.001, mimikatz→T1003, rundll32→T1218.011, vssadmin→T1490, etc.)
+- Event-ID defaults (4625→T1110 Brute Force, 4624→T1021 lateral movement, 4720→T1136.001)
+- Path hint fallback (last resort only — no more tactic-from-folder-name)
 
 ### Validation
 - XML well-formedness
@@ -192,66 +241,95 @@ Rules are generated as **drafts** for human review by default. Use `--auto-appro
 
 ```
 EVTX-Wazuh-rules/
-├── collector/           # Part 1: EVTX Collection Engine
-│   ├── cli.py           # CLI commands (download-all, status, etc.)
-│   ├── downloader.py    # Git clone / shallow download
+├── collector/              # Part 1: EVTX Collection Engine
+│   ├── cli.py              # CLI commands (download-all, status, etc.)
+│   ├── downloader.py       # Git clone / shallow download
 │   ├── sigma_downloader.py # SigmaHQ rules downloader
-│   ├── registry.py      # Download tracking and checksums
-│   └── wazuh_defaults.py # Wazuh default rules downloader
+│   ├── registry.py         # Download tracking and checksums
+│   └── wazuh_defaults.py   # Wazuh default rules downloader
 │
-├── generator/           # Part 2: Rule Database Generator
-│   ├── cli.py           # CLI commands (generate, review, validate, etc.)
-│   ├── evtx_parser.py   # Parse EVTX/JSON/XML to normalized events
-│   ├── event_analyzer.py # Extract detection patterns from events
-│   ├── sigma_analyzer.py # Analyze Sigma rules for Wazuh conversion
-│   ├── sigma_converter.py # Convert Sigma YAML → Wazuh XML rules
-│   ├── logtest_validator.py # Rule validation (simulate + live API/SSH)
-│   ├── rule_builder.py  # Build Wazuh XML rules from patterns
-│   ├── rule_correlator.py # Cross-reference with existing rules
-│   ├── alert_leveler.py # Assign severity levels
-│   ├── id_manager.py    # Rule ID allocation (100000-120000)
-│   ├── validator.py     # Rule validation
-│   └── exporter.py      # Export to XML files (3 views)
+├── generator/              # Part 2: Rule Database Generator
+│   ├── cli.py              # CLI commands (generate, review, validate, etc.)
+│   ├── evtx_parser.py      # Parse EVTX/JSON/XML to normalized events
+│   ├── event_analyzer.py   # Extract detection patterns from events
+│   ├── mitre_mapper.py     # Semantic MITRE ATT&CK classification (indicator→technique)
+│   ├── navigator_export.py # MITRE ATT&CK Navigator layer export
+│   ├── sigma_analyzer.py   # Analyze Sigma rules for Wazuh conversion (61+ logsource mappings)
+│   ├── sigma_converter.py  # Convert Sigma YAML → Wazuh XML (glob→OS-regex, modifiers, errors)
+│   ├── logtest_validator.py # Rule validation (stored/synthetic/reparsed events + live API/SSH)
+│   ├── rule_builder.py     # Build Wazuh XML rules from patterns
+│   ├── rule_correlator.py  # Cross-reference with existing rules
+│   ├── alert_leveler.py    # Assign severity levels
+│   ├── id_manager.py       # Rule ID allocation (100000-119999, sized per tactic)
+│   ├── validator.py        # Rule validation
+│   └── exporter.py         # Export to XML files (3 views)
 │
-├── database/            # Rule database (committed to git)
-│   ├── metadata/        # rule_index.json, provenance.json, id_allocations.json
-│   ├── drafts/          # Candidate rules awaiting review
-│   └── rules/           # Approved rules (by_tactic/, by_technique/, by_source/)
+├── database/               # Rule database (committed to git)
+│   ├── metadata/           # rule_index.json, provenance.json, id_allocations.json,
+│   │                       # sample_events.json, sigma_conversion_errors.json,
+│   │                       # validation_results.json
+│   ├── navigator_layer.json # MITRE ATT&CK Navigator layer (importable)
+│   ├── drafts/             # Candidate rules awaiting review
+│   └── rules/              # Approved rules (by_tactic/, by_technique/, by_source/)
 │
-├── sources/             # Source definitions (committed)
+├── sources/                # Source definitions (committed)
 │   ├── evtx_sources.yaml
 │   ├── sigma_sources.yaml
 │   └── wazuh_default_sources.yaml
 │
-├── docs/                # Generated documentation
-│   ├── RULES_REPORT.md
-│   ├── COVERAGE_MATRIX.md
-│   └── SOURCES.md
+├── docs/                   # Documentation
+│   ├── PLAYBOOK.md         # End-to-end workflow, quality gates, troubleshooting
+│   ├── RULES_REPORT.md     # Full rule listing with MITRE mapping
+│   ├── COVERAGE_MATRIX.md  # MITRE ATT&CK coverage heatmap
+│   ├── SOURCES.md          # EVTX source attribution
+│   ├── HANDOFF.md          # Project review and handoff notes
+│   ├── CURATED_RULE_REVIEW.md # Detailed rule quality review
+│   └── RULE_CLEANUP_PLAN.md   # Actionable cleanup queue with status
 │
-├── tests/               # Unit tests
-├── data/                # Downloaded EVTX & defaults (GITIGNORED)
-├── config.yaml          # Global configuration
-├── requirements.txt     # Python dependencies
-└── generate_report.py   # Documentation generator
+├── tests/                  # Unit tests (93 tests)
+├── data/                   # Downloaded EVTX & defaults (GITIGNORED)
+├── config.yaml             # Global configuration
+├── requirements.txt        # Python dependencies
+├── generate_report.py      # Markdown documentation generator
+└── generate_excel_report.py # Excel tracker with dashboard, per-tactic sheets, deployment tracking
+```
+
+## Installation
+
+```bash
+pip install -e .            # core dependencies
+pip install -e ".[dev]"     # + pytest, ruff, pre-commit
+pip install -e ".[report]"  # + openpyxl for Excel reports
 ```
 
 ## Dependencies
 
 - Python 3.10+
-- `evtx` — Rust-based EVTX parser (fast, no C build dependencies)
+- `python-evtx` — Rust-based EVTX parser (fast, no C build dependencies)
 - `pyyaml` — Config file parsing
 - `lxml` — XML generation and validation
 - `click` — CLI framework
 - `rich` — Terminal output formatting
 - `requests` — Wazuh REST API for live logtest validation
+- `openpyxl` — Excel report generation (optional)
 
 ## Logtest Validation
 
-The `logtest` command validates rules against source events in three modes:
+The `logtest` command validates rules against source events using a three-tier event resolution strategy:
+
+| Resolution | Description | Pass Rate |
+|------------|-------------|-----------|
+| `stored` | Original trigger event persisted from EVTX parsing | 93.1% (619 rules) |
+| `synthetic` | Auto-generated event satisfying all field patterns | 46.5% (2,670 rules) |
+| `reparsed` | Re-parses source EVTX to find matching event | Fallback |
+
+Events that cannot be resolved are marked **inconclusive** (no false passes from wrong-event fallback).
+
+Live validation modes are also available:
 
 | Mode | Description | Requirements |
 |------|-------------|--------------|
-| `simulate` | Offline field matching against source events | None (default) |
+| `simulate` | Offline field matching against resolved events | None (default) |
 | `live` (API) | Wazuh REST API `/logtest` endpoint | Wazuh API credentials in `config.yaml` |
 | `live` (SSH) | SSH to Wazuh manager, runs `wazuh-logtest` binary | SSH key access to Wazuh host |
 
@@ -273,9 +351,12 @@ wazuh:
 
 ## Future Roadmap (v2)
 
+- Sigma negation handling (`not filter` → child suppression rules)
 - Composite/chained rules (multi-event detection using `if_matched_sid` and frequency)
 - CI/CD pipeline for rule generation on new EVTX samples
 - MITRE ATT&CK Navigator layer export
+- Sample-specific service-name rules refinement (101069-101090)
+- Live logtest pass-rate CI gate
 
 ## License
 

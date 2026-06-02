@@ -44,7 +44,8 @@ def download_sigma_rules() -> dict | None:
             console.print(f"  [yellow]Already exists:[/] {dest.name}, pulling updates...")
             result = subprocess.run(
                 ["git", "-C", str(dest), "pull", "--ff-only"],
-                capture_output=True, text=True,
+                capture_output=True,
+                text=True,
             )
             if result.returncode != 0:
                 console.print(f"  [red]Pull failed:[/] {result.stderr.strip()}")
@@ -52,7 +53,8 @@ def download_sigma_rules() -> dict | None:
         else:
             result = subprocess.run(
                 ["git", "clone", "--depth", "1", url, str(dest)],
-                capture_output=True, text=True,
+                capture_output=True,
+                text=True,
             )
             if result.returncode != 0:
                 console.print(f"  [red]Clone failed:[/] {result.stderr.strip()}")
@@ -80,13 +82,15 @@ def download_sigma_rules() -> dict | None:
             for cat, count in sorted(category_counts.items(), key=lambda x: -x[1]):
                 console.print(f"    {cat}: {count} rules")
 
-        results.append({
-            "name": name,
-            "path": str(dest),
-            "rules_path": str(rules_path),
-            "yaml_count": yaml_count,
-            "categories": category_counts,
-        })
+        results.append(
+            {
+                "name": name,
+                "path": str(dest),
+                "rules_path": str(rules_path),
+                "yaml_count": yaml_count,
+                "categories": category_counts,
+            }
+        )
 
     if results:
         total = sum(r["yaml_count"] for r in results)

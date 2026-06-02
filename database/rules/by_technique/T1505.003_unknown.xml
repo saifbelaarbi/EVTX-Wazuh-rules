@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1505.003_unknown,">
+  <rule id="104532" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.eventdata.">New-ExchangeCertificate| -GenerateRequest| -BinaryEncoded| -RequestFile</field>
+    <description>Sigma: Certificate Request Export to Exchange Webserver</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104533" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.eventdata.">New-MailboxExportRequest| -Mailbox </field>
+    <description>Sigma: Mailbox Export to Exchange Webserver</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104534" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.eventdata.">Set-OabVirtualDirectory|ExternalUrl|Page_Load|script</field>
+    <description>Sigma: Exchange Set OabVirtualDirectory ExternalUrl Property</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104589" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\w3wp\.exe$</field>
+    <field name="win.eventdata.commandLine">MSExchange</field>
+    <field name="win.eventdata.targetFilename">\.aspx$|\.asp$|\.ashx$</field>
+    <description>Sigma: Suspicious ASPX File Drop by Exchange</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104603" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.jsp$</field>
+    <field name="win.eventdata.image">\dotnet\.exe$|\w3wp\.exe$|\java\.exe$</field>
+    <description>Sigma: Suspicious File Write to Webapps Root Directory</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1190</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104611" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.ph</field>
+    <description>Sigma: Potential Webshell Creation On Static Website</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104690" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/]name:|module</field>
+    <field name="win.eventdata.image">\appcmd\.exe$</field>
+    <description>Sigma: IIS Native-Code Module Command Line Installation</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104735" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo \[E\]|&amp;echo \[S\]</field>
+    <field name="win.eventdata.image">\w3wp\.exe$</field>
+    <description>Sigma: Chopper Webshell Process Pattern</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1018</id>
+      <id>T1033</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104736" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">-tomcat-|\tomcat</field>
+    <description>Sigma: Webshell Hacking Activity Patterns</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1018</id>
+      <id>T1033</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104737" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\java\.exe$|\javaw\.exe$</field>
+    <field name="win.eventdata.commandLine">catalina\.jar|CATALINA_HOME</field>
+    <description>Sigma: Webshell Hacking Activity Patterns</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1018</id>
+      <id>T1033</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104738" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\caddy\.exe$|\httpd\.exe$|\nginx\.exe$|\php-cgi\.exe$|\w3wp\.exe$|\ws_tomcatservice\.exe$</field>
+    <description>Sigma: Webshell Hacking Activity Patterns</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1018</id>
+      <id>T1033</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104739" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">-tomcat-|\tomcat</field>
+    <description>Sigma: Webshell Detection With Command Line Keywords</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1018</id>
+      <id>T1033</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104740" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\java\.exe$|\javaw\.exe$</field>
+    <field name="win.eventdata.commandLine">catalina\.jar|CATALINA_HOME</field>
+    <description>Sigma: Webshell Detection With Command Line Keywords</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1018</id>
+      <id>T1033</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104741" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\w3wp\.exe$|\php-cgi\.exe$|\nginx\.exe$|\httpd\.exe$|\caddy\.exe$|\ws_tomcatservice\.exe$</field>
+    <description>Sigma: Webshell Detection With Command Line Keywords</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1018</id>
+      <id>T1033</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104742" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">-tomcat-|\tomcat</field>
+    <description>Sigma: Suspicious Process By Web Server Process</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1190</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104743" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\java\.exe$|\javaw\.exe$</field>
+    <field name="win.eventdata.parentCommandLine">CATALINA_HOME|catalina\.home|catalina\.jar</field>
+    <description>Sigma: Suspicious Process By Web Server Process</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1190</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104744" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\caddy\.exe$|\httpd\.exe$|\nginx\.exe$|\php-cgi\.exe$|\php\.exe$|\tomcat\.exe$|\UMWorkerProcess\.exe$|\w3wp\.exe$|\ws_TomcatService\.exe$</field>
+    <description>Sigma: Suspicious Process By Web Server Process</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1190</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104745" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">-tomcat-|\tomcat</field>
+    <description>Sigma: Webshell Tool Reconnaissance Activity</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104746" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\java\.exe$|\javaw\.exe$</field>
+    <field name="win.eventdata.commandLine">CATALINA_HOME|catalina\.jar</field>
+    <description>Sigma: Webshell Tool Reconnaissance Activity</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104747" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\caddy\.exe$|\httpd\.exe$|\nginx\.exe$|\php-cgi\.exe$|\w3wp\.exe$|\ws_tomcatservice\.exe$</field>
+    <description>Sigma: Webshell Tool Reconnaissance Activity</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="113018" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\sqlservr\.exe$</field>
+    <field name="win.eventdata.image">\bash\.exe$|\bitsadmin\.exe$|\cmd\.exe$|\netstat\.exe$|\nltest\.exe$|\ping\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\sh\.exe$|\systeminfo\.exe$|\tasklist\.exe$|\wsl\.exe$</field>
+    <description>Sigma: Suspicious Child Process Of SQL Server</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1190</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+</group>

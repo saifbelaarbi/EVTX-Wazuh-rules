@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1593.003_unknown,">
+  <rule id="100472" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">exploit|Vulns|vulnerability|RemoteCodeExecution|Invoke-|CVE-|poc-|ProofOfConcept|proxyshell|log4shell|eternalblue|eternal-blue|MS17-</field>
+    <field name="win.eventdata.image">\git\.exe$|\git-remote-https\.exe$</field>
+    <description>Sigma: Suspicious Git Clone</description>
+    <mitre>
+      <id>T1593.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

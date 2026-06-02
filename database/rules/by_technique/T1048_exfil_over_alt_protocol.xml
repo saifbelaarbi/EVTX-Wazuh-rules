@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1048_exfil_over_alt_protocol,">
-  <rule id="110004" level="13">
+  <rule id="100388" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> out | queryout </field>
+    <field name="win.eventdata.image">\bcp\.exe$</field>
+    <description>Sigma: Data Export From MSSQL Table Via BCP.EXE</description>
+    <mitre>
+      <id>T1048</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="114503" level="12">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">tap0901</field>
+    <description>Sigma: Tap Driver Installation</description>
+    <mitre>
+      <id>T1048</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="114516" level="13">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Invoke-DNSExfiltrator</field>
     <description>Sigma: Powershell DNSExfiltration</description>
@@ -9,74 +30,49 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110006" level="13">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\iodine\.exe$</field>
-    <description>Sigma: DNS Exfiltration and Tunneling Tools Execution</description>
-    <mitre>
-      <id>T1048</id>
-      <id>T1071</id>
-      <id>T1132</id>
-    </mitre>
-    <group>exfiltration,sigma_converted,</group>
-  </rule>
-  <rule id="110007" level="13">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\dnscat2</field>
-    <description>Sigma: DNS Exfiltration and Tunneling Tools Execution</description>
-    <mitre>
-      <id>T1048</id>
-      <id>T1071</id>
-      <id>T1132</id>
-    </mitre>
-    <group>exfiltration,sigma_converted,</group>
-  </rule>
-  <rule id="110011" level="13">
+  <rule id="114528" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">sftp:|rest:http|s3:s3\.|s3\.http|azure:| gs:|rclone:|swift:| b2:| init | -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
     <mitre>
       <id>T1048</id>
-      <id>T1567</id>
+      <id>T1567.002</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110012" level="13">
+  <rule id="114529" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--password-file|init| -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
     <mitre>
       <id>T1048</id>
-      <id>T1567</id>
+      <id>T1567.002</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110013" level="13">
+  <rule id="114530" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--use-fs-snapshot|backup| -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
     <mitre>
       <id>T1048</id>
-      <id>T1567</id>
+      <id>T1567.002</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110015" level="13">
+  <rule id="114534" level="13">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\svchost\.exe$</field>
-    <field name="win.eventdata.parentCommandLine">-s WebClient</field>
-    <field name="win.eventdata.image">\rundll32\.exe$</field>
-    <field name="win.eventdata.commandLine">://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}</field>
-    <description>Sigma: Suspicious WebDav Client Execution Via Rundll32.EXE</description>
+    <field name="win.eventdata.commandLine">\\\\127\.0\.0\.1\\admin\$\\|\\\\localhost\\admin\$\\</field>
+    <description>Sigma: Suspicious Redirection to Local Admin Share</description>
     <mitre>
       <id>T1048</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110016" level="13">
+  <rule id="114535" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\\\\127\.0\.0\.1\\admin\$\\|\\\\localhost\\admin\$\\</field>
-    <description>Sigma: Suspicious Redirection to Local Admin Share</description>
+    <field name="win.eventdata.image">\tapinstall\.exe$</field>
+    <description>Sigma: Tap Installer Execution</description>
     <mitre>
       <id>T1048</id>
     </mitre>

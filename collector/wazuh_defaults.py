@@ -37,10 +37,11 @@ def download_wazuh_defaults() -> dict | None:
     console.print(f"  URL: {source['url']}")
 
     if dest.exists():
-        console.print(f"  [yellow]Already exists,[/] pulling updates...")
+        console.print("  [yellow]Already exists,[/] pulling updates...")
         result = subprocess.run(
             ["git", "-C", str(dest), "pull", "--ff-only"],
-            capture_output=True, text=True,
+            capture_output=True,
+            text=True,
         )
         if result.returncode != 0:
             console.print(f"  [red]Pull failed:[/] {result.stderr.strip()}")
@@ -49,7 +50,8 @@ def download_wazuh_defaults() -> dict | None:
         dest.parent.mkdir(parents=True, exist_ok=True)
         result = subprocess.run(
             ["git", "clone", "--depth", "1", source["url"], str(dest)],
-            capture_output=True, text=True,
+            capture_output=True,
+            text=True,
         )
         if result.returncode != 0:
             console.print(f"  [red]Clone failed:[/] {result.stderr.strip()}")

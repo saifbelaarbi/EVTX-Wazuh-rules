@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1200_unknown,">
+  <rule id="113000" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">6423</field>
+    <description>Sigma: Device Installation Blocked</description>
+    <mitre>
+      <id>T1200</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+</group>

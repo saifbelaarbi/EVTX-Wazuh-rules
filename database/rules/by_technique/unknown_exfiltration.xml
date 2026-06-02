@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,unknown_exfiltration,">
-  <rule id="110005" level="13">
+  <rule id="114514" level="12">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">0x52|0x49|0x46|0x57|0x41|0x56|0x45|0xAC</field>
+    <description>Sigma: Potential Data Exfiltration Via Audio File</description>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="114517" level="13">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-MailboxExportRequest| -Mailbox | -FilePath \\\\</field>
     <description>Sigma: Suspicious PowerShell Mailbox Export to Share - PS</description>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110008" level="13">
+  <rule id="114523" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-f</field>
+    <field name="win.eventdata.image">\ldifde\.exe$</field>
+    <description>Sigma: Active Directory Structure Export Via Ldifde.EXE</description>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+  <rule id="114525" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
     <field name="win.eventdata.commandLine">Add-PSSnapin|Get-Recipient|-ExpandProperty|EmailAddresses|SmtpAddress|-hidetableheaders</field>
     <description>Sigma: Email Exifiltration Via Powershell</description>
     <group>exfiltration,sigma_converted,</group>
   </rule>
-  <rule id="110009" level="13">
+  <rule id="114526" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">New-MailboxExportRequest| -Mailbox | -FilePath \\\\</field>
     <description>Sigma: Suspicious PowerShell Mailbox Export to Share</description>

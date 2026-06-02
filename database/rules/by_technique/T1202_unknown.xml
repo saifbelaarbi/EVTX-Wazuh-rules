@@ -1,10 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1202_unknown,">
-  <rule id="101809" level="9">
+  <rule id="100203" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\msdt\.exe$</field>
     <field name="win.eventdata.imageLoaded">\sdiageng\.dll$</field>
     <description>Sigma: Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100325" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Invoke-TroubleshootingPack|C:\Windows\Diagnostics\System\PCW|-AnswerFile|-Unattended</field>
+    <description>Sigma: Troubleshooting Pack Cmdlet Execution</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100386" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -c </field>
+    <field name="win.eventdata.image">:\Windows\System32\bash\.exe$|:\Windows\SysWOW64\bash\.exe$</field>
+    <description>Sigma: Indirect Inline Command Execution Via Bash.EXE</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100387" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">:\Windows\System32\bash\.exe$|:\Windows\SysWOW64\bash\.exe$</field>
+    <description>Sigma: Indirect Command Execution From Script File Via Bash.EXE</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100425" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\conhost\.exe$</field>
+    <description>Sigma: Uncommon Child Process Of Conhost.EXE</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100426" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\conhost\.exe$</field>
+    <description>Sigma: Potentially Suspicious Child Processes Spawned by ConHost</description>
+    <mitre>
+      <id>T1202</id>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100615" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\msdt\.exe$</field>
+    <description>Sigma: Potential Arbitrary Command Execution Using Msdt.EXE</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100616" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -cab </field>
+    <field name="win.eventdata.image">\msdt\.exe$</field>
+    <description>Sigma: Suspicious Cabinet File Execution Via Msdt.EXE</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100656" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">http://|https://</field>
+    <field name="win.eventdata.image">\EXCEL\.EXE$|\POWERPNT\.EXE$|\WINWORD\.exe$</field>
+    <description>Sigma: Potential Arbitrary File Download Using Office Application</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100657" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\EXCEL\.EXE$|\POWERPNT\.EXE$|\WINWORD\.exe$</field>
+    <field name="win.eventdata.parentImage">\explorer\.exe$|\dopus\.exe$</field>
+    <field name="win.eventdata.commandLine">\AppData\Roaming\Microsoft\Templates|\AppData\Roaming\Microsoft\Word\Startup\|\Microsoft Office\root\Templates\|\Microsoft Office\Templates\</field>
+    <description>Sigma: Potentially Suspicious Office Document Executed From Trusted Location</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100664" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/l |\.dll</field>
+    <field name="win.eventdata.image">\WINWORD\.exe$</field>
+    <description>Sigma: Potential Arbitrary DLL Load Using Winword</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100852" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.description">PAExec Application</field>
+    <description>Sigma: Renamed PAExec Execution</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100866" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\rundll32\.exe$|\rundll32\.exe"$|\rundll32$</field>
+    <description>Sigma: Rundll32 Execution Without CommandLine Parameters</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100890" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\sftp\.exe$</field>
+    <field name="win.eventdata.commandLine">ProxyCommand=</field>
+    <description>Sigma: Indirect Command Execution via SFTP ProxyCommand</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100893" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\splwow64\.exe$</field>
+    <field name="win.eventdata.commandLine">splwow64\.exe$</field>
+    <description>Sigma: Suspicious Splwow64 Without Params</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100978" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\Users\Public\|\\$Recycle\.bin|\Users\All Users\|\Users\Default\|\Users\Contacts\|\Users\Searches\|C:\Perflogs\|\config\systemprofile\|\Windows\Fonts\|\Windows\IME\|\Windows\addins\</field>
+    <field name="win.eventdata.parentImage">\services\.exe$|\svchost\.exe$</field>
+    <description>Sigma: Suspicious Service Binary Directory</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101019" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-exec</field>
+    <field name="win.eventdata.image">\vshadow\.exe$</field>
+    <description>Sigma: Proxy Execution via Vshadow</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101072" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">:\Users\|\AppData\Local\packages\KaliLinux</field>
+    <description>Sigma: WSL Kali-Linux Usage</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101073" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">:\Users\|\AppData\Local\Microsoft\WindowsApps\kali\.exe</field>
+    <description>Sigma: WSL Kali-Linux Usage</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101074" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\kali\.exe$</field>
+    <description>Sigma: WSL Kali-Linux Usage</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101075" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">[a-zA-Z]:\\</field>
+    <field name="win.eventdata.currentDirectory">\\\\wsl\.localhost</field>
+    <description>Sigma: Windows Binary Executed From WSL</description>
+    <mitre>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101098" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">shell\open\command\</field>
+    <field name="win.eventdata.details">powershell|-command</field>
+    <description>Sigma: Custom File Open Handler Executes PowerShell</description>
     <mitre>
       <id>T1202</id>
     </mitre>

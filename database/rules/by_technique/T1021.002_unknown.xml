@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1021.002_unknown,">
+  <rule id="100147" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\nxc-windows-latest\</field>
+    <description>Sigma: HackTool - NetExec File Indicators</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1059.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100148" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Temp\_MEI|\nxc\data\</field>
+    <description>Sigma: HackTool - NetExec File Indicators</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1059.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100882" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> \\\\</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Rundll32 UNC Path Execution</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="104536" level="13">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">ADMIN\$|\.exe</field>
+    <description>Sigma: CobaltStrike Service Installations - Security</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1543.003</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104552" level="13">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <description>Sigma: CobaltStrike Service Installations - System</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1543.003</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104775" level="13">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.details">ADMIN\$|\.exe</field>
+    <field name="win.eventdata.targetObject">\System\CurrentControlSet\Services</field>
+    <description>Sigma: Potential CobaltStrike Service Installations - Registry</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1543.003</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="112503" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\\ntsvcs</field>
+    <description>Known malicious named pipe pattern: \ntsvcs</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112504" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\\scerpc</field>
+    <description>Known malicious named pipe pattern: \scerpc</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112505" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexesvc</field>
+    <description>Suspicious process 'psexesvc' execution detected</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112506" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <description>Suspicious process 'psexec' execution detected</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112507" level="11">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\\psexe</field>
+    <description>Known malicious named pipe pattern: \psexe</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112508" level="11">
+    <if_sid>61620</if_sid>
+    <field name="win.eventdata.pipeName">\\psexe</field>
+    <description>Known malicious named pipe pattern: \psexe</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112509" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <description>File created by suspicious process 'psexec'</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112510" level="10">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <field name="win.eventdata.queryName">fs03vuln</field>
+    <description>DNS query from suspicious process 'psexec'</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112511" level="11">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.serviceName">PSEXESVC</field>
+    <field name="win.eventdata.imagePath">psexesvc</field>
+    <description>Suspicious service 'PSEXESVC' installed</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,evtx_generated,</group>
+  </rule>
+  <rule id="112518" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.relativeTargetName">spoolss</field>
+    <description>Sigma: DCERPC SMB Spoolss Named Pipe</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112519" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.relativeTargetName">\Internet Explorer\iertutil\.dll$</field>
+    <description>Sigma: DCOM InternetExplorer.Application Iertutil DLL Hijack - Security</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1021.003</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112520" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.relativeTargetName">RemCom_stdin|RemCom_stdout|RemCom_stderr</field>
+    <description>Sigma: Impacket PsExec Execution</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112521" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <description>Sigma: First Time Seen Remote Named Pipe</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112522" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4625|4624</field>
+    <field name="win.eventdata.logonType">3</field>
+    <field name="win.eventdata.authenticationPackageName">NTLM</field>
+    <field name="win.eventdata.workstationName">^[A-Za-z0-9]{16}$</field>
+    <description>Sigma: Metasploit SMB Authentication</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112523" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4776</field>
+    <field name="win.eventdata.workstation">^[A-Za-z0-9]{16}$</field>
+    <description>Sigma: Metasploit SMB Authentication</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112524" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">^%systemroot%\\[a-zA-Z]{8}\.exe$</field>
+    <field name="win.eventdata.serviceName">(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)</field>
+    <field name="win.eventdata.serviceStartType">3</field>
+    <field name="win.eventdata.serviceType">0x10</field>
+    <description>Sigma: Metasploit Or Impacket Service Installation Via SMB PsExec</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1570</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112526" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.shareName">IPC</field>
+    <field name="win.eventdata.relativeTargetName">protected_storage</field>
+    <description>Sigma: Protected Storage Service Access</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112528" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.shareName">C\$$</field>
+    <field name="win.eventdata.accessMask">0x2</field>
+    <description>Sigma: SMB Create Remote File Admin Share</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112530" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.relativeTargetName">-stdin$|-stdout$|-stderr$</field>
+    <description>Sigma: Suspicious PsExec Execution</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112531" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5145</field>
+    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.relativeTargetName">svcctl</field>
+    <field name="win.eventdata.accessList">WriteData</field>
+    <description>Sigma: Remote Service Activity via SVCCTL Named Pipe</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112532" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">4000</field>
+    <field name="win.eventdata.shareName">IPC\$|ADMIN\$|C\$</field>
+    <field name="win.eventdata.signingUsed">false</field>
+    <description>Sigma: Unsigned or Unencrypted SMB Connection to Share Established</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112535" level="11">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">\.bat &amp; del |__output 2\^&gt;\^&amp;1 &gt;</field>
+    <description>Sigma: smbexec.py Service Installation</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112536" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">System</field>
+    <field name="win.eventdata.targetFilename">\Internet Explorer\iertutil\.dll$</field>
+    <description>Sigma: Potential DCOM InternetExplorer.Application DLL Hijack</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1021.003</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112541" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\Internet Explorer\iexplore\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\Internet Explorer\iertutil\.dll$</field>
+    <description>Sigma: Potential DCOM InternetExplorer.Application DLL Hijack - Image Load</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1021.003</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112545" level="10">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\csexecsvc</field>
+    <description>Sigma: PUA - CSExec Default Named Pipe</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112546" level="10">
+    <if_sid>61619</if_sid>
+    <field name="win.eventdata.pipeName">\RemCom</field>
+    <description>Sigma: PUA - RemCom Default Named Pipe</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112550" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-PSDrive|-psprovider |filesystem|-root |\\\\|\$</field>
+    <description>Sigma: Suspicious New-PSDrive to Admin Share</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112554" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\SharpMove\.exe$</field>
+    <field name="win.eventdata.commandLine">action=create|action=dcom|action=executevbs|action=hijackdcom|action=modschtask|action=modsvc|action=query|action=scm|action=startservice|action=taskscheduler</field>
+    <description>Sigma: HackTool - SharpMove Tool Execution</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112561" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> use | \\\\.*\\.*\$</field>
+    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <description>Sigma: Windows Admin Share Mount Via Net.EXE</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112562" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> use | http</field>
+    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <description>Sigma: Windows Internet Hosted WebDav Share Mount Via Net.EXE</description>
+    <mitre>
+      <id>T1021.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112567" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">rundll32\.exe|rundll32</field>
+    <description>Sigma: Rundll32 Execution Without Parameters</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1570</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="113020" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> use |:.*\\|/USER:.* .*</field>
+    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <description>Sigma: Password Provided In Command Line Of Net.EXE</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1078</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+</group>

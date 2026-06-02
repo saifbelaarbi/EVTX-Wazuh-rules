@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1218.005_unknown,">
+  <rule id="100619" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">http://|https://|ftp://</field>
+    <field name="win.eventdata.image">\mshta\.exe$</field>
+    <description>Sigma: Remotely Hosted HTA File Executed Via Mshta.EXE</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100621" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">javascript</field>
+    <field name="win.eventdata.image">\mshta\.exe$</field>
+    <description>Sigma: Suspicious JavaScript Execution Via Mshta.EXE</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100622" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\svchost\.exe$</field>
+    <field name="win.eventdata.image">\mshta\.exe$</field>
+    <description>Sigma: Potential LethalHTA Technique Execution</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100623" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$|\cscript\.exe$|\sh\.exe$|\bash\.exe$|\reg\.exe$|\regsvr32\.exe$|\bitsadmin\.exe$</field>
+    <field name="win.eventdata.parentImage">\mshta\.exe$</field>
+    <description>Sigma: Suspicious MSHTA Child Process</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="112011" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <description>Suspicious process 'mshta' execution detected</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112012" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <description>Image load by suspicious process 'mshta'</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112013" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112014" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">80</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112027" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">4443</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112028" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">mshta</field>
+    <field name="win.eventdata.destinationPort">55683</field>
+    <description>Suspicious network connection from 'mshta'</description>
+    <mitre>
+      <id>T1218.005</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+</group>

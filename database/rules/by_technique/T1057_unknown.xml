@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1057_unknown,">
+  <rule id="111043" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ipconfig.*\|.*find|net.*\|.*find|netstat.*\|.*find|ping.*\|.*find|systeminfo.*\|.*find|tasklist.*\|.*find|whoami.*\|.*find</field>
+    <description>Sigma: Recon Command Output Piped To Findstr.EXE</description>
+    <mitre>
+      <id>T1057</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1547.004_unknown,">
+  <rule id="104004" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">userinit</field>
+    <description>Registry modification in persistence key: userinit</description>
+    <mitre>
+      <id>T1547.004</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104011" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">winlogon\\</field>
+    <description>Registry modification in persistence key: winlogon\</description>
+    <mitre>
+      <id>T1547.004</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="107143" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Set-ItemProperty|New-Item</field>
+    <description>Sigma: Winlogon Helper DLL</description>
+    <mitre>
+      <id>T1547.004</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107380" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify\logon$</field>
+    <field name="win.eventdata.details">\.dll$</field>
+    <description>Sigma: Winlogon Notify Key Logon Persistence</description>
+    <mitre>
+      <id>T1547.004</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

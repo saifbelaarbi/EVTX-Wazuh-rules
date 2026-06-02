@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1567.001_unknown,">
+  <rule id="114509" level="12">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">\.devtunnels\.ms$</field>
+    <description>Sigma: Network Connection Initiated To DevTunnels Domain</description>
+    <mitre>
+      <id>T1567.001</id>
+      <id>T1572</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+</group>

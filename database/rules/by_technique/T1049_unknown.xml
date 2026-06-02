@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1049_unknown,">
-  <rule id="106037" level="7">
+  <rule id="111064" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">SharpView\.exe</field>
     <description>Sigma: HackTool - SharpView Execution</description>
     <mitre>
       <id>T1049</id>
-      <id>T1069</id>
+      <id>T1069.002</id>
       <id>T1482</id>
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106038" level="7">
+  <rule id="111065" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\SharpView\.exe$</field>
     <description>Sigma: HackTool - SharpView Execution</description>
     <mitre>
       <id>T1049</id>
-      <id>T1069</id>
+      <id>T1069.002</id>
       <id>T1482</id>
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
-  <rule id="106039" level="7">
+  <rule id="111066" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Add-RemoteConnection|Convert-ADName|ConvertFrom-SID|ConvertFrom-UACValue|Convert-SidToName|Export-PowerViewCSV|Find-DomainObjectPropertyOutlier|Find-DomainProcess|Find-DomainShare|Find-DomainUserEvent|Find-DomainUserLocation|Find-ForeignGroup|Find-ForeignUser|Find-GPOComputerAdmin|Find-GPOLocation|Find-Interesting|Find-LocalAdminAccess|Find-ManagedSecurityGroups|Get-CachedRDPConnection|Get-DFSshare|Get-DomainComputer|Get-DomainController|Get-DomainDFSShare|Get-DomainDNSRecord|Get-DomainFileServer|Get-DomainForeign|Get-DomainGPO|Get-DomainGroup|Get-DomainGUIDMap|Get-DomainManagedSecurityGroup|Get-DomainObject|Get-DomainOU|Get-DomainPolicy|Get-DomainSID|Get-DomainSite|Get-DomainSPNTicket|Get-DomainSubnet|Get-DomainTrust|Get-DomainUserEvent|Get-ForestDomain|Get-ForestGlobalCatalog|Get-ForestTrust|Get-GptTmpl|Get-GroupsXML|Get-LastLoggedOn|Get-LoggedOnLocal|Get-NetComputer|Get-NetDomain|Get-NetFileServer|Get-NetForest|Get-NetGPO|Get-NetGroupMember|Get-NetLocalGroup|Get-NetLoggedon|Get-NetOU|Get-NetProcess|Get-NetRDPSession|Get-NetSession|Get-NetShare|Get-NetSite|Get-NetSubnet|Get-NetUser|Get-PathAcl|Get-PrincipalContext|Get-RegistryMountedDrive|Get-RegLoggedOn|Get-WMIRegCachedRDPConnection|Get-WMIRegLastLoggedOn|Get-WMIRegMountedDrive|Get-WMIRegProxy|Invoke-ACLScanner|Invoke-CheckLocalAdminAccess|Invoke-Kerberoast|Invoke-MapDomainTrust|Invoke-RevertToSelf|Invoke-Sharefinder|Invoke-UserImpersonation|Remove-DomainObjectAcl|Remove-RemoteConnection|Request-SPNTicket|Set-DomainObject|Test-AdminAccess</field>
     <description>Sigma: HackTool - SharpView Execution</description>
     <mitre>
       <id>T1049</id>
-      <id>T1069</id>
+      <id>T1069.002</id>
       <id>T1482</id>
     </mitre>
     <group>discovery,sigma_converted,</group>

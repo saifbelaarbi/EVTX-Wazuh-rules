@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1021.006_unknown,">
+  <rule id="112548" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Enable-PSRemoting </field>
+    <description>Sigma: Enable Windows Remote Management</description>
+    <mitre>
+      <id>T1021.006</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112549" level="10">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">invoke-command | -ComputerName </field>
+    <description>Sigma: Execute Invoke-command on Remote Host</description>
+    <mitre>
+      <id>T1021.006</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112553" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\ruby\.exe$</field>
+    <field name="win.eventdata.commandLine">-i |-u |-p </field>
+    <description>Sigma: HackTool - WinRM Access Via Evil-WinRM</description>
+    <mitre>
+      <id>T1021.006</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112574" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\winrs\.exe$</field>
+    <field name="win.eventdata.commandLine">/r:localhost|/r:127\.0\.0\.1|/r:\[::1\]|/remote:localhost|/remote:127\.0\.0\.1|/remote:\[::1\]</field>
+    <description>Sigma: Winrs Local Command Execution</description>
+    <mitre>
+      <id>T1021.006</id>
+      <id>T1218</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112575" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\winrshost\.exe$</field>
+    <description>Sigma: Potential Lateral Movement via Windows Remote Shell</description>
+    <mitre>
+      <id>T1021.006</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+</group>

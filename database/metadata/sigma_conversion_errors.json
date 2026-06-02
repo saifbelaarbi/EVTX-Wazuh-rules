@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "empty_rule_spec": 2,
+    "unmapped_logsource": 1
+  },
+  "records": [
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/Other/win_av_relevant_match.yml",
+      "sigma_id": "78bc5783-81d9-4d73-ac97-59f6db4f72a8",
+      "category": "empty_rule_spec",
+      "message": "empty_rule_spec: no fields after cleaning"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/msexchange/win_exchange_transportagent.yml",
+      "sigma_id": "4fe151c2-ecf9-4fae-95ae-b88ec9c2fca6",
+      "category": "empty_rule_spec",
+      "message": "empty_rule_spec: no fields after cleaning"
+    },
+    {
+      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/win_alert_mimikatz_keywords.yml",
+      "sigma_id": "06d71506-7beb-4f22-8888-e2e5e2ca7fd8",
+      "category": "unmapped_logsource",
+      "message": "unmapped_logsource: (none)"
+    }
+  ]
+}

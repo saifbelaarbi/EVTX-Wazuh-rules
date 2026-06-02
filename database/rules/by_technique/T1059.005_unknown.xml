@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1059.005_unknown,">
+  <rule id="100144" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\wscript\.exe$|\cscript\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.js$|\.jse$|\.vba$|\.vbe$|\.vbs$|\.wsf$|\.wsh$</field>
+    <description>Sigma: WScript or CScript Dropper - File</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100149" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Roaming\Oracle\bin\java|\.exe</field>
+    <description>Sigma: Adwind RAT / JRAT File Artifact</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100150" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Retrive|\.vbs</field>
+    <description>Sigma: Adwind RAT / JRAT File Artifact</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100219" level="8">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\mmc\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\vbscript\.dll$|\jscript\.dll$|\jscript9\.dll$</field>
+    <description>Sigma: MMC Loading Script Engines DLLs</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1218.014</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100389" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\calc\.exe$|\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\notepad\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\bginfo\.exe$|\bginfo64\.exe$</field>
+    <description>Sigma: Suspicious Child Process Of BgInfo.EXE</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1218</id>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100390" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\bginfo\.exe$|\bginfo64\.exe$</field>
+    <description>Sigma: Uncommon Child Process Of BgInfo.EXE</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1218</id>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100430" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\csc\.exe$</field>
+    <field name="win.eventdata.parentImage">\cscript\.exe$|\excel\.exe$|\mshta\.exe$|\onenote\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Csc.EXE Execution Form Potentially Suspicious Parent</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+      <id>T1218.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100979" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\rundll32\.exe$|\cscript\.exe$|\wscript\.exe$|\wmiprvse\.exe$|\regsvr32\.exe$</field>
+    <field name="win.eventdata.image">\schtasks\.exe$|\nslookup\.exe$|\certutil\.exe$|\bitsadmin\.exe$|\mshta\.exe$</field>
+    <description>Sigma: Windows Shell/Scripting Processes Spawning Suspicious Programs</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1059.001</id>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101067" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\wscript\.exe$|\cscript\.exe$|\mshta\.exe$</field>
+    <field name="win.eventdata.commandLine">:\Perflogs\|:\Temp\|:\Tmp\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\AppData\Roaming\Temp\|\Start Menu\Programs\Startup\|\Temporary Internet|\Windows\Temp|%LocalAppData%\Temp\|%TEMP%|%TMP%</field>
+    <description>Sigma: Potential Dropper Script Execution Via WScript/CScript/MSHTA</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101069" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.csv|\.dat|\.doc|\.gif|\.jpeg|\.jpg|\.png|\.ppt|\.txt|\.xls|\.xml</field>
+    <field name="win.eventdata.originalFileName">wscript\.exe|cscript\.exe</field>
+    <description>Sigma: Cscript/Wscript Uncommon Script Extension Execution</description>
+    <mitre>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101162" level="9">
+    <if_sid>61621</if_sid>
+    <field name="win.eventdata.destination">new-object|net\.webclient|\.downloadstring</field>
+    <description>Sigma: Suspicious Scripting in a WMI Consumer</description>
+    <mitre>
+      <id>T1059.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1218.008_unknown,">
+  <rule id="100648" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">INSTALLDRIVER |\.dll</field>
+    <field name="win.eventdata.image">\odbcconf\.exe$</field>
+    <description>Sigma: Driver/DLL Installation Via Odbcconf.EXE</description>
+    <mitre>
+      <id>T1218.008</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100649" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">INSTALLDRIVER </field>
+    <field name="win.eventdata.image">\odbcconf\.exe$</field>
+    <description>Sigma: Suspicious Driver/DLL Installation Via Odbcconf.EXE</description>
+    <mitre>
+      <id>T1218.008</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100650" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">:\PerfLogs\|:\ProgramData\|:\Temp\|:\Users\Public\|:\Windows\Registration\CRMLog|:\Windows\System32\com\dmp\|:\Windows\System32\FxsTmp\|:\Windows\System32\Microsoft\Crypto\RSA\MachineKeys\|:\Windows\System32\spool\drivers\color\|:\Windows\System32\spool\PRINTERS\|:\Windows\System32\spool\SERVERS\|:\Windows\System32\Tasks_Migrated\|:\Windows\System32\Tasks\Microsoft\Windows\SyncCenter\|:\Windows\SysWOW64\com\dmp\|:\Windows\SysWOW64\FxsTmp\|:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System\|:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter\|:\Windows\Tasks\|:\Windows\Temp\|:\Windows\Tracing\|\AppData\Local\Temp\|\AppData\Roaming\</field>
+    <field name="win.eventdata.image">\odbcconf\.exe$</field>
+    <description>Sigma: Odbcconf.EXE Suspicious DLL Location</description>
+    <mitre>
+      <id>T1218.008</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100651" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">REGSVR |\.dll</field>
+    <field name="win.eventdata.image">\odbcconf\.exe$</field>
+    <description>Sigma: New DLL Registered Via Odbcconf.EXE</description>
+    <mitre>
+      <id>T1218.008</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100652" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">REGSVR </field>
+    <field name="win.eventdata.image">\odbcconf\.exe$</field>
+    <description>Sigma: Potentially Suspicious DLL Registered Via Odbcconf.EXE</description>
+    <mitre>
+      <id>T1218.008</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100653" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.rsp</field>
+    <field name="win.eventdata.image">\odbcconf\.exe$</field>
+    <description>Sigma: Response File Execution Via Odbcconf.EXE</description>
+    <mitre>
+      <id>T1218.008</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100654" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -f </field>
+    <field name="win.eventdata.image">\odbcconf\.exe$</field>
+    <description>Sigma: Suspicious Response File Execution Via Odbcconf.EXE</description>
+    <mitre>
+      <id>T1218.008</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100655" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\odbcconf\.exe$</field>
+    <description>Sigma: Uncommon Child Process Spawned By Odbcconf.EXE</description>
+    <mitre>
+      <id>T1218.008</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

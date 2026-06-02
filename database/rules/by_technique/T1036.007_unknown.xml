@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1036.007_unknown,">
+  <rule id="100177" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.rar\.exe$|\.zip\.exe$</field>
+    <description>Sigma: Suspicious Double Extension Files</description>
+    <mitre>
+      <id>T1036.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100178" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.doc\.|\.docx\.|\.gif\.|\.jpeg\.|\.jpg\.|\.mp3\.|\.mp4\.|\.pdf\.|\.png\.|\.ppt\.|\.pptx\.|\.rtf\.|\.svg\.|\.txt\.|\.xls\.|\.xlsx\.</field>
+    <description>Sigma: Suspicious Double Extension Files</description>
+    <mitre>
+      <id>T1036.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100186" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.doc\.|\.docx\.|\.jpg\.|\.pdf\.|\.ppt\.|\.pptx\.|\.xls\.|\.xlsx\.</field>
+    <description>Sigma: Suspicious LNK Double Extension File Created</description>
+    <mitre>
+      <id>T1036.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100929" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\.doc\.lnk$|\.docx\.lnk$|\.xls\.lnk$|\.xlsx\.lnk$|\.ppt\.lnk$|\.pptx\.lnk$|\.rtf\.lnk$|\.pdf\.lnk$|\.txt\.lnk$|\.doc\.js$|\.docx\.js$|\.xls\.js$|\.xlsx\.js$|\.ppt\.js$|\.pptx\.js$|\.rtf\.js$|\.pdf\.js$|\.txt\.js$</field>
+    <description>Sigma: Suspicious Parent Double Extension File Execution</description>
+    <mitre>
+      <id>T1036.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100930" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentCommandLine">\.doc\.lnk|\.docx\.lnk|\.xls\.lnk|\.xlsx\.lnk|\.ppt\.lnk|\.pptx\.lnk|\.rtf\.lnk|\.pdf\.lnk|\.txt\.lnk|\.doc\.js|\.docx\.js|\.xls\.js|\.xlsx\.js|\.ppt\.js|\.pptx\.js|\.rtf\.js|\.pdf\.js|\.txt\.js</field>
+    <description>Sigma: Suspicious Parent Double Extension File Execution</description>
+    <mitre>
+      <id>T1036.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+</group>

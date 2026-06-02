@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1083_file_directory_discovery,">
+  <rule id="111031" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">-recurse</field>
+    <description>Sigma: Powershell Sensitive File Discovery</description>
+    <mitre>
+      <id>T1083</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111033" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">foreach|Get-ChildItem|-Path |-ErrorAction |SilentlyContinue|Out-File |-append</field>
+    <description>Sigma: Powershell Directory Enumeration</description>
+    <mitre>
+      <id>T1083</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111114" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\trufflehog\.exe$</field>
+    <field name="win.eventdata.commandLine"> --results=verified</field>
+    <description>Sigma: PUA - TruffleHog Execution</description>
+    <mitre>
+      <id>T1083</id>
+      <id>T1552.001</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+</group>

@@ -19,7 +19,7 @@ EVTX-Wazuh-Rules is a pipeline that builds a Wazuh detection rule database from 
 
 ### Setup
 ```bash
-pip install -r requirements.txt
+pip install -e ".[dev]"
 ```
 
 ### Full pipeline
@@ -69,10 +69,12 @@ Six-stage pipeline orchestrated by `generator/cli.py`:
 6. **validator.py** → **exporter.py** — Validates XML and exports in three parallel views
 
 Additional modules:
-- **sigma_converter.py** — Converts Sigma YAML directly to Wazuh XML rules
+- **mitre_mapper.py** — Semantic MITRE ATT&CK mapping (indicator table → event-id defaults → path hint → fallback). Replaces path-based tactic guessing.
+- **sigma_converter.py** — Converts Sigma YAML directly to Wazuh XML rules (glob→OS-regex, categorized errors, tactic normalization)
 - **sigma_analyzer.py** — Assesses Sigma rule convertibility
-- **logtest_validator.py** — Validates rules via offline simulation or live Wazuh API/SSH
-- **id_manager.py** — Allocates rule IDs (100000-120000) partitioned by MITRE tactic
+- **logtest_validator.py** — Validates rules via stored/reparsed/synthetic sample events or live Wazuh API/SSH
+- **navigator_export.py** — Exports MITRE ATT&CK Navigator layer JSON from the rule database
+- **id_manager.py** — Allocates rule IDs within Wazuh's custom range (100000-119999) partitioned by MITRE tactic
 
 ### Key data flow
 - `DetectionPattern` (dataclass in `event_analyzer.py`) is the central data structure passed between pipeline stages
@@ -86,14 +88,26 @@ Committed to git. Three parallel views of the same rules:
 - `rules/by_technique/` — One XML per technique ID
 - `rules/by_source/` — By Windows log source (sysmon, security, powershell, etc.)
 
-Metadata in `database/metadata/`: `rule_index.json`, `id_allocations.json`, `provenance.json`, `validation_results.json`.
+Metadata in `database/metadata/`: `rule_index.json`, `id_allocations.json`, `provenance.json`, `validation_results.json`, `sample_events.json`, `sigma_conversion_errors.json`.
 
 Draft rules go to `database/drafts/` for human review (default behavior without `--auto-approve`).
 
 ## Important Conventions
 
-- Rule IDs use range 100000-120000, partitioned per tactic in `config.yaml` under `tactic_id_ranges`
+- Rule IDs use Wazuh's custom range 100000-119999, partitioned per tactic in `config.yaml` under `tactic_id_ranges`
 - Parent SIDs (e.g., `60009` for Sysmon, `60100` for Security) must match Wazuh's built-in rule IDs — defined in `config.yaml` under `wazuh.parent_sids`
 - Generated rules must reference a valid `if_sid` parent that exists in Wazuh defaults
 - All CLI commands use Click groups: `python -m collector <cmd>` and `python -m generator <cmd>`
 - The `data/` directory is gitignored — never commit downloaded EVTX files
+
+## Quality Gates
+
+After any rebuild, verify:
+```bash
+python -m pytest tests/                              # 93+ tests pass
+python -m generator validate                          # 0 structural errors
+python -m generator logtest --mode simulate --save    # pass-rate above baseline
+```
+Check `database/metadata/id_allocations.json` — all 12 tactic ranges should be populated, execution should not be capped. Check `database/rules/by_source/` — sysmon/security/powershell should have rules, not just other.xml.
+
+See `docs/PLAYBOOK.md` for the full end-to-end workflow, troubleshooting, and roadmap.

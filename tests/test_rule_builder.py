@@ -7,9 +7,9 @@ from unittest import mock
 
 from lxml import etree
 
-from generator.event_analyzer import DetectionPattern
-from generator.rule_builder import build_rule, _resolve_parent_sid
 from generator import id_manager
+from generator.event_analyzer import DetectionPattern
+from generator.rule_builder import _resolve_parent_sid, build_rule
 
 
 def test_resolve_parent_sid_sysmon():
@@ -49,8 +49,8 @@ def test_build_rule_structure():
 
         rule = build_rule(pattern)
 
-        assert rule["id"] >= 105000
-        assert rule["id"] <= 105999
+        assert rule["id"] >= 108500
+        assert rule["id"] <= 109999
         assert rule["xml_element"] is not None
 
         xml_str = etree.tostring(rule["xml_element"], encoding="unicode")

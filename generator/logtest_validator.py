@@ -7,9 +7,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 import yaml
-from lxml import etree
 from rich.console import Console
-from rich.table import Table
 
 console = Console()
 
@@ -17,6 +15,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONFIG_FILE = PROJECT_ROOT / "config.yaml"
 RULE_INDEX_FILE = PROJECT_ROOT / "database" / "metadata" / "rule_index.json"
 PROVENANCE_FILE = PROJECT_ROOT / "database" / "metadata" / "provenance.json"
+SAMPLE_EVENTS_FILE = PROJECT_ROOT / "database" / "metadata" / "sample_events.json"
 RULES_DIR = PROJECT_ROOT / "database" / "rules"
 RESULTS_FILE = PROJECT_ROOT / "database" / "metadata" / "validation_results.json"
 
@@ -28,6 +27,7 @@ class ValidationResult:
     mode: str
     details: list[str] = field(default_factory=list)
     error: str = ""
+    inconclusive: bool = False
 
 
 def load_config():
@@ -85,7 +85,7 @@ def _flatten_event_fields(event: dict) -> dict:
 
 
 def _osregex_to_python(pattern: str) -> str:
-    """Convert Wazuh OS regex to Python regex.
+    r"""Convert Wazuh OS regex to Python regex.
 
     OS regex differences from standard:
     - Without ^ or $, it's a substring match
@@ -146,7 +146,6 @@ def simulate_rule_match(rule_fields: dict, event_fields: dict) -> tuple[bool, li
         event_value = event_fields.get(field_name, "")
 
         if not event_value:
-            alt_key = field_name
             for ek, ev in event_fields.items():
                 if ek.lower() == field_name.lower():
                     event_value = ev
@@ -167,7 +166,9 @@ def validate_simulate(rule_id: int, rule_meta: dict, event: dict) -> ValidationR
     field_matches = rule_meta.get("field_matches", {})
     if not field_matches:
         return ValidationResult(
-            rule_id=rule_id, passed=False, mode="simulate",
+            rule_id=rule_id,
+            passed=False,
+            mode="simulate",
             error="No field_matches in metadata",
         )
 
@@ -175,7 +176,10 @@ def validate_simulate(rule_id: int, rule_meta: dict, event: dict) -> ValidationR
     passed, details = simulate_rule_match(field_matches, event_fields)
 
     return ValidationResult(
-        rule_id=rule_id, passed=passed, mode="simulate", details=details,
+        rule_id=rule_id,
+        passed=passed,
+        mode="simulate",
+        details=details,
     )
 
 
@@ -187,6 +191,7 @@ def _run_via_api(event_json: str, config: dict) -> dict:
     try:
         import requests
         from urllib3.exceptions import InsecureRequestWarning
+
         requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
     except ImportError:
         return {"error": "requests package not installed: pip install requests"}
@@ -301,7 +306,10 @@ def validate_live(rule_id: int, event: dict, config: dict) -> ValidationResult:
                 f"Level: {data.get('rule', {}).get('level', 'N/A')}",
             ]
             return ValidationResult(
-                rule_id=rule_id, passed=passed, mode="live_api", details=details,
+                rule_id=rule_id,
+                passed=passed,
+                mode="live_api",
+                details=details,
             )
         api_error = result["error"]
     else:
@@ -314,14 +322,19 @@ def validate_live(rule_id: int, event: dict, config: dict) -> ValidationResult:
             passed = str(rule_id) in output
             details = [f"SSH output: {output[:200]}"]
             return ValidationResult(
-                rule_id=rule_id, passed=passed, mode="live_ssh", details=details,
+                rule_id=rule_id,
+                passed=passed,
+                mode="live_ssh",
+                details=details,
             )
         ssh_error = result["error"]
     else:
         ssh_error = "SSH not configured"
 
     return ValidationResult(
-        rule_id=rule_id, passed=False, mode="live",
+        rule_id=rule_id,
+        passed=False,
+        mode="live",
         error=f"No live method available. API: {api_error}; SSH: {ssh_error}",
     )
 
@@ -343,78 +356,178 @@ def _load_provenance() -> dict:
     return {}
 
 
-def _find_sample_event(source_evtx: str, rule_meta: dict) -> dict | None:
-    """Try to find a sample event for a rule from its source file."""
+_SAMPLE_EVENTS_CACHE: dict | None = None
+
+
+def _load_sample_events() -> dict:
+    """Load (and cache) the persisted per-rule sample events sidecar."""
+    global _SAMPLE_EVENTS_CACHE
+    if _SAMPLE_EVENTS_CACHE is None:
+        if SAMPLE_EVENTS_FILE.exists():
+            with open(SAMPLE_EVENTS_FILE) as f:
+                _SAMPLE_EVENTS_CACHE = json.load(f)
+        else:
+            _SAMPLE_EVENTS_CACHE = {}
+    return _SAMPLE_EVENTS_CACHE
+
+
+def _literal_from_pattern(pattern: str) -> str:
+    """Derive a concrete literal that satisfies an OS-regex field pattern."""
+    p = pattern.split("|")[0]  # first alternative
+    p = p.lstrip("^").rstrip("$")  # drop anchors
+    p = p.replace("[-/]", "-")  # windash alternation
+    # Protect escaped metacharacters with placeholders so the wildcard
+    # substitution below converts only real regex dots, not literal ones.
+    # (Otherwise ``lsass\.exe`` collapses to ``lsassxexe`` and no longer
+    # satisfies its own pattern.)
+    protected = {
+        "\\\\": "\x00BS\x00",
+        "\\.": "\x00DOT\x00",
+        "\\(": "(",
+        "\\)": ")",
+        "\\[": "[",
+        "\\]": "]",
+    }
+    for esc, ph in protected.items():
+        p = p.replace(esc, ph)
+    p = p.replace(".*", "x").replace(".", "x")  # wildcards -> literal
+    p = p.replace("\\", "")  # drop any remaining escapes
+    p = p.replace("\x00DOT\x00", ".").replace("\x00BS\x00", "\\")  # restore literals
+    return p or "x"
+
+
+def synthesize_event(field_matches: dict, event_id, channel: str, provider: str) -> dict:
+    """Build a minimal event whose flattened fields satisfy every pattern.
+
+    Used to round-trip-validate source-less (Sigma-converted) rules: the event
+    is constructed to match the rule, proving the rule is well-formed and
+    matchable rather than that it fires on real attack telemetry.
+    """
+    event_data = {}
+    derived_eid = event_id
+    for field_path, pattern in field_matches.items():
+        literal = _literal_from_pattern(str(pattern))
+        if field_path == "win.system.eventID":
+            derived_eid = literal
+            continue
+        if field_path.startswith("win.eventdata."):
+            camel = field_path[len("win.eventdata.") :]
+            key = camel[0].upper() + camel[1:] if camel else camel
+            event_data[key] = literal
+
+    return {
+        "event_id": derived_eid or event_id or "",
+        "channel": channel,
+        "provider_name": provider,
+        "computer": "synthetic",
+        "timestamp": "",
+        "event_data": event_data,
+        "_synthetic": True,
+    }
+
+
+def _provider_for_parent(parent_sid) -> tuple[str, str]:
+    """Best-effort (channel, provider) for a parent SID, for synthetic events."""
+    sid = int(parent_sid) if str(parent_sid).isdigit() else 0
+    if 61600 <= sid <= 61699:
+        return ("Microsoft-Windows-Sysmon/Operational", "Microsoft-Windows-Sysmon")
+    if sid == 91801:
+        return ("Microsoft-Windows-PowerShell/Operational", "Microsoft-Windows-PowerShell")
+    if sid == 60100:
+        return ("Security", "Microsoft-Windows-Security-Auditing")
+    if sid == 60106:
+        return ("System", "Service Control Manager")
+    return ("", "")
+
+
+def _resolve_sample_event(rule_id, rule_meta: dict) -> tuple[dict | None, str]:
+    """Resolve the event a rule should be validated against.
+
+    Order: (1) stored trigger event, (2) re-parse source & search for a match,
+    (3) synthesize from field_matches (source-less rules). Never falls back to
+    an arbitrary event. Returns (event, provenance_mode) or (None, "").
+    """
     from . import evtx_parser
 
-    source_path = Path(source_evtx)
-    if not source_path.exists():
-        return None
-
-    suffix = source_path.suffix.lower()
-    if suffix in (".yml", ".yaml", ".md", ".txt", ".py"):
-        return None
-
-    try:
-        events = evtx_parser.parse_file(source_path, max_events=100)
-    except Exception:
-        return None
-
-    if not events:
-        return None
+    # (1) stored trigger event
+    stored = _load_sample_events().get(str(rule_id))
+    if stored:
+        return stored, "stored"
 
     field_matches = rule_meta.get("field_matches", {})
-    for event in events:
-        flat = _flatten_event_fields(event)
-        match_count = 0
-        for field_name, pattern in field_matches.items():
-            ev = flat.get(field_name, "")
-            if ev and pattern.lower() in ev.lower():
-                match_count += 1
-        if match_count > 0:
-            return event
+    source = rule_meta.get("source_evtx", "")
+    source_path = Path(source) if source else None
 
-    return events[0]
+    # (2) re-parse the source and search for a genuinely matching event
+    if (
+        source_path
+        and source_path.exists()
+        and source_path.suffix.lower()
+        not in (
+            ".yml",
+            ".yaml",
+            ".md",
+            ".txt",
+            ".py",
+        )
+    ):
+        try:
+            events = evtx_parser.parse_file(source_path, max_events=100)
+        except Exception:
+            events = []
+        for event in events:
+            flat = _flatten_event_fields(event)
+            if all(_match_field(pat, flat.get(fn, "")) for fn, pat in field_matches.items()) and field_matches:
+                return event, "reparsed"
+
+    # (3) synthesize an event from the rule's own field_matches
+    if field_matches:
+        channel, provider = _provider_for_parent(rule_meta.get("parent_sid", 0))
+        synthetic = synthesize_event(field_matches, "", channel, provider)
+        return synthetic, "synthetic"
+
+    return None, ""
 
 
 def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> list[ValidationResult]:
-    """Validate all rules that have source events."""
+    """Validate all rules using stored/reparsed/synthetic sample events."""
     index = _load_rule_index()
     config = load_config()
 
     results = []
     tested = 0
     passed = 0
-    skipped = 0
+    inconclusive = 0
+    provenance_counts: dict[str, int] = {}
 
     console.print(f"[bold]Validating {len(index)} rules (mode={mode})...[/]\n")
 
-    event_cache: dict[str, dict | None] = {}
-
     for rule_id_str, meta in sorted(index.items(), key=lambda x: int(x[0])):
-        source = meta.get("source_evtx", "")
-        if not source:
-            skipped += 1
+        if source_filter and source_filter not in meta.get("source_evtx", ""):
             continue
 
-        if source_filter and source_filter not in source:
-            continue
-
-        cache_key = f"{source}::{rule_id_str}"
-        if source in event_cache:
-            event = event_cache[source]
-        else:
-            event = _find_sample_event(source, meta)
-            if len(event_cache) < 500:
-                event_cache[source] = event
+        event, provenance = _resolve_sample_event(rule_id_str, meta)
 
         if not event:
-            skipped += 1
+            inconclusive += 1
+            results.append(
+                ValidationResult(
+                    rule_id=int(rule_id_str),
+                    passed=False,
+                    mode=mode,
+                    error="No sample event could be resolved",
+                    inconclusive=True,
+                )
+            )
             continue
 
+        provenance_counts[provenance] = provenance_counts.get(provenance, 0) + 1
         rule_id = int(rule_id_str)
+        sim_mode = f"simulate_{provenance}" if mode == "simulate" else mode
+
         if mode == "simulate":
             result = validate_simulate(rule_id, meta, event)
+            result.mode = sim_mode
         else:
             result = validate_live(rule_id, event, config)
 
@@ -423,11 +536,13 @@ def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> lis
         if result.passed:
             passed += 1
 
-    console.print(f"\n[bold]Validation Complete[/]")
+    console.print("\n[bold]Validation Complete[/]")
     console.print(f"  Tested: {tested}")
     console.print(f"  Passed: [green]{passed}[/]")
     console.print(f"  Failed: [red]{tested - passed}[/]")
-    console.print(f"  Skipped (no source): {skipped}")
+    console.print(f"  Inconclusive: [yellow]{inconclusive}[/]")
+    for prov, cnt in sorted(provenance_counts.items()):
+        console.print(f"  Event source ({prov}): {cnt}")
 
     return results
 
@@ -440,27 +555,28 @@ def validate_single_rule(rule_id: int, mode: str = "simulate") -> ValidationResu
     rule_id_str = str(rule_id)
     if rule_id_str not in index:
         return ValidationResult(
-            rule_id=rule_id, passed=False, mode=mode, error="Rule not found in index",
+            rule_id=rule_id,
+            passed=False,
+            mode=mode,
+            error="Rule not found in index",
         )
 
     meta = index[rule_id_str]
-    source = meta.get("source_evtx", "")
+    event, provenance = _resolve_sample_event(rule_id_str, meta)
 
-    if not source:
-        return ValidationResult(
-            rule_id=rule_id, passed=False, mode=mode,
-            error="No source event file for this rule",
-        )
-
-    event = _find_sample_event(source, meta)
     if not event:
         return ValidationResult(
-            rule_id=rule_id, passed=False, mode=mode,
-            error=f"Could not parse source: {source}",
+            rule_id=rule_id,
+            passed=False,
+            mode=mode,
+            error="No sample event could be resolved",
+            inconclusive=True,
         )
 
     if mode == "simulate":
-        return validate_simulate(rule_id, meta, event)
+        result = validate_simulate(rule_id, meta, event)
+        result.mode = f"simulate_{provenance}"
+        return result
     else:
         return validate_live(rule_id, event, config)
 
@@ -476,6 +592,7 @@ def save_results(results: list[ValidationResult]):
             "mode": r.mode,
             "details": r.details,
             "error": r.error,
+            "inconclusive": r.inconclusive,
         }
 
     with open(RESULTS_FILE, "w") as f:

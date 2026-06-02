@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1140_unknown,">
+  <rule id="100624" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.7z|\.avi|\.bat|\.bmp|\.conf|\.csv|\.dll|\.doc|\.gif|\.gz|\.ini|\.jpe|\.jpg|\.json|\.lnk|\.log|\.mkv|\.mp3|\.mp4|\.pdf|\.png|\.ppt|\.rar|\.rtf|\.svg|\.tar|\.tmp|\.txt|\.xls|\.xml|\.yaml|\.yml|\.zip|vbscript</field>
+    <field name="win.eventdata.image">\mshta\.exe$</field>
+    <description>Sigma: MSHTA Execution with Suspicious File Extensions</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1218.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100673" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\ping\.exe$</field>
+    <field name="win.eventdata.commandLine">0x[a-fA-F0-9]{8}</field>
+    <description>Sigma: Ping Hex IP</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1027</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100683" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">::FromBase64String</field>
+    <description>Sigma: PowerShell Base64 Encoded FromBase64String Cmdlet</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100684" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">OgA6AEYAcgBvAG0AQgBhAHMAZQA2ADQAUwB0AHIAaQBuAGcA|oAOgBGAHIAbwBtAEIAYQBzAGUANgA0AFMAdAByAGkAbgBnA|6ADoARgByAG8AbQBCAGEAcwBlADYANABTAHQAcgBpAG4AZw</field>
+    <description>Sigma: PowerShell Base64 Encoded FromBase64String Cmdlet</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100909" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">h\^t\^t\^p|h"t"t"p</field>
+    <description>Sigma: Potential Commandline Obfuscation Using Escape Characters</description>
+    <mitre>
+      <id>T1140</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="104787" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Google\Chrome\DnsOverHttpsMode$</field>
+    <field name="win.eventdata.details">secure</field>
+    <description>Sigma: DNS-over-HTTPS Enabled by Registry</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104788" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Policies\Microsoft\Edge\BuiltInDnsClientEnabled$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: DNS-over-HTTPS Enabled by Registry</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104789" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\SOFTWARE\Policies\Mozilla\Firefox\DNSOverHTTPS\Enabled$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: DNS-over-HTTPS Enabled by Registry</description>
+    <mitre>
+      <id>T1140</id>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="112008" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">certutil</field>
+    <description>Suspicious process 'certutil' execution detected</description>
+    <mitre>
+      <id>T1140</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112009" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">certutil</field>
+    <description>File created by suspicious process 'certutil'</description>
+    <mitre>
+      <id>T1140</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112018" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">certutil</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'certutil'</description>
+    <mitre>
+      <id>T1140</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+</group>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1102.002_unknown,">
+  <rule id="110095" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">spawnclient</field>
+    <field name="win.eventdata.image">\Runner\.Worker\.exe$</field>
+    <description>Sigma: Github Self-Hosted Runner Execution</description>
+    <mitre>
+      <id>T1102.002</id>
+      <id>T1071</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+</group>

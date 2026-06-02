@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1218.002_unknown,">
+  <rule id="107151" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">add|CurrentVersion\Control Panel\CPLs</field>
+    <field name="win.eventdata.image">\reg\.exe$</field>
+    <description>Sigma: Control Panel Items</description>
+    <mitre>
+      <id>T1218.002</id>
+      <id>T1546</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

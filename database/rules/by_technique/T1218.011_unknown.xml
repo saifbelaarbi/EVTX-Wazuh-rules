@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1218.011_unknown,">
+  <rule id="100119" level="8">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.sourceImage">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.targetImage">\rundll32\.exe$|\regsvr32\.exe$</field>
+    <description>Sigma: Remote Thread Creation Via PowerShell In Uncommon Target</description>
+    <mitre>
+      <id>T1218.011</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100154" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.scr$</field>
+    <description>Sigma: SCR File Write Event</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100218" level="8">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\InstallUtil\.exe$|\RegAsm\.exe$|\RegSvcs\.exe$|\regsvr32\.exe$|\rundll32\.exe$</field>
+    <description>Sigma: Unsigned DLL Loaded by Windows Utility</description>
+    <mitre>
+      <id>T1218.011</id>
+      <id>T1218.010</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100230" level="8">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.initiated">true</field>
+    <description>Sigma: Rundll32 Internet Connection</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100234" level="8">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">\winlogon\.exe$</field>
+    <field name="win.eventdata.initiated">true</field>
+    <description>Sigma: Outbound Network Connection To Public IP Via Winlogon</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100481" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">rundll32\.exe|\.dll|StartNodeRelay</field>
+    <description>Sigma: HackTool - F-Secure C3 Load by Rundll32</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100484" level="13">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> StartW$|,StartW$</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: CobaltStrike Load by Rundll32</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100581" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">pcwutl|LaunchApplication</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Code Execution via Pcwutl.dll</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100864" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">InstallScreenSaver</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Rundll32 InstallScreenSaver Execution</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100871" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\runonce\.exe$</field>
+    <field name="win.eventdata.parentImage">\rundll32\.exe$</field>
+    <field name="win.eventdata.parentCommandLine">setupapi\.dll|InstallHinfSection</field>
+    <description>Sigma: Suspicious Rundll32 Setupapi.dll Activity</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100872" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">%AppData%|%LocalAppData%|%Temp%|%tmp%|\AppData\|\Temp\|\Users\Public\|Control_RunDLL</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Shell32 DLL Execution in Suspicious Directory</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100874" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\rundll32\.exe$</field>
+    <field name="win.eventdata.image">\explorer\.exe$</field>
+    <description>Sigma: RunDLL32 Spawning Explorer</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100875" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">javascript:|\.RegisterXLL</field>
+    <description>Sigma: Potentially Suspicious Rundll32 Activity</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100876" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.parentImage">\System32\control\.exe$</field>
+    <description>Sigma: Suspicious Control Panel DLL Load</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100877" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.bmp|\.cr2|\.eps|\.gif|\.ico|\.jpeg|\.jpg|\.nef|\.orf|\.png|\.raw|\.sr2|\.tif|\.tiff</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Suspicious Rundll32 Execution With Image Extension</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100879" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentCommandLine">#568|#570|#572|#576</field>
+    <description>Sigma: Suspicious ShellExec_RunDLL Call Via Ordinal</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100880" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.sys,|\.sys </field>
+    <description>Sigma: Suspicious Rundll32 Activity Invoking Sys File</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100881" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.udl$|,OpenDSLFile |\\Users\\.*\\Downloads\\</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.parentImage">\explorer\.exe$</field>
+    <description>Sigma: Potentially Suspicious Rundll32.EXE Execution of UDL File</description>
+    <mitre>
+      <id>T1218.011</id>
+      <id>T1071</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100883" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Rundll32 Execution With Uncommon DLL Extension</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100903" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\regasm\.exe$</field>
+    <field name="win.eventdata.commandLine">regasm\.exe$</field>
+    <description>Sigma: Bad Opsec Defaults Sacrificial Processes With Improper Arguments</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100904" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\regsvcs\.exe$</field>
+    <field name="win.eventdata.commandLine">regsvcs\.exe$</field>
+    <description>Sigma: Bad Opsec Defaults Sacrificial Processes With Improper Arguments</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100905" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\regsvr32\.exe$</field>
+    <field name="win.eventdata.commandLine">regsvr32\.exe$</field>
+    <description>Sigma: Bad Opsec Defaults Sacrificial Processes With Improper Arguments</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100906" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.commandLine">rundll32\.exe$</field>
+    <description>Sigma: Bad Opsec Defaults Sacrificial Processes With Improper Arguments</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100907" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\WerFault\.exe$</field>
+    <field name="win.eventdata.commandLine">WerFault\.exe$</field>
+    <description>Sigma: Bad Opsec Defaults Sacrificial Processes With Improper Arguments</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100970" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Default\.GetString|DownloadString|FromBase64String|ICM |IEX |Invoke-Command|Invoke-Expression</field>
+    <field name="win.eventdata.image">\InstallUtil\.exe$|\RegAsm\.exe$|\RegSvcs\.exe$|\regsvr32\.exe$|\rundll32\.exe$</field>
+    <description>Sigma: Potential PowerShell Execution Via DLL</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101142" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.targetObject">\Control Panel\Desktop\SCRNSAVE\.EXE</field>
+    <field name="win.eventdata.details">\.scr$</field>
+    <description>Sigma: ScreenSaver Registry Key Set</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="108643" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\TrolleyExpress 7|\TrolleyExpress 8|\TrolleyExpress 9|\TrolleyExpress\.exe 7|\TrolleyExpress\.exe 8|\TrolleyExpress\.exe 9|\TrolleyExpress\.exe -ma </field>
+    <field name="win.eventdata.image">\TrolleyExpress\.exe$</field>
+    <description>Sigma: Process Access via TrolleyExpress Exclusion</description>
+    <mitre>
+      <id>T1218.011</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="112001" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Suspicious process 'rundll32' execution detected</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112002" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>File created by suspicious process 'rundll32'</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112016" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <description>Image load by suspicious process 'rundll32'</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112017" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <field name="win.eventdata.destinationPort">443</field>
+    <description>Suspicious network connection from 'rundll32'</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112020" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <field name="win.eventdata.destinationPort">1337</field>
+    <description>Suspicious network connection from 'rundll32'</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112025" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.image">rundll32</field>
+    <field name="win.eventdata.destinationPort">8181</field>
+    <description>Suspicious network connection from 'rundll32'</description>
+    <mitre>
+      <id>T1218.011</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+</group>

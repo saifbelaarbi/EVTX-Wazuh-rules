@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1574.001_unknown,">
+  <rule id="104586" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">:\Windows\System32\axeonoffhelper\.dll$|:\Windows\System32\cdpsgshims\.dll$|:\Windows\System32\oci\.dll$|:\Windows\System32\offdmpsvc\.dll$|:\Windows\System32\shellchromeapi\.dll$|:\Windows\System32\TSMSISrv\.dll$|:\Windows\System32\TSVIPSrv\.dll$|:\Windows\System32\wbem\wbemcomn\.dll$|:\Windows\System32\WLBSCTRL\.dll$|:\Windows\System32\wow64log\.dll$|:\Windows\System32\WptsExtensions\.dll$|\SprintCSP\.dll$</field>
+    <description>Sigma: Creation Of Non-Existent System DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104587" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.dll$</field>
+    <description>Sigma: DLL Search Order Hijackig Via Additional Space in Path</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104591" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.bat$</field>
+    <description>Sigma: HackTool - Powerup Write Hijack DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104592" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">iphlpapi\.dll|\AppData\Local\Microsoft</field>
+    <description>Sigma: Malicious DLL File Dropped in the Teams or OneDrive Folder</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104613" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\log\.dll$</field>
+    <description>Sigma: Potential Antivirus Software DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104614" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\appverifUI\.dll$</field>
+    <description>Sigma: Potential appverifUI.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104615" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\AVKkid\.dll$</field>
+    <description>Sigma: Potential AVKkid.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104616" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\CCleanerDU\.dll$</field>
+    <description>Sigma: Potential CCleanerDU.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104617" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\CCleanerReactivator\.dll$</field>
+    <description>Sigma: Potential CCleanerReactivator.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104618" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\chrome_frame_helper\.dll$</field>
+    <description>Sigma: Potential Chrome Frame Helper DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104619" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\ClassicExplorer32\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Via ClassicExplorer32.dll</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104620" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\comctl32\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Via comctl32.dll</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104621" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\appwiz\.cpl$|\bthprops\.cpl$|\hdwwiz\.cpl$</field>
+    <description>Sigma: System Control Panel Item Loaded From Uncommon Location</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104622" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\dbgcore\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of DBGCORE.DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104623" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\dbghelp\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of DBGHELP.DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104624" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\EACore\.dll$</field>
+    <description>Sigma: Potential EACore.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104625" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\edputil\.dll$</field>
+    <description>Sigma: Potential Edputil.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104626" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\aclui\.dll$|\activeds\.dll$|\adsldpc\.dll$|\aepic\.dll$|\apphelp\.dll$|\applicationframe\.dll$|\appvpolicy\.dll$|\appxalluserstore\.dll$|\appxdeploymentclient\.dll$|\archiveint\.dll$|\atl\.dll$|\audioses\.dll$|\auditpolcore\.dll$|\authfwcfg\.dll$|\authz\.dll$|\avrt\.dll$|\batmeter\.dll$|\bcd\.dll$|\bcp47langs\.dll$|\bcp47mrm\.dll$|\bcrypt\.dll$|\bderepair\.dll$|\bootmenuux\.dll$|\bootux\.dll$|\cabinet\.dll$|\cabview\.dll$|\certcli\.dll$|\certenroll\.dll$|\cfgmgr32\.dll$|\cldapi\.dll$|\clipc\.dll$|\clusapi\.dll$|\cmpbk32\.dll$|\cmutil\.dll$|\coloradapterclient\.dll$|\colorui\.dll$|\comdlg32\.dll$|\configmanager2\.dll$|\connect\.dll$|\coredplus\.dll$|\coremessaging\.dll$|\coreuicomponents\.dll$|\credui\.dll$|\cryptbase\.dll$|\cryptdll\.dll$|\cryptsp\.dll$|\cryptui\.dll$|\cryptxml\.dll$|\cscapi\.dll$|\cscobj\.dll$|\cscui\.dll$|\d2d1\.dll$|\d3d10_1\.dll$|\d3d10_1core\.dll$|\d3d10\.dll$|\d3d10core\.dll$|\d3d10warp\.dll$|\d3d11\.dll$|\d3d12\.dll$|\d3d9\.dll$|\d3dx9_43\.dll$|\dataexchange\.dll$|\davclnt\.dll$|\dcntel\.dll$|\dcomp\.dll$|\defragproxy\.dll$|\desktopshellext\.dll$|\deviceassociation\.dll$|\devicecredential\.dll$|\devicepairing\.dll$|\devobj\.dll$|\devrtl\.dll$|\dhcpcmonitor\.dll$|\dhcpcsvc\.dll$|\dhcpcsvc6\.dll$|\directmanipulation\.dll$|\dismapi\.dll$|\dismcore\.dll$|\dmcfgutils\.dll$|\dmcmnutils\.dll$|\dmcommandlineutils\.dll$|\dmenrollengine\.dll$|\dmenterprisediagnostics\.dll$|\dmiso8601utils\.dll$|\dmoleaututils\.dll$|\dmprocessxmlfiltered\.dll$|\dmpushproxy\.dll$|\dmxmlhelputils\.dll$|\dnsapi\.dll$|\dot3api\.dll$|\dot3cfg\.dll$|\dpx\.dll$|\drprov\.dll$|\drvstore\.dll$|\dsclient\.dll$|\dsparse\.dll$|\dsprop\.dll$|\dsreg\.dll$|\dsrole\.dll$|\dui70\.dll$|\duser\.dll$|\dusmapi\.dll$|\dwmapi\.dll$|\dwmcore\.dll$|\dwrite\.dll$|\dxcore\.dll$|\dxgi\.dll$|\dxva2\.dll$|\dynamoapi\.dll$|\eappcfg\.dll$|\eappprxy\.dll$|\edgeiso\.dll$|\edputil\.dll$|\efsadu\.dll$|\efsutil\.dll$|\esent\.dll$|\execmodelproxy\.dll$|\explorerframe\.dll$|\fastprox\.dll$|\faultrep\.dll$|\fddevquery\.dll$|\feclient\.dll$|\fhcfg\.dll$|\fhsvcctl\.dll$|\firewallapi\.dll$|\flightsettings\.dll$|\fltlib\.dll$|\framedynos\.dll$|\fveapi\.dll$|\fveskybackup\.dll$|\fvewiz\.dll$|\fwbase\.dll$|\fwcfg\.dll$|\fwpolicyiomgr\.dll$|\fwpuclnt\.dll$|\fxsapi\.dll$|\fxsst\.dll$|\fxstiff\.dll$|\getuname\.dll$|\gpapi\.dll$|\hid\.dll$|\hnetmon\.dll$|\httpapi\.dll$|\icmp\.dll$|\idstore\.dll$|\ieadvpack\.dll$|\iedkcs32\.dll$|\iernonce\.dll$|\iertutil\.dll$|\ifmon\.dll$|\ifsutil\.dll$|\inproclogger\.dll$|\iphlpapi\.dll$|\iri\.dll$|\iscsidsc\.dll$|\iscsium\.dll$|\isv\.exe_rsaenh\.dll$|\iumbase\.dll$|\iumsdk\.dll$|\joinutil\.dll$|\kdstub\.dll$|\ksuser\.dll$|\ktmw32\.dll$|\licensemanagerapi\.dll$|\licensingdiagspp\.dll$|\linkinfo\.dll$|\loadperf\.dll$|\lockhostingframework\.dll$|\logoncli\.dll$|\logoncontroller\.dll$|\lpksetupproxyserv\.dll$|\lrwizdll\.dll$|\magnification\.dll$|\maintenanceui\.dll$|\mapistub\.dll$|\mbaexmlparser\.dll$|\mdmdiagnostics\.dll$|\mfc42u\.dll$|\mfcore\.dll$|\mfplat\.dll$|\mi\.dll$|\midimap\.dll$|\mintdh\.dll$|\miutils\.dll$|\mlang\.dll$|\mmdevapi\.dll$|\mobilenetworking\.dll$|\mpr\.dll$|\mprapi\.dll$|\mrmcorer\.dll$|\msacm32\.dll$|\mscms\.dll$|\mscoree\.dll$|\msctf\.dll$|\msctfmonitor\.dll$|\msdrm\.dll$|\msdtctm\.dll$|\msftedit\.dll$|\msi\.dll$|\msiso\.dll$|\msutb\.dll$|\msvcp110_win\.dll$|\mswb7\.dll$|\mswsock\.dll$|\msxml3\.dll$|\mtxclu\.dll$|\napinsp\.dll$|\ncrypt\.dll$|\ndfapi\.dll$|\netapi32\.dll$|\netid\.dll$|\netiohlp\.dll$|\netjoin\.dll$|\netplwiz\.dll$|\netprofm\.dll$|\netprovfw\.dll$|\netsetupapi\.dll$|\netshell\.dll$|\nettrace\.dll$|\netutils\.dll$|\networkexplorer\.dll$|\newdev\.dll$|\ninput\.dll$|\nlaapi\.dll$|\nlansp_c\.dll$|\npmproxy\.dll$|\nshhttp\.dll$|\nshipsec\.dll$|\nshwfp\.dll$|\ntdsapi\.dll$|\ntlanman\.dll$|\ntlmshared\.dll$|\ntmarta\.dll$|\ntshrui\.dll$|\oleacc\.dll$|\omadmapi\.dll$|\onex\.dll$|\opcservices\.dll$|\osbaseln\.dll$|\osksupport\.dll$|\osuninst\.dll$|\p2p\.dll$|\p2pnetsh\.dll$|\p9np\.dll$|\pcaui\.dll$|\pdh\.dll$|\peerdistsh\.dll$|\pkeyhelper\.dll$|\pla\.dll$|\playsndsrv\.dll$|\pnrpnsp\.dll$|\policymanager\.dll$|\polstore\.dll$|\powrprof\.dll$|\printui\.dll$|\prntvpt\.dll$|\profapi\.dll$|\propsys\.dll$|\proximitycommon\.dll$|\proximityservicepal\.dll$|\prvdmofcomp\.dll$|\puiapi\.dll$|\radcui\.dll$|\rasapi32\.dll$|\rasdlg\.dll$|\rasgcw\.dll$|\rasman\.dll$|\rasmontr\.dll$|\reagent\.dll$|\regapi\.dll$|\reseteng\.dll$|\resetengine\.dll$|\resutils\.dll$|\rmclient\.dll$|\rpcnsh\.dll$|\rsaenh\.dll$|\rtutils\.dll$|\rtworkq\.dll$|\samcli\.dll$|\samlib\.dll$|\sapi_onecore\.dll$|\sas\.dll$|\scansetting\.dll$|\scecli\.dll$|\schedcli\.dll$|\secur32\.dll$|\security\.dll$|\sensapi\.dll$|\shell32\.dll$|\shfolder\.dll$|\slc\.dll$|\snmpapi\.dll$|\spectrumsyncclient\.dll$|\spp\.dll$|\sppc\.dll$|\sppcext\.dll$|\srclient\.dll$|\srcore\.dll$|\srmtrace\.dll$|\srpapi\.dll$|\srvcli\.dll$|\ssp_isv\.exe_rsaenh\.dll$|\ssp\.exe_rsaenh\.dll$|\sspicli\.dll$|\ssshim\.dll$|\staterepository\.core\.dll$|\structuredquery\.dll$|\sxshared\.dll$|\systemsettingsthresholdadminflowui\.dll$|\tapi32\.dll$|\tbs\.dll$|\tdh\.dll$|\textshaping\.dll$|\timesync\.dll$|\tpmcoreprovisioning\.dll$|\tquery\.dll$|\tsworkspace\.dll$|\ttdrecord\.dll$|\twext\.dll$|\twinapi\.dll$|\twinui\.appcore\.dll$|\uianimation\.dll$|\uiautomationcore\.dll$|\uireng\.dll$|\uiribbon\.dll$|\umpdc\.dll$|\unattend\.dll$|\updatepolicy\.dll$|\upshared\.dll$|\urlmon\.dll$|\userenv\.dll$|\utildll\.dll$|\uxinit\.dll$|\uxtheme\.dll$|\vaultcli\.dll$|\vdsutil\.dll$|\version\.dll$|\virtdisk\.dll$|\vssapi\.dll$|\vsstrace\.dll$|\wbemprox\.dll$|\wbemsvc\.dll$|\wcmapi\.dll$|\wcnnetsh\.dll$|\wdi\.dll$|\wdscore\.dll$|\webservices\.dll$|\wecapi\.dll$|\wer\.dll$|\wevtapi\.dll$|\whhelper\.dll$|\wimgapi\.dll$|\winbio\.dll$|\winbrand\.dll$|\windows\.storage\.dll$|\windows\.storage\.search\.dll$|\windows\.ui\.immersive\.dll$|\windowscodecs\.dll$|\windowscodecsext\.dll$|\windowsudk\.shellcommon\.dll$|\winhttp\.dll$|\wininet\.dll$|\winipsec\.dll$|\winmde\.dll$|\winmm\.dll$|\winnsi\.dll$|\winrnr\.dll$|\winscard\.dll$|\winsqlite3\.dll$|\winsta\.dll$|\winsync\.dll$|\wkscli\.dll$|\wlanapi\.dll$|\wlancfg\.dll$|\wldp\.dll$|\wlidprov\.dll$|\wmiclnt\.dll$|\wmidcom\.dll$|\wmiutils\.dll$|\wmpdui\.dll$|\wmsgapi\.dll$|\wofutil\.dll$|\wpdshext\.dll$|\wscapi\.dll$|\wsdapi\.dll$|\wshbth\.dll$|\wshelper\.dll$|\wsmsvc\.dll$|\wtsapi32\.dll$|\wwancfg\.dll$|\wwapi\.dll$|\xmllite\.dll$|\xolehlp\.dll$|\xpsservices\.dll$|\xwizards\.dll$|\xwtpw32\.dll$|\amsi\.dll$|\appraiser\.dll$|\COMRES\.DLL$|\cryptnet\.dll$|\DispBroker\.dll$|\dsound\.dll$|\dxilconv\.dll$|\FxsCompose\.dll$|\FXSRESM\.DLL$|\msdtcVSp1res\.dll$|\PrintIsolationProxy\.dll$|\rdpendp\.dll$|\rpchttp\.dll$|\storageusage\.dll$|\utcutil\.dll$|\WfsR\.dll$|\igd10iumd64\.dll$|\igd12umd64\.dll$|\igdumdim64\.dll$|\igdusc64\.dll$|\TSMSISrv\.dll$|\TSVIPSrv\.dll$|\wbemcomn\.dll$|\WLBSCTRL\.dll$|\wow64log\.dll$|\WptsExtensions\.dll$</field>
+    <description>Sigma: Potential System DLL Sideloading From Non System Locations</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104627" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\goopdate\.dll$</field>
+    <description>Sigma: Potential Goopdate.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104628" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\gup\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\libcurl\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of Libcurl.DLL Via GUP.EXE</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104629" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\iviewers\.dll$</field>
+    <description>Sigma: Potential Iviewers.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104630" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\jli\.dll$</field>
+    <description>Sigma: Potential JLI.dll Side-Loading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104631" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\JSESPR\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Via JsSchHlp</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104632" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\KeyScrambler\.exe$|\KeyScramblerLogon\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\KeyScramblerIE\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of KeyScramblerIE.DLL Via KeyScrambler.EXE</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104633" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\libvlc\.dll$</field>
+    <description>Sigma: Potential Libvlc.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104634" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\mfdetours\.dll$</field>
+    <description>Sigma: Potential Mfdetours.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104635" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\mfdetours\.dll$</field>
+    <description>Sigma: Unsigned Mfdetours.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104636" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">:\Windows\System32\axeonoffhelper\.dll$|:\Windows\System32\cdpsgshims\.dll$|:\Windows\System32\oci\.dll$|:\Windows\System32\offdmpsvc\.dll$|:\Windows\System32\shellchromeapi\.dll$|:\Windows\System32\TSMSISrv\.dll$|:\Windows\System32\TSVIPSrv\.dll$|:\Windows\System32\wbem\wbemcomn\.dll$|:\Windows\System32\WLBSCTRL\.dll$|:\Windows\System32\wow64log\.dll$|:\Windows\System32\WptsExtensions\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of Non-Existent DLLs From System Folders</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104637" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\outllib\.dll$</field>
+    <description>Sigma: Microsoft Office DLL Sideload</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104638" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\rcdll\.dll$</field>
+    <description>Sigma: Potential Rcdll.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104639" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">C:\Windows\System32\SystemResetPlatform\SystemResetPlatform\.exe</field>
+    <field name="win.eventdata.imageLoaded">C:\\$SysReset\Framework\Stack\RjvPlatform\.dll</field>
+    <description>Sigma: Potential RjvPlatform.DLL Sideloading From Default Location</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104640" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\RjvPlatform\.dll$</field>
+    <field name="win.eventdata.image">\SystemResetPlatform\.exe</field>
+    <description>Sigma: Potential RjvPlatform.DLL Sideloading From Non-Default Location</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104641" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\roboform\.dll$|\roboform-x64\.dll$</field>
+    <description>Sigma: Potential RoboForm.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104642" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\ShellChromeAPI\.dll$</field>
+    <description>Sigma: DLL Sideloading Of ShellChromeAPI.DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104643" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\ShellDispatch\.dll$</field>
+    <description>Sigma: Potential ShellDispatch.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104644" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\SmadHook32c\.dll$|\SmadHook64c\.dll$</field>
+    <description>Sigma: Potential SmadHook.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104645" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\SolidPDFCreator\.dll$</field>
+    <description>Sigma: Potential SolidPDFCreator.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104646" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\commfunc\.dll$</field>
+    <description>Sigma: Third Party Software DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104647" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\vcruntime140\.dll$</field>
+    <description>Sigma: Potential Vcruntime140 DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104648" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\vivaldi_elf\.dll$</field>
+    <description>Sigma: Potential Vivaldi_elf.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104649" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\VMware\VMware Tools\vmStatsProvider\win32|\vmGuestLib\.dll</field>
+    <field name="win.eventdata.image">\Windows\System32\wbem\WmiApSrv\.exe$</field>
+    <description>Sigma: VMGuestLib DLL Sideload</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104650" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">C:\Debuggers\dbghelp\.dll</field>
+    <field name="win.eventdata.image">\vmmap\.exe$|\vmmap64\.exe$</field>
+    <field name="win.eventdata.signed">true</field>
+    <description>Sigma: VMMap Signed Dbghelp.DLL Potential Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104651" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">C:\Debuggers\dbghelp\.dll</field>
+    <field name="win.eventdata.image">\vmmap\.exe$|\vmmap64\.exe$</field>
+    <description>Sigma: VMMap Unsigned Dbghelp.DLL Potential Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104652" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\waveedit\.dll$</field>
+    <description>Sigma: Potential Waveedit.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104653" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\libwazuhshared\.dll$|\libwinpthread-1\.dll$</field>
+    <description>Sigma: Potential Wazuh Security Platform DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104654" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\wwlib\.dll$</field>
+    <description>Sigma: Potential WWlib.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="107008" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">150|770|771</field>
+    <description>Sigma: DNS Server Error Failed Loading the ServerLevelPluginDLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107033" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">11|12</field>
+    <field name="win.eventdata.processPath">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
+    <description>Sigma: Microsoft Defender Blocked from Loading Unsigned DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107034" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">11|12</field>
+    <field name="win.eventdata.imageName">\Users\Public\|\PerfLogs\|\Desktop\|\Downloads\|\AppData\Local\Temp\|C:\Windows\TEMP\</field>
+    <description>Sigma: Unsigned Binary Loaded From Suspicious Location</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107035" level="11">
+    <if_sid>60106</if_sid>
+    <field name="win.system.eventID">1033</field>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
+    <description>Sigma: DHCP Server Loaded the CallOut DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107036" level="11">
+    <if_sid>60106</if_sid>
+    <field name="win.system.eventID">1031|1032|1034</field>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
+    <description>Sigma: DHCP Server Error Failed Loading the CallOut DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107076" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\WerFault\.exe$|\wer\.dll$</field>
+    <description>Sigma: Creation of WerFault.exe/Wer.dll in Unusual Folder</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107080" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\arubanetsvc\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\wtsapi32\.dll$|\msvcr100\.dll$|\msvcp100\.dll$|\dbghelp\.dll$|\dbgcore\.dll$|\wininet\.dll$|\iphlpapi\.dll$|\version\.dll$|\cryptsp\.dll$|\cryptbase\.dll$|\wldp\.dll$|\profapi\.dll$|\sspicli\.dll$|\winsta\.dll$|\dpapi\.dll$</field>
+    <description>Sigma: Aruba Network Service Potential DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107082" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\dbgmodel\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of DbgModel.DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107083" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\MpSvc\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of MpSvc.DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107084" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\mscorsvc\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Of MsCorSvc.DLL</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107085" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\python39\.dll$|\python310\.dll$|\python311\.dll$|\python312\.dll$</field>
+    <description>Sigma: Potential Python DLL SideLoading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107086" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\fxssvc\.exe$</field>
+    <field name="win.eventdata.imageLoaded">ualapi\.dll$</field>
+    <description>Sigma: Fax Service DLL Search Order Hijack</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107087" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\VMwareXferlogs\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\glib-2\.0\.dll$</field>
+    <description>Sigma: Potential DLL Sideloading Via VMware Xfer</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107088" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\mpclient\.dll$</field>
+    <field name="win.eventdata.image">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
+    <description>Sigma: Potential Mpclient.DLL Sideloading</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107089" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\AppData\Local\Apps\2\.0\</field>
+    <field name="win.eventdata.signed">false</field>
+    <description>Sigma: Unsigned Module Loaded by ClickOnce Application</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107090" level="11">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\thor\.exe$|\thor64\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\thor\.exe$|\thor64\.exe$</field>
+    <description>Sigma: Suspicious Unsigned Thor Scanner Execution</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107154" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/PhoneDeepLink</field>
+    <field name="win.eventdata.image">\deviceenroller\.exe$</field>
+    <description>Sigma: Potential DLL Sideloading Via DeviceEnroller.EXE</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107156" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\VMwareXferlogs\.exe$</field>
+    <description>Sigma: DLL Sideloading by VMware Xfer Utility</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107158" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\dnscmd\.exe$</field>
+    <field name="win.eventdata.commandLine">/config|/serverlevelplugindll</field>
+    <description>Sigma: New DNS ServerLevelPluginDll Installed Via Dnscmd.EXE</description>
+    <mitre>
+      <id>T1574.001</id>
+      <id>T1112</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107161" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\GUP\.exe$</field>
+    <description>Sigma: Suspicious GUP Usage</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107217" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\MpCmdRun\.exe$|\NisSrv\.exe$</field>
+    <description>Sigma: Potential Mpclient.DLL Sideloading Via Defender Binaries</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107232" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">vmnat\.exe</field>
+    <description>Sigma: Renamed Vmnat.exe Execution</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107270" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> C:\Windows\System32\Tasks\| C:\Windows\SysWow64\Tasks\</field>
+    <description>Sigma: Tasks Folder Evasion</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107307" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\xwizard\.exe$</field>
+    <description>Sigma: Xwizard.EXE Execution From Non-Default Location</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107342" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Services\DHCPServer\Parameters\CalloutDlls$|\Services\DHCPServer\Parameters\CalloutEnabled$</field>
+    <description>Sigma: DHCP Callout DLL Installation</description>
+    <mitre>
+      <id>T1574.001</id>
+      <id>T1112</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107345" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\services\DNS\Parameters\ServerLevelPluginDll$</field>
+    <description>Sigma: New DNS ServerLevelPluginDll Installed</description>
+    <mitre>
+      <id>T1574.001</id>
+      <id>T1112</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+</group>

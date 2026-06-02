@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1021.004_unknown,">
+  <rule id="112513" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">4</field>
+    <field name="win.eventdata.process">sshd</field>
+    <field name="win.eventdata.payload">^Server listening on </field>
+    <description>Sigma: OpenSSH Server Listening On Socket</description>
+    <mitre>
+      <id>T1021.004</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+</group>

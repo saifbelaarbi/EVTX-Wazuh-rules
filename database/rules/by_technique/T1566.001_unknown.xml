@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1566.001_unknown,">
+  <rule id="113001" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4663</field>
+    <field name="win.eventdata.objectServer">Security</field>
+    <field name="win.eventdata.objectType">File</field>
+    <field name="win.eventdata.objectName">^\Device\CdRom</field>
+    <description>Sigma: ISO Image Mounted</description>
+    <mitre>
+      <id>T1566.001</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113006" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.iso$|\.zip\</field>
+    <description>Sigma: ISO File Created Within Temp Folders</description>
+    <mitre>
+      <id>T1566.001</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113007" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.iso$</field>
+    <description>Sigma: ISO File Created Within Temp Folders</description>
+    <mitre>
+      <id>T1566.001</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113008" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\Microsoft\Windows\Recent\</field>
+    <description>Sigma: ISO or Image Mount Indicator in Recent Files</description>
+    <mitre>
+      <id>T1566.001</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113010" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\cscript\.exe$|\mshta\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.docm$|\.dotm$|\.xlsm$|\.xltm$|\.potm$|\.pptm$</field>
+    <description>Sigma: Office Macro File Creation From Suspicious Process</description>
+    <mitre>
+      <id>T1566.001</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113011" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\AppData\Local\Packages\Microsoft\.Outlook_|\AppData\Local\Microsoft\Olk\Attachments\</field>
+    <description>Sigma: Suspicious File Created in Outlook Temporary Directory</description>
+    <mitre>
+      <id>T1566.001</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113014" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\Hwp\.exe$</field>
+    <field name="win.eventdata.image">\gbb\.exe$</field>
+    <description>Sigma: Suspicious HWP Sub Processes</description>
+    <mitre>
+      <id>T1566.001</id>
+      <id>T1203</id>
+      <id>T1059.003</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113022" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\Temporary Internet Files\Content\.Outlook\</field>
+    <description>Sigma: Suspicious Execution From Outlook Temporary Folder</description>
+    <mitre>
+      <id>T1566.001</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113026" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">      \.exe$|______\.exe$|\.doc\.exe$|\.doc\.js$|\.docx\.exe$|\.docx\.js$|\.gif\.exe$|\.jpeg\.exe$|\.jpg\.exe$|\.mkv\.exe$|\.mov\.exe$|\.mp3\.exe$|\.mp4\.exe$|\.pdf\.exe$|\.pdf\.js$|\.png\.exe$|\.ppt\.exe$|\.ppt\.js$|\.pptx\.exe$|\.pptx\.js$|\.rtf\.exe$|\.rtf\.js$|\.svg\.exe$|\.txt\.exe$|\.txt\.js$|\.xls\.exe$|\.xls\.js$|\.xlsx\.exe$|\.xlsx\.js$|⠀⠀⠀⠀⠀⠀\.exe$</field>
+    <field name="win.eventdata.commandLine">      \.exe|______\.exe|\.doc\.exe|\.doc\.js|\.docx\.exe|\.docx\.js|\.gif\.exe|\.jpeg\.exe|\.jpg\.exe|\.mkv\.exe|\.mov\.exe|\.mp3\.exe|\.mp4\.exe|\.pdf\.exe|\.pdf\.js|\.png\.exe|\.ppt\.exe|\.ppt\.js|\.pptx\.exe|\.pptx\.js|\.rtf\.exe|\.rtf\.js|\.svg\.exe|\.txt\.exe|\.txt\.js|\.xls\.exe|\.xls\.js|\.xlsx\.exe|\.xlsx\.js|⠀⠀⠀⠀⠀⠀\.exe</field>
+    <description>Sigma: Suspicious Double Extension File Execution</description>
+    <mitre>
+      <id>T1566.001</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+  <rule id="113030" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Security\Trusted Documents\TrustRecords</field>
+    <description>Sigma: Windows Registry Trust Record Modification</description>
+    <mitre>
+      <id>T1566.001</id>
+    </mitre>
+    <group>initial_access,sigma_converted,</group>
+  </rule>
+</group>

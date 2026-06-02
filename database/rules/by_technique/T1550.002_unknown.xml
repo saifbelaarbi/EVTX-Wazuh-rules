@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1550.002_unknown,">
+  <rule id="112514" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">9</field>
+    <field name="win.eventdata.logonProcessName">seclogo</field>
+    <field name="win.eventdata.authenticationPackageName">Negotiate</field>
+    <description>Sigma: Successful Overpass the Hash Attempt</description>
+    <mitre>
+      <id>T1550.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112515" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.subjectUserSid">S-1-0-0</field>
+    <field name="win.eventdata.logonType">3</field>
+    <field name="win.eventdata.logonProcessName">NtLmSsp</field>
+    <field name="win.eventdata.keyLength">0</field>
+    <description>Sigma: Pass the Hash Activity 2</description>
+    <mitre>
+      <id>T1550.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112516" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4624</field>
+    <field name="win.eventdata.logonType">9</field>
+    <field name="win.eventdata.logonProcessName">seclogo</field>
+    <description>Sigma: Pass the Hash Activity 2</description>
+    <mitre>
+      <id>T1550.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112533" level="10">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">LsaSrv</field>
+    <field name="win.system.eventID">6038|6039</field>
+    <description>Sigma: NTLMv1 Logon Between Client and Server</description>
+    <mitre>
+      <id>T1550.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+</group>

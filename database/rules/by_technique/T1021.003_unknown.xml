@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1021.003_unknown,">
+  <rule id="100608" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\svchost\.exe$</field>
+    <field name="win.eventdata.image">\mmc\.exe$</field>
+    <field name="win.eventdata.commandLine">-Embedding</field>
+    <description>Sigma: MMC20 Lateral Movement</description>
+    <mitre>
+      <id>T1021.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="112557" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\mmc\.exe$</field>
+    <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$|\cscript\.exe$|\sh\.exe$|\bash\.exe$|\reg\.exe$|\regsvr32\.exe$</field>
+    <description>Sigma: MMC Spawning Windows Shell</description>
+    <mitre>
+      <id>T1021.003</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112565" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">foxprow\.exe|schdplus\.exe|winproj\.exe</field>
+    <field name="win.eventdata.parentImage">\excel\.exe$</field>
+    <description>Sigma: Potential Excel.EXE DCOM Lateral Movement Via ActivateMicrosoftApp</description>
+    <mitre>
+      <id>T1021.003</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+  <rule id="112568" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\SpeechRuntime\.exe$</field>
+    <description>Sigma: Suspicious Speech Runtime Binary Child Process</description>
+    <mitre>
+      <id>T1021.003</id>
+      <id>T1218</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
+</group>

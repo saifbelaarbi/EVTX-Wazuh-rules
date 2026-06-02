@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group name="windows,T1087.002_unknown,">
+  <rule id="111004" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4661</field>
+    <field name="win.eventdata.objectType">SAM_USER|SAM_GROUP</field>
+    <field name="win.eventdata.objectName">-512$|-502$|-500$|-505$|-519$|-520$|-544$|-551$|-555$</field>
+    <description>Sigma: AD Privileged Users or Groups Reconnaissance</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111005" level="6">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4662</field>
+    <field name="win.eventdata.objectType">bf967aba-0de6-11d0-a285-00aa003049e2</field>
+    <field name="win.eventdata.accessMask">1.$|3.$|4.$|7.$|9.$|B.$|D.$|F.$</field>
+    <description>Sigma: Potential AD User Enumeration From Non-Machine Account</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111011" level="7">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4661</field>
+    <field name="win.eventdata.accessMask">0x2d</field>
+    <field name="win.eventdata.objectType">SAM_USER|SAM_GROUP</field>
+    <field name="win.eventdata.objectName">-500$|-512$</field>
+    <description>Sigma: Reconnaissance Activity</description>
+    <mitre>
+      <id>T1087.002</id>
+      <id>T1069.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111016" level="6">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.dat$</field>
+    <description>Sigma: ADExplorer Writing Complete AD Snapshot Into .dat File</description>
+    <mitre>
+      <id>T1087.002</id>
+      <id>T1069.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111082" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-sc admincountdmp</field>
+    <description>Sigma: PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111083" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-sc exchaddresses</field>
+    <description>Sigma: PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111084" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">lockoutduration|lockoutthreshold|lockoutobservationwindow|maxpwdage|minpwdage|minpwdlength|pwdhistorylength|pwdproperties</field>
+    <description>Sigma: PUA - Suspicious ActiveDirectory Enumeration Via AdFind.EXE</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111085" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\AdFind\.exe$</field>
+    <description>Sigma: PUA - AdFind.EXE Execution</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111086" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">AdFind\.exe</field>
+    <description>Sigma: PUA - AdFind.EXE Execution</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111087" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.hashes">IMPHASH=d144de8117df2beceaba2201ad304764|IMPHASH=12ce1c0f3f5837ecc18a3782408fa975|IMPHASH=bca5675746d13a1f246e2da3c2217492|IMPHASH=4fbf3f084fbbb2470b80b2013134df35|IMPHASH=49b639b4acbecc49d72a01f357aa4930|IMPHASH=53e117a96057eaf19c41380d0e87f1c2|IMPHASH=680dad9e300346e05a85023965867201|IMPHASH=21aa085d54992511b9f115355e468782</field>
+    <description>Sigma: PUA - AdFind.EXE Execution</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111127" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">snapshot</field>
+    <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
+    <description>Sigma: Active Directory Database Snapshot Via ADExplorer</description>
+    <mitre>
+      <id>T1087.002</id>
+      <id>T1069.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111128" level="7">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\Downloads\|\Users\Public\|\AppData\|\Windows\Temp\</field>
+    <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
+    <description>Sigma: Suspicious Active Directory Database Snapshot Via ADExplorer</description>
+    <mitre>
+      <id>T1087.002</id>
+      <id>T1069.002</id>
+      <id>T1482</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="114520" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\csvde\.exe$</field>
+    <field name="win.eventdata.commandLine"> -f</field>
+    <description>Sigma: Active Directory Structure Export Via Csvde.EXE</description>
+    <mitre>
+      <id>T1087.002</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
+</group>

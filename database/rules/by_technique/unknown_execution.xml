@@ -1,22 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,unknown_execution,">
-  <rule id="101617" level="9">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4624</field>
-    <field name="win.eventdata.logonType">9</field>
-    <field name="win.eventdata.targetOutboundUserName">thisisnotvaliduser</field>
-    <description>Sigma: DiagTrackEoP Default Login Username</description>
+  <rule id="100020" level="8">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.data">ntds\.dit</field>
+    <field name="win.eventdata.provider_Name">ESENT</field>
+    <field name="win.system.eventID">325</field>
+    <description>Sigma: Dump Ntds.dit To Suspicious Location</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101624" level="9">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4898</field>
-    <field name="win.eventdata.templateContent">1\.3\.6\.1\.5\.5\.7\.3\.2|1\.3\.6\.1\.5\.2\.3\.4|1\.3\.6\.1\.4\.1\.311\.20\.2\.2|2\.5\.29\.37\.0</field>
-    <field name="win.eventdata.newTemplateContent">CT_FLAG_ENROLLEE_SUPPLIES_SUBJECT</field>
-    <description>Sigma: ADCS Certificate Template Configuration Vulnerability with Risky EKU</description>
+  <rule id="100023" level="8">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MsiInstaller</field>
+    <field name="win.system.eventID">1040|1042</field>
+    <field name="win.eventdata.data">:\Windows\TEMP\|\\\\|\Desktop\|\PerfLogs\|\Users\Public\</field>
+    <description>Sigma: MSI Installation From Suspicious Locations</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101696" level="9">
+  <rule id="100025" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">33205</field>
+    <field name="win.eventdata.data">statement:ALTER SERVER AUDIT|statement:DROP SERVER AUDIT</field>
+    <description>Sigma: MSSQL Disable Audit Settings</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100026" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">33205</field>
+    <field name="win.eventdata.data">object_name:xp_cmdshell|statement:EXEC</field>
+    <description>Sigma: MSSQL XPCmdshell Suspicious Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100027" level="9">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">15457</field>
+    <field name="win.eventdata.data">xp_cmdshell</field>
+    <description>Sigma: MSSQL XPCmdshell Option Change</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100030" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">412</field>
+    <description>Sigma: Deployment AppX Package Was Blocked By AppLocker</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100031" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">854</field>
+    <field name="win.eventdata.path">\.githubusercontent\.com|anonfiles\.com|cdn\.discordapp\.com|ddns\.net|dl\.dropboxusercontent\.com|ghostbin\.co|github\.com|glitch\.me|gofile\.io|hastebin\.com|mediafire\.com|mega\.nz|onrender\.com|pages\.dev|paste\.ee|pastebin\.com|pastebin\.pl|pastetext\.net|privatlab\.com|privatlab\.net|send\.exploit\.in|sendspace\.com|storage\.googleapis\.com|storjshare\.io|supabase\.co|temp\.sh|transfer\.sh|trycloudflare\.com|ufile\.io|w3spaces\.com|workers\.dev</field>
+    <description>Sigma: Remote AppX Package Downloaded from File Sharing or CDN Domain</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100032" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">401</field>
+    <field name="win.eventdata.errorCode">0x80073cff</field>
+    <description>Sigma: AppX Package Deployment Failed Due to Signing Requirements</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100033" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">854</field>
+    <field name="win.eventdata.path">:\PerfLogs\|:\Users\Public\|:\Windows\Temp\|\AppdData\Local\Temp\|\Desktop\|\Downloads\</field>
+    <description>Sigma: AppX Located in Known Staging Directory Added to Deployment Pipeline</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100034" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">400|401</field>
+    <field name="win.eventdata.packageFullName">3669e262-ec02-4e9d-bcb4-3d008b4afac9</field>
+    <description>Sigma: Potential Malicious AppX Package Installation Attempts</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100035" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">441|442|453|454</field>
+    <description>Sigma: Deployment Of The AppX Package Was Blocked By The Policy</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100036" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">854</field>
+    <description>Sigma: AppX Located in Uncommon Directory Added to Deployment Pipeline</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100039" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">157</field>
+    <field name="win.eventdata.subjectName">CN=Foresee Consulting Inc\., O=Foresee Consulting Inc\., L=North York, S=Ontario, C=CA, SERIALNUMBER=1004913-1, OID\.1\.3\.6\.1\.4\.1\.311\.60\.2\.1\.3=CA, OID\.2\.5\.4\.15=Private Organization</field>
+    <description>Sigma: Suspicious Digital Signature Of AppX Package</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100040" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">101</field>
+    <field name="win.eventdata.packagePath">\\\\</field>
+    <description>Sigma: Loading Diagcab Package From Remote Path</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100068" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4768</field>
+    <field name="win.eventdata.ticketEncryptionType">0x17</field>
+    <field name="win.eventdata.serviceName">krbtgt</field>
+    <field name="win.eventdata.preAuthType">0</field>
+    <description>Sigma: Potential AS-REP Roasting via Kerberos TGT Requests</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100081" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">28115</field>
+    <field name="win.eventdata.name">Zenmap|AnyDesk|wireshark|openvpn</field>
+    <description>Sigma: Suspicious Application Installed</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100082" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">28115</field>
+    <field name="win.eventdata.appID">zenmap\.exe|prokzult ad|wireshark|openvpn</field>
+    <description>Sigma: Suspicious Application Installed</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100104" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7023</field>
@@ -24,7 +131,7 @@
     <description>Sigma: Important Windows Service Terminated With Error</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101697" level="9">
+  <rule id="100105" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7034</field>
@@ -32,85 +139,131 @@
     <description>Sigma: Important Windows Service Terminated Unexpectedly</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101701" level="9">
-    <if_sid>61610</if_sid>
-    <field name="win.eventdata.targetImage">\mstsc\.exe$</field>
-    <field name="win.eventdata.sourceImage">:\Temp\|:\Users\Public\|:\Windows\PerfLogs\|:\Windows\Tasks\|:\Windows\Temp\|\AppData\Local\Temp\</field>
-    <description>Sigma: Remote Thread Creation In Mstsc.Exe From Suspicious Location</description>
+  <rule id="100122" level="8">
+    <if_sid>61617</if_sid>
+    <field name="win.eventdata.contents">^\[ZoneTransfer\]  ZoneId=3</field>
+    <field name="win.eventdata.targetFilename">\.exe|\.scr|\.bat|\.cmd|\.docx|\.hta|\.jse|\.lnk|\.pptx|\.ps|\.reg|\.sct|\.vb|\.wsc|\.wsf|\.xlsx</field>
+    <description>Sigma: Creation Of a Suspicious ADS File Outside a Browser Download</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101710" level="9">
+  <rule id="100128" level="9">
     <if_sid>61617</if_sid>
     <field name="win.eventdata.contents">\.zip/</field>
     <field name="win.eventdata.targetFilename">\.bat:Zone|\.dat:Zone|\.dll:Zone|\.doc:Zone|\.docm:Zone|\.exe:Zone|\.hta:Zone|\.pptm:Zone|\.ps1:Zone|\.rar:Zone|\.rtf:Zone|\.sct:Zone|\.vbe:Zone|\.vbs:Zone|\.ws:Zone|\.wsf:Zone|\.xll:Zone|\.xls:Zone|\.xlsm:Zone|\.zip:Zone</field>
     <description>Sigma: Potentially Suspicious File Download From ZIP TLD</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101731" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\NPPSpy\.txt$|\NPPSpy\.dll$</field>
-    <description>Sigma: HackTool - NPPSpy Hacktool Usage</description>
+  <rule id="100134" level="8">
+    <if_sid>61625</if_sid>
+    <field name="win.eventdata.targetFilename">Image</field>
+    <description>Sigma: Process Deletion of Its Own Executable</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101748" level="9">
+  <rule id="100140" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\aspnet_compiler\.exe$</field>
+    <field name="win.eventdata.targetFilename">\Temporary ASP\.NET Files\|\assembly\tmp\|\.dll</field>
+    <description>Sigma: Assembly DLL Creation Via AspNetCompiler</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100146" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.targetFilename">\.dmp$|\.dump$|\.hdmp$</field>
+    <description>Sigma: Potentially Suspicious DMP/HDMP File Creation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100151" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\mysqld\.exe$|\mysqld-nt\.exe$</field>
     <field name="win.eventdata.targetFilename">\.bat$|\.dat$|\.dll$|\.exe$|\.ps1$|\.psm1$|\.vbe$|\.vbs$</field>
     <description>Sigma: Uncommon File Creation By Mysql Daemon Process</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101750" level="9">
+  <rule id="100153" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.bat$|\.cmd$|\.cpl$|\.dll$|\.exe$|\.hta$|\.iso$|\.lnk$|\.msi$|\.ps1$|\.psm1$|\.scr$|\.vbe$|\.vbs$</field>
     <description>Sigma: Suspicious File Creation In Uncommon AppData Folder</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101755" level="9">
+  <rule id="100155" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.one$|\.onepkg$</field>
+    <description>Sigma: OneNote Attachment File Dropped In Suspicious Location</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100156" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\onenote\.exe$|\onenotem\.exe$|\onenoteim\.exe$</field>
     <field name="win.eventdata.targetFilename">\.bat$|\.chm$|\.cmd$|\.dll$|\.exe$|\.hta$|\.htm$|\.html$|\.js$|\.lnk$|\.ps1$|\.vbe$|\.vbs$|\.wsf$</field>
     <description>Sigma: Suspicious File Created Via OneNote Application</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101762" level="9">
+  <rule id="100157" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\.pub$</field>
+    <description>Sigma: Publisher Attachment File Dropped In Suspicious Location</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100164" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">__PSScriptPolicyTest_</field>
+    <description>Sigma: PSScriptPolicyTest Creation By Uncommon Process</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100165" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\.rdp$</field>
     <field name="win.eventdata.image">\brave\.exe$|\CCleaner Browser\Application\CCleanerBrowser\.exe$|\chromium\.exe$|\firefox\.exe$|\Google\Chrome\Application\chrome\.exe$|\iexplore\.exe$|\microsoftedge\.exe$|\msedge\.exe$|\Opera\.exe$|\Vivaldi\.exe$|\Whale\.exe$|\olk\.exe$|\Outlook\.exe$|\RuntimeBroker\.exe$|\Thunderbird\.exe$|\Discord\.exe$|\Keybase\.exe$|\msteams\.exe$|\Slack\.exe$|\teams\.exe$</field>
     <description>Sigma: .RDP File Created By Uncommon Application</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101764" level="9">
+  <rule id="100167" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">\regedit\.exe$</field>
     <field name="win.eventdata.targetFilename">\.pdf$</field>
     <description>Sigma: PDF File Created By RegEdit.EXE</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101785" level="9">
+  <rule id="100176" level="8">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">C:\Windows\livekd\.dmp</field>
-    <description>Sigma: LiveKD Kernel Memory Dump File Created</description>
+    <field name="win.eventdata.targetFilename">\.diagcab$</field>
+    <description>Sigma: Creation of a Diagcab</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101786" level="9">
+  <rule id="100190" level="8">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">C:\Windows\System32\drivers\LiveKdD\.SYS</field>
-    <description>Sigma: LiveKD Driver Creation By Uncommon Process</description>
+    <field name="win.eventdata.targetFilename">\.dll$|\.exe$|\.sys$</field>
+    <description>Sigma: Drop Binaries Into Spool Drivers Color Folder</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101792" level="9">
+  <rule id="100192" level="8">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Microsoft\Event Viewer\RecentViews$|\Microsoft\EventV~1\RecentViews$</field>
-    <description>Sigma: UAC Bypass Using EventVwr</description>
+    <field name="win.eventdata.targetFilename">\Windows\System32\CodeIntegrity\</field>
+    <description>Sigma: Potentially Suspicious WDAC Policy File Creation</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101800" level="9">
+  <rule id="100193" level="8">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\code_tunnel\.json$</field>
-    <description>Sigma: Renamed VsCode Code Tunnel Execution - File Indicator</description>
+    <field name="win.eventdata.targetFilename">\.exe$</field>
+    <description>Sigma: WinSxS Executable File Creation By Non-System Process</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101836" level="9">
+  <rule id="100201" level="8">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\amsi\.dll$</field>
+    <field name="win.eventdata.image">\ExtExport\.exe$|\odbcconf\.exe$|\rundll32\.exe$</field>
+    <description>Sigma: Amsi.DLL Loaded Via LOLBIN Process</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100212" level="8">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.image">\excel\.exe$|\mspub\.exe$|\outlook\.exe$|\onenote\.exe$|\onenoteim\.exe$|\powerpnt\.exe$|\winword\.exe$</field>
+    <field name="win.eventdata.imageLoaded">\System\.Management\.Automation\.Dll|\System\.Management\.Automation\.ni\.Dll</field>
+    <description>Sigma: PowerShell Core DLL Loaded Via Office Application</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100232" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.image">\regsvr32\.exe$|\rundll32\.exe$|\dllhost\.exe$</field>
@@ -118,36 +271,798 @@
     <description>Sigma: Suspicious Network Connection Binary No CommandLine</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101875" level="9">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">thisispipe</field>
-    <description>Sigma: HackTool - DiagTrackEoP Default Named Pipe</description>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101885" level="9">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">:\Windows\System32\wsmprovhost\.exe|:\Windows\SysWOW64\wsmprovhost\.exe</field>
-    <field name="win.eventdata.payload">value="\(get-location\)\.path|value="\(get-item*\)\.length|Invoke-Binary |Donut-Loader -process_id*-donutfile|Bypass-4MSI|IEX \(\[System\.Text\.Encoding\]::ASCII\.GetString\(\[System\.Convert\]::FromBase64String\(\$a\)\)\)\.replace\('\?\?\?',''\)</field>
-    <description>Sigma: HackTool - Evil-WinRm Execution - PowerShell Module</description>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101905" level="9">
+  <rule id="100275" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Add-AADInt|ConvertTo-AADInt|Disable-AADInt|Enable-AADInt|Export-AADInt|Find-AADInt|Get-AADInt|Grant-AADInt|Initialize-AADInt|Install-AADInt|Invoke-AADInt|Join-AADInt|New-AADInt|Open-AADInt|Read-AADInt|Register-AADInt|Remove-AADInt|Reset-AADInt|Resolve-AADInt|Restore-AADInt|Save-AADInt|Search-AADInt|Send-AADInt|Set-AADInt|Start-AADInt|Unprotect-AADInt|Update-AADInt</field>
     <description>Sigma: AADInternals PowerShell Cmdlets Execution - PsScript</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101951" level="9">
+  <rule id="100276" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[Credentials\]|\[Veeam\.Backup\.Common\.ProtectedStorage\]::GetLocalString|Invoke-Sqlcmd|Veeam Backup and Replication</field>
-    <description>Sigma: Veeam Backup Servers Credential Dumping Script Execution</description>
+    <field name="win.eventdata.scriptBlockText">Add-WindowsCapability </field>
+    <description>Sigma: Add Windows Capability Via PowerShell Script</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101991" level="9">
+  <rule id="100288" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">TelnetServer|Internet-Explorer-Optional-amd64|TFTP|SMB1Protocol|Client-ProjFS|Microsoft-Windows-Subsystem-Linux|-Online|-FeatureName</field>
+    <description>Sigma: Potential Suspicious Windows Feature Enabled</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100340" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Write-EventLog|-RawData </field>
+    <description>Sigma: PowerShell Write-EventLog Usage</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100346" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">\.BackupEventlog\(|\.ChangeSecurityPermissions\(|\.ChangeSecurityPermissionsEx\(|\.ClearEventLog\(|\.Delete\(|\.DeleteEx\(|\.Rename\(|\.TakeOwnerShip\(|\.TakeOwnerShipEx\(</field>
+    <description>Sigma: Potentially Suspicious Call To Win32_NTEventlogFile Class - PSScript</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100366" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -hwnd| -process | -window </field>
+    <field name="win.eventdata.image">\AccCheckConsole\.exe$</field>
+    <description>Sigma: Potential DLL Injection Via AccCheckConsole</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100391" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">://run\.mocky|://mockbin</field>
     <field name="win.eventdata.image">\brave\.exe$|\chrome\.exe$|\msedge\.exe$|\opera\.exe$|\vivaldi\.exe$</field>
     <description>Sigma: Chromium Browser Headless Execution To Mockbin Like Site</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100413" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">type %windir%\system32\ntdll\.dll|type %systemroot%\system32\ntdll\.dll|type c:\windows\system32\ntdll\.dll|\\ntdll\.dll &gt; \\\\\.\\pipe\\</field>
+    <description>Sigma: NtdllPipe Like Activity Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100432" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\s-c\s</field>
+    <field name="win.eventdata.image">\curl\.exe$</field>
+    <description>Sigma: Potential Cookies Session Hijacking</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100433" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\curl\.exe$</field>
+    <field name="win.eventdata.commandLine">User-Agent:</field>
+    <description>Sigma: Curl Web Request With Potential Custom User-Agent</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100434" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
+    <field name="win.eventdata.image">\curl\.exe$</field>
+    <description>Sigma: File Download From IP URL Via Curl.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100435" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
+    <field name="win.eventdata.image">\curl\.exe$</field>
+    <description>Sigma: Suspicious File Download From IP Via Curl.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100436" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.githubusercontent\.com|anonfiles\.com|cdn\.discordapp\.com|ddns\.net|dl\.dropboxusercontent\.com|ghostbin\.co|github\.com|glitch\.me|gofile\.io|hastebin\.com|mediafire\.com|mega\.nz|onrender\.com|pages\.dev|paste\.ee|pastebin\.com|pastebin\.pl|pastetext\.net|pixeldrain\.com|privatlab\.com|privatlab\.net|send\.exploit\.in|sendspace\.com|storage\.googleapis\.com|storjshare\.io|supabase\.co|temp\.sh|transfer\.sh|trycloudflare\.com|ufile\.io|w3spaces\.com|workers\.dev</field>
+    <field name="win.eventdata.image">\curl\.exe$</field>
+    <description>Sigma: Suspicious File Download From File Sharing Domain Via Curl.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100437" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\s-k\s</field>
+    <field name="win.eventdata.image">\curl\.exe$</field>
+    <description>Sigma: Insecure Transfer Via Curl.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100438" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">--doh-insecure|--proxy-insecure</field>
+    <field name="win.eventdata.image">\curl\.exe$</field>
+    <description>Sigma: Insecure Proxy/DOH Transfer Via Curl.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100439" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">file:///</field>
+    <field name="win.eventdata.image">\curl\.exe$</field>
+    <description>Sigma: Local File Read Using Curl.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100446" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\AppData\Local\Apps\2\.0\</field>
+    <field name="win.eventdata.image">\calc\.exe$|\cmd\.exe$|\cscript\.exe$|\explorer\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\nltest\.exe$|\notepad\.exe$|\powershell\.exe$|\pwsh\.exe$|\reg\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\schtasks\.exe$|\werfault\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Potentially Suspicious Child Process Of ClickOnce Application</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100467" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\format\.com$</field>
+    <field name="win.eventdata.commandLine">/fs:</field>
+    <description>Sigma: Uncommon FileSystem Load Attempt By Format.com</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100473" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\GoogleUpdate\.exe$</field>
+    <description>Sigma: Potentially Suspicious GoogleUpdate Child Process</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100474" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -d |passphrase</field>
+    <field name="win.eventdata.image">\gpg\.exe$|\gpg2\.exe$</field>
+    <description>Sigma: File Decryption Using Gpg4win</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100475" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -c |passphrase</field>
+    <field name="win.eventdata.image">\gpg\.exe$|\gpg2\.exe$</field>
+    <description>Sigma: File Encryption Using Gpg4win</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100476" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">:\PerfLogs\|:\Temp\|:\Users\Public\|:\Windows\Temp\|\AppData\Local\Temp\|\AppData\Roaming\</field>
+    <field name="win.eventdata.image">\gpg\.exe$|\gpg2\.exe$</field>
+    <description>Sigma: File Encryption/Decryption Via Gpg4win From Suspicious Locations</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100477" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\gup\.exe$</field>
+    <field name="win.eventdata.image">\explorer\.exe$</field>
+    <description>Sigma: Arbitrary Binary Execution Using GUP Utility</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100505" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\gmer\.exe$</field>
+    <description>Sigma: HackTool - GMER Rootkit Detector and Remover Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100506" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.hashes">MD5=E9DC058440D321AA17D0600B3CA0AB04|SHA1=539C228B6B332F5AA523E5CE358C16647D8BBE57|SHA256=E8A3E804A96C716A3E9B69195DB6FFB0D33E2433AF871E4D4E1EAB3097237173</field>
+    <description>Sigma: HackTool - GMER Rootkit Detector and Remover Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100552" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">set|config|section:system\.webServer/rewrite/globalRules|commit:</field>
+    <field name="win.eventdata.image">\appcmd\.exe$</field>
+    <description>Sigma: Suspicious IIS URL GlobalRules Rewrite Via AppCmd</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100555" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\ImagingDevices\.exe$</field>
+    <description>Sigma: ImagingDevices Unusual Parent/Child Processes</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100556" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\WmiPrvSE\.exe$|\svchost\.exe$|\dllhost\.exe$</field>
+    <field name="win.eventdata.image">\ImagingDevices\.exe$</field>
+    <description>Sigma: ImagingDevices Unusual Parent/Child Processes</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100560" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">Microsoft\.NET\Framework</field>
+    <field name="win.eventdata.commandLine">/logfile= |/LogToConsole=false</field>
+    <description>Sigma: Suspicious Execution of InstallUtil Without Log</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100563" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /setcomputerpassword </field>
+    <field name="win.eventdata.image">\ksetup\.exe$</field>
+    <description>Sigma: Computer Password Change Via Ksetup.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100564" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> /ChangePassword </field>
+    <field name="win.eventdata.image">\ksetup\.exe$</field>
+    <description>Sigma: Logged-On User Password Change Via Ksetup.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100566" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -r</field>
+    <field name="win.eventdata.image">\lodctr\.exe$</field>
+    <field name="win.eventdata.originalFileName">LODCTR\.EXE</field>
+    <description>Sigma: Rebuild Performance Counter Values Via Lodctr.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100613" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\MSBuild\.exe$</field>
+    <description>Sigma: Suspicious Msbuild Execution By Uncommon Parent Process</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100644" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> firewall | set </field>
+    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <description>Sigma: Firewall Rule Update Via Netsh.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100647" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine"> -q=txt | -querytype=txt </field>
+    <field name="win.eventdata.image">\nslookup\.exe</field>
+    <description>Sigma: Nslookup PowerShell Download Cradle - ProcessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100670" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\bash\.exe$|\certutil\.exe$|\cmd\.exe$|\csc\.exe$|\cscript\.exe$|\dllhost\.exe$|\mshta\.exe$|\msiexec\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\scriptrunner\.exe$|\wmic\.exe$|\wscript\.exe$|\wsl\.exe$</field>
+    <field name="win.eventdata.parentImage">\PDQDeployRunner-</field>
+    <description>Sigma: Potentially Suspicious Execution Of PDQDeployRunner</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100674" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\powercfg\.exe$</field>
+    <field name="win.eventdata.commandLine">/setacvalueindex |SCHEME_CURRENT|SUB_VIDEO|VIDEOCONLOCK</field>
+    <description>Sigma: Suspicious Powercfg Execution To Change Lock Screen Timeout</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100675" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Add-AADInt|ConvertTo-AADInt|Disable-AADInt|Enable-AADInt|Export-AADInt|Find-AADInt|Get-AADInt|Grant-AADInt|Initialize-AADInt|Install-AADInt|Invoke-AADInt|Join-AADInt|New-AADInt|Open-AADInt|Read-AADInt|Register-AADInt|Remove-AADInt|Reset-AADInt|Resolve-AADInt|Restore-AADInt|Save-AADInt|Search-AADInt|Send-AADInt|Set-AADInt|Start-AADInt|Unprotect-AADInt|Update-AADInt</field>
+    <field name="win.eventdata.image">\powershell\.exe$|\powershell_ise\.exe$|\pwsh\.exe$</field>
+    <description>Sigma: AADInternals PowerShell Cmdlets Execution - ProccessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100676" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Add-WindowsCapability</field>
+    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <description>Sigma: Add Windows Capability Via PowerShell Cmdlet</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100682" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">IAAtAGIAeABvAHIAIAAwAHgA|AALQBiAHgAbwByACAAMAB4A|gAC0AYgB4AG8AcgAgADAAeA|AC4ASQBuAHYAbwBrAGUAKAApACAAfAAg|AuAEkAbgB2AG8AawBlACgAKQAgAHwAI|ALgBJAG4AdgBvAGsAZQAoACkAIAB8AC|AHsAMQB9AHsAMAB9ACIAIAAtAGYAI|B7ADEAfQB7ADAAfQAiACAALQBmAC|AewAxAH0AewAwAH0AIgAgAC0AZgAg|AHsAMAB9AHsAMwB9ACIAIAAtAGYAI|B7ADAAfQB7ADMAfQAiACAALQBmAC|AewAwAH0AewAzAH0AIgAgAC0AZgAg|AHsAMgB9AHsAMAB9ACIAIAAtAGYAI|B7ADIAfQB7ADAAfQAiACAALQBmAC|AewAyAH0AewAwAH0AIgAgAC0AZgAg|AHsAMQB9AHsAMAB9ACcAIAAtAGYAI|B7ADEAfQB7ADAAfQAnACAALQBmAC|AewAxAH0AewAwAH0AJwAgAC0AZgAg|AHsAMAB9AHsAMwB9ACcAIAAtAGYAI|B7ADAAfQB7ADMAfQAnACAALQBmAC|AewAwAH0AewAzAH0AJwAgAC0AZgAg|AHsAMgB9AHsAMAB9ACcAIAAtAGYAI|B7ADIAfQB7ADAAfQAnACAALQBmAC|AewAyAH0AewAwAH0AJwAgAC0AZgAg</field>
+    <description>Sigma: Suspicious Obfuscated PowerShell Code</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100702" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> \^\| |\.*\.lnk|-Recurse|-Skip </field>
+    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.originalFileName">PowerShell\.EXE|pwsh\.dll</field>
+    <description>Sigma: PowerShell Execution With Potential Decryption Capabilities</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100714" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">anonfiles\.com|cdn\.discordapp\.com|ddns\.net|dl\.dropboxusercontent\.com|ghostbin\.co|glitch\.me|gofile\.io|hastebin\.com|mediafire\.com|mega\.nz|onrender\.com|pages\.dev|paste\.ee|pastebin\.com|pastebin\.pl|pastetext\.net|pixeldrain\.com|privatlab\.com|privatlab\.net|send\.exploit\.in|sendspace\.com|storage\.googleapis\.com|storjshare\.io|supabase\.co|temp\.sh|transfer\.sh|trycloudflare\.com|ufile\.io|w3spaces\.com|workers\.dev</field>
+    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <description>Sigma: Potentially Suspicious File Download From File Sharing Domain Via PowerShell.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100716" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">TelnetServer|Internet-Explorer-Optional-amd64|TFTP|SMB1Protocol|Client-ProjFS|Microsoft-Windows-Subsystem-Linux|-Online|-FeatureName</field>
+    <description>Sigma: Potential Suspicious Windows Feature Enabled - ProcCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100723" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-nop| -w |hidden| -c |\[Convert\]::FromBase64String</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100724" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -w |hidden|-ep|bypass|-Enc</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100725" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -w |hidden|-noni|-nop| -c |iex|New-Object</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100726" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">iex|New-Object|Net\.WebClient|\.Download</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100727" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">powershell|reg|add|\software\</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100728" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">bypass|-noprofile|-windowstyle|hidden|new-object|system\.net\.webclient|\.download</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100739" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Set-Acl |-AclObject |-Path </field>
+    <field name="win.eventdata.originalFileName">PowerShell\.EXE|pwsh\.dll</field>
+    <description>Sigma: PowerShell Script Change Permission Via Set-Acl</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100740" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">FullControl|Allow|-AclObject </field>
+    <field name="win.eventdata.originalFileName">PowerShell\.EXE|pwsh\.dll</field>
+    <description>Sigma: PowerShell Set-Acl On Windows Folder</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100802" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">:\Windows\System32\query\.exe$</field>
+    <field name="win.eventdata.commandLine">session &gt;|process &gt;</field>
+    <description>Sigma: Query Usage To Exfil Data</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100819" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProtocolDefaults|http| 0</field>
+    <description>Sigma: IE ZoneMap Setting Downgraded To MyComputer Zone For HTTP Protocols Via CLI</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100822" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Bypass|RemoteSigned|Unrestricted</field>
+    <description>Sigma: Potential PowerShell Execution Policy Tampering - ProcCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100833" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\AnyDesk\.exe$</field>
+    <field name="win.eventdata.fileVersion">^7\.0\.|^7\.1\.|^8\.0\.1|^8\.0\.2|^8\.0\.3|^8\.0\.4|^8\.0\.5|^8\.0\.6|^8\.0\.7</field>
+    <description>Sigma: Remote Access Tool - AnyDesk Execution With Known Revoked Signing Certificate</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100834" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\client32\.exe$</field>
+    <description>Sigma: Remote Access Tool - NetSupport Execution From Unusual Location</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100835" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\rutserv\.exe$|\rfusclient\.exe$</field>
+    <description>Sigma: Remote Access Tool - RURAT Execution From Unusual Location</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100836" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.product">AutoHotkey</field>
+    <description>Sigma: Renamed AutoHotkey.EXE Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100848" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">msteams\.exe|teams\.exe</field>
+    <description>Sigma: Renamed Microsoft Teams Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100849" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.product">NetSupport Remote Control</field>
+    <description>Sigma: Renamed NetSupport RAT Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100856" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">DllRegisterServer</field>
+    <description>Sigma: Potential Renamed Rundll32 Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100860" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">psexesvc\.exe</field>
+    <description>Sigma: Renamed PsExec Service Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100863" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">#\+|12</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Suspicious Advpack Call Via Rundll32.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100865" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">#135|RunHTMLApplication|mshtml</field>
+    <description>Sigma: Mshtml.DLL RunHTMLApplication Suspicious Usage</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100868" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.parentImage">\explorer\.exe$</field>
+    <description>Sigma: Rundll32 Spawned Via Explorer.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100873" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">RunDll_ShellExecuteW</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <description>Sigma: Potential ShellDispatch.DLL Functionality Abuse</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100878" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\Desktop\|\Temp\|\Users\Public\|comspec|iex|Invoke-|msiexec|odbcconf|regsvr32</field>
+    <description>Sigma: Suspicious Usage Of ShellExec_RunDLL</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100884" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">LockWorkStation</field>
+    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.parentImage">\cmd\.exe$</field>
+    <description>Sigma: Suspicious Workstation Locking via Rundll32</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100892" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\SndVol\.exe$</field>
+    <description>Sigma: Uncommon Child Processes Of SndVol.exe</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100899" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\ntvdm\.exe$|\csrstub\.exe$</field>
+    <description>Sigma: Start of NT Virtual DOS Machine</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100901" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">C:\Program Files\WindowsApps\</field>
+    <field name="win.eventdata.commandLine">cmd /c|Invoke-|Base64</field>
+    <description>Sigma: Potentially Suspicious Windows App Activity</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100931" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\DumpStack\.log$</field>
+    <description>Sigma: DumpStack.log Defender Evasion</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100932" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -o DumpStack\.log</field>
+    <description>Sigma: DumpStack.log Defender Evasion</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100933" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\chrome\.exe$|\discord\.exe$|\GitHubDesktop\.exe$|\keybase\.exe$|\msedge\.exe$|\msedgewebview2\.exe$|\msteams\.exe$|\slack\.exe$|\teams\.exe$</field>
+    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\whoami\.exe$|\wscript\.exe$</field>
+    <description>Sigma: Suspicious Electron Application Child Processes</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100934" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">--browser-subprocess-path|--gpu-launcher|--renderer-cmd-prefix|--utility-cmd-prefix</field>
+    <field name="win.eventdata.image">\chrome\.exe$|\code\.exe$|\discord\.exe$|\GitHubDesktop\.exe$|\keybase\.exe$|\msedge_proxy\.exe$|\msedge\.exe$|\msedgewebview2\.exe$|\msteams\.exe$|\slack\.exe$|\Teams\.exe$</field>
+    <description>Sigma: Potentially Suspicious Electron Application CommandLine</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100936" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">😀|😃|😄|😁|😆|😅|😂|🤣|🥲|🥹|☺️|😊|😇|🙂|🙃|😉|😌|😍|🥰|😘|😗|😙|😚|😋|😛|😝|😜|🤪|🤨|🧐|🤓|😎|🥸|🤩|🥳|😏|😒|😞|😔|😟|😕|🙁|☹️|😣|😖|😫|😩|🥺|😢|😭|😮‍💨|😤|😠|😡|🤬|🤯|😳|🥵|🥶|😱|😨|😰|😥|😓|🫣|🤗|🫡|🤔|🫢|🤭|🤫|🤥|😶|😶‍🌫️|😐|😑|😬|🫠|🙄|😯|😦|😧|😮|😲|🥱|😴|🤤|😪|😵|😵‍💫|🫥|🤐|🥴|🤢|🤮|🤧|😷|🤒|🤕|🤑|🤠|😈|👿|👹|👺|🤡|💩|👻|💀|☠️|👽|👾|🤖|🎃|😺|😸|😹|😻|😼|😽|🙀|😿|😾|👋|🤚|🖐|✋|🖖|👌|🤌|🤏|✌️|🤞|🫰|🤟|🤘|🤙|🫵|🫱|🫲|🫳|🫴|👈|👉|👆|🖕|👇|☝️|👍|👎|✊|👊|🤛|🤜|👏|🫶|🙌|👐|🤲|🤝|🙏|✍️|💪|🦾|🦵|🦿|🦶|👣|👂|🦻|👃|🫀|🫁|🧠|🦷|🦴|👀|👁|👅|👄|🫦|💋|🩸|👶|👧|🧒|👦|👩|🧑|👨|👩‍🦱|🧑‍🦱|👨‍🦱|👩‍🦰|🧑‍🦰|👨‍🦰|👱‍♀️|👱|👱‍♂️|👩‍🦳|🧑‍🦳|👨‍🦳|👩‍🦲|🧑‍🦲|👨‍🦲|🧔‍♀️|🧔|🧔‍♂️|👵|🧓|👴|👲|👳‍♀️|👳|👳‍♂️|🧕|👮‍♀️|👮|👮‍♂️|👷‍♀️|👷|👷‍♂️|💂‍♀️|💂|💂‍♂️|🕵️‍♀️|🕵️|🕵️‍♂️|👩‍⚕️|🧑‍⚕️|👨‍⚕️|👩‍🌾|🧑‍🌾|👨‍🌾|👩‍🍳|🧑‍🍳|👨‍🍳|👩‍🎓|🧑‍🎓|👨‍🎓|👩‍🎤|🧑‍🎤|👨‍🎤|👩‍🏫|🧑‍🏫|👨‍🏫|👩‍🏭|🧑‍🏭|👨‍🏭|👩‍💻|🧑‍💻|👨‍💻|👩‍💼|🧑‍💼|👨‍💼|👩‍🔧|🧑‍🔧|👨‍🔧|👩‍🔬|🧑‍🔬|👨‍🔬|👩‍🎨|🧑‍🎨|👨‍🎨|👩‍🚒|🧑‍🚒|👨‍🚒|👩‍✈️|🧑‍✈️|👨‍✈️|👩‍🚀|🧑‍🚀|👨‍🚀|👩‍⚖️|🧑‍⚖️|👨‍⚖️|👰‍♀️|👰|👰‍♂️|🤵‍♀️|🤵|🤵‍♂️|👸|🫅|🤴|🥷|🦸‍♀️|🦸|🦸‍♂️|🦹‍♀️|🦹|🦹‍♂️|🤶|🧑‍🎄|🎅|🧙‍♀️|🧙|🧙‍♂️|🧝‍♀️|🧝|🧝‍♂️|🧛‍♀️|🧛|🧛‍♂️|🧟‍♀️|🧟|🧟‍♂️|🧞‍♀️|🧞|🧞‍♂️|🧜‍♀️|🧜|🧜‍♂️|🧚‍♀️|🧚|🧚‍♂️|🧌|👼|🤰|🫄|🫃|🤱|👩‍🍼|🧑‍🍼|👨‍🍼|🙇‍♀️|🙇|🙇‍♂️|💁‍♀️|💁|💁‍♂️|🙅‍♀️|🙅|🙅‍♂️|🙆‍♀️|🙆|🙆‍♂️|🙋‍♀️|🙋|🙋‍♂️|🧏‍♀️|🧏|🧏‍♂️|🤦‍♀️|🤦|🤦‍♂️|🤷‍♀️|🤷|🤷‍♂️|🙎‍♀️|🙎|🙎‍♂️|🙍‍♀️|🙍|🙍‍♂️|💇‍♀️|💇|💇‍♂️|💆‍♀️|💆|💆‍♂️|🧖‍♀️|🧖|🧖‍♂️|💅|💃|🕺|👯‍♀️|👯|👯‍♂️|🕴|👩‍🦽|🧑‍🦽|👨‍🦽|👩‍🦼|🧑‍🦼|👨‍🦼|🚶‍♀️|🚶|🚶‍♂️|👩‍🦯|🧑‍🦯|👨‍🦯|🧎‍♀️|🧎|🧎‍♂️|🏃‍♀️|🏃|🏃‍♂️|🧍‍♀️|🧍|🧍‍♂️|👭|🧑‍🤝‍🧑|👬|👫|👩‍❤️‍👩|💑|👨‍❤️‍👨|👩‍❤️‍👨|👩‍❤️‍💋‍👩|💏|👨‍❤️‍💋‍👨|👩‍❤️‍💋‍👨|👪|👨‍👩‍👦|👨‍👩‍👧|👨‍👩‍👧‍👦|👨‍👩‍👦‍👦|👨‍👩‍👧‍👧|👨‍👨‍👦|👨‍👨‍👧|👨‍👨‍👧‍👦|👨‍👨‍👦‍👦|👨‍👨‍👧‍👧|👩‍👩‍👦|👩‍👩‍👧|👩‍👩‍👧‍👦|👩‍👩‍👦‍👦|👩‍👩‍👧‍👧|👨‍👦|👨‍👦‍👦|👨‍👧|👨‍👧‍👦|👨‍👧‍👧|👩‍👦|👩‍👦‍👦|👩‍👧|👩‍👧‍👦|👩‍👧‍👧|🗣|👤|👥|🫂|🧳|🌂|☂️|🧵|🪡|🪢|🧶|👓|🕶|🥽|🥼|🦺|👔|👕|👖|🧣|🧤|🧥|🧦|👗|👘|🥻|🩴|🩱|🩲|🩳|👙|👚|👛|👜|👝|🎒|👞|👟|🥾|🥿|👠|👡|🩰|👢|👑|👒|🎩|🎓|🧢|⛑|🪖|💄|💍|💼|👋🏻|🤚🏻|🖐🏻|✋🏻|🖖🏻|👌🏻|🤌🏻|🤏🏻|✌🏻|🤞🏻|🫰🏻|🤟🏻|🤘🏻|🤙🏻|🫵🏻|🫱🏻|🫲🏻|🫳🏻|🫴🏻|👈🏻|👉🏻|👆🏻|🖕🏻|👇🏻|☝🏻|👍🏻|👎🏻|✊🏻|👊🏻|🤛🏻|🤜🏻|👏🏻|🫶🏻|🙌🏻|👐🏻|🤲🏻|🙏🏻|✍🏻|💪🏻|🦵🏻|🦶🏻|👂🏻|🦻🏻|👃🏻|👶🏻|👧🏻|🧒🏻|👦🏻|👩🏻|🧑🏻|👨🏻|👩🏻‍🦱|🧑🏻‍🦱|👨🏻‍🦱|👩🏻‍🦰|🧑🏻‍🦰|👨🏻‍🦰|👱🏻‍♀️|👱🏻|👱🏻‍♂️|👩🏻‍🦳|🧑🏻‍🦳|👨🏻‍🦳|👩🏻‍🦲|🧑🏻‍🦲|👨🏻‍🦲|🧔🏻‍♀️|🧔🏻|🧔🏻‍♂️|👵🏻|🧓🏻|👴🏻|👲🏻|👳🏻‍♀️|👳🏻|👳🏻‍♂️|🧕🏻|👮🏻‍♀️|👮🏻|👮🏻‍♂️|👷🏻‍♀️|👷🏻|👷🏻‍♂️|💂🏻‍♀️|💂🏻|💂🏻‍♂️|🕵🏻‍♀️|🕵🏻|🕵🏻‍♂️|👩🏻‍⚕️|🧑🏻‍⚕️|👨🏻‍⚕️|👩🏻‍🌾|🧑🏻‍🌾|👨🏻‍🌾|👩🏻‍🍳|🧑🏻‍🍳|👨🏻‍🍳|👩🏻‍🎓|🧑🏻‍🎓|👨🏻‍🎓|👩🏻‍🎤|🧑🏻‍🎤|👨🏻‍🎤|👩🏻‍🏫|🧑🏻‍🏫|👨🏻‍🏫|👩🏻‍🏭|🧑🏻‍🏭|👨🏻‍🏭|👩🏻‍💻|🧑🏻‍💻|👨🏻‍💻|👩🏻‍💼|🧑🏻‍💼|👨🏻‍💼|👩🏻‍🔧|🧑🏻‍🔧|👨🏻‍🔧|👩🏻‍🔬|🧑🏻‍🔬|👨🏻‍🔬|👩🏻‍🎨|🧑🏻‍🎨|👨🏻‍🎨|👩🏻‍🚒|🧑🏻‍🚒|👨🏻‍🚒|👩🏻‍✈️|🧑🏻‍✈️|👨🏻‍✈️|👩🏻‍🚀|🧑🏻‍🚀|👨🏻‍🚀|👩🏻‍⚖️|🧑🏻‍⚖️|👨🏻‍⚖️|👰🏻‍♀️|👰🏻|👰🏻‍♂️|🤵🏻‍♀️|🤵🏻|🤵🏻‍♂️|👸🏻|🫅🏻|🤴🏻|🥷🏻|🦸🏻‍♀️|🦸🏻|🦸🏻‍♂️|🦹🏻‍♀️|🦹🏻|🦹🏻‍♂️|🤶🏻|🧑🏻‍🎄|🎅🏻|🧙🏻‍♀️|🧙🏻|🧙🏻‍♂️|🧝🏻‍♀️|🧝🏻|🧝🏻‍♂️|🧛🏻‍♀️|🧛🏻|🧛🏻‍♂️|🧜🏻‍♀️|🧜🏻|🧜🏻‍♂️|🧚🏻‍♀️|🧚🏻|🧚🏻‍♂️|👼🏻|🤰🏻|🫄🏻|🫃🏻|🤱🏻|👩🏻‍🍼|🧑🏻‍🍼|👨🏻‍🍼|🙇🏻‍♀️|🙇🏻|🙇🏻‍♂️|💁🏻‍♀️|💁🏻|💁🏻‍♂️|🙅🏻‍♀️|🙅🏻|🙅🏻‍♂️|🙆🏻‍♀️|🙆🏻|🙆🏻‍♂️|🙋🏻‍♀️|🙋🏻|🙋🏻‍♂️|🧏🏻‍♀️|🧏🏻|🧏🏻‍♂️|🤦🏻‍♀️|🤦🏻|🤦🏻‍♂️|🤷🏻‍♀️|🤷🏻|🤷🏻‍♂️|🙎🏻‍♀️|🙎🏻|🙎🏻‍♂️|🙍🏻‍♀️|🙍🏻|🙍🏻‍♂️|💇🏻‍♀️|💇🏻|💇🏻‍♂️|💆🏻‍♀️|💆🏻|💆🏻‍♂️|🧖🏻‍♀️|🧖🏻|🧖🏻‍♂️|💃🏻|🕺🏻|🕴🏻|👩🏻‍🦽|🧑🏻‍🦽|👨🏻‍🦽|👩🏻‍🦼|🧑🏻‍🦼|👨🏻‍🦼|🚶🏻‍♀️|🚶🏻|🚶🏻‍♂️|👩🏻‍🦯|🧑🏻‍🦯|👨🏻‍🦯|🧎🏻‍♀️|🧎🏻|🧎🏻‍♂️|🏃🏻‍♀️|🏃🏻|🏃🏻‍♂️|🧍🏻‍♀️|🧍🏻|🧍🏻‍♂️|👭🏻|🧑🏻‍🤝‍🧑🏻|👬🏻|👫🏻|🧗🏻‍♀️|🧗🏻|🧗🏻‍♂️|🏇🏻|🏂🏻|🏌🏻‍♀️|🏌🏻|🏌🏻‍♂️|🏄🏻‍♀️|🏄🏻|🏄🏻‍♂️|🚣🏻‍♀️|🚣🏻|🚣🏻‍♂️|🏊🏻‍♀️|🏊🏻|🏊🏻‍♂️|⛹🏻‍♀️|⛹🏻|⛹🏻‍♂️|🏋🏻‍♀️|🏋🏻|🏋🏻‍♂️|🚴🏻‍♀️|🚴🏻|🚴🏻‍♂️|🚵🏻‍♀️|🚵🏻|🚵🏻‍♂️|🤸🏻‍♀️|🤸🏻|🤸🏻‍♂️|🤽🏻‍♀️|🤽🏻|🤽🏻‍♂️|🤾🏻‍♀️|🤾🏻|🤾🏻‍♂️|🤹🏻‍♀️|🤹🏻|🤹🏻‍♂️|🧘🏻‍♀️|🧘🏻|🧘🏻‍♂️|🛀🏻|🛌🏻|👋🏼|🤚🏼|🖐🏼|✋🏼|🖖🏼|👌🏼|🤌🏼|🤏🏼|✌🏼|🤞🏼|🫰🏼|🤟🏼|🤘🏼|🤙🏼|🫵🏼|🫱🏼|🫲🏼|🫳🏼|🫴🏼|👈🏼|👉🏼|👆🏼|🖕🏼|👇🏼|☝🏼|👍🏼|👎🏼|✊🏼|👊🏼|🤛🏼|🤜🏼|👏🏼|🫶🏼|🙌🏼|👐🏼|🤲🏼|🙏🏼|✍🏼|💪🏼|🦵🏼|🦶🏼|👂🏼|🦻🏼|👃🏼|👶🏼|👧🏼|🧒🏼|👦🏼|👩🏼|🧑🏼|👨🏼|👩🏼‍🦱|🧑🏼‍🦱|👨🏼‍🦱|👩🏼‍🦰|🧑🏼‍🦰|👨🏼‍🦰|👱🏼‍♀️|👱🏼|👱🏼‍♂️|👩🏼‍🦳|🧑🏼‍🦳|👨🏼‍🦳|👩🏼‍🦲|🧑🏼‍🦲|👨🏼‍🦲|🧔🏼‍♀️|🧔🏼|🧔🏼‍♂️|👵🏼|🧓🏼|👴🏼|👲🏼|👳🏼‍♀️|👳🏼|👳🏼‍♂️|🧕🏼|👮🏼‍♀️|👮🏼|👮🏼‍♂️|👷🏼‍♀️|👷🏼|👷🏼‍♂️|💂🏼‍♀️|💂🏼|💂🏼‍♂️|🕵🏼‍♀️|🕵🏼|🕵🏼‍♂️|👩🏼‍⚕️|🧑🏼‍⚕️|👨🏼‍⚕️|👩🏼‍🌾|🧑🏼‍🌾|👨🏼‍🌾|👩🏼‍🍳|🧑🏼‍🍳|👨🏼‍🍳|👩🏼‍🎓|🧑🏼‍🎓|👨🏼‍🎓|👩🏼‍🎤|🧑🏼‍🎤|👨🏼‍🎤|👩🏼‍🏫|🧑🏼‍🏫|👨🏼‍🏫|👩🏼‍🏭|🧑🏼‍🏭|👨🏼‍🏭|👩🏼‍💻|🧑🏼‍💻|👨🏼‍💻|👩🏼‍💼|🧑🏼‍💼|👨🏼‍💼|👩🏼‍🔧|🧑🏼‍🔧|👨🏼‍🔧|👩🏼‍🔬|🧑🏼‍🔬|👨🏼‍🔬|👩🏼‍🎨|🧑🏼‍🎨|👨🏼‍🎨|👩🏼‍🚒|🧑🏼‍🚒|👨🏼‍🚒|👩🏼‍✈️|🧑🏼‍✈️|👨🏼‍✈️|👩🏼‍🚀|🧑🏼‍🚀|👨🏼‍🚀|👩🏼‍⚖️|🧑🏼‍⚖️|👨🏼‍⚖️|👰🏼‍♀️|👰🏼|👰🏼‍♂️|🤵🏼‍♀️|🤵🏼|🤵🏼‍♂️|👸🏼|🫅🏼|🤴🏼|🥷🏼|🦸🏼‍♀️|🦸🏼|🦸🏼‍♂️|🦹🏼‍♀️|🦹🏼|🦹🏼‍♂️|🤶🏼|🧑🏼‍🎄|🎅🏼|🧙🏼‍♀️|🧙🏼|🧙🏼‍♂️|🧝🏼‍♀️|🧝🏼|🧝🏼‍♂️|🧛🏼‍♀️|🧛🏼|🧛🏼‍♂️|🧜🏼‍♀️|🧜🏼|🧜🏼‍♂️|🧚🏼‍♀️|🧚🏼|🧚🏼‍♂️|👼🏼|🤰🏼|🫄🏼|🫃🏼|🤱🏼|👩🏼‍🍼|🧑🏼‍🍼|👨🏼‍🍼|🙇🏼‍♀️|🙇🏼|🙇🏼‍♂️|💁🏼‍♀️|💁🏼|💁🏼‍♂️|🙅🏼‍♀️|🙅🏼|🙅🏼‍♂️|🙆🏼‍♀️|🙆🏼|🙆🏼‍♂️|🙋🏼‍♀️|🙋🏼|🙋🏼‍♂️|🧏🏼‍♀️|🧏🏼|🧏🏼‍♂️|🤦🏼‍♀️|🤦🏼|🤦🏼‍♂️|🤷🏼‍♀️</field>
+    <description>Sigma: Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 1</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100937" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">🤷🏼|🤷🏼‍♂️|🙎🏼‍♀️|🙎🏼|🙎🏼‍♂️|🙍🏼‍♀️|🙍🏼|🙍🏼‍♂️|💇🏼‍♀️|💇🏼|💇🏼‍♂️|💆🏼‍♀️|💆🏼|💆🏼‍♂️|🧖🏼‍♀️|🧖🏼|🧖🏼‍♂️|💃🏼|🕺🏼|🕴🏼|👩🏼‍🦽|🧑🏼‍🦽|👨🏼‍🦽|👩🏼‍🦼|🧑🏼‍🦼|👨🏼‍🦼|🚶🏼‍♀️|🚶🏼|🚶🏼‍♂️|👩🏼‍🦯|🧑🏼‍🦯|👨🏼‍🦯|🧎🏼‍♀️|🧎🏼|🧎🏼‍♂️|🏃🏼‍♀️|🏃🏼|🏃🏼‍♂️|🧍🏼‍♀️|🧍🏼|🧍🏼‍♂️|👭🏼|🧑🏼‍🤝‍🧑🏼|👬🏼|👫🏼|🧗🏼‍♀️|🧗🏼|🧗🏼‍♂️|🏇🏼|🏂🏼|🏌🏼‍♀️|🏌🏼|🏌🏼‍♂️|🏄🏼‍♀️|🏄🏼|🏄🏼‍♂️|🚣🏼‍♀️|🚣🏼|🚣🏼‍♂️|🏊🏼‍♀️|🏊🏼|🏊🏼‍♂️|⛹🏼‍♀️|⛹🏼|⛹🏼‍♂️|🏋🏼‍♀️|🏋🏼|🏋🏼‍♂️|🚴🏼‍♀️|🚴🏼|🚴🏼‍♂️|🚵🏼‍♀️|🚵🏼|🚵🏼‍♂️|🤸🏼‍♀️|🤸🏼|🤸🏼‍♂️|🤽🏼‍♀️|🤽🏼|🤽🏼‍♂️|🤾🏼‍♀️|🤾🏼|🤾🏼‍♂️|🤹🏼‍♀️|🤹🏼|🤹🏼‍♂️|🧘🏼‍♀️|🧘🏼|🧘🏼‍♂️|🛀🏼|🛌🏼|👋🏽|🤚🏽|🖐🏽|✋🏽|🖖🏽|👌🏽|🤌🏽|🤏🏽|✌🏽|🤞🏽|🫰🏽|🤟🏽|🤘🏽|🤙🏽|🫵🏽|🫱🏽|🫲🏽|🫳🏽|🫴🏽|👈🏽|👉🏽|👆🏽|🖕🏽|👇🏽|☝🏽|👍🏽|👎🏽|✊🏽|👊🏽|🤛🏽|🤜🏽|👏🏽|🫶🏽|🙌🏽|👐🏽|🤲🏽|🙏🏽|✍🏽|💪🏽|🦵🏽|🦶🏽|👂🏽|🦻🏽|👃🏽|👶🏽|👧🏽|🧒🏽|👦🏽|👩🏽|🧑🏽|👨🏽|👩🏽‍🦱|🧑🏽‍🦱|👨🏽‍🦱|👩🏽‍🦰|🧑🏽‍🦰|👨🏽‍🦰|👱🏽‍♀️|👱🏽|👱🏽‍♂️|👩🏽‍🦳|🧑🏽‍🦳|👨🏽‍🦳|👩🏽‍🦲|🧑🏽‍🦲|👨🏽‍🦲|🧔🏽‍♀️|🧔🏽|🧔🏽‍♂️|👵🏽|🧓🏽|👴🏽|👲🏽|👳🏽‍♀️|👳🏽|👳🏽‍♂️|🧕🏽|👮🏽‍♀️|👮🏽|👮🏽‍♂️|👷🏽‍♀️|👷🏽|👷🏽‍♂️|💂🏽‍♀️|💂🏽|💂🏽‍♂️|🕵🏽‍♀️|🕵🏽|🕵🏽‍♂️|👩🏽‍⚕️|🧑🏽‍⚕️|👨🏽‍⚕️|👩🏽‍🌾|🧑🏽‍🌾|👨🏽‍🌾|👩🏽‍🍳|🧑🏽‍🍳|👨🏽‍🍳|👩🏽‍🎓|🧑🏽‍🎓|👨🏽‍🎓|👩🏽‍🎤|🧑🏽‍🎤|👨🏽‍🎤|👩🏽‍🏫|🧑🏽‍🏫|👨🏽‍🏫|👩🏽‍🏭|🧑🏽‍🏭|👨🏽‍🏭|👩🏽‍💻|🧑🏽‍💻|👨🏽‍💻|👩🏽‍💼|🧑🏽‍💼|👨🏽‍💼|👩🏽‍🔧|🧑🏽‍🔧|👨🏽‍🔧|👩🏽‍🔬|🧑🏽‍🔬|👨🏽‍🔬|👩🏽‍🎨|🧑🏽‍🎨|👨🏽‍🎨|👩🏽‍🚒|🧑🏽‍🚒|👨🏽‍🚒|👩🏽‍✈️|🧑🏽‍✈️|👨🏽‍✈️|👩🏽‍🚀|🧑🏽‍🚀|👨🏽‍🚀|👩🏽‍⚖️|🧑🏽‍⚖️|👨🏽‍⚖️|👰🏽‍♀️|👰🏽|👰🏽‍♂️|🤵🏽‍♀️|🤵🏽|🤵🏽‍♂️|👸🏽|🫅🏽|🤴🏽|🥷🏽|🦸🏽‍♀️|🦸🏽|🦸🏽‍♂️|🦹🏽‍♀️|🦹🏽|🦹🏽‍♂️|🤶🏽|🧑🏽‍🎄|🎅🏽|🧙🏽‍♀️|🧙🏽|🧙🏽‍♂️|🧝🏽‍♀️|🧝🏽|🧝🏽‍♂️|🧛🏽‍♀️|🧛🏽|🧛🏽‍♂️|🧜🏽‍♀️|🧜🏽|🧜🏽‍♂️|🧚🏽‍♀️|🧚🏽|🧚🏽‍♂️|👼🏽|🤰🏽|🫄🏽|🫃🏽|🤱🏽|👩🏽‍🍼|🧑🏽‍🍼|👨🏽‍🍼|🙇🏽‍♀️|🙇🏽|🙇🏽‍♂️|💁🏽‍♀️|💁🏽|💁🏽‍♂️|🙅🏽‍♀️|🙅🏽|🙅🏽‍♂️|🙆🏽‍♀️|🙆🏽|🙆🏽‍♂️|🙋🏽‍♀️|🙋🏽|🙋🏽‍♂️|🧏🏽‍♀️|🧏🏽|🧏🏽‍♂️|🤦🏽‍♀️|🤦🏽|🤦🏽‍♂️|🤷🏽‍♀️|🤷🏽|🤷🏽‍♂️|🙎🏽‍♀️|🙎🏽|🙎🏽‍♂️|🙍🏽‍♀️|🙍🏽|🙍🏽‍♂️|💇🏽‍♀️|💇🏽|💇🏽‍♂️|💆🏽‍♀️|💆🏽|💆🏽‍♂️|🧖🏽‍♀️|🧖🏽|🧖🏽‍♂️|💃🏽|🕺🏽|🕴🏽|👩🏽‍🦽|🧑🏽‍🦽|👨🏽‍🦽|👩🏽‍🦼|🧑🏽‍🦼|👨🏽‍🦼|🚶🏽‍♀️|🚶🏽|🚶🏽‍♂️|👩🏽‍🦯|🧑🏽‍🦯|👨🏽‍🦯|🧎🏽‍♀️|🧎🏽|🧎🏽‍♂️|🏃🏽‍♀️|🏃🏽|🏃🏽‍♂️|🧍🏽‍♀️|🧍🏽|🧍🏽‍♂️|👭🏽|🧑🏽‍🤝‍🧑🏽|👬🏽|👫🏽|🧗🏽‍♀️|🧗🏽|🧗🏽‍♂️|🏇🏽|🏂🏽|🏌🏽‍♀️|🏌🏽|🏌🏽‍♂️|🏄🏽‍♀️|🏄🏽|🏄🏽‍♂️|🚣🏽‍♀️|🚣🏽|🚣🏽‍♂️|🏊🏽‍♀️|🏊🏽|🏊🏽‍♂️|⛹🏽‍♀️|⛹🏽|⛹🏽‍♂️|🏋🏽‍♀️|🏋🏽|🏋🏽‍♂️|🚴🏽‍♀️|🚴🏽|🚴🏽‍♂️|🚵🏽‍♀️|🚵🏽|🚵🏽‍♂️|🤸🏽‍♀️|🤸🏽|🤸🏽‍♂️|🤽🏽‍♀️|🤽🏽|🤽🏽‍♂️|🤾🏽‍♀️|🤾🏽|🤾🏽‍♂️|🤹🏽‍♀️|🤹🏽|🤹🏽‍♂️|🧘🏽‍♀️|🧘🏽|🧘🏽‍♂️|🛀🏽|🛌🏽|👋🏾|🤚🏾|🖐🏾|✋🏾|🖖🏾|👌🏾|🤌🏾|🤏🏾|✌🏾|🤞🏾|🫰🏾|🤟🏾|🤘🏾|🤙🏾|🫵🏾|🫱🏾|🫲🏾|🫳🏾|🫴🏾|👈🏾|👉🏾|👆🏾|🖕🏾|👇🏾|☝🏾|👍🏾|👎🏾|✊🏾|👊🏾|🤛🏾|🤜🏾|👏🏾|🫶🏾|🙌🏾|👐🏾|🤲🏾|🙏🏾|✍🏾|💪🏾|🦵🏾|🦶🏾|👂🏾|🦻🏾|👃🏾|👶🏾|👧🏾|🧒🏾|👦🏾|👩🏾|🧑🏾|👨🏾|👩🏾‍🦱|🧑🏾‍🦱|👨🏾‍🦱|👩🏾‍🦰|🧑🏾‍🦰|👨🏾‍🦰|👱🏾‍♀️|👱🏾|👱🏾‍♂️|👩🏾‍🦳|🧑🏾‍🦳|👨🏾‍🦳|👩🏾‍🦲|🧑🏾‍🦲|👨🏾‍🦲|🧔🏾‍♀️|🧔🏾|🧔🏾‍♂️|👵🏾|🧓🏾|👴🏾|👲🏾|👳🏾‍♀️|👳🏾|👳🏾‍♂️|🧕🏾|👮🏾‍♀️|👮🏾|👮🏾‍♂️|👷🏾‍♀️|👷🏾|👷🏾‍♂️|💂🏾‍♀️|💂🏾|💂🏾‍♂️|🕵🏾‍♀️|🕵🏾|🕵🏾‍♂️|👩🏾‍⚕️|🧑🏾‍⚕️|👨🏾‍⚕️|👩🏾‍🌾|🧑🏾‍🌾|👨🏾‍🌾|👩🏾‍🍳|🧑🏾‍🍳|👨🏾‍🍳|👩🏾‍🎓|🧑🏾‍🎓|👨🏾‍🎓|👩🏾‍🎤|🧑🏾‍🎤|👨🏾‍🎤|👩🏾‍🏫|🧑🏾‍🏫|👨🏾‍🏫|👩🏾‍🏭|🧑🏾‍🏭|👨🏾‍🏭|👩🏾‍💻|🧑🏾‍💻|👨🏾‍💻|👩🏾‍💼|🧑🏾‍💼|👨🏾‍💼|👩🏾‍🔧|🧑🏾‍🔧|👨🏾‍🔧|👩🏾‍🔬|🧑🏾‍🔬|👨🏾‍🔬|👩🏾‍🎨|🧑🏾‍🎨|👨🏾‍🎨|👩🏾‍🚒|🧑🏾‍🚒|👨🏾‍🚒|👩🏾‍✈️|🧑🏾‍✈️|👨🏾‍✈️|👩🏾‍🚀|🧑🏾‍🚀|👨🏾‍🚀|👩🏾‍⚖️|🧑🏾‍⚖️|👨🏾‍⚖️|👰🏾‍♀️|👰🏾|👰🏾‍♂️|🤵🏾‍♀️|🤵🏾|🤵🏾‍♂️|👸🏾|🫅🏾|🤴🏾|🥷🏾|🦸🏾‍♀️|🦸🏾|🦸🏾‍♂️|🦹🏾‍♀️|🦹🏾|🦹🏾‍♂️|🤶🏾|🧑🏾‍🎄|🎅🏾|🧙🏾‍♀️|🧙🏾|🧙🏾‍♂️|🧝🏾‍♀️|🧝🏾|🧝🏾‍♂️|🧛🏾‍♀️|🧛🏾|🧛🏾‍♂️|🧜🏾‍♀️|🧜🏾|🧜🏾‍♂️|🧚🏾‍♀️|🧚🏾|🧚🏾‍♂️|👼🏾|🤰🏾|🫄🏾|🫃🏾|🤱🏾|👩🏾‍🍼|🧑🏾‍🍼|👨🏾‍🍼|🙇🏾‍♀️|🙇🏾|🙇🏾‍♂️|💁🏾‍♀️|💁🏾|💁🏾‍♂️|🙅🏾‍♀️|🙅🏾|🙅🏾‍♂️|🙆🏾‍♀️|🙆🏾|🙆🏾‍♂️|🙋🏾‍♀️|🙋🏾|🙋🏾‍♂️|🧏🏾‍♀️|🧏🏾|🧏🏾‍♂️|🤦🏾‍♀️|🤦🏾|🤦🏾‍♂️|🤷🏾‍♀️|🤷🏾|🤷🏾‍♂️|🙎🏾‍♀️|🙎🏾|🙎🏾‍♂️|🙍🏾‍♀️|🙍🏾|🙍🏾‍♂️|💇🏾‍♀️|💇🏾|💇🏾‍♂️|💆🏾‍♀️|💆🏾|💆🏾‍♂️|🧖🏾‍♀️|🧖🏾|🧖🏾‍♂️|💃🏾|🕺🏾|👩🏾‍🦽|🧑🏾‍🦽|👨🏾‍🦽|👩🏾‍🦼|🧑🏾‍🦼|👨🏾‍🦼|🚶🏾‍♀️|🚶🏾|🚶🏾‍♂️|👩🏾‍🦯|🧑🏾‍🦯|👨🏾‍🦯|🧎🏾‍♀️|🧎🏾|🧎🏾‍♂️|🏃🏾‍♀️|🏃🏾|🏃🏾‍♂️|🧍🏾‍♀️|🧍🏾|🧍🏾‍♂️|👭🏾|🧑🏾‍🤝‍🧑🏾|👬🏾|👫🏾|🧗🏾‍♀️|🧗🏾|🧗🏾‍♂️|🏇🏾|🏂🏾|🏌🏾‍♀️|🏌🏾|🏌🏾‍♂️|🏄🏾‍♀️|🏄🏾|🏄🏾‍♂️|🚣🏾‍♀️|🚣🏾|🚣🏾‍♂️|🏊🏾‍♀️|🏊🏾|🏊🏾‍♂️|⛹🏾‍♀️|⛹🏾|⛹🏾‍♂️|🏋🏾‍♀️|🏋🏾|🏋🏾‍♂️|🚴🏾‍♀️|🚴🏾|🚴🏾‍♂️|🚵🏾‍♀️|🚵🏾|🚵🏾‍♂️|🤸🏾‍♀️|🤸🏾|🤸🏾‍♂️|🤽🏾‍♀️|🤽🏾|🤽🏾‍♂️|🤾🏾‍♀️|🤾🏾|🤾🏾‍♂️|🤹🏾‍♀️|🤹🏾|🤹🏾‍♂️|🧘🏾‍♀️|🧘🏾|🧘🏾‍♂️|🛀🏾|🛌🏾|👋🏿|🤚🏿|🖐🏿|✋🏿|🖖🏿|👌🏿|🤌🏿|🤏🏿|✌🏿|🤞🏿|🫰🏿|🤟🏿|🤘🏿|🤙🏿|🫵🏿|🫱🏿|🫲🏿|🫳🏿|🫴🏿|👈🏿|👉🏿|👆🏿|🖕🏿|👇🏿|☝🏿|👍🏿|👎🏿|✊🏿|👊🏿|🤛🏿|🤜🏿|👏🏿|🫶🏿|🙌🏿|👐🏿|🤲🏿|🙏🏿|✍🏿|🤳🏿|💪🏿|🦵🏿|🦶🏿|👂🏿|🦻🏿|👃🏿|👶🏿|👧🏿|🧒🏿|👦🏿|👩🏿|🧑🏿|👨🏿|👩🏿‍🦱|🧑🏿‍🦱|👨🏿‍🦱|👩🏿‍🦰|🧑🏿‍🦰|👨🏿‍🦰|👱🏿‍♀️|👱🏿|👱🏿‍♂️|👩🏿‍🦳|🧑🏿‍🦳|👨🏿‍🦳|👩🏿‍🦲|🧑🏿‍🦲|👨🏿‍🦲|🧔🏿‍♀️|🧔🏿|🧔🏿‍♂️|👵🏿|🧓🏿|👴🏿|👲🏿|👳🏿‍♀️|👳🏿|👳🏿‍♂️|🧕🏿|👮🏿‍♀️|👮🏿|👮🏿‍♂️|👷🏿‍♀️|👷🏿|👷🏿‍♂️|💂🏿‍♀️|💂🏿|💂🏿‍♂️|🕵🏿‍♀️|🕵🏿|🕵🏿‍♂️|👩🏿‍⚕️|🧑🏿‍⚕️|👨🏿‍⚕️|👩🏿‍🌾|🧑🏿‍🌾|👨🏿‍🌾|👩🏿‍🍳|🧑🏿‍🍳|👨🏿‍🍳|👩🏿‍🎓|🧑🏿‍🎓|👨🏿‍🎓|👩🏿‍🎤|🧑🏿‍🎤|👨🏿‍🎤|👩🏿‍🏫|🧑🏿‍🏫|👨🏿‍🏫|👩🏿‍🏭|🧑🏿‍🏭|👨🏿‍🏭|👩🏿‍💻|🧑🏿‍💻|👨🏿‍💻|👩🏿‍💼|🧑🏿‍💼|👨🏿‍💼|👩🏿‍🔧|🧑🏿‍🔧|👨🏿‍🔧|👩🏿‍🔬|🧑🏿‍🔬|👨🏿‍🔬|👩🏿‍🎨|🧑🏿‍🎨|👨🏿‍🎨|👩🏿‍🚒|🧑🏿‍🚒|👨🏿‍🚒|👩🏿‍✈️|🧑🏿‍✈️|👨🏿‍✈️|👩🏿‍🚀|🧑🏿‍🚀|👨🏿‍🚀|👩🏿‍⚖️|🧑🏿‍⚖️|👨🏿‍⚖️|👰🏿‍♀️|👰🏿|👰🏿‍♂️|🤵🏿‍♀️|🤵🏿|🤵🏿‍♂️|👸🏿|🫅🏿|🤴🏿|🥷🏿|🦸🏿‍♀️|🦸🏿|🦸🏿‍♂️|🦹🏿‍♀️|🦹🏿|🦹🏿‍♂️|🤶🏿|🧑🏿‍🎄|🎅🏿|🧙🏿‍♀️|🧙🏿|🧙🏿‍♂️|🧝🏿‍♀️|🧝🏿|🧝🏿‍♂️|🧛🏿‍♀️|🧛🏿|🧛🏿‍♂️|🧜🏿‍♀️|🧜🏿|🧜🏿‍♂️|🧚🏿‍♀️|🧚🏿|🧚🏿‍♂️|👼🏿|🤰🏿|🫄🏿|🫃🏿|🤱🏿|👩🏿‍🍼|🧑🏿‍🍼|👨🏿‍🍼|🙇🏿‍♀️|🙇🏿|🙇🏿‍♂️|💁🏿‍♀️|💁🏿|💁🏿‍♂️|🙅🏿‍♀️|🙅🏿|🙅🏿‍♂️|🙆🏿‍♀️|🙆🏿|🙆🏿‍♂️|🙋🏿‍♀️|🙋🏿|🙋🏿‍♂️|🧏🏿‍♀️|🧏🏿|🧏🏿‍♂️|🤦🏿‍♀️|🤦🏿|🤦🏿‍♂️|🤷🏿‍♀️|🤷🏿|🤷🏿‍♂️|🙎🏿‍♀️|🙎🏿|🙎🏿‍♂️|🙍🏿‍♀️|🙍🏿|🙍🏿‍♂️|💇🏿‍♀️|💇🏿|💇🏿‍♂️|💆🏿‍♀️|💆🏿|💆🏿‍♂️|🧖🏿‍♀️|🧖🏿|🧖🏿‍♂️|💃🏿|🕺🏿|🕴🏿|👩🏿‍🦽|🧑🏿‍🦽|👨🏿‍🦽|👩🏿‍🦼|🧑🏿‍🦼|👨🏿‍🦼|🚶🏿‍♀️|🚶🏿|🚶🏿‍♂️|👩🏿‍🦯|🧑🏿‍🦯|👨🏿‍🦯|🧎🏿‍♀️|🧎🏿|🧎🏿‍♂️|🏃🏿‍♀️|🏃🏿|🏃🏿‍♂️|🧍🏿‍♀️|🧍🏿|🧍🏿‍♂️|👭🏿|🧑🏿‍🤝‍🧑🏿|👬🏿|👫🏿|🧗🏿‍♀️|🧗🏿|🧗🏿‍♂️|🏇🏿|🏂🏿|🏌🏿‍♀️|🏌🏿|🏌🏿‍♂️|🏄🏿‍♀️|🏄🏿|🏄🏿‍♂️|🚣🏿‍♀️|🚣🏿|🚣🏿‍♂️|🏊🏿‍♀️|🏊🏿|🏊🏿‍♂️|⛹🏿‍♀️|⛹🏿|⛹🏿‍♂️|🏋🏿‍♀️|🏋🏿|🏋🏿‍♂️|🚴🏿‍♀️|🚴🏿|🚴🏿‍♂️|🚵🏿‍♀️|🚵🏿|🚵🏿‍♂️|🤸🏿‍♀️|🤸🏿|🤸🏿‍♂️|🤽🏿‍♀️|🤽🏿|🤽🏿‍♂️|🤾🏿‍♀️|🤾🏿|🤾🏿‍♂️|🤹🏿‍♀️|🤹🏿|🤹🏿‍♂️|🧘🏿‍♀️|🧘🏿|🧘🏿‍♂️|🛀🏿|🛌🏿|🐶|🐱|🐭|🐹|🐰|🦊|🐻|🐼|🐻‍❄️|🐨|🐯|🦁|🐮|🐷|🐽|🐸|🐵|🙈|🙉|🙊|🐒|🐔|🐧|🐦|🐤|🐣|🐥</field>
+    <description>Sigma: Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 2</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100938" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">🦆|🦅|🦉|🦇|🐺|🐗|🐴|🦄|🐝|🪱|🐛|🦋|🐌|🐞|🐜|🪰|🪲|🪳|🦟|🦗|🕷|🕸|🦂|🐢|🐍|🦎|🦖|🦕|🐙|🦑|🦐|🦞|🦀|🪸|🐡|🐠|🐟|🐬|🐳|🐋|🦈|🐊|🐅|🐆|🦓|🦍|🦧|🦣|🐘|🦛|🦏|🐪|🐫|🦒|🦘|🦬|🐃|🐂|🐄|🐎|🐖|🐏|🐑|🦙|🐐|🦌|🐕|🐩|🦮|🐕‍🦺|🐈|🐈‍⬛|🪶|🐓|🦃|🦤|🦚|🦜|🦢|🦩|🕊|🐇|🦝|🦨|🦡|🦫|🦦|🦥|🐁|🐀|🐿|🦔|🐾|🐉|🐲|🌵|🎄|🌲|🌳|🌴|🪹|🪺|🪵|🌱|🌿|☘️|🍀|🎍|🪴|🎋|🍃|🍂|🍁|🍄|🐚|🪨|🌾|💐|🌷|🪷|🌹|🥀|🌺|🌸|🌼|🌻|🌞|🌝|🌛|🌜|🌚|🌕|🌖|🌗|🌘|🌑|🌒|🌓|🌔|🌙|🌎|🌍|🌏|🪐|💫|⭐️|🌟|✨|⚡️|☄️|💥|🔥|🌪|🌈|☀️|🌤|⛅️|🌥|☁️|🌦|🌧|⛈|🌩|🌨|❄️|☃️|⛄️|🌬|💨|💧|💦|🫧|☔️|☂️|🌊|🌫🍏|🍎|🍐|🍊|🍋|🍌|🍉|🍇|🍓|🫐|🍈|🍒|🍑|🥭|🍍|🥥|🥝|🍅|🍆|🥑|🥦|🥬|🥒|🌶|🫑|🌽|🥕|🫒|🧄|🧅|🥔|🍠|🫘|🥐|🥯|🍞|🥖|🥨|🧀|🥚|🍳|🧈|🥞|🧇|🥓|🥩|🍗|🍖|🦴|🌭|🍔|🍟|🍕|🫓|🥪|🥙|🧆|🌮|🌯|🫔|🥗|🥘|🫕|🥫|🍝|🍜|🍲|🍛|🍣|🍱|🥟|🦪|🍤|🍙|🍚|🍘|🍥|🥠|🥮|🍢|🍡|🍧|🍨|🍦|🥧|🧁|🍰|🎂|🍮|🍭|🍬|🍫|🍿|🍩|🍪|🌰|🥜|🍯|🥛|🍼|🫖|☕️|🍵|🧃|🥤|🧋|🫙|🍶|🍺|🍻|🥂|🍷|🫗|🥃|🍸|🍹|🧉|🍾|🧊|🥄|🍴|🍽|🥣|🥡|🥢|🧂|⚽️|🏀|🏈|⚾️|🥎|🎾|🏐|🏉|🥏|🎱|🪀|🏓|🏸|🏒|🏑|🥍|🏏|🪃|🥅|⛳️|🪁|🏹|🎣|🤿|🥊|🥋|🎽|🛹|🛼|🛷|⛸|🥌|🎿|⛷|🏂|🪂|🏋️‍♀️|🏋️|🏋️‍♂️|🤼‍♀️|🤼|🤼‍♂️|🤸‍♀️|🤸|🤸‍♂️|⛹️‍♀️|⛹️|⛹️‍♂️|🤺|🤾‍♀️|🤾|🤾‍♂️|🏌️‍♀️|🏌️|🏌️‍♂️|🏇|🧘‍♀️|🧘|🧘‍♂️|🏄‍♀️|🏄|🏄‍♂️|🏊‍♀️|🏊|🏊‍♂️|🤽‍♀️|🤽|🤽‍♂️|🚣‍♀️|🚣|🚣‍♂️|🧗‍♀️|🧗|🧗‍♂️|🚵‍♀️|🚵|🚵‍♂️|🚴‍♀️|🚴|🚴‍♂️|🏆|🥇|🥈|🥉|🏅|🎖|🏵|🎗|🎫|🎟|🎪|🤹|🤹‍♂️|🤹‍♀️|🎭|🩰|🎨|🎬|🎤|🎧|🎼|🎹|🥁|🪘|🎷|🎺|🪗|🎸|🪕|🎻|🎲|♟|🎯|🎳|🎮|🎰|🧩|🚗|🚕|🚙|🚌|🚎|🏎|🚓|🚑|🚒|🚐|🛻|🚚|🚛|🚜|🦯|🦽|🦼|🛴|🚲|🛵|🏍|🛺|🚨|🚔|🚍|🚘|🚖|🛞|🚡|🚠|🚟|🚃|🚋|🚞|🚝|🚄|🚅|🚈|🚂|🚆|🚇|🚊|🚉|✈️|🛫|🛬|🛩|💺|🛰|🚀|🛸|🚁|🛶|⛵️|🚤|🛥|🛳|⛴|🚢|⚓️|🛟|🪝|⛽️|🚧|🚦|🚥|🚏|🗺|🗿|🗽|🗼|🏰|🏯|🏟|🎡|🎢|🛝|🎠|⛲️|⛱|🏖|🏝|🏜|🌋|⛰|🏔|🗻|🏕|⛺️|🛖|🏠|🏡|🏘|🏚|🏗|🏭|🏢|🏬|🏣|🏤|🏥|🏦|🏨|🏪|🏫|🏩|💒|🏛|⛪️|🕌|🕍|🛕|🕋|⛩|🛤|🛣|🗾|🎑|🏞|🌅|🌄|🌠|🎇|🎆|🌇|🌆|🏙|🌃|🌌|🌉|🌁|⌚️|📱|📲|💻|⌨️|🖥|🖨|🖱|🖲|🕹|🗜|💽|💾|💿|📀|📼|📷|📸|📹|🎥|📽|🎞|📞|☎️|📟|📠|📺|📻|🎙|🎚|🎛|🧭|⏱|⏲|⏰|🕰|⌛️|⏳|📡|🔋|🪫|🔌|💡|🔦|🕯|🪔|🧯|🛢|💸|💵|💴|💶|💷|🪙|💰|💳|💎|⚖️|🪜|🧰|🪛|🔧|🔨|⚒|🛠|⛏|🪚|🔩|⚙️|🪤|🧱|⛓|🧲|🔫|💣|🧨|🪓|🔪|🗡|⚔️|🛡|🚬|⚰️|🪦|⚱️|🏺|🔮|📿|🧿|🪬|💈|⚗️|🔭|🔬|🕳|🩹|🩺|🩻|🩼|💊|💉|🩸|🧬|🦠|🧫|🧪|🌡|🧹|🪠|🧺|🧻|🚽|🚰|🚿|🛁|🛀|🧼|🪥|🪒|🧽|🪣|🧴|🛎|🔑|🗝|🚪|🪑|🛋|🛏|🛌|🧸|🪆|🖼|🪞|🪟|🛍|🛒|🎁|🎈|🎏|🎀|🪄|🪅|🎊|🎉|🪩|🎎|🏮|🎐|🧧|✉️|📩|📨|📧|💌|📥|📤|📦|🏷|🪧|📪|📫|📬|📭|📮|📯|📜|📃|📄|📑|🧾|📊|📈|📉|🗒|🗓|📆|📅|🗑|🪪|📇|🗃|🗳|🗄|📋|📁|📂|🗂|🗞|📰|📓|📔|📒|📕|📗|📘|📙|📚|📖|🔖|🧷|🔗|📎|🖇|📐|📏|🧮|📌|📍|✂️|🖊|🖋|✒️|🖌|🖍|📝|✏️|🔍|🔎|🔏|🔐|🔒|🔓❤️|🧡|💛|💚|💙|💜|🖤|🤍|🤎|❤️‍🔥|❤️‍🩹|💔|❣️|💕|💞|💓|💗|💖|💘|💝|💟|☮️|✝️|☪️|🕉|☸️|✡️|🔯|🕎|☯️|☦️|🛐|⛎|♈️|♉️|♊️|♋️|♌️|♍️|♎️|♏️|♐️|♑️|♒️|♓️|🆔|⚛️|🉑|☢️|☣️|📴|📳|🈶|🈚️|🈸|🈺|🈷️|✴️|🆚|💮|🉐|㊙️|㊗️|🈴|🈵|🈹|🈲|🅰️|🅱️|🆎|🆑|🅾️|🆘|❌|⭕️|🛑|⛔️|📛|🚫|💯|💢|♨️|🚷|🚯|🚳|🚱|🔞|📵|🚭|❗️|❕|❓|❔|‼️|⁉️|🔅|🔆|〽️|⚠️|🚸|🔱|⚜️|🔰|♻️|✅|🈯️|💹|❇️|✳️|❎|🌐|💠|Ⓜ️|🌀|💤|🏧|🚾|♿️|🅿️|🛗|🈳|🈂️|🛂|🛃|🛄|🛅|🚹|🚺|🚼|⚧|🚻|🚮|🎦|📶|🈁|🔣|ℹ️|🔤|🔡|🔠|🆖|🆗|🆙|🆒|🆕|🆓|0️⃣|1️⃣|2️⃣|3️⃣|4️⃣|5️⃣|6️⃣|7️⃣|8️⃣|9️⃣|🔟|🔢|#️⃣|.*️⃣|⏏️|▶️|⏸|⏯|⏹|⏺|⏭|⏮|⏩|⏪|⏫|⏬|◀️|🔼|🔽|➡️|⬅️|⬆️|⬇️|↗️|↘️|↙️|↖️|↕️|↔️|↪️|↩️|⤴️|⤵️|🔀|🔁|🔂|🔄|🔃|🎵|🎶|➕|➖|➗|✖️|🟰|♾|💲|💱|™️|©️|®️|〰️|➰|➿|🔚|🔙|🔛|🔝|🔜|✔️|☑️|🔘|🔴|🟠|🟡|🟢|🔵|🟣|⚫️|⚪️|🟤|🔺|🔻</field>
+    <description>Sigma: Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 3</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100939" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">🔸|🔹|🔶|🔷|🔳|🔲|▪️|▫️|◾️|◽️|◼️|◻️|🟥|🟧|🟨|🟩|🟦|🟪|⬛️|⬜️|🟫|🔈|🔇|🔉|🔊|🔔|🔕|📣|📢|👁‍🗨|💬|💭|🗯|♠️|♣️|♥️|♦️|🃏|🎴|🀄️|🕐|🕑|🕒|🕓|🕔|🕕|🕖|🕗|🕘|🕙|🕚|🕛|🕜|🕝|🕞|🕟|🕠|🕡|🕢|🕣|🕤|🕥|🕦|🕧✢|✣|✤|✥|✦|✧|★|☆|✯|✡︎|✩|✪|✫|✬|✭|✮|✶|✷|✵|✸|✹|→|⇒|⟹|⇨|⇾|➾|⇢|☛|☞|➔|➜|➙|➛|➝|➞|♠︎|♣︎|♥︎|♦︎|♤|♧|♡|♢|♚|♛|♜|♝|♞|♟|♔|♕|♖|♗|♘|♙|⚀|⚁|⚂|⚃|⚄|⚅|🂠|⚈|⚉|⚆|⚇|𓀀|𓀁|𓀂|𓀃|𓀄|𓀅|𓀆|𓀇|𓀈|𓀉|𓀊|𓀋|𓀌|𓀍|𓀎|𓀏|𓀐|𓀑|𓀒|𓀓|𓀔|𓀕|𓀖|𓀗|𓀘|𓀙|𓀚|𓀛|𓀜|𓀝🏳️|🏴|🏁|🚩|🏳️‍🌈|🏳️‍⚧️|🏴‍☠️|🇦🇫|🇦🇽|🇦🇱|🇩🇿|🇦🇸|🇦🇩|🇦🇴|🇦🇮|🇦🇶|🇦🇬|🇦🇷|🇦🇲|🇦🇼|🇦🇺|🇦🇹|🇦🇿|🇧🇸|🇧🇭|🇧🇩|🇧🇧|🇧🇾|🇧🇪|🇧🇿|🇧🇯|🇧🇲|🇧🇹|🇧🇴|🇧🇦|🇧🇼|🇧🇷|🇮🇴|🇻🇬|🇧🇳|🇧🇬|🇧🇫|🇧🇮|🇰🇭|🇨🇲|🇨🇦|🇮🇨|🇨🇻|🇧🇶|🇰🇾|🇨🇫|🇹🇩|🇨🇱|🇨🇳|🇨🇽|🇨🇨|🇨🇴|🇰🇲|🇨🇬|🇨🇩|🇨🇰|🇨🇷|🇨🇮|🇭🇷|🇨🇺|🇨🇼|🇨🇾|🇨🇿|🇩🇰|🇩🇯|🇩🇲|🇩🇴|🇪🇨|🇪🇬|🇸🇻|🇬🇶|🇪🇷|🇪🇪|🇪🇹|🇪🇺|🇫🇰|🇫🇴|🇫🇯|🇫🇮|🇫🇷|🇬🇫|🇵🇫|🇹🇫|🇬🇦|🇬🇲|🇬🇪|🇩🇪|🇬🇭|🇬🇮|🇬🇷|🇬🇱|🇬🇩|🇬🇵|🇬🇺|🇬🇹|🇬🇬|🇬🇳|🇬🇼|🇬🇾|🇭🇹|🇭🇳|🇭🇰|🇭🇺|🇮🇸|🇮🇳|🇮🇩|🇮🇷|🇮🇶|🇮🇪|🇮🇲|🇮🇱|🇮🇹|🇯🇲|🇯🇵|🎌|🇯🇪|🇯🇴|🇰🇿|🇰🇪|🇰🇮|🇽🇰|🇰🇼|🇰🇬|🇱🇦|🇱🇻|🇱🇧|🇱🇸|🇱🇷|🇱🇾|🇱🇮|🇱🇹|🇱🇺|🇲🇴|🇲🇰|🇲🇬|🇲🇼|🇲🇾|🇲🇻|🇲🇱|🇲🇹|🇲🇭|🇲🇶|🇲🇷|🇲🇺|🇾🇹|🇲🇽|🇫🇲|🇲🇩|🇲🇨|🇲🇳|🇲🇪|🇲🇸|🇲🇦|🇲🇿|🇲🇲|🇳🇦|🇳🇷|🇳🇵|🇳🇱|🇳🇨|🇳🇿|🇳🇮|🇳🇪|🇳🇬|🇳🇺|🇳🇫|🇰🇵|🇲🇵|🇳🇴|🇴🇲|🇵🇰|🇵🇼|🇵🇸|🇵🇦|🇵🇬|🇵🇾|🇵🇪|🇵🇭|🇵🇳|🇵🇱|🇵🇹|🇵🇷|🇶🇦|🇷🇪|🇷🇴|🇷🇺|🇷🇼|🇼🇸|🇸🇲|🇸🇦|🇸🇳|🇷🇸|🇸🇨|🇸🇱|🇸🇬|🇸🇽|🇸🇰|🇸🇮|🇬🇸|🇸🇧|🇸🇴|🇿🇦|🇰🇷|🇸🇸|🇪🇸|🇱🇰|🇧🇱|🇸🇭|🇰🇳|🇱🇨|🇵🇲|🇻🇨|🇸🇩|🇸🇷|🇸🇿|🇸🇪|🇨🇭|🇸🇾|🇹🇼|🇹🇯|🇹🇿|🇹🇭|🇹🇱|🇹🇬|🇹🇰|🇹🇴|🇹🇹|🇹🇳|🇹🇷|🇹🇲|🇹🇨|🇹🇻|🇻🇮|🇺🇬|🇺🇦|🇦🇪|🇬🇧|🏴󠁧󠁢󠁥󠁮󠁧󠁿|🏴󠁧󠁢󠁳󠁣󠁴󠁿|🏴󠁧󠁢󠁷󠁬󠁳󠁿|🇺🇳|🇺🇸|🇺🇾|🇺🇿|🇻🇺|🇻🇦|🇻🇪|🇻🇳|🇼🇫|🇪🇭|🇾🇪|🇿🇲|🇿🇼🫠|🫢|🫣|🫡|🫥|🫤|🥹|🫱|🫱🏻|🫱🏼|🫱🏽|🫱🏾|🫱🏿|🫲|🫲🏻|🫲🏼|🫲🏽|🫲🏾|🫲🏿|🫳|🫳🏻|🫳🏼|🫳🏽|🫳🏾|🫳🏿|🫴|🫴🏻|🫴🏼|🫴🏽|🫴🏾|🫴🏿|🫰|🫰🏻|🫰🏼|🫰🏽|🫰🏾|🫰🏿|🫵|🫵🏻|🫵🏼|🫵🏽|🫵🏾|🫵🏿|🫶|🫶🏻|🫶🏼|🫶🏽|🫶🏾|🫶🏿|🤝🏻|🤝🏼|🤝🏽|🤝🏾|🤝🏿|🫱🏻‍🫲🏼|🫱🏻‍🫲🏽|🫱🏻‍🫲🏾|🫱🏻‍🫲🏿|🫱🏼‍🫲🏻|🫱🏼‍🫲🏽|🫱🏼‍🫲🏾|🫱🏼‍🫲🏿|🫱🏽‍🫲🏻|🫱🏽‍🫲🏼|🫱🏽‍🫲🏾|🫱🏽‍🫲🏿|🫱🏾‍🫲🏻|🫱🏾‍🫲🏼|🫱🏾‍🫲🏽|🫱🏾‍🫲🏿|🫱🏿‍🫲🏻|🫱🏿‍🫲🏼|🫱🏿‍🫲🏽|🫱🏿‍🫲🏾|🫦|🫅|🫅🏻|🫅🏼|🫅🏽|🫅🏾|🫅🏿|🫃|🫃🏻|🫃🏼|🫃🏽|🫃🏾|🫃🏿|🫄|🫄🏻|🫄🏼|🫄🏽|🫄🏾|🫄🏿|🧌|🪸|🪷|🪹|🪺|🫘|🫗|🫙|🛝|🛞|🛟|🪬|🪩|🪫|🩼|🩻|🫧|🪪|🟰|😮‍💨|😵‍💫|😶‍🌫️|❤️‍🔥|❤️‍🩹|🧔‍♀️|🧔🏻‍♀️|🧔🏼‍♀️|🧔🏽‍♀️|🧔🏾‍♀️|🧔🏿‍♀️|🧔‍♂️|🧔🏻‍♂️|🧔🏼‍♂️|🧔🏽‍♂️|🧔🏾‍♂️|🧔🏿‍♂️|💑🏻|💑🏼|💑🏽|💑🏾|💑🏿|💏🏻|💏🏼|💏🏽|💏🏾|💏🏿|👨🏻‍❤️‍👨🏻|👨🏻‍❤️‍👨🏼|👨🏻‍❤️‍👨🏽|👨🏻‍❤️‍👨🏾|👨🏻‍❤️‍👨🏿|👨🏼‍❤️‍👨🏻|👨🏼‍❤️‍👨🏼|👨🏼‍❤️‍👨🏽|👨🏼‍❤️‍👨🏾|👨🏼‍❤️‍👨🏿|👨🏽‍❤️‍👨🏻|👨🏽‍❤️‍👨🏼|👨🏽‍❤️‍👨🏽|👨🏽‍❤️‍👨🏾|👨🏽‍❤️‍👨🏿|👨🏾‍❤️‍👨🏻|👨🏾‍❤️‍👨🏼|👨🏾‍❤️‍👨🏽|👨🏾‍❤️‍👨🏾|👨🏾‍❤️‍👨🏿|👨🏿‍❤️‍👨🏻|👨🏿‍❤️‍👨🏼|👨🏿‍❤️‍👨🏽|👨🏿‍❤️‍👨🏾|👨🏿‍❤️‍👨🏿|👩🏻‍❤️‍👨🏻|👩🏻‍❤️‍👨🏼|👩🏻‍❤️‍👨🏽|👩🏻‍❤️‍👨🏾|👩🏻‍❤️‍👨🏿|👩🏻‍❤️‍👩🏻|👩🏻‍❤️‍👩🏼|👩🏻‍❤️‍👩🏽|👩🏻‍❤️‍👩🏾|👩🏻‍❤️‍👩🏿|👩🏼‍❤️‍👨🏻|👩🏼‍❤️‍👨🏼|👩🏼‍❤️‍👨🏽|👩🏼‍❤️‍👨🏾|👩🏼‍❤️‍👨🏿|👩🏼‍❤️‍👩🏻|👩🏼‍❤️‍👩🏼|👩🏼‍❤️‍👩🏽|👩🏼‍❤️‍👩🏾|👩🏼‍❤️‍👩🏿|👩🏽‍❤️‍👨🏻|👩🏽‍❤️‍👨🏼|👩🏽‍❤️‍👨🏽|👩🏽‍❤️‍👨🏾|👩🏽‍❤️‍👨🏿|👩🏽‍❤️‍👩🏻|👩🏽‍❤️‍👩🏼|👩🏽‍❤️‍👩🏽|👩🏽‍❤️‍👩🏾|👩🏽‍❤️‍👩🏿|👩🏾‍❤️‍👨🏻|👩🏾‍❤️‍👨🏼|👩🏾‍❤️‍👨🏽|👩🏾‍❤️‍👨🏾|👩🏾‍❤️‍👨🏿|👩🏾‍❤️‍👩🏻|👩🏾‍❤️‍👩🏼|👩🏾‍❤️‍👩🏽|👩🏾‍❤️‍👩🏾|👩🏾‍❤️‍👩🏿|👩🏿‍❤️‍👨🏻|👩🏿‍❤️‍👨🏼|👩🏿‍❤️‍👨🏽|👩🏿‍❤️‍👨🏾|👩🏿‍❤️‍👨🏿|👩🏿‍❤️‍👩🏻|👩🏿‍❤️‍👩🏼|👩🏿‍❤️‍👩🏽|👩🏿‍❤️‍👩🏾|👩🏿‍❤️‍👩🏿|🧑🏻‍❤️‍🧑🏼|🧑🏻‍❤️‍🧑🏽|🧑🏻‍❤️‍🧑🏾|🧑🏻‍❤️‍🧑🏿|🧑🏼‍❤️‍🧑🏻|🧑🏼‍❤️‍🧑🏽|🧑🏼‍❤️‍🧑🏾|🧑🏼‍❤️‍🧑🏿|🧑🏽‍❤️‍🧑🏻|🧑🏽‍❤️‍🧑🏼|🧑🏽‍❤️‍🧑🏾|🧑🏽‍❤️‍🧑🏿|🧑🏾‍❤️‍🧑🏻|🧑🏾‍❤️‍🧑🏼|🧑🏾‍❤️‍🧑🏽|🧑🏾‍❤️‍🧑🏿|🧑🏿‍❤️‍🧑🏻|🧑🏿‍❤️‍🧑🏼|🧑🏿‍❤️‍🧑🏽|🧑🏿‍❤️‍🧑🏾|👨🏻‍❤️‍💋‍👨🏻|👨🏻‍❤️‍💋‍👨🏼|👨🏻‍❤️‍💋‍👨🏽|👨🏻‍❤️‍💋‍👨🏾|👨🏻‍❤️‍💋‍👨🏿|👨🏼‍❤️‍💋‍👨🏻|👨🏼‍❤️‍💋‍👨🏼|👨🏼‍❤️‍💋‍👨🏽|👨🏼‍❤️‍💋‍👨🏾|👨🏼‍❤️‍💋‍👨🏿|👨🏽‍❤️‍💋‍👨🏻|👨🏽‍❤️‍💋‍👨🏼|👨🏽‍❤️‍💋‍👨🏽|👨🏽‍❤️‍💋‍👨🏾|👨🏽‍❤️‍💋‍👨🏿|👨🏾‍❤️‍💋‍👨🏻|👨🏾‍❤️‍💋‍👨🏼|👨🏾‍❤️‍💋‍👨🏽|👨🏾‍❤️‍💋‍👨🏾|👨🏾‍❤️‍💋‍👨🏿|👨🏿‍❤️‍💋‍👨🏻|👨🏿‍❤️‍💋‍👨🏼|👨🏿‍❤️‍💋‍👨🏽|👨🏿‍❤️‍💋‍👨🏾|👨🏿‍❤️‍💋‍👨🏿|👩🏻‍❤️‍💋‍👨🏻|👩🏻‍❤️‍💋‍👨🏼|👩🏻‍❤️‍💋‍👨🏽|👩🏻‍❤️‍💋‍👨🏾|👩🏻‍❤️‍💋‍👨🏿|👩🏻‍❤️‍💋‍👩🏻|👩🏻‍❤️‍💋‍👩🏼|👩🏻‍❤️‍💋‍👩🏽|👩🏻‍❤️‍💋‍👩🏾|👩🏻‍❤️‍💋‍👩🏿|👩🏼‍❤️‍💋‍👨🏻|👩🏼‍❤️‍💋‍👨🏼|👩🏼‍❤️‍💋‍👨🏽|👩🏼‍❤️‍💋‍👨🏾|👩🏼‍❤️‍💋‍👨🏿|👩🏼‍❤️‍💋‍👩🏻|👩🏼‍❤️‍💋‍👩🏼|👩🏼‍❤️‍💋‍👩🏽|👩🏼‍❤️‍💋‍👩🏾|👩🏼‍❤️‍💋‍👩🏿|👩🏽‍❤️‍💋‍👨🏻|👩🏽‍❤️‍💋‍👨🏼|👩🏽‍❤️‍💋‍👨🏽|👩🏽‍❤️‍💋‍👨🏾|👩🏽‍❤️‍💋‍👨🏿|👩🏽‍❤️‍💋‍👩🏻|👩🏽‍❤️‍💋‍👩🏼|👩🏽‍❤️‍💋‍👩🏽|👩🏽‍❤️‍💋‍👩🏾|👩🏽‍❤️‍💋‍👩🏿|👩🏾‍❤️‍💋‍👨🏻|👩🏾‍❤️‍💋‍👨🏼|👩🏾‍❤️‍💋‍👨🏽|👩🏾‍❤️‍💋‍👨🏾|👩🏾‍❤️‍💋‍👨🏿|👩🏾‍❤️‍💋‍👩🏻|👩🏾‍❤️‍💋‍👩🏼|👩🏾‍❤️‍💋‍👩🏽|👩🏾‍❤️‍💋‍👩🏾|👩🏾‍❤️‍💋‍👩🏿|👩🏿‍❤️‍💋‍👨🏻|👩🏿‍❤️‍💋‍👨🏼|👩🏿‍❤️‍💋‍👨🏽|👩🏿‍❤️‍💋‍👨🏾|👩🏿‍❤️‍💋‍👨🏿|👩🏿‍❤️‍💋‍👩🏻|👩🏿‍❤️‍💋‍👩🏼|👩🏿‍❤️‍💋‍👩🏽|👩🏿‍❤️‍💋‍👩🏾|👩🏿‍❤️‍💋‍👩🏿|🧑🏻‍❤️‍💋‍🧑🏼|🧑🏻‍❤️‍💋‍🧑🏽|🧑🏻‍❤️‍💋‍🧑🏾|🧑🏻‍❤️‍💋‍🧑🏿|🧑🏼‍❤️‍💋‍🧑🏻|🧑🏼‍❤️‍💋‍🧑🏽|🧑🏼‍❤️‍💋‍🧑🏾|🧑🏼‍❤️‍💋‍🧑🏿|🧑🏽‍❤️‍💋‍🧑🏻|🧑🏽‍❤️‍💋‍🧑🏼|🧑🏽‍❤️‍💋‍🧑🏾|🧑🏽‍❤️‍💋‍🧑🏿|🧑🏾‍❤️‍💋‍🧑🏻|🧑🏾‍❤️‍💋‍🧑🏼|🧑🏾‍❤️‍💋‍🧑🏽|🧑🏾‍❤️‍💋‍🧑🏿|🧑🏿‍❤️‍💋‍🧑🏻|🧑🏿‍❤️‍💋‍🧑🏼|🧑🏿‍❤️‍💋‍🧑🏽|🧑🏿‍❤️‍💋‍🧑🏾</field>
+    <description>Sigma: Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 4</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100956" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\</field>
+    <description>Sigma: Execution Of Non-Existing File</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100957" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">TVqQAAMAAAAEAAAA|TVpQAAIAAAAEAA8A|TVqAAAEAAAAEABAA|TVoAAAAAAAAAAAAA|TVpTAQEAAAAEAAAA</field>
+    <description>Sigma: Base64 MZ Header In CommandLine</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100960" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\calc\.exe$|\certutil\.exe$|\cmstp\.exe$|\cscript\.exe$|\installutil\.exe$|\mshta\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
+    <description>Sigma: LOLBIN Execution From Abnormal Drive</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100963" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\.exe$</field>
+    <description>Sigma: Process Launched Without Image Name</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100964" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\.bin$|\.cgi$|\.com$|\.exe$|\.scr$|\.tmp$</field>
+    <description>Sigma: Execution of Suspicious File Type Extension</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100965" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.BackupEventlog\(|\.ChangeSecurityPermissions\(|\.ChangeSecurityPermissionsEx\(|\.ClearEventLog\(|\.Delete\(|\.DeleteEx\(|\.Rename\(|\.TakeOwnerShip\(|\.TakeOwnerShipEx\(</field>
+    <description>Sigma: Potentially Suspicious Call To Win32_NTEventlogFile Class</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100982" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">123456789|123123qwE|Asd123\.aaaa|Decryptme|P@ssw0rd!|Pass8080|password123|test@202</field>
+    <description>Sigma: Weak or Abused Passwords In CLI</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100987" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\livekd\.exe$|\livekd64\.exe$</field>
+    <description>Sigma: Potential Memory Dumping Activity Via LiveKD</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100988" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">livekd\.exe</field>
+    <description>Sigma: Potential Memory Dumping Activity Via LiveKD</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100989" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> -m</field>
+    <field name="win.eventdata.image">\livekd\.exe$|\livekd64\.exe$</field>
+    <description>Sigma: Kernel Memory Dump Via LiveKD</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100994" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">C:\Windows\PSEXESVC\.exe</field>
+    <description>Sigma: PsExec Service Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100995" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">psexesvc\.exe</field>
+    <description>Sigma: PsExec Service Execution</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100996" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">C:\Windows\PSEXESVC\.exe</field>
+    <field name="win.eventdata.user">AUTHORI|AUTORI</field>
+    <description>Sigma: PsExec Service Child Process Execution as LOCAL SYSTEM</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101004" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">DeveloperUnlock|EnableSideloading</field>
+    <field name="win.eventdata.image">\SystemSettingsAdminFlows\.exe$</field>
+    <description>Sigma: Potential Signing Bypass Via Windows Developer Features</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101008" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">create</field>
+    <field name="win.eventdata.image">\tpmvscmgr\.exe$</field>
+    <field name="win.eventdata.originalFileName">TpmVscMgr\.exe</field>
+    <description>Sigma: New Virtual Smart Card Created Via TpmVscMgr.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101009" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\tscon\.exe$</field>
+    <field name="win.eventdata.integrityLevel">System|S-1-16-16384</field>
+    <description>Sigma: Potential RDP Session Hijacking Activity</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101022" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\wab\.exe$|\wabmig\.exe$</field>
+    <description>Sigma: Wab Execution From Non Default Location</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101023" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\wab\.exe$|\wabmig\.exe$</field>
+    <description>Sigma: Wab/Wabmig Unusual Parent Or Child Processes</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101024" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\WmiPrvSE\.exe$|\svchost\.exe$|\dllhost\.exe$</field>
+    <field name="win.eventdata.image">\wab\.exe$|\wabmig\.exe$</field>
+    <description>Sigma: Wab/Wabmig Unusual Parent Or Child Processes</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101027" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\wermgr\.exe$</field>
+    <description>Sigma: Suspicious Execution Location Of Wermgr.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101028" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
+    <field name="win.eventdata.image">\wget\.exe$</field>
+    <description>Sigma: Suspicious File Download From IP Via Wget.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101029" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\.githubusercontent\.com|anonfiles\.com|cdn\.discordapp\.com|ddns\.net|dl\.dropboxusercontent\.com|ghostbin\.co|github\.com|glitch\.me|gofile\.io|hastebin\.com|mediafire\.com|mega\.nz|onrender\.com|pages\.dev|paste\.ee|pastebin\.com|pastebin\.pl|pastetext\.net|pixeldrain\.com|privatlab\.com|privatlab\.net|send\.exploit\.in|sendspace\.com|storage\.googleapis\.com|storjshare\.io|supabase\.co|temp\.sh|transfer\.sh|trycloudflare\.com|ufile\.io|w3spaces\.com|workers\.dev</field>
+    <field name="win.eventdata.image">\wget\.exe$</field>
+    <description>Sigma: Suspicious File Download From File Sharing Domain Via Wget.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101030" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">:\PerfLogs\|:\Temp\|:\Users\Public\|:\Windows\Help\|:\Windows\Temp\|\Temporary Internet</field>
+    <field name="win.eventdata.image">\wget\.exe$</field>
+    <description>Sigma: Suspicious File Download From IP Via Wget.EXE - Paths</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101031" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\WindowsTerminal\.exe$|\wt\.exe$</field>
+    <field name="win.eventdata.image">\rundll32\.exe$|\regsvr32\.exe$|\certutil\.exe$|\cscript\.exe$|\wscript\.exe$|\csc\.exe$</field>
+    <description>Sigma: Suspicious WindowsTerminal Child Processes</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101068" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\wscript\.exe$|\cscript\.exe$</field>
+    <field name="win.eventdata.commandLine">mshta|http</field>
+    <description>Sigma: Cscript/Wscript Potentially Suspicious Child Process</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101078" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/extract:</field>
+    <field name="win.eventdata.image">\wusa\.exe$</field>
+    <description>Sigma: Cab File Extraction Via Wusa.EXE From Potentially Suspicious Paths</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101079" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\wusa\.exe$</field>
+    <field name="win.eventdata.parentImage">:\Perflogs\|:\Users\Public\|:\Windows\Temp\|\Appdata\Local\Temp\|\Temporary Internet</field>
+    <description>Sigma: Wusa.EXE Executed By Parent Process Located In Suspicious Location</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101081" level="8">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">shellex\ContextMenuHandlers\EPP</field>
+    <description>Sigma: Delete Defender Scan ShellEx Context Menu Registry Key</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101106" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\MacroRuntimeScanScope$|\Microsoft\Office\|\Common\Security</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Disable Macro Runtime Scan Scope</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101118" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">Classes\\.</field>
+    <field name="win.eventdata.details">exefile</field>
+    <description>Sigma: New File Association Using Exefile</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101122" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Control\CI\|\HVCIDisallowedImages</field>
+    <description>Sigma: Driver Added To Disallowed Images In HVCI - Registry</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101123" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\http$|\https$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: IE ZoneMap Setting Downgraded To MyComputer Zone For HTTP Protocols</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101126" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Microsoft\Internet Explorer\Main\DisableFirstRunCustomize$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)|DWORD \(0x00000002\)</field>
+    <description>Sigma: Internet Explorer DisableFirstRunCustomize Enabled</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101132" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\DefaultFileTypeRisk$</field>
+    <field name="win.eventdata.details">DWORD \(0x00006152\)</field>
+    <description>Sigma: Potential Attachment Manager Settings Associations Tamper</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101133" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\HideZoneInfoOnProperties$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Potential Attachment Manager Settings Attachments Tamper</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101136" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\ShellIds\Microsoft\.PowerShell\ExecutionPolicy$|\Policies\Microsoft\Windows\PowerShell\ExecutionPolicy$</field>
+    <field name="win.eventdata.details">Bypass|Unrestricted</field>
+    <description>Sigma: Potential PowerShell Execution Policy Tampering</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101151" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\Enabled$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Old TLS1.0/TLS1.1 Protocol Version Enabled</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101152" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\AllowAllTrustedApps$|\AllowDevelopmentWithoutDevLicense$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Potential Signing Bypass Via Windows Developer Features - Registry</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101156" level="8">
+    <if_sid>60004</if_sid>
+    <field name="win.system.eventID">16</field>
+    <description>Sigma: Sysmon Configuration Change</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101159" level="9">
+    <if_sid>60004</if_sid>
+    <field name="win.system.eventID">27</field>
+    <description>Sigma: Sysmon Blocked Executable</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101160" level="9">
+    <if_sid>60004</if_sid>
+    <field name="win.system.eventID">28</field>
+    <description>Sigma: Sysmon Blocked File Shredding</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101161" level="8">
+    <if_sid>60004</if_sid>
+    <field name="win.system.eventID">29</field>
+    <description>Sigma: Sysmon File Executable Creation Detected</description>
     <group>execution,sigma_converted,</group>
   </rule>
 </group>
