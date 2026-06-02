@@ -4,18 +4,27 @@ import json
 from pathlib import Path
 
 from openpyxl import Workbook
-from openpyxl.styles import Alignment, Border, Font, PatternFill, Side, numbers
-from openpyxl.utils import get_column_letter
 from openpyxl.chart import BarChart, PieChart, Reference
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.utils import get_column_letter
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 DB_META = PROJECT_ROOT / "database" / "metadata"
 OUTPUT = PROJECT_ROOT / "database" / "EVTX_Wazuh_Rules_Tracker.xlsx"
 
 TACTIC_ORDER = [
-    "initial_access", "execution", "persistence", "privilege_escalation",
-    "defense_evasion", "credential_access", "discovery", "lateral_movement",
-    "collection", "command_and_control", "exfiltration", "impact",
+    "initial_access",
+    "execution",
+    "persistence",
+    "privilege_escalation",
+    "defense_evasion",
+    "credential_access",
+    "discovery",
+    "lateral_movement",
+    "collection",
+    "command_and_control",
+    "exfiltration",
+    "impact",
 ]
 
 # Colors
@@ -29,23 +38,35 @@ STAT_HEADER_FONT = Font(name="Calibri", size=12, bold=True, color="FFFFFF")
 SECTION_FILL = PatternFill(start_color="D6E4F0", end_color="D6E4F0", fill_type="solid")
 SECTION_FONT = Font(name="Calibri", size=11, bold=True, color="1F4E79")
 THIN_BORDER = Border(
-    left=Side(style="thin"), right=Side(style="thin"),
-    top=Side(style="thin"), bottom=Side(style="thin"),
+    left=Side(style="thin"),
+    right=Side(style="thin"),
+    top=Side(style="thin"),
+    bottom=Side(style="thin"),
 )
 WRAP = Alignment(wrap_text=True, vertical="top")
 CENTER = Alignment(horizontal="center", vertical="center")
 
 TACTIC_COLORS = {
-    "initial_access": "E74C3C", "execution": "E67E22", "persistence": "F39C12",
-    "privilege_escalation": "27AE60", "defense_evasion": "2ECC71",
-    "credential_access": "1ABC9C", "discovery": "3498DB",
-    "lateral_movement": "2980B9", "collection": "9B59B6",
-    "command_and_control": "8E44AD", "exfiltration": "E91E63", "impact": "C0392B",
+    "initial_access": "E74C3C",
+    "execution": "E67E22",
+    "persistence": "F39C12",
+    "privilege_escalation": "27AE60",
+    "defense_evasion": "2ECC71",
+    "credential_access": "1ABC9C",
+    "discovery": "3498DB",
+    "lateral_movement": "2980B9",
+    "collection": "9B59B6",
+    "command_and_control": "8E44AD",
+    "exfiltration": "E91E63",
+    "impact": "C0392B",
 }
 
 SOURCE_COLORS = {
-    "sysmon": "3498DB", "security": "E74C3C",
-    "powershell": "2ECC71", "system": "F39C12", "other": "95A5A6",
+    "sysmon": "3498DB",
+    "security": "E74C3C",
+    "powershell": "2ECC71",
+    "system": "F39C12",
+    "other": "95A5A6",
 }
 
 
@@ -85,11 +106,24 @@ def _build_all_rules(wb, index, validation):
     ws.sheet_properties.tabColor = "1F4E79"
 
     headers = [
-        "Rule ID", "Level", "Tactic", "Technique ID", "Technique Name",
-        "MITRE IDs", "Source Category", "Parent SID", "Confidence",
-        "Origin", "Sigma ID", "Sigma Level",
-        "Tested", "Test Result", "Test Mode",
-        "Deployed", "Field Matches", "Source File",
+        "Rule ID",
+        "Level",
+        "Tactic",
+        "Technique ID",
+        "Technique Name",
+        "MITRE IDs",
+        "Source Category",
+        "Parent SID",
+        "Confidence",
+        "Origin",
+        "Sigma ID",
+        "Sigma Level",
+        "Tested",
+        "Test Result",
+        "Test Mode",
+        "Deployed",
+        "Field Matches",
+        "Source File",
     ]
     for col, h in enumerate(headers, 1):
         ws.cell(row=1, column=col, value=h)
@@ -121,13 +155,24 @@ def _build_all_rules(wb, index, validation):
             source_file = Path(source_file).name
 
         values = [
-            int(rid), meta.get("level", 0), meta.get("tactic", ""),
-            meta.get("technique_id", ""), meta.get("technique_name", ""),
-            mitre_ids, meta.get("source_category", ""), meta.get("parent_sid", ""),
-            meta.get("confidence", ""), origin,
-            meta.get("sigma_id", ""), meta.get("sigma_level", ""),
-            tested, test_result, val.get("mode", ""),
-            "No", field_str, source_file,
+            int(rid),
+            meta.get("level", 0),
+            meta.get("tactic", ""),
+            meta.get("technique_id", ""),
+            meta.get("technique_name", ""),
+            mitre_ids,
+            meta.get("source_category", ""),
+            meta.get("parent_sid", ""),
+            meta.get("confidence", ""),
+            origin,
+            meta.get("sigma_id", ""),
+            meta.get("sigma_level", ""),
+            tested,
+            test_result,
+            val.get("mode", ""),
+            "No",
+            field_str,
+            source_file,
         ]
         for col, v in enumerate(values, 1):
             cell = ws.cell(row=row, column=col, value=v)
@@ -178,7 +223,7 @@ def _build_stats(wb, index, validation, allocations, errors):
         ("Passed", passed),
         ("Failed", failed),
         ("Inconclusive", inconclusive),
-        ("Pass Rate (overall)", f"{100*passed/total:.1f}%"),
+        ("Pass Rate (overall)", f"{100 * passed / total:.1f}%"),
         ("Pass Rate (EVTX)", ""),
         ("Pass Rate (Sigma)", ""),
         ("", ""),
@@ -188,14 +233,12 @@ def _build_stats(wb, index, validation, allocations, errors):
     ]
 
     # Compute EVTX/Sigma pass rates
-    evtx_pass = sum(1 for rid, v in validation.items()
-                    if v.get("passed") and not index.get(rid, {}).get("sigma_id"))
-    sigma_pass = sum(1 for rid, v in validation.items()
-                     if v.get("passed") and index.get(rid, {}).get("sigma_id"))
+    evtx_pass = sum(1 for rid, v in validation.items() if v.get("passed") and not index.get(rid, {}).get("sigma_id"))
+    sigma_pass = sum(1 for rid, v in validation.items() if v.get("passed") and index.get(rid, {}).get("sigma_id"))
     evtx_tested = sum(1 for rid in validation if not index.get(rid, {}).get("sigma_id"))
     sigma_tested = sum(1 for rid in validation if index.get(rid, {}).get("sigma_id"))
-    summary[9] = ("Pass Rate (EVTX)", f"{100*evtx_pass/evtx_tested:.1f}%" if evtx_tested else "N/A")
-    summary[10] = ("Pass Rate (Sigma)", f"{100*sigma_pass/sigma_tested:.1f}%" if sigma_tested else "N/A")
+    summary[9] = ("Pass Rate (EVTX)", f"{100 * evtx_pass / evtx_tested:.1f}%" if evtx_tested else "N/A")
+    summary[10] = ("Pass Rate (Sigma)", f"{100 * sigma_pass / sigma_tested:.1f}%" if sigma_tested else "N/A")
 
     row = 3
     ws.cell(row=row, column=1, value="Overview").font = SECTION_FONT
@@ -259,10 +302,10 @@ def _build_stats(wb, index, validation, allocations, errors):
     chart.style = 10
     chart.width = 24
     chart.height = 14
-    data_ref = Reference(ws, min_col=2, min_row=tactic_data_start - 1,
-                         max_row=tactic_data_start + len(TACTIC_ORDER) - 1)
-    cats_ref = Reference(ws, min_col=1, min_row=tactic_data_start,
-                         max_row=tactic_data_start + len(TACTIC_ORDER) - 1)
+    data_ref = Reference(
+        ws, min_col=2, min_row=tactic_data_start - 1, max_row=tactic_data_start + len(TACTIC_ORDER) - 1
+    )
+    cats_ref = Reference(ws, min_col=1, min_row=tactic_data_start, max_row=tactic_data_start + len(TACTIC_ORDER) - 1)
     chart.add_data(data_ref, titles_from_data=True)
     chart.set_categories(cats_ref)
     chart.shape = 4
@@ -300,10 +343,8 @@ def _build_stats(wb, index, validation, allocations, errors):
     pie.style = 10
     pie.width = 16
     pie.height = 12
-    pie_data = Reference(ws, min_col=2, min_row=source_data_start - 1,
-                         max_row=row - 1)
-    pie_cats = Reference(ws, min_col=1, min_row=source_data_start,
-                         max_row=row - 1)
+    pie_data = Reference(ws, min_col=2, min_row=source_data_start - 1, max_row=row - 1)
+    pie_cats = Reference(ws, min_col=1, min_row=source_data_start, max_row=row - 1)
     pie.add_data(pie_data, titles_from_data=True)
     pie.set_categories(pie_cats)
     ws.add_chart(pie, f"F{source_start}")
@@ -377,8 +418,15 @@ def _build_validation(wb, index, validation):
     ws.sheet_properties.tabColor = "27AE60"
 
     headers = [
-        "Rule ID", "Tactic", "Technique", "Test Result", "Test Mode",
-        "Confidence", "Origin", "Error", "Details",
+        "Rule ID",
+        "Tactic",
+        "Technique",
+        "Test Result",
+        "Test Mode",
+        "Confidence",
+        "Origin",
+        "Error",
+        "Details",
     ]
     for col, h in enumerate(headers, 1):
         ws.cell(row=1, column=col, value=h)
@@ -402,10 +450,15 @@ def _build_validation(wb, index, validation):
         details = "\n".join(val.get("details", []))
 
         values = [
-            int(rid), meta.get("tactic", ""), meta.get("technique_id", ""),
-            result, val.get("mode", ""), meta.get("confidence", ""),
+            int(rid),
+            meta.get("tactic", ""),
+            meta.get("technique_id", ""),
+            result,
+            val.get("mode", ""),
+            meta.get("confidence", ""),
             "Sigma" if is_sigma else "EVTX",
-            val.get("error", ""), details,
+            val.get("error", ""),
+            details,
         ]
         for col, v in enumerate(values, 1):
             cell = ws.cell(row=row, column=col, value=v)
@@ -428,8 +481,7 @@ def _build_validation(wb, index, validation):
 
 def _build_by_tactic(wb, index, validation):
     for tactic in TACTIC_ORDER:
-        rules = {rid: meta for rid, meta in index.items()
-                 if meta.get("tactic") == tactic}
+        rules = {rid: meta for rid, meta in index.items() if meta.get("tactic") == tactic}
         if not rules:
             continue
 
@@ -439,9 +491,16 @@ def _build_by_tactic(wb, index, validation):
         ws.sheet_properties.tabColor = color
 
         headers = [
-            "Rule ID", "Level", "Technique ID", "Technique Name",
-            "Confidence", "Origin", "Test Result", "MITRE IDs",
-            "Field Matches", "Source File",
+            "Rule ID",
+            "Level",
+            "Technique ID",
+            "Technique Name",
+            "Confidence",
+            "Origin",
+            "Test Result",
+            "MITRE IDs",
+            "Field Matches",
+            "Source File",
         ]
         for col, h in enumerate(headers, 1):
             ws.cell(row=1, column=col, value=h)
@@ -468,10 +527,16 @@ def _build_by_tactic(wb, index, validation):
             source_file = Path(meta.get("source_evtx", "")).name if meta.get("source_evtx") else ""
 
             values = [
-                int(rid), meta.get("level", 0),
-                meta.get("technique_id", ""), meta.get("technique_name", ""),
-                meta.get("confidence", ""), "Sigma" if is_sigma else "EVTX",
-                result, mitre_ids, field_str, source_file,
+                int(rid),
+                meta.get("level", 0),
+                meta.get("technique_id", ""),
+                meta.get("technique_name", ""),
+                meta.get("confidence", ""),
+                "Sigma" if is_sigma else "EVTX",
+                result,
+                mitre_ids,
+                field_str,
+                source_file,
             ]
             for col, v in enumerate(values, 1):
                 cell = ws.cell(row=row, column=col, value=v)
@@ -507,8 +572,10 @@ def _build_sigma_errors(wb, errors):
     for rec in errors.get("records", []):
         fname = Path(rec.get("file", "")).name
         values = [
-            fname, rec.get("sigma_id", ""),
-            rec.get("category", ""), rec.get("message", ""),
+            fname,
+            rec.get("sigma_id", ""),
+            rec.get("category", ""),
+            rec.get("message", ""),
         ]
         for col, v in enumerate(values, 1):
             cell = ws.cell(row=row, column=col, value=v)
@@ -524,9 +591,17 @@ def _build_deployment(wb, index, validation):
     ws.sheet_properties.tabColor = "F39C12"
 
     headers = [
-        "Rule ID", "Tactic", "Technique ID", "Level", "Confidence",
-        "Origin", "Test Result", "Deployed", "Deploy Date",
-        "Deploy Target", "Notes",
+        "Rule ID",
+        "Tactic",
+        "Technique ID",
+        "Level",
+        "Confidence",
+        "Origin",
+        "Test Result",
+        "Deployed",
+        "Deploy Date",
+        "Deploy Target",
+        "Notes",
     ]
     for col, h in enumerate(headers, 1):
         ws.cell(row=1, column=col, value=h)
@@ -550,10 +625,17 @@ def _build_deployment(wb, index, validation):
             result = ""
 
         values = [
-            int(rid), meta.get("tactic", ""), meta.get("technique_id", ""),
-            meta.get("level", 0), meta.get("confidence", ""),
-            "Sigma" if is_sigma else "EVTX", result,
-            "No", "", "", "",
+            int(rid),
+            meta.get("tactic", ""),
+            meta.get("technique_id", ""),
+            meta.get("level", 0),
+            meta.get("confidence", ""),
+            "Sigma" if is_sigma else "EVTX",
+            result,
+            "No",
+            "",
+            "",
+            "",
         ]
         for col, v in enumerate(values, 1):
             cell = ws.cell(row=row, column=col, value=v)

@@ -5,8 +5,7 @@ from lxml import etree
 from generator.validator import validate_rule
 
 
-def _make_rule(rule_id=100001, level=10, description="Test rule",
-               if_sid="61600", mitre_id="T1003"):
+def _make_rule(rule_id=100001, level=10, description="Test rule", if_sid="61600", mitre_id="T1003"):
     elem = etree.Element("rule", id=str(rule_id), level=str(level))
     if if_sid:
         sid = etree.SubElement(elem, "if_sid")

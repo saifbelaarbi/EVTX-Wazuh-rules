@@ -8,16 +8,16 @@ from rich.console import Console
 from rich.table import Table
 
 from . import (
-    evtx_parser,
-    event_analyzer,
-    rule_builder,
-    rule_correlator,
     alert_leveler,
-    validator,
+    event_analyzer,
+    evtx_parser,
     exporter,
     id_manager,
-    sigma_converter,
     logtest_validator,
+    rule_builder,
+    rule_correlator,
+    sigma_converter,
+    validator,
 )
 
 console = Console()
@@ -189,6 +189,7 @@ def review():
     for manifest_file in manifests:
         console.print(f"\n[bold]Reviewing:[/] {manifest_file.name}")
         import json
+
         with open(manifest_file) as f:
             manifest = json.load(f)
 
@@ -257,23 +258,25 @@ def approve(draft_file):
                 if id_elem.text:
                     mitre_ids.append(id_elem.text)
 
-        rules.append({
-            "id": rule_id,
-            "level": level,
-            "xml_element": rule_elem,
-            "metadata": {
-                "rule_id": rule_id,
+        rules.append(
+            {
+                "id": rule_id,
                 "level": level,
-                "tactic": tactic,
-                "technique_name": desc,
-                "source_evtx": "",
-                "confidence": "reviewed",
-                "mitre_ids": mitre_ids,
-                "field_matches": {},
-                "created": "",
-            },
-            "pattern": type("P", (), {"provider_name": "", "channel": "", "event_id": 0})(),
-        })
+                "xml_element": rule_elem,
+                "metadata": {
+                    "rule_id": rule_id,
+                    "level": level,
+                    "tactic": tactic,
+                    "technique_name": desc,
+                    "source_evtx": "",
+                    "confidence": "reviewed",
+                    "mitre_ids": mitre_ids,
+                    "field_matches": {},
+                    "created": "",
+                },
+                "pattern": type("P", (), {"provider_name": "", "channel": "", "event_id": 0})(),
+            }
+        )
 
     if not rules:
         console.print("[yellow]No rules found in draft.[/]")
@@ -356,8 +359,12 @@ def export_cmd(dest, view):
 @cli.command("convert-sigma")
 @click.option("--auto-approve", is_flag=True, help="Export directly to rule database")
 @click.option("--category", default=None, help="Only convert rules from this category (e.g., process_creation)")
-@click.option("--min-level", default="low", type=click.Choice(["informational", "low", "medium", "high", "critical"]),
-              help="Minimum Sigma severity level to convert")
+@click.option(
+    "--min-level",
+    default="low",
+    type=click.Choice(["informational", "low", "medium", "high", "critical"]),
+    help="Minimum Sigma severity level to convert",
+)
 @click.option("--max-rules", default=None, type=int, help="Maximum number of rules to generate")
 def convert_sigma_cmd(auto_approve, category, min_level, max_rules):
     """Convert SigmaHQ detection rules to Wazuh XML rules."""
@@ -369,10 +376,12 @@ def convert_sigma_cmd(auto_approve, category, min_level, max_rules):
         return
 
     rules_path = sigma_dir
-    for candidate in [sigma_dir / "SigmaHQ" / "rules" / "windows",
-                      sigma_dir / "sigma" / "rules" / "windows",
-                      sigma_dir / "rules" / "windows",
-                      sigma_dir / "windows"]:
+    for candidate in [
+        sigma_dir / "SigmaHQ" / "rules" / "windows",
+        sigma_dir / "sigma" / "rules" / "windows",
+        sigma_dir / "rules" / "windows",
+        sigma_dir / "windows",
+    ]:
         if candidate.exists():
             rules_path = candidate
             break
@@ -448,8 +457,12 @@ def convert_sigma_cmd(auto_approve, category, min_level, max_rules):
 
 
 @cli.command("logtest")
-@click.option("--mode", type=click.Choice(["simulate", "live"]), default="simulate",
-              help="Validation mode: simulate (offline) or live (API/SSH)")
+@click.option(
+    "--mode",
+    type=click.Choice(["simulate", "live"]),
+    default="simulate",
+    help="Validation mode: simulate (offline) or live (API/SSH)",
+)
 @click.option("--rule-id", default=None, type=int, help="Validate a specific rule by ID")
 @click.option("--source", default=None, help="Validate rules from a specific EVTX source")
 @click.option("--verbose", is_flag=True, help="Show detailed field match results")

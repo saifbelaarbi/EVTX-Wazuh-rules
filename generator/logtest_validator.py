@@ -7,9 +7,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 import yaml
-from lxml import etree
 from rich.console import Console
-from rich.table import Table
 
 console = Console()
 
@@ -148,7 +146,6 @@ def simulate_rule_match(rule_fields: dict, event_fields: dict) -> tuple[bool, li
         event_value = event_fields.get(field_name, "")
 
         if not event_value:
-            alt_key = field_name
             for ek, ev in event_fields.items():
                 if ek.lower() == field_name.lower():
                     event_value = ev
@@ -169,7 +166,9 @@ def validate_simulate(rule_id: int, rule_meta: dict, event: dict) -> ValidationR
     field_matches = rule_meta.get("field_matches", {})
     if not field_matches:
         return ValidationResult(
-            rule_id=rule_id, passed=False, mode="simulate",
+            rule_id=rule_id,
+            passed=False,
+            mode="simulate",
             error="No field_matches in metadata",
         )
 
@@ -177,7 +176,10 @@ def validate_simulate(rule_id: int, rule_meta: dict, event: dict) -> ValidationR
     passed, details = simulate_rule_match(field_matches, event_fields)
 
     return ValidationResult(
-        rule_id=rule_id, passed=passed, mode="simulate", details=details,
+        rule_id=rule_id,
+        passed=passed,
+        mode="simulate",
+        details=details,
     )
 
 
@@ -189,6 +191,7 @@ def _run_via_api(event_json: str, config: dict) -> dict:
     try:
         import requests
         from urllib3.exceptions import InsecureRequestWarning
+
         requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
     except ImportError:
         return {"error": "requests package not installed: pip install requests"}
@@ -303,7 +306,10 @@ def validate_live(rule_id: int, event: dict, config: dict) -> ValidationResult:
                 f"Level: {data.get('rule', {}).get('level', 'N/A')}",
             ]
             return ValidationResult(
-                rule_id=rule_id, passed=passed, mode="live_api", details=details,
+                rule_id=rule_id,
+                passed=passed,
+                mode="live_api",
+                details=details,
             )
         api_error = result["error"]
     else:
@@ -316,14 +322,19 @@ def validate_live(rule_id: int, event: dict, config: dict) -> ValidationResult:
             passed = str(rule_id) in output
             details = [f"SSH output: {output[:200]}"]
             return ValidationResult(
-                rule_id=rule_id, passed=passed, mode="live_ssh", details=details,
+                rule_id=rule_id,
+                passed=passed,
+                mode="live_ssh",
+                details=details,
             )
         ssh_error = result["error"]
     else:
         ssh_error = "SSH not configured"
 
     return ValidationResult(
-        rule_id=rule_id, passed=False, mode="live",
+        rule_id=rule_id,
+        passed=False,
+        mode="live",
         error=f"No live method available. API: {api_error}; SSH: {ssh_error}",
     )
 
@@ -362,11 +373,11 @@ def _load_sample_events() -> dict:
 
 def _literal_from_pattern(pattern: str) -> str:
     """Derive a concrete literal that satisfies an OS-regex field pattern."""
-    p = pattern.split("|")[0]            # first alternative
-    p = p.lstrip("^").rstrip("$")        # drop anchors
-    p = p.replace("[-/]", "-")           # windash alternation
+    p = pattern.split("|")[0]  # first alternative
+    p = p.lstrip("^").rstrip("$")  # drop anchors
+    p = p.replace("[-/]", "-")  # windash alternation
     p = p.replace(".*", "x").replace(".", "x")
-    p = p.replace("\\", "")              # unescape
+    p = p.replace("\\", "")  # unescape
     return p or "x"
 
 
@@ -385,7 +396,7 @@ def synthesize_event(field_matches: dict, event_id, channel: str, provider: str)
             derived_eid = literal
             continue
         if field_path.startswith("win.eventdata."):
-            camel = field_path[len("win.eventdata."):]
+            camel = field_path[len("win.eventdata.") :]
             key = camel[0].upper() + camel[1:] if camel else camel
             event_data[key] = literal
 
@@ -433,8 +444,17 @@ def _resolve_sample_event(rule_id, rule_meta: dict) -> tuple[dict | None, str]:
     source_path = Path(source) if source else None
 
     # (2) re-parse the source and search for a genuinely matching event
-    if source_path and source_path.exists() and source_path.suffix.lower() not in (
-        ".yml", ".yaml", ".md", ".txt", ".py",
+    if (
+        source_path
+        and source_path.exists()
+        and source_path.suffix.lower()
+        not in (
+            ".yml",
+            ".yaml",
+            ".md",
+            ".txt",
+            ".py",
+        )
     ):
         try:
             events = evtx_parser.parse_file(source_path, max_events=100)
@@ -442,9 +462,7 @@ def _resolve_sample_event(rule_id, rule_meta: dict) -> tuple[dict | None, str]:
             events = []
         for event in events:
             flat = _flatten_event_fields(event)
-            if all(
-                _match_field(pat, flat.get(fn, "")) for fn, pat in field_matches.items()
-            ) and field_matches:
+            if all(_match_field(pat, flat.get(fn, "")) for fn, pat in field_matches.items()) and field_matches:
                 return event, "reparsed"
 
     # (3) synthesize an event from the rule's own field_matches
@@ -477,11 +495,15 @@ def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> lis
 
         if not event:
             inconclusive += 1
-            results.append(ValidationResult(
-                rule_id=int(rule_id_str), passed=False, mode=mode,
-                error="No sample event could be resolved",
-                inconclusive=True,
-            ))
+            results.append(
+                ValidationResult(
+                    rule_id=int(rule_id_str),
+                    passed=False,
+                    mode=mode,
+                    error="No sample event could be resolved",
+                    inconclusive=True,
+                )
+            )
             continue
 
         provenance_counts[provenance] = provenance_counts.get(provenance, 0) + 1
@@ -499,7 +521,7 @@ def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> lis
         if result.passed:
             passed += 1
 
-    console.print(f"\n[bold]Validation Complete[/]")
+    console.print("\n[bold]Validation Complete[/]")
     console.print(f"  Tested: {tested}")
     console.print(f"  Passed: [green]{passed}[/]")
     console.print(f"  Failed: [red]{tested - passed}[/]")
@@ -518,7 +540,10 @@ def validate_single_rule(rule_id: int, mode: str = "simulate") -> ValidationResu
     rule_id_str = str(rule_id)
     if rule_id_str not in index:
         return ValidationResult(
-            rule_id=rule_id, passed=False, mode=mode, error="Rule not found in index",
+            rule_id=rule_id,
+            passed=False,
+            mode=mode,
+            error="Rule not found in index",
         )
 
     meta = index[rule_id_str]
@@ -526,7 +551,9 @@ def validate_single_rule(rule_id: int, mode: str = "simulate") -> ValidationResu
 
     if not event:
         return ValidationResult(
-            rule_id=rule_id, passed=False, mode=mode,
+            rule_id=rule_id,
+            passed=False,
+            mode=mode,
             error="No sample event could be resolved",
             inconclusive=True,
         )

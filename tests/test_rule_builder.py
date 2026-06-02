@@ -7,9 +7,9 @@ from unittest import mock
 
 from lxml import etree
 
-from generator.event_analyzer import DetectionPattern
-from generator.rule_builder import build_rule, _resolve_parent_sid
 from generator import id_manager
+from generator.event_analyzer import DetectionPattern
+from generator.rule_builder import _resolve_parent_sid, build_rule
 
 
 def test_resolve_parent_sid_sysmon():

@@ -9,12 +9,20 @@ to OS credential dumping (T1003.001), not a tactic default.
 
 from dataclasses import dataclass
 
-
 # Canonical snake_case tactic names (the 12 ATT&CK enterprise tactics).
 CANONICAL_TACTICS = {
-    "initial_access", "execution", "persistence", "privilege_escalation",
-    "defense_evasion", "credential_access", "discovery", "lateral_movement",
-    "collection", "command_and_control", "exfiltration", "impact",
+    "initial_access",
+    "execution",
+    "persistence",
+    "privilege_escalation",
+    "defense_evasion",
+    "credential_access",
+    "discovery",
+    "lateral_movement",
+    "collection",
+    "command_and_control",
+    "exfiltration",
+    "impact",
 }
 
 
@@ -28,7 +36,7 @@ def normalize_tactic(raw: str) -> str:
         return ""
     t = raw.strip().lower()
     if t.startswith("attack."):
-        t = t[len("attack."):]
+        t = t[len("attack.") :]
     t = t.replace("-", "_").replace(" ", "_")
     return t if t in CANONICAL_TACTICS else ""
 
@@ -36,9 +44,10 @@ def normalize_tactic(raw: str) -> str:
 @dataclass(frozen=True)
 class MitreMapping:
     """A resolved ATT&CK mapping for a detection signal."""
-    technique_id: str        # full id, e.g. "T1003.001"
+
+    technique_id: str  # full id, e.g. "T1003.001"
     technique_name: str
-    tactic: str              # canonical snake_case
+    tactic: str  # canonical snake_case
 
     @property
     def base_technique(self) -> str:
@@ -74,7 +83,6 @@ INDICATOR_TO_MAPPING: dict[str, MitreMapping] = {
     "rubeus": MitreMapping("T1558", "Steal or Forge Kerberos Tickets", "credential_access"),
     "kekeo": MitreMapping("T1558", "Steal or Forge Kerberos Tickets", "credential_access"),
     "kerberos::": MitreMapping("T1558", "Steal or Forge Kerberos Tickets", "credential_access"),
-
     # Discovery
     "bloodhound": MitreMapping("T1087", "Account Discovery", "discovery"),
     "sharphound": MitreMapping("T1087", "Account Discovery", "discovery"),
@@ -84,7 +92,6 @@ INDICATOR_TO_MAPPING: dict[str, MitreMapping] = {
     "seatbelt": MitreMapping("T1082", "System Information Discovery", "discovery"),
     "winpeas": MitreMapping("T1082", "System Information Discovery", "discovery"),
     "linpeas": MitreMapping("T1082", "System Information Discovery", "discovery"),
-
     # Lateral movement — remote service execution
     "psexec": MitreMapping("T1021.002", "SMB/Windows Admin Shares", "lateral_movement"),
     "psexesvc": MitreMapping("T1021.002", "SMB/Windows Admin Shares", "lateral_movement"),
@@ -96,7 +103,6 @@ INDICATOR_TO_MAPPING: dict[str, MitreMapping] = {
     "atexec": MitreMapping("T1021", "Remote Services", "lateral_movement"),
     "crackmapexec": MitreMapping("T1021", "Remote Services", "lateral_movement"),
     "impacket": MitreMapping("T1021", "Remote Services", "lateral_movement"),
-
     # Execution
     "invoke-wmimethod": MitreMapping("T1047", "Windows Management Instrumentation", "execution"),
     "wmic": MitreMapping("T1047", "Windows Management Instrumentation", "execution"),
@@ -111,7 +117,6 @@ INDICATOR_TO_MAPPING: dict[str, MitreMapping] = {
     "-w hidden": MitreMapping("T1059.001", "PowerShell", "execution"),
     "bypass": MitreMapping("T1059.001", "PowerShell", "execution"),
     "set-executionpolicy unrestricted": MitreMapping("T1059.001", "PowerShell", "execution"),
-
     # Defense evasion — signed binary proxy execution & friends
     "rundll32": MitreMapping("T1218.011", "Rundll32", "defense_evasion"),
     "regsvr32": MitreMapping("T1218.010", "Regsvr32", "defense_evasion"),
@@ -123,11 +128,12 @@ INDICATOR_TO_MAPPING: dict[str, MitreMapping] = {
     "bitsadmin": MitreMapping("T1197", "BITS Jobs", "defense_evasion"),
     "invoke-obfuscation": MitreMapping("T1027", "Obfuscated Files or Information", "defense_evasion"),
     "add-mppreference -exclusionpath": MitreMapping("T1562.001", "Disable or Modify Tools", "defense_evasion"),
-    "set-mppreference -disablerealtimemonitoring": MitreMapping("T1562.001", "Disable or Modify Tools", "defense_evasion"),
+    "set-mppreference -disablerealtimemonitoring": MitreMapping(
+        "T1562.001", "Disable or Modify Tools", "defense_evasion"
+    ),
     "disable-windowsoptionalfeature": MitreMapping("T1562.001", "Disable or Modify Tools", "defense_evasion"),
     "wevtutil cl": MitreMapping("T1070.001", "Clear Windows Event Logs", "defense_evasion"),
     "wevtutil sl": MitreMapping("T1070.001", "Clear Windows Event Logs", "defense_evasion"),
-
     # Impact
     "vssadmin delete shadows": MitreMapping("T1490", "Inhibit System Recovery", "impact"),
     "wbadmin delete": MitreMapping("T1490", "Inhibit System Recovery", "impact"),
@@ -137,7 +143,6 @@ INDICATOR_TO_MAPPING: dict[str, MitreMapping] = {
     "stop-service": MitreMapping("T1489", "Service Stop", "impact"),
     "sc stop": MitreMapping("T1489", "Service Stop", "impact"),
     "sc config": MitreMapping("T1489", "Service Stop", "impact"),
-
     # Persistence
     "new-scheduledtask": MitreMapping("T1053.005", "Scheduled Task", "persistence"),
     "register-scheduledjob": MitreMapping("T1053.005", "Scheduled Task", "persistence"),
@@ -145,7 +150,6 @@ INDICATOR_TO_MAPPING: dict[str, MitreMapping] = {
     "runonce": MitreMapping("T1547.001", "Registry Run Keys / Startup Folder", "persistence"),
     "winlogon\\": MitreMapping("T1547.004", "Winlogon Helper DLL", "persistence"),
     "userinit": MitreMapping("T1547.004", "Winlogon Helper DLL", "persistence"),
-
     # Command & control — post-exploitation frameworks
     "cobalt": MitreMapping("T1071", "Application Layer Protocol", "command_and_control"),
     "beacon": MitreMapping("T1071", "Application Layer Protocol", "command_and_control"),

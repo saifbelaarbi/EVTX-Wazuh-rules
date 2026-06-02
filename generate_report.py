@@ -68,12 +68,22 @@ TECHNIQUE_NAMES = {
 }
 
 LEVEL_NAMES = {
-    0: "Ignored", 1: "None", 2: "System low", 3: "System low",
-    4: "System low", 5: "User-generated", 6: "Low relevance",
-    7: "Bad word matching", 8: "First time seen", 9: "Error from invalid source",
-    10: "Multiple user-generated errors", 11: "Integrity checking warning",
-    12: "High importance event", 13: "Unusual error (high importance)",
-    14: "High importance security event", 15: "Severe attack",
+    0: "Ignored",
+    1: "None",
+    2: "System low",
+    3: "System low",
+    4: "System low",
+    5: "User-generated",
+    6: "Low relevance",
+    7: "Bad word matching",
+    8: "First time seen",
+    9: "Error from invalid source",
+    10: "Multiple user-generated errors",
+    11: "Integrity checking warning",
+    12: "High importance event",
+    13: "Unusual error (high importance)",
+    14: "High importance security event",
+    15: "Severe attack",
 }
 
 
@@ -88,7 +98,7 @@ def generate_rules_report():
     """Generate the main RULES_REPORT.md."""
     index = load_json(RULE_INDEX)
     provenance = load_json(PROVENANCE)
-    allocations = load_json(ID_ALLOC)
+    load_json(ID_ALLOC)
 
     if not index:
         print("No rules found in index.")
@@ -122,7 +132,7 @@ def generate_rules_report():
     lines.append("# Wazuh Rule Database Report")
     lines.append("")
     lines.append(f"> Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
-    lines.append(f"> Pipeline version: 1.0.0")
+    lines.append("> Pipeline version: 1.0.0")
     lines.append("")
 
     # ── Overview ──
@@ -135,7 +145,7 @@ def generate_rules_report():
     lines.append(f"| EVTX sources used | {len(sources_used)} |")
     lines.append(f"| MITRE tactics covered | {len(tactics)} / 12 |")
     lines.append(f"| MITRE techniques covered | {len([t for t in techniques if t])} |")
-    lines.append(f"| Rule ID range | 100000 - 119999 |")
+    lines.append("| Rule ID range | 100000 - 119999 |")
     lines.append("")
 
     # ── Alert Level Distribution ──
@@ -198,13 +208,18 @@ def generate_rules_report():
     # ── File Organization ──
     lines.append("## Exported Rule Files")
     lines.append("")
-    lines.append("Rules are exported in three parallel views. Each view contains the same rules, organized differently:")
+    lines.append(
+        "Rules are exported in three parallel views. Each view contains the same rules, organized differently:"
+    )
     lines.append("")
 
     for view_name, description in [
         ("by_tactic", "One XML file per MITRE ATT&CK tactic. Best for broad deployment."),
         ("by_technique", "One XML file per MITRE technique. Best for selective/granular deployment."),
-        ("by_source", "Grouped by Windows event source (Sysmon, Security, PowerShell, System). Aligns with Wazuh decoder structure."),
+        (
+            "by_source",
+            "Grouped by Windows event source (Sysmon, Security, PowerShell, System). Aligns with Wazuh decoder structure.",
+        ),
     ]:
         view_dir = RULES_DIR / view_name
         if not view_dir.exists():
@@ -279,9 +294,7 @@ def generate_coverage_matrix():
             rule_count = sum(len(rids) for rids in techniques.values())
             tech_count = len([t for t in techniques if t])
             bar = "🟩" * min(rule_count, 20)
-        lines.append(
-            f"| {tactic_name} | `{tactic_id}` | {rule_count} | {tech_count} | {bar} |"
-        )
+        lines.append(f"| {tactic_name} | `{tactic_id}` | {rule_count} | {tech_count} | {bar} |")
 
     lines.append("")
 
@@ -326,8 +339,13 @@ def generate_sources_doc():
     # Group provenance by source (extract source name from full path)
     by_source = defaultdict(list)
     known_sources = [
-        "EVTX-ATTACK-SAMPLES", "EVTX-to-MITRE-Attack", "hayabusa-sample-evtx",
-        "Security-Datasets", "danderspritz-evtx", "evtx-hunter", "ThreatSeeker",
+        "EVTX-ATTACK-SAMPLES",
+        "EVTX-to-MITRE-Attack",
+        "hayabusa-sample-evtx",
+        "Security-Datasets",
+        "danderspritz-evtx",
+        "evtx-hunter",
+        "ThreatSeeker",
     ]
     for evtx_path, info in provenance.items():
         source_name = "unknown"
@@ -395,9 +413,7 @@ def generate_sources_doc():
 
         for subdir, sub_entries in sorted(by_subdir.items()):
             total_rules = sum(len(e[1].get("rules_generated", [])) for e in sub_entries)
-            sample_files = ", ".join(
-                f"`{e[0].split('/')[-1]}`" for e in sub_entries[:3]
-            )
+            sample_files = ", ".join(f"`{e[0].split('/')[-1]}`" for e in sub_entries[:3])
             if len(sub_entries) > 3:
                 sample_files += f" +{len(sub_entries) - 3} more"
             lines.append(f"| {subdir} | {len(sub_entries)} | {total_rules} | {sample_files} |")
@@ -409,13 +425,27 @@ def generate_sources_doc():
     lines.append("")
     lines.append("This project relies on the security research community for EVTX samples:")
     lines.append("")
-    lines.append("- **SBousseaden** — [EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) — Windows EVTX samples mapped to MITRE ATT&CK")
-    lines.append("- **mdecrevoisier** — [EVTX-to-MITRE-Attack](https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack) — 270+ EVTX samples with ATT&CK mapping")
-    lines.append("- **Yamato Security** — [hayabusa-sample-evtx](https://github.com/Yamato-Security/hayabusa-sample-evtx) — Aggregated EVTX sample collection")
-    lines.append("- **OTRF** — [Security-Datasets](https://github.com/OTRF/Security-Datasets) — Pre-recorded adversary simulation data (Mordor)")
-    lines.append("- **Fox-IT** — [danderspritz-evtx](https://github.com/fox-it/danderspritz-evtx) — DanderSpritz (NSA) detection events")
-    lines.append("- **SigmaHQ** — [sigma](https://github.com/SigmaHQ/sigma) — Community detection rules in Sigma format")
-    lines.append("- **Wazuh Inc.** — [wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) — Official default Wazuh rules and decoders")
+    lines.append(
+        "- **SBousseaden** — [EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) — Windows EVTX samples mapped to MITRE ATT&CK"
+    )
+    lines.append(
+        "- **mdecrevoisier** — [EVTX-to-MITRE-Attack](https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack) — 270+ EVTX samples with ATT&CK mapping"
+    )
+    lines.append(
+        "- **Yamato Security** — [hayabusa-sample-evtx](https://github.com/Yamato-Security/hayabusa-sample-evtx) — Aggregated EVTX sample collection"
+    )
+    lines.append(
+        "- **OTRF** — [Security-Datasets](https://github.com/OTRF/Security-Datasets) — Pre-recorded adversary simulation data (Mordor)"
+    )
+    lines.append(
+        "- **Fox-IT** — [danderspritz-evtx](https://github.com/fox-it/danderspritz-evtx) — DanderSpritz (NSA) detection events"
+    )
+    lines.append(
+        "- **SigmaHQ** — [sigma](https://github.com/SigmaHQ/sigma) — Community detection rules in Sigma format"
+    )
+    lines.append(
+        "- **Wazuh Inc.** — [wazuh-ruleset](https://github.com/wazuh/wazuh-ruleset) — Official default Wazuh rules and decoders"
+    )
     lines.append("")
 
     DOCS_DIR.mkdir(parents=True, exist_ok=True)

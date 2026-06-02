@@ -2,10 +2,8 @@
 
 import json
 import re
-from dataclasses import dataclass, field
 from pathlib import Path
 
-import yaml
 from lxml import etree
 from rich.console import Console
 
@@ -36,6 +34,7 @@ def _source_category_from_mapping(mapping: dict) -> str:
     if channel in ("application", "windefend", "firewall"):
         return "application"
     return "other"
+
 
 SIGMA_FIELD_TO_WAZUH_EXTENDED = {
     **SIGMA_FIELD_TO_WAZUH,
@@ -91,7 +90,7 @@ TACTIC_FROM_TAG = {
     "attack.impact": "impact",
 }
 
-OS_REGEX_SPECIAL = r'.+?()[]{}|^$'
+OS_REGEX_SPECIAL = r".+?()[]{}|^$"
 
 
 def _escape_osregex(value: str) -> str:
@@ -99,9 +98,9 @@ def _escape_osregex(value: str) -> str:
     result = []
     for ch in value:
         if ch in OS_REGEX_SPECIAL:
-            result.append('\\')
+            result.append("\\")
         result.append(ch)
-    return ''.join(result)
+    return "".join(result)
 
 
 def _resolve_field(sigma_field: str) -> str | None:
@@ -219,7 +218,6 @@ def _selection_to_field_matches(selection, modifiers_override=None) -> list[dict
     if not isinstance(selection, dict):
         return []
 
-    has_all_modifier = False
     and_groups = [{}]
 
     for raw_key, raw_values in selection.items():
@@ -239,7 +237,6 @@ def _selection_to_field_matches(selection, modifiers_override=None) -> list[dict
         clean_mods = [m for m in modifiers if m != "all"]
 
         if is_all:
-            has_all_modifier = True
             for val in raw_values:
                 pattern = _apply_modifiers(val, clean_mods)
                 for group in and_groups:
@@ -267,7 +264,7 @@ def _resolve_condition(condition: str, selections: dict) -> list[list[dict]]:
     """
     condition = condition.strip()
 
-    filter_names = [k for k in selections if k.startswith("filter")]
+    [k for k in selections if k.startswith("filter")]
     positive_names = [k for k in selections if not k.startswith("filter")]
 
     if condition == "selection" and "selection" in selections:
@@ -276,7 +273,7 @@ def _resolve_condition(condition: str, selections: dict) -> list[list[dict]]:
             return [matches]
         return [[m] for m in matches]
 
-    all_of_match = re.match(r'^all of (selection[_\w]*)\*(.*)$', condition)
+    all_of_match = re.match(r"^all of (selection[_\w]*)\*(.*)$", condition)
     if all_of_match:
         prefix = all_of_match.group(1)
         matching_sels = [k for k in positive_names if k.startswith(prefix)]
@@ -291,7 +288,7 @@ def _resolve_condition(condition: str, selections: dict) -> list[list[dict]]:
 
         return [[combined]] if combined else []
 
-    one_of_match = re.match(r'^1 of (selection[_\w]*)\*(.*)$', condition)
+    one_of_match = re.match(r"^1 of (selection[_\w]*)\*(.*)$", condition)
     if one_of_match:
         prefix = one_of_match.group(1)
         matching_sels = [k for k in positive_names if k.startswith(prefix)]
@@ -305,15 +302,15 @@ def _resolve_condition(condition: str, selections: dict) -> list[list[dict]]:
                 rules.append([fg])
         return rules
 
-    and_parts = re.split(r'\s+and\s+', condition)
+    and_parts = re.split(r"\s+and\s+", condition)
     positive_parts = [p.strip() for p in and_parts if not p.strip().startswith("not ")]
 
     combined = {}
     for part in positive_parts:
         part = part.strip("() ")
 
-        all_match = re.match(r'^all of (\w+)\*$', part)
-        one_match = re.match(r'^1 of (\w+)\*$', part)
+        all_match = re.match(r"^all of (\w+)\*$", part)
+        one_match = re.match(r"^1 of (\w+)\*$", part)
 
         if all_match:
             prefix = all_match.group(1)
@@ -350,8 +347,20 @@ def _resolve_condition(condition: str, selections: dict) -> list[list[dict]]:
     return []
 
 
-_AGG_TOKENS = (" near ", "| count", "|count", "| min", "|min", "| max", "|max",
-               "| avg", "|avg", "| sum", "|sum", " | temporal")
+_AGG_TOKENS = (
+    " near ",
+    "| count",
+    "|count",
+    "| min",
+    "|min",
+    "| max",
+    "|max",
+    "| avg",
+    "|avg",
+    "| sum",
+    "|sum",
+    " | temporal",
+)
 
 
 def convert_sigma_rule(sigma_rule: dict) -> list[dict]:
@@ -435,26 +444,28 @@ def convert_sigma_rule(sigma_rule: dict) -> list[dict]:
         group = etree.SubElement(rule_elem, "group")
         group.text = f"{tactic},sigma_converted,"
 
-        rules.append({
-            "id": rule_id,
-            "level": wazuh_level,
-            "xml_element": rule_elem,
-            "metadata": {
-                "rule_id": rule_id,
-                "tactic": tactic,
-                "technique_name": title,
-                "source_evtx": sigma_rule.get("_file_path", ""),
-                "source_category": source_category,
-                "parent_sid": parent_sid,
-                "confidence": "high" if sigma_level in ("critical", "high") else "medium",
-                "created": "",
-                "field_matches": clean_fields,
-                "mitre_ids": mitre_ids[:3],
-                "sigma_id": sigma_id,
-                "sigma_level": sigma_level,
-            },
-            "pattern": None,
-        })
+        rules.append(
+            {
+                "id": rule_id,
+                "level": wazuh_level,
+                "xml_element": rule_elem,
+                "metadata": {
+                    "rule_id": rule_id,
+                    "tactic": tactic,
+                    "technique_name": title,
+                    "source_evtx": sigma_rule.get("_file_path", ""),
+                    "source_category": source_category,
+                    "parent_sid": parent_sid,
+                    "confidence": "high" if sigma_level in ("critical", "high") else "medium",
+                    "created": "",
+                    "field_matches": clean_fields,
+                    "mitre_ids": mitre_ids[:3],
+                    "sigma_id": sigma_id,
+                    "sigma_level": sigma_level,
+                },
+                "pattern": None,
+            }
+        )
 
     if not rules:
         raise SigmaConvertError("empty_rule_spec", "no fields after cleaning")
@@ -517,16 +528,24 @@ def convert_all(
             converted += 1
         except SigmaConvertError as e:
             error_counts[e.category] = error_counts.get(e.category, 0) + 1
-            error_records.append({
-                "file": str(f), "sigma_id": sigma_rule.get("id", ""),
-                "category": e.category, "message": str(e),
-            })
+            error_records.append(
+                {
+                    "file": str(f),
+                    "sigma_id": sigma_rule.get("id", ""),
+                    "category": e.category,
+                    "message": str(e),
+                }
+            )
         except Exception as e:  # noqa: BLE001 - categorized as unexpected
             error_counts["unexpected"] = error_counts.get("unexpected", 0) + 1
-            error_records.append({
-                "file": str(f), "sigma_id": sigma_rule.get("id", ""),
-                "category": "unexpected", "message": f"{type(e).__name__}: {e}",
-            })
+            error_records.append(
+                {
+                    "file": str(f),
+                    "sigma_id": sigma_rule.get("id", ""),
+                    "category": "unexpected",
+                    "message": f"{type(e).__name__}: {e}",
+                }
+            )
 
         if max_rules and len(all_rules) >= max_rules:
             break

@@ -1,21 +1,15 @@
 """Tests for the exporter module."""
 
-import json
-import tempfile
-from pathlib import Path
-from unittest import mock
-
 from lxml import etree
 
 from generator.exporter import (
+    _build_xml_group,
     _get_source_category,
     _get_technique_slug,
-    _build_xml_group,
 )
 
 
-def _make_rule(tactic="credential_access", source_category="sysmon",
-               mitre_ids=None, pattern=None, field_matches=None):
+def _make_rule(tactic="credential_access", source_category="sysmon", mitre_ids=None, pattern=None, field_matches=None):
     """Build a minimal rule dict for testing."""
     if mitre_ids is None:
         mitre_ids = ["T1003"]

@@ -1,9 +1,9 @@
 """Build Wazuh XML rules from detection patterns."""
 
 import re
+from datetime import date
 
 from lxml import etree
-from datetime import date
 
 from . import mitre_mapper
 from .event_analyzer import DetectionPattern
@@ -15,7 +15,11 @@ _OSREGEX_META = re.compile(r"([.^$*+?()\[\]{}|\\])")
 
 # System fields always retained in a minimized sample event.
 _SAMPLE_SYSTEM_FIELDS = (
-    "event_id", "channel", "provider_name", "computer", "timestamp",
+    "event_id",
+    "channel",
+    "provider_name",
+    "computer",
+    "timestamp",
 )
 
 
@@ -37,7 +41,7 @@ def _minimize_event(event: dict, field_matches: dict) -> dict:
     referenced = set()
     for key in field_matches:
         if key.startswith("win.eventdata."):
-            referenced.add(key[len("win.eventdata."):].lower())
+            referenced.add(key[len("win.eventdata.") :].lower())
 
     src_data = event.get("event_data", {})
     if isinstance(src_data, dict) and referenced:
@@ -51,17 +55,18 @@ def _minimize_event(event: dict, field_matches: dict) -> dict:
         minimal["event_data"] = {}
     return minimal
 
+
 # Map Sysmon Event IDs to Wazuh parent SIDs (from 0595-win-sysmon_rules.xml)
 PARENT_SID_MAP = {
-    (1, "Microsoft-Windows-Sysmon"):  61603,  # Process Create
-    (2, "Microsoft-Windows-Sysmon"):  61604,  # File Create Time
-    (3, "Microsoft-Windows-Sysmon"):  61605,  # Network Connect
-    (4, "Microsoft-Windows-Sysmon"):  61606,  # Sysmon Service State
-    (5, "Microsoft-Windows-Sysmon"):  61607,  # Process Terminate
-    (6, "Microsoft-Windows-Sysmon"):  61608,  # Driver Load
-    (7, "Microsoft-Windows-Sysmon"):  61609,  # Image Load
-    (8, "Microsoft-Windows-Sysmon"):  61610,  # CreateRemoteThread
-    (9, "Microsoft-Windows-Sysmon"):  61611,  # RawAccessRead
+    (1, "Microsoft-Windows-Sysmon"): 61603,  # Process Create
+    (2, "Microsoft-Windows-Sysmon"): 61604,  # File Create Time
+    (3, "Microsoft-Windows-Sysmon"): 61605,  # Network Connect
+    (4, "Microsoft-Windows-Sysmon"): 61606,  # Sysmon Service State
+    (5, "Microsoft-Windows-Sysmon"): 61607,  # Process Terminate
+    (6, "Microsoft-Windows-Sysmon"): 61608,  # Driver Load
+    (7, "Microsoft-Windows-Sysmon"): 61609,  # Image Load
+    (8, "Microsoft-Windows-Sysmon"): 61610,  # CreateRemoteThread
+    (9, "Microsoft-Windows-Sysmon"): 61611,  # RawAccessRead
     (10, "Microsoft-Windows-Sysmon"): 61612,  # Process Access
     (11, "Microsoft-Windows-Sysmon"): 61613,  # File Create
     (12, "Microsoft-Windows-Sysmon"): 61614,  # Registry Create/Delete

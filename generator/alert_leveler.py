@@ -19,9 +19,9 @@ TACTIC_BASE_LEVELS = {
 
 # Confidence adjustments
 CONFIDENCE_MODIFIER = {
-    "high": 1,      # Exact tool name match, etc.
-    "medium": 0,    # Pattern match
-    "low": -2,      # Heuristic/behavioral
+    "high": 1,  # Exact tool name match, etc.
+    "medium": 0,  # Pattern match
+    "low": -2,  # Heuristic/behavioral
 }
 
 # Specific tool/technique overrides (always high severity)

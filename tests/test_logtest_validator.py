@@ -11,7 +11,6 @@ from generator.logtest_validator import (
     synthesize_event,
 )
 
-
 # ── _match_field ──
 
 
@@ -132,17 +131,14 @@ def test_provider_unknown():
 
 def test_resolve_returns_none_without_fallback(monkeypatch):
     """The resolver must NOT fall back to events[0]; it returns None instead."""
-    monkeypatch.setattr(
-        "generator.logtest_validator._load_sample_events", lambda: {}
-    )
+    monkeypatch.setattr("generator.logtest_validator._load_sample_events", lambda: {})
     event, prov = _resolve_sample_event("999999", {"field_matches": {}})
     assert event is None
     assert prov == ""
 
 
 def test_resolve_uses_stored_event(monkeypatch):
-    stored = {"event_id": "1", "channel": "Sysmon", "provider_name": "Sysmon",
-              "event_data": {"Image": "test.exe"}}
+    stored = {"event_id": "1", "channel": "Sysmon", "provider_name": "Sysmon", "event_data": {"Image": "test.exe"}}
     monkeypatch.setattr(
         "generator.logtest_validator._load_sample_events",
         lambda: {"100001": stored},
@@ -153,9 +149,7 @@ def test_resolve_uses_stored_event(monkeypatch):
 
 
 def test_resolve_synthesizes_when_no_source(monkeypatch):
-    monkeypatch.setattr(
-        "generator.logtest_validator._load_sample_events", lambda: {}
-    )
+    monkeypatch.setattr("generator.logtest_validator._load_sample_events", lambda: {})
     meta = {
         "field_matches": {"win.eventdata.image": "test"},
         "source_evtx": "",
@@ -172,6 +166,7 @@ def test_resolve_synthesizes_when_no_source(monkeypatch):
 
 def test_format_event_json():
     import json
+
     event = {
         "provider_name": "Sysmon",
         "event_id": 1,

@@ -1,12 +1,10 @@
 """Download EVTX samples from registered GitHub sources."""
 
 import subprocess
-import shutil
 from pathlib import Path
 
 import yaml
 from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, TextColumn
 
 console = Console()
 
@@ -31,7 +29,8 @@ def _git_clone_shallow(url: str, dest: Path) -> bool:
         console.print(f"  [yellow]Already exists:[/] {dest.name}, pulling updates...")
         result = subprocess.run(
             ["git", "-C", str(dest), "pull", "--ff-only"],
-            capture_output=True, text=True,
+            capture_output=True,
+            text=True,
         )
         if result.returncode != 0:
             console.print(f"  [red]Pull failed:[/] {result.stderr.strip()}")
@@ -41,7 +40,8 @@ def _git_clone_shallow(url: str, dest: Path) -> bool:
     dest.parent.mkdir(parents=True, exist_ok=True)
     result = subprocess.run(
         ["git", "clone", "--depth", "1", url, str(dest)],
-        capture_output=True, text=True,
+        capture_output=True,
+        text=True,
     )
     if result.returncode != 0:
         console.print(f"  [red]Clone failed:[/] {result.stderr.strip()}")

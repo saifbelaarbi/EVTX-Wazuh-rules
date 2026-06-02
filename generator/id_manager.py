@@ -23,19 +23,19 @@ def _save_allocations(allocations: dict):
 # Tactic ID ranges within Wazuh's custom range (100000-119999).
 # Sized proportionally: execution/persistence get more room, smaller tactics get 500.
 TACTIC_RANGES = {
-    "execution":            (100000, 103999),
-    "persistence":          (104000, 106999),
+    "execution": (100000, 103999),
+    "persistence": (104000, 106999),
     "privilege_escalation": (107000, 108499),
-    "credential_access":    (108500, 109999),
-    "command_and_control":  (110000, 110999),
-    "discovery":            (111000, 111999),
-    "defense_evasion":      (112000, 112499),
-    "lateral_movement":     (112500, 112999),
-    "initial_access":       (113000, 113499),
-    "collection":           (113500, 113999),
-    "impact":               (114000, 114499),
-    "exfiltration":         (114500, 114999),
-    "composite":            (115000, 119999),
+    "credential_access": (108500, 109999),
+    "command_and_control": (110000, 110999),
+    "discovery": (111000, 111999),
+    "defense_evasion": (112000, 112499),
+    "lateral_movement": (112500, 112999),
+    "initial_access": (113000, 113499),
+    "collection": (113500, 113999),
+    "impact": (114000, 114499),
+    "exfiltration": (114500, 114999),
+    "composite": (115000, 119999),
 }
 
 
@@ -60,10 +60,7 @@ def allocate_id(tactic: str) -> int:
     next_id = allocations.get(tactic, {}).get("next_id", range_start)
 
     if next_id > range_end:
-        raise RuntimeError(
-            f"ID range exhausted for tactic '{tactic}' "
-            f"(range {range_start}-{range_end})"
-        )
+        raise RuntimeError(f"ID range exhausted for tactic '{tactic}' (range {range_start}-{range_end})")
 
     # Update allocations
     if tactic not in allocations:

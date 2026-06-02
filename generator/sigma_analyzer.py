@@ -1,7 +1,7 @@
 """Analyze SigmaHQ Sigma rules and assess conversion potential to Wazuh format."""
 
-from pathlib import Path
 from collections import defaultdict
+from pathlib import Path
 
 import yaml
 from rich.console import Console
@@ -235,7 +235,7 @@ def analyze_sigma_directory(rules_dir: Path) -> dict:
 
 def _print_report(report: dict):
     """Print a summary of the Sigma analysis."""
-    console.print(f"\n[bold green]Sigma Analysis Complete[/]")
+    console.print("\n[bold green]Sigma Analysis Complete[/]")
     console.print(f"  Total rules analyzed: {report['total_rules']}")
     console.print(f"  Convertible to Wazuh: {report['convertible']}")
     console.print(f"  High/Critical value: {report['high_value']}")
@@ -267,6 +267,6 @@ def _print_report(report: dict):
             table3.add_row(cx, str(report["complexity_stats"][cx]))
     console.print(table3)
 
-    console.print(f"\n[bold]Top MITRE techniques in Sigma rules:[/]")
+    console.print("\n[bold]Top MITRE techniques in Sigma rules:[/]")
     for tech, count in sorted(report["mitre_techniques"].items(), key=lambda x: -x[1])[:15]:
         console.print(f"  {tech}: {count} rules")

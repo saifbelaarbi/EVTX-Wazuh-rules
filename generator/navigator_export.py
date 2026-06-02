@@ -1,9 +1,9 @@
 """Export MITRE ATT&CK Navigator layer from the rule database."""
 
 import json
-from pathlib import Path
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
+from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RULE_INDEX_FILE = PROJECT_ROOT / "database" / "metadata" / "rule_index.json"
@@ -108,8 +108,7 @@ def export_navigator_layer(
         },
         "domain": "enterprise-attack",
         "description": (
-            f"Auto-generated from {len(index)} Wazuh detection rules. "
-            f"{len(technique_counts)} techniques covered."
+            f"Auto-generated from {len(index)} Wazuh detection rules. {len(technique_counts)} techniques covered."
         ),
         "filters": {"platforms": ["Windows"]},
         "sorting": 3,

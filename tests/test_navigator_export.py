@@ -4,7 +4,7 @@ import json
 import tempfile
 from pathlib import Path
 
-from generator.navigator_export import export_navigator_layer, _score_to_color
+from generator.navigator_export import _score_to_color, export_navigator_layer
 
 
 def test_score_to_color_gradient():
@@ -39,11 +39,14 @@ def test_export_from_real_index():
 def test_export_minimal_index():
     """Export from a minimal synthetic index."""
     with tempfile.NamedTemporaryFile(suffix=".json", mode="w", delete=False) as f:
-        json.dump({
-            "100000": {"tactic": "execution", "mitre_ids": ["T1059.001"]},
-            "100001": {"tactic": "execution", "mitre_ids": ["T1059.001"]},
-            "100002": {"tactic": "credential_access", "mitre_ids": ["T1003"]},
-        }, f)
+        json.dump(
+            {
+                "100000": {"tactic": "execution", "mitre_ids": ["T1059.001"]},
+                "100001": {"tactic": "execution", "mitre_ids": ["T1059.001"]},
+                "100002": {"tactic": "credential_access", "mitre_ids": ["T1003"]},
+            },
+            f,
+        )
         idx_path = Path(f.name)
 
     with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as f:

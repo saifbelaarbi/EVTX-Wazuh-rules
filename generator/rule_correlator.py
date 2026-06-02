@@ -79,19 +79,21 @@ def check_overlap(new_rule: dict, existing_index: dict) -> list[dict]:
         existing_fields = set(meta.get("field_matches", {}).items())
         common = new_fields & existing_fields
         if common and common != new_fields:
-            overlaps.append({
-                "rule_id": rule_id,
-                "type": "partial_overlap",
-                "common_fields": dict(common),
-                "existing": meta,
-            })
+            overlaps.append(
+                {
+                    "rule_id": rule_id,
+                    "type": "partial_overlap",
+                    "common_fields": dict(common),
+                    "existing": meta,
+                }
+            )
 
     return overlaps
 
 
 def check_default_coverage(new_rule: dict, default_rules: dict) -> dict | None:
     """Check if Wazuh defaults already cover this detection."""
-    new_desc = new_rule["metadata"].get("technique_name", "").lower()
+    new_rule["metadata"].get("technique_name", "").lower()
     new_fields = new_rule["metadata"].get("field_matches", {})
 
     for rule_id, default in default_rules.items():
@@ -114,23 +116,24 @@ def find_chain_candidates(new_rule: dict, existing_index: dict) -> list[dict]:
     """Find rules that could form if_sid chains with the new rule."""
     candidates = []
     new_tactic = new_rule["metadata"].get("tactic", "")
-    new_event_id = new_rule["pattern"].event_id if hasattr(new_rule.get("pattern", {}), "event_id") else 0
+    new_rule["pattern"].event_id if hasattr(new_rule.get("pattern", {}), "event_id") else 0
 
     for rule_id, meta in existing_index.items():
         # Same tactic, could be a refinement
         if meta.get("tactic") == new_tactic and meta.get("tactic"):
-            candidates.append({
-                "rule_id": rule_id,
-                "type": "same_tactic",
-                "relationship": "sibling",
-                "existing": meta,
-            })
+            candidates.append(
+                {
+                    "rule_id": rule_id,
+                    "type": "same_tactic",
+                    "relationship": "sibling",
+                    "existing": meta,
+                }
+            )
 
     return candidates
 
 
-def correlate(new_rule: dict, existing_index: dict = None,
-              default_rules: dict = None) -> dict:
+def correlate(new_rule: dict, existing_index: dict = None, default_rules: dict = None) -> dict:
     """Full correlation check for a new rule.
 
     Returns a correlation report with:

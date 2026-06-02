@@ -1,10 +1,8 @@
 """Tests for the Sigma converter hardening."""
 
-import pytest
 from unittest import mock
-import json
-import tempfile
-from pathlib import Path
+
+import pytest
 
 from generator.sigma_converter import (
     SigmaConvertError,
@@ -14,7 +12,6 @@ from generator.sigma_converter import (
     _source_category_from_mapping,
     convert_sigma_rule,
 )
-
 
 # ── Tactic normalization ──
 
@@ -186,6 +183,7 @@ def test_basic_conversion_produces_rule():
     assert r["level"] == 11  # high -> 11
 
     from lxml import etree
+
     xml_str = etree.tostring(r["xml_element"], encoding="unicode")
     assert "mimikatz" in xml_str
     assert "$" in xml_str  # endswith anchor

@@ -38,21 +38,24 @@ def test_cross_tactic_not_duplicate_in_current_code():
 
 def test_no_duplicate():
     rule = _make_rule({"win.eventdata.image": "cmd.exe"})
-    index = {"100001": {"field_matches": {"win.eventdata.image": "powershell.exe"},
-                        "tactic": "credential_access"}}
+    index = {"100001": {"field_matches": {"win.eventdata.image": "powershell.exe"}, "tactic": "credential_access"}}
     dup = check_duplicate(rule, index)
     assert dup is None
 
 
 def test_partial_overlap():
-    rule = _make_rule({
-        "win.eventdata.image": "mimikatz",
-        "win.eventdata.commandLine": "sekurlsa",
-    })
-    index = {"100001": {
-        "field_matches": {"win.eventdata.image": "mimikatz"},
-        "tactic": "credential_access",
-    }}
+    rule = _make_rule(
+        {
+            "win.eventdata.image": "mimikatz",
+            "win.eventdata.commandLine": "sekurlsa",
+        }
+    )
+    index = {
+        "100001": {
+            "field_matches": {"win.eventdata.image": "mimikatz"},
+            "tactic": "credential_access",
+        }
+    }
     overlaps = check_overlap(rule, index)
     assert len(overlaps) >= 1
     assert overlaps[0]["type"] == "partial_overlap"

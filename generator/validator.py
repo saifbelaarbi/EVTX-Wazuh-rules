@@ -3,8 +3,8 @@
 import json
 import re
 from pathlib import Path
-from lxml import etree
 
+from lxml import etree
 from rich.console import Console
 
 console = Console()

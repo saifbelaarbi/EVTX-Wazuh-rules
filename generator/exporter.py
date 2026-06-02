@@ -110,9 +110,7 @@ def _build_xml_group(rules: list[dict], group_name: str) -> str:
     root = etree.Element("group", name=f"{group_name},")
 
     # Add comment header
-    root.addprevious(etree.Comment(
-        f" EVTX-Wazuh-Rules | Auto-generated | {group_name} "
-    ))
+    root.addprevious(etree.Comment(f" EVTX-Wazuh-Rules | Auto-generated | {group_name} "))
 
     for rule in rules:
         root.append(rule["xml_element"])
@@ -140,16 +138,18 @@ def export_drafts(rules: list[dict]) -> Path:
     manifest_file = DRAFTS_DIR / f"draft_{timestamp}_manifest.json"
     manifest = []
     for rule in rules:
-        manifest.append({
-            "rule_id": rule["id"],
-            "level": rule["level"],
-            "tactic": rule["metadata"]["tactic"],
-            "technique": rule["metadata"]["technique_name"],
-            "confidence": rule["metadata"]["confidence"],
-            "description": rule["metadata"].get("technique_name", ""),
-            "source_evtx": rule["metadata"]["source_evtx"],
-            "field_matches": rule["metadata"]["field_matches"],
-        })
+        manifest.append(
+            {
+                "rule_id": rule["id"],
+                "level": rule["level"],
+                "tactic": rule["metadata"]["tactic"],
+                "technique": rule["metadata"]["technique_name"],
+                "confidence": rule["metadata"]["confidence"],
+                "description": rule["metadata"].get("technique_name", ""),
+                "source_evtx": rule["metadata"]["source_evtx"],
+                "field_matches": rule["metadata"]["field_matches"],
+            }
+        )
 
     with open(manifest_file, "w") as f:
         json.dump(manifest, f, indent=2)
