@@ -61,13 +61,7 @@ def test_load_templates_parses_yaml_into_specs():
 
 def test_load_templates_custom_path(tmp_path):
     custom = tmp_path / "custom.yaml"
-    custom.write_text(
-        "- name: t\n"
-        "  description: d\n"
-        "  tactic: execution\n"
-        "  stages:\n"
-        "    - {if_matched_sid: 5}\n"
-    )
+    custom.write_text("- name: t\n  description: d\n  tactic: execution\n  stages:\n    - {if_matched_sid: 5}\n")
     specs = load_templates(custom)
     assert len(specs) == 1
     assert specs[0].name == "t"

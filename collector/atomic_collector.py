@@ -173,9 +173,7 @@ def parse_atomic_file(path: Path) -> list[DetectionPattern]:
             continue
         if not _is_windows_test(test):
             continue
-        pattern = _build_pattern(
-            test, attack_technique, display_name, tactic, path
-        )
+        pattern = _build_pattern(test, attack_technique, display_name, tactic, path)
         if pattern is not None:
             patterns.append(pattern)
     return patterns
@@ -194,9 +192,7 @@ def parse_atomic_repo(repo_path: Path) -> list[DetectionPattern]:
         return []
 
     patterns: list[DetectionPattern] = []
-    files = sorted(atomics_dir.glob("T*/T*.yaml")) + sorted(
-        atomics_dir.glob("T*/T*.yml")
-    )
+    files = sorted(atomics_dir.glob("T*/T*.yaml")) + sorted(atomics_dir.glob("T*/T*.yml"))
     for yaml_file in files:
         patterns.extend(parse_atomic_file(yaml_file))
     return patterns

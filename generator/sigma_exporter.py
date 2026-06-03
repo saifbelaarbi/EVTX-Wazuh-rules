@@ -132,10 +132,7 @@ def rule_to_sigma(meta: dict, rule_id: str) -> dict:
         "title": title,
         "id": sigma_id,
         "status": "experimental",
-        "description": (
-            f"Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules "
-            f"(Wazuh rule {rule_id})."
-        ),
+        "description": (f"Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule {rule_id})."),
         "references": references,
         "author": "EVTX-Wazuh-Rules",
         "date": meta.get("created") or date.today().isoformat(),

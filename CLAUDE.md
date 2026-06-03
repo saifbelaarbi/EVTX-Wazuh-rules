@@ -70,11 +70,19 @@ Six-stage pipeline orchestrated by `generator/cli.py`:
 
 Additional modules:
 - **mitre_mapper.py** — Semantic MITRE ATT&CK mapping (indicator table → event-id defaults → path hint → fallback). Replaces path-based tactic guessing.
-- **sigma_converter.py** — Converts Sigma YAML directly to Wazuh XML rules (glob→OS-regex, categorized errors, tactic normalization)
-- **sigma_analyzer.py** — Assesses Sigma rule convertibility
+- **sigma_converter.py** — Converts Sigma YAML/JSON to Wazuh XML (glob→OS-regex, full modifier set, `keywords`, `count()` frequency rules, `--with-negation` suppression rules, Windows/Linux/cloud platforms)
+- **sigma_analyzer.py** — Assesses Sigma rule convertibility; holds Win/Linux/cloud logsource mappings
+- **sigma_exporter.py** — Back-converts EVTX-derived Wazuh rules to Sigma YAML
+- **composite_builder.py** — Builds chained correlation rules (`if_matched_sid`/frequency/same_field) from `sources/composite_templates.yaml`
 - **logtest_validator.py** — Validates rules via stored/reparsed/synthetic sample events or live Wazuh API/SSH
-- **navigator_export.py** — Exports MITRE ATT&CK Navigator layer JSON from the rule database
+- **fp_tracker.py** — Append-only false-positive log; feeds a level penalty back into `alert_leveler`
+- **navigator_export.py** — Exports MITRE ATT&CK Navigator layer JSON (sub-techniques preserved)
 - **id_manager.py** — Allocates rule IDs within Wazuh's custom range (100000-119999) partitioned by MITRE tactic
+- **collector/atomic_collector.py** — Second ingestion path: Atomic Red Team test YAML → `DetectionPattern`
+- **deployer/** — Deploy to a Wazuh manager with backup → health check → rollback
+- **web/** — Optional read-only FastAPI dashboard (`pip install -e '.[web]'`; `python -m generator serve`)
+
+`exporter.update_rule_index` maintains rule `version`/`last_modified` and writes `database/metadata/changelog.json` on add/modify. The by_tactic/technique/source XML writers MERGE with existing files (so a second export pass — e.g. convert-sigma after generate — does not clobber earlier rules).
 
 ### Key data flow
 - `DetectionPattern` (dataclass in `event_analyzer.py`) is the central data structure passed between pipeline stages

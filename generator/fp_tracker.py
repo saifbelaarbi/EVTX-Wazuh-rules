@@ -118,9 +118,7 @@ def _delta_for_count(count: int, threshold: int) -> int:
     return -(count // threshold)
 
 
-def suggest_level_adjustments(
-    fp_file: Path | None = None, threshold: int = 3
-) -> dict[str, int]:
+def suggest_level_adjustments(fp_file: Path | None = None, threshold: int = 3) -> dict[str, int]:
     """Suggest level decrements for rules at or above ``threshold`` FPs.
 
     Returns a mapping of rule_id -> negative integer delta. Rules below the
@@ -134,9 +132,7 @@ def suggest_level_adjustments(
     return suggestions
 
 
-def level_penalty(
-    rule_id: str, fp_file: Path | None = None, threshold: int = 3
-) -> int:
+def level_penalty(rule_id: str, fp_file: Path | None = None, threshold: int = 3) -> int:
     """Return the (negative) level delta for a single rule, or 0 if below threshold."""
     count = fp_counts(fp_file).get(str(rule_id), 0)
     return _delta_for_count(count, threshold)

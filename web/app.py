@@ -20,9 +20,7 @@ from typing import Optional
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_INDEX_PATH = PROJECT_ROOT / "database" / "metadata" / "rule_index.json"
-DEFAULT_VALIDATION_PATH = (
-    PROJECT_ROOT / "database" / "metadata" / "validation_results.json"
-)
+DEFAULT_VALIDATION_PATH = PROJECT_ROOT / "database" / "metadata" / "validation_results.json"
 DEFAULT_NAVIGATOR_PATH = PROJECT_ROOT / "database" / "navigator_layer.json"
 TEMPLATES_DIR = Path(__file__).resolve().parent / "templates"
 
@@ -153,10 +151,7 @@ def _render_index_html(stats: dict) -> str:
         return template.render(stats=stats)
     except Exception:
         # Inline minimal fallback if Jinja2 or the template is unavailable.
-        rows = "".join(
-            f"<li>{tactic}: {count}</li>"
-            for tactic, count in stats.get("by_tactic", {}).items()
-        )
+        rows = "".join(f"<li>{tactic}: {count}</li>" for tactic, count in stats.get("by_tactic", {}).items())
         return (
             "<!doctype html><html><head><meta charset='utf-8'>"
             "<title>Wazuh Rule Dashboard</title></head><body>"
@@ -183,8 +178,7 @@ def create_app(
         from fastapi.responses import HTMLResponse, JSONResponse
     except ImportError as exc:  # pragma: no cover - exercised only without fastapi
         raise RuntimeError(
-            "FastAPI is required to run the web dashboard. "
-            "Install it with: pip install fastapi uvicorn"
+            "FastAPI is required to run the web dashboard. Install it with: pip install fastapi uvicorn"
         ) from exc
 
     idx_path = index_path if index_path is not None else DEFAULT_INDEX_PATH
