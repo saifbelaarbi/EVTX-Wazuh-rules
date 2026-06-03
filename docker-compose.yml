@@ -1,0 +1,34 @@
+services:
+  wazuh-manager:
+    image: wazuh/wazuh-manager:4.12.0
+    hostname: wazuh-manager
+    ports:
+      - "55000:55000"
+      - "1514:1514/udp"
+      - "1515:1515"
+    volumes:
+      - wazuh-etc:/var/ossec/etc
+      - wazuh-logs:/var/ossec/logs
+      - rules-share:/var/ossec/etc/rules/evtx-rules
+    healthcheck:
+      test: ["CMD-SHELL", "/var/ossec/bin/wazuh-control status | grep -q 'is running'"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  pipeline:
+    build: .
+    depends_on:
+      wazuh-manager:
+        condition: service_healthy
+    volumes:
+      - ./database:/app/database
+      - ./data:/app/data
+      - rules-share:/rules-deploy
+    entrypoint: ["sh", "/app/docker-entrypoint.sh"]
+
+volumes:
+  wazuh-etc:
+  wazuh-logs:
+  rules-share:
