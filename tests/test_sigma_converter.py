@@ -58,21 +58,23 @@ def test_extract_tags_no_tags_defaults_execution():
 
 
 def test_escape_glob_star():
-    assert _escape_osregex_with_globs("foo*bar") == "foo.*bar"
+    assert _escape_osregex_with_globs("foo*bar") == "foo\\.*bar"
 
 
 def test_escape_glob_question():
-    assert _escape_osregex_with_globs("foo?bar") == "foo.bar"
+    assert _escape_osregex_with_globs("foo?bar") == "foo\\.bar"
 
 
 def test_escape_literal_dot():
-    assert _escape_osregex_with_globs("file.exe") == "file\\.exe"
+    # In OSRegex ``.`` is already literal — no escaping needed
+    assert _escape_osregex_with_globs("file.exe") == "file.exe"
 
 
 def test_escape_mixed():
+    # ``C:\Windows\*\cmd.exe`` — backslashes doubled, glob→\\.*,  dot stays literal
     result = _escape_osregex_with_globs("C:\\Windows\\*\\cmd.exe")
-    assert ".*" in result
-    assert "cmd\\.exe" in result
+    assert "\\.*" in result
+    assert "cmd.exe" in result
 
 
 # ── Modifiers ──
@@ -113,12 +115,12 @@ def test_cidr_modifier():
 
 def test_cidr_slash16():
     result = _apply_modifiers("192.168.0.0/16", ["cidr"])
-    assert result.startswith("^192\\.168\\.")
+    assert result.startswith("^192.168\\.")
 
 
 def test_cidr_slash32_exact_match():
     result = _apply_modifiers("192.0.2.5/32", ["cidr"])
-    assert result == "^192\\.0\\.2\\.5$"
+    assert result == "^192.0.2.5$"
 
 
 def test_base64offset_modifier():

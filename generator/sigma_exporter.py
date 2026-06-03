@@ -86,10 +86,11 @@ def _logsource_from_category(source_category: str, field_paths: list[str]) -> di
 
 
 def _clean_value(value: str):
-    """Turn a Wazuh OS-regex pattern back into a readable Sigma value.
+    """Turn a Wazuh OSRegex pattern back into a readable Sigma value.
 
-    Strips leading ``^`` / trailing ``$`` anchors and unescapes ``\\.`` to
-    ``.``. A ``|`` (OS-regex alternation) becomes a Sigma value list.
+    OSRegex: ``.`` = literal dot, ``\\.`` = any char, ``\\.*`` = glob star,
+    ``\\\\`` = literal backslash.  Reverses these to Sigma-style values.
+    A ``|`` (alternation) becomes a Sigma value list.
     """
     if "|" in value:
         return [_clean_value(part) for part in value.split("|")]
@@ -98,7 +99,9 @@ def _clean_value(value: str):
         cleaned = cleaned[1:]
     if cleaned.endswith("$") and not cleaned.endswith("\\$"):
         cleaned = cleaned[:-1]
-    cleaned = cleaned.replace("\\.", ".")
+    cleaned = cleaned.replace("\\.*", "*")
+    cleaned = cleaned.replace("\\.", "?")
+    cleaned = cleaned.replace("\\\\", "\\")
     return cleaned
 
 

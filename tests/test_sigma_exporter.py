@@ -33,8 +33,8 @@ def test_rule_to_sigma_produces_valid_dict():
         "source_category": "sysmon",
         "source_evtx": "/data/evtx_samples/foo.evtx",
         "field_matches": {
-            "win.eventdata.image": "^C:\\\\windows\\\\system32\\\\rundll32\\.exe$",
-            "win.eventdata.commandLine": "comsvcs\\.dll|MiniDump",
+            "win.eventdata.image": "^C:\\\\windows\\\\system32\\\\rundll32.exe$",
+            "win.eventdata.commandLine": "comsvcs.dll|MiniDump",
         },
         "created": "2026-06-02",
     }
@@ -57,8 +57,8 @@ def test_rule_to_sigma_produces_valid_dict():
     assert "Image" in selection
     assert "CommandLine" in selection
 
-    # anchors stripped and \. unescaped to . per spec (backslashes are left as-is)
-    assert selection["Image"] == "C:\\\\windows\\\\system32\\\\rundll32.exe"
+    # anchors stripped, \\ unescaped to \, . stays literal
+    assert selection["Image"] == "C:\\windows\\system32\\rundll32.exe"
     # value with | becomes a list
     assert selection["CommandLine"] == ["comsvcs.dll", "MiniDump"]
 
@@ -115,7 +115,7 @@ def test_export_writes_files_and_returns_count(tmp_path):
             "mitre_ids": ["T1059"],
             "source_category": "sysmon",
             "source_evtx": "/data/samples/a.evtx",
-            "field_matches": {"win.eventdata.image": "^foo\\.exe$"},
+            "field_matches": {"win.eventdata.image": "^foo.exe$"},
         },
         "100002": {
             "technique_name": "EVTX rule two",

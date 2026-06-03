@@ -9,9 +9,9 @@ from . import mitre_mapper
 from .event_analyzer import DetectionPattern
 from .id_manager import allocate_id
 
-# Regex metacharacters that must be escaped when an indicator string is meant
-# to be matched literally inside a Wazuh OS-regex <field>.
-_OSREGEX_META = re.compile(r"([.^$*+?()\[\]{}|\\])")
+# OSRegex metacharacters needing escape for literal matching.
+# In Wazuh OSRegex ``.`` is literal — do NOT escape it (``\\.`` = any char).
+_OSREGEX_META = re.compile(r"([\^$*+?()\[\]{}|\\])")
 
 # System fields always retained in a minimized sample event.
 _SAMPLE_SYSTEM_FIELDS = (
