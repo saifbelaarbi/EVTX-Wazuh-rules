@@ -85,24 +85,60 @@ def _flatten_event_fields(event: dict) -> dict:
 
 
 def _osregex_to_python(pattern: str) -> str:
-    r"""Convert Wazuh OS regex to Python regex.
+    r"""Convert Wazuh OSRegex to Python regex.
 
-    OS regex differences from standard:
-    - Without ^ or $, it's a substring match
-    - Case insensitive by default
-    - | is alternation
-    - \d, \w, \s work as expected
-    - . matches any char
+    Key semantic inversion vs PCRE:
+    - OSRegex ``.``  = literal dot    → Python ``\.``
+    - OSRegex ``\.`` = any character  → Python ``.``
+    - OSRegex ``\.*`` = zero-or-more any → Python ``.*``
+    - ``\\`` = literal backslash → Python ``\\``
+    - Without ``^``/``$``, substring match (wrap with ``.*``).
     """
     has_start = pattern.startswith("^")
-    has_end = pattern.endswith("$")
+    has_end = pattern.endswith("$") and not pattern.endswith("\\$")
 
+    out: list[str] = []
     if not has_start:
-        pattern = ".*" + pattern
-    if not has_end:
-        pattern = pattern + ".*"
+        out.append(".*")
 
-    return pattern
+    i = 0
+    while i < len(pattern):
+        ch = pattern[i]
+        if ch == "\\" and i + 1 < len(pattern):
+            nxt = pattern[i + 1]
+            if nxt == ".":
+                if i + 2 < len(pattern) and pattern[i + 2] == "*":
+                    out.append(".*")
+                    i += 3
+                elif i + 2 < len(pattern) and pattern[i + 2] == "+":
+                    out.append(".+")
+                    i += 3
+                else:
+                    out.append(".")
+                    i += 2
+            elif nxt == "\\":
+                out.append("\\\\")
+                i += 2
+            elif nxt in "dwsWDS":
+                out.append("\\" + nxt)
+                i += 2
+            else:
+                out.append(re.escape(nxt))
+                i += 2
+        elif ch == ".":
+            out.append("\\.")
+            i += 1
+        elif ch in "*+":
+            out.append(re.escape(ch))
+            i += 1
+        else:
+            out.append(ch)
+            i += 1
+
+    if not has_end:
+        out.append(".*")
+
+    return "".join(out)
 
 
 def _match_field(pattern: str, value: str) -> bool:
@@ -372,28 +408,37 @@ def _load_sample_events() -> dict:
 
 
 def _literal_from_pattern(pattern: str) -> str:
-    """Derive a concrete literal that satisfies an OS-regex field pattern."""
-    p = pattern.split("|")[0]  # first alternative
-    p = p.lstrip("^").rstrip("$")  # drop anchors
-    p = p.replace("[-/]", "-")  # windash alternation
-    # Protect escaped metacharacters with placeholders so the wildcard
-    # substitution below converts only real regex dots, not literal ones.
-    # (Otherwise ``lsass\.exe`` collapses to ``lsassxexe`` and no longer
-    # satisfies its own pattern.)
-    protected = {
-        "\\\\": "\x00BS\x00",
-        "\\.": "\x00DOT\x00",
-        "\\(": "(",
-        "\\)": ")",
-        "\\[": "[",
-        "\\]": "]",
-    }
-    for esc, ph in protected.items():
-        p = p.replace(esc, ph)
-    p = p.replace(".*", "x").replace(".", "x")  # wildcards -> literal
-    p = p.replace("\\", "")  # drop any remaining escapes
-    p = p.replace("\x00DOT\x00", ".").replace("\x00BS\x00", "\\")  # restore literals
-    return p or "x"
+    """Derive a concrete literal that satisfies an OSRegex field pattern.
+
+    OSRegex semantics: ``.`` = literal dot, ``\\.`` = any char, ``\\.*`` = any*.
+    """
+    p = pattern.split("|")[0]
+    p = p.lstrip("^").rstrip("$")
+    p = p.replace("[-/]", "-")
+    out: list[str] = []
+    i = 0
+    while i < len(p):
+        if p[i] == "\\" and i + 1 < len(p):
+            nxt = p[i + 1]
+            if nxt == "." and i + 2 < len(p) and p[i + 2] == "*":
+                out.append("x")
+                i += 3
+            elif nxt == ".":
+                out.append("x")
+                i += 2
+            elif nxt == "\\":
+                out.append("\\")
+                i += 2
+            else:
+                out.append(nxt)
+                i += 2
+        elif p[i] == ".":
+            out.append(".")
+            i += 1
+        else:
+            out.append(p[i])
+            i += 1
+    return "".join(out) or "x"
 
 
 def synthesize_event(field_matches: dict, event_id, channel: str, provider: str) -> dict:

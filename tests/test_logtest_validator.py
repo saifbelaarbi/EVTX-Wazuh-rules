@@ -98,8 +98,11 @@ def test_literal_takes_first_alternative():
 
 
 def test_literal_replaces_wildcards():
-    result = _literal_from_pattern("foo.*bar")
-    assert ".*" not in result
+    # In OSRegex, \\.* is zero-or-more any char (the real wildcard)
+    result = _literal_from_pattern("foo\\.*bar")
+    assert "\\.*" not in result
+    # Plain .* is literal dot + literal star in OSRegex — stays as-is
+    assert _literal_from_pattern("foo.*bar") == "foo.*bar"
 
 
 # ── _provider_for_parent ──

@@ -90,16 +90,24 @@ TACTIC_FROM_TAG = {
     "attack.impact": "impact",
 }
 
-OS_REGEX_SPECIAL = r".+?()[]{}|^$"
+OS_REGEX_SPECIAL = r"+?()[]{}|^$"
 
 
 def _escape_osregex(value: str) -> str:
-    """Escape special chars for Wazuh OS regex."""
+    """Escape special chars for Wazuh OS regex.
+
+    In Wazuh OSRegex: ``.`` = literal dot, ``\\.`` = any character.
+    Only backslash-expressions carry metacharacter meaning, so a literal
+    dot must NOT be escaped. We do need to escape ``\\`` → ``\\\\``.
+    """
     result = []
     for ch in value:
-        if ch in OS_REGEX_SPECIAL:
-            result.append("\\")
-        result.append(ch)
+        if ch == "\\":
+            result.append("\\\\")
+        elif ch in OS_REGEX_SPECIAL:
+            result.append("\\" + ch)
+        else:
+            result.append(ch)
     return "".join(result)
 
 
@@ -163,19 +171,26 @@ def _resolve_field(sigma_field: str, channel: str | None = None) -> str | None:
 def _escape_osregex_with_globs(value: str) -> str:
     """Escape regex metacharacters but translate Sigma globs to OS-regex.
 
-    Sigma wildcards ``*`` and ``?`` become ``.*`` and ``.``; every other
-    special character is escaped so it matches literally in a Wazuh <field>.
+    In Wazuh OSRegex ``\\.`` means *any character* and ``.`` is a literal dot.
+    Sigma ``*`` → ``\\.*`` (zero-or-more of any char), ``?`` → ``\\.``
+    (single any char). Backslashes are doubled. Other OS_REGEX_SPECIAL chars
+    are escaped with a leading backslash.
     """
     out = []
-    for ch in value:
+    i = 0
+    while i < len(value):
+        ch = value[i]
         if ch == "*":
-            out.append(".*")
+            out.append("\\.*")
         elif ch == "?":
-            out.append(".")
+            out.append("\\.")
+        elif ch == "\\":
+            out.append("\\\\")
         elif ch in OS_REGEX_SPECIAL:
             out.append("\\" + ch)
         else:
             out.append(ch)
+        i += 1
     return "".join(out)
 
 
@@ -195,8 +210,8 @@ def _cidr_to_regex(cidr: str) -> str:
     keep = {8: 1, 16: 2, 24: 3, 32: 4}.get(bits, max(1, bits // 8))
     prefix = ".".join(octets[:keep])
     if bits == 32:
-        return "^" + net.replace(".", "\\.") + "$"
-    return "^" + prefix.replace(".", "\\.") + "\\."
+        return "^" + net + "$"
+    return "^" + prefix + "."
 
 
 def _base64_variants(value: str, utf16: bool = False) -> list[str]:
