@@ -14,15 +14,15 @@ paths:
 wazuh:
   deploy_path: /var/ossec/etc/rules/
 
-  # Live logtest via Wazuh REST API (primary)
-  # api_url: https://wazuh-manager:55000
-  # api_user: wazuh-wui
-  # api_password_file: ~/.wazuh_api_token
-  # api_verify_ssl: false
+  # Live logtest via Wazuh REST API (used by docker-compose & --mode api)
+  api_url: https://wazuh-manager:55000
+  api_user: wazuh-wui
+  api_password: wazuh-wui
+  api_verify_ssl: false
 
-  # Live logtest via SSH (fallback)
-  # ssh_host: wazuh-manager
-  # ssh_user: wazuh
+  # Live logtest via SSH (used by --mode ssh on a VM)
+  # ssh_host: your-wazuh-vm
+  # ssh_user: root
   # ssh_key: ~/.ssh/wazuh_key
   # logtest_path: /var/ossec/bin/wazuh-logtest
   # sudo: true
