@@ -79,6 +79,29 @@ SIGMA_LOGSOURCE_TO_WAZUH = {
     "diagnosis-scripted": {"channel": "system", "parent_sid": 60000},
     "msexchange-management": {"channel": "application", "parent_sid": 60000},
     "raw_access_thread": {"sysmon_eid": 9, "parent_sid": 61611, "channel": "sysmon"},
+    # ── Linux (Wazuh syslog/auditd decoders) ──
+    # Sigma linux logsource uses `product: linux` with these categories/services.
+    "auditd": {"channel": "linux", "parent_sid": 80700},
+    "syslog": {"channel": "linux", "parent_sid": 5100},
+    "sshd": {"channel": "linux", "parent_sid": 5700},
+    "sudo": {"channel": "linux", "parent_sid": 5300},
+    "cron": {"channel": "linux", "parent_sid": 2800},
+    "clamav": {"channel": "linux", "parent_sid": 52500},
+    "modsecurity": {"channel": "linux", "parent_sid": 30300},
+    "linux_process_creation": {"channel": "linux", "parent_sid": 80700},
+    "linux_network_connection": {"channel": "linux", "parent_sid": 80700},
+    "linux_file_event": {"channel": "linux", "parent_sid": 80700},
+    # ── Cloud (Wazuh cloud integration decoders) ──
+    "aws_cloudtrail": {"channel": "cloud", "parent_sid": 80200},
+    "azure_activitylogs": {"channel": "cloud", "parent_sid": 87800},
+    "azure_signinlogs": {"channel": "cloud", "parent_sid": 87800},
+    "azure_auditlogs": {"channel": "cloud", "parent_sid": 87800},
+    "azure": {"channel": "cloud", "parent_sid": 87800},
+    "gcp_audit": {"channel": "cloud", "parent_sid": 65000},
+    "gcp.audit": {"channel": "cloud", "parent_sid": 65000},
+    "okta": {"channel": "cloud", "parent_sid": 87200},
+    "m365": {"channel": "cloud", "parent_sid": 87800},
+    "microsoft365": {"channel": "cloud", "parent_sid": 87800},
 }
 
 SIGMA_FIELD_TO_WAZUH = {
@@ -110,14 +133,19 @@ SIGMA_FIELD_TO_WAZUH = {
 
 
 def parse_sigma_rule(file_path: Path) -> dict | None:
-    """Parse a single Sigma YAML rule file."""
+    """Parse a single Sigma rule file (YAML or JSON; they map 1:1)."""
     try:
         with open(file_path) as f:
             content = f.read()
-        docs = list(yaml.safe_load_all(content))
-        if not docs:
-            return None
-        rule = docs[0]
+        if str(file_path).endswith(".json"):
+            import json
+
+            rule = json.loads(content)
+        else:
+            docs = list(yaml.safe_load_all(content))
+            if not docs:
+                return None
+            rule = docs[0]
         if not isinstance(rule, dict) or "title" not in rule:
             return None
         rule["_file_path"] = str(file_path)

@@ -85,6 +85,23 @@ def download_sigma():
         console.print(f"\n[bold green]Sigma rules ready at:[/] {info['rules_path']}")
 
 
+@cli.command("download-atomic")
+def download_atomic():
+    """Clone the Atomic Red Team repo for the atomic ingestion path."""
+    from pathlib import Path
+
+    from . import downloader
+
+    project_root = Path(__file__).resolve().parent.parent
+    dest = project_root / "data" / "atomic-red-team"
+    ok = downloader._git_clone_shallow("https://github.com/redcanaryco/atomic-red-team", dest)
+    if ok:
+        console.print(f"[bold green]Atomic Red Team ready at:[/] {dest}")
+        console.print("[dim]Run: python -m generator generate-atomic --auto-approve[/]")
+    else:
+        console.print("[red]Failed to clone Atomic Red Team.[/]")
+
+
 @cli.command("list-sources")
 def list_sources():
     """List all registered EVTX sources."""

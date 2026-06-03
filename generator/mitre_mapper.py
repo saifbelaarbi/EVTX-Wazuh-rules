@@ -214,6 +214,22 @@ _TACTIC_GENERIC_TECHNIQUE: dict[str, MitreMapping] = {
 
 _HARD_FALLBACK = MitreMapping("", "", "execution")
 
+# Reverse index: technique id → tactic. Built from the indicator and event-id
+# tables so external callers (e.g. atomic_collector) can resolve tactic from
+# a known technique id without duplicating data.
+TECHNIQUE_TO_TACTIC: dict[str, str] = {}
+for _m in INDICATOR_TO_MAPPING.values():
+    if _m.technique_id and _m.tactic:
+        TECHNIQUE_TO_TACTIC.setdefault(_m.technique_id, _m.tactic)
+        TECHNIQUE_TO_TACTIC.setdefault(_m.technique_id.split(".")[0], _m.tactic)
+for _m in _EVENTID_DEFAULTS.values():
+    if _m.technique_id and _m.tactic:
+        TECHNIQUE_TO_TACTIC.setdefault(_m.technique_id, _m.tactic)
+        TECHNIQUE_TO_TACTIC.setdefault(_m.technique_id.split(".")[0], _m.tactic)
+for _tac, _m in _TACTIC_GENERIC_TECHNIQUE.items():
+    if _m.technique_id:
+        TECHNIQUE_TO_TACTIC.setdefault(_m.technique_id, _tac)
+
 
 def _family(channel: str, provider: str) -> str:
     """Classify an event into a coarse log family for the default table."""

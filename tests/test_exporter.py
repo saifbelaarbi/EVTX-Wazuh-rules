@@ -108,3 +108,33 @@ def test_write_group_merged_dedups_by_id(tmp_path):
 
     assert total == 1
     assert out_file.read_text().count('id="100005"') == 1
+
+
+def test_versioning_and_changelog(tmp_path, monkeypatch):
+    """Index entries get a version that bumps on logic change, with changelog."""
+    import json
+
+    from generator import exporter
+
+    idx = tmp_path / "rule_index.json"
+    chlog = tmp_path / "changelog.json"
+    samples = tmp_path / "sample_events.json"
+    monkeypatch.setattr(exporter, "RULE_INDEX_FILE", idx)
+    monkeypatch.setattr(exporter, "CHANGELOG_FILE", chlog)
+    monkeypatch.setattr(exporter, "SAMPLE_EVENTS_FILE", samples)
+    monkeypatch.setattr(exporter, "METADATA_DIR", tmp_path)
+
+    rule = _make_rule(rule_id=100009, field_matches={"win.eventdata.image": "a"})
+    exporter.update_rule_index([rule])
+    v1 = json.loads(idx.read_text())["100009"]
+    assert v1["version"] == 1
+
+    # Unchanged re-export keeps version 1
+    exporter.update_rule_index([_make_rule(rule_id=100009, field_matches={"win.eventdata.image": "a"})])
+    assert json.loads(idx.read_text())["100009"]["version"] == 1
+
+    # Changed field_matches bumps to version 2 and writes a changelog entry
+    exporter.update_rule_index([_make_rule(rule_id=100009, field_matches={"win.eventdata.image": "b"})])
+    assert json.loads(idx.read_text())["100009"]["version"] == 2
+    history = json.loads(chlog.read_text())
+    assert any(e["rule_id"] == "100009" and e["action"] == "modify" for e in history)

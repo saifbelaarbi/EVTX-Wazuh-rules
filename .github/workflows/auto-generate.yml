@@ -1,0 +1,65 @@
+name: Auto-Generate Rules
+
+# Periodically rebuild the rule database from upstream EVTX + Sigma sources and
+# open a PR when the committed database would change. Manual runs supported.
+on:
+  schedule:
+    - cron: "0 0 * * 0" # weekly, Sunday 00:00 UTC
+  workflow_dispatch:
+    inputs:
+      min_level:
+        description: "Minimum Sigma severity to convert"
+        default: "medium"
+        required: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e ".[dev,report]"
+
+      - name: Download sources
+        run: |
+          python -m collector download-all
+          python -m collector download-sigma
+          python -m collector download-defaults
+
+      - name: Regenerate database
+        run: |
+          python -m generator generate --auto-approve
+          python -m generator convert-sigma --auto-approve --min-level "${{ github.event.inputs.min_level || 'medium' }}"
+          python -m generator validate
+          python -m generator logtest --mode simulate --save
+          python -m generator navigator
+          python generate_report.py
+
+      - name: Summarize changes
+        id: diff
+        run: |
+          if [ -n "$(git status --porcelain database/)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat database/ | tail -30
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No database changes."
+          fi
+
+      - name: Open pull request
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: auto/regenerate-rules
+          title: "chore: automated rule database regeneration"
+          commit-message: "chore: automated rule database regeneration"
+          body: |
+            Automated regeneration from upstream EVTX + SigmaHQ sources.
+
+            Review the database diff and CI results before merging.
+          delete-branch: true

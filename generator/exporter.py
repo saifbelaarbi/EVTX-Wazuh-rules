@@ -275,10 +275,16 @@ def update_rule_index(rules: list[dict]):
         with open(RULE_INDEX_FILE) as f:
             index = json.load(f)
 
+    changelog_entries = []
+    now = datetime.now(timezone.utc).isoformat()
+
     for rule in rules:
         meta = rule["metadata"]
         mitre_ids = meta.get("mitre_ids", []) or []
-        index[str(rule["id"])] = {
+        rid = str(rule["id"])
+        prev = index.get(rid)
+
+        entry = {
             "description": meta.get("technique_name", ""),
             "level": rule["level"],
             "tactic": meta.get("tactic", ""),
@@ -291,13 +297,59 @@ def update_rule_index(rules: list[dict]):
             "confidence": meta.get("confidence", "medium"),
             "created": meta.get("created", ""),
             "field_matches": meta.get("field_matches", {}),
+            "sigma_id": meta.get("sigma_id", ""),
         }
+
+        # Versioning: bump when the detection logic or level changes.
+        if prev is None:
+            entry["version"] = 1
+            entry["last_modified"] = now
+            changelog_entries.append({"timestamp": now, "rule_id": rid, "action": "add", "version": 1})
+        else:
+            changed = prev.get("field_matches") != entry["field_matches"] or prev.get("level") != entry["level"]
+            if changed:
+                entry["version"] = prev.get("version", 1) + 1
+                entry["last_modified"] = now
+                changelog_entries.append(
+                    {
+                        "timestamp": now,
+                        "rule_id": rid,
+                        "action": "modify",
+                        "old_version": prev.get("version", 1),
+                        "version": entry["version"],
+                    }
+                )
+            else:
+                entry["version"] = prev.get("version", 1)
+                entry["last_modified"] = prev.get("last_modified", now)
+
+        index[rid] = entry
 
     with open(RULE_INDEX_FILE, "w") as f:
         json.dump(index, f, indent=2)
 
+    if changelog_entries:
+        _append_changelog(changelog_entries)
+
     console.print(f"\n[bold green]Rule index updated:[/] {len(index)} total rules")
     _update_sample_events(rules)
+
+
+CHANGELOG_FILE = METADATA_DIR / "changelog.json"
+
+
+def _append_changelog(entries: list[dict]):
+    """Append rule add/modify records to the changelog history."""
+    history = []
+    if CHANGELOG_FILE.exists():
+        try:
+            with open(CHANGELOG_FILE) as f:
+                history = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            history = []
+    history.extend(entries)
+    with open(CHANGELOG_FILE, "w") as f:
+        json.dump(history, f, indent=2)
 
 
 def _update_sample_events(rules: list[dict]):

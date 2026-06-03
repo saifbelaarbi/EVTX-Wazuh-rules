@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EVTX-Wazuh Rule Dashboard</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; color: #1b1b1b; }
+    h1 { margin-bottom: 0.25rem; }
+    .stat { font-size: 1.1rem; margin: 0.25rem 0; }
+    .stat b { font-size: 1.4rem; }
+    table { border-collapse: collapse; margin-top: 1rem; }
+    th, td { text-align: left; padding: 0.35rem 0.9rem; border-bottom: 1px solid #ddd; }
+    th { background: #f4f4f4; }
+    code { background: #f0f0f0; padding: 0.1rem 0.3rem; border-radius: 3px; }
+    .note { margin-top: 1.5rem; color: #555; }
+  </style>
+</head>
+<body>
+  <h1>EVTX-Wazuh Rule Dashboard</h1>
+  <p class="stat">Total rules: <b>{{ stats.total }}</b></p>
+  <p class="stat">Validation pass rate: <b>{{ "%.1f"|format(stats.pass_rate * 100) }}%</b>
+     ({{ stats.passed }} passed)</p>
+
+  <h2>Rules by tactic</h2>
+  <table>
+    <thead><tr><th>Tactic</th><th>Count</th></tr></thead>
+    <tbody>
+      {% for tactic, count in stats.by_tactic.items() %}
+      <tr><td>{{ tactic }}</td><td>{{ count }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Rules by source</h2>
+  <table>
+    <thead><tr><th>Source</th><th>Count</th></tr></thead>
+    <tbody>
+      {% for source, count in stats.by_source.items() %}
+      <tr><td>{{ source }}</td><td>{{ count }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p class="note">
+    JSON endpoints: <code>/api/stats</code>, <code>/api/rules</code>
+    (filters: <code>?tactic=</code>, <code>?source=</code>, <code>?q=</code>),
+    <code>/api/navigator</code>.
+    Open <a href="/api/rules">/api/rules</a> to browse all rules.
+  </p>
+</body>
+</html>
