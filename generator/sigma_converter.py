@@ -211,7 +211,7 @@ def _cidr_to_regex(cidr: str) -> str:
     prefix = ".".join(octets[:keep])
     if bits == 32:
         return "^" + net + "$"
-    return "^" + prefix + "\\."
+    return "^" + prefix + "."
 
 
 def _base64_variants(value: str, utf16: bool = False) -> list[str]:

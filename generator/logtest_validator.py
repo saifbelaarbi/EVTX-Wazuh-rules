@@ -128,6 +128,9 @@ def _osregex_to_python(pattern: str) -> str:
         elif ch == ".":
             out.append("\\.")
             i += 1
+        elif ch in "*+":
+            out.append(re.escape(ch))
+            i += 1
         else:
             out.append(ch)
             i += 1

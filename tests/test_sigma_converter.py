@@ -110,12 +110,12 @@ def test_windash():
 
 def test_cidr_modifier():
     result = _apply_modifiers("10.0.0.0/8", ["cidr"])
-    assert result.startswith("^10\\.")
+    assert result == "^10."
 
 
 def test_cidr_slash16():
     result = _apply_modifiers("192.168.0.0/16", ["cidr"])
-    assert result.startswith("^192.168\\.")
+    assert result == "^192.168."
 
 
 def test_cidr_slash32_exact_match():

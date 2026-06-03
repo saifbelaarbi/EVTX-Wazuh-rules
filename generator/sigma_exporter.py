@@ -88,9 +88,13 @@ def _logsource_from_category(source_category: str, field_paths: list[str]) -> di
 def _clean_value(value: str):
     """Turn a Wazuh OSRegex pattern back into a readable Sigma value.
 
-    OSRegex: ``.`` = literal dot, ``\\.`` = any char, ``\\.*`` = glob star,
-    ``\\\\`` = literal backslash.  Reverses these to Sigma-style values.
-    A ``|`` (alternation) becomes a Sigma value list.
+    Handles BOTH legacy (pre-fix) and current OSRegex conventions:
+    - New: ``.`` = literal dot, ``\\.`` = any char, ``\\.*`` = glob star
+    - Legacy: ``\\.`` was used for literal dots
+
+    Heuristic: if ``\\.`` is followed by a common file-extension token
+    (exe, dll, ps1, …), treat it as a legacy literal-dot escape.
+    Otherwise treat it as the correct OSRegex any-char wildcard.
     """
     if "|" in value:
         return [_clean_value(part) for part in value.split("|")]
@@ -100,9 +104,39 @@ def _clean_value(value: str):
     if cleaned.endswith("$") and not cleaned.endswith("\\$"):
         cleaned = cleaned[:-1]
     cleaned = cleaned.replace("\\.*", "*")
-    cleaned = cleaned.replace("\\.", "?")
+    cleaned = _unescape_dots(cleaned)
     cleaned = cleaned.replace("\\\\", "\\")
     return cleaned
+
+
+_EXT_TOKENS = frozenset(
+    "exe dll sys ps1 bat cmd vbs js msi msp inf com scr hta cpl jar py sh"
+    " log txt xml json yml yaml conf cfg ini dat tmp bak old".split()
+)
+
+
+def _unescape_dots(value: str) -> str:
+    """Convert ``\\.`` to either a literal dot or ``?`` depending on context.
+
+    If ``\\.`` precedes a known file-extension token it is a legacy literal
+    dot (convert to ``.``).  Otherwise it is the correct OSRegex any-char
+    wildcard (convert to ``?``).
+    """
+    out: list[str] = []
+    i = 0
+    while i < len(value):
+        if value[i] == "\\" and i + 1 < len(value) and value[i + 1] == ".":
+            rest = value[i + 2 :]
+            token = rest.split("\\")[0].split(".")[0].split("$")[0].lower()
+            if token in _EXT_TOKENS:
+                out.append(".")
+            else:
+                out.append("?")
+            i += 2
+        else:
+            out.append(value[i])
+            i += 1
+    return "".join(out)
 
 
 def _mitre_tags(mitre_ids: list[str], tactic: str) -> list[str]:
