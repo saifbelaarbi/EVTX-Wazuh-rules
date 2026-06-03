@@ -194,6 +194,8 @@ def _cidr_to_regex(cidr: str) -> str:
         return _escape_osregex_with_globs(cidr)
     keep = {8: 1, 16: 2, 24: 3, 32: 4}.get(bits, max(1, bits // 8))
     prefix = ".".join(octets[:keep])
+    if bits == 32:
+        return "^" + net.replace(".", "\\.") + "$"
     return "^" + prefix.replace(".", "\\.") + "\\."
 
 
@@ -494,16 +496,15 @@ def _split_aggregation(condition_str: str):
     }
 
 
-def _extract_negation(condition: str, selections: dict) -> dict:
-    """Collect the combined field matches of negated (filter) selections.
+def _extract_negation(condition: str, selections: dict) -> list[dict]:
+    """Collect field matches of each negated (filter) selection separately.
 
     Handles ``and not <name>``, ``and not 1 of filter*`` and
-    ``and not all of filter*``. Returns the merged field dict to be used as a
-    Wazuh suppression child rule (level 0). Empty dict when there is no usable
-    negation.
+    ``and not all of filter*``. Returns a list of field match dicts — one per
+    negated clause — so each becomes its own Wazuh suppression child rule.
+    Empty list when there is no usable negation.
     """
-    neg_fields: dict = {}
-    # Find every "not <something>" clause.
+    neg_groups: list[dict] = []
     for m in re.finditer(r"not\s+(1 of\s+[\w*]+|all of\s+[\w*]+|[\w]+)", condition):
         target = m.group(1).strip()
         of_match = re.match(r"(?:1|all) of\s+([\w]+)\*?", target)
@@ -516,9 +517,10 @@ def _extract_negation(condition: str, selections: dict) -> dict:
             names = []
         for name in names:
             for fg in _selection_to_field_matches(selections[name]):
-                neg_fields.update(fg)
-    neg_fields = {k.split("#")[0]: v for k, v in neg_fields.items() if k != "_raw"}
-    return neg_fields
+                cleaned = {k.split("#")[0]: v for k, v in fg.items() if k != "_raw"}
+                if cleaned:
+                    neg_groups.append(cleaned)
+    return neg_groups
 
 
 def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[dict]:
@@ -533,9 +535,19 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
     logsource = sigma_rule.get("logsource", {})
     category = logsource.get("category", "")
     service = logsource.get("service", "")
+    product = logsource.get("product", "")
     source_key = category or service
 
-    mapping = SIGMA_LOGSOURCE_TO_WAZUH.get(source_key)
+    # Product-aware lookup: Linux/cloud Sigma rules qualify the category/service
+    # with the product so they resolve to the correct (non-Windows) mapping.
+    mapping = None
+    if product and product != "windows":
+        for candidate in (f"{product}_{category}", f"{product}_{service}", source_key):
+            if candidate and candidate in SIGMA_LOGSOURCE_TO_WAZUH:
+                mapping = SIGMA_LOGSOURCE_TO_WAZUH[candidate]
+                break
+    else:
+        mapping = SIGMA_LOGSOURCE_TO_WAZUH.get(source_key)
     if not mapping:
         raise SigmaConvertError("unmapped_logsource", source_key or "(none)")
 
@@ -574,7 +586,7 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
     if not rule_specs:
         raise SigmaConvertError("empty_rule_spec", condition_str)
 
-    negation_fields = _extract_negation(condition, selections) if with_negation else {}
+    negation_groups = _extract_negation(condition, selections) if with_negation else []
 
     rules = []
     for spec_group in rule_specs:
@@ -640,13 +652,13 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
             }
         )
 
-        # Negation -> Wazuh level-0 suppression child rule.
-        if negation_fields:
+        # Negation -> one Wazuh level-0 suppression child rule per filter.
+        for neg_fields in negation_groups:
             sup_id = allocate_id(tactic)
             sup_elem = etree.Element("rule", id=str(sup_id), level="0")
             sup_if = etree.SubElement(sup_elem, "if_sid")
             sup_if.text = str(rule_id)
-            for fname, fpat in negation_fields.items():
+            for fname, fpat in neg_fields.items():
                 fe = etree.SubElement(sup_elem, "field", name=fname)
                 fe.text = fpat
             sup_desc = etree.SubElement(sup_elem, "description")
@@ -667,7 +679,7 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
                         "parent_sid": rule_id,
                         "confidence": "medium",
                         "created": "",
-                        "field_matches": negation_fields,
+                        "field_matches": neg_fields,
                         "mitre_ids": mitre_ids[:3],
                         "sigma_id": sigma_id,
                         "sigma_level": sigma_level,
@@ -679,11 +691,16 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
         # count() aggregation -> Wazuh frequency correlation rule.
         if count_spec and count_spec["threshold"] > 0:
             freq_id = allocate_id(tactic)
+            # Wazuh <frequency> fires on the Nth event. Adjust for strict >:
+            # count() > 5 needs frequency=6; count() >= 5 needs frequency=5.
+            freq_threshold = count_spec["threshold"]
+            if count_spec["op"] in (">",):
+                freq_threshold += 1
             freq_elem = etree.Element(
                 "rule",
                 id=str(freq_id),
                 level=str(min(wazuh_level + 2, 15)),
-                frequency=str(count_spec["threshold"]),
+                frequency=str(freq_threshold),
                 timeframe=str(DEFAULT_FREQ_TIMEFRAME),
             )
             freq_if = etree.SubElement(freq_elem, "if_matched_sid")
@@ -691,9 +708,10 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
             if count_spec["group_field"]:
                 gf = _resolve_field(count_spec["group_field"])
                 if gf:
-                    etree.SubElement(freq_elem, "same_field", name=gf)
+                    sf_elem = etree.SubElement(freq_elem, "same_field")
+                    sf_elem.text = gf
             freq_desc = etree.SubElement(freq_elem, "description")
-            freq_desc.text = f"Sigma: {title} (>= {count_spec['threshold']} in {DEFAULT_FREQ_TIMEFRAME}s)"
+            freq_desc.text = f"Sigma: {title} (>= {freq_threshold} in {DEFAULT_FREQ_TIMEFRAME}s)"
             if mitre_ids:
                 fm = etree.SubElement(freq_elem, "mitre")
                 for mid in mitre_ids[:3]:

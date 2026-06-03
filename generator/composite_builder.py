@@ -90,7 +90,8 @@ def build_composite_rule(spec: CompositeRuleSpec) -> dict:
 
     same_field = _same_field_for(spec.stages)
     if same_field:
-        etree.SubElement(rule_elem, "same_field", name=same_field)
+        sf_elem = etree.SubElement(rule_elem, "same_field")
+        sf_elem.text = same_field
 
     desc = etree.SubElement(rule_elem, "description")
     desc.text = spec.description
@@ -151,6 +152,14 @@ def load_templates(path: Path | None = None) -> list[CompositeRuleSpec]:
             )
         )
     return specs
+
+
+def has_placeholder_sids(spec: CompositeRuleSpec) -> bool:
+    """True when any stage references SID 0 (an unwired placeholder)."""
+    for stage in spec.stages:
+        if stage.get("if_sid") == 0 or stage.get("if_matched_sid") == 0:
+            return True
+    return False
 
 
 def build_from_templates(templates: list[CompositeRuleSpec] | None = None) -> list[dict]:

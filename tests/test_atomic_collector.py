@@ -40,7 +40,7 @@ def test_parse_atomic_file_basic(tmp_path):
     assert p.technique_name == "OS Credential Dumping"
     assert p.description == "Dump LSASS.exe Memory using ProcDump"
     assert p.confidence == "medium"
-    assert p.tactic == "execution"
+    assert p.tactic == "credential_access"  # T1003 resolves via TECHNIQUE_TO_TACTIC
     assert p.source_evtx == str(yaml_file)
 
 

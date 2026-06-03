@@ -116,6 +116,11 @@ def test_cidr_slash16():
     assert result.startswith("^192\\.168\\.")
 
 
+def test_cidr_slash32_exact_match():
+    result = _apply_modifiers("192.0.2.5/32", ["cidr"])
+    assert result == "^192\\.0\\.2\\.5$"
+
+
 def test_base64offset_modifier():
     # encodes 'cmd' in 3 offset variants, OR-joined
     result = _apply_modifiers("cmd", ["base64offset", "contains"])
@@ -201,10 +206,34 @@ def test_count_aggregation_produces_frequency_rule():
     from lxml import etree
 
     freq = next(r for r in results if r["xml_element"].get("frequency"))
-    assert freq["xml_element"].get("frequency") == "5"
+    # count() > 5 means "more than 5", so Wazuh frequency must be 6
+    assert freq["xml_element"].get("frequency") == "6"
     xml = etree.tostring(freq["xml_element"], encoding="unicode")
     assert "if_matched_sid" in xml
     assert "same_field" in xml
+    # same_field must be element text, not an attribute
+    sf = freq["xml_element"].find("same_field")
+    assert sf is not None
+    assert sf.text is not None
+    assert sf.get("name") is None
+
+
+def test_count_gte_no_off_by_one():
+    """count() >= 5 keeps frequency=5 (no adjustment needed)."""
+    rule = {
+        "title": "GTE test",
+        "level": "high",
+        "logsource": {"category": "process_creation"},
+        "detection": {
+            "condition": "selection | count() >= 5",
+            "selection": {"Image": "\\\\net.exe"},
+        },
+        "tags": ["attack.execution"],
+    }
+    with mock.patch("generator.sigma_converter.allocate_id", side_effect=[100001, 100002]):
+        results = convert_sigma_rule(rule)
+    freq = next(r for r in results if r["xml_element"].get("frequency"))
+    assert freq["xml_element"].get("frequency") == "5"
 
 
 # ── Negation (suppression) ──
@@ -251,6 +280,29 @@ def test_negation_off_by_default_drops_filter():
     assert all(r["level"] != 0 for r in results)
 
 
+def test_multiple_filters_produce_separate_suppressions():
+    """Each negated filter becomes its own suppression rule."""
+    rule = {
+        "title": "Multi-filter",
+        "level": "high",
+        "logsource": {"category": "process_creation"},
+        "detection": {
+            "selection": {"Image": "\\\\cmd.exe"},
+            "filter_admin": {"User": "SYSTEM"},
+            "filter_path": {"ParentImage": "\\\\explorer.exe"},
+            "condition": "selection and not filter_admin and not filter_path",
+        },
+        "tags": ["attack.execution"],
+    }
+    with mock.patch("generator.sigma_converter.allocate_id", side_effect=range(100001, 100010)):
+        results = convert_sigma_rule(rule, with_negation=True)
+    suppressions = [r for r in results if r["level"] == 0]
+    assert len(suppressions) == 2
+    fields_sets = [set(r["metadata"]["field_matches"].keys()) for r in suppressions]
+    assert any("win.eventdata.user" in fs for fs in fields_sets)
+    assert any("win.eventdata.parentImage" in fs for fs in fields_sets)
+
+
 # ── Multi-platform field resolution ──
 
 
@@ -293,6 +345,30 @@ def test_keywords_map_to_full_log():
 
 
 # ── Successful conversion ──
+
+
+def test_linux_process_creation_uses_linux_mapping():
+    """Linux Sigma rules with category=process_creation must not use Windows/Sysmon."""
+    rule = {
+        "title": "Linux suspicious process",
+        "level": "high",
+        "logsource": {"product": "linux", "category": "process_creation"},
+        "detection": {
+            "condition": "selection",
+            "selection": {"Image": "/usr/bin/nmap"},
+        },
+        "tags": ["attack.discovery"],
+    }
+    with mock.patch("generator.sigma_converter.allocate_id", return_value=100001):
+        results = convert_sigma_rule(rule)
+    r = results[0]
+    assert r["metadata"]["source_category"] == "linux"
+    # Field should be data.audit.exe, not win.eventdata.image
+    from lxml import etree
+
+    xml_str = etree.tostring(r["xml_element"], encoding="unicode")
+    assert "data.audit.exe" in xml_str
+    assert "win.eventdata" not in xml_str
 
 
 def test_basic_conversion_produces_rule():

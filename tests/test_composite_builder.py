@@ -83,7 +83,8 @@ def test_build_composite_rule_xml_shape(isolated_allocations):
 
     same = elem.find("same_field")
     assert same is not None
-    assert same.get("name") == "win.eventdata.user"
+    assert same.text == "win.eventdata.user"
+    assert same.get("name") is None  # must be element text, not attribute
 
     group = elem.find("group")
     assert "composite" in group.text
@@ -143,3 +144,23 @@ def test_build_from_templates_count(isolated_allocations):
 def test_build_from_templates_default_loads_yaml(isolated_allocations):
     rules = build_from_templates()
     assert len(rules) == len(load_templates())
+
+
+def test_has_placeholder_sids_detects_zero():
+    from generator.composite_builder import has_placeholder_sids
+
+    spec_with = CompositeRuleSpec(
+        name="placeholder",
+        description="d",
+        tactic="execution",
+        stages=[{"if_sid": 0}, {"if_matched_sid": 0}],
+    )
+    assert has_placeholder_sids(spec_with) is True
+
+    spec_real = CompositeRuleSpec(
+        name="wired",
+        description="d",
+        tactic="execution",
+        stages=[{"if_sid": 100100}, {"if_matched_sid": 100200}],
+    )
+    assert has_placeholder_sids(spec_real) is False

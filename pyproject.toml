@@ -41,7 +41,7 @@ evtx-collector = "collector.cli:cli"
 evtx-generator = "generator.cli:cli"
 
 [tool.setuptools.packages.find]
-include = ["collector*", "generator*"]
+include = ["collector*", "generator*", "web*", "deployer*"]
 
 [tool.ruff]
 target-version = "py310"

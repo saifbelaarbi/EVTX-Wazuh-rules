@@ -31,7 +31,7 @@ from pathlib import Path
 import yaml
 
 from generator.event_analyzer import DetectionPattern
-from generator.mitre_mapper import normalize_tactic
+from generator.mitre_mapper import TECHNIQUE_TO_TACTIC, normalize_tactic
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -161,7 +161,12 @@ def parse_atomic_file(path: Path) -> list[DetectionPattern]:
 
     attack_technique = str(data.get("attack_technique") or "").strip()
     display_name = str(data.get("display_name") or "").strip()
-    tactic = _kill_chain_tactic(data) or "execution"
+    tactic = (
+        _kill_chain_tactic(data)
+        or TECHNIQUE_TO_TACTIC.get(attack_technique, "")
+        or TECHNIQUE_TO_TACTIC.get(attack_technique.split(".")[0], "")
+        or "execution"
+    )
 
     tests = data.get("atomic_tests") or []
     if not isinstance(tests, list):

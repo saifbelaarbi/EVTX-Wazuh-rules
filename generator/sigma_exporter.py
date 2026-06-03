@@ -161,9 +161,17 @@ def _slug(text: str) -> str:
     return slug or "rule"
 
 
-def _is_sigma_sourced(source_evtx: str) -> bool:
-    """True when a rule originated from a Sigma YAML file (skip these)."""
-    return source_evtx.lower().endswith((".yml", ".yaml"))
+def _is_sigma_sourced(source_evtx: str, meta: dict | None = None) -> bool:
+    """True when a rule originated from a Sigma file (skip these).
+
+    YAML extensions are unambiguous; JSON files could be EVTX samples too, so
+    we check for a ``sigma_id`` in the metadata as the definitive marker.
+    """
+    if source_evtx.lower().endswith((".yml", ".yaml")):
+        return True
+    if meta and meta.get("sigma_id"):
+        return True
+    return False
 
 
 def export_evtx_rules_to_sigma(
@@ -189,7 +197,7 @@ def export_evtx_rules_to_sigma(
         meta = dict(meta)
         if "level" not in meta:
             meta["level"] = 0
-        if _is_sigma_sourced(meta.get("source_evtx", "")):
+        if _is_sigma_sourced(meta.get("source_evtx", ""), meta):
             continue
 
         sigma_rule = rule_to_sigma(meta, rule_id)

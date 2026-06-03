@@ -165,6 +165,22 @@ def test_export_skips_sigma_sourced_rules(tmp_path):
             "source_evtx": "/rules/windows/process_creation/bar.YAML",
             "field_matches": {"win.eventdata.image": "x"},
         },
+        "100013": {
+            "technique_name": "From Sigma json",
+            "level": 9,
+            "source_category": "sysmon",
+            "source_evtx": "/rules/windows/process_creation/baz.json",
+            "sigma_id": "def-456-ghi",
+            "field_matches": {"win.eventdata.image": "x"},
+        },
+        "100014": {
+            "technique_name": "Sigma by id",
+            "level": 9,
+            "source_category": "sysmon",
+            "source_evtx": "/data/samples/evtx_file.evtx",
+            "sigma_id": "abc-123-def",
+            "field_matches": {"win.eventdata.image": "x"},
+        },
     }
     index_path = _write_index(tmp_path, index)
     out_dir = tmp_path / "out"

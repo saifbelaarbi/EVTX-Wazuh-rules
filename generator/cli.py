@@ -1,5 +1,6 @@
 """CLI entry point for the Wazuh Rule Database Generator."""
 
+from contextlib import contextmanager
 from pathlib import Path
 
 import click
@@ -23,6 +24,20 @@ from . import (
 console = Console()
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONFIG_FILE = PROJECT_ROOT / "config.yaml"
+
+
+@contextmanager
+def _snapshot_allocations():
+    """Save and restore id_allocations.json so dry runs don't consume IDs."""
+    alloc_file = PROJECT_ROOT / "database" / "metadata" / "id_allocations.json"
+    backup = alloc_file.read_text() if alloc_file.exists() else None
+    try:
+        yield
+    finally:
+        if backup is not None:
+            alloc_file.write_text(backup)
+        elif alloc_file.exists():
+            alloc_file.unlink()
 
 
 def load_config():
@@ -116,43 +131,47 @@ def generate(source, auto_approve, diff_only):
         console.print("[yellow]No detection patterns found.[/]")
         return
 
-    # Step 3: Build rules
-    console.print(f"\n[bold]Step 3/6: Building {len(patterns)} rules...[/]")
-    rules = rule_builder.build_rules(patterns)
+    # Wrap rule building in an allocation snapshot when dry-running so IDs
+    # are not permanently consumed.
+    ctx = _snapshot_allocations() if diff_only else contextmanager(lambda: (yield))()
+    with ctx:
+        # Step 3: Build rules
+        console.print(f"\n[bold]Step 3/6: Building {len(patterns)} rules...[/]")
+        rules = rule_builder.build_rules(patterns)
 
-    # Step 4: Correlate
-    console.print("\n[bold]Step 4/6: Correlating with existing rules...[/]")
-    existing_index = rule_correlator.load_rule_index()
-    defaults_dir = PROJECT_ROOT / config["paths"]["wazuh_defaults"] / "wazuh-ruleset" / "ruleset" / "rules"
-    default_rules = rule_correlator.load_wazuh_default_rules(defaults_dir)
+        # Step 4: Correlate
+        console.print("\n[bold]Step 4/6: Correlating with existing rules...[/]")
+        existing_index = rule_correlator.load_rule_index()
+        defaults_dir = PROJECT_ROOT / config["paths"]["wazuh_defaults"] / "wazuh-ruleset" / "ruleset" / "rules"
+        default_rules = rule_correlator.load_wazuh_default_rules(defaults_dir)
 
-    kept_rules = []
-    skipped = 0
-    for rule in rules:
-        report = rule_correlator.correlate(rule, existing_index, default_rules)
-        if report["recommendation"] == "skip":
-            skipped += 1
-            continue
-        rule["correlation_report"] = report
-        kept_rules.append(rule)
+        kept_rules = []
+        skipped = 0
+        for rule in rules:
+            report = rule_correlator.correlate(rule, existing_index, default_rules)
+            if report["recommendation"] == "skip":
+                skipped += 1
+                continue
+            rule["correlation_report"] = report
+            kept_rules.append(rule)
 
-    console.print(f"  Kept: {len(kept_rules)}, Skipped (duplicates): {skipped}")
+        console.print(f"  Kept: {len(kept_rules)}, Skipped (duplicates): {skipped}")
 
-    # Step 5: Apply alert levels
-    console.print("\n[bold]Step 5/6: Assigning alert levels...[/]")
-    kept_rules = alert_leveler.apply_levels(kept_rules)
+        # Step 5: Apply alert levels
+        console.print("\n[bold]Step 5/6: Assigning alert levels...[/]")
+        kept_rules = alert_leveler.apply_levels(kept_rules)
 
-    # Step 6: Validate
-    console.print("\n[bold]Step 6/6: Validating rules...[/]")
-    errors = validator.validate_rules(kept_rules)
-    if errors:
-        console.print(f"[yellow]Validation warnings ({len(errors)}):[/]")
-        for err in errors[:10]:
-            console.print(f"  - {err}")
+        # Step 6: Validate
+        console.print("\n[bold]Step 6/6: Validating rules...[/]")
+        errors = validator.validate_rules(kept_rules)
+        if errors:
+            console.print(f"[yellow]Validation warnings ({len(errors)}):[/]")
+            for err in errors[:10]:
+                console.print(f"  - {err}")
 
-    if diff_only:
-        console.print(f"\n[cyan]--diff-only:[/] would add/update {len(kept_rules)} rules. No files written.")
-        return
+        if diff_only:
+            console.print(f"\n[cyan]--diff-only:[/] would add/update {len(kept_rules)} rules. No files written.")
+            return
 
     if auto_approve:
         # Export directly to rule database
@@ -402,31 +421,36 @@ def convert_sigma_cmd(auto_approve, category, min_level, max_rules, with_negatio
             break
 
     platforms = ["windows", "linux", "cloud"] if platform == "all" else [platform]
-    rules = []
-    for plat in platforms:
-        plat_path = rules_root / plat
-        if not plat_path.exists():
-            console.print(f"[yellow]No '{plat}' Sigma rules at {plat_path}, skipping.[/]")
-            continue
-        console.print(f"[bold]Converting {plat} Sigma rules from {plat_path}...[/]")
-        rules.extend(
-            sigma_converter.convert_all(
-                rules_dir=plat_path,
-                category=category,
-                min_level=min_level,
-                max_rules=max_rules,
-                with_negation=with_negation,
-                write_error_report=(plat == platforms[-1]),
+
+    # Wrap conversion in an allocation snapshot when dry-running so IDs
+    # are not permanently consumed.
+    ctx = _snapshot_allocations() if diff_only else contextmanager(lambda: (yield))()
+    with ctx:
+        rules = []
+        for plat in platforms:
+            plat_path = rules_root / plat
+            if not plat_path.exists():
+                console.print(f"[yellow]No '{plat}' Sigma rules at {plat_path}, skipping.[/]")
+                continue
+            console.print(f"[bold]Converting {plat} Sigma rules from {plat_path}...[/]")
+            rules.extend(
+                sigma_converter.convert_all(
+                    rules_dir=plat_path,
+                    category=category,
+                    min_level=min_level,
+                    max_rules=max_rules,
+                    with_negation=with_negation,
+                    write_error_report=(plat == platforms[-1]),
+                )
             )
-        )
 
-    if not rules:
-        console.print("[yellow]No rules converted.[/]")
-        return
+        if not rules:
+            console.print("[yellow]No rules converted.[/]")
+            return
 
-    if diff_only:
-        console.print(f"[cyan]--diff-only:[/] would add/update {len(rules)} rules. No files written.")
-        return
+        if diff_only:
+            console.print(f"[cyan]--diff-only:[/] would add/update {len(rules)} rules. No files written.")
+            return
 
     # Step 2: Correlate against existing database
     console.print(f"\n[bold]Correlating {len(rules)} rules against existing database...[/]")
@@ -550,10 +574,25 @@ def build_composites_cmd(auto_approve):
     """Build composite/chained correlation rules from templates."""
     from . import composite_builder
 
-    rules = composite_builder.build_from_templates()
-    if not rules:
+    templates = composite_builder.load_templates()
+    if not templates:
         console.print("[yellow]No composite templates found.[/]")
         return
+
+    if auto_approve:
+        valid = [t for t in templates if not composite_builder.has_placeholder_sids(t)]
+        skipped = len(templates) - len(valid)
+        if skipped:
+            console.print(
+                f"[yellow]Skipped {skipped} template(s) with placeholder SIDs "
+                f"(wire real rule IDs before auto-approving).[/]"
+            )
+        templates = valid
+        if not templates:
+            console.print("[yellow]No templates with real SIDs to build.[/]")
+            return
+
+    rules = composite_builder.build_from_templates(templates)
     console.print(f"[bold]Built {len(rules)} composite rules.[/]")
     if auto_approve:
         exporter.export_all_views(rules)
