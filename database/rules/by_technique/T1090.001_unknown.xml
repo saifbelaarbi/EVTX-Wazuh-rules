@@ -13,7 +13,7 @@
   </rule>
   <rule id="110082" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\cloudflared\.exe$</field>
+    <field name="win.eventdata.image">\\cloudflared.exe$</field>
     <description>Sigma: Cloudflared Portable Execution</description>
     <mitre>
       <id>T1090.001</id>
@@ -22,7 +22,7 @@
   </rule>
   <rule id="110083" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\cloudflared\.exe$|\cloudflared-windows-386\.exe$|\cloudflared-windows-amd64\.exe$</field>
+    <field name="win.eventdata.image">\\cloudflared.exe$|\\cloudflared-windows-386.exe$|\\cloudflared-windows-amd64.exe$</field>
     <description>Sigma: Cloudflared Quick Tunnel Execution</description>
     <mitre>
       <id>T1090.001</id>
@@ -31,7 +31,7 @@
   </rule>
   <rule id="110099" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharpChisel\.exe$</field>
+    <field name="win.eventdata.image">\\SharpChisel.exe$</field>
     <description>Sigma: HackTool - SharpChisel Execution</description>
     <mitre>
       <id>T1090.001</id>
@@ -49,8 +49,8 @@
   </rule>
   <rule id="110123" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\chisel\.exe$</field>
-    <field name="win.eventdata.commandLine">-socks5|-reverse| r:|:127\.0\.0\.1:|-tls-skip-verify |:socks</field>
+    <field name="win.eventdata.image">\\chisel.exe$</field>
+    <field name="win.eventdata.commandLine">-socks5|-reverse| r:|:127.0.0.1:|-tls-skip-verify |:socks</field>
     <description>Sigma: PUA - Chisel Tunneling Tool Execution</description>
     <mitre>
       <id>T1090.001</id>

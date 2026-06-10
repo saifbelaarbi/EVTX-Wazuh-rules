@@ -1,0 +1,20 @@
+title: 'Suspicious PowerShell: -nop '
+id: 4adc6eab-7856-5b62-8af2-1152228a5190
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100019).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/Powershell-Invoke-Obfuscation-many.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    ScriptBlockText: '-nop '
+  condition: selection
+level: medium
+tags:
+- attack.t1059.001
+- attack.execution

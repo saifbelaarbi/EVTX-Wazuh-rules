@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218.003_unknown,">
-  <rule id="100200" level="9">
+  <rule id="100202" level="9">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\cmstp\.exe$</field>
-    <field name="win.eventdata.imageLoaded">\.dll$|\.ocx$</field>
+    <field name="win.eventdata.image">\\cmstp.exe$</field>
+    <field name="win.eventdata.imageLoaded">.dll$|.ocx$</field>
     <description>Sigma: DLL Loaded From Suspicious Location Via Cmspt.EXE</description>
     <mitre>
       <id>T1218.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100224" level="9">
+  <rule id="100226" level="9">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">\cmstp\.exe$</field>
+    <field name="win.eventdata.image">\\cmstp.exe$</field>
     <field name="win.eventdata.initiated">true</field>
     <description>Sigma: Outbound Network Connection Initiated By Cmstp.EXE</description>
     <mitre>
@@ -20,9 +20,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100358" level="9">
+  <rule id="100360" level="9">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.callTrace">cmlua\.dll</field>
+    <field name="win.eventdata.callTrace">cmlua.dll</field>
     <description>Sigma: CMSTP Execution Process Access</description>
     <mitre>
       <id>T1218.003</id>
@@ -30,25 +30,34 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100421" level="9">
+  <rule id="100423" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\cmstp\.exe$</field>
+    <field name="win.eventdata.parentImage">\\cmstp.exe$</field>
     <description>Sigma: CMSTP Execution Process Creation</description>
     <mitre>
       <id>T1218.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101088" level="9">
+  <rule id="101090" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\cmmgr32\.exe</field>
+    <field name="win.eventdata.targetObject">\\cmmgr32.exe</field>
     <description>Sigma: CMSTP Execution Registry Event</description>
     <mitre>
       <id>T1218.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="112015" level="10">
+  <rule id="112020" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">cmstp</field>
+    <description>Suspicious process 'cmstp' execution detected</description>
+    <mitre>
+      <id>T1218.003</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112025" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">cmstp</field>
     <description>Suspicious process 'cmstp' execution detected</description>

@@ -1,0 +1,21 @@
+title: 'Suspicious service path: cmd.exe /c'
+id: a6d1703d-4904-5719-b109-32b8e0267bbd
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104514).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/many-events-system.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    ServiceName: adsymn
+    ImagePath: cmd.exe /c
+  condition: selection
+level: medium
+tags:
+- attack.t1543.003
+- attack.persistence

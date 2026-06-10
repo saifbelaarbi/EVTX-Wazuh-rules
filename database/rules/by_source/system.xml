@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,system,">
-  <rule id="100040" level="9">
+  <rule id="100042" level="9">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">101</field>
-    <field name="win.eventdata.packagePath">\\\\</field>
+    <field name="win.eventdata.packagePath">\\\\\\\\</field>
     <description>Sigma: Loading Diagcab Package From Remote Path</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100041" level="8">
+  <rule id="100043" level="8">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">6004</field>
     <description>Sigma: Failed DNS Zone Transfer</description>
@@ -16,32 +16,32 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100081" level="8">
+  <rule id="100083" level="8">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">28115</field>
     <field name="win.eventdata.name">Zenmap|AnyDesk|wireshark|openvpn</field>
     <description>Sigma: Suspicious Application Installed</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100082" level="8">
+  <rule id="100084" level="8">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">28115</field>
-    <field name="win.eventdata.appID">zenmap\.exe|prokzult ad|wireshark|openvpn</field>
+    <field name="win.eventdata.appID">zenmap.exe|prokzult ad|wireshark|openvpn</field>
     <description>Sigma: Suspicious Application Installed</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100083" level="9">
+  <rule id="100085" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Application Popup</field>
     <field name="win.system.eventID">26</field>
-    <field name="win.eventdata.caption">sysmon64\.exe - Application Error|sysmon\.exe - Application Error</field>
+    <field name="win.eventdata.caption">sysmon64.exe - Application Error|sysmon.exe - Application Error</field>
     <description>Sigma: Sysmon Application Crashed</description>
     <mitre>
       <id>T1685</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100084" level="8">
+  <rule id="100086" level="8">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">104</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
@@ -51,7 +51,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100085" level="9">
+  <rule id="100087" level="9">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">104</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
@@ -62,7 +62,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100086" level="8">
+  <rule id="100088" level="8">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">7036</field>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
@@ -74,7 +74,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100087" level="9">
+  <rule id="100089" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -86,7 +86,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100088" level="9">
+  <rule id="100090" level="9">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">\$PSHome\[\s*\d{1,3}\s*\]\s*\+\s*\$PSHome\[</field>
@@ -96,7 +96,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100089" level="9">
+  <rule id="100091" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -108,7 +108,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100090" level="9">
+  <rule id="100092" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -120,11 +120,11 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100091" level="8">
+  <rule id="100093" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">:system\.io\.compression\.deflatestream|system\.io\.streamreader|text\.encoding\]::ascii|readtoend</field>
+    <field name="win.eventdata.imagePath">:system.io.compression.deflatestream|system.io.streamreader|text.encoding\]::ascii|readtoend</field>
     <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - System</description>
     <mitre>
       <id>T1027</id>
@@ -132,11 +132,11 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100092" level="8">
+  <rule id="100094" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">rundll32\.exe|shell32\.dll|shellexec_rundll|powershell</field>
+    <field name="win.eventdata.imagePath">rundll32.exe|shell32.dll|shellexec_rundll|powershell</field>
     <description>Sigma: Invoke-Obfuscation RUNDLL LAUNCHER - System</description>
     <mitre>
       <id>T1027</id>
@@ -144,7 +144,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100093" level="9">
+  <rule id="100095" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -156,7 +156,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100094" level="9">
+  <rule id="100096" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -168,7 +168,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100095" level="9">
+  <rule id="100097" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -180,11 +180,11 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100096" level="9">
+  <rule id="100098" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">value|invoke|comspec|iex|rundll32|shell32\.dll|shellexec_rundll</field>
+    <field name="win.eventdata.imagePath">value|invoke|comspec|iex|rundll32|shell32.dll|shellexec_rundll</field>
     <description>Sigma: Invoke-Obfuscation Via Use Rundll32 - System</description>
     <mitre>
       <id>T1027</id>
@@ -192,7 +192,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100097" level="9">
+  <rule id="100099" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -204,7 +204,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100098" level="9">
+  <rule id="100100" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -215,7 +215,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100099" level="8">
+  <rule id="100101" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -226,7 +226,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100100" level="9">
+  <rule id="100102" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045|7036</field>
@@ -237,7 +237,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100101" level="8">
+  <rule id="100103" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -248,7 +248,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100102" level="8">
+  <rule id="100104" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -259,7 +259,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100103" level="8">
+  <rule id="100105" level="8">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -270,7 +270,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100104" level="9">
+  <rule id="100106" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7023</field>
@@ -278,7 +278,7 @@
     <description>Sigma: Important Windows Service Terminated With Error</description>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100105" level="9">
+  <rule id="100107" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7034</field>
@@ -289,7 +289,7 @@
   <rule id="104017" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KIyBUaGlzIFBvd2Vyc2</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -309,7 +309,7 @@
   <rule id="104019" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">hlbGwgc2NyaXB0IGluY2x1ZGVzIHRocmVlIG9wdGlvbnMgZm9yIEVQUyBkYXRhIGNvbGxlY3Rpb246DQojDQojIE9wdGlvbiAxKSBTY2FuIHRoZSBldmVudCBsb2cocykgb2YgdGhlIGxvY2FsIFdp</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -329,7 +329,7 @@
   <rule id="104021" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bmRvd3MgaG9zdCB0byBkZXRlcm1pbmUgdGhlIEV2ZW50cyBQZXIgU2Vjb25kIA0KIyAgICAgICAgICAgKEVQUykgcmF0ZS4NCiMgT3B0aW9uIDIpIFNjYW4gYSBsaXN0IG9mIElQIGFkZHJlc3Nlcy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -349,7 +349,7 @@
   <rule id="104023" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Bwcm92aWRlZCBieSB0aGUgdXNlci4gVGhlIHJlbW90ZSBzeXN0ZW1zIEV2ZW50IExvZyhzKSBhcmUgDQojICAgICAgICAgICBzY2FubmVkIHRvIGRldGVybWluZSB0aGUgRXZlbnRzIFBlciBTZWNv</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -369,7 +369,7 @@
   <rule id="104025" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bmQgKEVQUykgcmF0ZSBvZiBlYWNoIGhvc3QgaW4gdGhlIGxpc3QuDQojIE9wdGlvbiAzKSBTY2FuIHRoZSBsb2NhbCBkb21haW4gd2hlcmUgdGhlIHNjcmlwdCBpcyBydW4gdG8gZGV0ZXJtaW5lIH</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -389,7 +389,7 @@
   <rule id="104027" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RoZSBFdmVudHMgUGVyIFNlY29uZCAoRVBTKSANCiMgICAgICAgICAgIHJhdGUgb2YgYWxsIFdpbmRvd3MgaG9zdHMgd2l0aGluIHRoZSBkb21haW4uDQojDQojIE5vdGU6IFBvd2VyU2hlbGwgbXVz</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -409,7 +409,7 @@
   <rule id="104029" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">dCBiZSBydW4gYXMgbG9jYWwgYWRtaW4gJiB1c2VycyBtdXN0IHJ1biBTZXQtRXhlY3V0aW9uUG9saWN5IFJlbW90ZVNpZ25lZA0KIyAgICAgICBUbyB1c2UgT3B0aW9uIDMgZm9yIGRvbWFpbiBzY2</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -429,7 +429,7 @@
   <rule id="104031" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">FucywgUG93ZXJzaGVsbCBkb21haW4gY21kbGV0cyBuZWVkIHRvIGJlIGluc3RhbGxlZC4NCiMNCiMgUHJlLXJlcXVpc2l0ZXM6IFRoaXMgc2NyaXB0IHJlcXVpcmVzIFBvd2Vyc2hlbGwgMy4wIG9y</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -449,7 +449,7 @@
   <rule id="104033" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IDQuMC4gUG93ZXJzaGVsbCBpcyB0aGUgcHJvcGVydHkgb2YNCiMgICAgICAgICAgICAgICAgTWljcm9zb2Z0LiBGb3IgbW9yZSBpbmZvcm1hdGlvbiBvbiBQb3dlcnNoZWxsIG9yIGRvd25sb2Fkcy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -469,7 +469,7 @@
   <rule id="104035" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">wgc2VlIHRoZSBmb2xsb3dpbmcNCiMgICAgICAgICAgICAgICAgd2Vic2l0ZTogaHR0cHM6Ly90ZWNobmV0Lm1pY3Jvc29mdC5jb20vZW4tdXMvc2NyaXB0Y2VudGVyL2RkNzQyNDE5LmFzcHgNCiMN</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -489,7 +489,7 @@
   <rule id="104037" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">CiMNCiMgQXV0aG9yczogIEphbWllIFdoZWF0b24gLy8gV2lsbGlhbSBEZWxvbmcNCiMgDQojDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -509,7 +509,7 @@
   <rule id="104039" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjDQojDQojDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -529,7 +529,7 @@
   <rule id="104041" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjDQojRnVuY3Rpb24gd2lsbCBzY2FuIHRoZSBFdmVudCBMb2cocykgJiBkZXRlcm1pbmUgdGhlIEV2ZW50cyBQZXIgU2Vjb25kIChFUFMpLg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -549,7 +549,7 @@
   <rule id="104043" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">0KIw0KI0BwYXJhbSAkQWdlbnQgICAgICAgICAgLT4gIFRoZSBDb21wdXRlciAvIElQDQojQHBhcmFtICRMb2dOYW1lICAgICAgICAtPiAgVGhlIEV2ZW50IExvZyB0aGF0IHdpbGwgYmUgZXZhbHVh</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -569,7 +569,7 @@
   <rule id="104045" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0\+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -589,7 +589,7 @@
   <rule id="104047" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">xvY2FsICANCiMNCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMNCg0K</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -609,7 +609,7 @@
   <rule id="104049" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZnVuY3Rpb24gR2V0LUV2ZW50TG9nSW5mbyB7IHBhcmFtKCRBZ2VudCwgJExvZ05hbWUsICRSZW1vdGVDb21wdXRlciwgJE9TKQ0KDQogICAgJExvZ0luZm8gPSBAe30gICAgICAgIA0KDQogICAgIH</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -629,7 +629,7 @@
   <rule id="104051" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RyeSB7ICAgICANCiAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICAgICAgICMgSnVzdCBsb2NhbGhvc3QNCiAgICAgICAgSWYgKCEkUmVtb3RlQ29tcHV0ZXIpIHsgICAgICAgICANCg0KICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -649,7 +649,7 @@
   <rule id="104053" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICAgICAgJFRvdGFsTG9nRXZlbnRzID0gKEdldC1XaW5FdmVudCAtTGlzdExvZyAkTG9nTmFtZSkuUmVjb3JkQ291bnQNCg0KICAgICAgICAgICAgJExvZ1NpemUgPSAoR2V0LVdpbkV2ZW50IC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -669,7 +669,7 @@
   <rule id="104055" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">1MaXN0TG9nICRMb2dOYW1lKS5GaWxlU2l6ZSAvIDEwMDAwMDAgIyBTZXQgdG8gTUINCiAgICAgICAgICAgIA0KICAgICAgICAgICAgJExvZ1NpemUgPSBbbWF0aF06OlJvdW5kKCgkTG9nU2l6ZSks</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -689,7 +689,7 @@
   <rule id="104057" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IDEpDQogICAgIA0KICAgICAgICAgICAgJE9sZGVzdEV2ZW50VGltZSA9IChHZXQtV2luRXZlbnQgJExvZ05hbWUgLU9sZGVzdCAtbWF4ZXZlbnRzIDEpLlRpbWVDcmVhdGVkICAgICAgICANCg0KIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -709,7 +709,7 @@
   <rule id="104059" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAgICAgJE5ld2VzdEV2ZW50VGltZSA9IChHZXQtV2luRXZlbnQgJExvZ05hbWUgLW1heGV2ZW50cyAxKS5UaW1lQ3JlYXRlZA0KICAgICAgICANCiAgICAgICAgICAgICRUb3RhbFRpbWUg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -729,7 +729,7 @@
   <rule id="104061" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">PSAoR2V0LURhdGUpLlN1YnRyYWN0KCRPbGRlc3RFdmVudFRpbWUpLlRvdGFsU2Vjb25kcw0KDQogICAgICAgICAgICAkQXZnRXZlbnRzUGVyU2Vjb25kID0gJFRvdGFsTG9nRXZlbnRzIC8gJFRvdG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -749,7 +749,7 @@
   <rule id="104063" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">FsVGltZSAgICAgICANCiAgICAgICAgDQogICAgICAgICAgICAkQXZnRXZlbnRzUGVyU2Vjb25kID0gW21hdGhdOjpSb3VuZCgkQXZnRXZlbnRzUGVyU2Vjb25kLCA1KSANCiAgICAgICAgICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -769,7 +769,7 @@
   <rule id="104065" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICAgICAgIH0NCiAgICAgICAgDQogICAgICAgICMgUmVtb3RlIGJveA0KICAgICAgICBFbHNlIHsNCg0KICAgICAgICAgICAgaW</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -789,7 +789,7 @@
   <rule id="104067" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">YgKCRPUyAtbGlrZSAiKlNlcnZlciAyMDAzKiIgLW9yICRPUyAtbGlrZSAiKldpbmRvd3MgWFAqIil7DQoNCiAgICAgICAgICAgICAgICBXcml0ZS1Ib3N0ICIkT1MgaXMgYW4gb2xkIE9wZXJhdGlu</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -809,7 +809,7 @@
   <rule id="104069" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZyBTeXN0ZW0sIENvbGxlY3RpbmcgJExvZ05hbWUgRXZlbnQgTG9nIEluZm9ybWF0aW9uIHZpYSBXTUksIHRoaXMgbWF5IHRha2Ugc29tZSB0aW1lIg0KDQogICAgICAgICAgICAgICAgJHdtaV9ldm</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -829,7 +829,7 @@
   <rule id="104071" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">VudGxvZ3N1bW1hcnkgPSBHZXQtV21pT2JqZWN0IC1DbGFzcyBXaW4zMl9OVEV2ZW50TG9nRmlsZSAtY29tcHV0ZXJuYW1lICRBZ2VudCAtQ3JlZGVudGlhbCAkR2xvYmFsOkNyZWQgLWZpbHRlciAi</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -849,7 +849,7 @@
   <rule id="104073" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">TG9nRmlsZU5hbWUgPSAnJExvZ05hbWUnIg0KICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICRUb3RhbExvZ0V2ZW50cyA9ICR3bWlfZXZlbnRsb2dzdW1tYXJ5Lk51bWJlck9mUmVjb3</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -869,7 +869,7 @@
   <rule id="104075" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Jkcw0KDQogICAgICAgICAgICAgICAgJExvZ1NpemUgPSAoJHdtaV9ldmVudGxvZ3N1bW1hcnkuRmlsZVNpemUgLyAxTUIpDQogICAgIA0KICAgICAgICAgICAgICAgICR3bWlfZXZlbnRsb2dkYXRh</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -889,7 +889,7 @@
   <rule id="104077" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ID0gR2V0LVdNSW9iamVjdCAtQ29tcHV0ZXJOYW1lICRjb21wdXRlciAtQ3JlZGVudGlhbCAkY3JlZCAtcXVlcnkgIlNlbGVjdCAqIGZyb20gV2luMzJfTlRMb2dFdmVudCBXaGVyZSBMb2dmaWxlID</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -909,7 +909,7 @@
   <rule id="104079" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">0gJ2FwcGxpY2F0aW9uJyINCg0KICAgICAgICAgICAgICAgICRnZXR3bWlvbGRldmVudCA9ICAkd21pX2V2ZW50bG9nZGF0YXwgc2VsZWN0IC1sYXN0IDENCg0KICAgICAgICAgICAgICAgICRnZXR3</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -929,7 +929,7 @@
   <rule id="104081" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bWluZXdlc3QgPSAkd21pX2V2ZW50bG9nZGF0YSB8IHNlbGVjdCAtZmlyc3QgMQ0KICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICRPbGRlc3RFdmVudFRpbWUgPSBbbWFuYWdlbWVudC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -949,7 +949,7 @@
   <rule id="104083" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">5tYW5hZ2VtZW50RGF0ZVRpbWVDb252ZXJ0ZXJdOjpUb0RhdGVUaW1lKCRnZXR3bWlvbGRldmVudC5UaW1lR2VuZXJhdGVkKSAgICAgICAgDQoNCiAgICAgICAgICAgICAgICAkTmV3ZXN0RXZlbnRU</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -969,7 +969,7 @@
   <rule id="104085" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">aW1lID0gW21hbmFnZW1lbnQubWFuYWdlbWVudERhdGVUaW1lQ29udmVydGVyXTo6VG9EYXRlVGltZSgkZ2V0d21pbmV3ZXN0LlRpbWVHZW5lcmF0ZWQpDQoNCg0KICAgICAgICAgICAgICAgIH0NCg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -989,7 +989,7 @@
   <rule id="104087" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">0KICAgICAgICAgICAgZWxzZSB7DQoNCiAgICAgICAgICAgICRUb3RhbExvZ0V2ZW50cyA9IChHZXQtV2luRXZlbnQgLUxpc3RMb2cgJExvZ05hbWUgLUNvbXB1dGVyTmFtZSAkQWdlbnQgLUNyZWRl</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1009,7 +1009,7 @@
   <rule id="104089" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bnRpYWwgJEdsb2JhbDpDcmVkKS5SZWNvcmRDb3VudA0KDQogICAgICAgICAgICAkTG9nU2l6ZSA9ICgoR2V0LVdpbkV2ZW50IC1MaXN0TG9nICRMb2dOYW1lIC1Db21wdXRlck5hbWUgJEFnZW50IC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1029,7 +1029,7 @@
   <rule id="104091" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">1DcmVkZW50aWFsICRHbG9iYWw6Q3JlZCkuRmlsZVNpemUgLyAxTUIpICMgU2V0IHRvIE1CDQogICAgICAgICAgICANCiAgICAgICAgICAgICMkTG9nU2l6ZSA9IFttYXRoXTo6Um91bmQoKCRMb2dT</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1049,7 +1049,7 @@
   <rule id="104093" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">aXplKSwgMSkNCiAgICAgDQogICAgICAgICAgICBpZiAoJFRvdGFsTG9nRXZlbnRzIC1lcSAwKSB7DQogICAgICAgICAgICANCiAgICAgICAgICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRyAiVG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1069,7 +1069,7 @@
   <rule id="104095" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">hlcmUgYXJlIDAgJExvZ05hbWUgRXZlbnRzIg0KICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICAgICRPbGRlc3RFdmVudFRpbWUgPSAwDQogICAgICAgICAgICAgICAgICAgJE5ld2VzdEV2</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1089,7 +1089,7 @@
   <rule id="104097" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZW50VGltZSA9IDANCiAgICAgICAgICAgICAgICAgICAkVG90YWxUaW1lID0gMA0KICAgICAgICAgICAgICAgICAgICRBdmdFdmVudHNQZXJTZWNvbmQgPSAwDQogICAgICAgICAgICAgICAgICAgJE</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1109,7 +1109,7 @@
   <rule id="104099" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">F2Z0V2ZW50c1BlclNlY29uZCA9IDANCg0KICAgICAgICAgICAgICAgIH0gDQoNCiAgICAgICAgICAgICAgICBlbHNlIHsNCg0KICAgICAgICAgICAgICAgICAgICAgICAgJE9sZGVzdEV2ZW50VGlt</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1129,7 +1129,7 @@
   <rule id="104101" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZSA9IChHZXQtV2luRXZlbnQgJExvZ05hbWUgLUNvbXB1dGVyTmFtZSAkQWdlbnQgLUNyZWRlbnRpYWwgJEdsb2JhbDpDcmVkIC1PbGRlc3QgLU1heGV2ZW50cyAxKS5UaW1lQ3JlYXRlZCAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1149,7 +1149,7 @@
   <rule id="104103" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgDQogICAgDQogICAgICAgICAgICAgICAgICAgICAgICAkTmV3ZXN0RXZlbnRUaW1lID0gKEdldC1XaW5FdmVudCAkTG9nTmFtZSAtQ29tcHV0ZXJOYW1lICRBZ2VudCAtQ3JlZGVudGlhbCAkR2xv</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1169,7 +1169,7 @@
   <rule id="104105" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">YmFsOkNyZWQgLU1heGV2ZW50cyAxKS5UaW1lQ3JlYXRlZA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgICAgICAgICAkVG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1189,7 +1189,7 @@
   <rule id="104107" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">90YWxUaW1lID0gKEdldC1EYXRlKS5TdWJ0cmFjdCgkT2xkZXN0RXZlbnRUaW1lKS5Ub3RhbFNlY29uZHMNCiAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICAgICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1209,7 +1209,7 @@
   <rule id="104109" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">JEF2Z0V2ZW50c1BlclNlY29uZCA9ICRUb3RhbExvZ0V2ZW50cyAvICRUb3RhbFRpbWUgICAgICAgDQogICAgICAgIA0KICAgICAgICAgICAgICAgICAgICAgICAgJEF2Z0V2ZW50c1BlclNlY29uZC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1229,7 +1229,7 @@
   <rule id="104111" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">A9IFttYXRoXTo6Um91bmQoJEF2Z0V2ZW50c1BlclNlY29uZCwgNSkgDQogICAgICAgICAgICAgICAgDQoNCiAgICAgICAgICAgICAgICAgICAgIH0NCg0KICAgICAgICAgICAgfQ0KDQogICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1249,7 +1249,7 @@
   <rule id="104113" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICAgICAgICAgICAgICAgICAgICANCiAgICAgICAgfQ0KICAgICAgICANCiAgICAgICAgDQoNCiAgICAgICAgJExvZ0luZm8uQWRkKCJTdGFydFRpbWUiLCAkT2xkZXN0RXZlbnRUaW1lKQ0KIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1269,7 +1269,7 @@
   <rule id="104115" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAkTG9nSW5mby5BZGQoIkVuZFRpbWUiLCAkTmV3ZXN0RXZlbnRUaW1lKQ0KDQogICAgICAgICRMb2dJbmZvLkFkZCgiTG9nU2l6ZSIsICRMb2dTaXplKQ0KICAgICAgICAjJExvZ0luZm8u</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1289,7 +1289,7 @@
   <rule id="104117" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">QWRkKCJPU1ZlcnNpb24iLCAkT1NWZXJzaW9uKQ0KDQogICAgICAgICRMb2dJbmZvLkFkZCgiVG90YWxFdmVudHMiLCAkVG90YWxMb2dFdmVudHMpDQoNCiAgICAgICAgJExvZ0luZm8uQWRkKCJBdm</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1309,7 +1309,7 @@
   <rule id="104119" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">VyYWdlRXZlbnRzIiwgJEF2Z0V2ZW50c1BlclNlY29uZCkNCg0KICAgICAgICBSZXR1cm4gJExvZ0luZm8NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgDQogICAgIH0NCiAgICAgDQog</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1329,7 +1329,7 @@
   <rule id="104121" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgIGNhdGNoIHsNCg0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRyAiVW5hYmxlIHRvIHNjYW4gJEFnZW50IGV2ZW50IGxvZ3MiDQoNCiAgICAgICAgV3JpdGUtTG9nICRFUlJPUl9MT0cgJE</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1349,7 +1349,7 @@
   <rule id="104123" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Vycm9yWzBdDQoNCiAgICAgICAgJEVycm9yTGluZU51bWJlciA9ICRFcnJvclswXS5JbnZvY2F0aW9uSW5mby5zY3JpcHRsaW5lbnVtYmVyDQoNCiAgICAgICAgV3JpdGUtTG9nICRFUlJPUl9MT0cg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1369,7 +1369,7 @@
   <rule id="104125" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IkNhdWdodCBvbiBsaW5lIG51bWJlcjogJEVycm9yTGluZU51bWJlciINCg0KICAgICAgICBjb250aW51ZQ0KICAgIH0NCn0NCg0KDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1389,7 +1389,7 @@
   <rule id="104127" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjDQojRnVuY3Rpb24gd2lsbCBnZW5lcmF0ZSBvdXRwdXQgaW5mbyBmb3IgdGhlIGdpdmVu</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1409,7 +1409,7 @@
   <rule id="104129" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IGxvZyBldmVudHMgcGVyIHNlY29uZA0KDQojQHBhcmFtICRUb3RhbExvZ0V2ZW50cyAtPiAgVGhlIHRvdGFsICMgb2YgZXZlbnRzIGZvciB0aGUgZ2l2ZW4gbG9nDQoNCiMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1429,7 +1429,7 @@
   <rule id="104131" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMNCg0KZnVuY3Rpb24gR2V0LVByb2ZpbGVTdWdnZXN0</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1449,7 +1449,7 @@
   <rule id="104133" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">aW9uIHsgcGFyYW0oJEF2Z0V2ZW50c1BlclNlY29uZCkNCg0KICAgIHRyeSB7DQoNCiAgICAgICAgICNQcm9maWxlIHN1Z2VzdGlvbg0KICAgICAgICAgJExvZ1N0YXRzQW5kSW5mbyA9ICIiDQoNCg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1469,7 +1469,7 @@
   <rule id="104135" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">0KICAgICAgICBJZiAoJEF2Z0V2ZW50c1BlclNlY29uZCAtR0UgMCAtYW5kICRBdmdFdmVudHNQZXJTZWNvbmQgLUxFIDEwMCkgew0KICAgICAgICAgDQogICAgICAgICAgICAkTG9nU3RhdHNBbmRJ</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1489,7 +1489,7 @@
   <rule id="104137" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bmZvICs9ICJNU1JQQyAoMC0xMDApIEVQUyBvciBXaW5Db2xsZWN0IERlZmF1bHQgKEVuZHBvaW50KSAoMC01MCkgRVBTYG4iICAgICAgICAgDQogICAgICAgICB9DQogICAgICAgICANCiAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1509,7 +1509,7 @@
   <rule id="104139" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgIyBBYm92ZSBIaWdoIEhhdGUNCiAgICAgICAgIElmICgkQXZnRXZlbnRzUGVyU2Vjb25kIC1HVCA2MjUpIHsgDQogICAgICAgICAgICANCiAgICAgICAgICAgICRMb2dTdGF0c0FuZEluZm8gKz0g</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1529,7 +1529,7 @@
   <rule id="104141" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IlN1Z2dlc3RlZCBQcm9maWxlOiBIaWdoIEV2ZW50IFJhdGUgU2VydmVyICgyNTEtNjI1KSBFUFMiDQogICAgICAgICAgICAjJExvZ1N0YXRzQW5kSW5mbyArPSAiTk9URTogTG9nIEV2ZW50IFJhdG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1549,7 +1549,7 @@
   <rule id="104143" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">UgSGlnaGVyIFRoZW4gUHJvZmlsZSBSYW5nZWBuIiANCiAgICAgICAgICAgICANCiAgICAgICAgIH0NCiAgICAgICAgIA0KICAgICAgICAgIy0gSGlnaCBFdmVudCBSYXRlIFNlcnZlciAxMjUwLTE4</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1569,7 +1569,7 @@
   <rule id="104145" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">NzUgKDQxNi02MjUpDQogICAgICAgICBFbHNlSWYgICgkQXZnRXZlbnRzUGVyU2Vjb25kIC1HRSAyNTApIHsgDQogICAgICAgICANCiAgICAgICAgICAgICRMb2dTdGF0c0FuZEluZm8gKz0gIkhpZ2</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1589,7 +1589,7 @@
   <rule id="104147" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ggRXZlbnQgUmF0ZSBTZXJ2ZXIgKDI1MS02MjUpIEVQUyINCiAgICAgICAgIH0NCiAgICAgICAgIA0KICAgICAgICAgIy0gVHlwaWNhbCBTZXJ2ZXIgNTAwLTc1MCAoMTY2LTI1MCkNCiAgICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1609,7 +1609,7 @@
   <rule id="104149" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IEVsc2VJZiAgKCRBdmdFdmVudHNQZXJTZWNvbmQgLUdFIDUwKSB7IA0KICAgICAgICAgIA0KICAgICAgICAgICAgJExvZ1N0YXRzQW5kSW5mbyArPSAiVHlwaWNhbCBTZXJ2ZXIgKDUxLTI1MCkgRV</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1629,7 +1629,7 @@
   <rule id="104151" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">BTIg0KICAgICAgICAgfQ0KICAgICAgICAgDQogICAgICAgICAjLSBEZWZhdWx0IChFbmRwb2ludCkgMTAwLTE1MCAoMzMtNTApDQogICAgICAgICBFbHNlSWYgICgkQXZnRXZlbnRzUGVyU2Vjb25k</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1649,7 +1649,7 @@
   <rule id="104153" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IC1HRSAwKSB7IA0KDQogICAgICAgICAgICAkTG9nU3RhdHNBbmRJbmZvICs9ICJXaW5Db2xsZWN0IERlZmF1bHQgKEVuZHBvaW50KSAoMC01MCkgRVBTIg0KICAgICAgICAgfQ0KICAgICAgICAgDQ</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1669,7 +1669,7 @@
   <rule id="104155" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ogICAgICAgICAjIE5lZ2l0aXZlIG9yIHVucmVhZGJsZSBhbmQgY2FudCBiZSBkZXRlcm1pbmVkIA0KICAgICAgICAgRWxzZSB7DQogICAgICAgICANCiAgICAgICAgICAgIFdyaXRlLUxvZyAkRVJS</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1689,7 +1689,7 @@
   <rule id="104157" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">T1JfTE9HICJVbmFibGUgdG8gU3VnZ2VzdCBQcm9maWxlIg0KICAgICAgICAgICAgDQogICAgICAgICAgICBleGl0DQogICAgICAgICB9ICAgICAgICANCiANCiAgICAgICAgIA0KICAgICAgICAgJE</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1709,7 +1709,7 @@
   <rule id="104159" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">xvZ1N0YXRzQW5kSW5mbw0KDQogICAgDQogICAgfQ0KDQogICAgY2F0Y2ggew0KDQogICAgICAgIFdyaXRlLUxvZyAkRVJST1JfTE9HICJVbmFibGUgdG8gZ2V0IHByb2ZpbGUgc3VnZ2VzdGlvbiIN</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1729,7 +1729,7 @@
   <rule id="104161" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Cg0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRyAkRXJyb3JbMF0NCg0KICAgICAgICAkRXJyb3JMaW5lTnVtYmVyID0gJEVycm9yWzBdLkludm9jYXRpb25JbmZvLnNjcmlwdGxpbmVudW1iZX</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1749,7 +1749,7 @@
   <rule id="104163" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">INCg0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRyAiQ2F1Z2h0IG9uIGxpbmUgbnVtYmVyOiAkRXJyb3JMaW5lTnVtYmVyIg0KDQogICAgICAgIGV4aXQNCiAgICB9DQp9DQoNCiMjIyMjIyMj</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1769,7 +1769,7 @@
   <rule id="104165" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIHRlc3QgY2</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1789,7 +1789,7 @@
   <rule id="104167" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">9ubmVjdGlvbg0KDQojQHBhcmFtICRDcmVkICAgICAtPiAgVGhlIEV2ZW50IExvZw0KI0BwYXJhbSAkQ29tcHV0ZXIgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQgZm9yIHRoZSBnaXZlbiBs</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1809,7 +1809,7 @@
   <rule id="104169" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">b2cNCg0KIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KDQpmdW5jdG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1829,7 +1829,7 @@
   <rule id="104171" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">lvbiBUZXN0LUhvc3RDb25uZWN0aW9uIHsgcGFyYW0oJENvbXB1dGVyKSAgICANCg0KICAgIHRyeSB7DQoNCiAgICAgICAgaWYgKChUZXN0LUNvbm5lY3Rpb24gLUNvbXB1dGVyTmFtZSAkQ29tcHV0</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1849,7 +1849,7 @@
   <rule id="104173" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZXIgLWNvdW50IDEgLXF1aWV0KSkgew0KDQogICAgICAgICAgICByZXR1cm4gJHRydWUNCiAgICAgICAgfQ0KDQogICAgICAgIGVsc2Ugew0KDQoNCiAgICAgICAgICAgIFdyaXRlLUxvZyAkRVJST1</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1869,7 +1869,7 @@
   <rule id="104175" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">JfTE9HICJVbmFibGUgdG8gY29udGFjdCAkQ29tcHV0ZXIuIFBsZWFzZSB2ZXJpZnkgaXRzIG5ldHdvcmsgY29ubmVjdGl2aXR5IGFuZCB0cnkgYWdhaW4iDQoNCiAgICAgICAgICAgICRHbG9iYWw6</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1889,7 +1889,7 @@
   <rule id="104177" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Q29ubmVjdGlvbklzc3VlcyA9ICRHbG9iYWw6Q29ubmVjdGlvbklzc3VlcyArIDENCg0KICAgICAgICAgICAgcmV0dXJuICRmYWxzZQ0KICAgICAgICB9ICAgICAgICANCiAgICB9DQoNCiAgICBjYX</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1909,7 +1909,7 @@
   <rule id="104179" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RjaCB7DQoNCiAgICAgICAgV3JpdGUtTG9nICRFUlJPUl9MT0cgIlVuYWJsZSBjb25lY3QgdG8gSG9zdCINCg0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRyAkRXJyb3JbMF0NCg0KICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1929,7 +1929,7 @@
   <rule id="104181" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAkRXJyb3JMaW5lTnVtYmVyID0gJEVycm9yWzBdLkludm9jYXRpb25JbmZvLnNjcmlwdGxpbmVudW1iZXINCg0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRyAiQ2F1Z2h0IG9uIGxpbmUgbn</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1949,7 +1949,7 @@
   <rule id="104183" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">VtYmVyOiAkRXJyb3JMaW5lTnVtYmVyIg0KDQogICAgICAgIGV4aXQNCg0KICAgIH0NCn0NCg0KDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1969,7 +1969,7 @@
   <rule id="104185" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjDQojRnVuY3Rpb24gQ3JlYXRlIGEgbG9nIHJlcG9ydCBmb3IgdGhlIGVhY2ggY29tcHV0ZXIgaW4gdGhlIGNvbXB1dGVyIG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -1989,7 +1989,7 @@
   <rule id="104187" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0\+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2009,7 +2009,7 @@
   <rule id="104189" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Zm9yIHRoZSBnaXZlbiBsb2cNCiNAcGFyYW0gJFRvdGFsTG9nRXZlbnRzICAgICAtPiAgVGhlIHRvdGFsICMgb2YgZXZlbnRzIGZvciB0aGUgZ2l2ZW4gbG9nDQoNCiMjIyMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2029,7 +2029,7 @@
   <rule id="104191" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMNCg0KZnVuY3Rpb24gQ3JlYXRlLUxvZ1JlcG9ydCB7IHBh</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2049,7 +2049,7 @@
   <rule id="104193" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">cmFtKCRDb21wdXRlcmxpc3QsICRDb21wdXRlckNvdW50LCAkQ29tcHV0ZXJMaXN0VHlwZSwgJE9TKSAgICANCg0KICAgIHRyeSB7DQogICAgICAgIA0KICAgICAgICAkUmVwb3J0ID0gQHt9DQogIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2069,7 +2069,7 @@
   <rule id="104195" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICRQcm9ncmVzc0NvdW50ID0gMDsgICAgICAgIA0KDQogICAgICAgIGlmICgkQ29tcHV0ZXJMaXN0VHlwZSAtTkUgJExPQ0FMSE9TVF9PUFQpIHsNCg0KICAgICAgICAgICAgJEdsb2JhbDpD</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2089,7 +2089,7 @@
   <rule id="104197" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">cmVkID0gR2V0LUNyZWRlbnRpYWwgLU1lc3NhZ2UgIkVudGVyIGFuIGFjY291bnQgd2hpY2ggaGFzIGFjY2VzcyB0byB0aGUgV2luZG93cyBFdmVudCBMb2dzIg0KICAgICAgICB9DQoNCiAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2109,7 +2109,7 @@
   <rule id="104199" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgICAgICBGb3JFYWNoICgkQ29tcHV0ZXIgaW4gJENvbXB1dGVybGlzdCkgew0KICAgICAgICAgICAgDQogICAgICAgICAgICAkUHJvZ3Jlc3ND</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2129,7 +2129,7 @@
   <rule id="104201" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">b3VudCA9ICRQcm9ncmVzc0NvdW50ICsgMQ0KDQogICAgICAgICAgICAkUmVtb3RlQ29tcHV0ZXIgPSAkZmFsc2UNCg0KICAgICAgICAgICAgaWYoJFByb2dyZXNzQ291bnQgLUVRIDEpIHsNCiAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2149,7 +2149,7 @@
   <rule id="104203" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAgICAgICANCiAgICAgICAgICAgICAgICBXcml0ZS1Mb2cgJElORk9fTE9HICJDYWxjdWxhdGluZyAmIFByb2Nlc3NpbmcgTG9nIEVQUyBGb3IgQ29tcHV0ZXIgTGlzdCIgDQogICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2169,7 +2169,7 @@
   <rule id="104205" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICB9IA0KDQogICAgICAgICAgICBpZiAoJENvbXB1dGVyTGlzdFR5cGUgLU5FICRMT0NBTEhPU1RfT1BUKSB7DQoNCiAgICAgICAgICAgICAgICAkUmVtb3RlQ29tcHV0ZXIgPSAkdHJ1ZQ0KIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2189,7 +2189,7 @@
   <rule id="104207" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAgICAgDQogICAgICAgICAgICAgICAgJExvZ2luID0gVGVzdC1Ib3N0Q29ubmVjdGlvbiAkQ29tcHV0ZXINCg0KICAgICAgICAgICAgICAgIGlmICghJExvZ2luKSB7DQogICAgICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2209,7 +2209,7 @@
   <rule id="104209" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICAgICAgIGNvbnRpbnVlICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIA0KICAgICAgICAgICAgIyBHZXQgU2VydmVyIE9TIG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2229,7 +2229,7 @@
   <rule id="104211" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">lmIG5vdCBhbHJlYWR5IGdhdGhlcmVkDQogICAgICAgICAgICBpZiAoJENvbXB1dGVyTGlzdFR5cGUgLWVxICRGSUxFX09QVCkgew0KICAgICAgICAgICAgICAgIFdyaXRlLUxvZyAkSU5GT19MT0cg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2249,7 +2249,7 @@
   <rule id="104213" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IkdldHRpbmcgT1MgSW5mb3JtYXRpb24gZm9yICRDb21wdXRlciINCiAgICAgICAgICAgICAgICAkT1MgPSAoR2V0LVdtaU9iamVjdCBXaW4zMl9PcGVyYXRpbmdTeXN0ZW0gLWNvbXB1dGVybmFtZS</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2269,7 +2269,7 @@
   <rule id="104215" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AkQ29tcHV0ZXIgLUNyZWRlbnRpYWwgJEdsb2JhbDpDcmVkKS5DYXB0aW9uDQogICAgICAgICAgICAgICAgV3JpdGUtTG9nICRJTkZPX0xPRyAiJE9TIg0KICAgICAgICAgICAgfQ0KICAgICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2289,7 +2289,7 @@
   <rule id="104217" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgDQogICAgICAgICAgICBpZiAoJENvbXB1dGVyTGlzdFR5cGUgLWVxICRMT0NBTEhPU1RfT1BUKSB7DQogICAgICAgICAgICAgICAgV3JpdGUtTG9nICRJTkZPX0xPRyAiR2V0dGluZyBPUyBJbm</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2309,7 +2309,7 @@
   <rule id="104219" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Zvcm1hdGlvbiBmb3IgJENvbXB1dGVyIg0KICAgICAgICAgICAgICAgICRPUyA9IChHZXQtV21pT2JqZWN0IFdpbjMyX09wZXJhdGluZ1N5c3RlbSkuQ2FwdGlvbg0KICAgICAgICAgICAgICAgIFdy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2329,7 +2329,7 @@
   <rule id="104221" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">aXRlLUxvZyAkSU5GT19MT0cgIiRPUyINCiAgICAgICAgICAgIH0NCiAgICAgICAgICAgIA0KICAgICAgICAgICAgaWYgKCRDb21wdXRlckxpc3RUeXBlIC1lcSAkRE9NQUlOX09QVCkgew0KICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2349,7 +2349,7 @@
   <rule id="104223" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAgICAgIFdyaXRlLUxvZyAkSU5GT19MT0cgIkdldHRpbmcgT1MgSW5mb3JtYXRpb24gZm9yICRDb21wdXRlciINCiAgICAgICAgICAgICAgICAjJE9TID0gKEdldC1XbWlPYmplY3QgV2lu</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2369,7 +2369,7 @@
   <rule id="104225" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MzJfT3BlcmF0aW5nU3lzdGVtIC1jb21wdXRlcm5hbWUgJENvbXB1dGVyIC1DcmVkZW50aWFsICRHbG9iYWw6Q3JlZCkuQ2FwdGlvbg0KDQogICAgICAgICAgICAgICAgJEdldEFEQ29tcHV0ZXJMaX</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2389,7 +2389,7 @@
   <rule id="104227" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">N0ID0gR2V0LUFEQ29tcHV0ZXIgLUNyZWRlbnRpYWwgJEdsb2JhbDpDcmVkIC1GaWx0ZXIge2VuYWJsZWQgLWVxICJ0cnVlIn0gLVByb3BlcnRpZXMgT3BlcmF0aW5nU3lzdGVtIHwgU2VsZWN0IERO</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2409,7 +2409,7 @@
   <rule id="104229" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">U0hvc3RuYW1lLCBPcGVyYXRpbmdTeXN0ZW0NCg0KICAgICAgICAgICAgICAgICMkR2V0QURPUyA9IEdldC1BRENvbXB1dGVyIC1DcmVkZW50aWFsICRHbG9iYWw6Q3JlZCAtRmlsdGVyIHtlbmFibG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2429,7 +2429,7 @@
   <rule id="104231" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">VkIC1lcSAidHJ1ZSJ9IC1Qcm9wZXJ0aWVzIE9wZXJhdGluZ1N5c3RlbSB8IFNlbGVjdCANCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICAjJENvbXB1dGVyTGlzdCA9ICRHZXRBRENv</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2449,7 +2449,7 @@
   <rule id="104233" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bXB1dGVyTGlzdC5ETlNIb3N0TmFtZQ0KDQoNCiAgICAgICAgICAgICAgICAkT1MgPSAoJEdldEFEQ29tcHV0ZXJMaXN0IC1tYXRjaCAkQ29tcHV0ZXIpLk9wZXJhdGluZ1N5c3RlbQ0KICAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2469,7 +2469,7 @@
   <rule id="104235" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAgIFdyaXRlLUxvZyAkSU5GT19MT0cgIiRPUyINCiAgICAgICAgICAgIH0gDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2489,7 +2489,7 @@
   <rule id="104237" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICAgICAgICAgICAgICANCiAgICAgICAgICAgIA0KICAgICAgICAgICAgIyBSZXRyaWV2ZSB0aGUgQXBwbGljYXRpb24gRXZlbnQgbG9nIGluZm8NCiAgICAgICAgICAgICRBcHBsaWNhdGlvbk</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2509,7 +2509,7 @@
   <rule id="104239" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">luZm8gPSBHZXQtRXZlbnRMb2dJbmZvICRDb21wdXRlciBBcHBsaWNhdGlvbiAkUmVtb3RlQ29tcHV0ZXIgJE9TDQogICAgICAgICAgICAkQXBwbGljYXRpb25FUFMgPSAkQXBwbGljYXRpb25JbmZv</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2529,7 +2529,7 @@
   <rule id="104241" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">LkF2ZXJhZ2VFdmVudHMNCiAgICAgICAgICAgICRBcHBsaWNhdGlvbkZpcnN0RXZlbnRUaW1lID0gJEFwcGxpY2F0aW9uSW5mby5TdGFydFRpbWUNCiAgICAgICAgICAgICRBcHBsaWNhdGlvbkxhc3</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2549,7 +2549,7 @@
   <rule id="104243" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RFdmVudFRpbWUgPSAkQXBwbGljYXRpb25JbmZvLkVuZFRpbWUNCiAgICAgICAgICAgICRBcHBsaWNhdGlvblRvdGFsRXZlbnRzID0gJEFwcGxpY2F0aW9uSW5mby5Ub3RhbEV2ZW50cw0KICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2569,7 +2569,7 @@
   <rule id="104245" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICAgJEFwcGxpY2F0aW9uRXZlbnRMb2dTaXplID0gJEFwcGxpY2F0aW9uSW5mby5Mb2dTaXplDQogICAgICAgICAgICANCg0KICAgICAgICAgICAgIyBSZXRyaWV2ZSB0aGUgU2VjdXJpdHkgRX</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2589,7 +2589,7 @@
   <rule id="104247" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZlbnQgbG9nIGluZm8NCiAgICAgICAgICAgICRTZWN1cml0eUluZm8gPSBHZXQtRXZlbnRMb2dJbmZvICRDb21wdXRlciBTZWN1cml0eSAkUmVtb3RlQ29tcHV0ZXIgJE9TDQogICAgICAgICAgICAk</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2609,7 +2609,7 @@
   <rule id="104249" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">U2VjdXJpdHlFUFMgPSAkU2VjdXJpdHlJbmZvLkF2ZXJhZ2VFdmVudHMNCiAgICAgICAgICAgICRTZWN1cml0eUZpcnN0RXZlbnRUaW1lID0gJFNlY3VyaXR5SW5mby5TdGFydFRpbWUNCiAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2629,7 +2629,7 @@
   <rule id="104251" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICRTZWN1cml0eUxhc3RFdmVudFRpbWUgPSAkU2VjdXJpdHlJbmZvLkVuZFRpbWUNCiAgICAgICAgICAgICRTZWN1cml0eVRvdGFsRXZlbnRzID0gJFNlY3VyaXR5SW5mby5Ub3RhbEV2ZW50</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2649,7 +2649,7 @@
   <rule id="104253" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">cw0KICAgICAgICAgICAgJFNlY3VyaXR5RXZlbnRMb2dTaXplID0gJFNlY3VyaXR5SW5mby5Mb2dTaXplDQogICAgICAgICAgICANCg0KICAgICAgICAgICAgIyBSZXRyaWV2ZSB0aGUgU3lzdGVtIE</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2669,7 +2669,7 @@
   <rule id="104255" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">V2ZW50IGxvZyBpbmZvDQogICAgICAgICAgICAkU3lzdGVtSW5mbyA9IEdldC1FdmVudExvZ0luZm8gJENvbXB1dGVyIFN5c3RlbSAkUmVtb3RlQ29tcHV0ZXIgJE9TDQogICAgICAgICAgICAkU3lz</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2689,7 +2689,7 @@
   <rule id="104257" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">dGVtRVBTID0gJFN5c3RlbUluZm8uQXZlcmFnZUV2ZW50cw0KICAgICAgICAgICAgJFN5c3RlbUZpcnN0RXZlbnRUaW1lID0gJFN5c3RlbUluZm8uU3RhcnRUaW1lDQogICAgICAgICAgICAkU3lzdG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2709,7 +2709,7 @@
   <rule id="104259" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">VtTGFzdEV2ZW50VGltZSA9ICRTeXN0ZW1JbmZvLkVuZFRpbWUNCiAgICAgICAgICAgICRTeXN0ZW1Ub3RhbEV2ZW50cyA9ICRTeXN0ZW1JbmZvLlRvdGFsRXZlbnRzDQogICAgICAgICAgICAkU3lz</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2729,7 +2729,7 @@
   <rule id="104261" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">dGVtRXZlbnRMb2dTaXplID0gJFN5c3RlbUluZm8uTG9nU2l6ZQ0KDQoNCiAgICAgICAgICAgICRUb3RhbEVQUyA9IFttYXRoXTo6Um91bmQoKCRBcHBsaWNhdGlvbkVQUyArICRTZWN1cml0eUVQUy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2749,7 +2749,7 @@
   <rule id="104263" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ArICRTeXN0ZW1FUFMpLCA1KQ0KICAgICAgICAgICAgJFByb2ZpbGVTdWdnZXN0aW9uID0gR2V0LVByb2ZpbGVTdWdnZXN0aW9uICRUb3RhbEVQUw0KICAgICAgICAgICAgIyRDb21wdXRlck9TID0g</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2769,7 +2769,7 @@
   <rule id="104265" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">KEdldC1BRENvbXB1dGVyIC1GaWx0ZXIgKikuT3BlcmF0aW5nU3lzdGVtDQogICAgICAgICAgICAkQ29tcHV0ZXJPUyA9ICIkT1MiDQoNCg0KICAgICAgICAgICAgJEJveCA9IEB7IlByb2ZpbGVTdW</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2789,7 +2789,7 @@
   <rule id="104267" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">dnZXN0aW9uIiA9ICRQcm9maWxlU3VnZ2VzdGlvbjsgIlRvdGFsRVBTIiA9ICRUb3RhbEVQUzsgIk9TVmVyc2lvbiIgPSAkQ29tcHV0ZXJPUzsNCiAgICAgICAgICAgICAgICAgICAgICJBcHBsaWNh</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2809,7 +2809,7 @@
   <rule id="104269" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">A9ICRBcHBsaWNhdGlvbkxhc3RFdmVudFRpbWU7ICJBcHBsaWNhdGlvblRvdGFsRXZlbnRzIiA9ICRBcHBsaWNhdGlvblRvdGFsRXZlbnRzOyAiQXBwbGljYXRpb25FdmVudExvZ1NpemUiID0gJEFw</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2829,7 +2829,7 @@
   <rule id="104271" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">cGxpY2F0aW9uRXZlbnRMb2dTaXplOw0KICAgICAgICAgICAgICAgICAgICAgIlNlY3VyaXR5RVBTIiA9ICRTZWN1cml0eUVQUzsgIlNlY3VyaXR5Rmlyc3RFdmVudFRpbWUiID0gJFNlY3VyaXR5Rm</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2849,7 +2849,7 @@
   <rule id="104273" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">lyc3RFdmVudFRpbWU7ICJTZWN1cml0eUxhc3RFdmVudFRpbWUiID0gJFNlY3VyaXR5TGFzdEV2ZW50VGltZTsgIlNlY3VyaXR5VG90YWxFdmVudHMiID0gJFNlY3VyaXR5VG90YWxFdmVudHM7ICJT</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2869,7 +2869,7 @@
   <rule id="104275" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZWN1cml0eUV2ZW50TG9nU2l6ZSIgPSAkU2VjdXJpdHlFdmVudExvZ1NpemU7IA0KICAgICAgICAgICAgICAgICAgICAgIlN5c3RlbUVQUyIgPSAkU3lzdGVtRVBTOyAiU3lzdGVtRmlyc3RFdmVudF</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2889,7 +2889,7 @@
   <rule id="104277" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RpbWUiID0gJFN5c3RlbUZpcnN0RXZlbnRUaW1lOyAiU3lzdGVtTGFzdEV2ZW50VGltZSIgPSAkU3lzdGVtTGFzdEV2ZW50VGltZTsgIlN5c3RlbVRvdGFsRXZlbnRzIiA9ICRTeXN0ZW1Ub3RhbEV2</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2909,7 +2909,7 @@
   <rule id="104279" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZW50czsgIlN5c3RlbUV2ZW50TG9nU2l6ZSIgPSAkU3lzdGVtRXZlbnRMb2dTaXplO30NCiAgICAgICAgICAgIA0KICAgICAgICAgICAgJFJlcG9ydC5BZGQoJENvbXB1dGVyLCAkQm94KSAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2929,7 +2929,7 @@
   <rule id="104281" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAgICAgICAgICAgICAgDQoNCiAgICAgICAgICAgICRQZXJjZW50Q29tcGxldGUgPSAkUHJvZ3Jlc3NDb3VudCAvICRDb21wdXRlckNvdW50ICogMTAwDQogICAgICAgICAgICAkUGVyY2Vu</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2949,7 +2949,7 @@
   <rule id="104283" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">dENvbXBsZXRlID0gW21hdGhdOjpSb3VuZCgkUGVyY2VudENvbXBsZXRlLCAwKQ0KDQogICAgICAgICAgICBXcml0ZS1Qcm9ncmVzcyAtQWN0aXZpdHkgIlByb2Nlc3NpbmcgQ29tcHV0ZXIgTGlzdC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2969,7 +2969,7 @@
   <rule id="104285" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AtICAkUGVyY2VudENvbXBsZXRlJSBDb21wbGV0ZSIgLXN0YXR1cyAiQ2FsY3VsYXRpbmcgRVBTIGZvciBDb21wdXRlcjogJENvbXB1dGVyIiAtcGVyY2VudENvbXBsZXRlICRQZXJjZW50Q29tcGxl</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -2989,7 +2989,7 @@
   <rule id="104287" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">dGUNCiAgICAgICAgfQ0KDQogICAgICAgIFdyaXRlLUxvZyAkSU5GT19MT0cgIkV2ZW50IExvZyBFU1AgUmVwb3J0IENhbGN1bGF0aW9ucyBDb21wbGV0ZSINCg0KICAgICAgICBSZXR1cm4gJFJlcG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3009,7 +3009,7 @@
   <rule id="104289" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">9ydA0KICAgICANCiAgICB9DQoNCiAgICBjYXRjaCB7DQoNCiAgICAgICAgV3JpdGUtTG9nICRFUlJPUl9MT0cgIlVuYWJsZSB0byBDcmVhdGUgTG9nIFJlcG9ydCINCg0KICAgICAgICBXcml0ZS1M</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3029,7 +3029,7 @@
   <rule id="104291" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">b2cgJEVSUk9SX0xPRyAkRXJyb3JbMF0NCg0KICAgICAgICAkRXJyb3JMaW5lTnVtYmVyID0gJEVycm9yWzBdLkludm9jYXRpb25JbmZvLnNjcmlwdGxpbmVudW1iZXINCg0KICAgICAgICBXcml0ZS</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3049,7 +3049,7 @@
   <rule id="104293" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">1Mb2cgJEVSUk9SX0xPRyAiQ2F1Z2h0IG9uIGxpbmUgbnVtYmVyOiAkRXJyb3JMaW5lTnVtYmVyIg0KDQogICAgICAgIGV4aXQNCiAgICB9DQp9DQoNCg0KIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3069,7 +3069,7 @@
   <rule id="104295" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KI0Z1bmN0aW9uIHdpbGwgZ2VuZXJhdGUgb3V0cHV0IGluZm8gZm</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3089,7 +3089,7 @@
   <rule id="104297" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">9yIHRoZSBnaXZlbiBsb2cuIEF2ZywgU3VnZ2VzdGVkIFByb2ZpbGUsIGV0Yy4uLg0KDQojQHBhcmFtICRMb2dOYW1lICAgICAgICAgICAgLT4gIFRoZSBFdmVudCBMb2cNCiNAcGFyYW0gJEF2Z0V2</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3109,7 +3109,7 @@
   <rule id="104299" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0\+ICBUaGUgdG90YWwgIyBvZiBldm</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3129,7 +3129,7 @@
   <rule id="104301" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">VudHMgZm9yIHRoZSBnaXZlbiBsb2cNCg0KIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3149,7 +3149,7 @@
   <rule id="104303" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IyMjIyMjIyMjIw0KDQpmdW5jdGlvbiBFeHBvcnQtTG9nUmVwb3J0IHsgcGFyYW0oJENvbXB1dGVybGlzdCwgJENvbXB1dGVyQ291bnQsICRDb21wdXRlckxpc3RUeXBlKSAgICANCg0KICAgIHRyeS</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3169,7 +3169,7 @@
   <rule id="104305" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">B7DQogICAgICAgIA0KICAgICAgICAkUmVwb3J0ID0gQ3JlYXRlLUxvZ1JlcG9ydCAkQ29tcHV0ZXJsaXN0ICRDb21wdXRlckNvdW50ICRDb21wdXRlckxpc3RUeXBlDQoNCiAgICAgICAgJE91dHB1</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3189,7 +3189,7 @@
   <rule id="104307" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">dFRhYmxlID0gZm9yZWFjaCAoJGJveCBpbiAkUmVwb3J0LkdldEVudW1lcmF0b3IoKSkgeyANCg0KICAgICAgICAgICAgTmV3LU9iamVjdCBQU09iamVjdCAtUHJvcGVydHkgKFtvcmRlcmVkXUB7DQ</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3209,7 +3209,7 @@
   <rule id="104309" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ogICAgICAgICAgICAiU2VydmVyIiA9ICRib3guTmFtZTsgIk9TIFZlcnNpb24iID0gJGJveC5WYWx1ZS5PU1ZlcnNpb247IA0KICAgICAgICAgICAgIkFwcGxpY2F0aW9uIChFUFMpIiA9ICRib3gu</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3229,7 +3229,7 @@
   <rule id="104311" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">VmFsdWUuQXBwbGljYXRpb25FUFM7ICJBcHBsaWNhdGlvbiAxc3QgRXZlbnQiID0gJGJveC5WYWx1ZS5BcHBsaWNhdGlvbkZpcnN0RXZlbnRUaW1lOyAiQXBwbGljYXRpb24gbGFzdCBFdmVudCIgPS</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3249,7 +3249,7 @@
   <rule id="104313" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AkYm94LlZhbHVlLkFwcGxpY2F0aW9uTGFzdEV2ZW50VGltZTsgIkFwcGxpY2F0aW9uIHRvdGFsIGV2ZW50cyIgPSAkYm94LlZhbHVlLkFwcGxpY2F0aW9uVG90YWxFdmVudHM7ICJBcHBsaWNhdGlv</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3269,7 +3269,7 @@
   <rule id="104315" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">biBMb2cgU2l6ZSAoTUIpIiA9ICRib3guVmFsdWUuQXBwbGljYXRpb25FdmVudExvZ1NpemU7DQogICAgICAgICAgICAiU2VjdXJpdHkgKEVQUykiID0gJGJveC5WYWx1ZS5TZWN1cml0eUVQUzsgIl</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3289,7 +3289,7 @@
   <rule id="104317" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">NlY3VyaXR5IDFzdCBFdmVudCIgPSAkYm94LlZhbHVlLlNlY3VyaXR5Rmlyc3RFdmVudFRpbWU7ICJTZWN1cml0eSBsYXN0IEV2ZW50IiA9ICRib3guVmFsdWUuU2VjdXJpdHlMYXN0RXZlbnRUaW1l</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3309,7 +3309,7 @@
   <rule id="104319" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">OyAiU2VjdXJpdHkgdG90YWwgZXZlbnRzIiA9ICRib3guVmFsdWUuU2VjdXJpdHlUb3RhbEV2ZW50czsgIlNlY3VyaXR5IExvZyBTaXplIChNQikiID0gJGJveC5WYWx1ZS5TZWN1cml0eUV2ZW50TG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3329,7 +3329,7 @@
   <rule id="104321" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">9nU2l6ZTsgDQogICAgICAgICAgICAiU3lzdGVtIChFUFMpIiA9ICRib3guVmFsdWUuU3lzdGVtRVBTOyAiU3lzdGVtIDFzdCBFdmVudCIgPSAkYm94LlZhbHVlLlN5c3RlbUZpcnN0RXZlbnRUaW1l</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3349,7 +3349,7 @@
   <rule id="104323" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">OyAiU3lzdGVtIGxhc3QgRXZlbnQiID0gJGJveC5WYWx1ZS5TeXN0ZW1MYXN0RXZlbnRUaW1lOyAiU3lzdGVtIHRvdGFsIGV2ZW50cyIgPSAkYm94LlZhbHVlLlN5c3RlbVRvdGFsRXZlbnRzOyAiU3</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3369,7 +3369,7 @@
   <rule id="104325" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">lzdGVtIExvZyBTaXplIChNQikiID0gJGJveC5WYWx1ZS5TeXN0ZW1FdmVudExvZ1NpemU7DQogICAgICAgICAgICAiVG90YWwgKEVQUykiID0gJGJveC5WYWx1ZS5Ub3RhbEVQUzsgIlByb2ZpbGUg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3389,7 +3389,7 @@
   <rule id="104327" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">U3VnZ2VzdGlvbiAoMyBTZWMgUG9sbGluZyBJbnRlcnZhbCkiID0gJGJveC5WYWx1ZS5Qcm9maWxlU3VnZ2VzdGlvbjt9KQ0KDQogICAgICAgIH0NCg0KDQogICAgICAgIFdyaXRlLUxvZyAkSU5QVV</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3409,7 +3409,7 @@
   <rule id="104329" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RfTE9HICJTZWxlY3QgRXZlbnQgTG9nIEV4cG9ydCBMb2NhdGlvbi4uLiINCg0KICAgICAgICAkRXhwb3J0Rm9sZGVyID0gU2VsZWN0LUV4cG9ydExvY2F0aW9uICJFdmVudCBMb2cgU3VtbWFyeSBS</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3429,7 +3429,7 @@
   <rule id="104331" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZXBvcnQgRXhwb3J0IExvY2F0aW9uIiAiRGVza3RvcCINCiAgICAgICAgDQogICAgICAgICRFeHBvcnRMb2NhdGlvbiA9ICRFeHBvcnRGb2xkZXIgKyAiXEV2ZW50LUxvZy1TdW1tYXJ5LVJlcG9ydC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3449,7 +3449,7 @@
   <rule id="104333" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">0iICsgJChnZXQtZGF0ZSAtZiB5eXl5TU1kZGhobW1zcykgKyAiLmNzdiIgICAgICAgICAgICANCiAgICAgICAgICAgICAgICANCiAgICAgICAgV3JpdGUtTG9nICRJTkZPX0xPRyAiRXhwb3J0aW5n</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3469,7 +3469,7 @@
   <rule id="104335" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IExvZyBFdmVudHMgdG86ICRFeHBvcnRMb2NhdGlvbiINCg0KICAgICAgICAkT3V0cHV0VGFibGUgfCBFeHBvcnQtQ1NWICRFeHBvcnRMb2NhdGlvbiAtTm9UeXBlSW5mb3JtYXRpb24gLUZvcmNlDQ</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3489,7 +3489,7 @@
   <rule id="104337" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ogICAgDQogICAgfQ0KDQogICAgY2F0Y2ggew0KDQogICAgICAgIFdyaXRlLUxvZyAkRVJST1JfTE9HICJVbmFibGUgdG8gRXhwb3J0IExvZyBSZXBvcnQiDQoNCiAgICAgICAgV3JpdGUtTG9nICRF</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3509,7 +3509,7 @@
   <rule id="104339" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">UlJPUl9MT0cgJEVycm9yWzBdDQoNCiAgICAgICAgJEVycm9yTGluZU51bWJlciA9ICRFcnJvclswXS5JbnZvY2F0aW9uSW5mby5zY3JpcHRsaW5lbnVtYmVyDQoNCiAgICAgICAgV3JpdGUtTG9nIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3529,7 +3529,7 @@
   <rule id="104341" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RFUlJPUl9MT0cgIkNhdWdodCBvbiBsaW5lIG51bWJlcjogJEVycm9yTGluZU51bWJlciINCg0KICAgICAgICBleGl0DQogICAgfQ0KfQ0KDQoNCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3549,7 +3549,7 @@
   <rule id="104343" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGdlbmVyYXRlIGEgRm9sZGVyIFNlbGVjdCBEaW</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3569,7 +3569,7 @@
   <rule id="104345" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Fsb2cNCg0KI0BwYXJhbSAkRGVzY3JpcHRpb24gLT4gIFRoZSBEZXNjcmlwdGlvbiBvZiB0aGUgRGlhbG9nDQojQHBhcmFtICRSb290Rm9sZGVyICAtPiAgVGhlIGxvY2F0aW9uIHRoYXQgdGhlIGZv</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3589,7 +3589,7 @@
   <rule id="104347" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bGRlciBzZWxlY3Rpb24gYmVnaW5zDQoNCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3609,7 +3609,7 @@
   <rule id="104349" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMjIyMNCg0KZnVuY3Rpb24gR2V0LUZpbGVOYW1lIHsgcGFyYW0oJFJvb3RGb2xkZXIpIA0KICAgIA0KICAgIHRyeSB7DQogICAgDQogICAgICAgICAkT3BlbkZpbGVEaWFsb2cgPSBOZXct</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3629,7 +3629,7 @@
   <rule id="104351" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">T2JqZWN0IFN5c3RlbS5XaW5kb3dzLkZvcm1zLk9wZW5GaWxlRGlhbG9nDQogICAgICAgICAkT3BlbkZpbGVEaWFsb2cuaW5pdGlhbERpcmVjdG9yeSA9ICRSb290Rm9sZGVyDQogICAgICAgICAkT3</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3649,7 +3649,7 @@
   <rule id="104353" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">BlbkZpbGVEaWFsb2cuVGl0bGUgPSAiU2VsZWN0IENvbXB1dGVyIExpc3QiDQogICAgICAgICAkT3BlbkZpbGVEaWFsb2cuZmlsdGVyID0gIkFsbCBmaWxlcyAoKi4qKXwgKi4qIg0KICAgICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3669,7 +3669,7 @@
   <rule id="104355" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">JE9wZW5GaWxlRGlhbG9nLlNob3dEaWFsb2coKSB8IE91dC1OdWxsDQogICAgICAgICAkT3BlbkZpbGVEaWFsb2cuZmlsZW5hbWUNCiAgICANCiAgICB9DQogICAgDQogICAgY2F0Y2ggew0KICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3689,7 +3689,7 @@
   <rule id="104357" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ANCiAgICAgICAgV3JpdGUtTG9nICRFUlJPUl9MT0cgIlVuYWJsZSB0byBTZWxlY3QgRmlsZSINCg0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRyAkRXJyb3JbMF0NCg0KICAgICAgICAkRXJy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3709,7 +3709,7 @@
   <rule id="104359" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">b3JMaW5lTnVtYmVyID0gJEVycm9yWzBdLkludm9jYXRpb25JbmZvLnNjcmlwdGxpbmVudW1iZXINCg0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRyAiQ2F1Z2h0IG9uIGxpbmUgbnVtYmVyOi</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3729,7 +3729,7 @@
   <rule id="104361" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AkRXJyb3JMaW5lTnVtYmVyIg0KDQogICAgICAgIGV4aXQNCiAgICAgICAgDQogICAgIH0NCn0gICAgICAgICAgDQogICAgICAgIA0KDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3749,7 +3749,7 @@
   <rule id="104363" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjDQojRnVuY3Rpb24gd2lsbCBnZW5lcmF0ZSBhIEZvbGRlciBTZWxlY3QgRGlhbG9nDQ</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3769,7 +3769,7 @@
   <rule id="104365" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0\+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3789,7 +3789,7 @@
   <rule id="104367" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">c2VsZWN0aW9uIGJlZ2lucw0KDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3809,7 +3809,7 @@
   <rule id="104369" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjDQoNCmZ1bmN0aW9uIFNlbGVjdC1FeHBvcnRMb2NhdGlvbiB7IHBhcmFtKCREZXNjcmlwdGlvbiwgJFJvb3RGb2xkZXIpIA0KDQogICAgIHRyeSB7DQogICAgIA0KICAgICAgICAkb2JqRm9y</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3829,7 +3829,7 @@
   <rule id="104371" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bSA9IE5ldy1PYmplY3QgU3lzdGVtLldpbmRvd3MuRm9ybXMuRm9sZGVyQnJvd3NlckRpYWxvZw0KICAgICAgICAkb2JqRm9ybS5Sb290Zm9sZGVyID0gJFJvb3RGb2xkZXINCiAgICAgICAgJG9iak</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3849,7 +3849,7 @@
   <rule id="104373" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Zvcm0uRGVzY3JpcHRpb24gPSAkRGVzY3JpcHRpb24gICAgICAgIA0KICAgICAgICAkU2hvdyA9ICRvYmpGb3JtLlNob3dEaWFsb2coKQ0KDQogICAgICAgIGlmICgkU2hvdyAtRVEgIk9LIikgew0K</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3869,7 +3869,7 @@
   <rule id="104375" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICAgICAgICAgDQogICAgICAgICAgICByZXR1cm4gJG9iakZvcm0uU2VsZWN0ZWRQYXRoDQogICAgICAgIH0NCiAgICAgICAgDQogICAgICAgIGVsc2UgeyAgICAgICAgICAgDQogICAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3889,7 +3889,7 @@
   <rule id="104377" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICANCiAgICAgICAgICAgIFdyaXRlLUxvZyAkRVJST1JfTE9HICJPcGVyYXRpb24gY2FuY2VsbGVkIGJ5IHVzZXIiDQoNCiAgICAgICAgICAgIFdyaXRlLUxvZyAkRVJST1JfTE9HICRFcnJvclsw</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3909,7 +3909,7 @@
   <rule id="104379" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">XQ0KDQogICAgICAgICAgICAkRXJyb3JMaW5lTnVtYmVyID0gJEVycm9yWzBdLkludm9jYXRpb25JbmZvLnNjcmlwdGxpbmVudW1iZXINCg0KICAgICAgICAgICAgV3JpdGUtTG9nICRFUlJPUl9MT0</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3929,7 +3929,7 @@
   <rule id="104381" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">cgIkNhdWdodCBvbiBsaW5lIG51bWJlcjogJEVycm9yTGluZU51bWJlciINCg0KICAgICAgICAgICAgZXhpdA0KICAgICAgICAgICAgDQogICAgICAgIH0gDQoNCiAgICAgICAgDQogICAgIH0NCiAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3949,7 +3949,7 @@
   <rule id="104383" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgDQogICAgIGNhdGNoIHsNCiAgICAgDQogICAgICAgIFdyaXRlLUxvZyAkRVJST1JfTE9HICJVbmFibGUgdG8gU2VsZWN0IEZvbGRlciINCg0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3969,7 +3969,7 @@
   <rule id="104385" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AkRXJyb3JbMF0NCg0KICAgICAgICAkRXJyb3JMaW5lTnVtYmVyID0gJEVycm9yWzBdLkludm9jYXRpb25JbmZvLnNjcmlwdGxpbmVudW1iZXINCg0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xP</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -3989,7 +3989,7 @@
   <rule id="104387" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RyAiQ2F1Z2h0IG9uIGxpbmUgbnVtYmVyOiAkRXJyb3JMaW5lTnVtYmVyIg0KDQogICAgICAgIGV4aXQNCiAgICAgICAgDQogICAgIH0NCn0NCg0KDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4009,7 +4009,7 @@
   <rule id="104389" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjDQojRnVuY3Rpb24gd2lsbCBnZW5lcmF0ZSBhIERyb3AgRG93biBNZW51</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4029,7 +4029,7 @@
   <rule id="104391" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IGJhc2VkIG9uIHRoZSBnaXZlbiBEcm9wIERvd24gT3B0aW9ucw0KDQojQHBhcmFtICREcm9wRG93bk9wdGlvbnMgLT4gIFRoZSBFdmVudCBMb2cgdGhhdCB3aWxsIGJlIGV2YWx1YXRlZCAoU2VjdX</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4049,7 +4049,7 @@
   <rule id="104393" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">JpdHksIEFwcGxpY2F0aW9uLCBTeXN0ZW0pDQojQHBhcmFtICRUaXRsZSAgICAgICAgICAgLT4gIFRoZSBUaXRsZSBvZiB0aGUgRHJvcCBEb3duIE1lbnUNCg0KIyMjIyMjIyMjIyMjIyMjIyMjIyMj</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4069,7 +4069,7 @@
   <rule id="104395" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KDQpmdW5jdGlvbiBHZXQtSW5wdXRGcm9tRHJvcERvd24gey</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4089,7 +4089,7 @@
   <rule id="104397" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">BwYXJhbSgkRHJvcERvd25PcHRpb25zLCAkVGl0bGUpDQoNCiAgICAgdHJ5IHsNCiAgICAgDQogICAgICAgIGZ1bmN0aW9uIFJldHVybi1Ecm9wRG93biB7DQogICAgICAgICAgICAkc2NyaXB0OkNo</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4109,7 +4109,7 @@
   <rule id="104399" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">b2ljZSA9ICREcm9wRG93bi5TZWxlY3RlZEl0ZW0uVG9TdHJpbmcoKQ0KICAgICAgICAgICAgJEZvcm0uQ2xvc2UoKQ0KICAgICAgICB9DQoNCiAgICAgICAgJEZvcm0gPSBOZXctT2JqZWN0IFN5c3</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4129,7 +4129,7 @@
   <rule id="104401" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RlbS5XaW5kb3dzLkZvcm1zLkZvcm0NCg0KICAgICAgICAkRm9ybS53aWR0aCA9IDMwMA0KICAgICAgICAkRm9ybS5oZWlnaHQgPSAxNTANCiAgICAgICAgJEZvcm0uVGV4dCA9IOKAnVNlbGVjdCAk</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4149,7 +4149,7 @@
   <rule id="104403" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">VGl0bGXigJ0NCg0KICAgICAgICAkRHJvcERvd24gPSBuZXctb2JqZWN0IFN5c3RlbS5XaW5kb3dzLkZvcm1zLkNvbWJvQm94DQogICAgICAgICREcm9wRG93bi5Mb2NhdGlvbiA9IG5ldy1vYmplY3</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4169,7 +4169,7 @@
   <rule id="104405" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">QgU3lzdGVtLkRyYXdpbmcuU2l6ZSgxMDAsMTApDQogICAgICAgICREcm9wRG93bi5TaXplID0gbmV3LW9iamVjdCBTeXN0ZW0uRHJhd2luZy5TaXplKDEzMCwzMCkNCg0KICAgICAgICBGb3JFYWNo</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4189,7 +4189,7 @@
   <rule id="104407" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICgkSXRlbSBpbiAkRHJvcERvd25PcHRpb25zKSB7DQogICAgICAgICBbdm9pZF0gJERyb3BEb3duLkl0ZW1zLkFkZCgkSXRlbSkNCiAgICAgICAgfQ0KDQogICAgICAgICRGb3JtLkNvbnRyb2xzLk</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4209,7 +4209,7 @@
   <rule id="104409" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">FkZCgkRHJvcERvd24pDQoNCiAgICAgICAgJERyb3BEb3duTGFiZWwgPSBuZXctb2JqZWN0IFN5c3RlbS5XaW5kb3dzLkZvcm1zLkxhYmVsDQogICAgICAgICREcm9wRG93bkxhYmVsLkxvY2F0aW9u</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4229,7 +4229,7 @@
   <rule id="104411" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ID0gbmV3LW9iamVjdCBTeXN0ZW0uRHJhd2luZy5TaXplKDEwLDEwKSANCiAgICAgICAgJERyb3BEb3duTGFiZWwuc2l6ZSA9IG5ldy1vYmplY3QgU3lzdGVtLkRyYXdpbmcuU2l6ZSgxMDAsMjApIA</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4249,7 +4249,7 @@
   <rule id="104413" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">0KICAgICAgICAkRHJvcERvd25MYWJlbC5UZXh0ID0gIk9wdGlvbnM6Ig0KICAgICAgICAkRm9ybS5Db250cm9scy5BZGQoJERyb3BEb3duTGFiZWwpDQoNCiAgICAgICAgJEJ1dHRvbiA9IG5ldy1v</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4269,7 +4269,7 @@
   <rule id="104415" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">YmplY3QgU3lzdGVtLldpbmRvd3MuRm9ybXMuQnV0dG9uDQogICAgICAgICRCdXR0b24uTG9jYXRpb24gPSBuZXctb2JqZWN0IFN5c3RlbS5EcmF3aW5nLlNpemUoMTAwLDUwKQ0KICAgICAgICAkQn</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4289,7 +4289,7 @@
   <rule id="104417" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">V0dG9uLlNpemUgPSBuZXctb2JqZWN0IFN5c3RlbS5EcmF3aW5nLlNpemUoMTAwLDIwKQ0KICAgICAgICAkQnV0dG9uLlRleHQgPSAiU3VibWl0Ig0KICAgICAgICAkQnV0dG9uLkFkZF9DbGljayh7</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4309,7 +4309,7 @@
   <rule id="104419" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">UmV0dXJuLURyb3BEb3dufSkNCiAgICAgICAgJGZvcm0uQ29udHJvbHMuQWRkKCRCdXR0b24pDQoNCiAgICAgICAgJERyb3BEb3duLlNlbGVjdGVkSW5kZXggPSAgMA0KICAgICAgICANCiAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4329,7 +4329,7 @@
   <rule id="104421" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgJEZvcm0uQWRkX1Nob3duKHskRm9ybS5BY3RpdmF0ZSgpfSkNCiAgICAgICAgW3ZvaWRdICRGb3JtLlNob3dEaWFsb2coKQ0KDQogICAgICAgICRDaG9pY2UNCiAgICAgfQ0KICAgICANCiAgICBj</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4349,7 +4349,7 @@
   <rule id="104423" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">YXRjaCB7DQoNCiAgICAgICAgV3JpdGUtTG9nICRFUlJPUl9MT0cgIlVuYWJsZSB0byBnZW5lcmF0ZSBpbnB1dCBkcm9wIGRvd24iDQoNCiAgICAgICAgV3JpdGUtTG9nICRFUlJPUl9MT0cgJEVycm</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4369,7 +4369,7 @@
   <rule id="104425" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">9yWzBdDQoNCiAgICAgICAgJEVycm9yTGluZU51bWJlciA9ICRFcnJvclswXS5JbnZvY2F0aW9uSW5mby5zY3JpcHRsaW5lbnVtYmVyDQoNCiAgICAgICAgV3JpdGUtTG9nICRFUlJPUl9MT0cgIkNh</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4389,7 +4389,7 @@
   <rule id="104427" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">dWdodCBvbiBsaW5lIG51bWJlcjogJEVycm9yTGluZU51bWJlciINCg0KICAgICAgICBleGl0DQoNCiAgICB9DQp9DQoNCg0KIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4409,7 +4409,7 @@
   <rule id="104429" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGdldCB0aGUgbGlzdCBvZiBjb21wdXRlcnMgYmFzZWQgb24gdGhlIHVzZXJzIHNl</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4429,7 +4429,7 @@
   <rule id="104431" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bGVjdGVkIGxpc3QgdHlwZQ0KDQojQHBhcmFtICRDb21wdXRlckxpc3RUeXBlICAgLT4gVGhlIHR5cGUgb2YgY29tcHV0ZXIgbGlzdCAgIA0KDQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4449,7 +4449,7 @@
   <rule id="104433" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KDQpmdW5jdGlvbiBHZXQtQ29tcHV0ZXJMaXN0IHsgcGFyYW0oJENvbXB1dGVyTGlzdFR5</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4469,7 +4469,7 @@
   <rule id="104435" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">cGUpDQoNCg0KICAgIHRyeSB7DQoNCiAgICAgICAgJENvbXB1dGVyTGlzdCA9IEB7fTsNCg0KICAgICAgICBzd2l0Y2goJENvbXB1dGVyTGlzdFR5cGUpIHsNCg0KICAgICAgICAgICAgJERPTUFJTl</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4489,7 +4489,7 @@
   <rule id="104437" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">9PUFQgew0KICAgICAgICAgICAgDQogICAgICAgICAgICAgICAgJEdldEFEQ29tcHV0ZXJMaXN0ID0gR2V0LUFEQ29tcHV0ZXIgLUNyZWRlbnRpYWwgJEdsb2JhbDpDcmVkIC1GaWx0ZXIge2VuYWJs</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4509,7 +4509,7 @@
   <rule id="104439" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZWQgLWVxICJ0cnVlIn0gLVByb3BlcnRpZXMgT3BlcmF0aW5nU3lzdGVtIHwgU2VsZWN0IEROU0hvc3RuYW1lLCBPcGVyYXRpbmdTeXN0ZW0NCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4529,7 +4529,7 @@
   <rule id="104441" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAkQ29tcHV0ZXJMaXN0ID0gJEdldEFEQ29tcHV0ZXJMaXN0LkROU0hvc3ROYW1lDQoNCiAgICAgICAgICAgICAgICBicmVhaw0KICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgfSANCiAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4549,7 +4549,7 @@
   <rule id="104443" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICAgIA0KICAgICAgICAgICAgJEZJTEVfT1BUIHsNCiAgICAgICAgICAgICAgICANCiAgICAgICAgICAgICAgICAkQ29tcHV0ZXJMaXN0ID0gR2V0LUZpbGVOYW1lICJEZXNrdG9wIiANCiAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4569,7 +4569,7 @@
   <rule id="104445" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAgICAgICAkQ29tcHV0ZXJMaXN0ID0gR2V0LUNvbnRlbnQgJENvbXB1dGVyTGlzdA0KDQogICAgICAgICAgICAgICAgYnJlYWsNCiAgICAgICAgICAgIH0NCg0KICAgICAgICAgICAgJExP</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4589,7 +4589,7 @@
   <rule id="104447" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Q0FMSE9TVF9PUFQgew0KICAgICAgICAgICAgICAgIA0KICAgICAgICAgICAgICAgICRDb21wdXRlckxpc3QgPSAibG9jYWxob3N0Ig0KDQogICAgICAgICAgICAgICAgYnJlYWsNCiAgICAgICAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4609,7 +4609,7 @@
   <rule id="104449" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgIH0gDQogICAgICAgIH0NCg0KICAgICAgICBSZXR1cm4gJENvbXB1dGVyTGlzdA0KDQogICAgfQ0KDQogICAgY2F0Y2ggew0KICAgIA0KICAgICAgICBXcml0ZS1Mb2cgJEVSUk9SX0xPRyAiVW5h</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4629,7 +4629,7 @@
   <rule id="104451" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">YmxlIHRvIGRldGVybWluZSBjb21wdXRlciBsaXN0Ig0KDQogICAgICAgIFdyaXRlLUxvZyAkRVJST1JfTE9HICRFcnJvclswXQ0KDQogICAgICAgICRFcnJvckxpbmVOdW1iZXIgPSAkRXJyb3JbMF</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4649,7 +4649,7 @@
   <rule id="104453" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">0uSW52b2NhdGlvbkluZm8uc2NyaXB0bGluZW51bWJlcg0KDQogICAgICAgIFdyaXRlLUxvZyAkRVJST1JfTE9HICJDYXVnaHQgb24gbGluZSBudW1iZXI6ICRFcnJvckxpbmVOdW1iZXIiDQoNCiAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4669,7 +4669,7 @@
   <rule id="104455" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICAgICAgZXhpdA0KDQogICAgfQ0KfQ0KDQoNCg0KIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4689,7 +4689,7 @@
   <rule id="104457" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0\+IEhvdyBzZXZlcmUgb2YgdGhl</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4709,7 +4709,7 @@
   <rule id="104459" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0\+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4729,7 +4729,7 @@
   <rule id="104461" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KDQpmdW5jdGlvbiBXcml0ZS1Mb2cgeyBwYXJhbSgkc2V2</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4749,7 +4749,7 @@
   <rule id="104463" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZXJpdHksIFtzdHJpbmddJGxvZ01lc3NhZ2UpDQogICAgDQogICAgdHJ5IHsNCiAgICAgICAgDQogICAgICAgIGlmICgkbG9nTWVzc2FnZS5sZW5ndGggLUdUIDIwMCkgew0KICAgICAgICAgICAgJG</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4769,7 +4769,7 @@
   <rule id="104465" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">xvZ01lc3NhZ2UgPSAkbG9nTWVzc2FnZS5TdWJzdHJpbmcoMCwyMDApICsgIi4uLiINCg0KICAgICAgICB9DQoNCiAgICAgICAgJG91dHB1dCA9ICRsb2dNZXNzYWdlICsgImBuIg0KDQogICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4789,7 +4789,7 @@
   <rule id="104467" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IHN3aXRjaCgkU2V2ZXJpdHkpIHsNCiAgICAgICAgDQogICAgICAgICAgICAkSU5GT19MT0cge1dyaXRlLUhvc3QgJG91dHB1dCAtRm9yZSBHcmVlbjsgYnJlYWt9IA0KICAgICAgICAgICANCiAgIC</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4809,7 +4809,7 @@
   <rule id="104469" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AgICAgICAgICRJTlBVVF9MT0cge1dyaXRlLUhvc3QgJG91dHB1dCAtRm9yZSBDeWFuOyBicmVha30NCg0KICAgICAgICAgICAgJFdBUk5fTE9HIHtXcml0ZS1Ib3N0ICRvdXRwdXQgLUZvcmUgQ3lh</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4829,7 +4829,7 @@
   <rule id="104471" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">bjsgYnJlYWt9DQoNCiAgICAgICAgICAgICRFUlJPUl9MT0cge1dyaXRlLUhvc3QgJG91dHB1dCAtRm9yZSBSZWQ7IGJyZWFrfQ0KDQogICAgICAgICAgICBEZWZhdWx0IHtXcml0ZS1Ib3N0ICJVbm</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4849,7 +4849,7 @@
   <rule id="104473" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">FibGUgdG8gbG9nIGJhc2VkIG9uIHNlcmVyaXR5OiAkU2V2ZXJpdHkiIC1Gb3JlIEN5YW47IGJyZWFrfQ0KICAgICAgICB9DQoNCiAgICB9DQoNCiAgICBjYXRjaCB7DQogICAgICAgIA0KICAgICAg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4869,7 +4869,7 @@
   <rule id="104475" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ICBXcml0ZS1Ib3N0ICJVbmFibGUgdG8gbG9nYG4iIC1Gb3JlIFJlZA0KDQogICAgICAgIFdyaXRlLUhvc3QgJEVycm9yWzBdIC1Gb3JlIFJlZA0KDQogICAgICAgICRFcnJvckxpbmVOdW1iZXIgPS</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4889,7 +4889,7 @@
   <rule id="104477" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">AkRXJyb3JbMF0uSW52b2NhdGlvbkluZm8uc2NyaXB0bGluZW51bWJlcg0KDQogICAgICAgIFdyaXRlLUhvc3QgIkNhdWdodCBvbiBsaW5lIG51bWJlcjogJEVycm9yTGluZU51bWJlciIgLUZvcmUg</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4909,7 +4909,7 @@
   <rule id="104479" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">UmVkDQoNCiAgICAgICAgZXhpdA0KDQogICAgfQ0KfQ0KDQoNCiMgSW1wb3J0cyB0aGUgZm9ybXMNCltTeXN0ZW0uUmVmbGVjdGlvbi5Bc3NlbWJseV06OkxvYWRXaXRoUGFydGlhbE5hbWUoIlN5c3</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4929,7 +4929,7 @@
   <rule id="104481" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">RlbS53aW5kb3dzLmZvcm1zIikgfCBPdXQtTnVsbA0KDQojU2V0IHNldmVyaXRpZXMNCiRJTkZPX0xPRyA9ICJJbmZvIg0KJElOUFVUX0xPRyA9ICJJbnB1dCINCiRXQVJOX0xPRyA9ICJXYXJuIg0K</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4949,7 +4949,7 @@
   <rule id="104483" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">JEVSUk9SX0xPRyA9ICJFcnJvciINCg0KI1NldCBDb21wdXRlciBMaXN0IE9wdGlvbnMNCiMkaG9zdGRvbWFpbiA9IChHZXQtQUREb21haW4pLkROU1Jvb3QNCiRGSUxFX09QVCA9ICJJUCBMaXN0Ig</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4969,7 +4969,7 @@
   <rule id="104485" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">0KJERPTUFJTl9PUFQgPSAiRG9tYWluIg0KJExPQ0FMSE9TVF9PUFQgPSAiTG9jYWwgSG9zdCINCg0KDQpXcml0ZS1Mb2cgJElORk9fTE9HICJTdGFydGluZyBTY3JpcHQiDQoNCiMgRHJvcCBEb3du</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -4989,7 +4989,7 @@
   <rule id="104487" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">IE9wdGlvbnMNClthcnJheV0kQ29tcHV0ZXJMaXN0VHlwZU9wdGlvbnMgPSAkRklMRV9PUFQsICRMT0NBTEhPU1RfT1BULCAkRE9NQUlOX09QVA0KDQoNCiNTZXQgdGhlIGZ1bmN0aW9uIHZhcmlhYm</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5009,7 +5009,7 @@
   <rule id="104489" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">xlcw0KJENvbXB1dGVyTGlzdFR5cGUgID0gR2V0LUlucHV0RnJvbURyb3BEb3duICRDb21wdXRlckxpc3RUeXBlT3B0aW9ucyAiSVAgTGlzdCBUeXBlIg0KDQoNCiNTZXQgdGhlIGZ1bmN0aW9uIHZh</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5029,7 +5029,7 @@
   <rule id="104491" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">cmlhYmxlcw0KV3JpdGUtTG9nICRJTlBVVF9MT0cgIlNlbGVjdCBDb21wdXRlciBMaXN0Li4uIg0KDQokQ29tcHV0ZXJMaXN0ID0gR2V0LUNvbXB1dGVyTGlzdCAkQ29tcHV0ZXJMaXN0VHlwZQ0KJE</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5049,7 +5049,7 @@
   <rule id="104493" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">NvbXB1dGVyQ291bnQgPSAkQ29tcHV0ZXJMaXN0LkNvdW50DQokR2xvYmFsOkNyZWQgPSAkTnVsbA0KJEdsb2JhbDpDb25uZWN0aW9uSXNzdWVzID0gMCANCg0KI1NldCBhbGwgZXJyb3JzIHRvIHRl</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5069,7 +5069,7 @@
   <rule id="104495" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">cm1pbmF0aW5nDQokRXJyb3JBY3Rpb25QcmVmZXJlbmNlID0gIlN0b3AiDQoNCldyaXRlLUxvZyAkSU5GT19MT0cgIlNlbGVjdGVkOiAkQ29tcHV0ZXJMaXN0VHlwZSAoJENvbXB1dGVyQ291bnQgQ2</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5089,7 +5089,7 @@
   <rule id="104497" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">9tcHV0ZXIocykgRm91bmQpIg0KDQojQ2FsbCBmdW5jdGlvbg0KJFRpbWUgPSBNZWFzdXJlLUNvbW1hbmQgLUV4cHJlc3Npb24gew0KICAgICRMb2dSZXBvcnQgPSBFeHBvcnQtTG9nUmVwb3J0ICRD</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5109,7 +5109,7 @@
   <rule id="104499" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">b21wdXRlcmxpc3QgJENvbXB1dGVyQ291bnQgJENvbXB1dGVyTGlzdFR5cGUNCn0NCg0KJFRpbWUgPSBbbWF0aF06OlJvdW5kKCRUaW1lLlRvdGFsTWludXRlcywgMSkNCg0KV3JpdGUtTG9nICRJTk</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5129,7 +5129,7 @@
   <rule id="104501" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">ZPX0xPRyAiRXZlbnQgTG9nIFJlcG9ydCBTdWNjZXNzZnVsbHkgQ2FsY3VsYXRlZCAmIEV4cG9ydGVkIC0gJENvbXB1dGVyQ291bnQgQ29tcHV0ZXJzIC0gJFRpbWUgTWludXRlcyAtICRHbG9iYWw6</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5149,7 +5149,7 @@
   <rule id="104503" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">Q29ubmVjdGlvbklzc3VlcyBDb25uZWN0aW9uIElzc3VlKHMpIg==</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5169,7 +5169,7 @@
   <rule id="104509" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">yagfag</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5219,7 +5219,7 @@
   <rule id="104514" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">adsymn</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5229,7 +5229,7 @@
   <rule id="104515" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">hmoopk</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5249,7 +5249,7 @@
   <rule id="104517" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">hgabms</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5269,7 +5269,7 @@
   <rule id="104519" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">genusn</field>
-    <field name="win.eventdata.imagePath">cmd\.exe /c</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
       <id>T1543.003</id>
@@ -5279,7 +5279,7 @@
   <rule id="104522" level="9">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">16403</field>
-    <field name="win.eventdata.localName">\.bat$|\.dll$|\.exe$|\.hta$|\.ps1$|\.psd1$|\.sh$|\.vbe$|\.vbs$</field>
+    <field name="win.eventdata.localName">.bat$|.dll$|.exe$|.hta$|.ps1$|.psd1$|.sh$|.vbe$|.vbs$</field>
     <description>Sigma: BITS Transfer Job Downloading File Potential Suspicious Extension</description>
     <mitre>
       <id>T1197</id>
@@ -5289,7 +5289,7 @@
   <rule id="104523" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">16403</field>
-    <field name="win.eventdata.remoteName">\.githubusercontent\.com|anonfiles\.com|cdn\.discordapp\.com|ddns\.net|dl\.dropboxusercontent\.com|ghostbin\.co|github\.com|glitch\.me|gofile\.io|hastebin\.com|mediafire\.com|mega\.nz|onrender\.com|pages\.dev|paste\.ee|pastebin\.com|pastebin\.pl|pastetext\.net|pixeldrain\.com|privatlab\.com|privatlab\.net|send\.exploit\.in|sendspace\.com|storage\.googleapis\.com|storjshare\.io|supabase\.co|temp\.sh|transfer\.sh|trycloudflare\.com|ufile\.io|w3spaces\.com|workers\.dev</field>
+    <field name="win.eventdata.remoteName">.githubusercontent.com|anonfiles.com|cdn.discordapp.com|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev</field>
     <description>Sigma: BITS Transfer Job Download From File Sharing Domains</description>
     <mitre>
       <id>T1197</id>
@@ -5318,7 +5318,7 @@
   <rule id="104526" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">16403</field>
-    <field name="win.eventdata.localName">\Desktop\|C:\Users\Public\|C:\PerfLogs\</field>
+    <field name="win.eventdata.localName">\\Desktop\\|C:\\Users\\Public\\|C:\\PerfLogs\\</field>
     <description>Sigma: BITS Transfer Job Download To Potential Suspicious Folder</description>
     <mitre>
       <id>T1197</id>
@@ -5343,7 +5343,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104552" level="13">
+  <rule id="104553" level="13">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5355,7 +5355,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104553" level="10">
+  <rule id="104554" level="10">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.serviceName">KrbSCM</field>
@@ -5365,7 +5365,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104554" level="10">
+  <rule id="104555" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5376,7 +5376,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104555" level="9">
+  <rule id="104556" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5384,26 +5384,26 @@
     <description>Sigma: Anydesk Remote Access Software Service Installation</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104556" level="9">
-    <if_sid>60106</if_sid>
-    <field name="win.eventdata.provider_Name">Service Control Manager</field>
-    <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\NetSupport Manager\client32\.exe</field>
-    <description>Sigma: NetSupport Manager Service Install</description>
-    <group>persistence,sigma_converted,</group>
-  </rule>
   <rule id="104557" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">PDQDeployService\.exe</field>
+    <field name="win.eventdata.imagePath">\\NetSupport Manager\\client32.exe</field>
+    <description>Sigma: NetSupport Manager Service Install</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104558" level="9">
+    <if_sid>60106</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">PDQDeployService.exe</field>
     <description>Sigma: New PDQDeploy Service - Server Side</description>
     <mitre>
       <id>T1543.003</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104558" level="9">
+  <rule id="104559" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5414,7 +5414,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104559" level="10">
+  <rule id="104560" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5427,15 +5427,15 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104560" level="9">
+  <rule id="104561" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\rutserv\.exe|-service</field>
+    <field name="win.eventdata.imagePath">\\rutserv.exe|-service</field>
     <description>Sigma: Remote Utilities Host Service Install</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104561" level="10">
+  <rule id="104562" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5447,7 +5447,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104562" level="10">
+  <rule id="104563" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5458,18 +5458,18 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104563" level="10">
+  <rule id="104564" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath"> -nop | -sta | -w hidden |:\Temp\|\.downloadfile\(|\.downloadstring\(|\ADMIN\$\|\Perflogs\|&amp;&amp;</field>
+    <field name="win.eventdata.imagePath"> -nop | -sta | -w hidden |:\\Temp\\|.downloadfile\(|.downloadstring\(|\\ADMIN\$\\|\\Perflogs\\|&amp;&amp;</field>
     <description>Sigma: Suspicious Service Installation</description>
     <mitre>
       <id>T1543.003</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104564" level="9">
+  <rule id="104565" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5479,7 +5479,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104565" level="10">
+  <rule id="104566" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5487,18 +5487,18 @@
     <description>Sigma: RTCore Suspicious Service Installation</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104566" level="9">
+  <rule id="104567" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\AppData\|\\\\127\.0\.0\.1|\\\\localhost</field>
+    <field name="win.eventdata.imagePath">\\AppData\\|\\\\\\\\127.0.0.1|\\\\\\\\localhost</field>
     <description>Sigma: Service Installation in Suspicious Folder</description>
     <mitre>
       <id>T1543.003</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104567" level="10">
+  <rule id="104568" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5509,7 +5509,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104568" level="10">
+  <rule id="104569" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.imagePath"> -c | -r | -k </field>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
@@ -5612,7 +5612,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">cmd|%COMSPEC%|echo|\pipe\</field>
+    <field name="win.eventdata.imagePath">cmd|%COMSPEC%|echo|\\pipe\\</field>
     <description>Sigma: Meterpreter or Cobalt Strike Getsystem Service Installation - System</description>
     <mitre>
       <id>T1134.001</id>
@@ -5635,7 +5635,7 @@
   <rule id="107041" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">129</field>
-    <field name="win.eventdata.path">C:\Windows\Temp\|\AppData\Local\Temp\|\Desktop\|\Downloads\|\Users\Public\|C:\Temp\</field>
+    <field name="win.eventdata.path">C:\\Windows\\Temp\\|\\AppData\\Local\\Temp\\|\\Desktop\\|\\Downloads\\|\\Users\\Public\\|C:\\Temp\\</field>
     <description>Sigma: Scheduled Task Executed From A Suspicious Location</description>
     <mitre>
       <id>T1053.005</id>
@@ -5645,14 +5645,14 @@
   <rule id="107042" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">129</field>
-    <field name="win.eventdata.path">\calc\.exe$|\cscript\.exe$|\mshta\.exe$|\mspaint\.exe$|\notepad\.exe$|\regsvr32\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.path">\\calc.exe$|\\cscript.exe$|\\mshta.exe$|\\mspaint.exe$|\\notepad.exe$|\\regsvr32.exe$|\\wscript.exe$</field>
     <description>Sigma: Scheduled Task Executed Uncommon LOLBIN</description>
     <mitre>
       <id>T1053.005</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
-  <rule id="108518" level="13">
+  <rule id="108517" level="13">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.serviceName">mimikatz driver \(mimidrv\)</field>
     <field name="win.eventdata.imagePath">mimikatz</field>
@@ -5662,7 +5662,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108528" level="11">
+  <rule id="108527" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">1007</field>
     <description>Sigma: Certificate Exported From Local Certificate Store</description>
@@ -5671,18 +5671,18 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108555" level="12">
+  <rule id="108554" level="12">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">16</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Kernel-General</field>
-    <field name="win.eventdata.hiveName">\Temp\SAM|\Temp\SECURITY</field>
+    <field name="win.eventdata.hiveName">\\Temp\\SAM|\\Temp\\SECURITY</field>
     <description>Sigma: Critical Hive In Suspicious Location Access Bits Cleared</description>
     <mitre>
       <id>T1003.002</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108556" level="11">
+  <rule id="108555" level="11">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-WER-SystemErrorReporting</field>
     <field name="win.system.eventID">1001</field>
@@ -5693,7 +5693,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108557" level="12">
+  <rule id="108556" level="12">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5709,7 +5709,7 @@
   <rule id="110006" level="13">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">^aaa\.stage\.|^post\.1</field>
+    <field name="win.eventdata.queryName">^aaa.stage.|^post.1</field>
     <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - DNS Client</description>
     <mitre>
       <id>T1071.004</id>
@@ -5719,14 +5719,14 @@
   <rule id="110007" level="9">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">api\.put\.io|upload\.put\.io</field>
+    <field name="win.eventdata.queryName">api.put.io|upload.put.io</field>
     <description>Sigma: DNS Query To Put.io - DNS Client</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110008" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">\.hiddenservice\.net$|\.onion\.ca$|\.onion\.cab$|\.onion\.casa$|\.onion\.city$|\.onion\.direct$|\.onion\.dog$|\.onion\.glass$|\.onion\.gq$|\.onion\.guide$|\.onion\.in\.net$|\.onion\.ink$|\.onion\.it$|\.onion\.link$|\.onion\.lt$|\.onion\.lu$|\.onion\.ly$|\.onion\.mn$|\.onion\.network$|\.onion\.nu$|\.onion\.pet$|\.onion\.plus$|\.onion\.pt$|\.onion\.pw$|\.onion\.rip$|\.onion\.sh$|\.onion\.si$|\.onion\.to$|\.onion\.top$|\.onion\.ws$|\.onion$|\.s1\.tor-gateways\.de$|\.s2\.tor-gateways\.de$|\.s3\.tor-gateways\.de$|\.s4\.tor-gateways\.de$|\.s5\.tor-gateways\.de$|\.t2w\.pw$|\.tor2web\.ae\.org$|\.tor2web\.blutmagie\.de$|\.tor2web\.com$|\.tor2web\.fi$|\.tor2web\.io$|\.tor2web\.org$|\.tor2web\.xyz$|\.torlink\.co$</field>
+    <field name="win.eventdata.queryName">.hiddenservice.net$|.onion.ca$|.onion.cab$|.onion.casa$|.onion.city$|.onion.direct$|.onion.dog$|.onion.glass$|.onion.gq$|.onion.guide$|.onion.in.net$|.onion.ink$|.onion.it$|.onion.link$|.onion.lt$|.onion.lu$|.onion.ly$|.onion.mn$|.onion.network$|.onion.nu$|.onion.pet$|.onion.plus$|.onion.pt$|.onion.pw$|.onion.rip$|.onion.sh$|.onion.si$|.onion.to$|.onion.top$|.onion.ws$|.onion$|.s1.tor-gateways.de$|.s2.tor-gateways.de$|.s3.tor-gateways.de$|.s4.tor-gateways.de$|.s5.tor-gateways.de$|.t2w.pw$|.tor2web.ae.org$|.tor2web.blutmagie.de$|.tor2web.com$|.tor2web.fi$|.tor2web.io$|.tor2web.org$|.tor2web.xyz$|.torlink.co$</field>
     <description>Sigma: Query Tor Onion Address - DNS Client</description>
     <mitre>
       <id>T1090.003</id>
@@ -5737,7 +5737,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">MeshAgent\.exe</field>
+    <field name="win.eventdata.imagePath">MeshAgent.exe</field>
     <description>Sigma: Mesh Agent Service Installation</description>
     <mitre>
       <id>T1219.002</id>
@@ -5748,7 +5748,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">tacticalrmm\.exe</field>
+    <field name="win.eventdata.imagePath">tacticalrmm.exe</field>
     <description>Sigma: TacticalRMM Service Installation</description>
     <mitre>
       <id>T1219.002</id>
@@ -5768,7 +5768,7 @@
   <rule id="111001" level="6">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">30</field>
-    <field name="win.eventdata.searchFilter">\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483648\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483656\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483652\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483650\)|\(sAMAccountType=805306369\)|\(sAMAccountType=805306368\)|\(sAMAccountType=536870913\)|\(sAMAccountType=536870912\)|\(sAMAccountType=268435457\)|\(sAMAccountType=268435456\)|\(objectCategory=groupPolicyContainer\)|\(objectCategory=organizationalUnit\)|\(objectCategory=nTDSDSA\)|\(objectCategory=server\)|\(objectCategory=domain\)|\(objectCategory=person\)|\(objectCategory=group\)|\(objectCategory=user\)|\(objectClass=trustedDomain\)|\(objectClass=computer\)|\(objectClass=server\)|\(objectClass=group\)|\(objectClass=user\)|\(primaryGroupID=521\)|\(primaryGroupID=516\)|\(primaryGroupID=515\)|\(primaryGroupID=512\)|Domain Admins|objectGUID=\.*|\(schemaIDGUID=\.*\)|admincount=1</field>
+    <field name="win.eventdata.searchFilter">\(groupType:1.2.840.113556.1.4.803:=2147483648\)|\(groupType:1.2.840.113556.1.4.803:=2147483656\)|\(groupType:1.2.840.113556.1.4.803:=2147483652\)|\(groupType:1.2.840.113556.1.4.803:=2147483650\)|\(sAMAccountType=805306369\)|\(sAMAccountType=805306368\)|\(sAMAccountType=536870913\)|\(sAMAccountType=536870912\)|\(sAMAccountType=268435457\)|\(sAMAccountType=268435456\)|\(objectCategory=groupPolicyContainer\)|\(objectCategory=organizationalUnit\)|\(objectCategory=nTDSDSA\)|\(objectCategory=server\)|\(objectCategory=domain\)|\(objectCategory=person\)|\(objectCategory=group\)|\(objectCategory=user\)|\(objectClass=trustedDomain\)|\(objectClass=computer\)|\(objectClass=server\)|\(objectClass=group\)|\(objectClass=user\)|\(primaryGroupID=521\)|\(primaryGroupID=516\)|\(primaryGroupID=515\)|\(primaryGroupID=512\)|Domain Admins|objectGUID=\\\.*|\(schemaIDGUID=\\\.*\)|admincount=1</field>
     <description>Sigma: Potential Active Directory Reconnaissance/Enumeration Via LDAP</description>
     <mitre>
       <id>T1069.002</id>
@@ -5822,6 +5822,7 @@
   <rule id="112534" level="11">
     <if_sid>60106</if_sid>
     <field name="win.system.eventID">5805|5723</field>
+    <field name="full_log">kali</field>
     <description>Sigma: Zerologon Exploitation Using Well-known Tools</description>
     <mitre>
       <id>T1210</id>
@@ -5832,7 +5833,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\.bat &amp; del |__output 2\^&gt;\^&amp;1 &gt;</field>
+    <field name="win.eventdata.imagePath">.bat &amp; del |__output 2\^&gt;\^&amp;1 &gt;</field>
     <description>Sigma: smbexec.py Service Installation</description>
     <mitre>
       <id>T1021.002</id>
@@ -5844,7 +5845,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DistributedCOM</field>
     <field name="win.system.eventID">10001</field>
-    <field name="win.eventdata.param1">C:\Program Files\Common Files\microsoft shared\ink\TabTip\.exe</field>
+    <field name="win.eventdata.param1">C:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe</field>
     <field name="win.eventdata.param2">2147943140</field>
     <field name="win.eventdata.param3">\{054AAE20-4BEA-4347-8A35-64A533254A9D\}</field>
     <description>Sigma: Local Privilege Escalation Indicator TabTip</description>
@@ -5869,7 +5870,7 @@
     <field name="win.eventdata.provider_Name">Ntfs</field>
     <field name="win.system.eventID">55</field>
     <field name="win.eventdata.origin">File System Driver</field>
-    <field name="win.eventdata.description">contains a corrupted file record|The name of the file is "\"</field>
+    <field name="win.eventdata.description">contains a corrupted file record|The name of the file is "\\"</field>
     <description>Sigma: NTFS Vulnerability Exploitation</description>
     <mitre>
       <id>T1499.001</id>
@@ -5879,7 +5880,7 @@
   <rule id="114005" level="14">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">141|142</field>
-    <field name="win.eventdata.taskName">\Windows\SystemRestore\SR|\Windows\Windows Defender\|\Windows\BitLocker|\Windows\WindowsBackup\|\Windows\WindowsUpdate\|\Windows\UpdateOrchestrator\|\Windows\ExploitGuard</field>
+    <field name="win.eventdata.taskName">\\Windows\\SystemRestore\\SR|\\Windows\\Windows Defender\\|\\Windows\\BitLocker|\\Windows\\WindowsBackup\\|\\Windows\\WindowsUpdate\\|\\Windows\\UpdateOrchestrator\\|\\Windows\\ExploitGuard</field>
     <description>Sigma: Important Scheduled Task Deleted or Disabled</description>
     <mitre>
       <id>T1489</id>
@@ -5889,7 +5890,7 @@
   <rule id="114501" level="13">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">\.anonfiles\.com</field>
+    <field name="win.eventdata.queryName">.anonfiles.com</field>
     <description>Sigma: DNS Query for Anonfiles.com Domain - DNS Client</description>
     <mitre>
       <id>T1567.002</id>
@@ -5899,7 +5900,7 @@
   <rule id="114502" level="12">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">userstorage\.mega\.co\.nz</field>
+    <field name="win.eventdata.queryName">userstorage.mega.co.nz</field>
     <description>Sigma: DNS Query To MEGA Hosting Website - DNS Client</description>
     <mitre>
       <id>T1567.002</id>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1211_unknown,">
-  <rule id="100019" level="9">
+  <rule id="100021" level="9">
     <if_sid>60003</if_sid>
     <field name="win.eventdata.provider_Name">Application Error</field>
     <field name="win.system.eventID">1000</field>
-    <field name="win.eventdata.data">MsMpEng\.exe|mpengine\.dll</field>
+    <field name="win.eventdata.data">MsMpEng.exe|mpengine.dll</field>
     <description>Sigma: Microsoft Malware Protection Engine Crash</description>
     <mitre>
       <id>T1211</id>
@@ -12,11 +12,11 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100028" level="9">
+  <rule id="100030" level="9">
     <if_sid>60003</if_sid>
     <field name="win.eventdata.provider_Name">Windows Error Reporting</field>
     <field name="win.system.eventID">1001</field>
-    <field name="win.eventdata.data">MsMpEng\.exe|mpengine\.dll</field>
+    <field name="win.eventdata.data">MsMpEng.exe|mpengine.dll</field>
     <description>Sigma: Microsoft Malware Protection Engine Crash - WER</description>
     <mitre>
       <id>T1211</id>
@@ -24,9 +24,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104727" level="9">
+  <rule id="104728" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.sh|\.exe|\.dll|\.bin|\.bat|\.cmd|\.js|\.msh|\.reg|\.scr|\.ps|\.vb|\.jar|\.pl|\.inf|\.cpl|\.hta|\.msi|\.vbs</field>
+    <field name="win.eventdata.commandLine">.sh|.exe|.dll|.bin|.bat|.cmd|.js|.msh|.reg|.scr|.ps|.vb|.jar|.pl|.inf|.cpl|.hta|.msi|.vbs</field>
     <description>Sigma: Writing Of Malicious Files To The Fonts Folder</description>
     <mitre>
       <id>T1211</id>

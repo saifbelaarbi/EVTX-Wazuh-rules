@@ -1,17 +1,17 @@
 # Wazuh Rule Database Report
 
-> Generated: 2026-06-02 22:56 UTC
+> Generated: 2026-06-10 23:00 UTC
 > Pipeline version: 1.0.0
 
 ## Overview
 
 | Metric | Value |
 |--------|-------|
-| Total rules generated | **3289** |
-| EVTX files processed | 2292 |
+| Total rules generated | **3303** |
+| EVTX files processed | 2294 |
 | EVTX sources used | 1 |
 | MITRE tactics covered | 12 / 12 |
-| MITRE techniques covered | 270 |
+| MITRE techniques covered | 271 |
 | Rule ID range | 100000 - 119999 |
 
 ## Alert Level Distribution
@@ -20,19 +20,19 @@
 |-------|----------------|-------|------------|
 | 6 | Low relevance | 88 | 2.7% █ |
 | 7 | Bad word matching | 76 | 2.3% █ |
-| 8 | First time seen | 556 | 16.9% ████████ |
-| 9 | Error from invalid source | 1400 | 42.6% █████████████████████ |
-| 10 | Multiple user-generated errors | 446 | 13.6% ██████ |
-| 11 | Integrity checking warning | 352 | 10.7% █████ |
-| 12 | High importance event | 233 | 7.1% ███ |
-| 13 | Unusual error (high importance) | 106 | 3.2% █ |
+| 8 | First time seen | 556 | 16.8% ████████ |
+| 9 | Error from invalid source | 1404 | 42.5% █████████████████████ |
+| 10 | Multiple user-generated errors | 453 | 13.7% ██████ |
+| 11 | Integrity checking warning | 351 | 10.6% █████ |
+| 12 | High importance event | 236 | 7.1% ███ |
+| 13 | Unusual error (high importance) | 107 | 3.2% █ |
 | 14 | High importance security event | 32 | 1.0%  |
 
 ## Detection Confidence Distribution
 
 | Confidence | Count | Description |
 |------------|-------|-------------|
-| high | 1582 | Exact tool/process name match |
+| high | 1596 | Exact tool/process name match |
 | medium | 1699 | Command-line pattern or behavioral indicator |
 | low | 8 | Heuristic / generic event |
 
@@ -75,1175 +75,1178 @@
 | `113030` | 8 | `T1566.001` T1566.001 | Windows Registry Trust Record Modification | medium | 61615 |
 | `113031` | 9 | `T1133` T1133 | Running Chrome VPN Extensions via the Registry 2 VPN Extension | high | 61615 |
 
-### Execution (TA0002) — 1163 rules
+### Execution (TA0002) — 1166 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
 | `100000` | 9 | `T1047` T1047 | Suspicious process: wmic | high | 61603 |
-| `100001` | 8 | `T1059.001` T1059.001 | Suspicious command: iex( | medium | 61603 |
-| `100002` | 8 | `T1047` T1047 | File created by wmic | medium | 61613 |
-| `100003` | 9 | `T1047` T1047 | Network connection by wmic | high | 61605 |
-| `100004` | 8 | `T1059.001` T1059.001 | Suspicious command: -nop  | medium | 61603 |
-| `100005` | 9 | `T1047` T1047 | DLL sideloading by wmic | high | 61609 |
-| `100006` | 9 | `T1047` T1047 | Network connection by wmic | high | 61605 |
-| `100007` | 8 | `T1059.001` T1059.001 | Suspicious command: bypass | medium | 61603 |
-| `100008` | 8 | `T1059.001` T1059.001 | Suspicious command: -w hidden | medium | 61603 |
-| `100009` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: downloadstring | medium | 91801 |
-| `100010` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: iex( | medium | 91801 |
-| `100011` | 8 | `T1059.001` T1059.001 | PowerShell module: downloadstring | medium | 91801 |
-| `100012` | 8 | `T1059.001` T1059.001 | PowerShell module: iex( | medium | 91801 |
-| `100013` | 8 | `T1059.001` T1059.001 | PowerShell module: invoke-expression | medium | 91801 |
-| `100014` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: bypass | medium | 91801 |
-| `100015` | 8 | `T1047` T1047 | Suspicious PowerShell: invoke-wmimethod | medium | 91801 |
-| `100016` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: invoke-expression | medium | 91801 |
-| `100017` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: invoke-webrequest | medium | 91801 |
-| `100018` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: -nop  | medium | 91801 |
-| `100019` | 9 | `T1211` T1211 | Microsoft Malware Protection Engine Crash | high | 60003 |
-| `100020` | 8 | - | Dump Ntds.dit To Suspicious Location | medium | 60003 |
-| `100021` | 9 | `T1203` T1203 | Audit CVE Event | high | 60003 |
-| `100022` | 8 | `T1070.004` T1070.004 | Backup Catalog Deleted | medium | 60003 |
-| `100023` | 8 | - | MSI Installation From Suspicious Locations | medium | 60003 |
-| `100024` | 8 | `T1218` T1218 | MSI Installation From Web | medium | 60003 |
-| `100025` | 9 | - | MSSQL Disable Audit Settings | high | 60003 |
-| `100026` | 9 | - | MSSQL XPCmdshell Suspicious Execution | high | 60003 |
-| `100027` | 9 | - | MSSQL XPCmdshell Option Change | high | 60003 |
-| `100028` | 9 | `T1211` T1211 | Microsoft Malware Protection Engine Crash - WER | high | 60003 |
-| `100029` | 8 | `T1204.002` T1204.002 | AppLocker Prevented Application or Script from Running | medium | 60000 |
-| `100030` | 8 | - | Deployment AppX Package Was Blocked By AppLocker | medium | 60000 |
-| `100031` | 9 | - | Remote AppX Package Downloaded from File Sharing or CDN Domain | high | 60000 |
-| `100032` | 8 | - | AppX Package Deployment Failed Due to Signing Requirements | medium | 60000 |
-| `100033` | 9 | - | AppX Located in Known Staging Directory Added to Deployment Pipeline | high | 60000 |
-| `100034` | 8 | - | Potential Malicious AppX Package Installation Attempts | medium | 60000 |
-| `100035` | 8 | - | Deployment Of The AppX Package Was Blocked By The Policy | medium | 60000 |
-| `100036` | 8 | - | AppX Located in Uncommon Directory Added to Deployment Pipeline | medium | 60000 |
-| `100037` | 8 | `T1204.002` T1204.002 | Windows AppX Deployment Full Trust Package Installation | medium | 60000 |
-| `100038` | 8 | `T1204.002` T1204.002 | Windows AppX Deployment Unsigned Package Installation | medium | 60000 |
-| `100039` | 8 | - | Suspicious Digital Signature Of AppX Package | medium | 60000 |
-| `100040` | 9 | - | Loading Diagcab Package From Remote Path | high | 60000 |
-| `100041` | 8 | `T1590.002` T1590.002 | Failed DNS Zone Transfer | medium | 60000 |
-| `100042` | 8 | `T1686.003` T1686.003 | Uncommon New Firewall Rule Added In Windows Firewall Exception List | medium | 60016 |
-| `100043` | 9 | `T1686.003` T1686.003 | New Firewall Rule Added In Windows Firewall Exception List For Pote... | high | 60016 |
-| `100044` | 8 | `T1686.003` T1686.003 | New Firewall Rule Added In Windows Firewall Exception List Via WmiP... | medium | 60016 |
-| `100045` | 9 | `T1686.003` T1686.003 | All Rules Have Been Deleted From The Windows Firewall Configuration | high | 60016 |
-| `100046` | 8 | `T1686.003` T1686.003 | A Rule Has Been Deleted From The Windows Firewall Exception List | medium | 60016 |
-| `100047` | 9 | `T1587.001` T1587.001 | ProxyLogon MSExchange OabVirtualDirectory | high | 60000 |
-| `100048` | 9 | `T1070` Indicator Removal | Remove Exported Mailbox from Exchange Webserver | high | 60000 |
-| `100049` | 9 | `T1685` T1685 | Windows Filtering Platform Blocked Connection From EDR Agent Binary | high | 60100 |
-| `100050` | 9 | `T1222.001` T1222.001 | AD Object WriteDAC Access | high | 60100 |
-| `100051` | 9 | `T1685` T1685 | Weak Encryption Enabled and Kerberoast | high | 60100 |
-| `100052` | 9 | `T1685.005` T1685.005 | Security Eventlog Cleared | high | 60100 |
-| `100053` | 9 | `T1685.005` T1685.005 | Security Eventlog Cleared | high | 60100 |
-| `100054` | 9 | `T1685.001` T1685.001 | Important Windows Event Auditing Disabled | high | 60100 |
-| `100055` | 9 | `T1685.001` T1685.001 | Important Windows Event Auditing Disabled | high | 60100 |
-| `100056` | 9 | `T1685` T1685 | HackTool - EDRSilencer Execution - Filter Added | high | 60100 |
-| `100057` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - Security | high | 60100 |
-| `100058` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - Security | high | 60100 |
-| `100059` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - Security | high | 60100 |
-| `100060` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - Security | high | 60100 |
-| `100061` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - Security | medium | 60100 |
-| `100062` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - Security | medium | 60100 |
-| `100063` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - Security | high | 60100 |
-| `100064` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - Security | high | 60100 |
-| `100065` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - Security | high | 60100 |
-| `100066` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - Security | high | 60100 |
-| `100067` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - Security | high | 60100 |
-| `100068` | 8 | - | Potential AS-REP Roasting via Kerberos TGT Requests | medium | 60100 |
-| `100069` | 8 | `T1036` T1036 | New or Renamed User Account with '$' Character | medium | 60100 |
-| `100070` | 8 | `T1036` T1036 | New or Renamed User Account with '$' Character | medium | 60100 |
-| `100071` | 9 | `T1569.002` T1569.002 | PowerShell Scripts Installed as Services - Security | high | 60100 |
-| `100072` | 9 | `T1059.001` T1059.001 | Remote PowerShell Sessions Network Connections (WinRM) | high | 60100 |
-| `100073` | 8 | `T1027` Obfuscated Files or Information | Password Protected ZIP File Opened | medium | 60100 |
-| `100074` | 9 | `T1053.005` T1053.005 | Suspicious Scheduled Task Creation | high | 60100 |
-| `100075` | 9 | `T1053.005` T1053.005 | Important Scheduled Task Deleted/Disabled | high | 60100 |
-| `100076` | 9 | `T1053.005` T1053.005 | Suspicious Scheduled Task Update | high | 60100 |
-| `100077` | 8 | `T1685` T1685 | Potential Privileged System Service Operation - SeLoadDriverPrivilege | medium | 60100 |
-| `100078` | 8 | `T1685` T1685 | Windows Defender Exclusion List Modified | medium | 60100 |
-| `100079` | 8 | `T1685` T1685 | Windows Defender Exclusion Registry Key - Write Access Requested | medium | 60100 |
-| `100080` | 9 | `T1047` T1047 | T1047 Wmiprvse Wbemcomn DLL Hijack | high | 60100 |
-| `100081` | 8 | - | Suspicious Application Installed | medium | 60000 |
-| `100082` | 8 | - | Suspicious Application Installed | medium | 60000 |
-| `100083` | 9 | `T1685` T1685 | Sysmon Application Crashed | high | 60106 |
-| `100084` | 8 | `T1685.005` T1685.005 | Eventlog Cleared | medium | 60106 |
-| `100085` | 9 | `T1685.005` T1685.005 | Important Windows Eventlog Cleared | high | 60106 |
-| `100086` | 8 | `T1685` T1685 | Windows Defender Threat Detection Service Disabled | medium | 60106 |
-| `100087` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - System | high | 60106 |
-| `100088` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - System | high | 60106 |
-| `100089` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - System | high | 60106 |
-| `100090` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - System | high | 60106 |
-| `100091` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - System | medium | 60106 |
-| `100092` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - System | medium | 60106 |
-| `100093` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - System | high | 60106 |
-| `100094` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - System | high | 60106 |
-| `100095` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - System | high | 60106 |
-| `100096` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - System | high | 60106 |
-| `100097` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System | high | 60106 |
-| `100098` | 9 | `T1569.002` T1569.002 | PowerShell Scripts Installed as Services | high | 60106 |
-| `100099` | 8 | `T1569.002` T1569.002 | CSExec Service Installation | medium | 60106 |
-| `100100` | 9 | `T1569.002` T1569.002 | HackTool Service Registration or Execution | high | 60106 |
-| `100101` | 8 | `T1569.002` T1569.002 | PAExec Service Installation | medium | 60106 |
-| `100102` | 8 | `T1569.002` T1569.002 | RemCom Service Installation | medium | 60106 |
-| `100103` | 8 | `T1569.002` T1569.002 | PsExec Service Installation | medium | 60106 |
-| `100104` | 9 | - | Important Windows Service Terminated With Error | high | 60106 |
-| `100105` | 9 | - | Important Windows Service Terminated Unexpectedly | high | 60106 |
-| `100106` | 9 | `T1685` T1685 | Windows Defender Grace Period Expired | high | 60005 |
-| `100107` | 9 | `T1047` T1047 | PSExec and WMI Process Creations Block | high | 60005 |
-| `100108` | 8 | `T1685` T1685 | Windows Defender Exclusions Added | medium | 60005 |
-| `100109` | 9 | `T1685` T1685 | Windows Defender Exploit Guard Tamper | high | 60005 |
-| `100110` | 9 | `T1685` T1685 | Windows Defender Malware And PUA Scanning Disabled | high | 60005 |
-| `100111` | 9 | `T1059` Command and Scripting Interpreter | Windows Defender AMSI Trigger Detected | high | 60005 |
-| `100112` | 9 | `T1685` T1685 | Windows Defender Real-time Protection Disabled | high | 60005 |
-| `100113` | 8 | `T1685` T1685 | Windows Defender Real-Time Protection Failure/Restart | medium | 60005 |
-| `100114` | 9 | `T1685` T1685 | Win Defender Restored Quarantine File | high | 60005 |
-| `100115` | 9 | `T1685` T1685 | Windows Defender Configuration Changes | high | 60005 |
-| `100116` | 9 | `T1685` T1685 | Microsoft Defender Tamper Protection Trigger | high | 60005 |
-| `100117` | 9 | `T1059` Command and Scripting Interpreter | Windows Defender Threat Detected | high | 60005 |
-| `100118` | 9 | `T1685` T1685 | Windows Defender Virus Scanning Feature Disabled | high | 60005 |
-| `100119` | 8 | `T1218.011` T1218.011 | Remote Thread Creation Via PowerShell In Uncommon Target | medium | 61610 |
-| `100120` | 9 | `T1127` T1127 | Remote Thread Creation Ttdinject.exe Proxy | high | 61610 |
-| `100121` | 8 | `T1564.004` T1564.004 | Hidden Executable In NTFS Alternate Data Stream | medium | 61617 |
-| `100122` | 8 | - | Creation Of a Suspicious ADS File Outside a Browser Download | medium | 61617 |
-| `100123` | 9 | `T1564.004` T1564.004 | Suspicious File Download From File Sharing Websites -  File Stream | high | 61617 |
-| `100124` | 8 | `T1564.004` T1564.004 | Unusual File Download From File Sharing Websites - File Stream | medium | 61617 |
-| `100125` | 9 | `T1564.004` T1564.004 | HackTool Named File Stream Created | high | 61617 |
-| `100126` | 9 | `T1564.004` T1564.004 | Exports Registry Key To an Alternate Data Stream | high | 61617 |
-| `100127` | 9 | `T1564.004` T1564.004 | Unusual File Download from Direct IP Address | high | 61617 |
-| `100128` | 9 | - | Potentially Suspicious File Download From ZIP TLD | high | 61617 |
-| `100129` | 8 | `T1559.001` T1559.001 | DNS Query Request By Regsvr32.EXE | medium | 61624 |
-| `100130` | 8 | `T1590` T1590 | Suspicious DNS Query for IP Lookup Service APIs | medium | 61624 |
-| `100131` | 8 | `T1070` Indicator Removal | EventLog EVTX File Deleted | medium | 61625 |
-| `100132` | 9 | `T1070` Indicator Removal | Exchange PowerShell Cmdlet History Deleted | high | 61625 |
-| `100133` | 8 | `T1070` Indicator Removal | IIS WebServer Access Logs Deleted | medium | 61625 |
-| `100134` | 8 | - | Process Deletion of Its Own Executable | medium | 61625 |
-| `100135` | 8 | `T1070` Indicator Removal | PowerShell Console History Logs Deleted | medium | 61625 |
-| `100136` | 9 | `T1070.004` T1070.004 | Prefetch File Deleted | high | 61625 |
-| `100137` | 8 | `T1070` Indicator Removal | Tomcat WebServer Logs Deleted | medium | 61625 |
-| `100138` | 8 | `T1070.004` T1070.004 | File Deleted Via Sysinternals SDelete | medium | 61625 |
-| `100139` | 8 | `T1070.004` T1070.004 | ADS Zone.Identifier Deleted By Uncommon Application | medium | 61625 |
-| `100140` | 8 | - | Assembly DLL Creation Via AspNetCompiler | medium | 61613 |
-| `100141` | 8 | `T1685.001` T1685.001 | EVTX Created In Uncommon Location | medium | 61613 |
-| `100142` | 8 | `T1036.005` T1036.005 | Files With System DLL Name In Unsuspected Locations | medium | 61613 |
-| `100143` | 12 | `T1036.005` T1036.005 | Files With System Process Name In Unsuspected Locations | medium | 61613 |
-| `100144` | 9 | `T1059.005` T1059.005 | WScript or CScript Dropper - File | high | 61613 |
-| `100145` | 8 | `T1569.002` T1569.002 | CSExec Service File Creation | medium | 61613 |
-| `100146` | 8 | - | Potentially Suspicious DMP/HDMP File Creation | medium | 61613 |
-| `100147` | 9 | `T1021.002` T1021.002 | HackTool - NetExec File Indicators | high | 61613 |
-| `100148` | 9 | `T1021.002` T1021.002 | HackTool - NetExec File Indicators | high | 61613 |
-| `100149` | 9 | `T1059.005` T1059.005 | Adwind RAT / JRAT File Artifact | high | 61613 |
-| `100150` | 9 | `T1059.005` T1059.005 | Adwind RAT / JRAT File Artifact | high | 61613 |
-| `100151` | 9 | - | Uncommon File Creation By Mysql Daemon Process | high | 61613 |
-| `100152` | 9 | `T1218` T1218 | Suspicious DotNET CLR Usage Log Artifact | high | 61613 |
-| `100153` | 9 | - | Suspicious File Creation In Uncommon AppData Folder | high | 61613 |
-| `100154` | 8 | `T1218.011` T1218.011 | SCR File Write Event | medium | 61613 |
-| `100155` | 8 | - | OneNote Attachment File Dropped In Suspicious Location | medium | 61613 |
-| `100156` | 9 | - | Suspicious File Created Via OneNote Application | high | 61613 |
-| `100157` | 8 | - | Publisher Attachment File Dropped In Suspicious Location | medium | 61613 |
-| `100158` | 9 | `T1204.002` T1204.002 | File With Uncommon Extension Created By An Office Application | high | 61613 |
-| `100159` | 9 | `T1587.001` T1587.001 | Uncommon File Created In Office Startup Folder | high | 61613 |
-| `100160` | 9 | `T1059` Command and Scripting Interpreter | PCRE.NET Package Temp Files | high | 61613 |
-| `100161` | 8 | `T1059` Command and Scripting Interpreter | Suspicious File Created In PerfLogs | medium | 61613 |
-| `100162` | 13 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - FileCreation | high | 61613 |
-| `100163` | 9 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - FileCreation | high | 61613 |
-| `100164` | 8 | - | PSScriptPolicyTest Creation By Uncommon Process | medium | 61613 |
-| `100165` | 9 | - | .RDP File Created By Uncommon Application | high | 61613 |
-| `100166` | 9 | `T1027` Obfuscated Files or Information | Potential Winnti Dropper Activity | high | 61613 |
-| `100167` | 9 | - | PDF File Created By RegEdit.EXE | high | 61613 |
-| `100168` | 8 | `T1569.002` T1569.002 | RemCom Service File Creation | medium | 61613 |
-| `100169` | 8 | `T1218` T1218 | Self Extraction Directive File Created In Potentially Suspicious Lo... | medium | 61613 |
-| `100170` | 9 | `T1059` Command and Scripting Interpreter | Windows Shell/Scripting Application File Write to Suspicious Folder | high | 61613 |
-| `100171` | 9 | `T1059` Command and Scripting Interpreter | Windows Shell/Scripting Application File Write to Suspicious Folder | high | 61613 |
-| `100172` | 12 | `T1036` T1036 | Windows Binaries Write Suspicious Extensions | high | 61613 |
-| `100173` | 9 | `T1036` T1036 | Windows Binaries Write Suspicious Extensions | high | 61613 |
-| `100174` | 9 | `T1564` T1564 | Suspicious Creation with Colorcpl | high | 61613 |
-| `100175` | 8 | `T1036.005` T1036.005 | Suspicious Files in Default GPO Folder | medium | 61613 |
-| `100176` | 8 | - | Creation of a Diagcab | medium | 61613 |
-| `100177` | 9 | `T1036.007` T1036.007 | Suspicious Double Extension Files | high | 61613 |
-| `100178` | 9 | `T1036.007` T1036.007 | Suspicious Double Extension Files | high | 61613 |
-| `100179` | 9 | `T1564` T1564 | Suspicious Executable File Creation | high | 61613 |
-| `100180` | 8 | `T1564.004` T1564.004 | Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Stream | medium | 61613 |
-| `100181` | 8 | `T1036` T1036 | Potential Homoglyph Attack Using Lookalike Characters in Filename | medium | 61613 |
-| `100182` | 8 | `T1036` T1036 | Potential Homoglyph Attack Using Lookalike Characters in Filename | medium | 61613 |
-| `100183` | 9 | `T1218` T1218 | Legitimate Application Dropped Archive | high | 61613 |
-| `100184` | 9 | `T1218` T1218 | Legitimate Application Dropped Executable | high | 61613 |
-| `100185` | 9 | `T1218` T1218 | Legitimate Application Dropped Script | high | 61613 |
-| `100186` | 8 | `T1036.007` T1036.007 | Suspicious LNK Double Extension File Created | medium | 61613 |
-| `100187` | 8 | `T1685` T1685 | Suspicious PROCEXP152.sys File Created In TMP | medium | 61613 |
-| `100188` | 9 | `T1204` User Execution | Suspicious Binaries and Scripts in Public Folder | high | 61613 |
-| `100189` | 9 | `T1036.002` T1036.002 | Potential File Extension Spoofing Using Right-to-Left Override | high | 61613 |
-| `100190` | 8 | - | Drop Binaries Into Spool Drivers Color Folder | medium | 61613 |
-| `100191` | 9 | `T1059.001` T1059.001 | Suspicious Interactive PowerShell as SYSTEM | high | 61613 |
-| `100192` | 8 | - | Potentially Suspicious WDAC Policy File Creation | medium | 61613 |
-| `100193` | 8 | - | WinSxS Executable File Creation By Non-System Process | medium | 61613 |
-| `100194` | 9 | `T1548.002` T1548.002 | UAC Bypass Using IDiagnostic Profile - File | high | 61613 |
-| `100195` | 8 | `T1587.001` T1587.001 | VHD Image Download Via Browser | medium | 61613 |
-| `100196` | 8 | `T1216` T1216 | AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl - File | medium | 61613 |
-| `100197` | 9 | `T1047` T1047 | Wmiprvse Wbemcomn DLL Hijack - File | high | 61613 |
-| `100198` | 8 | `T1218` T1218 | Potentially Suspicious Self Extraction Directive File Created | medium | 61613 |
-| `100199` | 8 | `T1059` Command and Scripting Interpreter | Clfs.SYS Loaded By Process Located In a Potential Suspicious Location | medium | 61609 |
-| `100200` | 9 | `T1218.003` T1218.003 | DLL Loaded From Suspicious Location Via Cmspt.EXE | high | 61609 |
-| `100201` | 8 | - | Amsi.DLL Loaded Via LOLBIN Process | medium | 61609 |
-| `100202` | 9 | `T1059` Command and Scripting Interpreter | PCRE.NET Package Image Load | high | 61609 |
-| `100203` | 9 | `T1202` T1202 | Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE | high | 61609 |
-| `100204` | 8 | `T1059.001` T1059.001 | PowerShell Core DLL Loaded By Non PowerShell Process | medium | 61609 |
-| `100205` | 8 | `T1129` T1129 | Unsigned .node File Loaded | medium | 61609 |
-| `100206` | 9 | `T1685.001` T1685.001 | HackTool - SharpEvtMute DLL Load | high | 61609 |
-| `100207` | 8 | `T1204.002` T1204.002 | DotNET Assembly DLL Loaded Via Office Application | medium | 61609 |
-| `100208` | 8 | `T1204.002` T1204.002 | CLR DLL Loaded Via Office Applications | medium | 61609 |
-| `100209` | 9 | `T1204.002` T1204.002 | GAC DLL Loaded Via Office Applications | high | 61609 |
-| `100210` | 8 | `T1204.002` T1204.002 | Microsoft Excel Add-In Loaded From Uncommon Location | medium | 61609 |
-| `100211` | 8 | `T1204.002` T1204.002 | Microsoft VBA For Outlook Addin Loaded Via Outlook | medium | 61609 |
-| `100212` | 8 | - | PowerShell Core DLL Loaded Via Office Application | medium | 61609 |
-| `100213` | 9 | `T1204.002` T1204.002 | VBA DLL Loaded Via Office Application | high | 61609 |
-| `100214` | 8 | `T1204.002` T1204.002 | Remote DLL Load Via Rundll32.EXE | medium | 61609 |
-| `100215` | 9 | `T1059` Command and Scripting Interpreter | Abusable DLL Potential Sideloading From Suspicious Location | high | 61609 |
-| `100216` | 8 | `T1070` Indicator Removal | DLL Load By System Process From Suspicious Locations | medium | 61609 |
-| `100217` | 9 | `T1055` Process Injection | DotNet CLR DLL Loaded By Scripting Applications | high | 61609 |
-| `100218` | 8 | `T1218.011` T1218.011 | Unsigned DLL Loaded by Windows Utility | medium | 61609 |
-| `100219` | 8 | `T1059.005` T1059.005 | MMC Loading Script Engines DLLs | medium | 61609 |
-| `100220` | 8 | `T1220` T1220 | WMIC Loading Scripting Libraries | medium | 61609 |
-| `100221` | 9 | `T1047` T1047 | Wmiprvse Wbemcomn DLL Hijack | high | 61609 |
-| `100222` | 8 | `T1059.001` T1059.001 | Suspicious WSMAN Provider Image Loads | medium | 61609 |
-| `100223` | 9 | `T1218` T1218 | Network Connection Initiated By AddinUtil.EXE | high | 61605 |
-| `100224` | 9 | `T1218.003` T1218.003 | Outbound Network Connection Initiated By Cmstp.EXE | high | 61605 |
-| `100225` | 9 | `T1071.001` T1071.001 | Outbound Network Connection Initiated By Microsoft Dialer | high | 61605 |
-| `100226` | 9 | `T1203` T1203 | Network Connection Initiated By Eqnedt32.EXE | high | 61605 |
-| `100227` | 8 | `T1203` T1203 | Office Application Initiated Network Connection To Non-Local IP | medium | 61605 |
-| `100228` | 8 | `T1218.009` T1218.009 | RegAsm.EXE Initiating Network Connection To Public IP | medium | 61605 |
-| `100229` | 8 | `T1559.001` T1559.001 | Network Connection Initiated By Regsvr32.EXE | medium | 61605 |
-| `100230` | 8 | `T1218.011` T1218.011 | Rundll32 Internet Connection | medium | 61605 |
-| `100231` | 9 | `T1127.001` T1127.001 | Silenttrinity Stager Msbuild Activity | high | 61605 |
-| `100232` | 9 | - | Suspicious Network Connection Binary No CommandLine | high | 61605 |
-| `100233` | 9 | `T1059.001` T1059.001 | Potential Remote PowerShell Session Initiated | high | 61605 |
-| `100234` | 8 | `T1218.011` T1218.011 | Outbound Network Connection To Public IP Via Winlogon | medium | 61605 |
-| `100235` | 8 | `T1218` T1218 | Potentially Suspicious Wuauclt Network Connection | medium | 61605 |
-| `100236` | 8 | `T1059.001` T1059.001 | Alternate PowerShell Hosts Pipe | medium | 61619 |
-| `100237` | 8 | `T1569.002` T1569.002 | PUA - PAExec Default Named Pipe | medium | 61619 |
-| `100238` | 8 | `T1047` T1047 | WMI Event Consumer Created Named Pipe | medium | 61619 |
-| `100239` | 8 | `T1569.002` T1569.002 | PsExec Tool Execution From Suspicious Locations - PipeName | medium | 61619 |
-| `100240` | 8 | `T1059.001` T1059.001 | Nslookup PowerShell Download Cradle | medium | 91801 |
-| `100241` | 8 | `T1059.001` T1059.001 | PowerShell Downgrade Attack - PowerShell | medium | 91801 |
-| `100242` | 9 | `T1059.001` T1059.001 | PowerShell Called from an Executable Version Mismatch | high | 91801 |
-| `100243` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse | high | 91801 |
-| `100244` | 9 | `T1685` T1685 | Tamper Windows Defender - PSClassic | high | 91801 |
-| `100245` | 8 | `T1059.001` T1059.001 | Suspicious Non PowerShell WSMAN COM Provider | medium | 91801 |
-| `100246` | 8 | `T1059.001` T1059.001 | Alternate PowerShell Hosts - PowerShell Module | medium | 91801 |
-| `100247` | 9 | `T1059.001` T1059.001 | Bad Opsec Powershell Code Artifacts | high | 91801 |
-| `100248` | 8 | `T1070.003` T1070.003 | Clear PowerShell History - PowerShell Module | medium | 91801 |
-| `100249` | 8 | `T1070.003` T1070.003 | Clear PowerShell History - PowerShell Module | medium | 91801 |
-| `100250` | 13 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - PoshModule | high | 91801 |
-| `100251` | 9 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - PoshModule | high | 91801 |
-| `100252` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - PowerShell Module | high | 91801 |
-| `100253` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell Module | high | 91801 |
-| `100254` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - PowerShell Module | high | 91801 |
-| `100255` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - PowerShell Module | high | 91801 |
-| `100256` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell Module | medium | 91801 |
-| `100257` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - PowerShell Module | medium | 91801 |
-| `100258` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - PowerShell Module | high | 91801 |
-| `100259` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - PowerShell Module | high | 91801 |
-| `100260` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - PowerShell Module | high | 91801 |
-| `100261` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - PowerShell Module | high | 91801 |
-| `100262` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - PowerShell Module | high | 91801 |
-| `100263` | 13 | `T1482` T1482 | Malicious PowerShell Commandlets - PoshModule | high | 91801 |
-| `100264` | 9 | `T1059.001` T1059.001 | Remote PowerShell Session (PS Module) | high | 91801 |
-| `100265` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module | high | 91801 |
-| `100266` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell Download - PoshModule | medium | 91801 |
-| `100267` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Generic - PowerShell Module | high | 91801 |
-| `100268` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific - PowerShell Module | high | 91801 |
-| `100269` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific - PowerShell Module | high | 91801 |
+| `100001` | 9 | `T1047` T1047 | Suspicious process: wmic | high | 61603 |
+| `100002` | 8 | `T1059.001` T1059.001 | Suspicious command: iex( | medium | 61603 |
+| `100003` | 8 | `T1047` T1047 | File created by wmic | medium | 61613 |
+| `100004` | 9 | `T1047` T1047 | Network connection by wmic | high | 61605 |
+| `100005` | 8 | `T1059.001` T1059.001 | Suspicious command: -nop  | medium | 61603 |
+| `100006` | 9 | `T1047` T1047 | DLL sideloading by wmic | high | 61609 |
+| `100007` | 9 | `T1047` T1047 | Network connection by wmic | high | 61605 |
+| `100008` | 8 | `T1059.001` T1059.001 | Suspicious command: bypass | medium | 61603 |
+| `100009` | 8 | `T1059.001` T1059.001 | Suspicious command: -w hidden | medium | 61603 |
+| `100010` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: downloadstring | medium | 91801 |
+| `100011` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: iex( | medium | 91801 |
+| `100012` | 8 | `T1059.001` T1059.001 | PowerShell module: downloadstring | medium | 91801 |
+| `100013` | 8 | `T1059.001` T1059.001 | PowerShell module: iex( | medium | 91801 |
+| `100014` | 8 | `T1059.001` T1059.001 | PowerShell module: invoke-expression | medium | 91801 |
+| `100015` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: bypass | medium | 91801 |
+| `100016` | 8 | `T1047` T1047 | Suspicious PowerShell: invoke-wmimethod | medium | 91801 |
+| `100017` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: invoke-expression | medium | 91801 |
+| `100018` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: invoke-webrequest | medium | 91801 |
+| `100019` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell: -nop  | medium | 91801 |
+| `100020` | 9 | `T1588` T1588 | Relevant Anti-Virus Signature Keywords In Application Log | high | 60003 |
+| `100021` | 9 | `T1211` T1211 | Microsoft Malware Protection Engine Crash | high | 60003 |
+| `100022` | 8 | - | Dump Ntds.dit To Suspicious Location | medium | 60003 |
+| `100023` | 9 | `T1203` T1203 | Audit CVE Event | high | 60003 |
+| `100024` | 8 | `T1070.004` T1070.004 | Backup Catalog Deleted | medium | 60003 |
+| `100025` | 8 | - | MSI Installation From Suspicious Locations | medium | 60003 |
+| `100026` | 8 | `T1218` T1218 | MSI Installation From Web | medium | 60003 |
+| `100027` | 9 | - | MSSQL Disable Audit Settings | high | 60003 |
+| `100028` | 9 | - | MSSQL XPCmdshell Suspicious Execution | high | 60003 |
+| `100029` | 9 | - | MSSQL XPCmdshell Option Change | high | 60003 |
+| `100030` | 9 | `T1211` T1211 | Microsoft Malware Protection Engine Crash - WER | high | 60003 |
+| `100031` | 8 | `T1204.002` T1204.002 | AppLocker Prevented Application or Script from Running | medium | 60000 |
+| `100032` | 8 | - | Deployment AppX Package Was Blocked By AppLocker | medium | 60000 |
+| `100033` | 9 | - | Remote AppX Package Downloaded from File Sharing or CDN Domain | high | 60000 |
+| `100034` | 8 | - | AppX Package Deployment Failed Due to Signing Requirements | medium | 60000 |
+| `100035` | 9 | - | AppX Located in Known Staging Directory Added to Deployment Pipeline | high | 60000 |
+| `100036` | 8 | - | Potential Malicious AppX Package Installation Attempts | medium | 60000 |
+| `100037` | 8 | - | Deployment Of The AppX Package Was Blocked By The Policy | medium | 60000 |
+| `100038` | 8 | - | AppX Located in Uncommon Directory Added to Deployment Pipeline | medium | 60000 |
+| `100039` | 8 | `T1204.002` T1204.002 | Windows AppX Deployment Full Trust Package Installation | medium | 60000 |
+| `100040` | 8 | `T1204.002` T1204.002 | Windows AppX Deployment Unsigned Package Installation | medium | 60000 |
+| `100041` | 8 | - | Suspicious Digital Signature Of AppX Package | medium | 60000 |
+| `100042` | 9 | - | Loading Diagcab Package From Remote Path | high | 60000 |
+| `100043` | 8 | `T1590.002` T1590.002 | Failed DNS Zone Transfer | medium | 60000 |
+| `100044` | 8 | `T1686.003` T1686.003 | Uncommon New Firewall Rule Added In Windows Firewall Exception List | medium | 60016 |
+| `100045` | 9 | `T1686.003` T1686.003 | New Firewall Rule Added In Windows Firewall Exception List For Pote... | high | 60016 |
+| `100046` | 8 | `T1686.003` T1686.003 | New Firewall Rule Added In Windows Firewall Exception List Via WmiP... | medium | 60016 |
+| `100047` | 9 | `T1686.003` T1686.003 | All Rules Have Been Deleted From The Windows Firewall Configuration | high | 60016 |
+| `100048` | 8 | `T1686.003` T1686.003 | A Rule Has Been Deleted From The Windows Firewall Exception List | medium | 60016 |
+| `100049` | 9 | `T1587.001` T1587.001 | ProxyLogon MSExchange OabVirtualDirectory | high | 60000 |
+| `100050` | 9 | `T1070` Indicator Removal | Remove Exported Mailbox from Exchange Webserver | high | 60000 |
+| `100051` | 9 | `T1685` T1685 | Windows Filtering Platform Blocked Connection From EDR Agent Binary | high | 60100 |
+| `100052` | 9 | `T1222.001` T1222.001 | AD Object WriteDAC Access | high | 60100 |
+| `100053` | 9 | `T1685` T1685 | Weak Encryption Enabled and Kerberoast | high | 60100 |
+| `100054` | 9 | `T1685.005` T1685.005 | Security Eventlog Cleared | high | 60100 |
+| `100055` | 9 | `T1685.005` T1685.005 | Security Eventlog Cleared | high | 60100 |
+| `100056` | 9 | `T1685.001` T1685.001 | Important Windows Event Auditing Disabled | high | 60100 |
+| `100057` | 9 | `T1685.001` T1685.001 | Important Windows Event Auditing Disabled | high | 60100 |
+| `100058` | 9 | `T1685` T1685 | HackTool - EDRSilencer Execution - Filter Added | high | 60100 |
+| `100059` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - Security | high | 60100 |
+| `100060` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - Security | high | 60100 |
+| `100061` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - Security | high | 60100 |
+| `100062` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - Security | high | 60100 |
+| `100063` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - Security | medium | 60100 |
+| `100064` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - Security | medium | 60100 |
+| `100065` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - Security | high | 60100 |
+| `100066` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - Security | high | 60100 |
+| `100067` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - Security | high | 60100 |
+| `100068` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - Security | high | 60100 |
+| `100069` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - Security | high | 60100 |
+| `100070` | 8 | - | Potential AS-REP Roasting via Kerberos TGT Requests | medium | 60100 |
+| `100071` | 8 | `T1036` T1036 | New or Renamed User Account with '$' Character | medium | 60100 |
+| `100072` | 8 | `T1036` T1036 | New or Renamed User Account with '$' Character | medium | 60100 |
+| `100073` | 9 | `T1569.002` T1569.002 | PowerShell Scripts Installed as Services - Security | high | 60100 |
+| `100074` | 9 | `T1059.001` T1059.001 | Remote PowerShell Sessions Network Connections (WinRM) | high | 60100 |
+| `100075` | 8 | `T1027` Obfuscated Files or Information | Password Protected ZIP File Opened | medium | 60100 |
+| `100076` | 9 | `T1053.005` T1053.005 | Suspicious Scheduled Task Creation | high | 60100 |
+| `100077` | 9 | `T1053.005` T1053.005 | Important Scheduled Task Deleted/Disabled | high | 60100 |
+| `100078` | 9 | `T1053.005` T1053.005 | Suspicious Scheduled Task Update | high | 60100 |
+| `100079` | 8 | `T1685` T1685 | Potential Privileged System Service Operation - SeLoadDriverPrivilege | medium | 60100 |
+| `100080` | 8 | `T1685` T1685 | Windows Defender Exclusion List Modified | medium | 60100 |
+| `100081` | 8 | `T1685` T1685 | Windows Defender Exclusion Registry Key - Write Access Requested | medium | 60100 |
+| `100082` | 9 | `T1047` T1047 | T1047 Wmiprvse Wbemcomn DLL Hijack | high | 60100 |
+| `100083` | 8 | - | Suspicious Application Installed | medium | 60000 |
+| `100084` | 8 | - | Suspicious Application Installed | medium | 60000 |
+| `100085` | 9 | `T1685` T1685 | Sysmon Application Crashed | high | 60106 |
+| `100086` | 8 | `T1685.005` T1685.005 | Eventlog Cleared | medium | 60106 |
+| `100087` | 9 | `T1685.005` T1685.005 | Important Windows Eventlog Cleared | high | 60106 |
+| `100088` | 8 | `T1685` T1685 | Windows Defender Threat Detection Service Disabled | medium | 60106 |
+| `100089` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - System | high | 60106 |
+| `100090` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - System | high | 60106 |
+| `100091` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - System | high | 60106 |
+| `100092` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - System | high | 60106 |
+| `100093` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - System | medium | 60106 |
+| `100094` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - System | medium | 60106 |
+| `100095` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - System | high | 60106 |
+| `100096` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - System | high | 60106 |
+| `100097` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - System | high | 60106 |
+| `100098` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - System | high | 60106 |
+| `100099` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System | high | 60106 |
+| `100100` | 9 | `T1569.002` T1569.002 | PowerShell Scripts Installed as Services | high | 60106 |
+| `100101` | 8 | `T1569.002` T1569.002 | CSExec Service Installation | medium | 60106 |
+| `100102` | 9 | `T1569.002` T1569.002 | HackTool Service Registration or Execution | high | 60106 |
+| `100103` | 8 | `T1569.002` T1569.002 | PAExec Service Installation | medium | 60106 |
+| `100104` | 8 | `T1569.002` T1569.002 | RemCom Service Installation | medium | 60106 |
+| `100105` | 8 | `T1569.002` T1569.002 | PsExec Service Installation | medium | 60106 |
+| `100106` | 9 | - | Important Windows Service Terminated With Error | high | 60106 |
+| `100107` | 9 | - | Important Windows Service Terminated Unexpectedly | high | 60106 |
+| `100108` | 9 | `T1685` T1685 | Windows Defender Grace Period Expired | high | 60005 |
+| `100109` | 9 | `T1047` T1047 | PSExec and WMI Process Creations Block | high | 60005 |
+| `100110` | 8 | `T1685` T1685 | Windows Defender Exclusions Added | medium | 60005 |
+| `100111` | 9 | `T1685` T1685 | Windows Defender Exploit Guard Tamper | high | 60005 |
+| `100112` | 9 | `T1685` T1685 | Windows Defender Malware And PUA Scanning Disabled | high | 60005 |
+| `100113` | 9 | `T1059` Command and Scripting Interpreter | Windows Defender AMSI Trigger Detected | high | 60005 |
+| `100114` | 9 | `T1685` T1685 | Windows Defender Real-time Protection Disabled | high | 60005 |
+| `100115` | 8 | `T1685` T1685 | Windows Defender Real-Time Protection Failure/Restart | medium | 60005 |
+| `100116` | 9 | `T1685` T1685 | Win Defender Restored Quarantine File | high | 60005 |
+| `100117` | 9 | `T1685` T1685 | Windows Defender Configuration Changes | high | 60005 |
+| `100118` | 9 | `T1685` T1685 | Microsoft Defender Tamper Protection Trigger | high | 60005 |
+| `100119` | 9 | `T1059` Command and Scripting Interpreter | Windows Defender Threat Detected | high | 60005 |
+| `100120` | 9 | `T1685` T1685 | Windows Defender Virus Scanning Feature Disabled | high | 60005 |
+| `100121` | 8 | `T1218.011` T1218.011 | Remote Thread Creation Via PowerShell In Uncommon Target | medium | 61610 |
+| `100122` | 9 | `T1127` T1127 | Remote Thread Creation Ttdinject.exe Proxy | high | 61610 |
+| `100123` | 8 | `T1564.004` T1564.004 | Hidden Executable In NTFS Alternate Data Stream | medium | 61617 |
+| `100124` | 8 | - | Creation Of a Suspicious ADS File Outside a Browser Download | medium | 61617 |
+| `100125` | 9 | `T1564.004` T1564.004 | Suspicious File Download From File Sharing Websites -  File Stream | high | 61617 |
+| `100126` | 8 | `T1564.004` T1564.004 | Unusual File Download From File Sharing Websites - File Stream | medium | 61617 |
+| `100127` | 9 | `T1564.004` T1564.004 | HackTool Named File Stream Created | high | 61617 |
+| `100128` | 9 | `T1564.004` T1564.004 | Exports Registry Key To an Alternate Data Stream | high | 61617 |
+| `100129` | 9 | `T1564.004` T1564.004 | Unusual File Download from Direct IP Address | high | 61617 |
+| `100130` | 9 | - | Potentially Suspicious File Download From ZIP TLD | high | 61617 |
+| `100131` | 8 | `T1559.001` T1559.001 | DNS Query Request By Regsvr32.EXE | medium | 61624 |
+| `100132` | 8 | `T1590` T1590 | Suspicious DNS Query for IP Lookup Service APIs | medium | 61624 |
+| `100133` | 8 | `T1070` Indicator Removal | EventLog EVTX File Deleted | medium | 61625 |
+| `100134` | 9 | `T1070` Indicator Removal | Exchange PowerShell Cmdlet History Deleted | high | 61625 |
+| `100135` | 8 | `T1070` Indicator Removal | IIS WebServer Access Logs Deleted | medium | 61625 |
+| `100136` | 8 | - | Process Deletion of Its Own Executable | medium | 61625 |
+| `100137` | 8 | `T1070` Indicator Removal | PowerShell Console History Logs Deleted | medium | 61625 |
+| `100138` | 9 | `T1070.004` T1070.004 | Prefetch File Deleted | high | 61625 |
+| `100139` | 8 | `T1070` Indicator Removal | Tomcat WebServer Logs Deleted | medium | 61625 |
+| `100140` | 8 | `T1070.004` T1070.004 | File Deleted Via Sysinternals SDelete | medium | 61625 |
+| `100141` | 8 | `T1070.004` T1070.004 | ADS Zone.Identifier Deleted By Uncommon Application | medium | 61625 |
+| `100142` | 8 | - | Assembly DLL Creation Via AspNetCompiler | medium | 61613 |
+| `100143` | 8 | `T1685.001` T1685.001 | EVTX Created In Uncommon Location | medium | 61613 |
+| `100144` | 8 | `T1036.005` T1036.005 | Files With System DLL Name In Unsuspected Locations | medium | 61613 |
+| `100145` | 12 | `T1036.005` T1036.005 | Files With System Process Name In Unsuspected Locations | medium | 61613 |
+| `100146` | 9 | `T1059.005` T1059.005 | WScript or CScript Dropper - File | high | 61613 |
+| `100147` | 8 | `T1569.002` T1569.002 | CSExec Service File Creation | medium | 61613 |
+| `100148` | 8 | - | Potentially Suspicious DMP/HDMP File Creation | medium | 61613 |
+| `100149` | 9 | `T1021.002` T1021.002 | HackTool - NetExec File Indicators | high | 61613 |
+| `100150` | 9 | `T1021.002` T1021.002 | HackTool - NetExec File Indicators | high | 61613 |
+| `100151` | 9 | `T1059.005` T1059.005 | Adwind RAT / JRAT File Artifact | high | 61613 |
+| `100152` | 9 | `T1059.005` T1059.005 | Adwind RAT / JRAT File Artifact | high | 61613 |
+| `100153` | 9 | - | Uncommon File Creation By Mysql Daemon Process | high | 61613 |
+| `100154` | 9 | `T1218` T1218 | Suspicious DotNET CLR Usage Log Artifact | high | 61613 |
+| `100155` | 9 | - | Suspicious File Creation In Uncommon AppData Folder | high | 61613 |
+| `100156` | 8 | `T1218.011` T1218.011 | SCR File Write Event | medium | 61613 |
+| `100157` | 8 | - | OneNote Attachment File Dropped In Suspicious Location | medium | 61613 |
+| `100158` | 9 | - | Suspicious File Created Via OneNote Application | high | 61613 |
+| `100159` | 8 | - | Publisher Attachment File Dropped In Suspicious Location | medium | 61613 |
+| `100160` | 9 | `T1204.002` T1204.002 | File With Uncommon Extension Created By An Office Application | high | 61613 |
+| `100161` | 9 | `T1587.001` T1587.001 | Uncommon File Created In Office Startup Folder | high | 61613 |
+| `100162` | 9 | `T1059` Command and Scripting Interpreter | PCRE.NET Package Temp Files | high | 61613 |
+| `100163` | 8 | `T1059` Command and Scripting Interpreter | Suspicious File Created In PerfLogs | medium | 61613 |
+| `100164` | 13 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - FileCreation | high | 61613 |
+| `100165` | 9 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - FileCreation | high | 61613 |
+| `100166` | 8 | - | PSScriptPolicyTest Creation By Uncommon Process | medium | 61613 |
+| `100167` | 9 | - | .RDP File Created By Uncommon Application | high | 61613 |
+| `100168` | 9 | `T1027` Obfuscated Files or Information | Potential Winnti Dropper Activity | high | 61613 |
+| `100169` | 9 | - | PDF File Created By RegEdit.EXE | high | 61613 |
+| `100170` | 8 | `T1569.002` T1569.002 | RemCom Service File Creation | medium | 61613 |
+| `100171` | 8 | `T1218` T1218 | Self Extraction Directive File Created In Potentially Suspicious Lo... | medium | 61613 |
+| `100172` | 9 | `T1059` Command and Scripting Interpreter | Windows Shell/Scripting Application File Write to Suspicious Folder | high | 61613 |
+| `100173` | 9 | `T1059` Command and Scripting Interpreter | Windows Shell/Scripting Application File Write to Suspicious Folder | high | 61613 |
+| `100174` | 12 | `T1036` T1036 | Windows Binaries Write Suspicious Extensions | high | 61613 |
+| `100175` | 9 | `T1036` T1036 | Windows Binaries Write Suspicious Extensions | high | 61613 |
+| `100176` | 9 | `T1564` T1564 | Suspicious Creation with Colorcpl | high | 61613 |
+| `100177` | 8 | `T1036.005` T1036.005 | Suspicious Files in Default GPO Folder | medium | 61613 |
+| `100178` | 8 | - | Creation of a Diagcab | medium | 61613 |
+| `100179` | 9 | `T1036.007` T1036.007 | Suspicious Double Extension Files | high | 61613 |
+| `100180` | 9 | `T1036.007` T1036.007 | Suspicious Double Extension Files | high | 61613 |
+| `100181` | 9 | `T1564` T1564 | Suspicious Executable File Creation | high | 61613 |
+| `100182` | 8 | `T1564.004` T1564.004 | Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Stream | medium | 61613 |
+| `100183` | 8 | `T1036` T1036 | Potential Homoglyph Attack Using Lookalike Characters in Filename | medium | 61613 |
+| `100184` | 8 | `T1036` T1036 | Potential Homoglyph Attack Using Lookalike Characters in Filename | medium | 61613 |
+| `100185` | 9 | `T1218` T1218 | Legitimate Application Dropped Archive | high | 61613 |
+| `100186` | 9 | `T1218` T1218 | Legitimate Application Dropped Executable | high | 61613 |
+| `100187` | 9 | `T1218` T1218 | Legitimate Application Dropped Script | high | 61613 |
+| `100188` | 8 | `T1036.007` T1036.007 | Suspicious LNK Double Extension File Created | medium | 61613 |
+| `100189` | 8 | `T1685` T1685 | Suspicious PROCEXP152.sys File Created In TMP | medium | 61613 |
+| `100190` | 9 | `T1204` User Execution | Suspicious Binaries and Scripts in Public Folder | high | 61613 |
+| `100191` | 9 | `T1036.002` T1036.002 | Potential File Extension Spoofing Using Right-to-Left Override | high | 61613 |
+| `100192` | 8 | - | Drop Binaries Into Spool Drivers Color Folder | medium | 61613 |
+| `100193` | 9 | `T1059.001` T1059.001 | Suspicious Interactive PowerShell as SYSTEM | high | 61613 |
+| `100194` | 8 | - | Potentially Suspicious WDAC Policy File Creation | medium | 61613 |
+| `100195` | 8 | - | WinSxS Executable File Creation By Non-System Process | medium | 61613 |
+| `100196` | 9 | `T1548.002` T1548.002 | UAC Bypass Using IDiagnostic Profile - File | high | 61613 |
+| `100197` | 8 | `T1587.001` T1587.001 | VHD Image Download Via Browser | medium | 61613 |
+| `100198` | 8 | `T1216` T1216 | AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl - File | medium | 61613 |
+| `100199` | 9 | `T1047` T1047 | Wmiprvse Wbemcomn DLL Hijack - File | high | 61613 |
+| `100200` | 8 | `T1218` T1218 | Potentially Suspicious Self Extraction Directive File Created | medium | 61613 |
+| `100201` | 8 | `T1059` Command and Scripting Interpreter | Clfs.SYS Loaded By Process Located In a Potential Suspicious Location | medium | 61609 |
+| `100202` | 9 | `T1218.003` T1218.003 | DLL Loaded From Suspicious Location Via Cmspt.EXE | high | 61609 |
+| `100203` | 8 | - | Amsi.DLL Loaded Via LOLBIN Process | medium | 61609 |
+| `100204` | 9 | `T1059` Command and Scripting Interpreter | PCRE.NET Package Image Load | high | 61609 |
+| `100205` | 9 | `T1202` T1202 | Diagnostic Library Sdiageng.DLL Loaded By Msdt.EXE | high | 61609 |
+| `100206` | 8 | `T1059.001` T1059.001 | PowerShell Core DLL Loaded By Non PowerShell Process | medium | 61609 |
+| `100207` | 8 | `T1129` T1129 | Unsigned .node File Loaded | medium | 61609 |
+| `100208` | 9 | `T1685.001` T1685.001 | HackTool - SharpEvtMute DLL Load | high | 61609 |
+| `100209` | 8 | `T1204.002` T1204.002 | DotNET Assembly DLL Loaded Via Office Application | medium | 61609 |
+| `100210` | 8 | `T1204.002` T1204.002 | CLR DLL Loaded Via Office Applications | medium | 61609 |
+| `100211` | 9 | `T1204.002` T1204.002 | GAC DLL Loaded Via Office Applications | high | 61609 |
+| `100212` | 8 | `T1204.002` T1204.002 | Microsoft Excel Add-In Loaded From Uncommon Location | medium | 61609 |
+| `100213` | 8 | `T1204.002` T1204.002 | Microsoft VBA For Outlook Addin Loaded Via Outlook | medium | 61609 |
+| `100214` | 8 | - | PowerShell Core DLL Loaded Via Office Application | medium | 61609 |
+| `100215` | 9 | `T1204.002` T1204.002 | VBA DLL Loaded Via Office Application | high | 61609 |
+| `100216` | 8 | `T1204.002` T1204.002 | Remote DLL Load Via Rundll32.EXE | medium | 61609 |
+| `100217` | 9 | `T1059` Command and Scripting Interpreter | Abusable DLL Potential Sideloading From Suspicious Location | high | 61609 |
+| `100218` | 8 | `T1070` Indicator Removal | DLL Load By System Process From Suspicious Locations | medium | 61609 |
+| `100219` | 9 | `T1055` Process Injection | DotNet CLR DLL Loaded By Scripting Applications | high | 61609 |
+| `100220` | 8 | `T1218.011` T1218.011 | Unsigned DLL Loaded by Windows Utility | medium | 61609 |
+| `100221` | 8 | `T1059.005` T1059.005 | MMC Loading Script Engines DLLs | medium | 61609 |
+| `100222` | 8 | `T1220` T1220 | WMIC Loading Scripting Libraries | medium | 61609 |
+| `100223` | 9 | `T1047` T1047 | Wmiprvse Wbemcomn DLL Hijack | high | 61609 |
+| `100224` | 8 | `T1059.001` T1059.001 | Suspicious WSMAN Provider Image Loads | medium | 61609 |
+| `100225` | 9 | `T1218` T1218 | Network Connection Initiated By AddinUtil.EXE | high | 61605 |
+| `100226` | 9 | `T1218.003` T1218.003 | Outbound Network Connection Initiated By Cmstp.EXE | high | 61605 |
+| `100227` | 9 | `T1071.001` T1071.001 | Outbound Network Connection Initiated By Microsoft Dialer | high | 61605 |
+| `100228` | 9 | `T1203` T1203 | Network Connection Initiated By Eqnedt32.EXE | high | 61605 |
+| `100229` | 8 | `T1203` T1203 | Office Application Initiated Network Connection To Non-Local IP | medium | 61605 |
+| `100230` | 8 | `T1218.009` T1218.009 | RegAsm.EXE Initiating Network Connection To Public IP | medium | 61605 |
+| `100231` | 8 | `T1559.001` T1559.001 | Network Connection Initiated By Regsvr32.EXE | medium | 61605 |
+| `100232` | 8 | `T1218.011` T1218.011 | Rundll32 Internet Connection | medium | 61605 |
+| `100233` | 9 | `T1127.001` T1127.001 | Silenttrinity Stager Msbuild Activity | high | 61605 |
+| `100234` | 9 | - | Suspicious Network Connection Binary No CommandLine | high | 61605 |
+| `100235` | 9 | `T1059.001` T1059.001 | Potential Remote PowerShell Session Initiated | high | 61605 |
+| `100236` | 8 | `T1218.011` T1218.011 | Outbound Network Connection To Public IP Via Winlogon | medium | 61605 |
+| `100237` | 8 | `T1218` T1218 | Potentially Suspicious Wuauclt Network Connection | medium | 61605 |
+| `100238` | 8 | `T1059.001` T1059.001 | Alternate PowerShell Hosts Pipe | medium | 61619 |
+| `100239` | 8 | `T1569.002` T1569.002 | PUA - PAExec Default Named Pipe | medium | 61619 |
+| `100240` | 8 | `T1047` T1047 | WMI Event Consumer Created Named Pipe | medium | 61619 |
+| `100241` | 8 | `T1569.002` T1569.002 | PsExec Tool Execution From Suspicious Locations - PipeName | medium | 61619 |
+| `100242` | 8 | `T1059.001` T1059.001 | Nslookup PowerShell Download Cradle | medium | 91801 |
+| `100243` | 8 | `T1059.001` T1059.001 | PowerShell Downgrade Attack - PowerShell | medium | 91801 |
+| `100244` | 9 | `T1059.001` T1059.001 | PowerShell Called from an Executable Version Mismatch | high | 91801 |
+| `100245` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse | high | 91801 |
+| `100246` | 9 | `T1685` T1685 | Tamper Windows Defender - PSClassic | high | 91801 |
+| `100247` | 8 | `T1059.001` T1059.001 | Suspicious Non PowerShell WSMAN COM Provider | medium | 91801 |
+| `100248` | 8 | `T1059.001` T1059.001 | Alternate PowerShell Hosts - PowerShell Module | medium | 91801 |
+| `100249` | 9 | `T1059.001` T1059.001 | Bad Opsec Powershell Code Artifacts | high | 91801 |
+| `100250` | 8 | `T1070.003` T1070.003 | Clear PowerShell History - PowerShell Module | medium | 91801 |
+| `100251` | 8 | `T1070.003` T1070.003 | Clear PowerShell History - PowerShell Module | medium | 91801 |
+| `100252` | 13 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - PoshModule | high | 91801 |
+| `100253` | 9 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - PoshModule | high | 91801 |
+| `100254` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - PowerShell Module | high | 91801 |
+| `100255` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell Module | high | 91801 |
+| `100256` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - PowerShell Module | high | 91801 |
+| `100257` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - PowerShell Module | high | 91801 |
+| `100258` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell Module | medium | 91801 |
+| `100259` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - PowerShell Module | medium | 91801 |
+| `100260` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - PowerShell Module | high | 91801 |
+| `100261` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - PowerShell Module | high | 91801 |
+| `100262` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - PowerShell Module | high | 91801 |
+| `100263` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - PowerShell Module | high | 91801 |
+| `100264` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - PowerShell Module | high | 91801 |
+| `100265` | 13 | `T1482` T1482 | Malicious PowerShell Commandlets - PoshModule | high | 91801 |
+| `100266` | 9 | `T1059.001` T1059.001 | Remote PowerShell Session (PS Module) | high | 91801 |
+| `100267` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module | high | 91801 |
+| `100268` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell Download - PoshModule | medium | 91801 |
+| `100269` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Generic - PowerShell Module | high | 91801 |
 | `100270` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific - PowerShell Module | high | 91801 |
 | `100271` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific - PowerShell Module | high | 91801 |
 | `100272` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific - PowerShell Module | high | 91801 |
 | `100273` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific - PowerShell Module | high | 91801 |
-| `100274` | 8 | `T1218` T1218 | SyncAppvPublishingServer Bypass Powershell Restriction - PS Module | medium | 91801 |
-| `100275` | 9 | - | AADInternals PowerShell Cmdlets Execution - PsScript | high | 91801 |
-| `100276` | 8 | - | Add Windows Capability Via PowerShell Script | medium | 91801 |
-| `100277` | 9 | `T1685` T1685 | AMSI Bypass Pattern Assembly GetType | high | 91801 |
-| `100278` | 8 | `T1685` T1685 | Potential AMSI Bypass Script Using NULL Bits | medium | 91801 |
-| `100279` | 9 | `T1059.001` T1059.001 | Silence.EDA Detection | high | 91801 |
-| `100280` | 8 | `T1070.003` T1070.003 | Clear PowerShell History - PowerShell | medium | 91801 |
-| `100281` | 8 | `T1070.003` T1070.003 | Clear PowerShell History - PowerShell | medium | 91801 |
-| `100282` | 9 | `T1070` Indicator Removal | Clearing Windows Console History | high | 91801 |
-| `100283` | 8 | `T1059.001` T1059.001 | PowerShell Create Local User | medium | 91801 |
-| `100284` | 9 | `T1070.003` T1070.003 | Disable Powershell Command History | high | 91801 |
-| `100285` | 9 | `T1685` T1685 | Disable-WindowsOptionalFeature Command PowerShell | high | 91801 |
-| `100286` | 8 | `T1620` T1620 | Potential In-Memory Execution Using Reflection.Assembly | medium | 91801 |
-| `100287` | 9 | `T1059.001` T1059.001 | DSInternals Suspicious PowerShell Cmdlets - ScriptBlock | high | 91801 |
-| `100288` | 8 | - | Potential Suspicious Windows Feature Enabled | medium | 91801 |
-| `100289` | 9 | `T1070` Indicator Removal | Disable of ETW Trace - Powershell | high | 91801 |
-| `100290` | 9 | `T1070` Indicator Removal | Disable of ETW Trace - Powershell | high | 91801 |
-| `100291` | 8 | `T1059.001` T1059.001 | Import PowerShell Modules From Suspicious Directories | medium | 91801 |
-| `100292` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - PowerShell | high | 91801 |
-| `100293` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell | high | 91801 |
-| `100294` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - Powershell | high | 91801 |
-| `100295` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - PowerShell | high | 91801 |
-| `100296` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell | medium | 91801 |
-| `100297` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - PowerShell | medium | 91801 |
-| `100298` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - Powershell | high | 91801 |
-| `100299` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - Powershell | high | 91801 |
-| `100300` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - PowerShell | high | 91801 |
-| `100301` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - PowerShell | high | 91801 |
-| `100302` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - PowerShell | high | 91801 |
-| `100303` | 13 | `T1482` T1482 | Malicious PowerShell Commandlets - ScriptBlock | high | 91801 |
-| `100304` | 13 | `T1059.001` T1059.001 | Malicious PowerShell Keywords | medium | 91801 |
-| `100305` | 8 | `T1059.001` T1059.001 | Powershell MsXml COM Object | medium | 91801 |
-| `100306` | 13 | `T1059.001` T1059.001 | Malicious Nishang PowerShell Commandlets | high | 91801 |
-| `100307` | 9 | `T1564.004` T1564.004 | NTFS Alternate Data Stream | high | 91801 |
-| `100308` | 9 | `T1059.001` T1059.001 | PowerView PowerShell Cmdlets - ScriptBlock | high | 91801 |
-| `100309` | 9 | `T1059.001` T1059.001 | PSAsyncShell - Asynchronous TCP Reverse Shell | high | 91801 |
-| `100310` | 9 | `T1059.001` T1059.001 | PowerShell PSAttack | high | 91801 |
-| `100311` | 8 | `T1059.001` T1059.001 | PowerShell Remote Session Creation | medium | 91801 |
-| `100312` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock | high | 91801 |
-| `100313` | 8 | `T1553.004` T1553.004 | Root Certificate Installed - PowerShell | medium | 91801 |
-| `100314` | 8 | `T1553.004` T1553.004 | Root Certificate Installed - PowerShell | medium | 91801 |
-| `100315` | 8 | `T1553.005` T1553.005 | Suspicious Invoke-Item From Mount-DiskImage | medium | 91801 |
-| `100316` | 9 | `T1222` T1222 | PowerShell Set-Acl On Windows Folder - PsScript | high | 91801 |
-| `100317` | 8 | `T1059.001` T1059.001 | Change PowerShell Policies to an Insecure Level - PowerShell | medium | 91801 |
-| `100318` | 9 | `T1059.001` T1059.001 | Malicious ShellIntel PowerShell Commandlets | high | 91801 |
-| `100319` | 8 | `T1564.004` T1564.004 | Powershell Store File In Alternate Data Stream | medium | 91801 |
-| `100320` | 8 | `T1685.005` T1685.005 | Suspicious Eventlog Clear | medium | 91801 |
-| `100321` | 8 | `T1685.005` T1685.005 | Suspicious Eventlog Clear | medium | 91801 |
+| `100274` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific - PowerShell Module | high | 91801 |
+| `100275` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific - PowerShell Module | high | 91801 |
+| `100276` | 8 | `T1218` T1218 | SyncAppvPublishingServer Bypass Powershell Restriction - PS Module | medium | 91801 |
+| `100277` | 9 | - | AADInternals PowerShell Cmdlets Execution - PsScript | high | 91801 |
+| `100278` | 8 | - | Add Windows Capability Via PowerShell Script | medium | 91801 |
+| `100279` | 9 | `T1685` T1685 | AMSI Bypass Pattern Assembly GetType | high | 91801 |
+| `100280` | 8 | `T1685` T1685 | Potential AMSI Bypass Script Using NULL Bits | medium | 91801 |
+| `100281` | 9 | `T1059.001` T1059.001 | Silence.EDA Detection | high | 91801 |
+| `100282` | 8 | `T1070.003` T1070.003 | Clear PowerShell History - PowerShell | medium | 91801 |
+| `100283` | 8 | `T1070.003` T1070.003 | Clear PowerShell History - PowerShell | medium | 91801 |
+| `100284` | 9 | `T1070` Indicator Removal | Clearing Windows Console History | high | 91801 |
+| `100285` | 8 | `T1059.001` T1059.001 | PowerShell Create Local User | medium | 91801 |
+| `100286` | 9 | `T1070.003` T1070.003 | Disable Powershell Command History | high | 91801 |
+| `100287` | 9 | `T1685` T1685 | Disable-WindowsOptionalFeature Command PowerShell | high | 91801 |
+| `100288` | 8 | `T1620` T1620 | Potential In-Memory Execution Using Reflection.Assembly | medium | 91801 |
+| `100289` | 9 | `T1059.001` T1059.001 | DSInternals Suspicious PowerShell Cmdlets - ScriptBlock | high | 91801 |
+| `100290` | 8 | - | Potential Suspicious Windows Feature Enabled | medium | 91801 |
+| `100291` | 9 | `T1070` Indicator Removal | Disable of ETW Trace - Powershell | high | 91801 |
+| `100292` | 9 | `T1070` Indicator Removal | Disable of ETW Trace - Powershell | high | 91801 |
+| `100293` | 8 | `T1059.001` T1059.001 | Import PowerShell Modules From Suspicious Directories | medium | 91801 |
+| `100294` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - PowerShell | high | 91801 |
+| `100295` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell | high | 91801 |
+| `100296` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - Powershell | high | 91801 |
+| `100297` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - PowerShell | high | 91801 |
+| `100298` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell | medium | 91801 |
+| `100299` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - PowerShell | medium | 91801 |
+| `100300` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - Powershell | high | 91801 |
+| `100301` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - Powershell | high | 91801 |
+| `100302` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - PowerShell | high | 91801 |
+| `100303` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - PowerShell | high | 91801 |
+| `100304` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - PowerShell | high | 91801 |
+| `100305` | 13 | `T1482` T1482 | Malicious PowerShell Commandlets - ScriptBlock | high | 91801 |
+| `100306` | 13 | `T1059.001` T1059.001 | Malicious PowerShell Keywords | medium | 91801 |
+| `100307` | 8 | `T1059.001` T1059.001 | Powershell MsXml COM Object | medium | 91801 |
+| `100308` | 13 | `T1059.001` T1059.001 | Malicious Nishang PowerShell Commandlets | high | 91801 |
+| `100309` | 9 | `T1564.004` T1564.004 | NTFS Alternate Data Stream | high | 91801 |
+| `100310` | 9 | `T1059.001` T1059.001 | PowerView PowerShell Cmdlets - ScriptBlock | high | 91801 |
+| `100311` | 9 | `T1059.001` T1059.001 | PSAsyncShell - Asynchronous TCP Reverse Shell | high | 91801 |
+| `100312` | 9 | `T1059.001` T1059.001 | PowerShell PSAttack | high | 91801 |
+| `100313` | 8 | `T1059.001` T1059.001 | PowerShell Remote Session Creation | medium | 91801 |
+| `100314` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock | high | 91801 |
+| `100315` | 8 | `T1553.004` T1553.004 | Root Certificate Installed - PowerShell | medium | 91801 |
+| `100316` | 8 | `T1553.004` T1553.004 | Root Certificate Installed - PowerShell | medium | 91801 |
+| `100317` | 8 | `T1553.005` T1553.005 | Suspicious Invoke-Item From Mount-DiskImage | medium | 91801 |
+| `100318` | 9 | `T1222` T1222 | PowerShell Set-Acl On Windows Folder - PsScript | high | 91801 |
+| `100319` | 8 | `T1059.001` T1059.001 | Change PowerShell Policies to an Insecure Level - PowerShell | medium | 91801 |
+| `100320` | 9 | `T1059.001` T1059.001 | Malicious ShellIntel PowerShell Commandlets | high | 91801 |
+| `100321` | 8 | `T1564.004` T1564.004 | Powershell Store File In Alternate Data Stream | medium | 91801 |
 | `100322` | 8 | `T1685.005` T1685.005 | Suspicious Eventlog Clear | medium | 91801 |
-| `100323` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell Download - Powershell Script | medium | 91801 |
-| `100324` | 8 | `T1059.003` T1059.003 | Powershell Execute Batch Script | medium | 91801 |
-| `100325` | 8 | `T1202` T1202 | Troubleshooting Pack Cmdlet Execution | medium | 91801 |
-| `100326` | 8 | `T1564.006` T1564.006 | Suspicious Hyper-V Cmdlets | medium | 91801 |
-| `100327` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Generic | high | 91801 |
-| `100328` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific | high | 91801 |
-| `100329` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific | high | 91801 |
+| `100323` | 8 | `T1685.005` T1685.005 | Suspicious Eventlog Clear | medium | 91801 |
+| `100324` | 8 | `T1685.005` T1685.005 | Suspicious Eventlog Clear | medium | 91801 |
+| `100325` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell Download - Powershell Script | medium | 91801 |
+| `100326` | 8 | `T1059.003` T1059.003 | Powershell Execute Batch Script | medium | 91801 |
+| `100327` | 8 | `T1202` T1202 | Troubleshooting Pack Cmdlet Execution | medium | 91801 |
+| `100328` | 8 | `T1564.006` T1564.006 | Suspicious Hyper-V Cmdlets | medium | 91801 |
+| `100329` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Generic | high | 91801 |
 | `100330` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific | high | 91801 |
 | `100331` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific | high | 91801 |
 | `100332` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific | high | 91801 |
 | `100333` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific | high | 91801 |
-| `100334` | 8 | `T1070.003` T1070.003 | Suspicious IO.FileStream | medium | 91801 |
-| `100335` | 8 | `T1059.001` T1059.001 | Potential Suspicious PowerShell Keywords | medium | 91801 |
-| `100336` | 8 | `T1070.005` T1070.005 | PowerShell Deleted Mounted Share | medium | 91801 |
-| `100337` | 8 | `T1036.003` T1036.003 | Suspicious Start-Process PassThru | medium | 91801 |
-| `100338` | 8 | `T1553.005` T1553.005 | Suspicious Unblock-File | medium | 91801 |
-| `100339` | 8 | `T1564.003` T1564.003 | Suspicious PowerShell WindowStyle Option | medium | 91801 |
-| `100340` | 8 | - | PowerShell Write-EventLog Usage | medium | 91801 |
-| `100341` | 8 | `T1218` T1218 | SyncAppvPublishingServer Execution to Bypass Powershell Restriction | medium | 91801 |
-| `100342` | 9 | `T1685` T1685 | Tamper Windows Defender Remove-MpPreference - ScriptBlockLogging | high | 91801 |
-| `100343` | 9 | `T1685` T1685 | Tamper Windows Defender - ScriptBlockLogging | high | 91801 |
-| `100344` | 8 | `T1070.006` T1070.006 | Powershell Timestomp | medium | 91801 |
-| `100345` | 8 | `T1059.001` T1059.001 | Usage Of Web Request Commands And Cmdlets - ScriptBlock | medium | 91801 |
-| `100346` | 8 | - | Potentially Suspicious Call To Win32_NTEventlogFile Class - PSScript | medium | 91801 |
-| `100347` | 8 | `T1218.007` T1218.007 | PowerShell WMI Win32_Product Install MSI | medium | 91801 |
-| `100348` | 9 | `T1059.001` T1059.001 | Potential WinAPI Calls Via PowerShell Scripts | high | 91801 |
-| `100349` | 9 | `T1059.001` T1059.001 | Potential WinAPI Calls Via PowerShell Scripts | high | 91801 |
+| `100334` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific | high | 91801 |
+| `100335` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific | high | 91801 |
+| `100336` | 8 | `T1070.003` T1070.003 | Suspicious IO.FileStream | medium | 91801 |
+| `100337` | 8 | `T1059.001` T1059.001 | Potential Suspicious PowerShell Keywords | medium | 91801 |
+| `100338` | 8 | `T1070.005` T1070.005 | PowerShell Deleted Mounted Share | medium | 91801 |
+| `100339` | 8 | `T1036.003` T1036.003 | Suspicious Start-Process PassThru | medium | 91801 |
+| `100340` | 8 | `T1553.005` T1553.005 | Suspicious Unblock-File | medium | 91801 |
+| `100341` | 8 | `T1564.003` T1564.003 | Suspicious PowerShell WindowStyle Option | medium | 91801 |
+| `100342` | 8 | - | PowerShell Write-EventLog Usage | medium | 91801 |
+| `100343` | 8 | `T1218` T1218 | SyncAppvPublishingServer Execution to Bypass Powershell Restriction | medium | 91801 |
+| `100344` | 9 | `T1685` T1685 | Tamper Windows Defender Remove-MpPreference - ScriptBlockLogging | high | 91801 |
+| `100345` | 9 | `T1685` T1685 | Tamper Windows Defender - ScriptBlockLogging | high | 91801 |
+| `100346` | 8 | `T1070.006` T1070.006 | Powershell Timestomp | medium | 91801 |
+| `100347` | 8 | `T1059.001` T1059.001 | Usage Of Web Request Commands And Cmdlets - ScriptBlock | medium | 91801 |
+| `100348` | 8 | - | Potentially Suspicious Call To Win32_NTEventlogFile Class - PSScript | medium | 91801 |
+| `100349` | 8 | `T1218.007` T1218.007 | PowerShell WMI Win32_Product Install MSI | medium | 91801 |
 | `100350` | 9 | `T1059.001` T1059.001 | Potential WinAPI Calls Via PowerShell Scripts | high | 91801 |
 | `100351` | 9 | `T1059.001` T1059.001 | Potential WinAPI Calls Via PowerShell Scripts | high | 91801 |
-| `100352` | 8 | `T1685` T1685 | Windows Defender Exclusions Added - PowerShell | medium | 91801 |
-| `100353` | 8 | `T1686.003` T1686.003 | Windows Firewall Profile Disabled | medium | 91801 |
-| `100354` | 8 | `T1047` T1047 | WMIC Unquoted Services Path Lookup - PowerShell | medium | 91801 |
-| `100355` | 9 | `T1047` T1047 | WMImplant Hack Tool | high | 91801 |
-| `100356` | 8 | `T1553.004` T1553.004 | Suspicious X509Enrollment - Ps Script | medium | 91801 |
-| `100357` | 8 | `T1059.001` T1059.001 | Powershell XML Execute Command | medium | 91801 |
-| `100358` | 9 | `T1218.003` T1218.003 | CMSTP Execution Process Access | high | 61612 |
-| `100359` | 13 | `T1106` T1106 | HackTool - CobaltStrike BOF Injection Pattern | high | 61612 |
-| `100360` | 12 | `T1106` T1106 | HackTool - HandleKatz Duplicating LSASS Handle | high | 61612 |
-| `100361` | 9 | `T1204.002` T1204.002 | HackTool - LittleCorporal Generated Maldoc Injection | high | 61612 |
-| `100362` | 9 | `T1685.001` T1685.001 | HackTool - SysmonEnte Execution | high | 61612 |
-| `100363` | 8 | `T1106` T1106 | Potential Direct Syscall of NtOpenProcess | medium | 61612 |
-| `100364` | 9 | `T1685.001` T1685.001 | Suspicious Svchost Process Access | high | 61612 |
-| `100365` | 9 | `T1685` T1685 | Suspicious Process Access of MsMpEng by WerFaultSecure - EDR-Freeze | high | 61612 |
-| `100366` | 8 | - | Potential DLL Injection Via AccCheckConsole | medium | 61603 |
-| `100367` | 9 | `T1218` T1218 | Suspicious AddinUtil.EXE CommandLine Execution | high | 61603 |
-| `100368` | 8 | `T1218` T1218 | Uncommon Child Process Of AddinUtil.EXE | medium | 61603 |
-| `100369` | 8 | `T1218` T1218 | Uncommon AddinUtil.EXE CommandLine Execution | medium | 61603 |
-| `100370` | 8 | `T1218` T1218 | AddinUtil.EXE Execution From Uncommon Directory | medium | 61603 |
-| `100371` | 9 | `T1003.001` T1003.001 | Potential Adplus.EXE Abuse | high | 61603 |
-| `100372` | 8 | `T1218` T1218 | AgentExecutor PowerShell Execution | medium | 61603 |
-| `100373` | 9 | `T1218` T1218 | Suspicious AgentExecutor PowerShell Execution | high | 61603 |
-| `100374` | 9 | `T1685` T1685 | Windows AMSI Related Registry Tampering Via CommandLine | high | 61603 |
-| `100375` | 8 | `T1218` T1218 | Uncommon Child Process Of Appvlp.EXE | medium | 61603 |
-| `100376` | 9 | `T1059` Command and Scripting Interpreter | Suspicious ArcSOC.exe Child Process | high | 61603 |
-| `100377` | 8 | `T1127` T1127 | AspNetCompiler Execution | medium | 61603 |
-| `100378` | 9 | `T1127` T1127 | Suspicious Child Process of AspNetCompiler | high | 61603 |
-| `100379` | 9 | `T1127` T1127 | Potentially Suspicious ASP.NET Compilation Via AspNetCompiler | high | 61603 |
-| `100380` | 8 | `T1218` T1218 | Uncommon  Assistive Technology Applications Execution Via AtBroker.EXE | medium | 61603 |
-| `100381` | 8 | `T1564.001` T1564.001 | Hiding Files with Attrib.exe | medium | 61603 |
-| `100382` | 9 | `T1564.001` T1564.001 | Set Suspicious Files as System Files Using Attrib.EXE | high | 61603 |
-| `100383` | 9 | `T1685.001` T1685.001 | Audit Policy Tampering Via NT Resource Kit Auditpol | high | 61603 |
-| `100384` | 9 | `T1685.001` T1685.001 | Audit Policy Tampering Via Auditpol | high | 61603 |
-| `100385` | 9 | `T1685.001` T1685.001 | Windows EventLog Autologger Session Registry Modification Via Comma... | high | 61603 |
-| `100386` | 8 | `T1202` T1202 | Indirect Inline Command Execution Via Bash.EXE | medium | 61603 |
-| `100387` | 8 | `T1202` T1202 | Indirect Command Execution From Script File Via Bash.EXE | medium | 61603 |
-| `100388` | 8 | `T1048` T1048 | Data Export From MSSQL Table Via BCP.EXE | medium | 61603 |
-| `100389` | 9 | `T1059.005` T1059.005 | Suspicious Child Process Of BgInfo.EXE | high | 61603 |
-| `100390` | 8 | `T1059.005` T1059.005 | Uncommon Child Process Of BgInfo.EXE | medium | 61603 |
-| `100391` | 9 | - | Chromium Browser Headless Execution To Mockbin Like Site | high | 61603 |
-| `100392` | 9 | `T1036` T1036 | Suspicious Calculator Usage | high | 61603 |
-| `100393` | 8 | `T1106` T1106 | Potential Binary Proxy Execution Via Cdb.EXE | medium | 61603 |
-| `100394` | 8 | `T1553.004` T1553.004 | New Root Certificate Installed Via CertMgr.EXE | medium | 61603 |
-| `100395` | 8 | `T1218` T1218 | DLL Loaded via CertOC.EXE | medium | 61603 |
-| `100396` | 9 | `T1218` T1218 | Suspicious DLL Loaded via CertOC.EXE | high | 61603 |
-| `100397` | 8 | `T1553.004` T1553.004 | New Root Certificate Installed Via Certutil.EXE | medium | 61603 |
-| `100398` | 9 | `T1027` Obfuscated Files or Information | File Decoded From Base64/Hex Via Certutil.EXE | high | 61603 |
-| `100399` | 8 | `T1027` Obfuscated Files or Information | File Encoded To Base64 Via Certutil.EXE | medium | 61603 |
-| `100400` | 9 | `T1027` Obfuscated Files or Information | Suspicious File Encoded To Base64 Via Certutil.EXE | high | 61603 |
-| `100401` | 9 | `T1027` Obfuscated Files or Information | File In Suspicious Location Encoded To Base64 Via Certutil.EXE | high | 61603 |
-| `100402` | 8 | `T1027` Obfuscated Files or Information | Certificate Exported Via Certutil.EXE | medium | 61603 |
-| `100403` | 9 | `T1218` T1218 | Potential NTLM Coercion Via Certutil.EXE | high | 61603 |
-| `100404` | 8 | `T1036` T1036 | Suspicious CodePage Switch Via CHCP | medium | 61603 |
-| `100405` | 8 | `T1070.004` T1070.004 | Greedy File Deletion Using Del | medium | 61603 |
-| `100406` | 8 | `T1059` Command and Scripting Interpreter | Potential Dosfuscation Activity | medium | 61603 |
-| `100407` | 8 | `T1059.003` T1059.003 | Command Line Execution with Suspicious URL and AppData Strings | medium | 61603 |
-| `100408` | 8 | `T1564.003` T1564.003 | Cmd Launched with Hidden Start Flags to Suspicious Targets | medium | 61603 |
-| `100409` | 9 | `T1059.001` T1059.001 | Suspicious File Execution From Internet Hosted WebDav Share | high | 61603 |
-| `100410` | 9 | `T1059.001` T1059.001 | Cmd.EXE Missing Space Characters Execution Anomaly | high | 61603 |
-| `100411` | 9 | `T1059.001` T1059.001 | Cmd.EXE Missing Space Characters Execution Anomaly | high | 61603 |
+| `100352` | 9 | `T1059.001` T1059.001 | Potential WinAPI Calls Via PowerShell Scripts | high | 91801 |
+| `100353` | 9 | `T1059.001` T1059.001 | Potential WinAPI Calls Via PowerShell Scripts | high | 91801 |
+| `100354` | 8 | `T1685` T1685 | Windows Defender Exclusions Added - PowerShell | medium | 91801 |
+| `100355` | 8 | `T1686.003` T1686.003 | Windows Firewall Profile Disabled | medium | 91801 |
+| `100356` | 8 | `T1047` T1047 | WMIC Unquoted Services Path Lookup - PowerShell | medium | 91801 |
+| `100357` | 9 | `T1047` T1047 | WMImplant Hack Tool | high | 91801 |
+| `100358` | 8 | `T1553.004` T1553.004 | Suspicious X509Enrollment - Ps Script | medium | 91801 |
+| `100359` | 8 | `T1059.001` T1059.001 | Powershell XML Execute Command | medium | 91801 |
+| `100360` | 9 | `T1218.003` T1218.003 | CMSTP Execution Process Access | high | 61612 |
+| `100361` | 13 | `T1106` T1106 | HackTool - CobaltStrike BOF Injection Pattern | high | 61612 |
+| `100362` | 12 | `T1106` T1106 | HackTool - HandleKatz Duplicating LSASS Handle | high | 61612 |
+| `100363` | 9 | `T1204.002` T1204.002 | HackTool - LittleCorporal Generated Maldoc Injection | high | 61612 |
+| `100364` | 9 | `T1685.001` T1685.001 | HackTool - SysmonEnte Execution | high | 61612 |
+| `100365` | 8 | `T1106` T1106 | Potential Direct Syscall of NtOpenProcess | medium | 61612 |
+| `100366` | 9 | `T1685.001` T1685.001 | Suspicious Svchost Process Access | high | 61612 |
+| `100367` | 9 | `T1685` T1685 | Suspicious Process Access of MsMpEng by WerFaultSecure - EDR-Freeze | high | 61612 |
+| `100368` | 8 | - | Potential DLL Injection Via AccCheckConsole | medium | 61603 |
+| `100369` | 9 | `T1218` T1218 | Suspicious AddinUtil.EXE CommandLine Execution | high | 61603 |
+| `100370` | 8 | `T1218` T1218 | Uncommon Child Process Of AddinUtil.EXE | medium | 61603 |
+| `100371` | 8 | `T1218` T1218 | Uncommon AddinUtil.EXE CommandLine Execution | medium | 61603 |
+| `100372` | 8 | `T1218` T1218 | AddinUtil.EXE Execution From Uncommon Directory | medium | 61603 |
+| `100373` | 9 | `T1003.001` T1003.001 | Potential Adplus.EXE Abuse | high | 61603 |
+| `100374` | 8 | `T1218` T1218 | AgentExecutor PowerShell Execution | medium | 61603 |
+| `100375` | 9 | `T1218` T1218 | Suspicious AgentExecutor PowerShell Execution | high | 61603 |
+| `100376` | 9 | `T1685` T1685 | Windows AMSI Related Registry Tampering Via CommandLine | high | 61603 |
+| `100377` | 8 | `T1218` T1218 | Uncommon Child Process Of Appvlp.EXE | medium | 61603 |
+| `100378` | 9 | `T1059` Command and Scripting Interpreter | Suspicious ArcSOC.exe Child Process | high | 61603 |
+| `100379` | 8 | `T1127` T1127 | AspNetCompiler Execution | medium | 61603 |
+| `100380` | 9 | `T1127` T1127 | Suspicious Child Process of AspNetCompiler | high | 61603 |
+| `100381` | 9 | `T1127` T1127 | Potentially Suspicious ASP.NET Compilation Via AspNetCompiler | high | 61603 |
+| `100382` | 8 | `T1218` T1218 | Uncommon  Assistive Technology Applications Execution Via AtBroker.EXE | medium | 61603 |
+| `100383` | 8 | `T1564.001` T1564.001 | Hiding Files with Attrib.exe | medium | 61603 |
+| `100384` | 9 | `T1564.001` T1564.001 | Set Suspicious Files as System Files Using Attrib.EXE | high | 61603 |
+| `100385` | 9 | `T1685.001` T1685.001 | Audit Policy Tampering Via NT Resource Kit Auditpol | high | 61603 |
+| `100386` | 9 | `T1685.001` T1685.001 | Audit Policy Tampering Via Auditpol | high | 61603 |
+| `100387` | 9 | `T1685.001` T1685.001 | Windows EventLog Autologger Session Registry Modification Via Comma... | high | 61603 |
+| `100388` | 8 | `T1202` T1202 | Indirect Inline Command Execution Via Bash.EXE | medium | 61603 |
+| `100389` | 8 | `T1202` T1202 | Indirect Command Execution From Script File Via Bash.EXE | medium | 61603 |
+| `100390` | 8 | `T1048` T1048 | Data Export From MSSQL Table Via BCP.EXE | medium | 61603 |
+| `100391` | 9 | `T1059.005` T1059.005 | Suspicious Child Process Of BgInfo.EXE | high | 61603 |
+| `100392` | 8 | `T1059.005` T1059.005 | Uncommon Child Process Of BgInfo.EXE | medium | 61603 |
+| `100393` | 9 | - | Chromium Browser Headless Execution To Mockbin Like Site | high | 61603 |
+| `100394` | 9 | `T1036` T1036 | Suspicious Calculator Usage | high | 61603 |
+| `100395` | 8 | `T1106` T1106 | Potential Binary Proxy Execution Via Cdb.EXE | medium | 61603 |
+| `100396` | 8 | `T1553.004` T1553.004 | New Root Certificate Installed Via CertMgr.EXE | medium | 61603 |
+| `100397` | 8 | `T1218` T1218 | DLL Loaded via CertOC.EXE | medium | 61603 |
+| `100398` | 9 | `T1218` T1218 | Suspicious DLL Loaded via CertOC.EXE | high | 61603 |
+| `100399` | 8 | `T1553.004` T1553.004 | New Root Certificate Installed Via Certutil.EXE | medium | 61603 |
+| `100400` | 9 | `T1027` Obfuscated Files or Information | File Decoded From Base64/Hex Via Certutil.EXE | high | 61603 |
+| `100401` | 8 | `T1027` Obfuscated Files or Information | File Encoded To Base64 Via Certutil.EXE | medium | 61603 |
+| `100402` | 9 | `T1027` Obfuscated Files or Information | Suspicious File Encoded To Base64 Via Certutil.EXE | high | 61603 |
+| `100403` | 9 | `T1027` Obfuscated Files or Information | File In Suspicious Location Encoded To Base64 Via Certutil.EXE | high | 61603 |
+| `100404` | 8 | `T1027` Obfuscated Files or Information | Certificate Exported Via Certutil.EXE | medium | 61603 |
+| `100405` | 9 | `T1218` T1218 | Potential NTLM Coercion Via Certutil.EXE | high | 61603 |
+| `100406` | 8 | `T1036` T1036 | Suspicious CodePage Switch Via CHCP | medium | 61603 |
+| `100407` | 8 | `T1070.004` T1070.004 | Greedy File Deletion Using Del | medium | 61603 |
+| `100408` | 8 | `T1059` Command and Scripting Interpreter | Potential Dosfuscation Activity | medium | 61603 |
+| `100409` | 8 | `T1059.003` T1059.003 | Command Line Execution with Suspicious URL and AppData Strings | medium | 61603 |
+| `100410` | 8 | `T1564.003` T1564.003 | Cmd Launched with Hidden Start Flags to Suspicious Targets | medium | 61603 |
+| `100411` | 9 | `T1059.001` T1059.001 | Suspicious File Execution From Internet Hosted WebDav Share | high | 61603 |
 | `100412` | 9 | `T1059.001` T1059.001 | Cmd.EXE Missing Space Characters Execution Anomaly | high | 61603 |
-| `100413` | 9 | - | NtdllPipe Like Activity Execution | high | 61603 |
-| `100414` | 9 | `T1059.003` T1059.003 | Potential CommandLine Path Traversal Via Cmd.EXE | high | 61603 |
-| `100415` | 8 | `T1070.004` T1070.004 | Potentially Suspicious Ping/Copy Command Combination | medium | 61603 |
-| `100416` | 9 | `T1070.004` T1070.004 | Suspicious Ping/Del Command Combination | high | 61603 |
-| `100417` | 8 | `T1218` T1218 | Potentially Suspicious CMD Shell Output Redirect | medium | 61603 |
-| `100418` | 8 | `T1059.003` T1059.003 | Read Contents From Stdin Via Cmd.EXE | medium | 61603 |
-| `100419` | 12 | `T1059` Command and Scripting Interpreter | Unusual Parent Process For Cmd.EXE | medium | 61603 |
-| `100420` | 8 | `T1218` T1218 | Potential Arbitrary File Download Via Cmdl32.EXE | medium | 61603 |
-| `100421` | 9 | `T1218.003` T1218.003 | CMSTP Execution Process Creation | high | 61603 |
-| `100422` | 8 | `T1059.003` T1059.003 | OpenEDR Spawning Command Shell | medium | 61603 |
-| `100423` | 8 | `T1059.001` T1059.001 | Powershell Executed From Headless ConHost Process | medium | 61603 |
-| `100424` | 9 | `T1059.003` T1059.003 | Conhost.exe CommandLine Path Traversal | high | 61603 |
-| `100425` | 8 | `T1202` T1202 | Uncommon Child Process Of Conhost.EXE | medium | 61603 |
-| `100426` | 9 | `T1202` T1202 | Potentially Suspicious Child Processes Spawned by ConHost | high | 61603 |
-| `100427` | 12 | `T1059` Command and Scripting Interpreter | Conhost Spawned By Uncommon Parent Process | medium | 61603 |
-| `100428` | 9 | `T1685` T1685 | Windows Credential Guard Registry Tampering Via CommandLine | high | 61603 |
-| `100429` | 8 | `T1027.004` T1027.004 | Dynamic .NET Compilation Via Csc.EXE | medium | 61603 |
-| `100430` | 9 | `T1059.005` T1059.005 | Csc.EXE Execution Form Potentially Suspicious Parent | high | 61603 |
-| `100431` | 9 | `T1127` T1127 | Suspicious Use of CSharp Interactive Console | high | 61603 |
-| `100432` | 8 | - | Potential Cookies Session Hijacking | medium | 61603 |
-| `100433` | 8 | - | Curl Web Request With Potential Custom User-Agent | medium | 61603 |
-| `100434` | 8 | - | File Download From IP URL Via Curl.EXE | medium | 61603 |
-| `100435` | 9 | - | Suspicious File Download From IP Via Curl.EXE | high | 61603 |
-| `100436` | 9 | - | Suspicious File Download From File Sharing Domain Via Curl.EXE | high | 61603 |
-| `100437` | 8 | - | Insecure Transfer Via Curl.EXE | medium | 61603 |
-| `100438` | 8 | - | Insecure Proxy/DOH Transfer Via Curl.EXE | medium | 61603 |
-| `100439` | 8 | - | Local File Read Using Curl.EXE | medium | 61603 |
-| `100440` | 9 | `T1216` T1216 | Suspicious CustomShellHost Execution | high | 61603 |
-| `100441` | 8 | `T1218` T1218 | Uncommon Child Process Of Defaultpack.EXE | medium | 61603 |
-| `100442` | 9 | `T1685` T1685 | PowerShell Defender Threat Severity Default Action Set to 'Allow' o... | high | 61603 |
-| `100443` | 9 | `T1685` T1685 | Windows Defender Context Menu Removed | high | 61603 |
-| `100444` | 8 | `T1218` T1218 | DeviceCredentialDeployment Execution | medium | 61603 |
-| `100445` | 8 | `T1218` T1218 | Arbitrary MSI Download Via Devinit.EXE | medium | 61603 |
-| `100446` | 8 | - | Potentially Suspicious Child Process Of ClickOnce Application | medium | 61603 |
-| `100447` | 8 | `T1218` T1218 | Potentially Suspicious Child Process Of DiskShadow.EXE | medium | 61603 |
-| `100448` | 8 | `T1218` T1218 | Diskshadow Script Mode - Uncommon Script Extension Execution | medium | 61603 |
-| `100449` | 8 | `T1218` T1218 | Diskshadow Script Mode - Execution From Potential Suspicious Location | medium | 61603 |
-| `100450` | 8 | `T1685` T1685 | Dism Remove Online Package | medium | 61603 |
-| `100451` | 8 | `T1685` T1685 | Dism Remove Online Package | medium | 61603 |
-| `100452` | 8 | `T1218` T1218 | Potential Application Whitelisting Bypass via Dnx.EXE | medium | 61603 |
-| `100453` | 8 | `T1218` T1218 | Arbitrary DLL or Csproj Code Execution Via Dotnet.EXE | medium | 61603 |
-| `100454` | 8 | `T1218` T1218 | Binary Proxy Execution Via Dotnet-Trace.EXE | medium | 61603 |
-| `100455` | 8 | `T1218` T1218 | Process Memory Dump Via Dotnet-Dump | medium | 61603 |
-| `100456` | 8 | `T1218` T1218 | Potentially Over Permissive Permissions Granted Using Dsacls.EXE | medium | 61603 |
-| `100457` | 8 | `T1218` T1218 | Potential Password Spraying Attempt Using Dsacls.EXE | medium | 61603 |
-| `100458` | 8 | `T1218` T1218 | New Capture Session Launched Via DXCap.EXE | medium | 61603 |
-| `100459` | 8 | `T1218` T1218 | Potentially Suspicious Cabinet File Expansion | medium | 61603 |
-| `100460` | 8 | `T1036` T1036 | Explorer Process Tree Break | medium | 61603 |
-| `100461` | 8 | `T1036` T1036 | Explorer Process Tree Break | medium | 61603 |
-| `100462` | 8 | `T1036` T1036 | Findstr Launching .lnk File | medium | 61603 |
-| `100463` | 8 | `T1070` Indicator Removal | Filter Driver Unloaded Via Fltmc.EXE | medium | 61603 |
-| `100464` | 9 | `T1070` Indicator Removal | Sysmon Driver Unloaded Via Fltmc.EXE | high | 61603 |
-| `100465` | 9 | `T1036` T1036 | Forfiles.EXE Child Process Masquerading | high | 61603 |
-| `100466` | 8 | `T1059` Command and Scripting Interpreter | Forfiles Command Execution | medium | 61603 |
-| `100467` | 9 | - | Uncommon FileSystem Load Attempt By Format.com | high | 61603 |
-| `100468` | 8 | `T1059` Command and Scripting Interpreter | Use of FSharp Interpreters | medium | 61603 |
-| `100469` | 8 | `T1059` Command and Scripting Interpreter | Use of FSharp Interpreters | medium | 61603 |
-| `100470` | 8 | `T1059` Command and Scripting Interpreter | Potentially Suspicious NTFS Symlink Behavior Modification | medium | 61603 |
-| `100471` | 8 | `T1059` Command and Scripting Interpreter | Potential Arbitrary Command Execution Via FTP.EXE | medium | 61603 |
-| `100472` | 8 | `T1593.003` T1593.003 | Suspicious Git Clone | medium | 61603 |
-| `100473` | 9 | - | Potentially Suspicious GoogleUpdate Child Process | high | 61603 |
-| `100474` | 8 | - | File Decryption Using Gpg4win | medium | 61603 |
-| `100475` | 8 | - | File Encryption Using Gpg4win | medium | 61603 |
-| `100476` | 9 | - | File Encryption/Decryption Via Gpg4win From Suspicious Locations | high | 61603 |
-| `100477` | 8 | - | Arbitrary Binary Execution Using GUP Utility | medium | 61603 |
-| `100478` | 9 | `T1218.001` T1218.001 | Remote CHM File Download/Execution Via HH.EXE | high | 61603 |
-| `100479` | 9 | `T1047` T1047 | HTML Help HH.EXE Suspicious Child Process | high | 61603 |
-| `100480` | 9 | `T1047` T1047 | Suspicious HH.EXE Execution | high | 61603 |
-| `100481` | 9 | `T1218.011` T1218.011 | HackTool - F-Secure C3 Load by Rundll32 | high | 61603 |
-| `100482` | 13 | `T1059.003` T1059.003 | Operator Bloopers Cobalt Strike Commands | high | 61603 |
-| `100483` | 13 | `T1059.003` T1059.003 | Operator Bloopers Cobalt Strike Modules | high | 61603 |
-| `100484` | 13 | `T1218.011` T1218.011 | CobaltStrike Load by Rundll32 | high | 61603 |
-| `100485` | 13 | `T1059` Command and Scripting Interpreter | Potential CobaltStrike Process Patterns | high | 61603 |
-| `100486` | 13 | `T1059` Command and Scripting Interpreter | Potential CobaltStrike Process Patterns | high | 61603 |
+| `100413` | 9 | `T1059.001` T1059.001 | Cmd.EXE Missing Space Characters Execution Anomaly | high | 61603 |
+| `100414` | 9 | `T1059.001` T1059.001 | Cmd.EXE Missing Space Characters Execution Anomaly | high | 61603 |
+| `100415` | 9 | - | NtdllPipe Like Activity Execution | high | 61603 |
+| `100416` | 9 | `T1059.003` T1059.003 | Potential CommandLine Path Traversal Via Cmd.EXE | high | 61603 |
+| `100417` | 8 | `T1070.004` T1070.004 | Potentially Suspicious Ping/Copy Command Combination | medium | 61603 |
+| `100418` | 9 | `T1070.004` T1070.004 | Suspicious Ping/Del Command Combination | high | 61603 |
+| `100419` | 8 | `T1218` T1218 | Potentially Suspicious CMD Shell Output Redirect | medium | 61603 |
+| `100420` | 8 | `T1059.003` T1059.003 | Read Contents From Stdin Via Cmd.EXE | medium | 61603 |
+| `100421` | 12 | `T1059` Command and Scripting Interpreter | Unusual Parent Process For Cmd.EXE | medium | 61603 |
+| `100422` | 8 | `T1218` T1218 | Potential Arbitrary File Download Via Cmdl32.EXE | medium | 61603 |
+| `100423` | 9 | `T1218.003` T1218.003 | CMSTP Execution Process Creation | high | 61603 |
+| `100424` | 8 | `T1059.003` T1059.003 | OpenEDR Spawning Command Shell | medium | 61603 |
+| `100425` | 8 | `T1059.001` T1059.001 | Powershell Executed From Headless ConHost Process | medium | 61603 |
+| `100426` | 9 | `T1059.003` T1059.003 | Conhost.exe CommandLine Path Traversal | high | 61603 |
+| `100427` | 8 | `T1202` T1202 | Uncommon Child Process Of Conhost.EXE | medium | 61603 |
+| `100428` | 9 | `T1202` T1202 | Potentially Suspicious Child Processes Spawned by ConHost | high | 61603 |
+| `100429` | 12 | `T1059` Command and Scripting Interpreter | Conhost Spawned By Uncommon Parent Process | medium | 61603 |
+| `100430` | 9 | `T1685` T1685 | Windows Credential Guard Registry Tampering Via CommandLine | high | 61603 |
+| `100431` | 8 | `T1027.004` T1027.004 | Dynamic .NET Compilation Via Csc.EXE | medium | 61603 |
+| `100432` | 9 | `T1059.005` T1059.005 | Csc.EXE Execution Form Potentially Suspicious Parent | high | 61603 |
+| `100433` | 9 | `T1127` T1127 | Suspicious Use of CSharp Interactive Console | high | 61603 |
+| `100434` | 8 | - | Potential Cookies Session Hijacking | medium | 61603 |
+| `100435` | 8 | - | Curl Web Request With Potential Custom User-Agent | medium | 61603 |
+| `100436` | 8 | - | File Download From IP URL Via Curl.EXE | medium | 61603 |
+| `100437` | 9 | - | Suspicious File Download From IP Via Curl.EXE | high | 61603 |
+| `100438` | 9 | - | Suspicious File Download From File Sharing Domain Via Curl.EXE | high | 61603 |
+| `100439` | 8 | - | Insecure Transfer Via Curl.EXE | medium | 61603 |
+| `100440` | 8 | - | Insecure Proxy/DOH Transfer Via Curl.EXE | medium | 61603 |
+| `100441` | 8 | - | Local File Read Using Curl.EXE | medium | 61603 |
+| `100442` | 9 | `T1216` T1216 | Suspicious CustomShellHost Execution | high | 61603 |
+| `100443` | 8 | `T1218` T1218 | Uncommon Child Process Of Defaultpack.EXE | medium | 61603 |
+| `100444` | 9 | `T1685` T1685 | PowerShell Defender Threat Severity Default Action Set to 'Allow' o... | high | 61603 |
+| `100445` | 9 | `T1685` T1685 | Windows Defender Context Menu Removed | high | 61603 |
+| `100446` | 8 | `T1218` T1218 | DeviceCredentialDeployment Execution | medium | 61603 |
+| `100447` | 8 | `T1218` T1218 | Arbitrary MSI Download Via Devinit.EXE | medium | 61603 |
+| `100448` | 8 | - | Potentially Suspicious Child Process Of ClickOnce Application | medium | 61603 |
+| `100449` | 8 | `T1218` T1218 | Potentially Suspicious Child Process Of DiskShadow.EXE | medium | 61603 |
+| `100450` | 8 | `T1218` T1218 | Diskshadow Script Mode - Uncommon Script Extension Execution | medium | 61603 |
+| `100451` | 8 | `T1218` T1218 | Diskshadow Script Mode - Execution From Potential Suspicious Location | medium | 61603 |
+| `100452` | 8 | `T1685` T1685 | Dism Remove Online Package | medium | 61603 |
+| `100453` | 8 | `T1685` T1685 | Dism Remove Online Package | medium | 61603 |
+| `100454` | 8 | `T1218` T1218 | Potential Application Whitelisting Bypass via Dnx.EXE | medium | 61603 |
+| `100455` | 8 | `T1218` T1218 | Arbitrary DLL or Csproj Code Execution Via Dotnet.EXE | medium | 61603 |
+| `100456` | 8 | `T1218` T1218 | Binary Proxy Execution Via Dotnet-Trace.EXE | medium | 61603 |
+| `100457` | 8 | `T1218` T1218 | Process Memory Dump Via Dotnet-Dump | medium | 61603 |
+| `100458` | 8 | `T1218` T1218 | Potentially Over Permissive Permissions Granted Using Dsacls.EXE | medium | 61603 |
+| `100459` | 8 | `T1218` T1218 | Potential Password Spraying Attempt Using Dsacls.EXE | medium | 61603 |
+| `100460` | 8 | `T1218` T1218 | New Capture Session Launched Via DXCap.EXE | medium | 61603 |
+| `100461` | 8 | `T1218` T1218 | Potentially Suspicious Cabinet File Expansion | medium | 61603 |
+| `100462` | 8 | `T1036` T1036 | Explorer Process Tree Break | medium | 61603 |
+| `100463` | 8 | `T1036` T1036 | Explorer Process Tree Break | medium | 61603 |
+| `100464` | 8 | `T1036` T1036 | Findstr Launching .lnk File | medium | 61603 |
+| `100465` | 8 | `T1070` Indicator Removal | Filter Driver Unloaded Via Fltmc.EXE | medium | 61603 |
+| `100466` | 9 | `T1070` Indicator Removal | Sysmon Driver Unloaded Via Fltmc.EXE | high | 61603 |
+| `100467` | 9 | `T1036` T1036 | Forfiles.EXE Child Process Masquerading | high | 61603 |
+| `100468` | 8 | `T1059` Command and Scripting Interpreter | Forfiles Command Execution | medium | 61603 |
+| `100469` | 9 | - | Uncommon FileSystem Load Attempt By Format.com | high | 61603 |
+| `100470` | 8 | `T1059` Command and Scripting Interpreter | Use of FSharp Interpreters | medium | 61603 |
+| `100471` | 8 | `T1059` Command and Scripting Interpreter | Use of FSharp Interpreters | medium | 61603 |
+| `100472` | 8 | `T1059` Command and Scripting Interpreter | Potentially Suspicious NTFS Symlink Behavior Modification | medium | 61603 |
+| `100473` | 8 | `T1059` Command and Scripting Interpreter | Potential Arbitrary Command Execution Via FTP.EXE | medium | 61603 |
+| `100474` | 8 | `T1593.003` T1593.003 | Suspicious Git Clone | medium | 61603 |
+| `100475` | 9 | - | Potentially Suspicious GoogleUpdate Child Process | high | 61603 |
+| `100476` | 8 | - | File Decryption Using Gpg4win | medium | 61603 |
+| `100477` | 8 | - | File Encryption Using Gpg4win | medium | 61603 |
+| `100478` | 9 | - | File Encryption/Decryption Via Gpg4win From Suspicious Locations | high | 61603 |
+| `100479` | 8 | - | Arbitrary Binary Execution Using GUP Utility | medium | 61603 |
+| `100480` | 9 | `T1218.001` T1218.001 | Remote CHM File Download/Execution Via HH.EXE | high | 61603 |
+| `100481` | 9 | `T1047` T1047 | HTML Help HH.EXE Suspicious Child Process | high | 61603 |
+| `100482` | 9 | `T1047` T1047 | Suspicious HH.EXE Execution | high | 61603 |
+| `100483` | 9 | `T1218.011` T1218.011 | HackTool - F-Secure C3 Load by Rundll32 | high | 61603 |
+| `100484` | 13 | `T1059.003` T1059.003 | Operator Bloopers Cobalt Strike Commands | high | 61603 |
+| `100485` | 13 | `T1059.003` T1059.003 | Operator Bloopers Cobalt Strike Modules | high | 61603 |
+| `100486` | 13 | `T1218.011` T1218.011 | CobaltStrike Load by Rundll32 | high | 61603 |
 | `100487` | 13 | `T1059` Command and Scripting Interpreter | Potential CobaltStrike Process Patterns | high | 61603 |
 | `100488` | 13 | `T1059` Command and Scripting Interpreter | Potential CobaltStrike Process Patterns | high | 61603 |
-| `100489` | 9 | `T1059.001` T1059.001 | HackTool - Covenant PowerShell Launcher | high | 61603 |
-| `100490` | 9 | `T1059.001` T1059.001 | HackTool - Covenant PowerShell Launcher | high | 61603 |
-| `100491` | 9 | `T1047` T1047 | HackTool - CrackMapExec Execution | high | 61603 |
-| `100492` | 9 | `T1047` T1047 | HackTool - CrackMapExec Execution | high | 61603 |
+| `100489` | 13 | `T1059` Command and Scripting Interpreter | Potential CobaltStrike Process Patterns | high | 61603 |
+| `100490` | 13 | `T1059` Command and Scripting Interpreter | Potential CobaltStrike Process Patterns | high | 61603 |
+| `100491` | 9 | `T1059.001` T1059.001 | HackTool - Covenant PowerShell Launcher | high | 61603 |
+| `100492` | 9 | `T1059.001` T1059.001 | HackTool - Covenant PowerShell Launcher | high | 61603 |
 | `100493` | 9 | `T1047` T1047 | HackTool - CrackMapExec Execution | high | 61603 |
 | `100494` | 9 | `T1047` T1047 | HackTool - CrackMapExec Execution | high | 61603 |
 | `100495` | 9 | `T1047` T1047 | HackTool - CrackMapExec Execution | high | 61603 |
 | `100496` | 9 | `T1047` T1047 | HackTool - CrackMapExec Execution | high | 61603 |
 | `100497` | 9 | `T1047` T1047 | HackTool - CrackMapExec Execution | high | 61603 |
-| `100498` | 9 | `T1059.001` T1059.001 | HackTool - CrackMapExec PowerShell Obfuscation | high | 61603 |
-| `100499` | 9 | `T1685` T1685 | Hacktool - EDR-Freeze Execution | high | 61603 |
-| `100500` | 9 | `T1685` T1685 | Hacktool - EDR-Freeze Execution | high | 61603 |
-| `100501` | 9 | `T1685` T1685 | HackTool - EDRSilencer Execution | high | 61603 |
-| `100502` | 9 | `T1685` T1685 | HackTool - EDRSilencer Execution | high | 61603 |
+| `100498` | 9 | `T1047` T1047 | HackTool - CrackMapExec Execution | high | 61603 |
+| `100499` | 9 | `T1047` T1047 | HackTool - CrackMapExec Execution | high | 61603 |
+| `100500` | 9 | `T1059.001` T1059.001 | HackTool - CrackMapExec PowerShell Obfuscation | high | 61603 |
+| `100501` | 9 | `T1685` T1685 | Hacktool - EDR-Freeze Execution | high | 61603 |
+| `100502` | 9 | `T1685` T1685 | Hacktool - EDR-Freeze Execution | high | 61603 |
 | `100503` | 9 | `T1685` T1685 | HackTool - EDRSilencer Execution | high | 61603 |
-| `100504` | 12 | `T1059.001` T1059.001 | HackTool - Empire PowerShell Launch Parameters | high | 61603 |
-| `100505` | 9 | - | HackTool - GMER Rootkit Detector and Remover Execution | high | 61603 |
-| `100506` | 9 | - | HackTool - GMER Rootkit Detector and Remover Execution | high | 61603 |
-| `100507` | 9 | `T1047` T1047 | HackTool - Potential Impacket Lateral Movement Activity | high | 61603 |
-| `100508` | 9 | `T1047` T1047 | HackTool - Potential Impacket Lateral Movement Activity | high | 61603 |
-| `100509` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher | high | 61603 |
-| `100510` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
-| `100511` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
+| `100504` | 9 | `T1685` T1685 | HackTool - EDRSilencer Execution | high | 61603 |
+| `100505` | 9 | `T1685` T1685 | HackTool - EDRSilencer Execution | high | 61603 |
+| `100506` | 12 | `T1059.001` T1059.001 | HackTool - Empire PowerShell Launch Parameters | high | 61603 |
+| `100507` | 9 | - | HackTool - GMER Rootkit Detector and Remover Execution | high | 61603 |
+| `100508` | 9 | - | HackTool - GMER Rootkit Detector and Remover Execution | high | 61603 |
+| `100509` | 9 | `T1047` T1047 | HackTool - Potential Impacket Lateral Movement Activity | high | 61603 |
+| `100510` | 9 | `T1047` T1047 | HackTool - Potential Impacket Lateral Movement Activity | high | 61603 |
+| `100511` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher | high | 61603 |
 | `100512` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
 | `100513` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
 | `100514` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
 | `100515` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
 | `100516` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
-| `100517` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher | high | 61603 |
-| `100518` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher | high | 61603 |
-| `100519` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION | medium | 61603 |
-| `100520` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin | high | 61603 |
-| `100521` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip | high | 61603 |
-| `100522` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA | high | 61603 |
-| `100523` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION | high | 61603 |
-| `100524` | 8 | `T1059.003` T1059.003 | HackTool - Jlaive In-Memory Assembly Execution | medium | 61603 |
-| `100525` | 9 | `T1059.003` T1059.003 | HackTool - Koadic Execution | high | 61603 |
-| `100526` | 9 | `T1082` System Information Discovery | HackTool - PCHunter Execution | high | 61603 |
-| `100527` | 9 | `T1082` System Information Discovery | HackTool - PCHunter Execution | high | 61603 |
+| `100517` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
+| `100518` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
+| `100519` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher | high | 61603 |
+| `100520` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher | high | 61603 |
+| `100521` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION | medium | 61603 |
+| `100522` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin | high | 61603 |
+| `100523` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip | high | 61603 |
+| `100524` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA | high | 61603 |
+| `100525` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION | high | 61603 |
+| `100526` | 8 | `T1059.003` T1059.003 | HackTool - Jlaive In-Memory Assembly Execution | medium | 61603 |
+| `100527` | 9 | `T1059.003` T1059.003 | HackTool - Koadic Execution | high | 61603 |
 | `100528` | 9 | `T1082` System Information Discovery | HackTool - PCHunter Execution | high | 61603 |
 | `100529` | 9 | `T1082` System Information Discovery | HackTool - PCHunter Execution | high | 61603 |
-| `100530` | 12 | `T1053.005` T1053.005 | HackTool - Default PowerSploit/Empire Scheduled Task Creation | high | 61603 |
-| `100531` | 9 | `T1685` T1685 | HackTool - PowerTool Execution | high | 61603 |
-| `100532` | 9 | `T1685` T1685 | HackTool - PowerTool Execution | high | 61603 |
-| `100533` | 9 | `T1587` T1587 | HackTool - PurpleSharp Execution | high | 61603 |
-| `100534` | 9 | `T1587` T1587 | HackTool - PurpleSharp Execution | high | 61603 |
+| `100530` | 9 | `T1082` System Information Discovery | HackTool - PCHunter Execution | high | 61603 |
+| `100531` | 9 | `T1082` System Information Discovery | HackTool - PCHunter Execution | high | 61603 |
+| `100532` | 12 | `T1053.005` T1053.005 | HackTool - Default PowerSploit/Empire Scheduled Task Creation | high | 61603 |
+| `100533` | 9 | `T1685` T1685 | HackTool - PowerTool Execution | high | 61603 |
+| `100534` | 9 | `T1685` T1685 | HackTool - PowerTool Execution | high | 61603 |
 | `100535` | 9 | `T1587` T1587 | HackTool - PurpleSharp Execution | high | 61603 |
-| `100536` | 9 | `T1106` T1106 | HackTool - RedMimicry Winnti Playbook Execution | high | 61603 |
-| `100537` | 9 | `T1685.001` T1685.001 | HackTool - SharpEvtMute Execution | high | 61603 |
-| `100538` | 9 | `T1685.001` T1685.001 | HackTool - SharpEvtMute Execution | high | 61603 |
+| `100536` | 9 | `T1587` T1587 | HackTool - PurpleSharp Execution | high | 61603 |
+| `100537` | 9 | `T1587` T1587 | HackTool - PurpleSharp Execution | high | 61603 |
+| `100538` | 9 | `T1106` T1106 | HackTool - RedMimicry Winnti Playbook Execution | high | 61603 |
 | `100539` | 9 | `T1685.001` T1685.001 | HackTool - SharpEvtMute Execution | high | 61603 |
-| `100540` | 9 | `T1210` T1210 | HackTool - SharpWSUS/WSUSpendu Execution | high | 61603 |
-| `100541` | 9 | `T1059` Command and Scripting Interpreter | HackTool - Sliver C2 Implant Activity Pattern | high | 61603 |
-| `100542` | 9 | `T1059` Command and Scripting Interpreter | HackTool - Stracciatella Execution | high | 61603 |
-| `100543` | 9 | `T1059` Command and Scripting Interpreter | HackTool - Stracciatella Execution | high | 61603 |
+| `100540` | 9 | `T1685.001` T1685.001 | HackTool - SharpEvtMute Execution | high | 61603 |
+| `100541` | 9 | `T1685.001` T1685.001 | HackTool - SharpEvtMute Execution | high | 61603 |
+| `100542` | 9 | `T1210` T1210 | HackTool - SharpWSUS/WSUSpendu Execution | high | 61603 |
+| `100543` | 9 | `T1059` Command and Scripting Interpreter | HackTool - Sliver C2 Implant Activity Pattern | high | 61603 |
 | `100544` | 9 | `T1059` Command and Scripting Interpreter | HackTool - Stracciatella Execution | high | 61603 |
 | `100545` | 9 | `T1059` Command and Scripting Interpreter | HackTool - Stracciatella Execution | high | 61603 |
-| `100546` | 8 | `T1218` T1218 | Suspicious ZipExec Execution | medium | 61603 |
-| `100547` | 9 | `T1685` T1685 | Hypervisor-protected Code Integrity (HVCI) Related Registry Tamperi... | high | 61603 |
-| `100548` | 8 | `T1036` T1036 | Potential Fake Instance Of Hxtsr.EXE Executed | medium | 61603 |
-| `100549` | 8 | `T1564.001` T1564.001 | Use Icacls to Hide File to Everyone | medium | 61603 |
-| `100550` | 9 | `T1218` T1218 | Self Extracting Package Creation Via Iexpress.EXE From Potentially ... | high | 61603 |
-| `100551` | 9 | `T1685.001` T1685.001 | Disable Windows IIS HTTP Logging | high | 61603 |
-| `100552` | 8 | - | Suspicious IIS URL GlobalRules Rewrite Via AppCmd | medium | 61603 |
-| `100553` | 8 | `T1070` Indicator Removal | IIS WebServer Log Deletion via CommandLine Utilities | medium | 61603 |
-| `100554` | 8 | `T1127` T1127 | C# IL Code Compilation Via Ilasm.EXE | medium | 61603 |
-| `100555` | 9 | - | ImagingDevices Unusual Parent/Child Processes | high | 61603 |
-| `100556` | 9 | - | ImagingDevices Unusual Parent/Child Processes | high | 61603 |
-| `100557` | 9 | `T1218` T1218 | Arbitrary File Download Via IMEWDBLD.EXE | high | 61603 |
-| `100558` | 8 | `T1218` T1218 | InfDefaultInstall.exe .inf Execution | medium | 61603 |
-| `100559` | 8 | `T1218` T1218 | File Download Via InstallUtil.EXE | medium | 61603 |
-| `100560` | 8 | - | Suspicious Execution of InstallUtil Without Log | medium | 61603 |
-| `100561` | 8 | `T1203` T1203 | Java Running with Remote Debugging | medium | 61603 |
-| `100562` | 9 | `T1127` T1127 | Kavremover Dropped Binary LOLBIN Usage | high | 61603 |
-| `100563` | 8 | - | Computer Password Change Via Ksetup.EXE | medium | 61603 |
-| `100564` | 8 | - | Logged-On User Password Change Via Ksetup.EXE | medium | 61603 |
-| `100565` | 8 | `T1218` T1218 | Uncommon Link.EXE Parent Process | medium | 61603 |
-| `100566` | 8 | - | Rebuild Performance Counter Values Via Lodctr.EXE | medium | 61603 |
-| `100567` | 9 | `T1685` T1685 | Suspicious Windows Trace ETW Session Tamper Via Logman.EXE | high | 61603 |
-| `100568` | 9 | `T1218` T1218 | Devtoolslauncher.exe Executes Specified Binary | high | 61603 |
-| `100569` | 8 | `T1564.004` T1564.004 | Suspicious Diantz Alternate Data Stream Execution | medium | 61603 |
-| `100570` | 8 | `T1564.004` T1564.004 | Suspicious Extrac32 Alternate Data Stream Execution | medium | 61603 |
-| `100571` | 8 | `T1218` T1218 | Gpscript Execution | medium | 61603 |
-| `100572` | 8 | `T1218` T1218 | Ie4uinit Lolbin Use From Invalid Path | medium | 61603 |
-| `100573` | 8 | `T1216.001` T1216.001 | Launch-VsDevShell.PS1 Proxy Execution | medium | 61603 |
-| `100574` | 9 | `T1216` T1216 | Potential Manage-bde.wsf Abuse To Proxy Execution | high | 61603 |
-| `100575` | 9 | `T1218` T1218 | MpiExec Lolbin | high | 61603 |
-| `100576` | 8 | `T1218` T1218 | Execute Files with Msdeploy.exe | medium | 61603 |
-| `100577` | 8 | `T1059` Command and Scripting Interpreter | Use of OpenConsole | medium | 61603 |
-| `100578` | 9 | `T1218` T1218 | OpenWith.exe Executes Specified Binary | high | 61603 |
-| `100579` | 8 | `T1059` Command and Scripting Interpreter | Use of Pcalua For Execution | medium | 61603 |
-| `100580` | 9 | `T1218` T1218 | Execute Pcwrun.EXE To Leverage Follina | high | 61603 |
-| `100581` | 8 | `T1218.011` T1218.011 | Code Execution via Pcwutl.dll | medium | 61603 |
-| `100582` | 8 | `T1059.001` T1059.001 | Execute Code with Pester.bat as Parent | medium | 61603 |
-| `100583` | 8 | `T1059.001` T1059.001 | Execute Code with Pester.bat | medium | 61603 |
-| `100584` | 8 | `T1216.001` T1216.001 | Pubprn.vbs Proxy Execution | medium | 61603 |
-| `100585` | 8 | `T1218` T1218 | DLL Execution via Rasautou.exe | medium | 61603 |
-| `100586` | 8 | `T1218` T1218 | REGISTER_APP.VBS Proxy Execution | medium | 61603 |
-| `100587` | 8 | `T1127` T1127 | Use of Remote.exe | medium | 61603 |
-| `100588` | 8 | `T1127` T1127 | Use of Remote.exe | medium | 61603 |
-| `100589` | 8 | `T1218` T1218 | Lolbin Runexehelper Use As Proxy | medium | 61603 |
-| `100590` | 8 | `T1059` Command and Scripting Interpreter | Suspicious Runscripthelper.exe | medium | 61603 |
-| `100591` | 8 | `T1218` T1218 | Use of Scriptrunner.exe | medium | 61603 |
-| `100592` | 8 | `T1218` T1218 | Use Of The SFTP.EXE Binary As A LOLBIN | medium | 61603 |
-| `100593` | 8 | `T1218` T1218 | SyncAppvPublishingServer Execute Arbitrary PowerShell Code | medium | 61603 |
-| `100594` | 8 | `T1218` T1218 | SyncAppvPublishingServer VBS Execute Arbitrary PowerShell Code | medium | 61603 |
-| `100595` | 8 | `T1127` T1127 | Use of TTDInject.exe | medium | 61603 |
-| `100596` | 8 | `T1127` T1127 | Use of TTDInject.exe | medium | 61603 |
-| `100597` | 8 | `T1218` T1218 | Lolbin Unregmp2.exe Use As Proxy | medium | 61603 |
-| `100598` | 8 | `T1216` T1216 | UtilityFunctions.ps1 Proxy Dll | medium | 61603 |
-| `100599` | 9 | `T1027.004` T1027.004 | Visual Basic Command Line Compiler Usage | high | 61603 |
-| `100600` | 8 | `T1218` T1218 | Use of VisualUiaVerifyNative.exe | medium | 61603 |
-| `100601` | 8 | `T1218` T1218 | Use of VisualUiaVerifyNative.exe | medium | 61603 |
-| `100602` | 8 | `T1127` T1127 | Use of VSIISExeLauncher.exe | medium | 61603 |
-| `100603` | 8 | `T1127` T1127 | Use of Wfc.exe | medium | 61603 |
-| `100604` | 8 | `T1127` T1127 | Use of Wfc.exe | medium | 61603 |
-| `100605` | 8 | `T1218` T1218 | Potential Register_App.Vbs LOLScript Abuse | medium | 61603 |
-| `100606` | 8 | `T1689` T1689 | LSA PPL Protection Setting Modification via CommandLine | medium | 61603 |
-| `100607` | 8 | `T1127` T1127 | Potential Mftrace.EXE Abuse | medium | 61603 |
-| `100608` | 9 | `T1021.003` T1021.003 | MMC20 Lateral Movement | high | 61603 |
-| `100609` | 9 | `T1204.002` T1204.002 | MMC Executing Files with Reversed Extensions Using RTLO Abuse | high | 61603 |
-| `100610` | 8 | `T1036` T1036 | CodePage Modification Via MODE.COM To Russian Language | medium | 61603 |
-| `100611` | 9 | `T1218` T1218 | Potential Suspicious Mofcomp Execution | high | 61603 |
-| `100612` | 9 | `T1685` T1685 | Windows Defender Definition Files Removed | high | 61603 |
-| `100613` | 8 | - | Suspicious Msbuild Execution By Uncommon Parent Process | medium | 61603 |
-| `100614` | 9 | `T1218` T1218 | MSDT Execution Via Answer File | high | 61603 |
-| `100615` | 9 | `T1202` T1202 | Potential Arbitrary Command Execution Using Msdt.EXE | high | 61603 |
-| `100616` | 8 | `T1202` T1202 | Suspicious Cabinet File Execution Via Msdt.EXE | medium | 61603 |
-| `100617` | 9 | `T1036` T1036 | Suspicious MSDT Parent Process | high | 61603 |
-| `100618` | 8 | `T1218` T1218 | Arbitrary File Download Via MSEDGE_PROXY.EXE | medium | 61603 |
-| `100619` | 9 | `T1218.005` T1218.005 | Remotely Hosted HTA File Executed Via Mshta.EXE | high | 61603 |
-| `100620` | 8 | `T1059` Command and Scripting Interpreter | Wscript Shell Run In CommandLine | medium | 61603 |
-| `100621` | 9 | `T1218.005` T1218.005 | Suspicious JavaScript Execution Via Mshta.EXE | high | 61603 |
-| `100622` | 9 | `T1218.005` T1218.005 | Potential LethalHTA Technique Execution | high | 61603 |
-| `100623` | 9 | `T1218.005` T1218.005 | Suspicious MSHTA Child Process | high | 61603 |
-| `100624` | 9 | `T1140` T1140 | MSHTA Execution with Suspicious File Extensions | high | 61603 |
-| `100625` | 9 | `T1106` T1106 | Suspicious Mshta.EXE Execution Patterns | high | 61603 |
-| `100626` | 8 | `T1218.007` T1218.007 | DllUnregisterServer Function Call Via Msiexec.EXE | medium | 61603 |
-| `100627` | 8 | `T1218.007` T1218.007 | Suspicious MsiExec Embedding Parent | medium | 61603 |
-| `100628` | 8 | `T1218.007` T1218.007 | Suspicious Msiexec Execute Arbitrary DLL | medium | 61603 |
-| `100629` | 8 | `T1218.007` T1218.007 | Msiexec Quiet Installation | medium | 61603 |
-| `100630` | 8 | `T1218.007` T1218.007 | Suspicious Msiexec Quiet Install From Remote Location | medium | 61603 |
-| `100631` | 9 | `T1036.005` T1036.005 | Potential MsiExec Masquerading | high | 61603 |
-| `100632` | 8 | `T1218` T1218 | Arbitrary File Download Via MSOHTMED.EXE | medium | 61603 |
-| `100633` | 8 | `T1218` T1218 | Arbitrary File Download Via MSPUB.EXE | medium | 61603 |
-| `100634` | 8 | `T1059.001` T1059.001 | Detection of PowerShell Execution via Sqlps.exe | medium | 61603 |
-| `100635` | 8 | `T1059.001` T1059.001 | SQL Client Tools PowerShell Session Detection | medium | 61603 |
-| `100636` | 8 | `T1220` T1220 | Msxsl.EXE Execution | medium | 61603 |
-| `100637` | 9 | `T1220` T1220 | Remote XSL Execution Via Msxsl.EXE | high | 61603 |
-| `100638` | 8 | `T1686.003` T1686.003 | New Firewall Rule Added Via Netsh.EXE | medium | 61603 |
-| `100639` | 9 | `T1686.003` T1686.003 | Suspicious Program Location Whitelisted In Firewall Via Netsh.EXE | high | 61603 |
-| `100640` | 9 | `T1686.003` T1686.003 | RDP Connection Allowed Via Netsh.EXE | high | 61603 |
-| `100641` | 8 | `T1686.003` T1686.003 | Firewall Rule Deleted Via Netsh.EXE | medium | 61603 |
-| `100642` | 8 | `T1686.003` T1686.003 | Firewall Disabled via Netsh.EXE | medium | 61603 |
-| `100643` | 8 | `T1686.003` T1686.003 | Netsh Allow Group Policy on Microsoft Defender Firewall | medium | 61603 |
-| `100644` | 8 | - | Firewall Rule Update Via Netsh.EXE | medium | 61603 |
-| `100645` | 9 | `T1127` T1127 | Potential Arbitrary Code Execution Via Node.EXE | high | 61603 |
-| `100646` | 8 | `T1127` T1127 | Node Process Executions | medium | 61603 |
-| `100647` | 8 | - | Nslookup PowerShell Download Cradle - ProcessCreation | medium | 61603 |
-| `100648` | 8 | `T1218.008` T1218.008 | Driver/DLL Installation Via Odbcconf.EXE | medium | 61603 |
-| `100649` | 9 | `T1218.008` T1218.008 | Suspicious Driver/DLL Installation Via Odbcconf.EXE | high | 61603 |
-| `100650` | 9 | `T1218.008` T1218.008 | Odbcconf.EXE Suspicious DLL Location | high | 61603 |
-| `100651` | 8 | `T1218.008` T1218.008 | New DLL Registered Via Odbcconf.EXE | medium | 61603 |
-| `100652` | 9 | `T1218.008` T1218.008 | Potentially Suspicious DLL Registered Via Odbcconf.EXE | high | 61603 |
-| `100653` | 8 | `T1218.008` T1218.008 | Response File Execution Via Odbcconf.EXE | medium | 61603 |
-| `100654` | 9 | `T1218.008` T1218.008 | Suspicious Response File Execution Via Odbcconf.EXE | high | 61603 |
-| `100655` | 8 | `T1218.008` T1218.008 | Uncommon Child Process Spawned By Odbcconf.EXE | medium | 61603 |
-| `100656` | 9 | `T1202` T1202 | Potential Arbitrary File Download Using Office Application | high | 61603 |
-| `100657` | 9 | `T1202` T1202 | Potentially Suspicious Office Document Executed From Trusted Location | high | 61603 |
-| `100658` | 9 | `T1218.001` T1218.001 | OneNote.EXE Execution of Malicious Embedded Scripts | high | 61603 |
-| `100659` | 9 | `T1059` Command and Scripting Interpreter | Outlook EnableUnsafeClientMailRules Setting Enabled | high | 61603 |
-| `100660` | 9 | `T1204.002` T1204.002 | Suspicious Outlook Child Process | high | 61603 |
-| `100661` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Remote Child Process From Outlook | high | 61603 |
-| `100662` | 9 | `T1204.002` T1204.002 | Suspicious Binary In User Directory Spawned From Office Application | high | 61603 |
-| `100663` | 9 | `T1047` T1047 | Suspicious Microsoft Office Child Process | high | 61603 |
-| `100664` | 8 | `T1202` T1202 | Potential Arbitrary DLL Load Using Winword | medium | 61603 |
-| `100665` | 8 | `T1218` T1218 | Potential Mpclient.DLL Sideloading Via OfflineScannerShell.EXE Exec... | medium | 61603 |
-| `100666` | 8 | `T1072` T1072 | PDQ Deploy Remote Adminstartion Tool Execution | medium | 61603 |
-| `100667` | 8 | `T1072` T1072 | PDQ Deploy Remote Adminstartion Tool Execution | medium | 61603 |
+| `100546` | 9 | `T1059` Command and Scripting Interpreter | HackTool - Stracciatella Execution | high | 61603 |
+| `100547` | 9 | `T1059` Command and Scripting Interpreter | HackTool - Stracciatella Execution | high | 61603 |
+| `100548` | 8 | `T1218` T1218 | Suspicious ZipExec Execution | medium | 61603 |
+| `100549` | 9 | `T1685` T1685 | Hypervisor-protected Code Integrity (HVCI) Related Registry Tamperi... | high | 61603 |
+| `100550` | 8 | `T1036` T1036 | Potential Fake Instance Of Hxtsr.EXE Executed | medium | 61603 |
+| `100551` | 8 | `T1564.001` T1564.001 | Use Icacls to Hide File to Everyone | medium | 61603 |
+| `100552` | 9 | `T1218` T1218 | Self Extracting Package Creation Via Iexpress.EXE From Potentially ... | high | 61603 |
+| `100553` | 9 | `T1685.001` T1685.001 | Disable Windows IIS HTTP Logging | high | 61603 |
+| `100554` | 8 | - | Suspicious IIS URL GlobalRules Rewrite Via AppCmd | medium | 61603 |
+| `100555` | 8 | `T1070` Indicator Removal | IIS WebServer Log Deletion via CommandLine Utilities | medium | 61603 |
+| `100556` | 8 | `T1127` T1127 | C# IL Code Compilation Via Ilasm.EXE | medium | 61603 |
+| `100557` | 9 | - | ImagingDevices Unusual Parent/Child Processes | high | 61603 |
+| `100558` | 9 | - | ImagingDevices Unusual Parent/Child Processes | high | 61603 |
+| `100559` | 9 | `T1218` T1218 | Arbitrary File Download Via IMEWDBLD.EXE | high | 61603 |
+| `100560` | 8 | `T1218` T1218 | InfDefaultInstall.exe .inf Execution | medium | 61603 |
+| `100561` | 8 | `T1218` T1218 | File Download Via InstallUtil.EXE | medium | 61603 |
+| `100562` | 8 | - | Suspicious Execution of InstallUtil Without Log | medium | 61603 |
+| `100563` | 8 | `T1203` T1203 | Java Running with Remote Debugging | medium | 61603 |
+| `100564` | 9 | `T1127` T1127 | Kavremover Dropped Binary LOLBIN Usage | high | 61603 |
+| `100565` | 8 | - | Computer Password Change Via Ksetup.EXE | medium | 61603 |
+| `100566` | 8 | - | Logged-On User Password Change Via Ksetup.EXE | medium | 61603 |
+| `100567` | 8 | `T1218` T1218 | Uncommon Link.EXE Parent Process | medium | 61603 |
+| `100568` | 8 | - | Rebuild Performance Counter Values Via Lodctr.EXE | medium | 61603 |
+| `100569` | 9 | `T1685` T1685 | Suspicious Windows Trace ETW Session Tamper Via Logman.EXE | high | 61603 |
+| `100570` | 9 | `T1218` T1218 | Devtoolslauncher.exe Executes Specified Binary | high | 61603 |
+| `100571` | 8 | `T1564.004` T1564.004 | Suspicious Diantz Alternate Data Stream Execution | medium | 61603 |
+| `100572` | 8 | `T1564.004` T1564.004 | Suspicious Extrac32 Alternate Data Stream Execution | medium | 61603 |
+| `100573` | 8 | `T1218` T1218 | Gpscript Execution | medium | 61603 |
+| `100574` | 8 | `T1218` T1218 | Ie4uinit Lolbin Use From Invalid Path | medium | 61603 |
+| `100575` | 8 | `T1216.001` T1216.001 | Launch-VsDevShell.PS1 Proxy Execution | medium | 61603 |
+| `100576` | 9 | `T1216` T1216 | Potential Manage-bde.wsf Abuse To Proxy Execution | high | 61603 |
+| `100577` | 9 | `T1218` T1218 | MpiExec Lolbin | high | 61603 |
+| `100578` | 8 | `T1218` T1218 | Execute Files with Msdeploy.exe | medium | 61603 |
+| `100579` | 8 | `T1059` Command and Scripting Interpreter | Use of OpenConsole | medium | 61603 |
+| `100580` | 9 | `T1218` T1218 | OpenWith.exe Executes Specified Binary | high | 61603 |
+| `100581` | 8 | `T1059` Command and Scripting Interpreter | Use of Pcalua For Execution | medium | 61603 |
+| `100582` | 9 | `T1218` T1218 | Execute Pcwrun.EXE To Leverage Follina | high | 61603 |
+| `100583` | 8 | `T1218.011` T1218.011 | Code Execution via Pcwutl.dll | medium | 61603 |
+| `100584` | 8 | `T1059.001` T1059.001 | Execute Code with Pester.bat as Parent | medium | 61603 |
+| `100585` | 8 | `T1059.001` T1059.001 | Execute Code with Pester.bat | medium | 61603 |
+| `100586` | 8 | `T1216.001` T1216.001 | Pubprn.vbs Proxy Execution | medium | 61603 |
+| `100587` | 8 | `T1218` T1218 | DLL Execution via Rasautou.exe | medium | 61603 |
+| `100588` | 8 | `T1218` T1218 | REGISTER_APP.VBS Proxy Execution | medium | 61603 |
+| `100589` | 8 | `T1127` T1127 | Use of Remote.exe | medium | 61603 |
+| `100590` | 8 | `T1127` T1127 | Use of Remote.exe | medium | 61603 |
+| `100591` | 8 | `T1218` T1218 | Lolbin Runexehelper Use As Proxy | medium | 61603 |
+| `100592` | 8 | `T1059` Command and Scripting Interpreter | Suspicious Runscripthelper.exe | medium | 61603 |
+| `100593` | 8 | `T1218` T1218 | Use of Scriptrunner.exe | medium | 61603 |
+| `100594` | 8 | `T1218` T1218 | Use Of The SFTP.EXE Binary As A LOLBIN | medium | 61603 |
+| `100595` | 8 | `T1218` T1218 | SyncAppvPublishingServer Execute Arbitrary PowerShell Code | medium | 61603 |
+| `100596` | 8 | `T1218` T1218 | SyncAppvPublishingServer VBS Execute Arbitrary PowerShell Code | medium | 61603 |
+| `100597` | 8 | `T1127` T1127 | Use of TTDInject.exe | medium | 61603 |
+| `100598` | 8 | `T1127` T1127 | Use of TTDInject.exe | medium | 61603 |
+| `100599` | 8 | `T1218` T1218 | Lolbin Unregmp2.exe Use As Proxy | medium | 61603 |
+| `100600` | 8 | `T1216` T1216 | UtilityFunctions.ps1 Proxy Dll | medium | 61603 |
+| `100601` | 9 | `T1027.004` T1027.004 | Visual Basic Command Line Compiler Usage | high | 61603 |
+| `100602` | 8 | `T1218` T1218 | Use of VisualUiaVerifyNative.exe | medium | 61603 |
+| `100603` | 8 | `T1218` T1218 | Use of VisualUiaVerifyNative.exe | medium | 61603 |
+| `100604` | 8 | `T1127` T1127 | Use of VSIISExeLauncher.exe | medium | 61603 |
+| `100605` | 8 | `T1127` T1127 | Use of Wfc.exe | medium | 61603 |
+| `100606` | 8 | `T1127` T1127 | Use of Wfc.exe | medium | 61603 |
+| `100607` | 8 | `T1218` T1218 | Potential Register_App.Vbs LOLScript Abuse | medium | 61603 |
+| `100608` | 8 | `T1689` T1689 | LSA PPL Protection Setting Modification via CommandLine | medium | 61603 |
+| `100609` | 8 | `T1127` T1127 | Potential Mftrace.EXE Abuse | medium | 61603 |
+| `100610` | 9 | `T1021.003` T1021.003 | MMC20 Lateral Movement | high | 61603 |
+| `100611` | 9 | `T1204.002` T1204.002 | MMC Executing Files with Reversed Extensions Using RTLO Abuse | high | 61603 |
+| `100612` | 8 | `T1036` T1036 | CodePage Modification Via MODE.COM To Russian Language | medium | 61603 |
+| `100613` | 9 | `T1218` T1218 | Potential Suspicious Mofcomp Execution | high | 61603 |
+| `100614` | 9 | `T1685` T1685 | Windows Defender Definition Files Removed | high | 61603 |
+| `100615` | 8 | - | Suspicious Msbuild Execution By Uncommon Parent Process | medium | 61603 |
+| `100616` | 9 | `T1218` T1218 | MSDT Execution Via Answer File | high | 61603 |
+| `100617` | 9 | `T1202` T1202 | Potential Arbitrary Command Execution Using Msdt.EXE | high | 61603 |
+| `100618` | 8 | `T1202` T1202 | Suspicious Cabinet File Execution Via Msdt.EXE | medium | 61603 |
+| `100619` | 9 | `T1036` T1036 | Suspicious MSDT Parent Process | high | 61603 |
+| `100620` | 8 | `T1218` T1218 | Arbitrary File Download Via MSEDGE_PROXY.EXE | medium | 61603 |
+| `100621` | 9 | `T1218.005` T1218.005 | Remotely Hosted HTA File Executed Via Mshta.EXE | high | 61603 |
+| `100622` | 8 | `T1059` Command and Scripting Interpreter | Wscript Shell Run In CommandLine | medium | 61603 |
+| `100623` | 9 | `T1218.005` T1218.005 | Suspicious JavaScript Execution Via Mshta.EXE | high | 61603 |
+| `100624` | 9 | `T1218.005` T1218.005 | Potential LethalHTA Technique Execution | high | 61603 |
+| `100625` | 9 | `T1218.005` T1218.005 | Suspicious MSHTA Child Process | high | 61603 |
+| `100626` | 9 | `T1140` T1140 | MSHTA Execution with Suspicious File Extensions | high | 61603 |
+| `100627` | 9 | `T1106` T1106 | Suspicious Mshta.EXE Execution Patterns | high | 61603 |
+| `100628` | 8 | `T1218.007` T1218.007 | DllUnregisterServer Function Call Via Msiexec.EXE | medium | 61603 |
+| `100629` | 8 | `T1218.007` T1218.007 | Suspicious MsiExec Embedding Parent | medium | 61603 |
+| `100630` | 8 | `T1218.007` T1218.007 | Suspicious Msiexec Execute Arbitrary DLL | medium | 61603 |
+| `100631` | 8 | `T1218.007` T1218.007 | Msiexec Quiet Installation | medium | 61603 |
+| `100632` | 8 | `T1218.007` T1218.007 | Suspicious Msiexec Quiet Install From Remote Location | medium | 61603 |
+| `100633` | 9 | `T1036.005` T1036.005 | Potential MsiExec Masquerading | high | 61603 |
+| `100634` | 8 | `T1218` T1218 | Arbitrary File Download Via MSOHTMED.EXE | medium | 61603 |
+| `100635` | 8 | `T1218` T1218 | Arbitrary File Download Via MSPUB.EXE | medium | 61603 |
+| `100636` | 8 | `T1059.001` T1059.001 | Detection of PowerShell Execution via Sqlps.exe | medium | 61603 |
+| `100637` | 8 | `T1059.001` T1059.001 | SQL Client Tools PowerShell Session Detection | medium | 61603 |
+| `100638` | 8 | `T1220` T1220 | Msxsl.EXE Execution | medium | 61603 |
+| `100639` | 9 | `T1220` T1220 | Remote XSL Execution Via Msxsl.EXE | high | 61603 |
+| `100640` | 8 | `T1686.003` T1686.003 | New Firewall Rule Added Via Netsh.EXE | medium | 61603 |
+| `100641` | 9 | `T1686.003` T1686.003 | Suspicious Program Location Whitelisted In Firewall Via Netsh.EXE | high | 61603 |
+| `100642` | 9 | `T1686.003` T1686.003 | RDP Connection Allowed Via Netsh.EXE | high | 61603 |
+| `100643` | 8 | `T1686.003` T1686.003 | Firewall Rule Deleted Via Netsh.EXE | medium | 61603 |
+| `100644` | 8 | `T1686.003` T1686.003 | Firewall Disabled via Netsh.EXE | medium | 61603 |
+| `100645` | 8 | `T1686.003` T1686.003 | Netsh Allow Group Policy on Microsoft Defender Firewall | medium | 61603 |
+| `100646` | 8 | - | Firewall Rule Update Via Netsh.EXE | medium | 61603 |
+| `100647` | 9 | `T1127` T1127 | Potential Arbitrary Code Execution Via Node.EXE | high | 61603 |
+| `100648` | 8 | `T1127` T1127 | Node Process Executions | medium | 61603 |
+| `100649` | 8 | - | Nslookup PowerShell Download Cradle - ProcessCreation | medium | 61603 |
+| `100650` | 8 | `T1218.008` T1218.008 | Driver/DLL Installation Via Odbcconf.EXE | medium | 61603 |
+| `100651` | 9 | `T1218.008` T1218.008 | Suspicious Driver/DLL Installation Via Odbcconf.EXE | high | 61603 |
+| `100652` | 9 | `T1218.008` T1218.008 | Odbcconf.EXE Suspicious DLL Location | high | 61603 |
+| `100653` | 8 | `T1218.008` T1218.008 | New DLL Registered Via Odbcconf.EXE | medium | 61603 |
+| `100654` | 9 | `T1218.008` T1218.008 | Potentially Suspicious DLL Registered Via Odbcconf.EXE | high | 61603 |
+| `100655` | 8 | `T1218.008` T1218.008 | Response File Execution Via Odbcconf.EXE | medium | 61603 |
+| `100656` | 9 | `T1218.008` T1218.008 | Suspicious Response File Execution Via Odbcconf.EXE | high | 61603 |
+| `100657` | 8 | `T1218.008` T1218.008 | Uncommon Child Process Spawned By Odbcconf.EXE | medium | 61603 |
+| `100658` | 9 | `T1202` T1202 | Potential Arbitrary File Download Using Office Application | high | 61603 |
+| `100659` | 9 | `T1202` T1202 | Potentially Suspicious Office Document Executed From Trusted Location | high | 61603 |
+| `100660` | 9 | `T1218.001` T1218.001 | OneNote.EXE Execution of Malicious Embedded Scripts | high | 61603 |
+| `100661` | 9 | `T1059` Command and Scripting Interpreter | Outlook EnableUnsafeClientMailRules Setting Enabled | high | 61603 |
+| `100662` | 9 | `T1204.002` T1204.002 | Suspicious Outlook Child Process | high | 61603 |
+| `100663` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Remote Child Process From Outlook | high | 61603 |
+| `100664` | 9 | `T1204.002` T1204.002 | Suspicious Binary In User Directory Spawned From Office Application | high | 61603 |
+| `100665` | 9 | `T1047` T1047 | Suspicious Microsoft Office Child Process | high | 61603 |
+| `100666` | 8 | `T1202` T1202 | Potential Arbitrary DLL Load Using Winword | medium | 61603 |
+| `100667` | 8 | `T1218` T1218 | Potential Mpclient.DLL Sideloading Via OfflineScannerShell.EXE Exec... | medium | 61603 |
 | `100668` | 8 | `T1072` T1072 | PDQ Deploy Remote Adminstartion Tool Execution | medium | 61603 |
 | `100669` | 8 | `T1072` T1072 | PDQ Deploy Remote Adminstartion Tool Execution | medium | 61603 |
-| `100670` | 8 | - | Potentially Suspicious Execution Of PDQDeployRunner | medium | 61603 |
-| `100671` | 8 | `T1059` Command and Scripting Interpreter | Perl Inline Command Execution | medium | 61603 |
-| `100672` | 8 | `T1059` Command and Scripting Interpreter | Php Inline Command Execution | medium | 61603 |
-| `100673` | 9 | `T1140` T1140 | Ping Hex IP | high | 61603 |
-| `100674` | 8 | - | Suspicious Powercfg Execution To Change Lock Screen Timeout | medium | 61603 |
-| `100675` | 9 | - | AADInternals PowerShell Cmdlets Execution - ProccessCreation | high | 61603 |
-| `100676` | 8 | - | Add Windows Capability Via PowerShell Cmdlet | medium | 61603 |
-| `100677` | 9 | `T1685` T1685 | Potential AMSI Bypass Via .NET Reflection | high | 61603 |
-| `100678` | 9 | `T1685` T1685 | Potential AMSI Bypass Via .NET Reflection | high | 61603 |
-| `100679` | 8 | `T1685` T1685 | Potential AMSI Bypass Using NULL Bits | medium | 61603 |
-| `100680` | 9 | `T1059.001` T1059.001 | Suspicious Encoded PowerShell Command Line | high | 61603 |
-| `100681` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Encoded Command Patterns | high | 61603 |
-| `100682` | 9 | - | Suspicious Obfuscated PowerShell Code | high | 61603 |
-| `100683` | 9 | `T1140` T1140 | PowerShell Base64 Encoded FromBase64String Cmdlet | high | 61603 |
-| `100684` | 9 | `T1140` T1140 | PowerShell Base64 Encoded FromBase64String Cmdlet | high | 61603 |
-| `100685` | 9 | `T1059.001` T1059.001 | Malicious Base64 Encoded PowerShell Keywords in Command Lines | high | 61603 |
-| `100686` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded IEX Cmdlet | high | 61603 |
-| `100687` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded IEX Cmdlet | high | 61603 |
-| `100688` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded Invoke Keyword | high | 61603 |
-| `100689` | 9 | `T1685` T1685 | Powershell Base64 Encoded MpPreference Cmdlet | high | 61603 |
-| `100690` | 9 | `T1685` T1685 | Powershell Base64 Encoded MpPreference Cmdlet | high | 61603 |
-| `100691` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded Reflective Assembly Load | high | 61603 |
-| `100692` | 9 | `T1059.001` T1059.001 | Suspicious Encoded And Obfuscated Reflection Assembly Load Function... | high | 61603 |
-| `100693` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded WMI Classes | high | 61603 |
-| `100694` | 8 | `T1216` T1216 | Potential Process Execution Proxy Via CL_Invocation.ps1 | medium | 61603 |
-| `100695` | 8 | `T1216` T1216 | Assembly Loading Via CL_LoadAssembly.ps1 | medium | 61603 |
-| `100696` | 8 | `T1216` T1216 | Potential Script Proxy Execution Via CL_Mutexverifiers.ps1 | medium | 61603 |
-| `100697` | 8 | `T1027` Obfuscated Files or Information | ConvertTo-SecureString Cmdlet Usage Via CommandLine | medium | 61603 |
-| `100698` | 9 | `T1027` Obfuscated Files or Information | Potential PowerShell Obfuscation Via Reversed Commands | high | 61603 |
-| `100699` | 9 | `T1027` Obfuscated Files or Information | Potential PowerShell Command Line Obfuscation | high | 61603 |
-| `100700` | 9 | `T1027.010` T1027.010 | Obfuscated PowerShell MSI Install via WindowsInstaller COM | high | 61603 |
-| `100701` | 8 | `T1059.001` T1059.001 | PowerShell MSI Install via WindowsInstaller COM From Remote Location | medium | 61603 |
-| `100702` | 9 | - | PowerShell Execution With Potential Decryption Capabilities | high | 61603 |
-| `100703` | 9 | `T1685` T1685 | Powershell Defender Disable Scan Feature | high | 61603 |
-| `100704` | 8 | `T1685` T1685 | Powershell Defender Exclusion | medium | 61603 |
-| `100705` | 9 | `T1685` T1685 | Disable Windows Defender AV Security Monitoring | high | 61603 |
-| `100706` | 8 | `T1685` T1685 | Windows Firewall Disabled via PowerShell | medium | 61603 |
-| `100707` | 9 | `T1685` T1685 | Disabled IE Security Features | high | 61603 |
-| `100708` | 9 | `T1685` T1685 | Disabled IE Security Features | high | 61603 |
+| `100670` | 8 | `T1072` T1072 | PDQ Deploy Remote Adminstartion Tool Execution | medium | 61603 |
+| `100671` | 8 | `T1072` T1072 | PDQ Deploy Remote Adminstartion Tool Execution | medium | 61603 |
+| `100672` | 8 | - | Potentially Suspicious Execution Of PDQDeployRunner | medium | 61603 |
+| `100673` | 8 | `T1059` Command and Scripting Interpreter | Perl Inline Command Execution | medium | 61603 |
+| `100674` | 8 | `T1059` Command and Scripting Interpreter | Php Inline Command Execution | medium | 61603 |
+| `100675` | 9 | `T1140` T1140 | Ping Hex IP | high | 61603 |
+| `100676` | 8 | - | Suspicious Powercfg Execution To Change Lock Screen Timeout | medium | 61603 |
+| `100677` | 9 | - | AADInternals PowerShell Cmdlets Execution - ProccessCreation | high | 61603 |
+| `100678` | 8 | - | Add Windows Capability Via PowerShell Cmdlet | medium | 61603 |
+| `100679` | 9 | `T1685` T1685 | Potential AMSI Bypass Via .NET Reflection | high | 61603 |
+| `100680` | 9 | `T1685` T1685 | Potential AMSI Bypass Via .NET Reflection | high | 61603 |
+| `100681` | 8 | `T1685` T1685 | Potential AMSI Bypass Using NULL Bits | medium | 61603 |
+| `100682` | 9 | `T1059.001` T1059.001 | Suspicious Encoded PowerShell Command Line | high | 61603 |
+| `100683` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Encoded Command Patterns | high | 61603 |
+| `100684` | 9 | - | Suspicious Obfuscated PowerShell Code | high | 61603 |
+| `100685` | 9 | `T1140` T1140 | PowerShell Base64 Encoded FromBase64String Cmdlet | high | 61603 |
+| `100686` | 9 | `T1140` T1140 | PowerShell Base64 Encoded FromBase64String Cmdlet | high | 61603 |
+| `100687` | 9 | `T1059.001` T1059.001 | Malicious Base64 Encoded PowerShell Keywords in Command Lines | high | 61603 |
+| `100688` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded IEX Cmdlet | high | 61603 |
+| `100689` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded IEX Cmdlet | high | 61603 |
+| `100690` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded Invoke Keyword | high | 61603 |
+| `100691` | 9 | `T1685` T1685 | Powershell Base64 Encoded MpPreference Cmdlet | high | 61603 |
+| `100692` | 9 | `T1685` T1685 | Powershell Base64 Encoded MpPreference Cmdlet | high | 61603 |
+| `100693` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded Reflective Assembly Load | high | 61603 |
+| `100694` | 9 | `T1059.001` T1059.001 | Suspicious Encoded And Obfuscated Reflection Assembly Load Function... | high | 61603 |
+| `100695` | 9 | `T1059.001` T1059.001 | PowerShell Base64 Encoded WMI Classes | high | 61603 |
+| `100696` | 8 | `T1216` T1216 | Potential Process Execution Proxy Via CL_Invocation.ps1 | medium | 61603 |
+| `100697` | 8 | `T1216` T1216 | Assembly Loading Via CL_LoadAssembly.ps1 | medium | 61603 |
+| `100698` | 8 | `T1216` T1216 | Potential Script Proxy Execution Via CL_Mutexverifiers.ps1 | medium | 61603 |
+| `100699` | 8 | `T1027` Obfuscated Files or Information | ConvertTo-SecureString Cmdlet Usage Via CommandLine | medium | 61603 |
+| `100700` | 9 | `T1027` Obfuscated Files or Information | Potential PowerShell Obfuscation Via Reversed Commands | high | 61603 |
+| `100701` | 9 | `T1027` Obfuscated Files or Information | Potential PowerShell Command Line Obfuscation | high | 61603 |
+| `100702` | 9 | `T1027.010` T1027.010 | Obfuscated PowerShell MSI Install via WindowsInstaller COM | high | 61603 |
+| `100703` | 8 | `T1059.001` T1059.001 | PowerShell MSI Install via WindowsInstaller COM From Remote Location | medium | 61603 |
+| `100704` | 9 | - | PowerShell Execution With Potential Decryption Capabilities | high | 61603 |
+| `100705` | 9 | `T1685` T1685 | Powershell Defender Disable Scan Feature | high | 61603 |
+| `100706` | 8 | `T1685` T1685 | Powershell Defender Exclusion | medium | 61603 |
+| `100707` | 9 | `T1685` T1685 | Disable Windows Defender AV Security Monitoring | high | 61603 |
+| `100708` | 8 | `T1685` T1685 | Windows Firewall Disabled via PowerShell | medium | 61603 |
 | `100709` | 9 | `T1685` T1685 | Disabled IE Security Features | high | 61603 |
-| `100710` | 8 | `T1059.001` T1059.001 | Potential PowerShell Downgrade Attack | medium | 61603 |
-| `100711` | 9 | `T1059.001` T1059.001 | Obfuscated PowerShell OneLiner Execution | high | 61603 |
-| `100712` | 9 | `T1059` Command and Scripting Interpreter | PowerShell Download and Execution Cradles | high | 61603 |
-| `100713` | 8 | `T1059.001` T1059.001 | PowerShell Download Pattern | medium | 61603 |
-| `100714` | 9 | - | Potentially Suspicious File Download From File Sharing Domain Via P... | high | 61603 |
-| `100715` | 9 | `T1059.001` T1059.001 | DSInternals Suspicious PowerShell Cmdlets | high | 61603 |
-| `100716` | 8 | - | Potential Suspicious Windows Feature Enabled - ProcCreation | medium | 61603 |
-| `100717` | 8 | `T1059.001` T1059.001 | Suspicious Execution of Powershell with Base64 | medium | 61603 |
-| `100718` | 8 | `T1059.001` T1059.001 | Powershell Inline Execution From A File | medium | 61603 |
-| `100719` | 9 | `T1027` Obfuscated Files or Information | Base64 Encoded PowerShell Command Detected | high | 61603 |
-| `100720` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell IEX Execution Patterns | high | 61603 |
-| `100721` | 9 | `T1553.004` T1553.004 | Root Certificate Installed From Susp Locations | high | 61603 |
-| `100722` | 8 | `T1059.001` T1059.001 | Import PowerShell Modules From Suspicious Directories - ProcCreation | medium | 61603 |
-| `100723` | 8 | - | Suspicious PowerShell Invocations - Specific - ProcessCreation | medium | 61603 |
-| `100724` | 8 | - | Suspicious PowerShell Invocations - Specific - ProcessCreation | medium | 61603 |
+| `100710` | 9 | `T1685` T1685 | Disabled IE Security Features | high | 61603 |
+| `100711` | 9 | `T1685` T1685 | Disabled IE Security Features | high | 61603 |
+| `100712` | 8 | `T1059.001` T1059.001 | Potential PowerShell Downgrade Attack | medium | 61603 |
+| `100713` | 9 | `T1059.001` T1059.001 | Obfuscated PowerShell OneLiner Execution | high | 61603 |
+| `100714` | 9 | `T1059` Command and Scripting Interpreter | PowerShell Download and Execution Cradles | high | 61603 |
+| `100715` | 8 | `T1059.001` T1059.001 | PowerShell Download Pattern | medium | 61603 |
+| `100716` | 9 | - | Potentially Suspicious File Download From File Sharing Domain Via P... | high | 61603 |
+| `100717` | 9 | `T1059.001` T1059.001 | DSInternals Suspicious PowerShell Cmdlets | high | 61603 |
+| `100718` | 8 | - | Potential Suspicious Windows Feature Enabled - ProcCreation | medium | 61603 |
+| `100719` | 8 | `T1059.001` T1059.001 | Suspicious Execution of Powershell with Base64 | medium | 61603 |
+| `100720` | 8 | `T1059.001` T1059.001 | Powershell Inline Execution From A File | medium | 61603 |
+| `100721` | 9 | `T1027` Obfuscated Files or Information | Base64 Encoded PowerShell Command Detected | high | 61603 |
+| `100722` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell IEX Execution Patterns | high | 61603 |
+| `100723` | 9 | `T1553.004` T1553.004 | Root Certificate Installed From Susp Locations | high | 61603 |
+| `100724` | 8 | `T1059.001` T1059.001 | Import PowerShell Modules From Suspicious Directories - ProcCreation | medium | 61603 |
 | `100725` | 8 | - | Suspicious PowerShell Invocations - Specific - ProcessCreation | medium | 61603 |
 | `100726` | 8 | - | Suspicious PowerShell Invocations - Specific - ProcessCreation | medium | 61603 |
 | `100727` | 8 | - | Suspicious PowerShell Invocations - Specific - ProcessCreation | medium | 61603 |
 | `100728` | 8 | - | Suspicious PowerShell Invocations - Specific - ProcessCreation | medium | 61603 |
-| `100729` | 13 | `T1482` T1482 | Malicious PowerShell Commandlets - ProcessCreation | high | 61603 |
-| `100730` | 9 | `T1059.001` T1059.001 | Potential PowerShell Obfuscation Via WCHAR/CHAR | high | 61603 |
-| `100731` | 9 | `T1059.001` T1059.001 | Execution of Powershell Script in Public Folder | high | 61603 |
-| `100732` | 9 | `T1218` T1218 | RemoteFXvGPUDisablement Abuse Via AtomicTestHarnesses | high | 61603 |
-| `100733` | 9 | `T1685` T1685 | Tamper Windows Defender Remove-MpPreference | high | 61603 |
-| `100734` | 9 | `T1059.001` T1059.001 | Potential Powershell ReverseShell Connection | high | 61603 |
-| `100735` | 9 | `T1564.004` T1564.004 | Run PowerShell Script from ADS | high | 61603 |
-| `100736` | 9 | `T1059` Command and Scripting Interpreter | Run PowerShell Script from Redirected Input Stream | high | 61603 |
-| `100737` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell Invocation From Script Engines | medium | 61603 |
-| `100738` | 8 | `T1059.001` T1059.001 | Potentially Suspicious Powershell Script Execution From Temp Folder | medium | 61603 |
-| `100739` | 9 | - | PowerShell Script Change Permission Via Set-Acl | high | 61603 |
-| `100740` | 9 | - | PowerShell Set-Acl On Windows Folder | high | 61603 |
-| `100741` | 8 | `T1059.001` T1059.001 | Change PowerShell Policies to an Insecure Level | medium | 61603 |
-| `100742` | 8 | `T1685` T1685 | Service StartupType Change Via PowerShell Set-Service | medium | 61603 |
-| `100743` | 9 | `T1059.001` T1059.001 | Exchange PowerShell Snap-Ins Usage | high | 61603 |
-| `100744` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Download and Execute Pattern | high | 61603 |
-| `100745` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Parameter Substring | high | 61603 |
-| `100746` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Parent Process | high | 61603 |
-| `100747` | 8 | `T1059.001` T1059.001 | PowerShell Script Run in AppData | medium | 61603 |
-| `100748` | 9 | `T1027.009` T1027.009 | Powershell Token Obfuscation - Process Creation | high | 61603 |
-| `100749` | 9 | `T1685` T1685 | Suspicious Uninstall of Windows Defender Feature via PowerShell | high | 61603 |
-| `100750` | 9 | `T1059.001` T1059.001 | Net WebClient Casing Anomalies | high | 61603 |
-| `100751` | 8 | `T1553.004` T1553.004 | Suspicious X509Enrollment - Process Creation | medium | 61603 |
-| `100752` | 8 | `T1059.001` T1059.001 | Suspicious XOR Encoded PowerShell Command | medium | 61603 |
-| `100753` | 8 | `T1218` T1218 | Arbitrary File Download Via PresentationHost.EXE | medium | 61603 |
-| `100754` | 8 | `T1218` T1218 | XBAP Execution From Uncommon Locations Via PresentationHost.EXE | medium | 61603 |
-| `100755` | 8 | `T1218` T1218 | Visual Studio NodejsTools PressAnyKey Arbitrary Binary Execution | medium | 61603 |
-| `100756` | 8 | `T1218` T1218 | Abusing Print Executable | medium | 61603 |
-| `100757` | 8 | `T1218` T1218 | File Download Using ProtocolHandler.exe | medium | 61603 |
-| `100758` | 8 | `T1218` T1218 | Potential Provlaunch.EXE Binary Proxy Execution Abuse | medium | 61603 |
-| `100759` | 9 | `T1218` T1218 | Suspicious Provlaunch.EXE Child Process | high | 61603 |
-| `100760` | 8 | `T1564.003` T1564.003 | PUA - AdvancedRun Execution | medium | 61603 |
-| `100761` | 8 | `T1564.003` T1564.003 | PUA - AdvancedRun Execution | medium | 61603 |
+| `100729` | 8 | - | Suspicious PowerShell Invocations - Specific - ProcessCreation | medium | 61603 |
+| `100730` | 8 | - | Suspicious PowerShell Invocations - Specific - ProcessCreation | medium | 61603 |
+| `100731` | 13 | `T1482` T1482 | Malicious PowerShell Commandlets - ProcessCreation | high | 61603 |
+| `100732` | 9 | `T1059.001` T1059.001 | Potential PowerShell Obfuscation Via WCHAR/CHAR | high | 61603 |
+| `100733` | 9 | `T1059.001` T1059.001 | Execution of Powershell Script in Public Folder | high | 61603 |
+| `100734` | 9 | `T1218` T1218 | RemoteFXvGPUDisablement Abuse Via AtomicTestHarnesses | high | 61603 |
+| `100735` | 9 | `T1685` T1685 | Tamper Windows Defender Remove-MpPreference | high | 61603 |
+| `100736` | 9 | `T1059.001` T1059.001 | Potential Powershell ReverseShell Connection | high | 61603 |
+| `100737` | 9 | `T1564.004` T1564.004 | Run PowerShell Script from ADS | high | 61603 |
+| `100738` | 9 | `T1059` Command and Scripting Interpreter | Run PowerShell Script from Redirected Input Stream | high | 61603 |
+| `100739` | 8 | `T1059.001` T1059.001 | Suspicious PowerShell Invocation From Script Engines | medium | 61603 |
+| `100740` | 8 | `T1059.001` T1059.001 | Potentially Suspicious Powershell Script Execution From Temp Folder | medium | 61603 |
+| `100741` | 9 | - | PowerShell Script Change Permission Via Set-Acl | high | 61603 |
+| `100742` | 9 | - | PowerShell Set-Acl On Windows Folder | high | 61603 |
+| `100743` | 8 | `T1059.001` T1059.001 | Change PowerShell Policies to an Insecure Level | medium | 61603 |
+| `100744` | 8 | `T1685` T1685 | Service StartupType Change Via PowerShell Set-Service | medium | 61603 |
+| `100745` | 9 | `T1059.001` T1059.001 | Exchange PowerShell Snap-Ins Usage | high | 61603 |
+| `100746` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Download and Execute Pattern | high | 61603 |
+| `100747` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Parameter Substring | high | 61603 |
+| `100748` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Parent Process | high | 61603 |
+| `100749` | 8 | `T1059.001` T1059.001 | PowerShell Script Run in AppData | medium | 61603 |
+| `100750` | 9 | `T1027.009` T1027.009 | Powershell Token Obfuscation - Process Creation | high | 61603 |
+| `100751` | 9 | `T1685` T1685 | Suspicious Uninstall of Windows Defender Feature via PowerShell | high | 61603 |
+| `100752` | 9 | `T1059.001` T1059.001 | Net WebClient Casing Anomalies | high | 61603 |
+| `100753` | 8 | `T1553.004` T1553.004 | Suspicious X509Enrollment - Process Creation | medium | 61603 |
+| `100754` | 8 | `T1059.001` T1059.001 | Suspicious XOR Encoded PowerShell Command | medium | 61603 |
+| `100755` | 8 | `T1218` T1218 | Arbitrary File Download Via PresentationHost.EXE | medium | 61603 |
+| `100756` | 8 | `T1218` T1218 | XBAP Execution From Uncommon Locations Via PresentationHost.EXE | medium | 61603 |
+| `100757` | 8 | `T1218` T1218 | Visual Studio NodejsTools PressAnyKey Arbitrary Binary Execution | medium | 61603 |
+| `100758` | 8 | `T1218` T1218 | Abusing Print Executable | medium | 61603 |
+| `100759` | 8 | `T1218` T1218 | File Download Using ProtocolHandler.exe | medium | 61603 |
+| `100760` | 8 | `T1218` T1218 | Potential Provlaunch.EXE Binary Proxy Execution Abuse | medium | 61603 |
+| `100761` | 9 | `T1218` T1218 | Suspicious Provlaunch.EXE Child Process | high | 61603 |
 | `100762` | 8 | `T1564.003` T1564.003 | PUA - AdvancedRun Execution | medium | 61603 |
-| `100763` | 9 | `T1685` T1685 | PUA - CleanWipe Execution | high | 61603 |
-| `100764` | 9 | `T1685` T1685 | PUA - CleanWipe Execution | high | 61603 |
+| `100763` | 8 | `T1564.003` T1564.003 | PUA - AdvancedRun Execution | medium | 61603 |
+| `100764` | 8 | `T1564.003` T1564.003 | PUA - AdvancedRun Execution | medium | 61603 |
 | `100765` | 9 | `T1685` T1685 | PUA - CleanWipe Execution | high | 61603 |
 | `100766` | 9 | `T1685` T1685 | PUA - CleanWipe Execution | high | 61603 |
-| `100767` | 9 | `T1587.001` T1587.001 | PUA - CsExec Execution | high | 61603 |
-| `100768` | 9 | `T1587.001` T1587.001 | PUA - CsExec Execution | high | 61603 |
-| `100769` | 9 | `T1027.005` T1027.005 | PUA - DefenderCheck Execution | high | 61603 |
-| `100770` | 9 | `T1027.005` T1027.005 | PUA - DefenderCheck Execution | high | 61603 |
-| `100771` | 8 | `T1569.002` T1569.002 | PUA - NirCmd Execution | medium | 61603 |
-| `100772` | 8 | `T1569.002` T1569.002 | PUA - NirCmd Execution | medium | 61603 |
+| `100767` | 9 | `T1685` T1685 | PUA - CleanWipe Execution | high | 61603 |
+| `100768` | 9 | `T1685` T1685 | PUA - CleanWipe Execution | high | 61603 |
+| `100769` | 9 | `T1587.001` T1587.001 | PUA - CsExec Execution | high | 61603 |
+| `100770` | 9 | `T1587.001` T1587.001 | PUA - CsExec Execution | high | 61603 |
+| `100771` | 9 | `T1027.005` T1027.005 | PUA - DefenderCheck Execution | high | 61603 |
+| `100772` | 9 | `T1027.005` T1027.005 | PUA - DefenderCheck Execution | high | 61603 |
 | `100773` | 8 | `T1569.002` T1569.002 | PUA - NirCmd Execution | medium | 61603 |
-| `100774` | 9 | `T1569.002` T1569.002 | PUA - NirCmd Execution As LOCAL SYSTEM | high | 61603 |
-| `100775` | 9 | `T1569.002` T1569.002 | PUA - NSudo Execution | high | 61603 |
-| `100776` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
-| `100777` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
+| `100774` | 8 | `T1569.002` T1569.002 | PUA - NirCmd Execution | medium | 61603 |
+| `100775` | 8 | `T1569.002` T1569.002 | PUA - NirCmd Execution | medium | 61603 |
+| `100776` | 9 | `T1569.002` T1569.002 | PUA - NirCmd Execution As LOCAL SYSTEM | high | 61603 |
+| `100777` | 9 | `T1569.002` T1569.002 | PUA - NSudo Execution | high | 61603 |
 | `100778` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
 | `100779` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
 | `100780` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
 | `100781` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
 | `100782` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
 | `100783` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
-| `100784` | 9 | `T1595` T1595 | PUA - PingCastle Execution From Potentially Suspicious Parent | high | 61603 |
-| `100785` | 9 | `T1595` T1595 | PUA - PingCastle Execution From Potentially Suspicious Parent | high | 61603 |
+| `100784` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
+| `100785` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
 | `100786` | 9 | `T1595` T1595 | PUA - PingCastle Execution From Potentially Suspicious Parent | high | 61603 |
 | `100787` | 9 | `T1595` T1595 | PUA - PingCastle Execution From Potentially Suspicious Parent | high | 61603 |
 | `100788` | 9 | `T1595` T1595 | PUA - PingCastle Execution From Potentially Suspicious Parent | high | 61603 |
-| `100789` | 8 | `T1072` T1072 | PUA - Radmin Viewer Utility Execution | medium | 61603 |
-| `100790` | 8 | `T1072` T1072 | PUA - Radmin Viewer Utility Execution | medium | 61603 |
+| `100789` | 9 | `T1595` T1595 | PUA - PingCastle Execution From Potentially Suspicious Parent | high | 61603 |
+| `100790` | 9 | `T1595` T1595 | PUA - PingCastle Execution From Potentially Suspicious Parent | high | 61603 |
 | `100791` | 8 | `T1072` T1072 | PUA - Radmin Viewer Utility Execution | medium | 61603 |
-| `100792` | 8 | `T1036.003` T1036.003 | PUA - Potential PE Metadata Tamper Using Rcedit | medium | 61603 |
-| `100793` | 9 | `T1569.002` T1569.002 | PUA - RunXCmd Execution | high | 61603 |
-| `100794` | 9 | `T1059` Command and Scripting Interpreter | PUA - Wsudo Suspicious Execution | high | 61603 |
-| `100795` | 9 | `T1059` Command and Scripting Interpreter | PUA - Wsudo Suspicious Execution | high | 61603 |
+| `100792` | 8 | `T1072` T1072 | PUA - Radmin Viewer Utility Execution | medium | 61603 |
+| `100793` | 8 | `T1072` T1072 | PUA - Radmin Viewer Utility Execution | medium | 61603 |
+| `100794` | 8 | `T1036.003` T1036.003 | PUA - Potential PE Metadata Tamper Using Rcedit | medium | 61603 |
+| `100795` | 9 | `T1569.002` T1569.002 | PUA - RunXCmd Execution | high | 61603 |
 | `100796` | 9 | `T1059` Command and Scripting Interpreter | PUA - Wsudo Suspicious Execution | high | 61603 |
 | `100797` | 9 | `T1059` Command and Scripting Interpreter | PUA - Wsudo Suspicious Execution | high | 61603 |
 | `100798` | 9 | `T1059` Command and Scripting Interpreter | PUA - Wsudo Suspicious Execution | high | 61603 |
-| `100799` | 9 | `T1059.006` T1059.006 | Python One-Liners with Base64 Decoding | high | 61603 |
-| `100800` | 8 | `T1059` Command and Scripting Interpreter | Python Inline Command Execution | medium | 61603 |
-| `100801` | 9 | `T1059` Command and Scripting Interpreter | Python Spawning Pretty TTY on Windows | high | 61603 |
-| `100802` | 8 | - | Query Usage To Exfil Data | medium | 61603 |
-| `100803` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Greedy Compression Using Rar.EXE | high | 61603 |
-| `100804` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Greedy Compression Using Rar.EXE | high | 61603 |
+| `100799` | 9 | `T1059` Command and Scripting Interpreter | PUA - Wsudo Suspicious Execution | high | 61603 |
+| `100800` | 9 | `T1059` Command and Scripting Interpreter | PUA - Wsudo Suspicious Execution | high | 61603 |
+| `100801` | 9 | `T1059.006` T1059.006 | Python One-Liners with Base64 Decoding | high | 61603 |
+| `100802` | 8 | `T1059` Command and Scripting Interpreter | Python Inline Command Execution | medium | 61603 |
+| `100803` | 9 | `T1059` Command and Scripting Interpreter | Python Spawning Pretty TTY on Windows | high | 61603 |
+| `100804` | 8 | - | Query Usage To Exfil Data | medium | 61603 |
 | `100805` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Greedy Compression Using Rar.EXE | high | 61603 |
-| `100806` | 8 | `T1059` Command and Scripting Interpreter | Suspicious RASdial Activity | medium | 61603 |
-| `100807` | 9 | `T1685` T1685 | Add SafeBoot Keys Via Reg Utility | high | 61603 |
-| `100808` | 8 | `T1685` T1685 | Suspicious Windows Defender Folder Exclusion Added Via Reg.EXE | medium | 61603 |
-| `100809` | 9 | `T1070.003` T1070.003 | RunMRU Registry Key Deletion | high | 61603 |
-| `100810` | 9 | `T1685` T1685 | SafeBoot Registry Key Deleted Via Reg.EXE | high | 61603 |
-| `100811` | 9 | `T1685` T1685 | Service Registry Key Deleted Via Reg.EXE | high | 61603 |
-| `100812` | 9 | `T1685` T1685 | Disabling Windows Defender WMI Autologger Session via Reg.exe | high | 61603 |
-| `100813` | 9 | `T1685` T1685 | Security Service Disabled Via Reg.EXE | high | 61603 |
-| `100814` | 9 | `T1685` T1685 | Disabled Volume Snapshots | high | 61603 |
-| `100815` | 9 | `T1685` T1685 | Suspicious Windows Defender Registry Key Tampering Via Reg.EXE | high | 61603 |
-| `100816` | 8 | `T1685` T1685 | Write Protect For Storage Disabled | medium | 61603 |
-| `100817` | 8 | `T1218.009` T1218.009 | Potentially Suspicious Execution Of Regasm/Regsvcs With Uncommon Ex... | medium | 61603 |
-| `100818` | 8 | `T1218.009` T1218.009 | Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Lo... | medium | 61603 |
-| `100819` | 9 | - | IE ZoneMap Setting Downgraded To MyComputer Zone For HTTP Protocols... | high | 61603 |
-| `100820` | 9 | `T1685` T1685 | Python Function Execution Security Warning Disabled In Excel | high | 61603 |
-| `100821` | 9 | `T1218` T1218 | Potential Provisioning Registry Key Abuse For Binary Proxy Execution | high | 61603 |
-| `100822` | 9 | - | Potential PowerShell Execution Policy Tampering - ProcCreation | high | 61603 |
-| `100823` | 8 | `T1564.002` T1564.002 | Hiding User Account Via SpecialAccounts Registry Key - CommandLine | medium | 61603 |
-| `100824` | 8 | `T1218.010` T1218.010 | Potential Regsvr32 Commandline Flag Anomaly | medium | 61603 |
-| `100825` | 9 | `T1218.010` T1218.010 | Potentially Suspicious Regsvr32 HTTP IP Pattern | high | 61603 |
-| `100826` | 8 | `T1218.010` T1218.010 | Potentially Suspicious Regsvr32 HTTP/FTP Pattern | medium | 61603 |
-| `100827` | 9 | `T1218.010` T1218.010 | Suspicious Regsvr32 Execution From Remote Share | high | 61603 |
-| `100828` | 9 | `T1218.010` T1218.010 | Potentially Suspicious Child Process Of Regsvr32 | high | 61603 |
-| `100829` | 8 | `T1218.010` T1218.010 | Regsvr32 Execution From Potential Suspicious Location | medium | 61603 |
-| `100830` | 9 | `T1218.010` T1218.010 | Regsvr32 Execution From Highly Suspicious Location | high | 61603 |
-| `100831` | 9 | `T1218.010` T1218.010 | Regsvr32 DLL Execution With Suspicious File Extension | high | 61603 |
-| `100832` | 8 | `T1218.010` T1218.010 | Scripting/CommandLine Process Spawned Regsvr32 | medium | 61603 |
-| `100833` | 8 | - | Remote Access Tool - AnyDesk Execution With Known Revoked Signing C... | medium | 61603 |
-| `100834` | 8 | - | Remote Access Tool - NetSupport Execution From Unusual Location | medium | 61603 |
-| `100835` | 8 | - | Remote Access Tool - RURAT Execution From Unusual Location | medium | 61603 |
-| `100836` | 8 | - | Renamed AutoHotkey.EXE Execution | medium | 61603 |
-| `100837` | 9 | `T1027` Obfuscated Files or Information | Renamed AutoIt Execution | high | 61603 |
-| `100838` | 9 | `T1027` Obfuscated Files or Information | Renamed AutoIt Execution | high | 61603 |
+| `100806` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Greedy Compression Using Rar.EXE | high | 61603 |
+| `100807` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Greedy Compression Using Rar.EXE | high | 61603 |
+| `100808` | 8 | `T1059` Command and Scripting Interpreter | Suspicious RASdial Activity | medium | 61603 |
+| `100809` | 9 | `T1685` T1685 | Add SafeBoot Keys Via Reg Utility | high | 61603 |
+| `100810` | 8 | `T1685` T1685 | Suspicious Windows Defender Folder Exclusion Added Via Reg.EXE | medium | 61603 |
+| `100811` | 9 | `T1070.003` T1070.003 | RunMRU Registry Key Deletion | high | 61603 |
+| `100812` | 9 | `T1685` T1685 | SafeBoot Registry Key Deleted Via Reg.EXE | high | 61603 |
+| `100813` | 9 | `T1685` T1685 | Service Registry Key Deleted Via Reg.EXE | high | 61603 |
+| `100814` | 9 | `T1685` T1685 | Disabling Windows Defender WMI Autologger Session via Reg.exe | high | 61603 |
+| `100815` | 9 | `T1685` T1685 | Security Service Disabled Via Reg.EXE | high | 61603 |
+| `100816` | 9 | `T1685` T1685 | Disabled Volume Snapshots | high | 61603 |
+| `100817` | 9 | `T1685` T1685 | Suspicious Windows Defender Registry Key Tampering Via Reg.EXE | high | 61603 |
+| `100818` | 8 | `T1685` T1685 | Write Protect For Storage Disabled | medium | 61603 |
+| `100819` | 8 | `T1218.009` T1218.009 | Potentially Suspicious Execution Of Regasm/Regsvcs With Uncommon Ex... | medium | 61603 |
+| `100820` | 8 | `T1218.009` T1218.009 | Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Lo... | medium | 61603 |
+| `100821` | 9 | - | IE ZoneMap Setting Downgraded To MyComputer Zone For HTTP Protocols... | high | 61603 |
+| `100822` | 9 | `T1685` T1685 | Python Function Execution Security Warning Disabled In Excel | high | 61603 |
+| `100823` | 9 | `T1218` T1218 | Potential Provisioning Registry Key Abuse For Binary Proxy Execution | high | 61603 |
+| `100824` | 9 | - | Potential PowerShell Execution Policy Tampering - ProcCreation | high | 61603 |
+| `100825` | 8 | `T1564.002` T1564.002 | Hiding User Account Via SpecialAccounts Registry Key - CommandLine | medium | 61603 |
+| `100826` | 8 | `T1218.010` T1218.010 | Potential Regsvr32 Commandline Flag Anomaly | medium | 61603 |
+| `100827` | 9 | `T1218.010` T1218.010 | Potentially Suspicious Regsvr32 HTTP IP Pattern | high | 61603 |
+| `100828` | 8 | `T1218.010` T1218.010 | Potentially Suspicious Regsvr32 HTTP/FTP Pattern | medium | 61603 |
+| `100829` | 9 | `T1218.010` T1218.010 | Suspicious Regsvr32 Execution From Remote Share | high | 61603 |
+| `100830` | 9 | `T1218.010` T1218.010 | Potentially Suspicious Child Process Of Regsvr32 | high | 61603 |
+| `100831` | 8 | `T1218.010` T1218.010 | Regsvr32 Execution From Potential Suspicious Location | medium | 61603 |
+| `100832` | 9 | `T1218.010` T1218.010 | Regsvr32 Execution From Highly Suspicious Location | high | 61603 |
+| `100833` | 9 | `T1218.010` T1218.010 | Regsvr32 DLL Execution With Suspicious File Extension | high | 61603 |
+| `100834` | 8 | `T1218.010` T1218.010 | Scripting/CommandLine Process Spawned Regsvr32 | medium | 61603 |
+| `100835` | 8 | - | Remote Access Tool - AnyDesk Execution With Known Revoked Signing C... | medium | 61603 |
+| `100836` | 8 | - | Remote Access Tool - NetSupport Execution From Unusual Location | medium | 61603 |
+| `100837` | 8 | - | Remote Access Tool - RURAT Execution From Unusual Location | medium | 61603 |
+| `100838` | 8 | - | Renamed AutoHotkey.EXE Execution | medium | 61603 |
 | `100839` | 9 | `T1027` Obfuscated Files or Information | Renamed AutoIt Execution | high | 61603 |
-| `100840` | 8 | `T1036.003` T1036.003 | Potential Defense Evasion Via Binary Rename | medium | 61603 |
-| `100841` | 9 | `T1036.003` T1036.003 | Potential Defense Evasion Via Rename Of Highly Relevant Binaries | high | 61603 |
-| `100842` | 8 | `T1553` T1553 | Renamed BOINC Client Execution | medium | 61603 |
-| `100843` | 8 | `T1059` Command and Scripting Interpreter | Renamed CURL.EXE Execution | medium | 61603 |
-| `100844` | 8 | `T1059` Command and Scripting Interpreter | Renamed FTP.EXE Execution | medium | 61603 |
-| `100845` | 9 | `T1036.003` T1036.003 | Renamed Jusched.EXE Execution | high | 61603 |
-| `100846` | 9 | `T1218` T1218 | Renamed MegaSync Execution | high | 61603 |
-| `100847` | 9 | `T1036.003` T1036.003 | Renamed Msdt.EXE Execution | high | 61603 |
-| `100848` | 8 | - | Renamed Microsoft Teams Execution | medium | 61603 |
-| `100849` | 9 | - | Renamed NetSupport RAT Execution | high | 61603 |
-| `100850` | 9 | `T1059` Command and Scripting Interpreter | Renamed NirCmd.EXE Execution | high | 61603 |
-| `100851` | 9 | `T1036.003` T1036.003 | Renamed Office Binary Execution | high | 61603 |
-| `100852` | 9 | `T1202` T1202 | Renamed PAExec Execution | high | 61603 |
-| `100853` | 9 | `T1059` Command and Scripting Interpreter | Renamed PingCastle Binary Execution | high | 61603 |
-| `100854` | 9 | `T1036` T1036 | Renamed Plink Execution | high | 61603 |
-| `100855` | 8 | `T1218` T1218 | Visual Studio NodejsTools PressAnyKey Renamed Execution | medium | 61603 |
-| `100856` | 9 | - | Potential Renamed Rundll32 Execution | high | 61603 |
-| `100857` | 9 | `T1036.003` T1036.003 | Renamed Schtasks Execution | high | 61603 |
-| `100858` | 9 | `T1588.002` T1588.002 | Renamed SysInternals DebugView Execution | high | 61603 |
-| `100859` | 9 | `T1036.003` T1036.003 | Renamed ProcDump Execution | high | 61603 |
-| `100860` | 9 | - | Renamed PsExec Service Execution | high | 61603 |
-| `100861` | 8 | `T1059` Command and Scripting Interpreter | Ruby Inline Command Execution | medium | 61603 |
-| `100862` | 9 | `T1564.004` T1564.004 | Potential Rundll32 Execution With DLL Stored In ADS | high | 61603 |
-| `100863` | 9 | - | Suspicious Advpack Call Via Rundll32.EXE | high | 61603 |
-| `100864` | 8 | `T1218.011` T1218.011 | Rundll32 InstallScreenSaver Execution | medium | 61603 |
-| `100865` | 9 | - | Mshtml.DLL RunHTMLApplication Suspicious Usage | high | 61603 |
-| `100866` | 9 | `T1202` T1202 | Rundll32 Execution Without CommandLine Parameters | high | 61603 |
-| `100867` | 8 | `T1027.010` T1027.010 | Potential Obfuscated Ordinal Call Via Rundll32 | medium | 61603 |
-| `100868` | 8 | - | Rundll32 Spawned Via Explorer.EXE | medium | 61603 |
-| `100869` | 8 | `T1036` T1036 | Suspicious Process Start Locations | medium | 61603 |
-| `100870` | 8 | `T1036` T1036 | Suspicious Process Start Locations | medium | 61603 |
-| `100871` | 8 | `T1218.011` T1218.011 | Suspicious Rundll32 Setupapi.dll Activity | medium | 61603 |
-| `100872` | 9 | `T1218.011` T1218.011 | Shell32 DLL Execution in Suspicious Directory | high | 61603 |
-| `100873` | 8 | - | Potential ShellDispatch.DLL Functionality Abuse | medium | 61603 |
-| `100874` | 9 | `T1218.011` T1218.011 | RunDLL32 Spawning Explorer | high | 61603 |
-| `100875` | 8 | `T1218.011` T1218.011 | Potentially Suspicious Rundll32 Activity | medium | 61603 |
-| `100876` | 9 | `T1218.011` T1218.011 | Suspicious Control Panel DLL Load | high | 61603 |
-| `100877` | 9 | `T1218.011` T1218.011 | Suspicious Rundll32 Execution With Image Extension | high | 61603 |
-| `100878` | 9 | - | Suspicious Usage Of ShellExec_RunDLL | high | 61603 |
-| `100879` | 9 | `T1218.011` T1218.011 | Suspicious ShellExec_RunDLL Call Via Ordinal | high | 61603 |
-| `100880` | 9 | `T1218.011` T1218.011 | Suspicious Rundll32 Activity Invoking Sys File | high | 61603 |
-| `100881` | 8 | `T1218.011` T1218.011 | Potentially Suspicious Rundll32.EXE Execution of UDL File | medium | 61603 |
-| `100882` | 9 | `T1021.002` T1021.002 | Rundll32 UNC Path Execution | high | 61603 |
-| `100883` | 8 | `T1218.011` T1218.011 | Rundll32 Execution With Uncommon DLL Extension | medium | 61603 |
-| `100884` | 8 | - | Suspicious Workstation Locking via Rundll32 | medium | 61603 |
-| `100885` | 8 | `T1685` T1685 | Service StartupType Change Via Sc.EXE | medium | 61603 |
-| `100886` | 9 | `T1053.005` T1053.005 | Uncommon One Time Only Scheduled Task At 00:00 | high | 61603 |
-| `100887` | 9 | `T1047` T1047 | Script Event Consumer Spawning Process | high | 61603 |
-| `100888` | 9 | `T1036` T1036 | Sdiagnhost Calling Suspicious Child Process | high | 61603 |
-| `100889` | 9 | `T1218` T1218 | Uncommon Child Process Of Setres.EXE | high | 61603 |
-| `100890` | 8 | `T1202` T1202 | Indirect Command Execution via SFTP ProxyCommand | medium | 61603 |
-| `100891` | 8 | `T1216` T1216 | Uncommon Sigverif.EXE Child Process | medium | 61603 |
-| `100892` | 8 | - | Uncommon Child Processes Of SndVol.exe | medium | 61603 |
-| `100893` | 9 | `T1202` T1202 | Suspicious Splwow64 Without Params | high | 61603 |
-| `100894` | 9 | `T1203` T1203 | Suspicious Spool Service Child Process | high | 61603 |
-| `100895` | 8 | `T1218` T1218 | Arbitrary File Download Via Squirrel.EXE | medium | 61603 |
-| `100896` | 8 | `T1218` T1218 | Process Proxy Execution Via Squirrel.EXE | medium | 61603 |
-| `100897` | 8 | `T1218` T1218 | Program Executed Using Proxy/Local Command Via SSH.EXE | medium | 61603 |
-| `100898` | 9 | `T1218` T1218 | Execution via stordiag.exe | high | 61603 |
-| `100899` | 8 | - | Start of NT Virtual DOS Machine | medium | 61603 |
-| `100900` | 8 | `T1564.004` T1564.004 | Execute From Alternate Data Streams | medium | 61603 |
-| `100901` | 8 | - | Potentially Suspicious Windows App Activity | medium | 61603 |
-| `100902` | 8 | `T1204` User Execution | Arbitrary Shell Command Execution Via Settingcontent-Ms | medium | 61603 |
-| `100903` | 9 | `T1218.011` T1218.011 | Bad Opsec Defaults Sacrificial Processes With Improper Arguments | high | 61603 |
-| `100904` | 9 | `T1218.011` T1218.011 | Bad Opsec Defaults Sacrificial Processes With Improper Arguments | high | 61603 |
+| `100840` | 9 | `T1027` Obfuscated Files or Information | Renamed AutoIt Execution | high | 61603 |
+| `100841` | 9 | `T1027` Obfuscated Files or Information | Renamed AutoIt Execution | high | 61603 |
+| `100842` | 8 | `T1036.003` T1036.003 | Potential Defense Evasion Via Binary Rename | medium | 61603 |
+| `100843` | 9 | `T1036.003` T1036.003 | Potential Defense Evasion Via Rename Of Highly Relevant Binaries | high | 61603 |
+| `100844` | 8 | `T1553` T1553 | Renamed BOINC Client Execution | medium | 61603 |
+| `100845` | 8 | `T1059` Command and Scripting Interpreter | Renamed CURL.EXE Execution | medium | 61603 |
+| `100846` | 8 | `T1059` Command and Scripting Interpreter | Renamed FTP.EXE Execution | medium | 61603 |
+| `100847` | 9 | `T1036.003` T1036.003 | Renamed Jusched.EXE Execution | high | 61603 |
+| `100848` | 9 | `T1218` T1218 | Renamed MegaSync Execution | high | 61603 |
+| `100849` | 9 | `T1036.003` T1036.003 | Renamed Msdt.EXE Execution | high | 61603 |
+| `100850` | 8 | - | Renamed Microsoft Teams Execution | medium | 61603 |
+| `100851` | 9 | - | Renamed NetSupport RAT Execution | high | 61603 |
+| `100852` | 9 | `T1059` Command and Scripting Interpreter | Renamed NirCmd.EXE Execution | high | 61603 |
+| `100853` | 9 | `T1036.003` T1036.003 | Renamed Office Binary Execution | high | 61603 |
+| `100854` | 9 | `T1202` T1202 | Renamed PAExec Execution | high | 61603 |
+| `100855` | 9 | `T1059` Command and Scripting Interpreter | Renamed PingCastle Binary Execution | high | 61603 |
+| `100856` | 9 | `T1036` T1036 | Renamed Plink Execution | high | 61603 |
+| `100857` | 8 | `T1218` T1218 | Visual Studio NodejsTools PressAnyKey Renamed Execution | medium | 61603 |
+| `100858` | 9 | - | Potential Renamed Rundll32 Execution | high | 61603 |
+| `100859` | 9 | `T1036.003` T1036.003 | Renamed Schtasks Execution | high | 61603 |
+| `100860` | 9 | `T1588.002` T1588.002 | Renamed SysInternals DebugView Execution | high | 61603 |
+| `100861` | 9 | `T1036.003` T1036.003 | Renamed ProcDump Execution | high | 61603 |
+| `100862` | 9 | - | Renamed PsExec Service Execution | high | 61603 |
+| `100863` | 8 | `T1059` Command and Scripting Interpreter | Ruby Inline Command Execution | medium | 61603 |
+| `100864` | 9 | `T1564.004` T1564.004 | Potential Rundll32 Execution With DLL Stored In ADS | high | 61603 |
+| `100865` | 9 | - | Suspicious Advpack Call Via Rundll32.EXE | high | 61603 |
+| `100866` | 8 | `T1218.011` T1218.011 | Rundll32 InstallScreenSaver Execution | medium | 61603 |
+| `100867` | 9 | - | Mshtml.DLL RunHTMLApplication Suspicious Usage | high | 61603 |
+| `100868` | 9 | `T1202` T1202 | Rundll32 Execution Without CommandLine Parameters | high | 61603 |
+| `100869` | 8 | `T1027.010` T1027.010 | Potential Obfuscated Ordinal Call Via Rundll32 | medium | 61603 |
+| `100870` | 8 | - | Rundll32 Spawned Via Explorer.EXE | medium | 61603 |
+| `100871` | 8 | `T1036` T1036 | Suspicious Process Start Locations | medium | 61603 |
+| `100872` | 8 | `T1036` T1036 | Suspicious Process Start Locations | medium | 61603 |
+| `100873` | 8 | `T1218.011` T1218.011 | Suspicious Rundll32 Setupapi.dll Activity | medium | 61603 |
+| `100874` | 9 | `T1218.011` T1218.011 | Shell32 DLL Execution in Suspicious Directory | high | 61603 |
+| `100875` | 8 | - | Potential ShellDispatch.DLL Functionality Abuse | medium | 61603 |
+| `100876` | 9 | `T1218.011` T1218.011 | RunDLL32 Spawning Explorer | high | 61603 |
+| `100877` | 8 | `T1218.011` T1218.011 | Potentially Suspicious Rundll32 Activity | medium | 61603 |
+| `100878` | 9 | `T1218.011` T1218.011 | Suspicious Control Panel DLL Load | high | 61603 |
+| `100879` | 9 | `T1218.011` T1218.011 | Suspicious Rundll32 Execution With Image Extension | high | 61603 |
+| `100880` | 9 | - | Suspicious Usage Of ShellExec_RunDLL | high | 61603 |
+| `100881` | 9 | `T1218.011` T1218.011 | Suspicious ShellExec_RunDLL Call Via Ordinal | high | 61603 |
+| `100882` | 9 | `T1218.011` T1218.011 | Suspicious Rundll32 Activity Invoking Sys File | high | 61603 |
+| `100883` | 8 | `T1218.011` T1218.011 | Potentially Suspicious Rundll32.EXE Execution of UDL File | medium | 61603 |
+| `100884` | 9 | `T1021.002` T1021.002 | Rundll32 UNC Path Execution | high | 61603 |
+| `100885` | 8 | `T1218.011` T1218.011 | Rundll32 Execution With Uncommon DLL Extension | medium | 61603 |
+| `100886` | 8 | - | Suspicious Workstation Locking via Rundll32 | medium | 61603 |
+| `100887` | 8 | `T1685` T1685 | Service StartupType Change Via Sc.EXE | medium | 61603 |
+| `100888` | 9 | `T1053.005` T1053.005 | Uncommon One Time Only Scheduled Task At 00:00 | high | 61603 |
+| `100889` | 9 | `T1047` T1047 | Script Event Consumer Spawning Process | high | 61603 |
+| `100890` | 9 | `T1036` T1036 | Sdiagnhost Calling Suspicious Child Process | high | 61603 |
+| `100891` | 9 | `T1218` T1218 | Uncommon Child Process Of Setres.EXE | high | 61603 |
+| `100892` | 8 | `T1202` T1202 | Indirect Command Execution via SFTP ProxyCommand | medium | 61603 |
+| `100893` | 8 | `T1216` T1216 | Uncommon Sigverif.EXE Child Process | medium | 61603 |
+| `100894` | 8 | - | Uncommon Child Processes Of SndVol.exe | medium | 61603 |
+| `100895` | 9 | `T1202` T1202 | Suspicious Splwow64 Without Params | high | 61603 |
+| `100896` | 9 | `T1203` T1203 | Suspicious Spool Service Child Process | high | 61603 |
+| `100897` | 8 | `T1218` T1218 | Arbitrary File Download Via Squirrel.EXE | medium | 61603 |
+| `100898` | 8 | `T1218` T1218 | Process Proxy Execution Via Squirrel.EXE | medium | 61603 |
+| `100899` | 8 | `T1218` T1218 | Program Executed Using Proxy/Local Command Via SSH.EXE | medium | 61603 |
+| `100900` | 9 | `T1218` T1218 | Execution via stordiag.exe | high | 61603 |
+| `100901` | 8 | - | Start of NT Virtual DOS Machine | medium | 61603 |
+| `100902` | 8 | `T1564.004` T1564.004 | Execute From Alternate Data Streams | medium | 61603 |
+| `100903` | 8 | - | Potentially Suspicious Windows App Activity | medium | 61603 |
+| `100904` | 8 | `T1204` User Execution | Arbitrary Shell Command Execution Via Settingcontent-Ms | medium | 61603 |
 | `100905` | 9 | `T1218.011` T1218.011 | Bad Opsec Defaults Sacrificial Processes With Improper Arguments | high | 61603 |
 | `100906` | 9 | `T1218.011` T1218.011 | Bad Opsec Defaults Sacrificial Processes With Improper Arguments | high | 61603 |
 | `100907` | 9 | `T1218.011` T1218.011 | Bad Opsec Defaults Sacrificial Processes With Improper Arguments | high | 61603 |
-| `100908` | 8 | `T1204.002` T1204.002 | Potential Suspicious Browser Launch From Document Reader Process | medium | 61603 |
-| `100909` | 8 | `T1140` T1140 | Potential Commandline Obfuscation Using Escape Characters | medium | 61603 |
-| `100910` | 9 | `T1027` Obfuscated Files or Information | Potential CommandLine Obfuscation Using Unicode Characters From Sus... | high | 61603 |
-| `100911` | 9 | `T1204.001` T1204.001 | Suspicious ClickFix/FileFix Execution Pattern | high | 61603 |
-| `100912` | 9 | `T1204.004` T1204.004 | Suspicious Explorer Process with Whitespace Padding - ClickFix/FileFix | high | 61603 |
-| `100913` | 8 | `T1059.003` T1059.003 | Suspicious Usage of For Loop with Recursive Directory Search in CMD | medium | 61603 |
-| `100914` | 8 | `T1059.003` T1059.003 | Suspicious Usage of For Loop with Recursive Directory Search in CMD | medium | 61603 |
-| `100915` | 8 | `T1036` T1036 | Potential Command Line Path Traversal Evasion Attempt | medium | 61603 |
-| `100916` | 8 | `T1036` T1036 | Potential Command Line Path Traversal Evasion Attempt | medium | 61603 |
-| `100917` | 8 | `T1036.003` T1036.003 | Suspicious Copy From or To System Directory | medium | 61603 |
-| `100918` | 8 | `T1036.003` T1036.003 | Suspicious Copy From or To System Directory | medium | 61603 |
+| `100908` | 9 | `T1218.011` T1218.011 | Bad Opsec Defaults Sacrificial Processes With Improper Arguments | high | 61603 |
+| `100909` | 9 | `T1218.011` T1218.011 | Bad Opsec Defaults Sacrificial Processes With Improper Arguments | high | 61603 |
+| `100910` | 8 | `T1204.002` T1204.002 | Potential Suspicious Browser Launch From Document Reader Process | medium | 61603 |
+| `100911` | 8 | `T1140` T1140 | Potential Commandline Obfuscation Using Escape Characters | medium | 61603 |
+| `100912` | 9 | `T1027` Obfuscated Files or Information | Potential CommandLine Obfuscation Using Unicode Characters From Sus... | high | 61603 |
+| `100913` | 9 | `T1204.001` T1204.001 | Suspicious ClickFix/FileFix Execution Pattern | high | 61603 |
+| `100914` | 9 | `T1204.004` T1204.004 | Suspicious Explorer Process with Whitespace Padding - ClickFix/FileFix | high | 61603 |
+| `100915` | 8 | `T1059.003` T1059.003 | Suspicious Usage of For Loop with Recursive Directory Search in CMD | medium | 61603 |
+| `100916` | 8 | `T1059.003` T1059.003 | Suspicious Usage of For Loop with Recursive Directory Search in CMD | medium | 61603 |
+| `100917` | 8 | `T1036` T1036 | Potential Command Line Path Traversal Evasion Attempt | medium | 61603 |
+| `100918` | 8 | `T1036` T1036 | Potential Command Line Path Traversal Evasion Attempt | medium | 61603 |
 | `100919` | 8 | `T1036.003` T1036.003 | Suspicious Copy From or To System Directory | medium | 61603 |
 | `100920` | 8 | `T1036.003` T1036.003 | Suspicious Copy From or To System Directory | medium | 61603 |
-| `100921` | 9 | `T1036.003` T1036.003 | LOL-Binary Copied From System Directory | high | 61603 |
-| `100922` | 9 | `T1036.003` T1036.003 | LOL-Binary Copied From System Directory | high | 61603 |
+| `100921` | 8 | `T1036.003` T1036.003 | Suspicious Copy From or To System Directory | medium | 61603 |
+| `100922` | 8 | `T1036.003` T1036.003 | Suspicious Copy From or To System Directory | medium | 61603 |
 | `100923` | 9 | `T1036.003` T1036.003 | LOL-Binary Copied From System Directory | high | 61603 |
 | `100924` | 9 | `T1036.003` T1036.003 | LOL-Binary Copied From System Directory | high | 61603 |
-| `100925` | 9 | `T1059.001` T1059.001 | Potential Data Exfiltration Activity Via CommandLine Tools | high | 61603 |
-| `100926` | 9 | `T1685` T1685 | Raccine Uninstall | high | 61603 |
-| `100927` | 9 | `T1685` T1685 | Raccine Uninstall | high | 61603 |
+| `100925` | 9 | `T1036.003` T1036.003 | LOL-Binary Copied From System Directory | high | 61603 |
+| `100926` | 9 | `T1036.003` T1036.003 | LOL-Binary Copied From System Directory | high | 61603 |
+| `100927` | 9 | `T1059.001` T1059.001 | Potential Data Exfiltration Activity Via CommandLine Tools | high | 61603 |
 | `100928` | 9 | `T1685` T1685 | Raccine Uninstall | high | 61603 |
-| `100929` | 9 | `T1036.007` T1036.007 | Suspicious Parent Double Extension File Execution | high | 61603 |
-| `100930` | 9 | `T1036.007` T1036.007 | Suspicious Parent Double Extension File Execution | high | 61603 |
-| `100931` | 9 | - | DumpStack.log Defender Evasion | high | 61603 |
-| `100932` | 9 | - | DumpStack.log Defender Evasion | high | 61603 |
-| `100933` | 8 | - | Suspicious Electron Application Child Processes | medium | 61603 |
-| `100934` | 8 | - | Potentially Suspicious Electron Application CommandLine | medium | 61603 |
-| `100935` | 8 | `T1059.001` T1059.001 | Hidden Powershell in Link File Pattern | medium | 61603 |
-| `100936` | 9 | - | Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 1 | high | 61603 |
-| `100937` | 9 | - | Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 2 | high | 61603 |
-| `100938` | 9 | - | Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 3 | high | 61603 |
-| `100939` | 9 | - | Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 4 | high | 61603 |
-| `100940` | 9 | `T1685` T1685 | ETW Logging Tamper In .NET Processes Via CommandLine | high | 61603 |
-| `100941` | 9 | `T1070` Indicator Removal | ETW Trace Evasion Activity | high | 61603 |
-| `100942` | 9 | `T1070` Indicator Removal | ETW Trace Evasion Activity | high | 61603 |
+| `100929` | 9 | `T1685` T1685 | Raccine Uninstall | high | 61603 |
+| `100930` | 9 | `T1685` T1685 | Raccine Uninstall | high | 61603 |
+| `100931` | 9 | `T1036.007` T1036.007 | Suspicious Parent Double Extension File Execution | high | 61603 |
+| `100932` | 9 | `T1036.007` T1036.007 | Suspicious Parent Double Extension File Execution | high | 61603 |
+| `100933` | 9 | - | DumpStack.log Defender Evasion | high | 61603 |
+| `100934` | 9 | - | DumpStack.log Defender Evasion | high | 61603 |
+| `100935` | 8 | - | Suspicious Electron Application Child Processes | medium | 61603 |
+| `100936` | 8 | - | Potentially Suspicious Electron Application CommandLine | medium | 61603 |
+| `100937` | 8 | `T1059.001` T1059.001 | Hidden Powershell in Link File Pattern | medium | 61603 |
+| `100938` | 9 | - | Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 1 | high | 61603 |
+| `100939` | 9 | - | Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 2 | high | 61603 |
+| `100940` | 9 | - | Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 3 | high | 61603 |
+| `100941` | 9 | - | Potential Defense Evasion Activity Via Emoji Usage In CommandLine - 4 | high | 61603 |
+| `100942` | 9 | `T1685` T1685 | ETW Logging Tamper In .NET Processes Via CommandLine | high | 61603 |
 | `100943` | 9 | `T1070` Indicator Removal | ETW Trace Evasion Activity | high | 61603 |
 | `100944` | 9 | `T1070` Indicator Removal | ETW Trace Evasion Activity | high | 61603 |
 | `100945` | 9 | `T1070` Indicator Removal | ETW Trace Evasion Activity | high | 61603 |
 | `100946` | 9 | `T1070` Indicator Removal | ETW Trace Evasion Activity | high | 61603 |
 | `100947` | 9 | `T1070` Indicator Removal | ETW Trace Evasion Activity | high | 61603 |
-| `100948` | 9 | `T1685.005` T1685.005 | Suspicious Eventlog Clearing or Configuration Change Activity | high | 61603 |
-| `100949` | 9 | `T1564` T1564 | Potentially Suspicious Execution From Parent Process In Public Folder | high | 61603 |
-| `100950` | 9 | `T1036` T1036 | Process Execution From A Potentially Suspicious Folder | high | 61603 |
-| `100951` | 8 | `T1059.006` T1059.006 | Suspicious File Characteristics Due to Missing Fields | medium | 61603 |
-| `100952` | 9 | `T1204.004` T1204.004 | Suspicious FileFix Execution Pattern | high | 61603 |
-| `100953` | 8 | `T1564.004` T1564.004 | Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Strea... | medium | 61603 |
-| `100954` | 8 | `T1036` T1036 | Potential Homoglyph Attack Using Lookalike Characters | medium | 61603 |
-| `100955` | 8 | `T1036` T1036 | Potential Homoglyph Attack Using Lookalike Characters | medium | 61603 |
-| `100956` | 9 | - | Execution Of Non-Existing File | high | 61603 |
-| `100957` | 9 | - | Base64 MZ Header In CommandLine | high | 61603 |
-| `100958` | 8 | `T1059.007` T1059.007 | Potentially Suspicious Inline JavaScript Execution via NodeJS Binary | medium | 61603 |
-| `100959` | 9 | `T1106` T1106 | Potential WinAPI Calls Via CommandLine | high | 61603 |
-| `100960` | 8 | - | LOLBIN Execution From Abnormal Drive | medium | 61603 |
-| `100961` | 8 | `T1218` T1218 | Potential File Download Via MS-AppInstaller Protocol Handler | medium | 61603 |
-| `100962` | 8 | `T1059` Command and Scripting Interpreter | Suspicious Scan Loop Network | medium | 61603 |
-| `100963` | 8 | - | Process Launched Without Image Name | medium | 61603 |
-| `100964` | 8 | - | Execution of Suspicious File Type Extension | medium | 61603 |
-| `100965` | 9 | - | Potentially Suspicious Call To Win32_NTEventlogFile Class | high | 61603 |
-| `100966` | 8 | `T1564.004` T1564.004 | Use Short Name Path in Image | medium | 61603 |
-| `100967` | 8 | `T1564.004` T1564.004 | Use NTFS Short Name in Command Line | medium | 61603 |
-| `100968` | 8 | `T1564.004` T1564.004 | Use NTFS Short Name in Image | medium | 61603 |
-| `100969` | 9 | `T1036` T1036 | Suspicious Process Parents | high | 61603 |
-| `100970` | 9 | `T1218.011` T1218.011 | Potential PowerShell Execution Via DLL | high | 61603 |
-| `100971` | 13 | `T1059` Command and Scripting Interpreter | Suspicious Program Names | high | 61603 |
-| `100972` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Program Names | high | 61603 |
-| `100973` | 14 | `T1059` Command and Scripting Interpreter | Suspicious Program Names | high | 61603 |
-| `100974` | 9 | `T1036.002` T1036.002 | Potential Defense Evasion Via Right-to-Left Override | high | 61603 |
-| `100975` | 9 | `T1059` Command and Scripting Interpreter | Script Interpreter Execution From Suspicious Folder | high | 61603 |
-| `100976` | 9 | `T1059` Command and Scripting Interpreter | Script Interpreter Execution From Suspicious Folder | high | 61603 |
+| `100948` | 9 | `T1070` Indicator Removal | ETW Trace Evasion Activity | high | 61603 |
+| `100949` | 9 | `T1070` Indicator Removal | ETW Trace Evasion Activity | high | 61603 |
+| `100950` | 9 | `T1685.005` T1685.005 | Suspicious Eventlog Clearing or Configuration Change Activity | high | 61603 |
+| `100951` | 9 | `T1564` T1564 | Potentially Suspicious Execution From Parent Process In Public Folder | high | 61603 |
+| `100952` | 9 | `T1036` T1036 | Process Execution From A Potentially Suspicious Folder | high | 61603 |
+| `100953` | 8 | `T1059.006` T1059.006 | Suspicious File Characteristics Due to Missing Fields | medium | 61603 |
+| `100954` | 9 | `T1204.004` T1204.004 | Suspicious FileFix Execution Pattern | high | 61603 |
+| `100955` | 8 | `T1564.004` T1564.004 | Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Strea... | medium | 61603 |
+| `100956` | 8 | `T1036` T1036 | Potential Homoglyph Attack Using Lookalike Characters | medium | 61603 |
+| `100957` | 8 | `T1036` T1036 | Potential Homoglyph Attack Using Lookalike Characters | medium | 61603 |
+| `100958` | 9 | - | Execution Of Non-Existing File | high | 61603 |
+| `100959` | 9 | - | Base64 MZ Header In CommandLine | high | 61603 |
+| `100960` | 8 | `T1059.007` T1059.007 | Potentially Suspicious Inline JavaScript Execution via NodeJS Binary | medium | 61603 |
+| `100961` | 9 | `T1106` T1106 | Potential WinAPI Calls Via CommandLine | high | 61603 |
+| `100962` | 8 | - | LOLBIN Execution From Abnormal Drive | medium | 61603 |
+| `100963` | 8 | `T1218` T1218 | Potential File Download Via MS-AppInstaller Protocol Handler | medium | 61603 |
+| `100964` | 8 | `T1059` Command and Scripting Interpreter | Suspicious Scan Loop Network | medium | 61603 |
+| `100965` | 8 | - | Process Launched Without Image Name | medium | 61603 |
+| `100966` | 8 | - | Execution of Suspicious File Type Extension | medium | 61603 |
+| `100967` | 9 | - | Potentially Suspicious Call To Win32_NTEventlogFile Class | high | 61603 |
+| `100968` | 8 | `T1564.004` T1564.004 | Use Short Name Path in Image | medium | 61603 |
+| `100969` | 8 | `T1564.004` T1564.004 | Use NTFS Short Name in Command Line | medium | 61603 |
+| `100970` | 8 | `T1564.004` T1564.004 | Use NTFS Short Name in Image | medium | 61603 |
+| `100971` | 9 | `T1036` T1036 | Suspicious Process Parents | high | 61603 |
+| `100972` | 9 | `T1218.011` T1218.011 | Potential PowerShell Execution Via DLL | high | 61603 |
+| `100973` | 13 | `T1059` Command and Scripting Interpreter | Suspicious Program Names | high | 61603 |
+| `100974` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Program Names | high | 61603 |
+| `100975` | 14 | `T1059` Command and Scripting Interpreter | Suspicious Program Names | high | 61603 |
+| `100976` | 9 | `T1036.002` T1036.002 | Potential Defense Evasion Via Right-to-Left Override | high | 61603 |
 | `100977` | 9 | `T1059` Command and Scripting Interpreter | Script Interpreter Execution From Suspicious Folder | high | 61603 |
-| `100978` | 9 | `T1202` T1202 | Suspicious Service Binary Directory | high | 61603 |
-| `100979` | 9 | `T1059.005` T1059.005 | Windows Shell/Scripting Processes Spawning Suspicious Programs | high | 61603 |
-| `100980` | 12 | `T1036` T1036 | System File Execution Location Anomaly | high | 61603 |
-| `100981` | 8 | `T1218` T1218 | Malicious PE Execution by Microsoft Visual Studio Debugger | medium | 61603 |
-| `100982` | 8 | - | Weak or Abused Passwords In CLI | medium | 61603 |
-| `100983` | 8 | `T1059.001` T1059.001 | Usage Of Web Request Commands And Cmdlets | medium | 61603 |
-| `100984` | 9 | `T1218` T1218 | Execution via WorkFolders.exe | high | 61603 |
-| `100985` | 9 | `T1036.005` T1036.005 | Suspicious Process Masquerading As SvcHost.EXE | high | 61603 |
-| `100986` | 8 | `T1036.005` T1036.005 | Uncommon Svchost Parent Process | medium | 61603 |
-| `100987` | 8 | - | Potential Memory Dumping Activity Via LiveKD | medium | 61603 |
-| `100988` | 8 | - | Potential Memory Dumping Activity Via LiveKD | medium | 61603 |
-| `100989` | 9 | - | Kernel Memory Dump Via LiveKD | high | 61603 |
-| `100990` | 8 | `T1569` System Services | Psexec Execution | medium | 61603 |
-| `100991` | 8 | `T1569` System Services | Psexec Execution | medium | 61603 |
-| `100992` | 9 | `T1587.001` T1587.001 | PsExec/PAExec Escalation to LOCAL SYSTEM | high | 61603 |
-| `100993` | 9 | `T1587.001` T1587.001 | Potential PsExec Remote Execution | high | 61603 |
-| `100994` | 8 | - | PsExec Service Execution | medium | 61603 |
-| `100995` | 8 | - | PsExec Service Execution | medium | 61603 |
-| `100996` | 9 | - | PsExec Service Child Process Execution as LOCAL SYSTEM | high | 61603 |
-| `100997` | 9 | `T1685` T1685 | Sysinternals PsSuspend Suspicious Execution | high | 61603 |
-| `100998` | 9 | `T1587.001` T1587.001 | Potential Privilege Escalation To LOCAL SYSTEM | high | 61603 |
-| `100999` | 8 | `T1685` T1685 | Sysmon Configuration Update | medium | 61603 |
-| `101000` | 9 | `T1685` T1685 | Uninstall Sysinternals Sysmon | high | 61603 |
-| `101001` | 8 | `T1218` T1218 | Potential Binary Impersonating Sysinternals Tools | medium | 61603 |
-| `101002` | 8 | `T1218` T1218 | Potential Binary Impersonating Sysinternals Tools | medium | 61603 |
-| `101003` | 8 | `T1059` Command and Scripting Interpreter | Sysprep on AppData Folder | medium | 61603 |
-| `101004` | 9 | - | Potential Signing Bypass Via Windows Developer Features | high | 61603 |
-| `101005` | 8 | `T1222.001` T1222.001 | Suspicious Recursive Takeown | medium | 61603 |
-| `101006` | 9 | `T1685` T1685 | Taskkill Symantec Endpoint Protection | high | 61603 |
-| `101007` | 9 | `T1036` T1036 | Taskmgr as LOCAL_SYSTEM | high | 61603 |
-| `101008` | 8 | - | New Virtual Smart Card Created Via TpmVscMgr.EXE | medium | 61603 |
-| `101009` | 8 | - | Potential RDP Session Hijacking Activity | medium | 61603 |
-| `101010` | 9 | `T1548.002` T1548.002 | CMSTP UAC Bypass via COM Object Access | high | 61603 |
-| `101011` | 9 | `T1548.002` T1548.002 | UAC Bypass Using IDiagnostic Profile | high | 61603 |
-| `101012` | 9 | `T1685` T1685 | Uninstall Crowdstrike Falcon Sensor | high | 61603 |
-| `101013` | 8 | `T1218` T1218 | Verclsid.exe Runs COM Object | medium | 61603 |
-| `101014` | 8 | `T1059` Command and Scripting Interpreter | Potential Persistence Via VMwareToolBoxCmd.EXE VM State Change Script | medium | 61603 |
-| `101015` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Persistence Via VMwareToolBoxCmd.EXE VM State Change Script | high | 61603 |
-| `101016` | 9 | `T1059` Command and Scripting Interpreter | VMToolsd Suspicious Child Process | high | 61603 |
-| `101017` | 8 | `T1218` T1218 | Potentially Suspicious Child Process Of VsCode | medium | 61603 |
-| `101018` | 8 | `T1218` T1218 | Potential Binary Proxy Execution Via VSDiagnostics.EXE | medium | 61603 |
-| `101019` | 8 | `T1202` T1202 | Proxy Execution via Vshadow | medium | 61603 |
-| `101020` | 8 | `T1218` T1218 | Suspicious Vsls-Agent Command With AgentExtensionPath Load | medium | 61603 |
-| `101021` | 9 | `T1685` T1685 | Vulnerable Driver Blocklist Registry Tampering Via CommandLine | high | 61603 |
-| `101022` | 9 | - | Wab Execution From Non Default Location | high | 61603 |
-| `101023` | 9 | - | Wab/Wabmig Unusual Parent Or Child Processes | high | 61603 |
-| `101024` | 9 | - | Wab/Wabmig Unusual Parent Or Child Processes | high | 61603 |
-| `101025` | 8 | `T1059.001` T1059.001 | Potentially Suspicious WebDAV LNK Execution | medium | 61603 |
-| `101026` | 8 | `T1036` T1036 | Potential ReflectDebugger Content Execution Via WerFault.EXE | medium | 61603 |
-| `101027` | 9 | - | Suspicious Execution Location Of Wermgr.EXE | high | 61603 |
-| `101028` | 9 | - | Suspicious File Download From IP Via Wget.EXE | high | 61603 |
-| `101029` | 9 | - | Suspicious File Download From File Sharing Domain Via Wget.EXE | high | 61603 |
-| `101030` | 9 | - | Suspicious File Download From IP Via Wget.EXE - Paths | high | 61603 |
-| `101031` | 8 | - | Suspicious WindowsTerminal Child Processes | medium | 61603 |
-| `101032` | 8 | `T1059` Command and Scripting Interpreter | Add New Download Source To Winget | medium | 61603 |
-| `101033` | 9 | `T1059` Command and Scripting Interpreter | Add Insecure Download Source To Winget | high | 61603 |
-| `101034` | 8 | `T1059` Command and Scripting Interpreter | Add Potential Suspicious New Download Source To Winget | medium | 61603 |
-| `101035` | 8 | `T1059` Command and Scripting Interpreter | Install New Package Via Winget Local Manifest | medium | 61603 |
-| `101036` | 8 | `T1203` T1203 | Potentially Suspicious Child Process Of WinRAR.EXE | medium | 61603 |
-| `101037` | 8 | `T1216` T1216 | AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl | medium | 61603 |
-| `101038` | 8 | `T1216` T1216 | Remote Code Execute via Winrm.vbs | medium | 61603 |
-| `101039` | 8 | `T1059.001` T1059.001 | Remote PowerShell Session Host Process (WinRM) | medium | 61603 |
-| `101040` | 8 | `T1059.001` T1059.001 | Remote PowerShell Session Host Process (WinRM) | medium | 61603 |
-| `101041` | 8 | `T1218` T1218 | Wlrmdr.EXE Uncommon Argument Or Child Process | medium | 61603 |
-| `101042` | 9 | `T1047` T1047 | Potential Windows Defender Tampering Via Wmic.EXE | high | 61603 |
-| `101043` | 8 | `T1047` T1047 | New Process Created Via Wmic.EXE | medium | 61603 |
-| `101044` | 8 | `T1047` T1047 | Hardware Model Reconnaissance Via Wmic.EXE | medium | 61603 |
-| `101045` | 8 | `T1047` T1047 | Windows Hotfix Updates Reconnaissance Via Wmic.EXE | medium | 61603 |
-| `101046` | 8 | `T1047` T1047 | Process Reconnaissance Via Wmic.EXE | medium | 61603 |
-| `101047` | 8 | `T1047` T1047 | Potential Product Reconnaissance Via Wmic.EXE | medium | 61603 |
-| `101048` | 8 | `T1047` T1047 | Potential Product Class Reconnaissance Via Wmic.EXE | medium | 61603 |
-| `101049` | 8 | `T1047` T1047 | Service Reconnaissance Via Wmic.EXE | medium | 61603 |
-| `101050` | 8 | `T1047` T1047 | Potential Unquoted Service Path Reconnaissance Via Wmic.EXE | medium | 61603 |
-| `101051` | 8 | `T1047` T1047 | System Disk And Volume Reconnaissance Via Wmic.EXE | medium | 61603 |
-| `101052` | 8 | `T1047` T1047 | WMIC Remote Command Execution | medium | 61603 |
-| `101053` | 8 | `T1047` T1047 | Service Started/Stopped Via Wmic.EXE | medium | 61603 |
-| `101054` | 8 | `T1047` T1047 | Service Startup Type Change Via Wmic.EXE | medium | 61603 |
-| `101055` | 9 | `T1047` T1047 | Potential Remote SquiblyTwo Technique Execution | high | 61603 |
-| `101056` | 9 | `T1204.002` T1204.002 | Suspicious WMIC Execution Via Office Process | high | 61603 |
-| `101057` | 9 | `T1047` T1047 | Suspicious Process Created Via Wmic.EXE | high | 61603 |
-| `101058` | 8 | `T1047` T1047 | Application Terminated Via Wmic.EXE | medium | 61603 |
-| `101059` | 8 | `T1047` T1047 | Application Removed Via Wmic.EXE | medium | 61603 |
-| `101060` | 9 | `T1685` T1685 | Potential Tampering With Security Products Via WMIC | high | 61603 |
-| `101061` | 9 | `T1685` T1685 | Potential Tampering With Security Products Via WMIC | high | 61603 |
+| `100978` | 9 | `T1059` Command and Scripting Interpreter | Script Interpreter Execution From Suspicious Folder | high | 61603 |
+| `100979` | 9 | `T1059` Command and Scripting Interpreter | Script Interpreter Execution From Suspicious Folder | high | 61603 |
+| `100980` | 9 | `T1202` T1202 | Suspicious Service Binary Directory | high | 61603 |
+| `100981` | 9 | `T1059.005` T1059.005 | Windows Shell/Scripting Processes Spawning Suspicious Programs | high | 61603 |
+| `100982` | 12 | `T1036` T1036 | System File Execution Location Anomaly | high | 61603 |
+| `100983` | 8 | `T1218` T1218 | Malicious PE Execution by Microsoft Visual Studio Debugger | medium | 61603 |
+| `100984` | 8 | - | Weak or Abused Passwords In CLI | medium | 61603 |
+| `100985` | 8 | `T1059.001` T1059.001 | Usage Of Web Request Commands And Cmdlets | medium | 61603 |
+| `100986` | 9 | `T1218` T1218 | Execution via WorkFolders.exe | high | 61603 |
+| `100987` | 9 | `T1036.005` T1036.005 | Suspicious Process Masquerading As SvcHost.EXE | high | 61603 |
+| `100988` | 8 | `T1036.005` T1036.005 | Uncommon Svchost Parent Process | medium | 61603 |
+| `100989` | 8 | - | Potential Memory Dumping Activity Via LiveKD | medium | 61603 |
+| `100990` | 8 | - | Potential Memory Dumping Activity Via LiveKD | medium | 61603 |
+| `100991` | 9 | - | Kernel Memory Dump Via LiveKD | high | 61603 |
+| `100992` | 8 | `T1569` System Services | Psexec Execution | medium | 61603 |
+| `100993` | 8 | `T1569` System Services | Psexec Execution | medium | 61603 |
+| `100994` | 9 | `T1587.001` T1587.001 | PsExec/PAExec Escalation to LOCAL SYSTEM | high | 61603 |
+| `100995` | 9 | `T1587.001` T1587.001 | Potential PsExec Remote Execution | high | 61603 |
+| `100996` | 8 | - | PsExec Service Execution | medium | 61603 |
+| `100997` | 8 | - | PsExec Service Execution | medium | 61603 |
+| `100998` | 9 | - | PsExec Service Child Process Execution as LOCAL SYSTEM | high | 61603 |
+| `100999` | 9 | `T1685` T1685 | Sysinternals PsSuspend Suspicious Execution | high | 61603 |
+| `101000` | 9 | `T1587.001` T1587.001 | Potential Privilege Escalation To LOCAL SYSTEM | high | 61603 |
+| `101001` | 8 | `T1685` T1685 | Sysmon Configuration Update | medium | 61603 |
+| `101002` | 9 | `T1685` T1685 | Uninstall Sysinternals Sysmon | high | 61603 |
+| `101003` | 8 | `T1218` T1218 | Potential Binary Impersonating Sysinternals Tools | medium | 61603 |
+| `101004` | 8 | `T1218` T1218 | Potential Binary Impersonating Sysinternals Tools | medium | 61603 |
+| `101005` | 8 | `T1059` Command and Scripting Interpreter | Sysprep on AppData Folder | medium | 61603 |
+| `101006` | 9 | - | Potential Signing Bypass Via Windows Developer Features | high | 61603 |
+| `101007` | 8 | `T1222.001` T1222.001 | Suspicious Recursive Takeown | medium | 61603 |
+| `101008` | 9 | `T1685` T1685 | Taskkill Symantec Endpoint Protection | high | 61603 |
+| `101009` | 9 | `T1036` T1036 | Taskmgr as LOCAL_SYSTEM | high | 61603 |
+| `101010` | 8 | - | New Virtual Smart Card Created Via TpmVscMgr.EXE | medium | 61603 |
+| `101011` | 8 | - | Potential RDP Session Hijacking Activity | medium | 61603 |
+| `101012` | 9 | `T1548.002` T1548.002 | CMSTP UAC Bypass via COM Object Access | high | 61603 |
+| `101013` | 9 | `T1548.002` T1548.002 | UAC Bypass Using IDiagnostic Profile | high | 61603 |
+| `101014` | 9 | `T1685` T1685 | Uninstall Crowdstrike Falcon Sensor | high | 61603 |
+| `101015` | 8 | `T1218` T1218 | Verclsid.exe Runs COM Object | medium | 61603 |
+| `101016` | 8 | `T1059` Command and Scripting Interpreter | Potential Persistence Via VMwareToolBoxCmd.EXE VM State Change Script | medium | 61603 |
+| `101017` | 9 | `T1059` Command and Scripting Interpreter | Suspicious Persistence Via VMwareToolBoxCmd.EXE VM State Change Script | high | 61603 |
+| `101018` | 9 | `T1059` Command and Scripting Interpreter | VMToolsd Suspicious Child Process | high | 61603 |
+| `101019` | 8 | `T1218` T1218 | Potentially Suspicious Child Process Of VsCode | medium | 61603 |
+| `101020` | 8 | `T1218` T1218 | Potential Binary Proxy Execution Via VSDiagnostics.EXE | medium | 61603 |
+| `101021` | 8 | `T1202` T1202 | Proxy Execution via Vshadow | medium | 61603 |
+| `101022` | 8 | `T1218` T1218 | Suspicious Vsls-Agent Command With AgentExtensionPath Load | medium | 61603 |
+| `101023` | 9 | `T1685` T1685 | Vulnerable Driver Blocklist Registry Tampering Via CommandLine | high | 61603 |
+| `101024` | 9 | - | Wab Execution From Non Default Location | high | 61603 |
+| `101025` | 9 | - | Wab/Wabmig Unusual Parent Or Child Processes | high | 61603 |
+| `101026` | 9 | - | Wab/Wabmig Unusual Parent Or Child Processes | high | 61603 |
+| `101027` | 8 | `T1059.001` T1059.001 | Potentially Suspicious WebDAV LNK Execution | medium | 61603 |
+| `101028` | 8 | `T1036` T1036 | Potential ReflectDebugger Content Execution Via WerFault.EXE | medium | 61603 |
+| `101029` | 9 | - | Suspicious Execution Location Of Wermgr.EXE | high | 61603 |
+| `101030` | 9 | - | Suspicious File Download From IP Via Wget.EXE | high | 61603 |
+| `101031` | 9 | - | Suspicious File Download From File Sharing Domain Via Wget.EXE | high | 61603 |
+| `101032` | 9 | - | Suspicious File Download From IP Via Wget.EXE - Paths | high | 61603 |
+| `101033` | 8 | - | Suspicious WindowsTerminal Child Processes | medium | 61603 |
+| `101034` | 8 | `T1059` Command and Scripting Interpreter | Add New Download Source To Winget | medium | 61603 |
+| `101035` | 9 | `T1059` Command and Scripting Interpreter | Add Insecure Download Source To Winget | high | 61603 |
+| `101036` | 8 | `T1059` Command and Scripting Interpreter | Add Potential Suspicious New Download Source To Winget | medium | 61603 |
+| `101037` | 8 | `T1059` Command and Scripting Interpreter | Install New Package Via Winget Local Manifest | medium | 61603 |
+| `101038` | 8 | `T1203` T1203 | Potentially Suspicious Child Process Of WinRAR.EXE | medium | 61603 |
+| `101039` | 8 | `T1216` T1216 | AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl | medium | 61603 |
+| `101040` | 8 | `T1216` T1216 | Remote Code Execute via Winrm.vbs | medium | 61603 |
+| `101041` | 8 | `T1059.001` T1059.001 | Remote PowerShell Session Host Process (WinRM) | medium | 61603 |
+| `101042` | 8 | `T1059.001` T1059.001 | Remote PowerShell Session Host Process (WinRM) | medium | 61603 |
+| `101043` | 8 | `T1218` T1218 | Wlrmdr.EXE Uncommon Argument Or Child Process | medium | 61603 |
+| `101044` | 9 | `T1047` T1047 | Potential Windows Defender Tampering Via Wmic.EXE | high | 61603 |
+| `101045` | 8 | `T1047` T1047 | New Process Created Via Wmic.EXE | medium | 61603 |
+| `101046` | 8 | `T1047` T1047 | Hardware Model Reconnaissance Via Wmic.EXE | medium | 61603 |
+| `101047` | 8 | `T1047` T1047 | Windows Hotfix Updates Reconnaissance Via Wmic.EXE | medium | 61603 |
+| `101048` | 8 | `T1047` T1047 | Process Reconnaissance Via Wmic.EXE | medium | 61603 |
+| `101049` | 8 | `T1047` T1047 | Potential Product Reconnaissance Via Wmic.EXE | medium | 61603 |
+| `101050` | 8 | `T1047` T1047 | Potential Product Class Reconnaissance Via Wmic.EXE | medium | 61603 |
+| `101051` | 8 | `T1047` T1047 | Service Reconnaissance Via Wmic.EXE | medium | 61603 |
+| `101052` | 8 | `T1047` T1047 | Potential Unquoted Service Path Reconnaissance Via Wmic.EXE | medium | 61603 |
+| `101053` | 8 | `T1047` T1047 | System Disk And Volume Reconnaissance Via Wmic.EXE | medium | 61603 |
+| `101054` | 8 | `T1047` T1047 | WMIC Remote Command Execution | medium | 61603 |
+| `101055` | 8 | `T1047` T1047 | Service Started/Stopped Via Wmic.EXE | medium | 61603 |
+| `101056` | 8 | `T1047` T1047 | Service Startup Type Change Via Wmic.EXE | medium | 61603 |
+| `101057` | 9 | `T1047` T1047 | Potential Remote SquiblyTwo Technique Execution | high | 61603 |
+| `101058` | 9 | `T1204.002` T1204.002 | Suspicious WMIC Execution Via Office Process | high | 61603 |
+| `101059` | 9 | `T1047` T1047 | Suspicious Process Created Via Wmic.EXE | high | 61603 |
+| `101060` | 8 | `T1047` T1047 | Application Terminated Via Wmic.EXE | medium | 61603 |
+| `101061` | 8 | `T1047` T1047 | Application Removed Via Wmic.EXE | medium | 61603 |
 | `101062` | 9 | `T1685` T1685 | Potential Tampering With Security Products Via WMIC | high | 61603 |
-| `101063` | 8 | `T1047` T1047 | XSL Script Execution Via WMIC.EXE | medium | 61603 |
-| `101064` | 8 | `T1047` T1047 | WmiPrvSE Spawned A Process | medium | 61603 |
-| `101065` | 8 | `T1047` T1047 | Potential WMI Lateral Movement WmiPrvSE Spawned PowerShell | medium | 61603 |
-| `101066` | 9 | `T1047` T1047 | Suspicious WmiPrvSE Child Process | high | 61603 |
-| `101067` | 8 | `T1059.005` T1059.005 | Potential Dropper Script Execution Via WScript/CScript/MSHTA | medium | 61603 |
-| `101068` | 8 | - | Cscript/Wscript Potentially Suspicious Child Process | medium | 61603 |
-| `101069` | 9 | `T1059.005` T1059.005 | Cscript/Wscript Uncommon Script Extension Execution | high | 61603 |
-| `101070` | 8 | `T1218` T1218 | WSL Child Process Anomaly | medium | 61603 |
-| `101071` | 9 | `T1059` Command and Scripting Interpreter | Installation of WSL Kali-Linux | high | 61603 |
-| `101072` | 9 | `T1202` T1202 | WSL Kali-Linux Usage | high | 61603 |
-| `101073` | 9 | `T1202` T1202 | WSL Kali-Linux Usage | high | 61603 |
+| `101063` | 9 | `T1685` T1685 | Potential Tampering With Security Products Via WMIC | high | 61603 |
+| `101064` | 9 | `T1685` T1685 | Potential Tampering With Security Products Via WMIC | high | 61603 |
+| `101065` | 8 | `T1047` T1047 | XSL Script Execution Via WMIC.EXE | medium | 61603 |
+| `101066` | 8 | `T1047` T1047 | WmiPrvSE Spawned A Process | medium | 61603 |
+| `101067` | 8 | `T1047` T1047 | Potential WMI Lateral Movement WmiPrvSE Spawned PowerShell | medium | 61603 |
+| `101068` | 9 | `T1047` T1047 | Suspicious WmiPrvSE Child Process | high | 61603 |
+| `101069` | 8 | `T1059.005` T1059.005 | Potential Dropper Script Execution Via WScript/CScript/MSHTA | medium | 61603 |
+| `101070` | 8 | - | Cscript/Wscript Potentially Suspicious Child Process | medium | 61603 |
+| `101071` | 9 | `T1059.005` T1059.005 | Cscript/Wscript Uncommon Script Extension Execution | high | 61603 |
+| `101072` | 8 | `T1218` T1218 | WSL Child Process Anomaly | medium | 61603 |
+| `101073` | 9 | `T1059` Command and Scripting Interpreter | Installation of WSL Kali-Linux | high | 61603 |
 | `101074` | 9 | `T1202` T1202 | WSL Kali-Linux Usage | high | 61603 |
-| `101075` | 8 | `T1202` T1202 | Windows Binary Executed From WSL | medium | 61603 |
-| `101076` | 9 | `T1218` T1218 | Proxy Execution Via Wuauclt.EXE | high | 61603 |
-| `101077` | 9 | `T1036` T1036 | Suspicious Windows Update Agent Empty Cmdline | high | 61603 |
-| `101078` | 9 | - | Cab File Extraction Via Wusa.EXE From Potentially Suspicious Paths | high | 61603 |
-| `101079` | 9 | - | Wusa.EXE Executed By Parent Process Located In Suspicious Location | high | 61603 |
-| `101080` | 8 | `T1218` T1218 | COM Object Execution via Xwizard.EXE | medium | 61603 |
-| `101081` | 8 | - | Delete Defender Scan ShellEx Context Menu Registry Key | medium | 61614 |
-| `101082` | 9 | `T1685` T1685 | Windows Credential Guard Related Registry Value Deleted - Registry | high | 61614 |
-| `101083` | 9 | `T1685` T1685 | Folder Removed From Exploit Guard ProtectedFolders List - Registry | high | 61614 |
-| `101084` | 9 | `T1685` T1685 | Removal Of AMSI Provider Registry Keys | high | 61614 |
-| `101085` | 9 | `T1070.003` T1070.003 | RunMRU Registry Key Deletion - Registry | high | 61614 |
-| `101086` | 8 | `T1685` T1685 | Removal Of Index Value to Hide Schedule Task - Registry | medium | 61614 |
-| `101087` | 8 | `T1685` T1685 | Removal Of SD Value to Hide Schedule Task - Registry | medium | 61614 |
-| `101088` | 9 | `T1218.003` T1218.003 | CMSTP Execution Registry Event | high | 61615 |
-| `101089` | 9 | `T1685` T1685 | Windows Defender Threat Severity Default Action Modified | high | 61615 |
-| `101090` | 9 | `T1608` T1608 | HybridConnectionManager Service Installation - Registry | high | 61615 |
-| `101091` | 8 | `T1685` T1685 | Enable Remote Connection Between Anonymous Computer - AllowAnonymou... | medium | 61615 |
-| `101092` | 9 | `T1564.001` T1564.001 | Registry Persistence via Service in Safe Mode | high | 61615 |
-| `101093` | 9 | `T1685` T1685 | Potential AMSI COM Server Hijacking | high | 61615 |
-| `101094` | 9 | `T1685` T1685 | AMSI Disabled via Registry Modification | high | 61615 |
-| `101095` | 9 | `T1685` T1685 | Sysmon Driver Altitude Change | high | 61615 |
-| `101096` | 9 | `T1685.001` T1685.001 | Change Winevt Channel Access Permission Via Registry | high | 61615 |
-| `101097` | 9 | `T1685` T1685 | Windows Credential Guard Disabled - Registry | high | 61615 |
-| `101098` | 9 | `T1202` T1202 | Custom File Open Handler Executes PowerShell | high | 61615 |
-| `101099` | 8 | `T1685` T1685 | Windows Defender Exclusions Added - Registry | medium | 61615 |
-| `101100` | 9 | `T1685` T1685 | Antivirus Filter Driver Disallowed On Dev Drive - Registry | high | 61615 |
-| `101101` | 9 | `T1685` T1685 | Windows Hypervisor Enforced Code Integrity Disabled | high | 61615 |
-| `101102` | 9 | `T1685` T1685 | Hypervisor Enforced Paging Translation Disabled | high | 61615 |
-| `101103` | 8 | `T1070.005` T1070.005 | Disable Administrative Share Creation at Startup | medium | 61615 |
-| `101104` | 9 | `T1685.001` T1685.001 | Potential AutoLogger Sessions Tampering | high | 61615 |
-| `101105` | 8 | `T1686.003` T1686.003 | Disable Microsoft Defender Firewall via Registry | medium | 61615 |
-| `101106` | 9 | - | Disable Macro Runtime Scan Scope | high | 61615 |
-| `101107` | 8 | `T1685` T1685 | Disable Privacy Settings Experience in Registry | medium | 61615 |
-| `101108` | 9 | `T1685` T1685 | Windows Defender Service Disabled - Registry | high | 61615 |
-| `101109` | 8 | `T1686.003` T1686.003 | Disable Windows Firewall by Registry | medium | 61615 |
-| `101110` | 9 | `T1685.001` T1685.001 | Disable Windows Event Logging Via Registry | high | 61615 |
-| `101111` | 8 | `T1685` T1685 | Disable Exploit Guard Network Protection on Windows Defender | medium | 61615 |
-| `101112` | 9 | `T1685` T1685 | Disabled Windows Defender Eventlog | high | 61615 |
-| `101113` | 9 | `T1685` T1685 | Disable PUA Protection on Windows Defender | high | 61615 |
-| `101114` | 8 | `T1685` T1685 | Disable Tamper Protection on Windows Defender | medium | 61615 |
-| `101115` | 8 | `T1685` T1685 | Scripted Diagnostics Turn Off Check Enabled - Registry | medium | 61615 |
-| `101116` | 9 | `T1685.001` T1685.001 | Potential EventLog File Location Tampering | high | 61615 |
-| `101117` | 9 | `T1685` T1685 | Suspicious Application Allowed Through Exploit Guard | high | 61615 |
-| `101118` | 9 | - | New File Association Using Exefile | high | 61615 |
-| `101119` | 9 | `T1204.004` T1204.004 | FileFix - Command Evidence in TypedPaths | high | 61615 |
-| `101120` | 8 | `T1564.001` T1564.001 | Displaying Hidden Files Feature Disabled | medium | 61615 |
-| `101121` | 9 | `T1685` T1685 | Hide Schedule Task Via Index Value Tamper | high | 61615 |
-| `101122` | 9 | - | Driver Added To Disallowed Images In HVCI - Registry | high | 61615 |
-| `101123` | 9 | - | IE ZoneMap Setting Downgraded To MyComputer Zone For HTTP Protocols | high | 61615 |
-| `101124` | 9 | `T1685` T1685 | Uncommon Extension In Keyboard Layout IME File Registry Value | high | 61615 |
-| `101125` | 9 | `T1685` T1685 | Suspicious Path In Keyboard Layout IME File Registry Value | high | 61615 |
-| `101126` | 8 | - | Internet Explorer DisableFirstRunCustomize Enabled | medium | 61615 |
-| `101127` | 9 | `T1685` T1685 | Microsoft Office Protected View Disabled | high | 61615 |
-| `101128` | 9 | `T1685` T1685 | Python Function Execution Security Warning Disabled In Excel - Regi... | high | 61615 |
-| `101129` | 8 | `T1559.002` T1559.002 | Enable Microsoft Dynamic Data Exchange | medium | 61615 |
-| `101130` | 8 | `T1559.002` T1559.002 | Enable Microsoft Dynamic Data Exchange | medium | 61615 |
-| `101131` | 9 | `T1036.003` T1036.003 | Potential WerFault ReflectDebugger Registry Value Abuse | high | 61615 |
-| `101132` | 9 | - | Potential Attachment Manager Settings Associations Tamper | high | 61615 |
-| `101133` | 9 | - | Potential Attachment Manager Settings Attachments Tamper | high | 61615 |
-| `101134` | 9 | `T1204.001` T1204.001 | Potential ClickFix Execution Pattern - Registry | high | 61615 |
-| `101135` | 9 | `T1569.002` T1569.002 | PowerShell as a Service in Registry | high | 61615 |
-| `101136` | 8 | - | Potential PowerShell Execution Policy Tampering | medium | 61615 |
-| `101137` | 9 | `T1218` T1218 | Potential Provisioning Registry Key Abuse For Binary Proxy Executio... | high | 61615 |
-| `101138` | 9 | `T1588.002` T1588.002 | Suspicious Execution Of Renamed Sysinternals Tools - Registry | high | 61615 |
-| `101139` | 8 | `T1588.002` T1588.002 | PUA - Sysinternals Tools Execution - Registry | medium | 61615 |
-| `101140` | 9 | `T1588.002` T1588.002 | Usage of Renamed Sysinternals Tools - RegistrySet | high | 61615 |
-| `101141` | 9 | `T1059.001` T1059.001 | Potentially Suspicious Command Executed Via Run Dialog Box - Registry | high | 61615 |
-| `101142` | 8 | `T1218.011` T1218.011 | ScreenSaver Registry Key Set | medium | 61615 |
-| `101143` | 9 | `T1685` T1685 | Tamper With Sophos AV Registry Keys | high | 61615 |
-| `101144` | 9 | `T1564.002` T1564.002 | Hiding User Account Via SpecialAccounts Registry Key | high | 61615 |
-| `101145` | 8 | `T1588.002` T1588.002 | Suspicious Keyboard Layout Load | medium | 61615 |
-| `101146` | 8 | `T1036.003` T1036.003 | Potential PendingFileRenameOperations Tampering | medium | 61615 |
-| `101147` | 9 | `T1204.004` T1204.004 | Suspicious Space Characters in RunMRU Registry Path - ClickFix | high | 61615 |
-| `101148` | 8 | `T1685` T1685 | Suspicious Service Installed | medium | 61615 |
-| `101149` | 9 | `T1204.004` T1204.004 | Suspicious Space Characters in TypedPaths Registry Path - FileFix | high | 61615 |
-| `101150` | 8 | `T1685` T1685 | WFP Filter Added via Registry | medium | 61615 |
-| `101151` | 8 | - | Old TLS1.0/TLS1.1 Protocol Version Enabled | medium | 61615 |
-| `101152` | 9 | - | Potential Signing Bypass Via Windows Developer Features - Registry | high | 61615 |
-| `101153` | 9 | `T1685` T1685 | Windows Vulnerable Driver Blocklist Disabled | high | 61615 |
-| `101154` | 9 | `T1218` T1218 | Execution DLL of Choice Using WAB.EXE | high | 61615 |
-| `101155` | 9 | `T1685` T1685 | Disable Windows Defender Functionalities Via Registry Keys | high | 61615 |
-| `101156` | 8 | - | Sysmon Configuration Change | medium | 60004 |
-| `101157` | 9 | `T1564` T1564 | Sysmon Configuration Error | high | 60004 |
-| `101158` | 9 | `T1564` T1564 | Sysmon Configuration Modification | high | 60004 |
-| `101159` | 9 | - | Sysmon Blocked Executable | high | 60004 |
-| `101160` | 9 | - | Sysmon Blocked File Shredding | high | 60004 |
-| `101161` | 8 | - | Sysmon File Executable Creation Detected | medium | 60004 |
-| `101162` | 9 | `T1059.005` T1059.005 | Suspicious Scripting in a WMI Consumer | high | 61621 |
+| `101075` | 9 | `T1202` T1202 | WSL Kali-Linux Usage | high | 61603 |
+| `101076` | 9 | `T1202` T1202 | WSL Kali-Linux Usage | high | 61603 |
+| `101077` | 8 | `T1202` T1202 | Windows Binary Executed From WSL | medium | 61603 |
+| `101078` | 9 | `T1218` T1218 | Proxy Execution Via Wuauclt.EXE | high | 61603 |
+| `101079` | 9 | `T1036` T1036 | Suspicious Windows Update Agent Empty Cmdline | high | 61603 |
+| `101080` | 9 | - | Cab File Extraction Via Wusa.EXE From Potentially Suspicious Paths | high | 61603 |
+| `101081` | 9 | - | Wusa.EXE Executed By Parent Process Located In Suspicious Location | high | 61603 |
+| `101082` | 8 | `T1218` T1218 | COM Object Execution via Xwizard.EXE | medium | 61603 |
+| `101083` | 8 | - | Delete Defender Scan ShellEx Context Menu Registry Key | medium | 61614 |
+| `101084` | 9 | `T1685` T1685 | Windows Credential Guard Related Registry Value Deleted - Registry | high | 61614 |
+| `101085` | 9 | `T1685` T1685 | Folder Removed From Exploit Guard ProtectedFolders List - Registry | high | 61614 |
+| `101086` | 9 | `T1685` T1685 | Removal Of AMSI Provider Registry Keys | high | 61614 |
+| `101087` | 9 | `T1070.003` T1070.003 | RunMRU Registry Key Deletion - Registry | high | 61614 |
+| `101088` | 8 | `T1685` T1685 | Removal Of Index Value to Hide Schedule Task - Registry | medium | 61614 |
+| `101089` | 8 | `T1685` T1685 | Removal Of SD Value to Hide Schedule Task - Registry | medium | 61614 |
+| `101090` | 9 | `T1218.003` T1218.003 | CMSTP Execution Registry Event | high | 61615 |
+| `101091` | 9 | `T1685` T1685 | Windows Defender Threat Severity Default Action Modified | high | 61615 |
+| `101092` | 9 | `T1608` T1608 | HybridConnectionManager Service Installation - Registry | high | 61615 |
+| `101093` | 8 | `T1685` T1685 | Enable Remote Connection Between Anonymous Computer - AllowAnonymou... | medium | 61615 |
+| `101094` | 9 | `T1564.001` T1564.001 | Registry Persistence via Service in Safe Mode | high | 61615 |
+| `101095` | 9 | `T1685` T1685 | Potential AMSI COM Server Hijacking | high | 61615 |
+| `101096` | 9 | `T1685` T1685 | AMSI Disabled via Registry Modification | high | 61615 |
+| `101097` | 9 | `T1685` T1685 | Sysmon Driver Altitude Change | high | 61615 |
+| `101098` | 9 | `T1685.001` T1685.001 | Change Winevt Channel Access Permission Via Registry | high | 61615 |
+| `101099` | 9 | `T1685` T1685 | Windows Credential Guard Disabled - Registry | high | 61615 |
+| `101100` | 9 | `T1202` T1202 | Custom File Open Handler Executes PowerShell | high | 61615 |
+| `101101` | 8 | `T1685` T1685 | Windows Defender Exclusions Added - Registry | medium | 61615 |
+| `101102` | 9 | `T1685` T1685 | Antivirus Filter Driver Disallowed On Dev Drive - Registry | high | 61615 |
+| `101103` | 9 | `T1685` T1685 | Windows Hypervisor Enforced Code Integrity Disabled | high | 61615 |
+| `101104` | 9 | `T1685` T1685 | Hypervisor Enforced Paging Translation Disabled | high | 61615 |
+| `101105` | 8 | `T1070.005` T1070.005 | Disable Administrative Share Creation at Startup | medium | 61615 |
+| `101106` | 9 | `T1685.001` T1685.001 | Potential AutoLogger Sessions Tampering | high | 61615 |
+| `101107` | 8 | `T1686.003` T1686.003 | Disable Microsoft Defender Firewall via Registry | medium | 61615 |
+| `101108` | 9 | - | Disable Macro Runtime Scan Scope | high | 61615 |
+| `101109` | 8 | `T1685` T1685 | Disable Privacy Settings Experience in Registry | medium | 61615 |
+| `101110` | 9 | `T1685` T1685 | Windows Defender Service Disabled - Registry | high | 61615 |
+| `101111` | 8 | `T1686.003` T1686.003 | Disable Windows Firewall by Registry | medium | 61615 |
+| `101112` | 9 | `T1685.001` T1685.001 | Disable Windows Event Logging Via Registry | high | 61615 |
+| `101113` | 8 | `T1685` T1685 | Disable Exploit Guard Network Protection on Windows Defender | medium | 61615 |
+| `101114` | 9 | `T1685` T1685 | Disabled Windows Defender Eventlog | high | 61615 |
+| `101115` | 9 | `T1685` T1685 | Disable PUA Protection on Windows Defender | high | 61615 |
+| `101116` | 8 | `T1685` T1685 | Disable Tamper Protection on Windows Defender | medium | 61615 |
+| `101117` | 8 | `T1685` T1685 | Scripted Diagnostics Turn Off Check Enabled - Registry | medium | 61615 |
+| `101118` | 9 | `T1685.001` T1685.001 | Potential EventLog File Location Tampering | high | 61615 |
+| `101119` | 9 | `T1685` T1685 | Suspicious Application Allowed Through Exploit Guard | high | 61615 |
+| `101120` | 9 | - | New File Association Using Exefile | high | 61615 |
+| `101121` | 9 | `T1204.004` T1204.004 | FileFix - Command Evidence in TypedPaths | high | 61615 |
+| `101122` | 8 | `T1564.001` T1564.001 | Displaying Hidden Files Feature Disabled | medium | 61615 |
+| `101123` | 9 | `T1685` T1685 | Hide Schedule Task Via Index Value Tamper | high | 61615 |
+| `101124` | 9 | - | Driver Added To Disallowed Images In HVCI - Registry | high | 61615 |
+| `101125` | 9 | - | IE ZoneMap Setting Downgraded To MyComputer Zone For HTTP Protocols | high | 61615 |
+| `101126` | 9 | `T1685` T1685 | Uncommon Extension In Keyboard Layout IME File Registry Value | high | 61615 |
+| `101127` | 9 | `T1685` T1685 | Suspicious Path In Keyboard Layout IME File Registry Value | high | 61615 |
+| `101128` | 8 | - | Internet Explorer DisableFirstRunCustomize Enabled | medium | 61615 |
+| `101129` | 9 | `T1685` T1685 | Microsoft Office Protected View Disabled | high | 61615 |
+| `101130` | 9 | `T1685` T1685 | Python Function Execution Security Warning Disabled In Excel - Regi... | high | 61615 |
+| `101131` | 8 | `T1559.002` T1559.002 | Enable Microsoft Dynamic Data Exchange | medium | 61615 |
+| `101132` | 8 | `T1559.002` T1559.002 | Enable Microsoft Dynamic Data Exchange | medium | 61615 |
+| `101133` | 9 | `T1036.003` T1036.003 | Potential WerFault ReflectDebugger Registry Value Abuse | high | 61615 |
+| `101134` | 9 | - | Potential Attachment Manager Settings Associations Tamper | high | 61615 |
+| `101135` | 9 | - | Potential Attachment Manager Settings Attachments Tamper | high | 61615 |
+| `101136` | 9 | `T1204.001` T1204.001 | Potential ClickFix Execution Pattern - Registry | high | 61615 |
+| `101137` | 9 | `T1569.002` T1569.002 | PowerShell as a Service in Registry | high | 61615 |
+| `101138` | 8 | - | Potential PowerShell Execution Policy Tampering | medium | 61615 |
+| `101139` | 9 | `T1218` T1218 | Potential Provisioning Registry Key Abuse For Binary Proxy Executio... | high | 61615 |
+| `101140` | 9 | `T1588.002` T1588.002 | Suspicious Execution Of Renamed Sysinternals Tools - Registry | high | 61615 |
+| `101141` | 8 | `T1588.002` T1588.002 | PUA - Sysinternals Tools Execution - Registry | medium | 61615 |
+| `101142` | 9 | `T1588.002` T1588.002 | Usage of Renamed Sysinternals Tools - RegistrySet | high | 61615 |
+| `101143` | 9 | `T1059.001` T1059.001 | Potentially Suspicious Command Executed Via Run Dialog Box - Registry | high | 61615 |
+| `101144` | 8 | `T1218.011` T1218.011 | ScreenSaver Registry Key Set | medium | 61615 |
+| `101145` | 9 | `T1685` T1685 | Tamper With Sophos AV Registry Keys | high | 61615 |
+| `101146` | 9 | `T1564.002` T1564.002 | Hiding User Account Via SpecialAccounts Registry Key | high | 61615 |
+| `101147` | 8 | `T1588.002` T1588.002 | Suspicious Keyboard Layout Load | medium | 61615 |
+| `101148` | 8 | `T1036.003` T1036.003 | Potential PendingFileRenameOperations Tampering | medium | 61615 |
+| `101149` | 9 | `T1204.004` T1204.004 | Suspicious Space Characters in RunMRU Registry Path - ClickFix | high | 61615 |
+| `101150` | 8 | `T1685` T1685 | Suspicious Service Installed | medium | 61615 |
+| `101151` | 9 | `T1204.004` T1204.004 | Suspicious Space Characters in TypedPaths Registry Path - FileFix | high | 61615 |
+| `101152` | 8 | `T1685` T1685 | WFP Filter Added via Registry | medium | 61615 |
+| `101153` | 8 | - | Old TLS1.0/TLS1.1 Protocol Version Enabled | medium | 61615 |
+| `101154` | 9 | - | Potential Signing Bypass Via Windows Developer Features - Registry | high | 61615 |
+| `101155` | 9 | `T1685` T1685 | Windows Vulnerable Driver Blocklist Disabled | high | 61615 |
+| `101156` | 9 | `T1218` T1218 | Execution DLL of Choice Using WAB.EXE | high | 61615 |
+| `101157` | 9 | `T1685` T1685 | Disable Windows Defender Functionalities Via Registry Keys | high | 61615 |
+| `101158` | 8 | - | Sysmon Configuration Change | medium | 60004 |
+| `101159` | 9 | `T1564` T1564 | Sysmon Configuration Error | high | 60004 |
+| `101160` | 9 | `T1564` T1564 | Sysmon Configuration Modification | high | 60004 |
+| `101161` | 9 | `T1564` T1564 | Sysmon Configuration Modification | high | 60004 |
+| `101162` | 9 | - | Sysmon Blocked Executable | high | 60004 |
+| `101163` | 9 | - | Sysmon Blocked File Shredding | high | 60004 |
+| `101164` | 8 | - | Sysmon File Executable Creation Detected | medium | 60004 |
+| `101165` | 9 | `T1059.005` T1059.005 | Suspicious Scripting in a WMI Consumer | high | 61621 |
 
-### Persistence (TA0003) — 843 rules
+### Persistence (TA0003) — 845 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1782,314 +1785,316 @@
 | `104532` | 10 | `T1505.003` T1505.003 | Certificate Request Export to Exchange Webserver | high | 60000 |
 | `104533` | 10 | `T1505.003` T1505.003 | Mailbox Export to Exchange Webserver | high | 60000 |
 | `104534` | 10 | `T1505.003` T1505.003 | Exchange Set OabVirtualDirectory ExternalUrl Property | high | 60000 |
-| `104535` | 10 | `T1505.002` T1505.002 | Failed MSExchange Transport Agent Installation | high | 60000 |
-| `104536` | 13 | `T1021.002` T1021.002 | CobaltStrike Service Installations - Security | high | 60100 |
-| `104537` | 10 | `T1112` T1112 | ETW Logging Disabled In .NET Processes - Registry | high | 60100 |
+| `104535` | 9 | `T1505.002` T1505.002 | MSExchange Transport Agent Installation - Builtin | medium | 60000 |
+| `104536` | 10 | `T1505.002` T1505.002 | Failed MSExchange Transport Agent Installation | high | 60000 |
+| `104537` | 13 | `T1021.002` T1021.002 | CobaltStrike Service Installations - Security | high | 60100 |
 | `104538` | 10 | `T1112` T1112 | ETW Logging Disabled In .NET Processes - Registry | high | 60100 |
-| `104539` | 10 | `T1136.001` T1136.001 | Hidden Local User Creation | high | 60100 |
-| `104540` | 10 | `T1554` T1554 | HybridConnectionManager Service Installation | high | 60100 |
-| `104541` | 10 | `T1685` T1685 | NetNTLM Downgrade Attack | high | 60100 |
-| `104542` | 10 | `T1543` Create or Modify System Process | Service Installed By Unusual Client - Security | high | 60100 |
-| `104543` | 9 | `T1134.005` T1134.005 | Addition of SID History to Active Directory Object | medium | 60100 |
-| `104544` | 9 | `T1078` Valid Accounts | Account Tampering - Suspicious Failed Logon Reasons | medium | 60100 |
-| `104545` | 9 | `T1484.001` T1484.001 | Startup/Logon Script Added to Group Policy Object | medium | 60100 |
-| `104546` | 10 | `T1136.001` T1136.001 | Suspicious Windows ANONYMOUS LOGON Local Account Created | high | 60100 |
-| `104547` | 10 | `T1556` T1556 | Possible Shadow Credentials Added | high | 60100 |
-| `104548` | 10 | `T1112` T1112 | Sysmon Channel Reference Deletion | high | 60100 |
+| `104539` | 10 | `T1112` T1112 | ETW Logging Disabled In .NET Processes - Registry | high | 60100 |
+| `104540` | 10 | `T1136.001` T1136.001 | Hidden Local User Creation | high | 60100 |
+| `104541` | 10 | `T1554` T1554 | HybridConnectionManager Service Installation | high | 60100 |
+| `104542` | 10 | `T1685` T1685 | NetNTLM Downgrade Attack | high | 60100 |
+| `104543` | 10 | `T1543` Create or Modify System Process | Service Installed By Unusual Client - Security | high | 60100 |
+| `104544` | 9 | `T1134.005` T1134.005 | Addition of SID History to Active Directory Object | medium | 60100 |
+| `104545` | 9 | `T1078` Valid Accounts | Account Tampering - Suspicious Failed Logon Reasons | medium | 60100 |
+| `104546` | 9 | `T1484.001` T1484.001 | Startup/Logon Script Added to Group Policy Object | medium | 60100 |
+| `104547` | 10 | `T1136.001` T1136.001 | Suspicious Windows ANONYMOUS LOGON Local Account Created | high | 60100 |
+| `104548` | 10 | `T1556` T1556 | Possible Shadow Credentials Added | high | 60100 |
 | `104549` | 10 | `T1112` T1112 | Sysmon Channel Reference Deletion | high | 60100 |
-| `104550` | 9 | `T1546.003` T1546.003 | WMI Persistence - Security | medium | 60100 |
-| `104551` | 10 | `T1554` T1554 | HybridConnectionManager Service Running | high | 60000 |
-| `104552` | 13 | `T1021.002` T1021.002 | CobaltStrike Service Installations - System | high | 60106 |
-| `104553` | 10 | `T1543` Create or Modify System Process | KrbRelayUp Service Installation | high | 60106 |
-| `104554` | 10 | `T1543.003` T1543.003 | Moriya Rootkit - System | high | 60106 |
-| `104555` | 9 | - | Anydesk Remote Access Software Service Installation | medium | 60106 |
-| `104556` | 9 | - | NetSupport Manager Service Install | medium | 60106 |
-| `104557` | 9 | `T1543.003` T1543.003 | New PDQDeploy Service - Server Side | medium | 60106 |
-| `104558` | 9 | `T1543.003` T1543.003 | New PDQDeploy Service - Client Side | medium | 60106 |
-| `104559` | 10 | `T1543.003` T1543.003 | ProcessHacker Privilege Elevation | high | 60106 |
-| `104560` | 9 | - | Remote Utilities Host Service Install | medium | 60106 |
-| `104561` | 10 | `T1543.003` T1543.003 | Sliver C2 Default Service Installation | high | 60106 |
-| `104562` | 10 | `T1543` Create or Modify System Process | Service Installed By Unusual Client - System | high | 60106 |
-| `104563` | 10 | `T1543.003` T1543.003 | Suspicious Service Installation | high | 60106 |
-| `104564` | 9 | `T1543.003` T1543.003 | Uncommon Service Installation Image Path | medium | 60106 |
-| `104565` | 10 | - | RTCore Suspicious Service Installation | high | 60106 |
-| `104566` | 9 | `T1543.003` T1543.003 | Service Installation in Suspicious Folder | medium | 60106 |
-| `104567` | 10 | `T1543.003` T1543.003 | Service Installation with Suspicious Folder Pattern | high | 60106 |
-| `104568` | 10 | `T1543.003` T1543.003 | Suspicious Service Installation Script | high | 60106 |
-| `104569` | 9 | `T1546.003` T1546.003 | WMI Persistence | medium | 61621 |
-| `104570` | 10 | - | Potential Suspicious Winget Package Installation | high | 61617 |
-| `104571` | 10 | `T1554` T1554 | DNS HybridConnectionManager Service Bus | high | 61624 |
-| `104572` | 10 | `T1543.003` T1543.003 | Malicious Driver Load | high | 61608 |
-| `104573` | 13 | `T1543.003` T1543.003 | Malicious Driver Load By Name | medium | 61608 |
-| `104574` | 10 | `T1543` Create or Modify System Process | PUA - Process Hacker Driver Load | high | 61608 |
+| `104550` | 10 | `T1112` T1112 | Sysmon Channel Reference Deletion | high | 60100 |
+| `104551` | 9 | `T1546.003` T1546.003 | WMI Persistence - Security | medium | 60100 |
+| `104552` | 10 | `T1554` T1554 | HybridConnectionManager Service Running | high | 60000 |
+| `104553` | 13 | `T1021.002` T1021.002 | CobaltStrike Service Installations - System | high | 60106 |
+| `104554` | 10 | `T1543` Create or Modify System Process | KrbRelayUp Service Installation | high | 60106 |
+| `104555` | 10 | `T1543.003` T1543.003 | Moriya Rootkit - System | high | 60106 |
+| `104556` | 9 | - | Anydesk Remote Access Software Service Installation | medium | 60106 |
+| `104557` | 9 | - | NetSupport Manager Service Install | medium | 60106 |
+| `104558` | 9 | `T1543.003` T1543.003 | New PDQDeploy Service - Server Side | medium | 60106 |
+| `104559` | 9 | `T1543.003` T1543.003 | New PDQDeploy Service - Client Side | medium | 60106 |
+| `104560` | 10 | `T1543.003` T1543.003 | ProcessHacker Privilege Elevation | high | 60106 |
+| `104561` | 9 | - | Remote Utilities Host Service Install | medium | 60106 |
+| `104562` | 10 | `T1543.003` T1543.003 | Sliver C2 Default Service Installation | high | 60106 |
+| `104563` | 10 | `T1543` Create or Modify System Process | Service Installed By Unusual Client - System | high | 60106 |
+| `104564` | 10 | `T1543.003` T1543.003 | Suspicious Service Installation | high | 60106 |
+| `104565` | 9 | `T1543.003` T1543.003 | Uncommon Service Installation Image Path | medium | 60106 |
+| `104566` | 10 | - | RTCore Suspicious Service Installation | high | 60106 |
+| `104567` | 9 | `T1543.003` T1543.003 | Service Installation in Suspicious Folder | medium | 60106 |
+| `104568` | 10 | `T1543.003` T1543.003 | Service Installation with Suspicious Folder Pattern | high | 60106 |
+| `104569` | 10 | `T1543.003` T1543.003 | Suspicious Service Installation Script | high | 60106 |
+| `104570` | 9 | `T1546.003` T1546.003 | WMI Persistence | medium | 61621 |
+| `104571` | 10 | - | Potential Suspicious Winget Package Installation | high | 61617 |
+| `104572` | 10 | `T1554` T1554 | DNS HybridConnectionManager Service Bus | high | 61624 |
+| `104573` | 10 | `T1543.003` T1543.003 | Malicious Driver Load | high | 61608 |
+| `104574` | 13 | `T1543.003` T1543.003 | Malicious Driver Load By Name | medium | 61608 |
 | `104575` | 10 | `T1543` Create or Modify System Process | PUA - Process Hacker Driver Load | high | 61608 |
-| `104576` | 9 | `T1543` Create or Modify System Process | PUA - System Informer Driver Load | medium | 61608 |
+| `104576` | 10 | `T1543` Create or Modify System Process | PUA - Process Hacker Driver Load | high | 61608 |
 | `104577` | 9 | `T1543` Create or Modify System Process | PUA - System Informer Driver Load | medium | 61608 |
-| `104578` | 10 | `T1543.003` T1543.003 | Driver Load From A Temporary Directory | high | 61608 |
-| `104579` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load | high | 61608 |
-| `104580` | 10 | `T1543.003` T1543.003 | Vulnerable HackSys Extreme Vulnerable Driver Load | high | 61608 |
+| `104578` | 9 | `T1543` Create or Modify System Process | PUA - System Informer Driver Load | medium | 61608 |
+| `104579` | 10 | `T1543.003` T1543.003 | Driver Load From A Temporary Directory | high | 61608 |
+| `104580` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load | high | 61608 |
 | `104581` | 10 | `T1543.003` T1543.003 | Vulnerable HackSys Extreme Vulnerable Driver Load | high | 61608 |
-| `104582` | 10 | `T1543.003` T1543.003 | Vulnerable WinRing0 Driver Load | high | 61608 |
+| `104582` | 10 | `T1543.003` T1543.003 | Vulnerable HackSys Extreme Vulnerable Driver Load | high | 61608 |
 | `104583` | 10 | `T1543.003` T1543.003 | Vulnerable WinRing0 Driver Load | high | 61608 |
-| `104584` | 10 | `T1133` T1133 | Unusual File Modification by dns.exe | high | 61604 |
-| `104585` | 10 | `T1133` T1133 | Unusual File Deletion by Dns.exe | high | 61625 |
-| `104586` | 9 | `T1574.001` T1574.001 | Creation Of Non-Existent System DLL | medium | 61613 |
-| `104587` | 10 | `T1574.001` T1574.001 | DLL Search Order Hijackig Via Additional Space in Path | high | 61613 |
-| `104588` | 9 | - | Potential Persistence Attempt Via ErrorHandler.Cmd | medium | 61613 |
-| `104589` | 10 | `T1505.003` T1505.003 | Suspicious ASPX File Drop by Exchange | high | 61613 |
-| `104590` | 9 | `T1190` Exploit Public-Facing Application | Suspicious File Drop by Exchange | medium | 61613 |
-| `104591` | 10 | `T1574.001` T1574.001 | HackTool - Powerup Write Hijack DLL | high | 61613 |
-| `104592` | 10 | `T1574.001` T1574.001 | Malicious DLL File Dropped in the Teams or OneDrive Folder | high | 61613 |
-| `104593` | 9 | - | Potential Persistence Via Notepad++ Plugins | medium | 61613 |
-| `104594` | 10 | `T1137.006` T1137.006 | Potential Persistence Via Microsoft Office Add-In | high | 61613 |
+| `104584` | 10 | `T1543.003` T1543.003 | Vulnerable WinRing0 Driver Load | high | 61608 |
+| `104585` | 10 | `T1133` T1133 | Unusual File Modification by dns.exe | high | 61604 |
+| `104586` | 10 | `T1133` T1133 | Unusual File Deletion by Dns.exe | high | 61625 |
+| `104587` | 9 | `T1574.001` T1574.001 | Creation Of Non-Existent System DLL | medium | 61613 |
+| `104588` | 10 | `T1574.001` T1574.001 | DLL Search Order Hijackig Via Additional Space in Path | high | 61613 |
+| `104589` | 9 | - | Potential Persistence Attempt Via ErrorHandler.Cmd | medium | 61613 |
+| `104590` | 10 | `T1505.003` T1505.003 | Suspicious ASPX File Drop by Exchange | high | 61613 |
+| `104591` | 9 | `T1190` Exploit Public-Facing Application | Suspicious File Drop by Exchange | medium | 61613 |
+| `104592` | 10 | `T1574.001` T1574.001 | HackTool - Powerup Write Hijack DLL | high | 61613 |
+| `104593` | 10 | `T1574.001` T1574.001 | Malicious DLL File Dropped in the Teams or OneDrive Folder | high | 61613 |
+| `104594` | 9 | - | Potential Persistence Via Notepad++ Plugins | medium | 61613 |
 | `104595` | 10 | `T1137.006` T1137.006 | Potential Persistence Via Microsoft Office Add-In | high | 61613 |
 | `104596` | 10 | `T1137.006` T1137.006 | Potential Persistence Via Microsoft Office Add-In | high | 61613 |
 | `104597` | 10 | `T1137.006` T1137.006 | Potential Persistence Via Microsoft Office Add-In | high | 61613 |
-| `104598` | 10 | `T1137.003` T1137.003 | Potential Persistence Via Outlook Form | high | 61613 |
-| `104599` | 10 | `T1137` T1137 | Potential Persistence Via Microsoft Office Startup Folder | high | 61613 |
-| `104600` | 9 | - | Potential Binary Or Script Dropper Via PowerShell | medium | 61613 |
-| `104601` | 9 | - | Potential Suspicious PowerShell Module File Created | medium | 61613 |
-| `104602` | 9 | - | PowerShell Module File Created By Non-PowerShell Process | medium | 61613 |
-| `104603` | 9 | `T1505.003` T1505.003 | Suspicious File Write to Webapps Root Directory | medium | 61613 |
-| `104604` | 9 | `T1546.013` T1546.013 | PowerShell Profile Modification | medium | 61613 |
-| `104605` | 10 | - | Suspicious File Creation Activity From Fake Recycle.Bin Folder | high | 61613 |
+| `104598` | 10 | `T1137.006` T1137.006 | Potential Persistence Via Microsoft Office Add-In | high | 61613 |
+| `104599` | 10 | `T1137.003` T1137.003 | Potential Persistence Via Outlook Form | high | 61613 |
+| `104600` | 10 | `T1137` T1137 | Potential Persistence Via Microsoft Office Startup Folder | high | 61613 |
+| `104601` | 9 | - | Potential Binary Or Script Dropper Via PowerShell | medium | 61613 |
+| `104602` | 9 | - | Potential Suspicious PowerShell Module File Created | medium | 61613 |
+| `104603` | 9 | - | PowerShell Module File Created By Non-PowerShell Process | medium | 61613 |
+| `104604` | 9 | `T1505.003` T1505.003 | Suspicious File Write to Webapps Root Directory | medium | 61613 |
+| `104605` | 9 | `T1546.013` T1546.013 | PowerShell Profile Modification | medium | 61613 |
 | `104606` | 10 | - | Suspicious File Creation Activity From Fake Recycle.Bin Folder | high | 61613 |
-| `104607` | 9 | `T1546.013` T1546.013 | VsCode Powershell Profile Modification | medium | 61613 |
-| `104608` | 10 | `T1068` Exploitation for Privilege Escalation | Process Explorer Driver Creation By Non-Sysinternals Binary | high | 61613 |
-| `104609` | 9 | `T1068` Exploitation for Privilege Escalation | Process Monitor Driver Creation By Non-Sysinternals Binary | medium | 61613 |
-| `104610` | 10 | - | Potential Privilege Escalation Attempt Via .Exe.Local Technique | high | 61613 |
-| `104611` | 9 | `T1505.003` T1505.003 | Potential Webshell Creation On Static Website | medium | 61613 |
-| `104612` | 10 | `T1542.001` T1542.001 | UEFI Persistence Via Wpbbin - FileCreation | high | 61613 |
-| `104613` | 9 | `T1574.001` T1574.001 | Potential Antivirus Software DLL Sideloading | medium | 61609 |
-| `104614` | 10 | `T1574.001` T1574.001 | Potential appverifUI.DLL Sideloading | high | 61609 |
-| `104615` | 9 | `T1574.001` T1574.001 | Potential AVKkid.DLL Sideloading | medium | 61609 |
-| `104616` | 9 | `T1574.001` T1574.001 | Potential CCleanerDU.DLL Sideloading | medium | 61609 |
-| `104617` | 9 | `T1574.001` T1574.001 | Potential CCleanerReactivator.DLL Sideloading | medium | 61609 |
-| `104618` | 9 | `T1574.001` T1574.001 | Potential Chrome Frame Helper DLL Sideloading | medium | 61609 |
-| `104619` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Via ClassicExplorer32.dll | medium | 61609 |
-| `104620` | 10 | `T1574.001` T1574.001 | Potential DLL Sideloading Via comctl32.dll | high | 61609 |
-| `104621` | 10 | `T1574.001` T1574.001 | System Control Panel Item Loaded From Uncommon Location | high | 61609 |
-| `104622` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Of DBGCORE.DLL | medium | 61609 |
-| `104623` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Of DBGHELP.DLL | medium | 61609 |
-| `104624` | 10 | `T1574.001` T1574.001 | Potential EACore.DLL Sideloading | high | 61609 |
-| `104625` | 10 | `T1574.001` T1574.001 | Potential Edputil.DLL Sideloading | high | 61609 |
-| `104626` | 10 | `T1574.001` T1574.001 | Potential System DLL Sideloading From Non System Locations | high | 61609 |
-| `104627` | 9 | `T1574.001` T1574.001 | Potential Goopdate.DLL Sideloading | medium | 61609 |
-| `104628` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Of Libcurl.DLL Via GUP.EXE | medium | 61609 |
-| `104629` | 10 | `T1574.001` T1574.001 | Potential Iviewers.DLL Sideloading | high | 61609 |
-| `104630` | 10 | `T1574.001` T1574.001 | Potential JLI.dll Side-Loading | high | 61609 |
-| `104631` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Via JsSchHlp | medium | 61609 |
-| `104632` | 10 | `T1574.001` T1574.001 | Potential DLL Sideloading Of KeyScramblerIE.DLL Via KeyScrambler.EXE | high | 61609 |
-| `104633` | 9 | `T1574.001` T1574.001 | Potential Libvlc.DLL Sideloading | medium | 61609 |
-| `104634` | 9 | `T1574.001` T1574.001 | Potential Mfdetours.DLL Sideloading | medium | 61609 |
-| `104635` | 10 | `T1574.001` T1574.001 | Unsigned Mfdetours.DLL Sideloading | high | 61609 |
-| `104636` | 10 | `T1574.001` T1574.001 | Potential DLL Sideloading Of Non-Existent DLLs From System Folders | high | 61609 |
-| `104637` | 10 | `T1574.001` T1574.001 | Microsoft Office DLL Sideload | high | 61609 |
-| `104638` | 10 | `T1574.001` T1574.001 | Potential Rcdll.DLL Sideloading | high | 61609 |
-| `104639` | 9 | `T1574.001` T1574.001 | Potential RjvPlatform.DLL Sideloading From Default Location | medium | 61609 |
-| `104640` | 10 | `T1574.001` T1574.001 | Potential RjvPlatform.DLL Sideloading From Non-Default Location | high | 61609 |
-| `104641` | 9 | `T1574.001` T1574.001 | Potential RoboForm.DLL Sideloading | medium | 61609 |
-| `104642` | 10 | `T1574.001` T1574.001 | DLL Sideloading Of ShellChromeAPI.DLL | high | 61609 |
-| `104643` | 9 | `T1574.001` T1574.001 | Potential ShellDispatch.DLL Sideloading | medium | 61609 |
-| `104644` | 10 | `T1574.001` T1574.001 | Potential SmadHook.DLL Sideloading | high | 61609 |
-| `104645` | 9 | `T1574.001` T1574.001 | Potential SolidPDFCreator.DLL Sideloading | medium | 61609 |
-| `104646` | 9 | `T1574.001` T1574.001 | Third Party Software DLL Sideloading | medium | 61609 |
-| `104647` | 10 | `T1574.001` T1574.001 | Potential Vcruntime140 DLL Sideloading | high | 61609 |
-| `104648` | 9 | `T1574.001` T1574.001 | Potential Vivaldi_elf.DLL Sideloading | medium | 61609 |
-| `104649` | 9 | `T1574.001` T1574.001 | VMGuestLib DLL Sideload | medium | 61609 |
-| `104650` | 9 | `T1574.001` T1574.001 | VMMap Signed Dbghelp.DLL Potential Sideloading | medium | 61609 |
-| `104651` | 10 | `T1574.001` T1574.001 | VMMap Unsigned Dbghelp.DLL Potential Sideloading | high | 61609 |
-| `104652` | 10 | `T1574.001` T1574.001 | Potential Waveedit.DLL Sideloading | high | 61609 |
-| `104653` | 9 | `T1574.001` T1574.001 | Potential Wazuh Security Platform DLL Sideloading | medium | 61609 |
-| `104654` | 9 | `T1574.001` T1574.001 | Potential WWlib.DLL Sideloading | medium | 61609 |
-| `104655` | 10 | `T1548.002` T1548.002 | UAC Bypass With Fake DLL | high | 61609 |
-| `104656` | 10 | `T1574.007` T1574.007 | Trusted Path Bypass via Windows Directory Spoofing | high | 61609 |
-| `104657` | 9 | `T1219.002` T1219.002 | Remote Access Tool - AnyDesk Incoming Connection | medium | 61605 |
-| `104658` | 10 | `T1571` T1571 | Potentially Suspicious Malware Callback Communication | high | 61605 |
-| `104659` | 9 | `T1571` T1571 | Communication To Uncommon Destination Ports | medium | 61605 |
-| `104660` | 10 | `T1556.002` T1556.002 | Powershell Install a DLL in System Directory | high | 91801 |
-| `104661` | 9 | `T1136.002` T1136.002 | Manipulation of User Computer or Group Security Principals Across AD | medium | 91801 |
-| `104662` | 9 | - | Unsigned AppX Installation Attempt Using Add-AppxPackage - PsScript | medium | 91801 |
-| `104663` | 10 | `T1137.006` T1137.006 | Code Executed Via Office Add-in XLL File | high | 91801 |
-| `104664` | 10 | `T1059.001` T1059.001 | PowerShell Web Access Installation - PsScript | high | 91801 |
+| `104607` | 10 | - | Suspicious File Creation Activity From Fake Recycle.Bin Folder | high | 61613 |
+| `104608` | 9 | `T1546.013` T1546.013 | VsCode Powershell Profile Modification | medium | 61613 |
+| `104609` | 10 | `T1068` Exploitation for Privilege Escalation | Process Explorer Driver Creation By Non-Sysinternals Binary | high | 61613 |
+| `104610` | 9 | `T1068` Exploitation for Privilege Escalation | Process Monitor Driver Creation By Non-Sysinternals Binary | medium | 61613 |
+| `104611` | 10 | - | Potential Privilege Escalation Attempt Via .Exe.Local Technique | high | 61613 |
+| `104612` | 9 | `T1505.003` T1505.003 | Potential Webshell Creation On Static Website | medium | 61613 |
+| `104613` | 10 | `T1542.001` T1542.001 | UEFI Persistence Via Wpbbin - FileCreation | high | 61613 |
+| `104614` | 9 | `T1574.001` T1574.001 | Potential Antivirus Software DLL Sideloading | medium | 61609 |
+| `104615` | 10 | `T1574.001` T1574.001 | Potential appverifUI.DLL Sideloading | high | 61609 |
+| `104616` | 9 | `T1574.001` T1574.001 | Potential AVKkid.DLL Sideloading | medium | 61609 |
+| `104617` | 9 | `T1574.001` T1574.001 | Potential CCleanerDU.DLL Sideloading | medium | 61609 |
+| `104618` | 9 | `T1574.001` T1574.001 | Potential CCleanerReactivator.DLL Sideloading | medium | 61609 |
+| `104619` | 9 | `T1574.001` T1574.001 | Potential Chrome Frame Helper DLL Sideloading | medium | 61609 |
+| `104620` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Via ClassicExplorer32.dll | medium | 61609 |
+| `104621` | 10 | `T1574.001` T1574.001 | Potential DLL Sideloading Via comctl32.dll | high | 61609 |
+| `104622` | 10 | `T1574.001` T1574.001 | System Control Panel Item Loaded From Uncommon Location | high | 61609 |
+| `104623` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Of DBGCORE.DLL | medium | 61609 |
+| `104624` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Of DBGHELP.DLL | medium | 61609 |
+| `104625` | 10 | `T1574.001` T1574.001 | Potential EACore.DLL Sideloading | high | 61609 |
+| `104626` | 10 | `T1574.001` T1574.001 | Potential Edputil.DLL Sideloading | high | 61609 |
+| `104627` | 10 | `T1574.001` T1574.001 | Potential System DLL Sideloading From Non System Locations | high | 61609 |
+| `104628` | 9 | `T1574.001` T1574.001 | Potential Goopdate.DLL Sideloading | medium | 61609 |
+| `104629` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Of Libcurl.DLL Via GUP.EXE | medium | 61609 |
+| `104630` | 10 | `T1574.001` T1574.001 | Potential Iviewers.DLL Sideloading | high | 61609 |
+| `104631` | 10 | `T1574.001` T1574.001 | Potential JLI.dll Side-Loading | high | 61609 |
+| `104632` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Via JsSchHlp | medium | 61609 |
+| `104633` | 10 | `T1574.001` T1574.001 | Potential DLL Sideloading Of KeyScramblerIE.DLL Via KeyScrambler.EXE | high | 61609 |
+| `104634` | 9 | `T1574.001` T1574.001 | Potential Libvlc.DLL Sideloading | medium | 61609 |
+| `104635` | 9 | `T1574.001` T1574.001 | Potential Mfdetours.DLL Sideloading | medium | 61609 |
+| `104636` | 10 | `T1574.001` T1574.001 | Unsigned Mfdetours.DLL Sideloading | high | 61609 |
+| `104637` | 10 | `T1574.001` T1574.001 | Potential DLL Sideloading Of Non-Existent DLLs From System Folders | high | 61609 |
+| `104638` | 10 | `T1574.001` T1574.001 | Microsoft Office DLL Sideload | high | 61609 |
+| `104639` | 10 | `T1574.001` T1574.001 | Potential Rcdll.DLL Sideloading | high | 61609 |
+| `104640` | 9 | `T1574.001` T1574.001 | Potential RjvPlatform.DLL Sideloading From Default Location | medium | 61609 |
+| `104641` | 10 | `T1574.001` T1574.001 | Potential RjvPlatform.DLL Sideloading From Non-Default Location | high | 61609 |
+| `104642` | 9 | `T1574.001` T1574.001 | Potential RoboForm.DLL Sideloading | medium | 61609 |
+| `104643` | 10 | `T1574.001` T1574.001 | DLL Sideloading Of ShellChromeAPI.DLL | high | 61609 |
+| `104644` | 9 | `T1574.001` T1574.001 | Potential ShellDispatch.DLL Sideloading | medium | 61609 |
+| `104645` | 10 | `T1574.001` T1574.001 | Potential SmadHook.DLL Sideloading | high | 61609 |
+| `104646` | 9 | `T1574.001` T1574.001 | Potential SolidPDFCreator.DLL Sideloading | medium | 61609 |
+| `104647` | 9 | `T1574.001` T1574.001 | Third Party Software DLL Sideloading | medium | 61609 |
+| `104648` | 10 | `T1574.001` T1574.001 | Potential Vcruntime140 DLL Sideloading | high | 61609 |
+| `104649` | 9 | `T1574.001` T1574.001 | Potential Vivaldi_elf.DLL Sideloading | medium | 61609 |
+| `104650` | 9 | `T1574.001` T1574.001 | VMGuestLib DLL Sideload | medium | 61609 |
+| `104651` | 9 | `T1574.001` T1574.001 | VMMap Signed Dbghelp.DLL Potential Sideloading | medium | 61609 |
+| `104652` | 10 | `T1574.001` T1574.001 | VMMap Unsigned Dbghelp.DLL Potential Sideloading | high | 61609 |
+| `104653` | 10 | `T1574.001` T1574.001 | Potential Waveedit.DLL Sideloading | high | 61609 |
+| `104654` | 9 | `T1574.001` T1574.001 | Potential Wazuh Security Platform DLL Sideloading | medium | 61609 |
+| `104655` | 9 | `T1574.001` T1574.001 | Potential WWlib.DLL Sideloading | medium | 61609 |
+| `104656` | 10 | `T1548.002` T1548.002 | UAC Bypass With Fake DLL | high | 61609 |
+| `104657` | 10 | `T1574.007` T1574.007 | Trusted Path Bypass via Windows Directory Spoofing | high | 61609 |
+| `104658` | 9 | `T1219.002` T1219.002 | Remote Access Tool - AnyDesk Incoming Connection | medium | 61605 |
+| `104659` | 10 | `T1571` T1571 | Potentially Suspicious Malware Callback Communication | high | 61605 |
+| `104660` | 9 | `T1571` T1571 | Communication To Uncommon Destination Ports | medium | 61605 |
+| `104661` | 10 | `T1556.002` T1556.002 | Powershell Install a DLL in System Directory | high | 91801 |
+| `104662` | 9 | `T1136.002` T1136.002 | Manipulation of User Computer or Group Security Principals Across AD | medium | 91801 |
+| `104663` | 9 | - | Unsigned AppX Installation Attempt Using Add-AppxPackage - PsScript | medium | 91801 |
+| `104664` | 10 | `T1137.006` T1137.006 | Code Executed Via Office Add-in XLL File | high | 91801 |
 | `104665` | 10 | `T1059.001` T1059.001 | PowerShell Web Access Installation - PsScript | high | 91801 |
 | `104666` | 10 | `T1059.001` T1059.001 | PowerShell Web Access Installation - PsScript | high | 91801 |
-| `104667` | 10 | - | Potential Persistence Via Security Descriptors - ScriptBlock | high | 91801 |
-| `104668` | 10 | `T1574.011` T1574.011 | Suspicious Service DACL Modification Via Set-Service Cmdlet - PS | high | 91801 |
-| `104669` | 9 | `T1546.013` T1546.013 | Potential Persistence Via PowerShell User Profile Using Add-Content | medium | 91801 |
-| `104670` | 10 | `T1574.011` T1574.011 | Abuse of Service Permissions to Hide Services Via Set-Service - PS | high | 91801 |
-| `104671` | 9 | `T1112` T1112 | Registry Modification Attempt Via VBScript - PowerShell | medium | 91801 |
-| `104672` | 9 | `T1546.003` T1546.003 | Powershell WMI Persistence | medium | 91801 |
-| `104673` | 10 | `T1053.002` T1053.002 | Interactive AT Job | high | 61603 |
-| `104674` | 9 | `T1070` Indicator Removal | Potential Ransomware or Unauthorized MBR Tampering Via Bcdedit.EXE | medium | 61603 |
-| `104675` | 9 | `T1197` T1197 | File Download Via Bitsadmin | medium | 61603 |
-| `104676` | 10 | `T1197` T1197 | Suspicious Download From Direct IP Via Bitsadmin | high | 61603 |
-| `104677` | 10 | `T1197` T1197 | Suspicious Download From File-Sharing Website Via Bitsadmin | high | 61603 |
-| `104678` | 10 | `T1197` T1197 | File With Suspicious Extension Downloaded Via Bitsadmin | high | 61603 |
-| `104679` | 10 | `T1197` T1197 | File Download Via Bitsadmin To A Suspicious Target Folder | high | 61603 |
-| `104680` | 9 | `T1197` T1197 | Monitoring For Persistence Via BITS | medium | 61603 |
-| `104681` | 9 | `T1176.001` T1176.001 | Chromium Browser Instance Executed With Custom Extension | medium | 61603 |
-| `104682` | 10 | `T1176.001` T1176.001 | Suspicious Chromium Browser Instance Executed With Custom Extension | high | 61603 |
-| `104683` | 10 | `T1546.008` T1546.008 | Persistence Via Sticky Key Backdoor | high | 61603 |
-| `104684` | 10 | `T1543.003` T1543.003 | Devcon Execution Disabling VMware VMCI Device | high | 61603 |
-| `104685` | 10 | `T1133` T1133 | Unusual Child Process of dns.exe | high | 61603 |
-| `104686` | 10 | `T1685.001` T1685.001 | Security Event Logging Disabled via MiniNt Registry Key - Process | high | 61603 |
-| `104687` | 10 | `T1615` T1615 | HackTool - SharpUp PrivEsc Tool Execution | high | 61603 |
+| `104667` | 10 | `T1059.001` T1059.001 | PowerShell Web Access Installation - PsScript | high | 91801 |
+| `104668` | 10 | - | Potential Persistence Via Security Descriptors - ScriptBlock | high | 91801 |
+| `104669` | 10 | `T1574.011` T1574.011 | Suspicious Service DACL Modification Via Set-Service Cmdlet - PS | high | 91801 |
+| `104670` | 9 | `T1546.013` T1546.013 | Potential Persistence Via PowerShell User Profile Using Add-Content | medium | 91801 |
+| `104671` | 10 | `T1574.011` T1574.011 | Abuse of Service Permissions to Hide Services Via Set-Service - PS | high | 91801 |
+| `104672` | 9 | `T1112` T1112 | Registry Modification Attempt Via VBScript - PowerShell | medium | 91801 |
+| `104673` | 9 | `T1546.003` T1546.003 | Powershell WMI Persistence | medium | 91801 |
+| `104674` | 10 | `T1053.002` T1053.002 | Interactive AT Job | high | 61603 |
+| `104675` | 9 | `T1070` Indicator Removal | Potential Ransomware or Unauthorized MBR Tampering Via Bcdedit.EXE | medium | 61603 |
+| `104676` | 9 | `T1197` T1197 | File Download Via Bitsadmin | medium | 61603 |
+| `104677` | 10 | `T1197` T1197 | Suspicious Download From Direct IP Via Bitsadmin | high | 61603 |
+| `104678` | 10 | `T1197` T1197 | Suspicious Download From File-Sharing Website Via Bitsadmin | high | 61603 |
+| `104679` | 10 | `T1197` T1197 | File With Suspicious Extension Downloaded Via Bitsadmin | high | 61603 |
+| `104680` | 10 | `T1197` T1197 | File Download Via Bitsadmin To A Suspicious Target Folder | high | 61603 |
+| `104681` | 9 | `T1197` T1197 | Monitoring For Persistence Via BITS | medium | 61603 |
+| `104682` | 9 | `T1176.001` T1176.001 | Chromium Browser Instance Executed With Custom Extension | medium | 61603 |
+| `104683` | 10 | `T1176.001` T1176.001 | Suspicious Chromium Browser Instance Executed With Custom Extension | high | 61603 |
+| `104684` | 10 | `T1546.008` T1546.008 | Persistence Via Sticky Key Backdoor | high | 61603 |
+| `104685` | 10 | `T1543.003` T1543.003 | Devcon Execution Disabling VMware VMCI Device | high | 61603 |
+| `104686` | 10 | `T1133` T1133 | Unusual Child Process of dns.exe | high | 61603 |
+| `104687` | 10 | `T1685.001` T1685.001 | Security Event Logging Disabled via MiniNt Registry Key - Process | high | 61603 |
 | `104688` | 10 | `T1615` T1615 | HackTool - SharpUp PrivEsc Tool Execution | high | 61603 |
 | `104689` | 10 | `T1615` T1615 | HackTool - SharpUp PrivEsc Tool Execution | high | 61603 |
-| `104690` | 9 | `T1505.003` T1505.003 | IIS Native-Code Module Command Line Installation | medium | 61603 |
-| `104691` | 10 | `T1505.004` T1505.004 | Suspicious IIS Module Registration | high | 61603 |
-| `104692` | 9 | `T1203` T1203 | Potentially Suspicious Child Process of KeyScrambler.exe | medium | 61603 |
-| `104693` | 9 | `T1136.001` T1136.001 | New User Created Via Net.EXE | medium | 61603 |
-| `104694` | 10 | `T1136.001` T1136.001 | New User Created Via Net.EXE With Never Expire Option | high | 61603 |
-| `104695` | 10 | `T1574.011` T1574.011 | Abuse of Service Permissions to Hide Services Via Set-Service | high | 61603 |
-| `104696` | 9 | - | Unsigned AppX Installation Attempt Using Add-AppxPackage | medium | 61603 |
-| `104697` | 9 | `T1505.002` T1505.002 | MSExchange Transport Agent Installation | medium | 61603 |
-| `104698` | 10 | `T1543.003` T1543.003 | PUA - Kernel Driver Utility (KDU) Execution | high | 61603 |
-| `104699` | 9 | `T1082` System Information Discovery | PUA - System Informer Execution | medium | 61603 |
+| `104690` | 10 | `T1615` T1615 | HackTool - SharpUp PrivEsc Tool Execution | high | 61603 |
+| `104691` | 9 | `T1505.003` T1505.003 | IIS Native-Code Module Command Line Installation | medium | 61603 |
+| `104692` | 10 | `T1505.004` T1505.004 | Suspicious IIS Module Registration | high | 61603 |
+| `104693` | 9 | `T1203` T1203 | Potentially Suspicious Child Process of KeyScrambler.exe | medium | 61603 |
+| `104694` | 9 | `T1136.001` T1136.001 | New User Created Via Net.EXE | medium | 61603 |
+| `104695` | 10 | `T1136.001` T1136.001 | New User Created Via Net.EXE With Never Expire Option | high | 61603 |
+| `104696` | 10 | `T1574.011` T1574.011 | Abuse of Service Permissions to Hide Services Via Set-Service | high | 61603 |
+| `104697` | 9 | - | Unsigned AppX Installation Attempt Using Add-AppxPackage | medium | 61603 |
+| `104698` | 9 | `T1505.002` T1505.002 | MSExchange Transport Agent Installation | medium | 61603 |
+| `104699` | 10 | `T1543.003` T1543.003 | PUA - Kernel Driver Utility (KDU) Execution | high | 61603 |
 | `104700` | 9 | `T1082` System Information Discovery | PUA - System Informer Execution | medium | 61603 |
 | `104701` | 9 | `T1082` System Information Discovery | PUA - System Informer Execution | medium | 61603 |
 | `104702` | 9 | `T1082` System Information Discovery | PUA - System Informer Execution | medium | 61603 |
 | `104703` | 9 | `T1082` System Information Discovery | PUA - System Informer Execution | medium | 61603 |
-| `104704` | 9 | `T1556.002` T1556.002 | Dropping Of Password Filter DLL | medium | 61603 |
-| `104705` | 9 | `T1112` T1112 | Potentially Suspicious Desktop Background Change Using Reg.EXE | medium | 61603 |
-| `104706` | 9 | `T1112` T1112 | Potential Suspicious Registry File Imported Via Reg.EXE | medium | 61603 |
-| `104707` | 10 | `T1112` T1112 | RestrictedAdminMode Registry Value Tampering - ProcCreation | high | 61603 |
-| `104708` | 10 | `T1112` T1112 | Enable LM Hash Storage - ProcCreation | high | 61603 |
-| `104709` | 10 | `T1021.001` T1021.001 | Potential Tampering With RDP Related Registry Keys Via Reg.EXE | high | 61603 |
-| `104710` | 9 | `T1546.002` T1546.002 | Suspicious ScreenSave Change by Reg.exe | medium | 61603 |
-| `104711` | 10 | `T1112` T1112 | Reg Add Suspicious Paths | high | 61603 |
-| `104712` | 9 | `T1112` T1112 | Imports Registry Key From a File | medium | 61603 |
-| `104713` | 10 | `T1112` T1112 | Imports Registry Key From an ADS | high | 61603 |
-| `104714` | 10 | `T1112` T1112 | Suspicious Registry Modification From ADS Via Regini.EXE | high | 61603 |
-| `104715` | 10 | `T1546.008` T1546.008 | Suspicious Debugger Registration Cmdline | high | 61603 |
-| `104716` | 10 | `T1574.011` T1574.011 | Potential Privilege Escalation via Service Permissions Weakness | high | 61603 |
-| `104717` | 9 | - | Persistence Via TypedPaths - CommandLine | medium | 61603 |
-| `104718` | 9 | `T1133` T1133 | Remote Access Tool - ScreenConnect Installation Execution | medium | 61603 |
-| `104719` | 10 | `T1112` T1112 | ShimCache Flush | high | 61603 |
-| `104720` | 10 | `T1574.011` T1574.011 | Possible Privilege Escalation via Weak Service Permissions | high | 61603 |
-| `104721` | 9 | `T1543.003` T1543.003 | New Kernel Driver Via SC.EXE | medium | 61603 |
-| `104722` | 10 | `T1574.011` T1574.011 | Service DACL Abuse To Hide Services Via Sc.EXE | high | 61603 |
-| `104723` | 9 | `T1574.011` T1574.011 | Service Security Descriptor Tampering Via Sc.EXE | medium | 61603 |
-| `104724` | 10 | `T1543.003` T1543.003 | Suspicious Service Path Modification | high | 61603 |
-| `104725` | 9 | `T1546.011` T1546.011 | Potential Shim Database Persistence via Sdbinst.EXE | medium | 61603 |
-| `104726` | 9 | `T1546.011` T1546.011 | Uncommon Extension Shim Database Installation Via Sdbinst.EXE | medium | 61603 |
-| `104727` | 9 | `T1211` T1211 | Writing Of Malicious Files To The Fonts Folder | medium | 61603 |
-| `104728` | 10 | `T1112` T1112 | Non-privileged Usage of Reg or Powershell | high | 61603 |
-| `104729` | 10 | - | Suspicious Process Execution From Fake Recycle.Bin Folder | high | 61603 |
-| `104730` | 10 | `T1543.003` T1543.003 | Suspicious New Service Creation | high | 61603 |
+| `104704` | 9 | `T1082` System Information Discovery | PUA - System Informer Execution | medium | 61603 |
+| `104705` | 9 | `T1556.002` T1556.002 | Dropping Of Password Filter DLL | medium | 61603 |
+| `104706` | 9 | `T1112` T1112 | Potentially Suspicious Desktop Background Change Using Reg.EXE | medium | 61603 |
+| `104707` | 9 | `T1112` T1112 | Potential Suspicious Registry File Imported Via Reg.EXE | medium | 61603 |
+| `104708` | 10 | `T1112` T1112 | RestrictedAdminMode Registry Value Tampering - ProcCreation | high | 61603 |
+| `104709` | 10 | `T1112` T1112 | Enable LM Hash Storage - ProcCreation | high | 61603 |
+| `104710` | 10 | `T1021.001` T1021.001 | Potential Tampering With RDP Related Registry Keys Via Reg.EXE | high | 61603 |
+| `104711` | 9 | `T1546.002` T1546.002 | Suspicious ScreenSave Change by Reg.exe | medium | 61603 |
+| `104712` | 10 | `T1112` T1112 | Reg Add Suspicious Paths | high | 61603 |
+| `104713` | 9 | `T1112` T1112 | Imports Registry Key From a File | medium | 61603 |
+| `104714` | 10 | `T1112` T1112 | Imports Registry Key From an ADS | high | 61603 |
+| `104715` | 10 | `T1112` T1112 | Suspicious Registry Modification From ADS Via Regini.EXE | high | 61603 |
+| `104716` | 10 | `T1546.008` T1546.008 | Suspicious Debugger Registration Cmdline | high | 61603 |
+| `104717` | 10 | `T1574.011` T1574.011 | Potential Privilege Escalation via Service Permissions Weakness | high | 61603 |
+| `104718` | 9 | - | Persistence Via TypedPaths - CommandLine | medium | 61603 |
+| `104719` | 9 | `T1133` T1133 | Remote Access Tool - ScreenConnect Installation Execution | medium | 61603 |
+| `104720` | 10 | `T1112` T1112 | ShimCache Flush | high | 61603 |
+| `104721` | 10 | `T1574.011` T1574.011 | Possible Privilege Escalation via Weak Service Permissions | high | 61603 |
+| `104722` | 9 | `T1543.003` T1543.003 | New Kernel Driver Via SC.EXE | medium | 61603 |
+| `104723` | 10 | `T1574.011` T1574.011 | Service DACL Abuse To Hide Services Via Sc.EXE | high | 61603 |
+| `104724` | 9 | `T1574.011` T1574.011 | Service Security Descriptor Tampering Via Sc.EXE | medium | 61603 |
+| `104725` | 10 | `T1543.003` T1543.003 | Suspicious Service Path Modification | high | 61603 |
+| `104726` | 9 | `T1546.011` T1546.011 | Potential Shim Database Persistence via Sdbinst.EXE | medium | 61603 |
+| `104727` | 9 | `T1546.011` T1546.011 | Uncommon Extension Shim Database Installation Via Sdbinst.EXE | medium | 61603 |
+| `104728` | 9 | `T1211` T1211 | Writing Of Malicious Files To The Fonts Folder | medium | 61603 |
+| `104729` | 10 | `T1112` T1112 | Non-privileged Usage of Reg or Powershell | high | 61603 |
+| `104730` | 10 | - | Suspicious Process Execution From Fake Recycle.Bin Folder | high | 61603 |
 | `104731` | 10 | `T1543.003` T1543.003 | Suspicious New Service Creation | high | 61603 |
-| `104732` | 10 | `T1547.001` T1547.001 | User Shell Folders Registry Modification via CommandLine | high | 61603 |
-| `104733` | 9 | `T1112` T1112 | Registry Modification Attempt Via VBScript | medium | 61603 |
-| `104734` | 9 | `T1112` T1112 | Suspicious VBoxDrvInst.exe Parameters | medium | 61603 |
-| `104735` | 10 | `T1505.003` T1505.003 | Chopper Webshell Process Pattern | high | 61603 |
-| `104736` | 10 | `T1505.003` T1505.003 | Webshell Hacking Activity Patterns | high | 61603 |
+| `104732` | 10 | `T1543.003` T1543.003 | Suspicious New Service Creation | high | 61603 |
+| `104733` | 10 | `T1547.001` T1547.001 | User Shell Folders Registry Modification via CommandLine | high | 61603 |
+| `104734` | 9 | `T1112` T1112 | Registry Modification Attempt Via VBScript | medium | 61603 |
+| `104735` | 9 | `T1112` T1112 | Suspicious VBoxDrvInst.exe Parameters | medium | 61603 |
+| `104736` | 10 | `T1505.003` T1505.003 | Chopper Webshell Process Pattern | high | 61603 |
 | `104737` | 10 | `T1505.003` T1505.003 | Webshell Hacking Activity Patterns | high | 61603 |
 | `104738` | 10 | `T1505.003` T1505.003 | Webshell Hacking Activity Patterns | high | 61603 |
-| `104739` | 10 | `T1505.003` T1505.003 | Webshell Detection With Command Line Keywords | high | 61603 |
+| `104739` | 10 | `T1505.003` T1505.003 | Webshell Hacking Activity Patterns | high | 61603 |
 | `104740` | 10 | `T1505.003` T1505.003 | Webshell Detection With Command Line Keywords | high | 61603 |
 | `104741` | 10 | `T1505.003` T1505.003 | Webshell Detection With Command Line Keywords | high | 61603 |
-| `104742` | 10 | `T1505.003` T1505.003 | Suspicious Process By Web Server Process | high | 61603 |
+| `104742` | 10 | `T1505.003` T1505.003 | Webshell Detection With Command Line Keywords | high | 61603 |
 | `104743` | 10 | `T1505.003` T1505.003 | Suspicious Process By Web Server Process | high | 61603 |
 | `104744` | 10 | `T1505.003` T1505.003 | Suspicious Process By Web Server Process | high | 61603 |
-| `104745` | 10 | `T1505.003` T1505.003 | Webshell Tool Reconnaissance Activity | high | 61603 |
+| `104745` | 10 | `T1505.003` T1505.003 | Suspicious Process By Web Server Process | high | 61603 |
 | `104746` | 10 | `T1505.003` T1505.003 | Webshell Tool Reconnaissance Activity | high | 61603 |
 | `104747` | 10 | `T1505.003` T1505.003 | Webshell Tool Reconnaissance Activity | high | 61603 |
-| `104748` | 9 | `T1546.003` T1546.003 | WMI Persistence - Script Event Consumer | medium | 61603 |
-| `104749` | 9 | `T1047` T1047 | Registry Manipulation via WMI Stdregprov | medium | 61603 |
-| `104750` | 10 | `T1542.001` T1542.001 | UEFI Persistence Via Wpbbin - ProcessCreation | high | 61603 |
-| `104751` | 9 | - | Potential Persistence Via Disk Cleanup Handler - Registry | medium | 61614 |
-| `104752` | 10 | `T1070` Indicator Removal | Terminal Server Client Connection History Cleared - Registry | high | 61614 |
+| `104748` | 10 | `T1505.003` T1505.003 | Webshell Tool Reconnaissance Activity | high | 61603 |
+| `104749` | 9 | `T1546.003` T1546.003 | WMI Persistence - Script Event Consumer | medium | 61603 |
+| `104750` | 9 | `T1047` T1047 | Registry Manipulation via WMI Stdregprov | medium | 61603 |
+| `104751` | 10 | `T1542.001` T1542.001 | UEFI Persistence Via Wpbbin - ProcessCreation | high | 61603 |
+| `104752` | 9 | - | Potential Persistence Via Disk Cleanup Handler - Registry | medium | 61614 |
 | `104753` | 10 | `T1070` Indicator Removal | Terminal Server Client Connection History Cleared - Registry | high | 61614 |
-| `104754` | 9 | `T1112` T1112 | Removal of Potential COM Hijacking Registry Keys | medium | 61614 |
-| `104755` | 12 | `T1136.001` T1136.001 | Creation of a Local Hidden User Account by Registry | high | 61615 |
-| `104756` | 10 | `T1685.001` T1685.001 | Disable Security Events Logging Adding Reg Key MiniNt | high | 61615 |
+| `104754` | 10 | `T1070` Indicator Removal | Terminal Server Client Connection History Cleared - Registry | high | 61614 |
+| `104755` | 9 | `T1112` T1112 | Removal of Potential COM Hijacking Registry Keys | medium | 61614 |
+| `104756` | 12 | `T1136.001` T1136.001 | Creation of a Local Hidden User Account by Registry | high | 61615 |
 | `104757` | 10 | `T1685.001` T1685.001 | Disable Security Events Logging Adding Reg Key MiniNt | high | 61615 |
-| `104758` | 10 | `T1112` T1112 | Wdigest CredGuard Registry Modification | high | 61615 |
-| `104759` | 10 | `T1112` T1112 | Registry Entries For Azorult Malware | high | 61615 |
-| `104760` | 10 | `T1112` T1112 | Potential Qakbot Registry Activity | high | 61615 |
-| `104761` | 9 | `T1546.002` T1546.002 | Path To Screensaver Binary Modified | medium | 61615 |
-| `104762` | 10 | `T1685` T1685 | NetNTLM Downgrade Attack - Registry | high | 61615 |
-| `104763` | 9 | `T1137.002` T1137.002 | Office Application Startup - Office Test | medium | 61615 |
-| `104764` | 10 | `T1112` T1112 | RedMimicry Winnti Playbook Registry Manipulation | high | 61615 |
-| `104765` | 9 | `T1112` T1112 | Run Once Task Configuration in Registry | medium | 61615 |
-| `104766` | 10 | `T1548.002` T1548.002 | Shell Open Registry Keys Manipulation | high | 61615 |
-| `104767` | 9 | `T1112` T1112 | Registry Tampering by Potentially Suspicious Processes | medium | 61615 |
-| `104768` | 9 | - | Add Debugger Entry To AeDebug For Persistence | medium | 61615 |
-| `104769` | 9 | `T1112` T1112 | Allow RDP Remote Assistance Feature | medium | 61615 |
-| `104770` | 9 | `T1112` T1112 | New BgInfo.EXE Custom DB Path Registry Configuration | medium | 61615 |
-| `104771` | 9 | `T1112` T1112 | New BgInfo.EXE Custom VBScript Registry Configuration | medium | 61615 |
-| `104772` | 9 | `T1112` T1112 | New BgInfo.EXE Custom WMI Query Registry Configuration | medium | 61615 |
-| `104773` | 9 | `T1137` T1137 | IE Change Domain Zone | medium | 61615 |
-| `104774` | 9 | `T1112` T1112 | ClickOnce Trust Prompt Tampering | medium | 61615 |
-| `104775` | 13 | `T1021.002` T1021.002 | Potential CobaltStrike Service Installations - Registry | high | 61615 |
-| `104776` | 10 | `T1546` T1546 | COM Hijack via Sdclt | high | 61615 |
-| `104777` | 9 | `T1564` T1564 | CrashControl CrashDump Disabled | medium | 61615 |
-| `104778` | 10 | `T1685.001` T1685.001 | Security Event Logging Disabled via MiniNt Registry Key - Registry Set | high | 61615 |
-| `104779` | 10 | `T1112` T1112 | Service Binary in Suspicious Folder | high | 61615 |
+| `104758` | 10 | `T1685.001` T1685.001 | Disable Security Events Logging Adding Reg Key MiniNt | high | 61615 |
+| `104759` | 10 | `T1112` T1112 | Wdigest CredGuard Registry Modification | high | 61615 |
+| `104760` | 10 | `T1112` T1112 | Registry Entries For Azorult Malware | high | 61615 |
+| `104761` | 10 | `T1112` T1112 | Potential Qakbot Registry Activity | high | 61615 |
+| `104762` | 9 | `T1546.002` T1546.002 | Path To Screensaver Binary Modified | medium | 61615 |
+| `104763` | 10 | `T1685` T1685 | NetNTLM Downgrade Attack - Registry | high | 61615 |
+| `104764` | 9 | `T1137.002` T1137.002 | Office Application Startup - Office Test | medium | 61615 |
+| `104765` | 10 | `T1112` T1112 | RedMimicry Winnti Playbook Registry Manipulation | high | 61615 |
+| `104766` | 9 | `T1112` T1112 | Run Once Task Configuration in Registry | medium | 61615 |
+| `104767` | 10 | `T1548.002` T1548.002 | Shell Open Registry Keys Manipulation | high | 61615 |
+| `104768` | 9 | `T1112` T1112 | Registry Tampering by Potentially Suspicious Processes | medium | 61615 |
+| `104769` | 9 | - | Add Debugger Entry To AeDebug For Persistence | medium | 61615 |
+| `104770` | 9 | `T1112` T1112 | Allow RDP Remote Assistance Feature | medium | 61615 |
+| `104771` | 9 | `T1112` T1112 | New BgInfo.EXE Custom DB Path Registry Configuration | medium | 61615 |
+| `104772` | 9 | `T1112` T1112 | New BgInfo.EXE Custom VBScript Registry Configuration | medium | 61615 |
+| `104773` | 9 | `T1112` T1112 | New BgInfo.EXE Custom WMI Query Registry Configuration | medium | 61615 |
+| `104774` | 9 | `T1137` T1137 | IE Change Domain Zone | medium | 61615 |
+| `104775` | 9 | `T1112` T1112 | ClickOnce Trust Prompt Tampering | medium | 61615 |
+| `104776` | 13 | `T1021.002` T1021.002 | Potential CobaltStrike Service Installations - Registry | high | 61615 |
+| `104777` | 10 | `T1546` T1546 | COM Hijack via Sdclt | high | 61615 |
+| `104778` | 9 | `T1564` T1564 | CrashControl CrashDump Disabled | medium | 61615 |
+| `104779` | 10 | `T1685.001` T1685.001 | Security Event Logging Disabled via MiniNt Registry Key - Registry Set | high | 61615 |
 | `104780` | 10 | `T1112` T1112 | Service Binary in Suspicious Folder | high | 61615 |
-| `104781` | 9 | `T1112` T1112 | Potentially Suspicious Desktop Background Change Via Registry | medium | 61615 |
-| `104782` | 9 | `T1112` T1112 | Disable Internal Tools or Feature in Registry | medium | 61615 |
+| `104781` | 10 | `T1112` T1112 | Service Binary in Suspicious Folder | high | 61615 |
+| `104782` | 9 | `T1112` T1112 | Potentially Suspicious Desktop Background Change Via Registry | medium | 61615 |
 | `104783` | 9 | `T1112` T1112 | Disable Internal Tools or Feature in Registry | medium | 61615 |
-| `104784` | 9 | `T1112` T1112 | Disable Windows Security Center Notifications | medium | 61615 |
-| `104785` | 9 | `T1112` T1112 | Add DisallowRun Execution to Registry | medium | 61615 |
-| `104786` | 9 | - | Persistence Via Disk Cleanup Handler - Autorun | medium | 61615 |
-| `104787` | 9 | `T1140` T1140 | DNS-over-HTTPS Enabled by Registry | medium | 61615 |
+| `104784` | 9 | `T1112` T1112 | Disable Internal Tools or Feature in Registry | medium | 61615 |
+| `104785` | 9 | `T1112` T1112 | Disable Windows Security Center Notifications | medium | 61615 |
+| `104786` | 9 | `T1112` T1112 | Add DisallowRun Execution to Registry | medium | 61615 |
+| `104787` | 9 | - | Persistence Via Disk Cleanup Handler - Autorun | medium | 61615 |
 | `104788` | 9 | `T1140` T1140 | DNS-over-HTTPS Enabled by Registry | medium | 61615 |
 | `104789` | 9 | `T1140` T1140 | DNS-over-HTTPS Enabled by Registry | medium | 61615 |
-| `104790` | 10 | `T1112` T1112 | ETW Logging Disabled In .NET Processes - Sysmon Registry | high | 61615 |
+| `104790` | 9 | `T1140` T1140 | DNS-over-HTTPS Enabled by Registry | medium | 61615 |
 | `104791` | 10 | `T1112` T1112 | ETW Logging Disabled In .NET Processes - Sysmon Registry | high | 61615 |
-| `104792` | 9 | `T1574.012` T1574.012 | Enabling COR Profiler Environment Variables | medium | 61615 |
+| `104792` | 10 | `T1112` T1112 | ETW Logging Disabled In .NET Processes - Sysmon Registry | high | 61615 |
 | `104793` | 9 | `T1574.012` T1574.012 | Enabling COR Profiler Environment Variables | medium | 61615 |
-| `104794` | 10 | `T1112` T1112 | Change User Account Associated with the FAX Service | high | 61615 |
-| `104795` | 10 | `T1112` T1112 | Change the Fax Dll | high | 61615 |
-| `104796` | 10 | - | Add Debugger Entry To Hangs Key For Persistence | high | 61615 |
-| `104797` | 10 | - | Persistence Via Hhctrl.ocx | high | 61615 |
-| `104798` | 9 | `T1137` T1137 | Registry Modification to Hidden File Extension | medium | 61615 |
+| `104794` | 9 | `T1574.012` T1574.012 | Enabling COR Profiler Environment Variables | medium | 61615 |
+| `104795` | 10 | `T1112` T1112 | Change User Account Associated with the FAX Service | high | 61615 |
+| `104796` | 10 | `T1112` T1112 | Change the Fax Dll | high | 61615 |
+| `104797` | 10 | - | Add Debugger Entry To Hangs Key For Persistence | high | 61615 |
+| `104798` | 10 | - | Persistence Via Hhctrl.ocx | high | 61615 |
 | `104799` | 9 | `T1137` T1137 | Registry Modification to Hidden File Extension | medium | 61615 |
-| `104800` | 9 | `T1112` T1112 | Registry Hide Function from User | medium | 61615 |
+| `104800` | 9 | `T1137` T1137 | Registry Modification to Hidden File Extension | medium | 61615 |
 | `104801` | 9 | `T1112` T1112 | Registry Hide Function from User | medium | 61615 |
-| `104802` | 10 | `T1112` T1112 | RestrictedAdminMode Registry Value Tampering | high | 61615 |
-| `104803` | 10 | `T1112` T1112 | NET NGenAssemblyUsageLog Registry Key Tamper | high | 61615 |
-| `104804` | 10 | `T1112` T1112 | Trust Access Disable For VBApplications | high | 61615 |
-| `104805` | 10 | `T1112` T1112 | Outlook EnableUnsafeClientMailRules Setting Enabled - Registry | high | 61615 |
-| `104806` | 9 | `T1137` T1137 | Outlook Security Settings Updated - Registry | medium | 61615 |
-| `104807` | 10 | `T1112` T1112 | Macro Enabled In A Potentially Suspicious Document | high | 61615 |
-| `104808` | 10 | `T1112` T1112 | Uncommon Microsoft Office Trusted Location Added | high | 61615 |
-| `104809` | 10 | `T1112` T1112 | Office Macros Warning Disabled | high | 61615 |
-| `104810` | 9 | - | Potential Persistence Via New AMSI Providers - Registry | medium | 61615 |
-| `104811` | 10 | - | Potential Persistence Via AutodialDLL | high | 61615 |
-| `104812` | 10 | - | Potential Persistence Via CHM Helper DLL | high | 61615 |
-| `104813` | 9 | `T1112` T1112 | Potential Persistence Via Custom Protocol Handler | medium | 61615 |
-| `104814` | 9 | `T1112` T1112 | Potential Persistence Via Event Viewer Events.asp | medium | 61615 |
-| `104815` | 9 | - | Register New IFiltre For Persistence | medium | 61615 |
+| `104802` | 9 | `T1112` T1112 | Registry Hide Function from User | medium | 61615 |
+| `104803` | 10 | `T1112` T1112 | RestrictedAdminMode Registry Value Tampering | high | 61615 |
+| `104804` | 10 | `T1112` T1112 | NET NGenAssemblyUsageLog Registry Key Tamper | high | 61615 |
+| `104805` | 10 | `T1112` T1112 | Trust Access Disable For VBApplications | high | 61615 |
+| `104806` | 10 | `T1112` T1112 | Outlook EnableUnsafeClientMailRules Setting Enabled - Registry | high | 61615 |
+| `104807` | 9 | `T1137` T1137 | Outlook Security Settings Updated - Registry | medium | 61615 |
+| `104808` | 10 | `T1112` T1112 | Macro Enabled In A Potentially Suspicious Document | high | 61615 |
+| `104809` | 10 | `T1112` T1112 | Uncommon Microsoft Office Trusted Location Added | high | 61615 |
+| `104810` | 10 | `T1112` T1112 | Office Macros Warning Disabled | high | 61615 |
+| `104811` | 9 | - | Potential Persistence Via New AMSI Providers - Registry | medium | 61615 |
+| `104812` | 10 | - | Potential Persistence Via AutodialDLL | high | 61615 |
+| `104813` | 10 | - | Potential Persistence Via CHM Helper DLL | high | 61615 |
+| `104814` | 9 | `T1112` T1112 | Potential Persistence Via Custom Protocol Handler | medium | 61615 |
+| `104815` | 9 | `T1112` T1112 | Potential Persistence Via Event Viewer Events.asp | medium | 61615 |
 | `104816` | 9 | - | Register New IFiltre For Persistence | medium | 61615 |
-| `104817` | 10 | - | Potential Persistence Via LSA Extensions | high | 61615 |
-| `104818` | 10 | - | Potential Persistence Via Mpnotify | high | 61615 |
-| `104819` | 10 | - | Potential Persistence Via MyComputer Registry Keys | high | 61615 |
-| `104820` | 10 | - | Potential Persistence Via DLLPathOverride | high | 61615 |
-| `104821` | 9 | `T1137.006` T1137.006 | Potential Persistence Via Visual Studio Tools for Office | medium | 61615 |
-| `104822` | 10 | `T1112` T1112 | Potential Persistence Via Outlook Home Page | high | 61615 |
-| `104823` | 10 | `T1112` T1112 | Potential Persistence Via Outlook Today Page | high | 61615 |
-| `104824` | 10 | - | Potential Persistence Via TypedPaths | high | 61615 |
-| `104825` | 10 | `T1137.006` T1137.006 | Potential Persistence Via Excel Add-in - Registry | high | 61615 |
-| `104826` | 10 | `T1112` T1112 | Registry Modification for OCI DLL Redirection | high | 61615 |
-| `104827` | 10 | `T1564.001` T1564.001 | PowerShell Logging Disabled Via Registry Key Tampering | high | 61615 |
-| `104828` | 9 | - | Potential SentinelOne Shell Context Menu Scan Command Tampering | medium | 61615 |
-| `104829` | 9 | `T1543.003` T1543.003 | ServiceDll Hijack | medium | 61615 |
-| `104830` | 9 | `T1112` T1112 | Registry Explorer Policy Modification | medium | 61615 |
-| `104831` | 9 | `T1553.003` T1553.003 | Persistence Via New SIP Provider | medium | 61615 |
-| `104832` | 9 | `T1112` T1112 | Activate Suppression of Windows Security Center Notifications | medium | 61615 |
-| `104833` | 10 | `T1574` T1574 | Suspicious Printer Driver Empty Manufacturer | high | 61615 |
-| `104834` | 10 | `T1547.001` T1547.001 | Modify User Shell Folders Startup Value | high | 61615 |
-| `104835` | 10 | - | Suspicious Environment Variable Has Been Registered | high | 61615 |
-| `104836` | 10 | `T1112` T1112 | Enable LM Hash Storage | high | 61615 |
-| `104837` | 9 | `T1112` T1112 | RDP Sensitive Settings Changed to Zero | medium | 61615 |
-| `104838` | 10 | `T1112` T1112 | RDP Sensitive Settings Changed | high | 61615 |
-| `104839` | 10 | `T1547.003` T1547.003 | New TimeProviders Registered With Uncommon DLL Name | high | 61615 |
-| `104840` | 10 | `T1112` T1112 | Wdigest Enable UseLogonCredential | high | 61615 |
-| `104841` | 9 | - | Enable Local Manifest Installation With Winget | medium | 61615 |
-| `104842` | 9 | `T1112` T1112 | Winlogon AllowMultipleTSSessions Enable | medium | 61615 |
+| `104817` | 9 | - | Register New IFiltre For Persistence | medium | 61615 |
+| `104818` | 10 | - | Potential Persistence Via LSA Extensions | high | 61615 |
+| `104819` | 10 | - | Potential Persistence Via Mpnotify | high | 61615 |
+| `104820` | 10 | - | Potential Persistence Via MyComputer Registry Keys | high | 61615 |
+| `104821` | 10 | - | Potential Persistence Via DLLPathOverride | high | 61615 |
+| `104822` | 9 | `T1137.006` T1137.006 | Potential Persistence Via Visual Studio Tools for Office | medium | 61615 |
+| `104823` | 10 | `T1112` T1112 | Potential Persistence Via Outlook Home Page | high | 61615 |
+| `104824` | 10 | `T1112` T1112 | Potential Persistence Via Outlook Today Page | high | 61615 |
+| `104825` | 10 | - | Potential Persistence Via TypedPaths | high | 61615 |
+| `104826` | 10 | `T1137.006` T1137.006 | Potential Persistence Via Excel Add-in - Registry | high | 61615 |
+| `104827` | 10 | `T1112` T1112 | Registry Modification for OCI DLL Redirection | high | 61615 |
+| `104828` | 10 | `T1564.001` T1564.001 | PowerShell Logging Disabled Via Registry Key Tampering | high | 61615 |
+| `104829` | 9 | - | Potential SentinelOne Shell Context Menu Scan Command Tampering | medium | 61615 |
+| `104830` | 9 | `T1543.003` T1543.003 | ServiceDll Hijack | medium | 61615 |
+| `104831` | 9 | `T1112` T1112 | Registry Explorer Policy Modification | medium | 61615 |
+| `104832` | 9 | `T1553.003` T1553.003 | Persistence Via New SIP Provider | medium | 61615 |
+| `104833` | 9 | `T1112` T1112 | Activate Suppression of Windows Security Center Notifications | medium | 61615 |
+| `104834` | 10 | `T1574` T1574 | Suspicious Printer Driver Empty Manufacturer | high | 61615 |
+| `104835` | 10 | `T1547.001` T1547.001 | Modify User Shell Folders Startup Value | high | 61615 |
+| `104836` | 10 | - | Suspicious Environment Variable Has Been Registered | high | 61615 |
+| `104837` | 10 | `T1112` T1112 | Enable LM Hash Storage | high | 61615 |
+| `104838` | 9 | `T1112` T1112 | RDP Sensitive Settings Changed to Zero | medium | 61615 |
+| `104839` | 10 | `T1112` T1112 | RDP Sensitive Settings Changed | high | 61615 |
+| `104840` | 10 | `T1547.003` T1547.003 | New TimeProviders Registered With Uncommon DLL Name | high | 61615 |
+| `104841` | 10 | `T1112` T1112 | Wdigest Enable UseLogonCredential | high | 61615 |
+| `104842` | 9 | - | Enable Local Manifest Installation With Winget | medium | 61615 |
+| `104843` | 9 | `T1112` T1112 | Winlogon AllowMultipleTSSessions Enable | medium | 61615 |
+| `115003` | 12 | `T1543` Create or Modify System Process | service_install_then_network | high | 110061 |
 
 ### Privilege Escalation (TA0004) — 383 rules
 
@@ -2479,7 +2484,7 @@
 | `107381` | 10 | `T1546.003` T1546.003 | WMI Event Subscription | medium | 61621 |
 | `107382` | 11 | `T1047` T1047 | Suspicious Encoded Scripts in a WMI Consumer | high | 61621 |
 
-### Defense Evasion (TA0005) — 35 rules
+### Defense Evasion (TA0005) — 42 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -2488,36 +2493,43 @@
 | `112002` | 9 | `T1218.011` T1218.011 | File created by rundll32 | medium | 61613 |
 | `112003` | 9 | `T1574.002` T1574.002 | DLL loaded from suspicious path | medium | 61609 |
 | `112004` | 10 | `T1197` T1197 | Suspicious process: bitsadmin | high | 61603 |
-| `112005` | 10 | `T1218.010` T1218.010 | Suspicious process: regsvr32 | high | 61603 |
-| `112006` | 10 | `T1218.010` T1218.010 | DLL sideloading by regsvr32 | high | 61609 |
-| `112007` | 10 | `T1218.010` T1218.010 | Network connection by regsvr32 | high | 61605 |
-| `112008` | 10 | `T1140` T1140 | Suspicious process: certutil | high | 61603 |
-| `112009` | 9 | `T1140` T1140 | File created by certutil | medium | 61613 |
-| `112010` | 10 | `T1218.004` T1218.004 | Suspicious process: installutil | high | 61603 |
-| `112011` | 10 | `T1218.005` T1218.005 | Suspicious process: mshta | high | 61603 |
-| `112012` | 10 | `T1218.005` T1218.005 | DLL sideloading by mshta | high | 61609 |
-| `112013` | 10 | `T1218.005` T1218.005 | Network connection by mshta | high | 61605 |
-| `112014` | 10 | `T1218.005` T1218.005 | Network connection by mshta | high | 61605 |
-| `112015` | 10 | `T1218.003` T1218.003 | Suspicious process: cmstp | high | 61603 |
-| `112016` | 10 | `T1218.011` T1218.011 | DLL sideloading by rundll32 | high | 61609 |
-| `112017` | 10 | `T1218.011` T1218.011 | Network connection by rundll32 | high | 61605 |
-| `112018` | 10 | `T1140` T1140 | Network connection by certutil | high | 61605 |
-| `112019` | 9 | `T1574.002` T1574.002 | DLL loaded from suspicious path | medium | 61609 |
-| `112020` | 10 | `T1218.011` T1218.011 | Network connection by rundll32 | high | 61605 |
-| `112021` | 9 | `T1574.002` T1574.002 | DLL loaded from suspicious path | medium | 61609 |
-| `112022` | 9 | `T1112` T1112 | Registry persistence via shell | medium | 61615 |
-| `112023` | 9 | `T1112` T1112 | Registry persistence via shell | medium | 61614 |
-| `112024` | 10 | `T1218.007` T1218.007 | DLL sideloading by msiexec | high | 61609 |
-| `112025` | 10 | `T1218.011` T1218.011 | Network connection by rundll32 | high | 61605 |
-| `112026` | 10 | `T1218.010` T1218.010 | Network connection by regsvr32 | high | 61605 |
-| `112027` | 10 | `T1218.005` T1218.005 | Network connection by mshta | high | 61605 |
-| `112028` | 10 | `T1218.005` T1218.005 | Network connection by mshta | high | 61605 |
-| `112029` | 9 | `T1574.002` T1574.002 | DLL loaded from suspicious path | medium | 61609 |
-| `112030` | 9 | `T1036` T1036 | Account renamed | medium | 60100 |
-| `112031` | 9 | `T1562.001` T1562.001 | Suspicious PowerShell: set-mppreference -disablerealtimemonitoring | medium | 91801 |
-| `112032` | 9 | `T1112` T1112 | Registry persistence via currentversion\explorer\shell | medium | 61614 |
-| `112033` | 9 | `T1027` Obfuscated Files or Information | Suspicious PowerShell: invoke-obfuscation | medium | 91801 |
-| `112034` | 10 | `T1218.004` T1218.004 | DLL sideloading by installutil | high | 61609 |
+| `112005` | 10 | `T1197` T1197 | Suspicious process: bitsadmin | high | 61603 |
+| `112006` | 10 | `T1218.010` T1218.010 | Suspicious process: regsvr32 | high | 61603 |
+| `112007` | 10 | `T1218.010` T1218.010 | Suspicious process: regsvr32 | high | 61603 |
+| `112008` | 10 | `T1218.010` T1218.010 | DLL sideloading by regsvr32 | high | 61609 |
+| `112009` | 10 | `T1218.010` T1218.010 | Network connection by regsvr32 | high | 61605 |
+| `112010` | 10 | `T1140` T1140 | Suspicious process: certutil | high | 61603 |
+| `112011` | 10 | `T1140` T1140 | Suspicious process: certutil | high | 61603 |
+| `112012` | 9 | `T1140` T1140 | File created by certutil | medium | 61613 |
+| `112013` | 10 | `T1218.004` T1218.004 | Suspicious process: installutil | high | 61603 |
+| `112014` | 10 | `T1218.004` T1218.004 | Suspicious process: installutil | high | 61603 |
+| `112015` | 10 | `T1218.005` T1218.005 | Suspicious process: mshta | high | 61603 |
+| `112016` | 10 | `T1218.005` T1218.005 | Suspicious process: mshta | high | 61603 |
+| `112017` | 10 | `T1218.005` T1218.005 | DLL sideloading by mshta | high | 61609 |
+| `112018` | 10 | `T1218.005` T1218.005 | Network connection by mshta | high | 61605 |
+| `112019` | 10 | `T1218.005` T1218.005 | Network connection by mshta | high | 61605 |
+| `112020` | 10 | `T1218.003` T1218.003 | Suspicious process: cmstp | high | 61603 |
+| `112021` | 10 | `T1218.011` T1218.011 | Suspicious process: rundll32 | high | 61603 |
+| `112022` | 10 | `T1218.011` T1218.011 | DLL sideloading by rundll32 | high | 61609 |
+| `112023` | 10 | `T1218.011` T1218.011 | Network connection by rundll32 | high | 61605 |
+| `112024` | 10 | `T1140` T1140 | Network connection by certutil | high | 61605 |
+| `112025` | 10 | `T1218.003` T1218.003 | Suspicious process: cmstp | high | 61603 |
+| `112026` | 9 | `T1574.002` T1574.002 | DLL loaded from suspicious path | medium | 61609 |
+| `112027` | 10 | `T1218.011` T1218.011 | Network connection by rundll32 | high | 61605 |
+| `112028` | 9 | `T1574.002` T1574.002 | DLL loaded from suspicious path | medium | 61609 |
+| `112029` | 9 | `T1112` T1112 | Registry persistence via shell | medium | 61615 |
+| `112030` | 9 | `T1112` T1112 | Registry persistence via shell | medium | 61614 |
+| `112031` | 10 | `T1218.007` T1218.007 | DLL sideloading by msiexec | high | 61609 |
+| `112032` | 10 | `T1218.011` T1218.011 | Network connection by rundll32 | high | 61605 |
+| `112033` | 10 | `T1218.010` T1218.010 | Network connection by regsvr32 | high | 61605 |
+| `112034` | 10 | `T1218.005` T1218.005 | Network connection by mshta | high | 61605 |
+| `112035` | 10 | `T1218.005` T1218.005 | Network connection by mshta | high | 61605 |
+| `112036` | 9 | `T1574.002` T1574.002 | DLL loaded from suspicious path | medium | 61609 |
+| `112037` | 9 | `T1036` T1036 | Account renamed | medium | 60100 |
+| `112038` | 9 | `T1562.001` T1562.001 | Suspicious PowerShell: set-mppreference -disablerealtimemonitoring | medium | 91801 |
+| `112039` | 9 | `T1112` T1112 | Registry persistence via currentversion\explorer\shell | medium | 61614 |
+| `112040` | 9 | `T1027` Obfuscated Files or Information | Suspicious PowerShell: invoke-obfuscation | medium | 91801 |
+| `112041` | 10 | `T1218.004` T1218.004 | DLL sideloading by installutil | high | 61609 |
 
 ### Credential Access (TA0006) — 295 rules
 
@@ -2526,298 +2538,298 @@
 | `108500` | 11 | `T1003.002` T1003.002 | Suspicious command: reg save | medium | 61603 |
 | `108501` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
 | `108502` | 12 | `T1003.001` T1003.001 | Suspicious process: procdump | high | 61603 |
-| `108503` | 11 | `T1003.001` T1003.001 | Suspicious command: procdump | medium | 61603 |
-| `108504` | 11 | `T1003.003` T1003.003 | Suspicious command: ntdsutil | medium | 61603 |
-| `108505` | 9 | `T1110` Brute Force | Failed logon attempt | low | 60100 |
-| `108506` | 12 | `T1003.001` T1003.001 | Remote thread injection into LSASS | high | 61610 |
-| `108507` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
-| `108508` | 11 | `T1003.001` T1003.001 | Suspicious PowerShell: minidump | medium | 91801 |
+| `108503` | 11 | `T1003.003` T1003.003 | Suspicious command: ntdsutil | medium | 61603 |
+| `108504` | 9 | `T1110` Brute Force | Failed logon attempt | low | 60100 |
+| `108505` | 12 | `T1003.001` T1003.001 | Remote thread injection into LSASS | high | 61610 |
+| `108506` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
+| `108507` | 11 | `T1003.001` T1003.001 | Suspicious PowerShell: minidump | medium | 91801 |
+| `108508` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
 | `108509` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
 | `108510` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
-| `108511` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
-| `108512` | 11 | `T1003.001` T1003.001 | File created by procdump | medium | 61613 |
-| `108513` | 11 | `T1003.001` T1003.001 | Suspicious command: dumpert | medium | 61603 |
-| `108514` | 11 | `T1003.001` T1003.001 | Suspicious command: comsvcs.dll | medium | 61603 |
-| `108515` | 11 | `T1003.001` T1003.001 | Suspicious command: minidump | medium | 61603 |
+| `108511` | 11 | `T1003.001` T1003.001 | File created by procdump | medium | 61613 |
+| `108512` | 11 | `T1003.001` T1003.001 | Suspicious command: dumpert | medium | 61603 |
+| `108513` | 11 | `T1003.001` T1003.001 | Suspicious command: comsvcs.dll | medium | 61603 |
+| `108514` | 11 | `T1003.001` T1003.001 | Suspicious command: minidump | medium | 61603 |
+| `108515` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
 | `108516` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
-| `108517` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
-| `108518` | 13 | `T1003` OS Credential Dumping | Suspicious service: mimikatz driver (mimidrv) | high | 60106 |
-| `108519` | 13 | `T1003` OS Credential Dumping | PowerShell module: invoke-mimikatz | medium | 91801 |
-| `108520` | 13 | `T1003.001` T1003.001 | PowerShell module: sekurlsa:: | medium | 91801 |
-| `108521` | 13 | `T1003` OS Credential Dumping | Suspicious process: mimikatz | high | 61603 |
-| `108522` | 11 | `T1003.001` T1003.001 | Suspicious PowerShell: comsvcs.dll | medium | 91801 |
-| `108523` | 13 | `T1003` OS Credential Dumping | Suspicious PowerShell: invoke-mimikatz | medium | 91801 |
-| `108524` | 12 | `T1003.001` T1003.001 | LSASS Process Crashed - Application | high | 60003 |
-| `108525` | 11 | `T1003.003` T1003.003 | Ntdsutil Abuse | medium | 60003 |
-| `108526` | 11 | `T1110` Brute Force | MSSQL Server Failed Logon From External Network | medium | 60003 |
-| `108527` | 11 | `T1649` T1649 | Certificate Private Key Acquired | medium | 60000 |
-| `108528` | 11 | `T1649` T1649 | Certificate Exported From Local Certificate Store | medium | 60000 |
-| `108529` | 11 | - | Standard User In High Privileged Group | medium | 60000 |
-| `108530` | 11 | `T1110` Brute Force | NTLM Brute Force | medium | 60000 |
-| `108531` | 12 | `T1003.006` T1003.006 | Active Directory Replication from Non Machine Account | high | 60100 |
-| `108532` | 13 | `T1003.006` T1003.006 | Mimikatz DC Sync | high | 60100 |
-| `108533` | 12 | `T1003.004` T1003.004 | DPAPI Domain Backup Key Extraction | high | 60100 |
-| `108534` | 11 | `T1003.004` T1003.004 | DPAPI Domain Master Key Backup Attempt | medium | 60100 |
-| `108535` | 12 | `T1003.002` T1003.002 | Possible Impacket SecretDump Remote Activity | high | 60100 |
-| `108536` | 11 | `T1558.003` T1558.003 | Kerberoasting Activity - Initial Query | medium | 60100 |
-| `108537` | 12 | `T1003.001` T1003.001 | LSASS Access From Non System Account | medium | 60100 |
-| `108538` | 12 | `T1003.001` T1003.001 | Credential Dumping Tools Service Execution - Security | high | 60100 |
-| `108539` | 12 | `T1003` OS Credential Dumping | WCE wceaux.dll Access | high | 60100 |
-| `108540` | 12 | `T1187` T1187 | Possible PetitPotam Coerce Authentication Attempt | high | 60100 |
-| `108541` | 12 | `T1187` T1187 | PetitPotam Suspicious Kerberos TGT Request | high | 60100 |
+| `108517` | 13 | `T1003` OS Credential Dumping | Suspicious service: mimikatz driver (mimidrv) | high | 60106 |
+| `108518` | 13 | `T1003` OS Credential Dumping | PowerShell module: invoke-mimikatz | medium | 91801 |
+| `108519` | 13 | `T1003.001` T1003.001 | PowerShell module: sekurlsa:: | medium | 91801 |
+| `108520` | 13 | `T1003` OS Credential Dumping | Suspicious process: mimikatz | high | 61603 |
+| `108521` | 11 | `T1003.001` T1003.001 | Suspicious PowerShell: comsvcs.dll | medium | 91801 |
+| `108522` | 13 | `T1003` OS Credential Dumping | Suspicious PowerShell: invoke-mimikatz | medium | 91801 |
+| `108523` | 12 | `T1003.001` T1003.001 | LSASS Process Crashed - Application | high | 60003 |
+| `108524` | 11 | `T1003.003` T1003.003 | Ntdsutil Abuse | medium | 60003 |
+| `108525` | 11 | `T1110` Brute Force | MSSQL Server Failed Logon From External Network | medium | 60003 |
+| `108526` | 11 | `T1649` T1649 | Certificate Private Key Acquired | medium | 60000 |
+| `108527` | 11 | `T1649` T1649 | Certificate Exported From Local Certificate Store | medium | 60000 |
+| `108528` | 11 | - | Standard User In High Privileged Group | medium | 60000 |
+| `108529` | 11 | `T1110` Brute Force | NTLM Brute Force | medium | 60000 |
+| `108530` | 12 | `T1003.006` T1003.006 | Active Directory Replication from Non Machine Account | high | 60100 |
+| `108531` | 13 | `T1003.006` T1003.006 | Mimikatz DC Sync | high | 60100 |
+| `108532` | 12 | `T1003.004` T1003.004 | DPAPI Domain Backup Key Extraction | high | 60100 |
+| `108533` | 11 | `T1003.004` T1003.004 | DPAPI Domain Master Key Backup Attempt | medium | 60100 |
+| `108534` | 12 | `T1003.002` T1003.002 | Possible Impacket SecretDump Remote Activity | high | 60100 |
+| `108535` | 11 | `T1558.003` T1558.003 | Kerberoasting Activity - Initial Query | medium | 60100 |
+| `108536` | 12 | `T1003.001` T1003.001 | LSASS Access From Non System Account | medium | 60100 |
+| `108537` | 12 | `T1003.001` T1003.001 | Credential Dumping Tools Service Execution - Security | high | 60100 |
+| `108538` | 12 | `T1003` OS Credential Dumping | WCE wceaux.dll Access | high | 60100 |
+| `108539` | 12 | `T1187` T1187 | Possible PetitPotam Coerce Authentication Attempt | high | 60100 |
+| `108540` | 12 | `T1187` T1187 | PetitPotam Suspicious Kerberos TGT Request | high | 60100 |
+| `108541` | 11 | `T1207` T1207 | Possible DC Shadow Attack | medium | 60100 |
 | `108542` | 11 | `T1207` T1207 | Possible DC Shadow Attack | medium | 60100 |
-| `108543` | 11 | `T1207` T1207 | Possible DC Shadow Attack | medium | 60100 |
-| `108544` | 12 | `T1558` Steal or Forge Kerberos Tickets | Replay Attack Detected | high | 60100 |
-| `108545` | 11 | `T1003` OS Credential Dumping | File Access Of Signal Desktop Sensitive Data | medium | 60100 |
-| `108546` | 12 | `T1212` T1212 | Kerberos Manipulation | high | 60100 |
-| `108547` | 12 | `T1003.001` T1003.001 | Password Dumper Activity on LSASS | high | 60100 |
+| `108543` | 12 | `T1558` Steal or Forge Kerberos Tickets | Replay Attack Detected | high | 60100 |
+| `108544` | 11 | `T1003` OS Credential Dumping | File Access Of Signal Desktop Sensitive Data | medium | 60100 |
+| `108545` | 12 | `T1212` T1212 | Kerberos Manipulation | high | 60100 |
+| `108546` | 12 | `T1003.001` T1003.001 | Password Dumper Activity on LSASS | high | 60100 |
+| `108547` | 12 | `T1003.001` T1003.001 | Potentially Suspicious AccessMask Requested From LSASS | medium | 60100 |
 | `108548` | 12 | `T1003.001` T1003.001 | Potentially Suspicious AccessMask Requested From LSASS | medium | 60100 |
-| `108549` | 12 | `T1003.001` T1003.001 | Potentially Suspicious AccessMask Requested From LSASS | medium | 60100 |
-| `108550` | 11 | `T1558.003` T1558.003 | Suspicious Kerberos RC4 Ticket Encryption | medium | 60100 |
-| `108551` | 12 | `T1528` T1528 | Suspicious Teams Application Related ObjectAcess Event | high | 60100 |
-| `108552` | 12 | `T1003.002` T1003.002 | Transferring Files with Credential Data via Network Shares | medium | 60100 |
-| `108553` | 12 | `T1558.003` T1558.003 | User Couldn't Call a Privileged Service 'LsaRegisterLogonProcess' | high | 60100 |
-| `108554` | 11 | `T1110.001` T1110.001 | Suspicious Rejected SMB Guest Logon From IP | medium | 60000 |
-| `108555` | 12 | `T1003.002` T1003.002 | Critical Hive In Suspicious Location Access Bits Cleared | high | 60106 |
-| `108556` | 11 | `T1003.002` T1003.002 | Crash Dump Created By Operating System | medium | 60106 |
-| `108557` | 12 | `T1003.001` T1003.001 | Credential Dumping Tools Service Execution - System | high | 60106 |
-| `108558` | 12 | `T1003.001` T1003.001 | LSASS Access Detected via Attack Surface Reduction | high | 60005 |
-| `108559` | 12 | `T1555.005` T1555.005 | Remote Thread Created In KeePass.EXE | high | 61610 |
-| `108560` | 12 | - | Remote Thread Creation In Mstsc.Exe From Suspicious Location | high | 61610 |
-| `108561` | 12 | `T1003.001` T1003.001 | Potential Credential Dumping Attempt Via PowerShell Remote Thread | high | 61610 |
-| `108562` | 12 | `T1003.001` T1003.001 | Password Dumper Remote Thread in LSASS | high | 61610 |
+| `108549` | 11 | `T1558.003` T1558.003 | Suspicious Kerberos RC4 Ticket Encryption | medium | 60100 |
+| `108550` | 12 | `T1528` T1528 | Suspicious Teams Application Related ObjectAcess Event | high | 60100 |
+| `108551` | 12 | `T1003.002` T1003.002 | Transferring Files with Credential Data via Network Shares | medium | 60100 |
+| `108552` | 12 | `T1558.003` T1558.003 | User Couldn't Call a Privileged Service 'LsaRegisterLogonProcess' | high | 60100 |
+| `108553` | 11 | `T1110.001` T1110.001 | Suspicious Rejected SMB Guest Logon From IP | medium | 60000 |
+| `108554` | 12 | `T1003.002` T1003.002 | Critical Hive In Suspicious Location Access Bits Cleared | high | 60106 |
+| `108555` | 11 | `T1003.002` T1003.002 | Crash Dump Created By Operating System | medium | 60106 |
+| `108556` | 12 | `T1003.001` T1003.001 | Credential Dumping Tools Service Execution - System | high | 60106 |
+| `108557` | 12 | `T1003.001` T1003.001 | LSASS Access Detected via Attack Surface Reduction | high | 60005 |
+| `108558` | 12 | `T1555.005` T1555.005 | Remote Thread Created In KeePass.EXE | high | 61610 |
+| `108559` | 12 | - | Remote Thread Creation In Mstsc.Exe From Suspicious Location | high | 61610 |
+| `108560` | 12 | `T1003.001` T1003.001 | Potential Credential Dumping Attempt Via PowerShell Remote Thread | high | 61610 |
+| `108561` | 12 | `T1003.001` T1003.001 | Password Dumper Remote Thread in LSASS | high | 61610 |
+| `108562` | 12 | `T1599.001` T1599.001 | WinDivert Driver Load | high | 61608 |
 | `108563` | 12 | `T1599.001` T1599.001 | WinDivert Driver Load | high | 61608 |
-| `108564` | 12 | `T1599.001` T1599.001 | WinDivert Driver Load | high | 61608 |
-| `108565` | 11 | `T1003` OS Credential Dumping | Credential Manager Access By Uncommon Applications | medium | 61613 |
-| `108566` | 11 | `T1555.004` T1555.004 | Access To Windows Credential History File By Uncommon Applications | medium | 61613 |
-| `108567` | 11 | `T1003` OS Credential Dumping | Access To Crypto Currency Wallets By Uncommon Applications | medium | 61613 |
-| `108568` | 11 | `T1555.004` T1555.004 | Access To Windows DPAPI Master Keys By Uncommon Applications | medium | 61613 |
-| `108569` | 11 | `T1552.006` T1552.006 | Access To Potentially Sensitive Sysvol Files By Uncommon Applications | medium | 61613 |
-| `108570` | 11 | `T1528` T1528 | Microsoft Teams Sensitive File Access By Uncommon Applications | medium | 61613 |
+| `108564` | 11 | `T1003` OS Credential Dumping | Credential Manager Access By Uncommon Applications | medium | 61613 |
+| `108565` | 11 | `T1555.004` T1555.004 | Access To Windows Credential History File By Uncommon Applications | medium | 61613 |
+| `108566` | 11 | `T1003` OS Credential Dumping | Access To Crypto Currency Wallets By Uncommon Applications | medium | 61613 |
+| `108567` | 11 | `T1555.004` T1555.004 | Access To Windows DPAPI Master Keys By Uncommon Applications | medium | 61613 |
+| `108568` | 11 | `T1552.006` T1552.006 | Access To Potentially Sensitive Sysvol Files By Uncommon Applications | medium | 61613 |
+| `108569` | 11 | `T1528` T1528 | Microsoft Teams Sensitive File Access By Uncommon Applications | medium | 61613 |
+| `108570` | 12 | `T1003.001` T1003.001 | Cred Dump Tools Dropped Files | high | 61613 |
 | `108571` | 12 | `T1003.001` T1003.001 | Cred Dump Tools Dropped Files | high | 61613 |
-| `108572` | 12 | `T1003.001` T1003.001 | Cred Dump Tools Dropped Files | high | 61613 |
-| `108573` | 12 | `T1003.001` T1003.001 | HackTool - CrackMapExec File Indicators | high | 61613 |
-| `108574` | 12 | `T1003.001` T1003.001 | HackTool - Dumpert Process Dumper Default File | high | 61613 |
+| `108572` | 12 | `T1003.001` T1003.001 | HackTool - CrackMapExec File Indicators | high | 61613 |
+| `108573` | 12 | `T1003.001` T1003.001 | HackTool - Dumpert Process Dumper Default File | high | 61613 |
+| `108574` | 12 | `T1552.001` T1552.001 | HackTool - Typical HiveNightmare SAM File Export | high | 61613 |
 | `108575` | 12 | `T1552.001` T1552.001 | HackTool - Typical HiveNightmare SAM File Export | high | 61613 |
-| `108576` | 12 | `T1552.001` T1552.001 | HackTool - Typical HiveNightmare SAM File Export | high | 61613 |
-| `108577` | 13 | `T1558` Steal or Forge Kerberos Tickets | HackTool - Mimikatz Kirbi File Creation | high | 61613 |
-| `108578` | 12 | - | HackTool - NPPSpy Hacktool Usage | high | 61613 |
-| `108579` | 12 | `T1003.002` T1003.002 | HackTool - QuarksPwDump Dump File | high | 61613 |
-| `108580` | 12 | `T1003` OS Credential Dumping | HackTool - Potential Remote Credential Dumping Activity Via CrackMa... | high | 61613 |
-| `108581` | 12 | `T1003.001` T1003.001 | HackTool - SafetyKatz Dump Indicator | high | 61613 |
-| `108582` | 12 | `T1003.001` T1003.001 | HackTool - Impacket File Indicators | high | 61613 |
+| `108576` | 13 | `T1558` Steal or Forge Kerberos Tickets | HackTool - Mimikatz Kirbi File Creation | high | 61613 |
+| `108577` | 12 | - | HackTool - NPPSpy Hacktool Usage | high | 61613 |
+| `108578` | 12 | `T1003.002` T1003.002 | HackTool - QuarksPwDump Dump File | high | 61613 |
+| `108579` | 12 | `T1003` OS Credential Dumping | HackTool - Potential Remote Credential Dumping Activity Via CrackMa... | high | 61613 |
+| `108580` | 12 | `T1003.001` T1003.001 | HackTool - SafetyKatz Dump Indicator | high | 61613 |
+| `108581` | 12 | `T1003.001` T1003.001 | HackTool - Impacket File Indicators | high | 61613 |
+| `108582` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Files | high | 61613 |
 | `108583` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Files | high | 61613 |
 | `108584` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Files | high | 61613 |
 | `108585` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Files | high | 61613 |
 | `108586` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Files | high | 61613 |
-| `108587` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Files | high | 61613 |
-| `108588` | 12 | `T1003.001` T1003.001 | LSASS Process Dump Artefact In CrashDumps Folder | high | 61613 |
-| `108589` | 12 | `T1003.001` T1003.001 | WerFault LSASS Process Memory Dump | high | 61613 |
-| `108590` | 12 | `T1003.003` T1003.003 | NTDS.DIT Creation By Uncommon Parent Process | high | 61613 |
-| `108591` | 12 | `T1003.002` T1003.002 | NTDS.DIT Creation By Uncommon Process | high | 61613 |
-| `108592` | 12 | `T1003.003` T1003.003 | NTDS Exfiltration Filename Patterns | high | 61613 |
+| `108587` | 12 | `T1003.001` T1003.001 | LSASS Process Dump Artefact In CrashDumps Folder | high | 61613 |
+| `108588` | 12 | `T1003.001` T1003.001 | WerFault LSASS Process Memory Dump | high | 61613 |
+| `108589` | 12 | `T1003.003` T1003.003 | NTDS.DIT Creation By Uncommon Parent Process | high | 61613 |
+| `108590` | 12 | `T1003.002` T1003.002 | NTDS.DIT Creation By Uncommon Process | high | 61613 |
+| `108591` | 12 | `T1003.003` T1003.003 | NTDS Exfiltration Filename Patterns | high | 61613 |
+| `108592` | 12 | `T1003.002` T1003.002 | Potential SAM Database Dump | high | 61613 |
 | `108593` | 12 | `T1003.002` T1003.002 | Potential SAM Database Dump | high | 61613 |
-| `108594` | 12 | `T1003.002` T1003.002 | Potential SAM Database Dump | high | 61613 |
-| `108595` | 12 | `T1555` T1555 | DPAPI Backup Keys And Certificate Export Activity IOC | high | 61613 |
-| `108596` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Creation Via Taskmgr.EXE | high | 61613 |
-| `108597` | 12 | `T1003.001` T1003.001 | Suspicious Renamed Comsvcs DLL Loaded By Rundll32 | high | 61609 |
-| `108598` | 11 | `T1056.002` T1056.002 | CredUI.DLL Loaded By Uncommon Process | medium | 61609 |
-| `108599` | 12 | `T1003.001` T1003.001 | Suspicious Unsigned Dbghelp/Dbgcore DLL Loaded | high | 61609 |
-| `108600` | 12 | `T1218` T1218 | Time Travel Debugging Utility Usage - Image | high | 61609 |
-| `108601` | 12 | `T1003.001` T1003.001 | Unsigned Image Loaded Into LSASS Process | medium | 61609 |
-| `108602` | 12 | `T1003` OS Credential Dumping | Suspicious Loading of Dbgcore/Dbghelp DLLs from Uncommon Location | high | 61609 |
-| `108603` | 11 | `T1558` Steal or Forge Kerberos Tickets | Uncommon Outbound Kerberos Connection | medium | 61605 |
-| `108604` | 13 | `T1003.001` T1003.001 | HackTool - Credential Dumping Tools Named Pipe Created | high | 61619 |
-| `108605` | 12 | `T1003.003` T1003.003 | Suspicious Get-ADDBAccount Usage | high | 91801 |
-| `108606` | 11 | `T1555.003` T1555.003 | Access to Browser Login Data | medium | 91801 |
-| `108607` | 12 | `T1003.003` T1003.003 | Create Volume Shadow Copy with Powershell | high | 91801 |
+| `108594` | 12 | `T1555` T1555 | DPAPI Backup Keys And Certificate Export Activity IOC | high | 61613 |
+| `108595` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Creation Via Taskmgr.EXE | high | 61613 |
+| `108596` | 12 | `T1003.001` T1003.001 | Suspicious Renamed Comsvcs DLL Loaded By Rundll32 | high | 61609 |
+| `108597` | 11 | `T1056.002` T1056.002 | CredUI.DLL Loaded By Uncommon Process | medium | 61609 |
+| `108598` | 12 | `T1003.001` T1003.001 | Suspicious Unsigned Dbghelp/Dbgcore DLL Loaded | high | 61609 |
+| `108599` | 12 | `T1218` T1218 | Time Travel Debugging Utility Usage - Image | high | 61609 |
+| `108600` | 12 | `T1003.001` T1003.001 | Unsigned Image Loaded Into LSASS Process | medium | 61609 |
+| `108601` | 12 | `T1003` OS Credential Dumping | Suspicious Loading of Dbgcore/Dbghelp DLLs from Uncommon Location | high | 61609 |
+| `108602` | 11 | `T1558` Steal or Forge Kerberos Tickets | Uncommon Outbound Kerberos Connection | medium | 61605 |
+| `108603` | 13 | `T1003.001` T1003.001 | HackTool - Credential Dumping Tools Named Pipe Created | high | 61619 |
+| `108604` | 12 | `T1003.003` T1003.003 | Suspicious Get-ADDBAccount Usage | high | 91801 |
+| `108605` | 11 | `T1555.003` T1555.003 | Access to Browser Login Data | medium | 91801 |
+| `108606` | 12 | `T1003.003` T1003.003 | Create Volume Shadow Copy with Powershell | high | 91801 |
+| `108607` | 11 | `T1555` T1555 | Dump Credentials from Windows Credential Manager With PowerShell | medium | 91801 |
 | `108608` | 11 | `T1555` T1555 | Dump Credentials from Windows Credential Manager With PowerShell | medium | 91801 |
 | `108609` | 11 | `T1555` T1555 | Dump Credentials from Windows Credential Manager With PowerShell | medium | 91801 |
-| `108610` | 11 | `T1555` T1555 | Dump Credentials from Windows Credential Manager With PowerShell | medium | 91801 |
-| `108611` | 11 | `T1555` T1555 | Enumerate Credentials from Windows Credential Manager With PowerShell | medium | 91801 |
-| `108612` | 11 | `T1552.004` T1552.004 | Certificate Exported Via PowerShell - ScriptBlock | medium | 91801 |
-| `108613` | 11 | `T1003.006` T1003.006 | Suspicious Get-ADReplAccount | medium | 91801 |
-| `108614` | 12 | `T1003` OS Credential Dumping | HackTool - Rubeus Execution - ScriptBlock | high | 91801 |
-| `108615` | 12 | `T1046` T1046 | HackTool - WinPwn Execution - ScriptBlock | high | 91801 |
+| `108610` | 11 | `T1555` T1555 | Enumerate Credentials from Windows Credential Manager With PowerShell | medium | 91801 |
+| `108611` | 11 | `T1552.004` T1552.004 | Certificate Exported Via PowerShell - ScriptBlock | medium | 91801 |
+| `108612` | 11 | `T1003.006` T1003.006 | Suspicious Get-ADReplAccount | medium | 91801 |
+| `108613` | 12 | `T1003` OS Credential Dumping | HackTool - Rubeus Execution - ScriptBlock | high | 91801 |
+| `108614` | 12 | `T1046` T1046 | HackTool - WinPwn Execution - ScriptBlock | high | 91801 |
+| `108615` | 11 | `T1056.001` T1056.001 | Powershell Keylogging | medium | 91801 |
 | `108616` | 11 | `T1056.001` T1056.001 | Powershell Keylogging | medium | 91801 |
-| `108617` | 11 | `T1056.001` T1056.001 | Powershell Keylogging | medium | 91801 |
-| `108618` | 12 | `T1003` OS Credential Dumping | Live Memory Dump Using Powershell | high | 91801 |
-| `108619` | 11 | `T1040` T1040 | Potential Packet Capture Activity Via Start-NetEventSession - Scrip... | medium | 91801 |
+| `108617` | 12 | `T1003` OS Credential Dumping | Live Memory Dump Using Powershell | high | 91801 |
+| `108618` | 11 | `T1040` T1040 | Potential Packet Capture Activity Via Start-NetEventSession - Scrip... | medium | 91801 |
+| `108619` | 13 | `T1003` OS Credential Dumping | Potential Invoke-Mimikatz PowerShell Script | high | 91801 |
 | `108620` | 13 | `T1003` OS Credential Dumping | Potential Invoke-Mimikatz PowerShell Script | high | 91801 |
 | `108621` | 13 | `T1003` OS Credential Dumping | Potential Invoke-Mimikatz PowerShell Script | high | 91801 |
-| `108622` | 13 | `T1003` OS Credential Dumping | Potential Invoke-Mimikatz PowerShell Script | high | 91801 |
-| `108623` | 12 | `T1059.001` T1059.001 | PowerShell Credential Prompt | high | 91801 |
-| `108624` | 12 | `T1558.003` T1558.003 | Suspicious Kerberos Ticket Request via PowerShell Script - ScriptBlock | high | 91801 |
-| `108625` | 11 | `T1552.001` T1552.001 | Extracting Information with PowerShell | medium | 91801 |
-| `108626` | 12 | `T1003.001` T1003.001 | PowerShell Get-Process LSASS in ScriptBlock | high | 91801 |
-| `108627` | 12 | - | Veeam Backup Servers Credential Dumping Script Execution | high | 91801 |
-| `108628` | 13 | `T1003.001` T1003.001 | HackTool - Generic Process Access | high | 61612 |
-| `108629` | 12 | `T1003.001` T1003.001 | HackTool - Generic Process Access | high | 61612 |
-| `108630` | 12 | `T1003.001` T1003.001 | Lsass Memory Dump via Comsvcs DLL | high | 61612 |
-| `108631` | 12 | `T1003.001` T1003.001 | LSASS Memory Access by Tool With Dump Keyword In Name | high | 61612 |
-| `108632` | 12 | `T1003.001` T1003.001 | Potential Credential Dumping Activity Via LSASS | medium | 61612 |
-| `108633` | 12 | `T1003.001` T1003.001 | Credential Dumping Activity By Python Based Tool | high | 61612 |
-| `108634` | 12 | `T1003.001` T1003.001 | Remote LSASS Process Access Through Windows Remote Management | high | 61612 |
-| `108635` | 12 | `T1003.001` T1003.001 | Suspicious LSASS Access Via MalSecLogon | high | 61612 |
-| `108636` | 12 | `T1003.001` T1003.001 | Potentially Suspicious GrantedAccess Flags On LSASS | medium | 61612 |
-| `108637` | 12 | `T1003.001` T1003.001 | Credential Dumping Attempt Via WerFault | high | 61612 |
-| `108638` | 12 | `T1003.001` T1003.001 | LSASS Access From Potentially White-Listed Processes | high | 61612 |
-| `108639` | 12 | `T1003.001` T1003.001 | Suspicious Process Access to LSASS with Dbgcore/Dbghelp DLLs | high | 61612 |
-| `108640` | 12 | `T1185` T1185 | Potential Data Stealing Via Chromium Headless Debugging | high | 61603 |
+| `108622` | 12 | `T1059.001` T1059.001 | PowerShell Credential Prompt | high | 91801 |
+| `108623` | 12 | `T1558.003` T1558.003 | Suspicious Kerberos Ticket Request via PowerShell Script - ScriptBlock | high | 91801 |
+| `108624` | 11 | `T1552.001` T1552.001 | Extracting Information with PowerShell | medium | 91801 |
+| `108625` | 12 | `T1003.001` T1003.001 | PowerShell Get-Process LSASS in ScriptBlock | high | 91801 |
+| `108626` | 12 | - | Veeam Backup Servers Credential Dumping Script Execution | high | 91801 |
+| `108627` | 13 | `T1003.001` T1003.001 | HackTool - Generic Process Access | high | 61612 |
+| `108628` | 12 | `T1003.001` T1003.001 | HackTool - Generic Process Access | high | 61612 |
+| `108629` | 12 | `T1003.001` T1003.001 | Lsass Memory Dump via Comsvcs DLL | high | 61612 |
+| `108630` | 12 | `T1003.001` T1003.001 | LSASS Memory Access by Tool With Dump Keyword In Name | high | 61612 |
+| `108631` | 12 | `T1003.001` T1003.001 | Potential Credential Dumping Activity Via LSASS | medium | 61612 |
+| `108632` | 12 | `T1003.001` T1003.001 | Credential Dumping Activity By Python Based Tool | high | 61612 |
+| `108633` | 12 | `T1003.001` T1003.001 | Remote LSASS Process Access Through Windows Remote Management | high | 61612 |
+| `108634` | 12 | `T1003.001` T1003.001 | Suspicious LSASS Access Via MalSecLogon | high | 61612 |
+| `108635` | 12 | `T1003.001` T1003.001 | Potentially Suspicious GrantedAccess Flags On LSASS | medium | 61612 |
+| `108636` | 12 | `T1003.001` T1003.001 | Credential Dumping Attempt Via WerFault | high | 61612 |
+| `108637` | 12 | `T1003.001` T1003.001 | LSASS Access From Potentially White-Listed Processes | high | 61612 |
+| `108638` | 12 | `T1003.001` T1003.001 | Suspicious Process Access to LSASS with Dbgcore/Dbghelp DLLs | high | 61612 |
+| `108639` | 12 | `T1185` T1185 | Potential Data Stealing Via Chromium Headless Debugging | high | 61603 |
+| `108640` | 11 | `T1185` T1185 | Browser Started with Remote Debugging | medium | 61603 |
 | `108641` | 11 | `T1185` T1185 | Browser Started with Remote Debugging | medium | 61603 |
-| `108642` | 11 | `T1185` T1185 | Browser Started with Remote Debugging | medium | 61603 |
-| `108643` | 12 | `T1218.011` T1218.011 | Process Access via TrolleyExpress Exclusion | high | 61603 |
-| `108644` | 12 | - | Copy .DMP/.DUMP Files From Remote Share Via Cmd.EXE | high | 61603 |
-| `108645` | 12 | `T1003.002` T1003.002 | VolumeShadowCopy Symlink Creation Via Mklink | high | 61603 |
-| `108646` | 11 | `T1003.005` T1003.005 | New Generic Credentials Added Via Cmdkey.EXE | medium | 61603 |
-| `108647` | 12 | `T1003.005` T1003.005 | Potential Reconnaissance For Cached Credentials Via Cmdkey.EXE | high | 61603 |
-| `108648` | 12 | `T1036` T1036 | CreateDump Process Dump | high | 61603 |
-| `108649` | 12 | `T1003.001` T1003.001 | Potential Windows Defender AV Bypass Via Dump64.EXE Rename | high | 61603 |
-| `108650` | 11 | `T1036` T1036 | DumpMinitool Execution | medium | 61603 |
-| `108651` | 12 | `T1036` T1036 | Suspicious DumpMinitool Execution | high | 61603 |
-| `108652` | 11 | `T1003` OS Credential Dumping | Esentutl Gather Credentials | medium | 61603 |
-| `108653` | 12 | `T1003.002` T1003.002 | Copying Sensitive Files with Credential Data | high | 61603 |
-| `108654` | 11 | `T1218` T1218 | Remote File Download Via Findstr.EXE | medium | 61603 |
-| `108655` | 12 | `T1552.006` T1552.006 | Findstr GPP Passwords | high | 61603 |
-| `108656` | 12 | `T1552.006` T1552.006 | LSASS Process Reconnaissance Via Findstr.EXE | high | 61603 |
-| `108657` | 11 | `T1552.006` T1552.006 | Permission Misconfiguration Reconnaissance Via Findstr.EXE | medium | 61603 |
+| `108642` | 12 | `T1218.011` T1218.011 | Process Access via TrolleyExpress Exclusion | high | 61603 |
+| `108643` | 12 | - | Copy .DMP/.DUMP Files From Remote Share Via Cmd.EXE | high | 61603 |
+| `108644` | 12 | `T1003.002` T1003.002 | VolumeShadowCopy Symlink Creation Via Mklink | high | 61603 |
+| `108645` | 11 | `T1003.005` T1003.005 | New Generic Credentials Added Via Cmdkey.EXE | medium | 61603 |
+| `108646` | 12 | `T1003.005` T1003.005 | Potential Reconnaissance For Cached Credentials Via Cmdkey.EXE | high | 61603 |
+| `108647` | 12 | `T1036` T1036 | CreateDump Process Dump | high | 61603 |
+| `108648` | 12 | `T1003.001` T1003.001 | Potential Windows Defender AV Bypass Via Dump64.EXE Rename | high | 61603 |
+| `108649` | 11 | `T1036` T1036 | DumpMinitool Execution | medium | 61603 |
+| `108650` | 12 | `T1036` T1036 | Suspicious DumpMinitool Execution | high | 61603 |
+| `108651` | 11 | `T1003` OS Credential Dumping | Esentutl Gather Credentials | medium | 61603 |
+| `108652` | 12 | `T1003.002` T1003.002 | Copying Sensitive Files with Credential Data | high | 61603 |
+| `108653` | 11 | `T1218` T1218 | Remote File Download Via Findstr.EXE | medium | 61603 |
+| `108654` | 12 | `T1552.006` T1552.006 | Findstr GPP Passwords | high | 61603 |
+| `108655` | 12 | `T1552.006` T1552.006 | LSASS Process Reconnaissance Via Findstr.EXE | high | 61603 |
+| `108656` | 11 | `T1552.006` T1552.006 | Permission Misconfiguration Reconnaissance Via Findstr.EXE | medium | 61603 |
+| `108657` | 12 | `T1003.001` T1003.001 | HackTool - CrackMapExec Process Patterns | high | 61603 |
 | `108658` | 12 | `T1003.001` T1003.001 | HackTool - CrackMapExec Process Patterns | high | 61603 |
 | `108659` | 12 | `T1003.001` T1003.001 | HackTool - CrackMapExec Process Patterns | high | 61603 |
-| `108660` | 12 | `T1003.001` T1003.001 | HackTool - CrackMapExec Process Patterns | high | 61603 |
+| `108660` | 12 | `T1003.001` T1003.001 | HackTool - CreateMiniDump Execution | high | 61603 |
 | `108661` | 12 | `T1003.001` T1003.001 | HackTool - CreateMiniDump Execution | high | 61603 |
-| `108662` | 12 | `T1003.001` T1003.001 | HackTool - CreateMiniDump Execution | high | 61603 |
+| `108662` | 12 | `T1003.001` T1003.001 | HackTool - Doppelanger LSASS Dumper Execution | high | 61603 |
 | `108663` | 12 | `T1003.001` T1003.001 | HackTool - Doppelanger LSASS Dumper Execution | high | 61603 |
-| `108664` | 12 | `T1003.001` T1003.001 | HackTool - Doppelanger LSASS Dumper Execution | high | 61603 |
+| `108664` | 12 | `T1003.001` T1003.001 | HackTool - Dumpert Process Dumper Execution | high | 61603 |
 | `108665` | 12 | `T1003.001` T1003.001 | HackTool - Dumpert Process Dumper Execution | high | 61603 |
-| `108666` | 12 | `T1003.001` T1003.001 | HackTool - Dumpert Process Dumper Execution | high | 61603 |
-| `108667` | 12 | `T1588.002` T1588.002 | Hacktool Execution - Imphash | high | 61603 |
-| `108668` | 12 | `T1588.002` T1588.002 | Hacktool Execution - PE Metadata | high | 61603 |
+| `108666` | 12 | `T1588.002` T1588.002 | Hacktool Execution - Imphash | high | 61603 |
+| `108667` | 12 | `T1588.002` T1588.002 | Hacktool Execution - PE Metadata | high | 61603 |
+| `108668` | 12 | `T1003.001` T1003.001 | HackTool - HandleKatz LSASS Dumper Execution | high | 61603 |
 | `108669` | 12 | `T1003.001` T1003.001 | HackTool - HandleKatz LSASS Dumper Execution | high | 61603 |
 | `108670` | 12 | `T1003.001` T1003.001 | HackTool - HandleKatz LSASS Dumper Execution | high | 61603 |
-| `108671` | 12 | `T1003.001` T1003.001 | HackTool - HandleKatz LSASS Dumper Execution | high | 61603 |
+| `108671` | 12 | `T1110.002` T1110.002 | HackTool - Hashcat Password Cracker Execution | high | 61603 |
 | `108672` | 12 | `T1110.002` T1110.002 | HackTool - Hashcat Password Cracker Execution | high | 61603 |
-| `108673` | 12 | `T1110.002` T1110.002 | HackTool - Hashcat Password Cracker Execution | high | 61603 |
-| `108674` | 12 | `T1110` Brute Force | HackTool - Hydra Password Bruteforce Execution | high | 61603 |
+| `108673` | 12 | `T1110` Brute Force | HackTool - Hydra Password Bruteforce Execution | high | 61603 |
+| `108674` | 12 | `T1003.001` T1003.001 | HackTool - Inveigh Execution | high | 61603 |
 | `108675` | 12 | `T1003.001` T1003.001 | HackTool - Inveigh Execution | high | 61603 |
 | `108676` | 12 | `T1003.001` T1003.001 | HackTool - Inveigh Execution | high | 61603 |
 | `108677` | 12 | `T1003.001` T1003.001 | HackTool - Inveigh Execution | high | 61603 |
-| `108678` | 12 | `T1003.001` T1003.001 | HackTool - Inveigh Execution | high | 61603 |
+| `108678` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelay Execution | high | 61603 |
 | `108679` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelay Execution | high | 61603 |
 | `108680` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelay Execution | high | 61603 |
 | `108681` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelay Execution | high | 61603 |
 | `108682` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelay Execution | high | 61603 |
-| `108683` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelay Execution | high | 61603 |
-| `108684` | 12 | `T1558.003` T1558.003 | HackTool - RemoteKrbRelay Execution | high | 61603 |
+| `108683` | 12 | `T1558.003` T1558.003 | HackTool - RemoteKrbRelay Execution | high | 61603 |
+| `108684` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelayUp Execution | high | 61603 |
 | `108685` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelayUp Execution | high | 61603 |
 | `108686` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelayUp Execution | high | 61603 |
 | `108687` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelayUp Execution | high | 61603 |
 | `108688` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelayUp Execution | high | 61603 |
-| `108689` | 12 | `T1558.003` T1558.003 | HackTool - KrbRelayUp Execution | high | 61603 |
+| `108689` | 11 | - | HackTool - LaZagne Execution | medium | 61603 |
 | `108690` | 11 | - | HackTool - LaZagne Execution | medium | 61603 |
-| `108691` | 11 | - | HackTool - LaZagne Execution | medium | 61603 |
+| `108691` | 13 | `T1003.001` T1003.001 | HackTool - Mimikatz Execution | high | 61603 |
 | `108692` | 13 | `T1003.001` T1003.001 | HackTool - Mimikatz Execution | high | 61603 |
 | `108693` | 13 | `T1003.001` T1003.001 | HackTool - Mimikatz Execution | high | 61603 |
-| `108694` | 13 | `T1003.001` T1003.001 | HackTool - Mimikatz Execution | high | 61603 |
-| `108695` | 12 | `T1003.002` T1003.002 | HackTool - Pypykatz Credentials Dumping Activity | high | 61603 |
+| `108694` | 12 | `T1003.002` T1003.002 | HackTool - Pypykatz Credentials Dumping Activity | high | 61603 |
+| `108695` | 12 | `T1003.002` T1003.002 | HackTool - Quarks PwDump Execution | high | 61603 |
 | `108696` | 12 | `T1003.002` T1003.002 | HackTool - Quarks PwDump Execution | high | 61603 |
-| `108697` | 12 | `T1003.002` T1003.002 | HackTool - Quarks PwDump Execution | high | 61603 |
+| `108697` | 12 | `T1003` OS Credential Dumping | HackTool - Rubeus Execution | high | 61603 |
 | `108698` | 12 | `T1003` OS Credential Dumping | HackTool - Rubeus Execution | high | 61603 |
 | `108699` | 12 | `T1003` OS Credential Dumping | HackTool - Rubeus Execution | high | 61603 |
 | `108700` | 12 | `T1003` OS Credential Dumping | HackTool - Rubeus Execution | high | 61603 |
-| `108701` | 12 | `T1003` OS Credential Dumping | HackTool - Rubeus Execution | high | 61603 |
+| `108701` | 12 | `T1003.001` T1003.001 | HackTool - SafetyKatz Execution | high | 61603 |
 | `108702` | 12 | `T1003.001` T1003.001 | HackTool - SafetyKatz Execution | high | 61603 |
 | `108703` | 12 | `T1003.001` T1003.001 | HackTool - SafetyKatz Execution | high | 61603 |
-| `108704` | 12 | `T1003.001` T1003.001 | HackTool - SafetyKatz Execution | high | 61603 |
+| `108704` | 12 | `T1555` T1555 | HackTool - SecurityXploded Execution | high | 61603 |
 | `108705` | 12 | `T1555` T1555 | HackTool - SecurityXploded Execution | high | 61603 |
 | `108706` | 12 | `T1555` T1555 | HackTool - SecurityXploded Execution | high | 61603 |
-| `108707` | 12 | `T1555` T1555 | HackTool - SecurityXploded Execution | high | 61603 |
+| `108707` | 12 | `T1003.001` T1003.001 | HackTool - Windows Credential Editor (WCE) Execution | high | 61603 |
 | `108708` | 12 | `T1003.001` T1003.001 | HackTool - Windows Credential Editor (WCE) Execution | high | 61603 |
-| `108709` | 12 | `T1003.001` T1003.001 | HackTool - Windows Credential Editor (WCE) Execution | high | 61603 |
-| `108710` | 12 | `T1046` T1046 | HackTool - WinPwn Execution | high | 61603 |
+| `108709` | 12 | `T1046` T1046 | HackTool - WinPwn Execution | high | 61603 |
+| `108710` | 12 | `T1003.001` T1003.001 | HackTool - WSASS Execution | high | 61603 |
 | `108711` | 12 | `T1003.001` T1003.001 | HackTool - WSASS Execution | high | 61603 |
 | `108712` | 12 | `T1003.001` T1003.001 | HackTool - WSASS Execution | high | 61603 |
-| `108713` | 12 | `T1003.001` T1003.001 | HackTool - WSASS Execution | high | 61603 |
+| `108713` | 12 | `T1036` T1036 | HackTool - XORDump Execution | high | 61603 |
 | `108714` | 12 | `T1036` T1036 | HackTool - XORDump Execution | high | 61603 |
-| `108715` | 12 | `T1036` T1036 | HackTool - XORDump Execution | high | 61603 |
-| `108716` | 12 | `T1003` OS Credential Dumping | Microsoft IIS Service Account Password Dumped | high | 61603 |
-| `108717` | 12 | `T1003` OS Credential Dumping | Microsoft IIS Connection Strings Decryption | high | 61603 |
-| `108718` | 11 | `T1003.001` T1003.001 | Dumping Process via Sqldumper.exe | medium | 61603 |
-| `108719` | 12 | `T1218` T1218 | Time Travel Debugging Utility Usage | high | 61603 |
-| `108720` | 12 | `T1003` OS Credential Dumping | Potential Credential Dumping Via LSASS Process Clone | high | 61603 |
-| `108721` | 11 | `T1003.003` T1003.003 | Suspicious Usage Of Active Directory Diagnostic Tool (ntdsutil.exe) | medium | 61603 |
-| `108722` | 11 | `T1003.003` T1003.003 | Invocation of Active Directory Diagnostic Tool (ntdsutil.exe) | medium | 61603 |
-| `108723` | 11 | `T1552.001` T1552.001 | Potential PowerShell Console History Access Attempt via History File | medium | 61603 |
-| `108724` | 11 | `T1552.004` T1552.004 | Certificate Exported Via PowerShell | medium | 61603 |
-| `108725` | 12 | `T1552.004` T1552.004 | PowerShell Get-Process LSASS | high | 61603 |
-| `108726` | 12 | `T1558.003` T1558.003 | Suspicious Kerberos Ticket Request via CLI | high | 61603 |
-| `108727` | 12 | `T1003.002` T1003.002 | PowerShell SAM Copy | high | 61603 |
-| `108728` | 12 | `T1003.003` T1003.003 | Sensitive File Dump Via Print.EXE | high | 61603 |
+| `108715` | 12 | `T1003` OS Credential Dumping | Microsoft IIS Service Account Password Dumped | high | 61603 |
+| `108716` | 12 | `T1003` OS Credential Dumping | Microsoft IIS Connection Strings Decryption | high | 61603 |
+| `108717` | 11 | `T1003.001` T1003.001 | Dumping Process via Sqldumper.exe | medium | 61603 |
+| `108718` | 12 | `T1218` T1218 | Time Travel Debugging Utility Usage | high | 61603 |
+| `108719` | 12 | `T1003` OS Credential Dumping | Potential Credential Dumping Via LSASS Process Clone | high | 61603 |
+| `108720` | 11 | `T1003.003` T1003.003 | Suspicious Usage Of Active Directory Diagnostic Tool (ntdsutil.exe) | medium | 61603 |
+| `108721` | 11 | `T1003.003` T1003.003 | Invocation of Active Directory Diagnostic Tool (ntdsutil.exe) | medium | 61603 |
+| `108722` | 11 | `T1552.001` T1552.001 | Potential PowerShell Console History Access Attempt via History File | medium | 61603 |
+| `108723` | 11 | `T1552.004` T1552.004 | Certificate Exported Via PowerShell | medium | 61603 |
+| `108724` | 12 | `T1552.004` T1552.004 | PowerShell Get-Process LSASS | high | 61603 |
+| `108725` | 12 | `T1558.003` T1558.003 | Suspicious Kerberos Ticket Request via CLI | high | 61603 |
+| `108726` | 12 | `T1003.002` T1003.002 | PowerShell SAM Copy | high | 61603 |
+| `108727` | 12 | `T1003.003` T1003.003 | Sensitive File Dump Via Print.EXE | high | 61603 |
+| `108728` | 12 | `T1003.003` T1003.003 | PUA - DIT Snapshot Viewer | high | 61603 |
 | `108729` | 12 | `T1003.003` T1003.003 | PUA - DIT Snapshot Viewer | high | 61603 |
-| `108730` | 12 | `T1003.003` T1003.003 | PUA - DIT Snapshot Viewer | high | 61603 |
-| `108731` | 12 | `T1003` OS Credential Dumping | PUA - Memory Dump Mount Via MemProcFS | high | 61603 |
+| `108730` | 12 | `T1003` OS Credential Dumping | PUA - Memory Dump Mount Via MemProcFS | high | 61603 |
+| `108731` | 11 | `T1056.002` T1056.002 | PUA - Mouse Lock Execution | medium | 61603 |
 | `108732` | 11 | `T1056.002` T1056.002 | PUA - Mouse Lock Execution | medium | 61603 |
 | `108733` | 11 | `T1056.002` T1056.002 | PUA - Mouse Lock Execution | medium | 61603 |
-| `108734` | 11 | `T1056.002` T1056.002 | PUA - Mouse Lock Execution | medium | 61603 |
+| `108734` | 11 | `T1555.003` T1555.003 | PUA - WebBrowserPassView Execution | medium | 61603 |
 | `108735` | 11 | `T1555.003` T1555.003 | PUA - WebBrowserPassView Execution | medium | 61603 |
-| `108736` | 11 | `T1555.003` T1555.003 | PUA - WebBrowserPassView Execution | medium | 61603 |
-| `108737` | 12 | `T1003.001` T1003.001 | Process Memory Dump via RdrLeakDiag.EXE | high | 61603 |
-| `108738` | 12 | `T1003.002` T1003.002 | Dumping of Sensitive Hives Via Reg.EXE | high | 61603 |
-| `108739` | 11 | `T1552.002` T1552.002 | Enumeration for Credentials in Registry | medium | 61603 |
-| `108740` | 11 | `T1552.002` T1552.002 | Enumeration for 3rd Party Creds From CLI | medium | 61603 |
-| `108741` | 12 | `T1552.002` T1552.002 | Registry Export of Third-Party Credentials | high | 61603 |
-| `108742` | 12 | `T1003` OS Credential Dumping | Potential Credential Dumping Attempt Using New NetworkProvider - CLI | high | 61603 |
-| `108743` | 12 | `T1528` T1528 | Renamed BrowserCore.EXE Execution | high | 61603 |
+| `108736` | 12 | `T1003.001` T1003.001 | Process Memory Dump via RdrLeakDiag.EXE | high | 61603 |
+| `108737` | 12 | `T1003.002` T1003.002 | Dumping of Sensitive Hives Via Reg.EXE | high | 61603 |
+| `108738` | 11 | `T1552.002` T1552.002 | Enumeration for Credentials in Registry | medium | 61603 |
+| `108739` | 11 | `T1552.002` T1552.002 | Enumeration for 3rd Party Creds From CLI | medium | 61603 |
+| `108740` | 12 | `T1552.002` T1552.002 | Registry Export of Third-Party Credentials | high | 61603 |
+| `108741` | 12 | `T1003` OS Credential Dumping | Potential Credential Dumping Attempt Using New NetworkProvider - CLI | high | 61603 |
+| `108742` | 12 | `T1528` T1528 | Renamed BrowserCore.EXE Execution | high | 61603 |
+| `108743` | 12 | `T1036` T1036 | Renamed CreateDump Utility Execution | high | 61603 |
 | `108744` | 12 | `T1036` T1036 | Renamed CreateDump Utility Execution | high | 61603 |
 | `108745` | 12 | `T1036` T1036 | Renamed CreateDump Utility Execution | high | 61603 |
-| `108746` | 12 | `T1036` T1036 | Renamed CreateDump Utility Execution | high | 61603 |
-| `108747` | 11 | `T1003` OS Credential Dumping | Capture Credentials with Rpcping.exe | medium | 61603 |
-| `108748` | 12 | `T1555.004` T1555.004 | Suspicious Key Manager Access | high | 61603 |
-| `108749` | 12 | `T1036` T1036 | Process Memory Dump Via Comsvcs.DLL | high | 61603 |
-| `108750` | 12 | `T1555` T1555 | Suspicious Serv-U Process Pattern | high | 61603 |
-| `108751` | 11 | `T1558.003` T1558.003 | Potential SPN Enumeration Via Setspn.EXE | medium | 61603 |
-| `108752` | 12 | `T1539` T1539 | SQLite Chromium Profile Data DB Access | high | 61603 |
-| `108753` | 12 | `T1539` T1539 | SQLite Firefox Profile Data DB Access | high | 61603 |
-| `108754` | 11 | `T1555.003` T1555.003 | Potential Browser Data Stealing | medium | 61603 |
+| `108746` | 11 | `T1003` OS Credential Dumping | Capture Credentials with Rpcping.exe | medium | 61603 |
+| `108747` | 12 | `T1555.004` T1555.004 | Suspicious Key Manager Access | high | 61603 |
+| `108748` | 12 | `T1036` T1036 | Process Memory Dump Via Comsvcs.DLL | high | 61603 |
+| `108749` | 12 | `T1555` T1555 | Suspicious Serv-U Process Pattern | high | 61603 |
+| `108750` | 11 | `T1558.003` T1558.003 | Potential SPN Enumeration Via Setspn.EXE | medium | 61603 |
+| `108751` | 12 | `T1539` T1539 | SQLite Chromium Profile Data DB Access | high | 61603 |
+| `108752` | 12 | `T1539` T1539 | SQLite Firefox Profile Data DB Access | high | 61603 |
+| `108753` | 11 | `T1555.003` T1555.003 | Potential Browser Data Stealing | medium | 61603 |
+| `108754` | 11 | `T1552` T1552 | Potentially Suspicious EventLog Recon Activity Using Log Query Util... | medium | 61603 |
 | `108755` | 11 | `T1552` T1552 | Potentially Suspicious EventLog Recon Activity Using Log Query Util... | medium | 61603 |
-| `108756` | 11 | `T1552` T1552 | Potentially Suspicious EventLog Recon Activity Using Log Query Util... | medium | 61603 |
-| `108757` | 11 | `T1528` T1528 | Potentially Suspicious JWT Token Search Via CLI | medium | 61603 |
+| `108756` | 11 | `T1528` T1528 | Potentially Suspicious JWT Token Search Via CLI | medium | 61603 |
+| `108757` | 12 | `T1003.001` T1003.001 | LSASS Dump Keyword In CommandLine | high | 61603 |
 | `108758` | 12 | `T1003.001` T1003.001 | LSASS Dump Keyword In CommandLine | high | 61603 |
 | `108759` | 12 | `T1003.001` T1003.001 | LSASS Dump Keyword In CommandLine | high | 61603 |
 | `108760` | 12 | `T1003.001` T1003.001 | LSASS Dump Keyword In CommandLine | high | 61603 |
-| `108761` | 12 | `T1003.001` T1003.001 | LSASS Dump Keyword In CommandLine | high | 61603 |
+| `108761` | 11 | `T1040` T1040 | Potential Network Sniffing Activity Using Network Tools | medium | 61603 |
 | `108762` | 11 | `T1040` T1040 | Potential Network Sniffing Activity Using Network Tools | medium | 61603 |
-| `108763` | 11 | `T1040` T1040 | Potential Network Sniffing Activity Using Network Tools | medium | 61603 |
+| `108763` | 12 | `T1003.003` T1003.003 | Suspicious Process Patterns NTDS.DIT Exfil | high | 61603 |
 | `108764` | 12 | `T1003.003` T1003.003 | Suspicious Process Patterns NTDS.DIT Exfil | high | 61603 |
 | `108765` | 12 | `T1003.003` T1003.003 | Suspicious Process Patterns NTDS.DIT Exfil | high | 61603 |
 | `108766` | 12 | `T1003.003` T1003.003 | Suspicious Process Patterns NTDS.DIT Exfil | high | 61603 |
 | `108767` | 12 | `T1003.003` T1003.003 | Suspicious Process Patterns NTDS.DIT Exfil | high | 61603 |
 | `108768` | 12 | `T1003.003` T1003.003 | Suspicious Process Patterns NTDS.DIT Exfil | high | 61603 |
 | `108769` | 12 | `T1003.003` T1003.003 | Suspicious Process Patterns NTDS.DIT Exfil | high | 61603 |
-| `108770` | 12 | `T1003.003` T1003.003 | Suspicious Process Patterns NTDS.DIT Exfil | high | 61603 |
-| `108771` | 11 | `T1552.004` T1552.004 | Private Keys Reconnaissance Via CommandLine Tools | medium | 61603 |
-| `108772` | 12 | `T1552` T1552 | Script Interpreter Spawning Credential Scanner - Windows | high | 61603 |
-| `108773` | 11 | `T1003` OS Credential Dumping | Shadow Copies Creation Using Operating Systems Utilities | medium | 61603 |
-| `108774` | 12 | `T1134` Access Token Manipulation | Suspicious SYSTEM User Process Creation | high | 61603 |
-| `108775` | 11 | `T1552.006` T1552.006 | Suspicious SYSVOL Domain Group Policy Access | medium | 61603 |
-| `108776` | 11 | `T1036` T1036 | Procdump Execution | medium | 61603 |
+| `108770` | 11 | `T1552.004` T1552.004 | Private Keys Reconnaissance Via CommandLine Tools | medium | 61603 |
+| `108771` | 12 | `T1552` T1552 | Script Interpreter Spawning Credential Scanner - Windows | high | 61603 |
+| `108772` | 11 | `T1003` OS Credential Dumping | Shadow Copies Creation Using Operating Systems Utilities | medium | 61603 |
+| `108773` | 12 | `T1134` Access Token Manipulation | Suspicious SYSTEM User Process Creation | high | 61603 |
+| `108774` | 11 | `T1552.006` T1552.006 | Suspicious SYSVOL Domain Group Policy Access | medium | 61603 |
+| `108775` | 11 | `T1036` T1036 | Procdump Execution | medium | 61603 |
+| `108776` | 12 | `T1036` T1036 | Potential SysInternals ProcDump Evasion | high | 61603 |
 | `108777` | 12 | `T1036` T1036 | Potential SysInternals ProcDump Evasion | high | 61603 |
 | `108778` | 12 | `T1036` T1036 | Potential SysInternals ProcDump Evasion | high | 61603 |
-| `108779` | 12 | `T1036` T1036 | Potential SysInternals ProcDump Evasion | high | 61603 |
-| `108780` | 12 | `T1036` T1036 | Potential LSASS Process Dump Via Procdump | high | 61603 |
-| `108781` | 11 | `T1003` OS Credential Dumping | Loaded Module Enumeration Via Tasklist.EXE | medium | 61603 |
-| `108782` | 11 | `T1528` T1528 | Potentially Suspicious Command Targeting Teams Sensitive Files | medium | 61603 |
-| `108783` | 11 | `T1555.004` T1555.004 | Windows Credential Manager Access via VaultCmd | medium | 61603 |
-| `108784` | 12 | `T1003.003` T1003.003 | Sensitive File Dump Via Wbadmin.EXE | high | 61603 |
-| `108785` | 12 | `T1003.003` T1003.003 | Sensitive File Recovery From Backup Via Wbadmin.EXE | high | 61603 |
-| `108786` | 12 | `T1003.001` T1003.001 | Potential Credential Dumping Via WER | high | 61603 |
-| `108787` | 12 | `T1685` T1685 | PPL Tampering Via WerFaultSecure | high | 61603 |
-| `108788` | 12 | `T1003.002` T1003.002 | Esentutl Volume Shadow Copy Service Keys | high | 61615 |
-| `108789` | 12 | `T1003.001` T1003.001 | Windows Credential Editor Registry | high | 61615 |
-| `108790` | 12 | `T1003.001` T1003.001 | Potential Credential Dumping Via LSASS SilentProcessExit Technique | high | 61615 |
-| `108791` | 12 | `T1556` T1556 | Directory Service Restore Mode(DSRM) Registry Value Tampering | high | 61615 |
-| `108792` | 12 | `T1003.001` T1003.001 | Lsass Full Dump Request Via DumpType Registry Settings | high | 61615 |
-| `108793` | 11 | `T1003` OS Credential Dumping | Potential Credential Dumping Attempt Using New NetworkProvider - REG | medium | 61615 |
-| `108794` | 12 | `T1003` OS Credential Dumping | Potentially Suspicious ODBC Driver Registered | high | 61615 |
+| `108779` | 12 | `T1036` T1036 | Potential LSASS Process Dump Via Procdump | high | 61603 |
+| `108780` | 11 | `T1003` OS Credential Dumping | Loaded Module Enumeration Via Tasklist.EXE | medium | 61603 |
+| `108781` | 11 | `T1528` T1528 | Potentially Suspicious Command Targeting Teams Sensitive Files | medium | 61603 |
+| `108782` | 11 | `T1555.004` T1555.004 | Windows Credential Manager Access via VaultCmd | medium | 61603 |
+| `108783` | 12 | `T1003.003` T1003.003 | Sensitive File Dump Via Wbadmin.EXE | high | 61603 |
+| `108784` | 12 | `T1003.003` T1003.003 | Sensitive File Recovery From Backup Via Wbadmin.EXE | high | 61603 |
+| `108785` | 12 | `T1003.001` T1003.001 | Potential Credential Dumping Via WER | high | 61603 |
+| `108786` | 12 | `T1685` T1685 | PPL Tampering Via WerFaultSecure | high | 61603 |
+| `108787` | 12 | `T1003.002` T1003.002 | Esentutl Volume Shadow Copy Service Keys | high | 61615 |
+| `108788` | 12 | `T1003.001` T1003.001 | Windows Credential Editor Registry | high | 61615 |
+| `108789` | 12 | `T1003.001` T1003.001 | Potential Credential Dumping Via LSASS SilentProcessExit Technique | high | 61615 |
+| `108790` | 12 | `T1556` T1556 | Directory Service Restore Mode(DSRM) Registry Value Tampering | high | 61615 |
+| `108791` | 12 | `T1003.001` T1003.001 | Lsass Full Dump Request Via DumpType Registry Settings | high | 61615 |
+| `108792` | 11 | `T1003` OS Credential Dumping | Potential Credential Dumping Attempt Using New NetworkProvider - REG | medium | 61615 |
+| `108793` | 12 | `T1003` OS Credential Dumping | Potentially Suspicious ODBC Driver Registered | high | 61615 |
+| `115002` | 12 | `T1110` Brute Force | brute_force_then_logon | high | 112501 |
 
 ### Discovery (TA0007) — 137 rules
 
@@ -2961,7 +2973,7 @@
 | `111135` | 6 | `T1047` T1047 | Computer System Reconnaissance Via Wmic.EXE | medium | 61603 |
 | `111136` | 6 | `T1082` System Information Discovery | Uncommon System Information Discovery Via Wmic.EXE | medium | 61603 |
 
-### Lateral Movement (TA0008) — 77 rules
+### Lateral Movement (TA0008) — 78 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -3042,6 +3054,7 @@
 | `112574` | 11 | `T1021.006` T1021.006 | Winrs Local Command Execution | high | 61603 |
 | `112575` | 10 | `T1021.006` T1021.006 | Potential Lateral Movement via Windows Remote Shell | medium | 61603 |
 | `112576` | 10 | `T1090` T1090 | New PortProxy Registry Entry Added | medium | 61615 |
+| `115000` | 12 | `T1021` Remote Services | discovery_then_lateral_movement | high | 112501 |
 
 ### Collection (TA0009) — 51 rules
 
@@ -3297,7 +3310,7 @@
 | `110191` | 9 | `T1071.001` T1071.001 | Visual Studio Code Tunnel Service Installation | medium | 61603 |
 | `110192` | 10 | `T1105` Ingress Tool Transfer | Lolbas OneDriveStandaloneUpdater.exe Proxy Download | high | 61615 |
 
-### Exfiltration (TA0010) — 36 rules
+### Exfiltration (TA0010) — 37 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -3337,6 +3350,7 @@
 | `114533` | 13 | `T1048.003` T1048.003 | Suspicious WebDav Client Execution Via Rundll32.EXE | high | 61603 |
 | `114534` | 13 | `T1048` T1048 | Suspicious Redirection to Local Admin Share | high | 61603 |
 | `114535` | 12 | `T1048` T1048 | Tap Installer Execution | medium | 61603 |
+| `115001` | 13 | `T1003` OS Credential Dumping | credential_access_then_exfil | high | 110061 |
 
 ### Impact (TA0040) — 44 rules
 
@@ -3399,14 +3413,14 @@ _One XML file per MITRE ATT&CK tactic. Best for broad deployment._
 | `collection.xml` | 51 |
 | `command_and_control.xml` | 193 |
 | `credential_access.xml` | 295 |
-| `defense_evasion.xml` | 35 |
+| `defense_evasion.xml` | 42 |
 | `discovery.xml` | 137 |
-| `execution.xml` | 1163 |
-| `exfiltration.xml` | 36 |
+| `execution.xml` | 1166 |
+| `exfiltration.xml` | 37 |
 | `impact.xml` | 44 |
 | `initial_access.xml` | 32 |
-| `lateral_movement.xml` | 77 |
-| `persistence.xml` | 843 |
+| `lateral_movement.xml` | 78 |
+| `persistence.xml` | 845 |
 | `privilege_escalation.xml` | 383 |
 
 ### `database/rules/by_technique/`
@@ -3415,13 +3429,13 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | File | Rules |
 |------|-------|
 | `T1001.003_unknown.xml` | 2 |
-| `T1003.001_unknown.xml` | 97 |
+| `T1003.001_unknown.xml` | 96 |
 | `T1003.002_unknown.xml` | 17 |
 | `T1003.003_unknown.xml` | 20 |
 | `T1003.004_unknown.xml` | 2 |
 | `T1003.005_unknown.xml` | 2 |
 | `T1003.006_unknown.xml` | 3 |
-| `T1003_credential_dumping.xml` | 30 |
+| `T1003_credential_dumping.xml` | 31 |
 | `T1005_data_from_local_system.xml` | 4 |
 | `T1010_unknown.xml` | 1 |
 | `T1012_unknown.xml` | 6 |
@@ -3434,7 +3448,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1021.004_unknown.xml` | 1 |
 | `T1021.005_unknown.xml` | 1 |
 | `T1021.006_unknown.xml` | 5 |
-| `T1021_remote_services.xml` | 2 |
+| `T1021_remote_services.xml` | 3 |
 | `T1027.004_unknown.xml` | 2 |
 | `T1027.005_unknown.xml` | 2 |
 | `T1027.009_unknown.xml` | 1 |
@@ -3451,7 +3465,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1040_unknown.xml` | 8 |
 | `T1041_exfil_over_c2.xml` | 1 |
 | `T1046_unknown.xml` | 19 |
-| `T1047_unknown.xml` | 55 |
+| `T1047_unknown.xml` | 56 |
 | `T1048.001_unknown.xml` | 2 |
 | `T1048.003_unknown.xml` | 4 |
 | `T1048_exfil_over_alt_protocol.xml` | 8 |
@@ -3503,7 +3517,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1106_unknown.xml` | 7 |
 | `T1110.001_unknown.xml` | 1 |
 | `T1110.002_unknown.xml` | 2 |
-| `T1110_brute_force.xml` | 4 |
+| `T1110_brute_force.xml` | 5 |
 | `T1112_unknown.xml` | 64 |
 | `T1113_unknown.xml` | 6 |
 | `T1114.001_unknown.xml` | 1 |
@@ -3529,14 +3543,14 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1137.003_unknown.xml` | 1 |
 | `T1137.006_unknown.xml` | 7 |
 | `T1137_unknown.xml` | 9 |
-| `T1140_unknown.xml` | 11 |
+| `T1140_unknown.xml` | 12 |
 | `T1176.001_unknown.xml` | 2 |
 | `T1185_unknown.xml` | 3 |
 | `T1187_unknown.xml` | 2 |
 | `T1190_exploit_public_app.xml` | 6 |
 | `T1195.002_unknown.xml` | 3 |
 | `T1195_unknown.xml` | 1 |
-| `T1197_unknown.xml` | 12 |
+| `T1197_unknown.xml` | 13 |
 | `T1200_unknown.xml` | 1 |
 | `T1201_unknown.xml` | 1 |
 | `T1202_unknown.xml` | 22 |
@@ -3553,14 +3567,14 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1216_unknown.xml` | 10 |
 | `T1218.001_unknown.xml` | 2 |
 | `T1218.002_unknown.xml` | 1 |
-| `T1218.003_unknown.xml` | 6 |
-| `T1218.004_unknown.xml` | 2 |
-| `T1218.005_unknown.xml` | 10 |
+| `T1218.003_unknown.xml` | 7 |
+| `T1218.004_unknown.xml` | 3 |
+| `T1218.005_unknown.xml` | 11 |
 | `T1218.007_unknown.xml` | 8 |
 | `T1218.008_unknown.xml` | 8 |
 | `T1218.009_unknown.xml` | 3 |
-| `T1218.010_unknown.xml` | 13 |
-| `T1218.011_unknown.xml` | 33 |
+| `T1218.010_unknown.xml` | 14 |
+| `T1218.011_unknown.xml` | 34 |
 | `T1218_unknown.xml` | 113 |
 | `T1219.002_unknown.xml` | 54 |
 | `T1219_unknown.xml` | 2 |
@@ -3577,7 +3591,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1496_unknown.xml` | 2 |
 | `T1497.001_unknown.xml` | 1 |
 | `T1499.001_unknown.xml` | 1 |
-| `T1505.002_unknown.xml` | 2 |
+| `T1505.002_unknown.xml` | 3 |
 | `T1505.003_unknown.xml` | 21 |
 | `T1505.004_unknown.xml` | 1 |
 | `T1518.001_unknown.xml` | 3 |
@@ -3589,7 +3603,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1539_unknown.xml` | 2 |
 | `T1542.001_unknown.xml` | 2 |
 | `T1543.003_unknown.xml` | 534 |
-| `T1543_create_modify_service.xml` | 9 |
+| `T1543_create_modify_service.xml` | 10 |
 | `T1546.001_unknown.xml` | 1 |
 | `T1546.002_unknown.xml` | 4 |
 | `T1546.003_unknown.xml` | 20 |
@@ -3645,7 +3659,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1564.003_unknown.xml` | 5 |
 | `T1564.004_unknown.xml` | 18 |
 | `T1564.006_unknown.xml` | 1 |
-| `T1564_unknown.xml` | 6 |
+| `T1564_unknown.xml` | 7 |
 | `T1565_unknown.xml` | 1 |
 | `T1566.001_unknown.xml` | 10 |
 | `T1566_phishing.xml` | 3 |
@@ -3667,6 +3681,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1587.001_unknown.xml` | 8 |
 | `T1587_unknown.xml` | 3 |
 | `T1588.002_unknown.xml` | 7 |
+| `T1588_unknown.xml` | 1 |
 | `T1590.001_unknown.xml` | 3 |
 | `T1590.002_unknown.xml` | 1 |
 | `T1590_unknown.xml` | 1 |
@@ -3700,10 +3715,11 @@ _Grouped by Windows event source (Sysmon, Security, PowerShell, System). Aligns 
 
 | File | Rules |
 |------|-------|
-| `application.xml` | 58 |
+| `application.xml` | 60 |
+| `composite.xml` | 4 |
 | `powershell.xml` | 226 |
 | `security.xml` | 156 |
-| `sysmon.xml` | 2258 |
+| `sysmon.xml` | 2266 |
 | `system.xml` | 591 |
 
 ## Deployment to Wazuh

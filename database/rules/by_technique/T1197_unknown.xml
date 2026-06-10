@@ -3,7 +3,7 @@
   <rule id="104522" level="9">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">16403</field>
-    <field name="win.eventdata.localName">\.bat$|\.dll$|\.exe$|\.hta$|\.ps1$|\.psd1$|\.sh$|\.vbe$|\.vbs$</field>
+    <field name="win.eventdata.localName">.bat$|.dll$|.exe$|.hta$|.ps1$|.psd1$|.sh$|.vbe$|.vbs$</field>
     <description>Sigma: BITS Transfer Job Downloading File Potential Suspicious Extension</description>
     <mitre>
       <id>T1197</id>
@@ -13,7 +13,7 @@
   <rule id="104523" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">16403</field>
-    <field name="win.eventdata.remoteName">\.githubusercontent\.com|anonfiles\.com|cdn\.discordapp\.com|ddns\.net|dl\.dropboxusercontent\.com|ghostbin\.co|github\.com|glitch\.me|gofile\.io|hastebin\.com|mediafire\.com|mega\.nz|onrender\.com|pages\.dev|paste\.ee|pastebin\.com|pastebin\.pl|pastetext\.net|pixeldrain\.com|privatlab\.com|privatlab\.net|send\.exploit\.in|sendspace\.com|storage\.googleapis\.com|storjshare\.io|supabase\.co|temp\.sh|transfer\.sh|trycloudflare\.com|ufile\.io|w3spaces\.com|workers\.dev</field>
+    <field name="win.eventdata.remoteName">.githubusercontent.com|anonfiles.com|cdn.discordapp.com|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev</field>
     <description>Sigma: BITS Transfer Job Download From File Sharing Domains</description>
     <mitre>
       <id>T1197</id>
@@ -42,16 +42,16 @@
   <rule id="104526" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">16403</field>
-    <field name="win.eventdata.localName">\Desktop\|C:\Users\Public\|C:\PerfLogs\</field>
+    <field name="win.eventdata.localName">\\Desktop\\|C:\\Users\\Public\\|C:\\PerfLogs\\</field>
     <description>Sigma: BITS Transfer Job Download To Potential Suspicious Folder</description>
     <mitre>
       <id>T1197</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104675" level="9">
+  <rule id="104676" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\bitsadmin\.exe$</field>
+    <field name="win.eventdata.image">\\bitsadmin.exe$</field>
     <description>Sigma: File Download Via Bitsadmin</description>
     <mitre>
       <id>T1197</id>
@@ -60,10 +60,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104676" level="10">
+  <rule id="104677" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /transfer | /create | /addfile </field>
-    <field name="win.eventdata.image">\bitsadmin\.exe$</field>
+    <field name="win.eventdata.image">\\bitsadmin.exe$</field>
     <description>Sigma: Suspicious Download From Direct IP Via Bitsadmin</description>
     <mitre>
       <id>T1197</id>
@@ -71,23 +71,11 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104677" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> /transfer | /create | /addfile </field>
-    <field name="win.eventdata.image">\bitsadmin\.exe$</field>
-    <description>Sigma: Suspicious Download From File-Sharing Website Via Bitsadmin</description>
-    <mitre>
-      <id>T1197</id>
-      <id>T1036.003</id>
-      <id>T1105</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
   <rule id="104678" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /transfer | /create | /addfile </field>
-    <field name="win.eventdata.image">\bitsadmin\.exe$</field>
-    <description>Sigma: File With Suspicious Extension Downloaded Via Bitsadmin</description>
+    <field name="win.eventdata.image">\\bitsadmin.exe$</field>
+    <description>Sigma: Suspicious Download From File-Sharing Website Via Bitsadmin</description>
     <mitre>
       <id>T1197</id>
       <id>T1036.003</id>
@@ -97,8 +85,20 @@
   </rule>
   <rule id="104679" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">:\Perflogs|:\ProgramData\|:\Temp\|:\Users\Public\|:\Windows\|\\$Recycle\.Bin\|\AppData\Local\|\AppData\Roaming\|\Contacts\|\Desktop\|\Favorites\|\Favourites\|\inetpub\wwwroot\|\Music\|\Pictures\|\Start Menu\Programs\Startup\|\Users\Default\|\Videos\|%ProgramData%|%public%|%temp%|%tmp%</field>
-    <field name="win.eventdata.image">\bitsadmin\.exe$</field>
+    <field name="win.eventdata.commandLine"> /transfer | /create | /addfile </field>
+    <field name="win.eventdata.image">\\bitsadmin.exe$</field>
+    <description>Sigma: File With Suspicious Extension Downloaded Via Bitsadmin</description>
+    <mitre>
+      <id>T1197</id>
+      <id>T1036.003</id>
+      <id>T1105</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104680" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">:\\Perflogs|:\\ProgramData\\|:\\Temp\\|:\\Users\\Public\\|:\\Windows\\|\\\$Recycle.Bin\\|\\AppData\\Local\\|\\AppData\\Roaming\\|\\Contacts\\|\\Desktop\\|\\Favorites\\|\\Favourites\\|\\inetpub\\wwwroot\\|\\Music\\|\\Pictures\\|\\Start Menu\\Programs\\Startup\\|\\Users\\Default\\|\\Videos\\|%ProgramData%|%public%|%temp%|%tmp%</field>
+    <field name="win.eventdata.image">\\bitsadmin.exe$</field>
     <description>Sigma: File Download Via Bitsadmin To A Suspicious Target Folder</description>
     <mitre>
       <id>T1197</id>
@@ -107,9 +107,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104680" level="9">
+  <rule id="104681" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\bitsadmin\.exe$</field>
+    <field name="win.eventdata.image">\\bitsadmin.exe$</field>
     <description>Sigma: Monitoring For Persistence Via BITS</description>
     <mitre>
       <id>T1197</id>
@@ -117,6 +117,15 @@
     <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="112004" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">bitsadmin</field>
+    <description>Suspicious process 'bitsadmin' execution detected</description>
+    <mitre>
+      <id>T1197</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112005" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">bitsadmin</field>
     <description>Suspicious process 'bitsadmin' execution detected</description>

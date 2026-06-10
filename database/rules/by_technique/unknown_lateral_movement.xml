@@ -2,8 +2,8 @@
 <group name="windows,unknown_lateral_movement,">
   <rule id="112547" level="11">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">:\Windows\System32\wsmprovhost\.exe|:\Windows\SysWOW64\wsmprovhost\.exe</field>
-    <field name="win.eventdata.payload">value="\(get-location\)\.path|value="\(get-item.*\)\.length|Invoke-Binary |Donut-Loader -process_id.*-donutfile|Bypass-4MSI|IEX \(\[System\.Text\.Encoding\]::ASCII\.GetString\(\[System\.Convert\]::FromBase64String\(\$a\)\)\)\.replace\('...',''\)</field>
+    <field name="win.eventdata.contextInfo">:\\Windows\\System32\\wsmprovhost.exe|:\\Windows\\SysWOW64\\wsmprovhost.exe</field>
+    <field name="win.eventdata.payload">value="\(get-location\).path|value="\(get-item\.*\).length|Invoke-Binary |Donut-Loader -process_id\.*-donutfile|Bypass-4MSI|IEX \(\[System.Text.Encoding\]::ASCII.GetString\(\[System.Convert\]::FromBase64String\(\$a\)\)\).replace\('\.\.\.',''\)</field>
     <description>Sigma: HackTool - Evil-WinRm Execution - PowerShell Module</description>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
@@ -15,8 +15,8 @@
   </rule>
   <rule id="112560" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\mstsc\.exe$</field>
-    <field name="win.eventdata.parentImage">\brave\.exe$|\CCleanerBrowser\.exe$|\chrome\.exe$|\chromium\.exe$|\firefox\.exe$|\iexplore\.exe$|\microsoftedge\.exe$|\msedge\.exe$|\opera\.exe$|\vivaldi\.exe$|\whale\.exe$|\outlook\.exe$</field>
+    <field name="win.eventdata.image">\\mstsc.exe$</field>
+    <field name="win.eventdata.parentImage">\\brave.exe$|\\CCleanerBrowser.exe$|\\chrome.exe$|\\chromium.exe$|\\firefox.exe$|\\iexplore.exe$|\\microsoftedge.exe$|\\msedge.exe$|\\opera.exe$|\\vivaldi.exe$|\\whale.exe$|\\outlook.exe$</field>
     <description>Sigma: Mstsc.EXE Execution From Uncommon Parent</description>
     <group>lateral_movement,sigma_converted,</group>
   </rule>

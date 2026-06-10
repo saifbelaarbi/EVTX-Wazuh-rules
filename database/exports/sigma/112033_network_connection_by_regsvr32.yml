@@ -1,0 +1,21 @@
+title: Network connection by regsvr32
+id: 0d6ffbc9-3019-592c-8237-04bb7ba86f34
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112033).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_sysmon_lobin_regsvr32_sct.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image: regsvr32
+    DestinationPort: '80'
+  condition: selection
+level: medium
+tags:
+- attack.t1218.010
+- attack.defense-evasion

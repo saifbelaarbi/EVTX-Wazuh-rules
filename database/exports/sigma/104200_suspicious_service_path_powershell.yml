@@ -1,0 +1,22 @@
+title: 'Suspicious service path: powershell'
+id: 113fe36c-b29b-5941-8e2c-bdaf22fa2f9a
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104200).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service
+  execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    ServiceName: AgICAgICAgICAgICAgICAgICAgICAgICAgIA0KICAgICAgICBGb3JFYWNoICgkQ29tcHV0ZXIgaW4gJENvbXB1dGVybGlzdCkgew0KICAgICAgICAgICAgDQogICAgICAgICAgICAkUHJvZ3Jlc3ND
+    ImagePath: powershell
+  condition: selection
+level: medium
+tags:
+- attack.t1543.003
+- attack.persistence

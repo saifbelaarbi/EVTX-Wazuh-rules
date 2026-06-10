@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218.009_unknown,">
-  <rule id="100228" level="8">
+  <rule id="100230" level="8">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\regasm\.exe$</field>
+    <field name="win.eventdata.image">\\regasm.exe$</field>
     <description>Sigma: RegAsm.EXE Initiating Network Connection To Public IP</description>
     <mitre>
       <id>T1218.009</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100817" level="8">
+  <rule id="100819" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.dat|\.gif|\.jpeg|\.jpg|\.png|\.txt</field>
-    <field name="win.eventdata.image">\Regsvcs\.exe$|\Regasm\.exe$</field>
+    <field name="win.eventdata.commandLine">.dat|.gif|.jpeg|.jpg|.png|.txt</field>
+    <field name="win.eventdata.image">\\Regsvcs.exe$|\\Regasm.exe$</field>
     <description>Sigma: Potentially Suspicious Execution Of Regasm/Regsvcs With Uncommon Extension</description>
     <mitre>
       <id>T1218.009</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100818" level="8">
+  <rule id="100820" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\AppData\Local\Temp\|\Microsoft\Windows\Start Menu\Programs\Startup\|\PerfLogs\|\Users\Public\|\Windows\Temp\</field>
-    <field name="win.eventdata.image">\Regsvcs\.exe$|\Regasm\.exe$</field>
+    <field name="win.eventdata.commandLine">\\AppData\\Local\\Temp\\|\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\|\\PerfLogs\\|\\Users\\Public\\|\\Windows\\Temp\\</field>
+    <field name="win.eventdata.image">\\Regsvcs.exe$|\\Regasm.exe$</field>
     <description>Sigma: Potentially Suspicious Execution Of Regasm/Regsvcs From Uncommon Location</description>
     <mitre>
       <id>T1218.009</id>

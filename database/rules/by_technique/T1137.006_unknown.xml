@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1137.006_unknown,">
-  <rule id="104594" level="10">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.xlam$|\.xla$|\.ppam$</field>
-    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
-    <mitre>
-      <id>T1137.006</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
   <rule id="104595" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.wll$</field>
+    <field name="win.eventdata.targetFilename">.xlam$|.xla$|.ppam$</field>
     <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
     <mitre>
       <id>T1137.006</id>
@@ -20,7 +11,7 @@
   </rule>
   <rule id="104596" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.xlam$</field>
+    <field name="win.eventdata.targetFilename">.wll$</field>
     <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
     <mitre>
       <id>T1137.006</id>
@@ -29,35 +20,44 @@
   </rule>
   <rule id="104597" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.xll$</field>
+    <field name="win.eventdata.targetFilename">.xlam$</field>
     <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
     <mitre>
       <id>T1137.006</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104663" level="10">
+  <rule id="104598" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">.xll$</field>
+    <description>Sigma: Potential Persistence Via Microsoft Office Add-In</description>
+    <mitre>
+      <id>T1137.006</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104664" level="10">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">new-object |-ComObject |\.application|\.RegisterXLL</field>
+    <field name="win.eventdata.scriptBlockText">new-object |-ComObject |.application|.RegisterXLL</field>
     <description>Sigma: Code Executed Via Office Add-in XLL File</description>
     <mitre>
       <id>T1137.006</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104821" level="9">
+  <rule id="104822" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Microsoft\Office\Outlook\Addins\|\Software\Microsoft\Office\Word\Addins\|\Software\Microsoft\Office\Excel\Addins\|\Software\Microsoft\Office\Powerpoint\Addins\|\Software\Microsoft\VSTO\Security\Inclusion\</field>
+    <field name="win.eventdata.targetObject">\\Software\\Microsoft\\Office\\Outlook\\Addins\\|\\Software\\Microsoft\\Office\\Word\\Addins\\|\\Software\\Microsoft\\Office\\Excel\\Addins\\|\\Software\\Microsoft\\Office\\Powerpoint\\Addins\\|\\Software\\Microsoft\\VSTO\\Security\\Inclusion\\</field>
     <description>Sigma: Potential Persistence Via Visual Studio Tools for Office</description>
     <mitre>
       <id>T1137.006</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104825" level="10">
+  <rule id="104826" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Excel\Options$</field>
-    <field name="win.eventdata.details">\.xll$</field>
+    <field name="win.eventdata.targetObject">\\Excel\\Options$</field>
+    <field name="win.eventdata.details">.xll$</field>
     <description>Sigma: Potential Persistence Via Excel Add-in - Registry</description>
     <mitre>
       <id>T1137.006</id>

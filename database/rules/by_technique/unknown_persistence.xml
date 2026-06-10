@@ -16,7 +16,7 @@
     <description>Sigma: MSSQL SPProcoption Set</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104555" level="9">
+  <rule id="104556" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -24,23 +24,23 @@
     <description>Sigma: Anydesk Remote Access Software Service Installation</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104556" level="9">
+  <rule id="104557" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\NetSupport Manager\client32\.exe</field>
+    <field name="win.eventdata.imagePath">\\NetSupport Manager\\client32.exe</field>
     <description>Sigma: NetSupport Manager Service Install</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104560" level="9">
+  <rule id="104561" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\rutserv\.exe|-service</field>
+    <field name="win.eventdata.imagePath">\\rutserv.exe|-service</field>
     <description>Sigma: Remote Utilities Host Service Install</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104565" level="10">
+  <rule id="104566" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -48,202 +48,202 @@
     <description>Sigma: RTCore Suspicious Service Installation</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104570" level="10">
+  <rule id="104571" level="10">
     <if_sid>61617</if_sid>
     <field name="win.eventdata.contents">://1|://2|://3|://4|://5|://6|://7|://8|://9</field>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\WinGet\</field>
+    <field name="win.eventdata.targetFilename">\\AppData\\Local\\Temp\\WinGet\\</field>
     <description>Sigma: Potential Suspicious Winget Package Installation</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104588" level="9">
+  <rule id="104589" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\WINDOWS\Setup\Scripts\ErrorHandler\.cmd$</field>
+    <field name="win.eventdata.targetFilename">\\WINDOWS\\Setup\\Scripts\\ErrorHandler.cmd$</field>
     <description>Sigma: Potential Persistence Attempt Via ErrorHandler.Cmd</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104593" level="9">
+  <rule id="104594" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.dll$</field>
+    <field name="win.eventdata.targetFilename">.dll$</field>
     <description>Sigma: Potential Persistence Via Notepad++ Plugins</description>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104600" level="9">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\powershell_ise\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.bat$|\.chm$|\.cmd$|\.com$|\.dll$|\.exe$|\.hta$|\.jar$|\.js$|\.ocx$|\.scr$|\.sys$|\.vbe$|\.vbs$|\.wsf$</field>
-    <description>Sigma: Potential Binary Or Script Dropper Via PowerShell</description>
     <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="104601" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\WindowsPowerShell\\Modules\\.*\\.ps$|\\WindowsPowerShell\\Modules\\.*\\.dll$</field>
-    <description>Sigma: Potential Suspicious PowerShell Module File Created</description>
+    <field name="win.eventdata.image">\\powershell.exe$|\\powershell_ise.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.targetFilename">.bat$|.chm$|.cmd$|.com$|.dll$|.exe$|.hta$|.jar$|.js$|.ocx$|.scr$|.sys$|.vbe$|.vbs$|.wsf$</field>
+    <description>Sigma: Potential Binary Or Script Dropper Via PowerShell</description>
     <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="104602" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\WindowsPowerShell\Modules\|\PowerShell\7\Modules\</field>
-    <description>Sigma: PowerShell Module File Created By Non-PowerShell Process</description>
+    <field name="win.eventdata.targetFilename">\\\\WindowsPowerShell\\\\Modules\\\\\.*\\.ps$|\\\\WindowsPowerShell\\\\Modules\\\\\.*\\.dll$</field>
+    <description>Sigma: Potential Suspicious PowerShell Module File Created</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104605" level="10">
+  <rule id="104603" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">RECYCLERS\.BIN\|RECYCLER\.BIN\</field>
-    <description>Sigma: Suspicious File Creation Activity From Fake Recycle.Bin Folder</description>
+    <field name="win.eventdata.targetFilename">\\WindowsPowerShell\\Modules\\|\\PowerShell\\7\\Modules\\</field>
+    <description>Sigma: PowerShell Module File Created By Non-PowerShell Process</description>
     <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="104606" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">RECYCLERS\.BIN\|RECYCLER\.BIN\</field>
+    <field name="win.eventdata.image">RECYCLERS.BIN\\|RECYCLER.BIN\\</field>
     <description>Sigma: Suspicious File Creation Activity From Fake Recycle.Bin Folder</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104610" level="10">
+  <rule id="104607" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\comctl32\.dll$</field>
+    <field name="win.eventdata.targetFilename">RECYCLERS.BIN\\|RECYCLER.BIN\\</field>
+    <description>Sigma: Suspicious File Creation Activity From Fake Recycle.Bin Folder</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104611" level="10">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\\comctl32.dll$</field>
     <description>Sigma: Potential Privilege Escalation Attempt Via .Exe.Local Technique</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104662" level="9">
+  <rule id="104663" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText"> -AllowUnsigned</field>
     <description>Sigma: Unsigned AppX Installation Attempt Using Add-AppxPackage - PsScript</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104667" level="10">
+  <rule id="104668" level="10">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\Lsa\JD|\Lsa\Skew1|\Lsa\Data|\Lsa\GBG|win32_Ace|\.AccessMask|\.AceType|\.SetSecurityDescriptor</field>
+    <field name="win.eventdata.scriptBlockText">\\Lsa\\JD|\\Lsa\\Skew1|\\Lsa\\Data|\\Lsa\\GBG|win32_Ace|.AccessMask|.AceType|.SetSecurityDescriptor</field>
     <description>Sigma: Potential Persistence Via Security Descriptors - ScriptBlock</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104696" level="9">
+  <rule id="104697" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -AllowUnsigned</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Unsigned AppX Installation Attempt Using Add-AppxPackage</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104717" level="9">
+  <rule id="104718" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths</field>
+    <field name="win.eventdata.commandLine">\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\TypedPaths</field>
     <description>Sigma: Persistence Via TypedPaths - CommandLine</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104729" level="10">
+  <rule id="104730" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">RECYCLERS\.BIN\|RECYCLER\.BIN\</field>
+    <field name="win.eventdata.image">RECYCLERS.BIN\\|RECYCLER.BIN\\</field>
     <description>Sigma: Suspicious Process Execution From Fake Recycle.Bin Folder</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104751" level="9">
+  <rule id="104752" level="9">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.eventType">CreateKey</field>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\</field>
     <description>Sigma: Potential Persistence Via Disk Cleanup Handler - Registry</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104768" level="9">
+  <rule id="104769" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AeDebug\Debugger</field>
-    <field name="win.eventdata.details">\.dll$</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AeDebug\\Debugger</field>
+    <field name="win.eventdata.details">.dll$</field>
     <description>Sigma: Add Debugger Entry To AeDebug For Persistence</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104786" level="9">
+  <rule id="104787" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Autorun</field>
+    <field name="win.eventdata.targetObject">\\Autorun</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Persistence Via Disk Cleanup Handler - Autorun</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104796" level="10">
+  <rule id="104797" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows\Windows Error Reporting\Hangs\Debugger</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\Hangs\\Debugger</field>
     <description>Sigma: Add Debugger Entry To Hangs Key For Persistence</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104797" level="10">
+  <rule id="104798" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\CLSID\\{52A2AAAE-085D-4187-97EA-8C30DB990436\}\InprocServer32\\(Default\)</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\\{52A2AAAE-085D-4187-97EA-8C30DB990436\}\\InprocServer32\\\(Default\)</field>
     <description>Sigma: Persistence Via Hhctrl.ocx</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104810" level="9">
+  <rule id="104811" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\AMSI\Providers\|\SOFTWARE\WOW6432Node\Microsoft\AMSI\Providers\</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\AMSI\\Providers\\|\\SOFTWARE\\WOW6432Node\\Microsoft\\AMSI\\Providers\\</field>
     <description>Sigma: Potential Persistence Via New AMSI Providers - Registry</description>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104811" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Services\WinSock2\Parameters\AutodialDLL</field>
-    <description>Sigma: Potential Persistence Via AutodialDLL</description>
     <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="104812" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Microsoft\HtmlHelp Author\Location|\Software\WOW6432Node\Microsoft\HtmlHelp Author\Location</field>
-    <description>Sigma: Potential Persistence Via CHM Helper DLL</description>
+    <field name="win.eventdata.targetObject">\\Services\\WinSock2\\Parameters\\AutodialDLL</field>
+    <description>Sigma: Potential Persistence Via AutodialDLL</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104815" level="9">
+  <rule id="104813" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Classes\CLSID|\PersistentAddinsRegistered\\{89BCB740-6119-101A-BCB7-00DD010655AF\}</field>
-    <description>Sigma: Register New IFiltre For Persistence</description>
+    <field name="win.eventdata.targetObject">\\Software\\Microsoft\\HtmlHelp Author\\Location|\\Software\\WOW6432Node\\Microsoft\\HtmlHelp Author\\Location</field>
+    <description>Sigma: Potential Persistence Via CHM Helper DLL</description>
     <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="104816" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Classes\\.|\PersistentHandler</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Classes\\CLSID|\\PersistentAddinsRegistered\\\{89BCB740-6119-101A-BCB7-00DD010655AF\}</field>
     <description>Sigma: Register New IFiltre For Persistence</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104817" level="10">
+  <rule id="104817" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SYSTEM\CurrentControlSet\Control\LsaExtensionConfig\LsaSrv\Extensions</field>
-    <description>Sigma: Potential Persistence Via LSA Extensions</description>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Classes\\.|\\PersistentHandler</field>
+    <description>Sigma: Register New IFiltre For Persistence</description>
     <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="104818" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\mpnotify</field>
-    <description>Sigma: Potential Persistence Via Mpnotify</description>
+    <field name="win.eventdata.targetObject">\\SYSTEM\\CurrentControlSet\\Control\\LsaExtensionConfig\\LsaSrv\\Extensions</field>
+    <description>Sigma: Potential Persistence Via LSA Extensions</description>
     <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="104819" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\mpnotify</field>
+    <description>Sigma: Potential Persistence Via Mpnotify</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104820" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\(Default\)$</field>
     <description>Sigma: Potential Persistence Via MyComputer Registry Keys</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104820" level="10">
+  <rule id="104821" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\StemmerDLLPathOverride|\WBDLLPathOverride|\StemmerClass|\WBreakerClass</field>
+    <field name="win.eventdata.targetObject">\\StemmerDLLPathOverride|\\WBDLLPathOverride|\\StemmerClass|\\WBreakerClass</field>
     <description>Sigma: Potential Persistence Via DLLPathOverride</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104824" level="10">
+  <rule id="104825" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths\</field>
+    <field name="win.eventdata.targetObject">\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\TypedPaths\\</field>
     <description>Sigma: Potential Persistence Via TypedPaths</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104828" level="9">
+  <rule id="104829" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\shell\SentinelOneScan\command\</field>
+    <field name="win.eventdata.targetObject">\\shell\\SentinelOneScan\\command\\</field>
     <description>Sigma: Potential SentinelOne Shell Context Menu Scan Command Tampering</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104835" level="10">
+  <rule id="104836" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.details">powershell|pwsh</field>
-    <field name="win.eventdata.targetObject">\Environment\</field>
+    <field name="win.eventdata.targetObject">\\Environment\\</field>
     <description>Sigma: Suspicious Environment Variable Has Been Registered</description>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104841" level="9">
+  <rule id="104842" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\AppInstaller\EnableLocalManifestFiles$</field>
+    <field name="win.eventdata.targetObject">\\AppInstaller\\EnableLocalManifestFiles$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Enable Local Manifest Installation With Winget</description>
     <group>persistence,sigma_converted,</group>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1021.002_unknown,">
-  <rule id="100147" level="9">
+  <rule id="100149" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\nxc-windows-latest\</field>
+    <field name="win.eventdata.image">\\nxc-windows-latest\\</field>
     <description>Sigma: HackTool - NetExec File Indicators</description>
     <mitre>
       <id>T1021.002</id>
@@ -10,9 +10,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100148" level="9">
+  <rule id="100150" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Temp\_MEI|\nxc\data\</field>
+    <field name="win.eventdata.targetFilename">\\Temp\\_MEI|\\nxc\\data\\</field>
     <description>Sigma: HackTool - NetExec File Indicators</description>
     <mitre>
       <id>T1021.002</id>
@@ -20,10 +20,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100882" level="9">
+  <rule id="100884" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> \\\\</field>
-    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.commandLine"> \\\\\\\\</field>
+    <field name="win.eventdata.image">\\rundll32.exe$</field>
     <description>Sigma: Rundll32 UNC Path Execution</description>
     <mitre>
       <id>T1021.002</id>
@@ -31,10 +31,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104536" level="13">
+  <rule id="104537" level="13">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
-    <field name="win.eventdata.serviceFileName">ADMIN\$|\.exe</field>
+    <field name="win.eventdata.serviceFileName">ADMIN\$|.exe</field>
     <description>Sigma: CobaltStrike Service Installations - Security</description>
     <mitre>
       <id>T1021.002</id>
@@ -43,7 +43,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104552" level="13">
+  <rule id="104553" level="13">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -55,10 +55,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104775" level="13">
+  <rule id="104776" level="13">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.details">ADMIN\$|\.exe</field>
-    <field name="win.eventdata.targetObject">\System\CurrentControlSet\Services</field>
+    <field name="win.eventdata.details">ADMIN\$|.exe</field>
+    <field name="win.eventdata.targetObject">\\System\\CurrentControlSet\\Services</field>
     <description>Sigma: Potential CobaltStrike Service Installations - Registry</description>
     <mitre>
       <id>T1021.002</id>
@@ -153,7 +153,7 @@
   <rule id="112518" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.shareName">\\\\\\\\\\\.*\\\\IPC\$</field>
     <field name="win.eventdata.relativeTargetName">spoolss</field>
     <description>Sigma: DCERPC SMB Spoolss Named Pipe</description>
     <mitre>
@@ -164,7 +164,7 @@
   <rule id="112519" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.relativeTargetName">\Internet Explorer\iertutil\.dll$</field>
+    <field name="win.eventdata.relativeTargetName">\\Internet Explorer\\iertutil.dll$</field>
     <description>Sigma: DCOM InternetExplorer.Application Iertutil DLL Hijack - Security</description>
     <mitre>
       <id>T1021.002</id>
@@ -175,7 +175,7 @@
   <rule id="112520" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.shareName">\\\\\\\\\\\.*\\\\IPC\$</field>
     <field name="win.eventdata.relativeTargetName">RemCom_stdin|RemCom_stdout|RemCom_stderr</field>
     <description>Sigma: Impacket PsExec Execution</description>
     <mitre>
@@ -186,7 +186,7 @@
   <rule id="112521" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.shareName">\\\\\\\\\\\.*\\\\IPC\$</field>
     <description>Sigma: First Time Seen Remote Named Pipe</description>
     <mitre>
       <id>T1021.002</id>
@@ -255,7 +255,7 @@
   <rule id="112530" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.shareName">\\\\\\\\\\\.*\\\\IPC\$</field>
     <field name="win.eventdata.relativeTargetName">-stdin$|-stdout$|-stderr$</field>
     <description>Sigma: Suspicious PsExec Execution</description>
     <mitre>
@@ -266,7 +266,7 @@
   <rule id="112531" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.shareName">\\\\\\\\\\\.*\\\\IPC\$</field>
     <field name="win.eventdata.relativeTargetName">svcctl</field>
     <field name="win.eventdata.accessList">WriteData</field>
     <description>Sigma: Remote Service Activity via SVCCTL Named Pipe</description>
@@ -290,7 +290,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\.bat &amp; del |__output 2\^&gt;\^&amp;1 &gt;</field>
+    <field name="win.eventdata.imagePath">.bat &amp; del |__output 2\^&gt;\^&amp;1 &gt;</field>
     <description>Sigma: smbexec.py Service Installation</description>
     <mitre>
       <id>T1021.002</id>
@@ -301,7 +301,7 @@
   <rule id="112536" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">System</field>
-    <field name="win.eventdata.targetFilename">\Internet Explorer\iertutil\.dll$</field>
+    <field name="win.eventdata.targetFilename">\\Internet Explorer\\iertutil.dll$</field>
     <description>Sigma: Potential DCOM InternetExplorer.Application DLL Hijack</description>
     <mitre>
       <id>T1021.002</id>
@@ -311,8 +311,8 @@
   </rule>
   <rule id="112541" level="11">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\Internet Explorer\iexplore\.exe$</field>
-    <field name="win.eventdata.imageLoaded">\Internet Explorer\iertutil\.dll$</field>
+    <field name="win.eventdata.image">\\Internet Explorer\\iexplore.exe$</field>
+    <field name="win.eventdata.imageLoaded">\\Internet Explorer\\iertutil.dll$</field>
     <description>Sigma: Potential DCOM InternetExplorer.Application DLL Hijack - Image Load</description>
     <mitre>
       <id>T1021.002</id>
@@ -322,7 +322,7 @@
   </rule>
   <rule id="112545" level="10">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\csexecsvc</field>
+    <field name="win.eventdata.pipeName">\\csexecsvc</field>
     <description>Sigma: PUA - CSExec Default Named Pipe</description>
     <mitre>
       <id>T1021.002</id>
@@ -332,7 +332,7 @@
   </rule>
   <rule id="112546" level="10">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\RemCom</field>
+    <field name="win.eventdata.pipeName">\\RemCom</field>
     <description>Sigma: PUA - RemCom Default Named Pipe</description>
     <mitre>
       <id>T1021.002</id>
@@ -342,7 +342,7 @@
   </rule>
   <rule id="112550" level="10">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">New-PSDrive|-psprovider |filesystem|-root |\\\\|\$</field>
+    <field name="win.eventdata.scriptBlockText">New-PSDrive|-psprovider |filesystem|-root |\\\\\\\\|\$</field>
     <description>Sigma: Suspicious New-PSDrive to Admin Share</description>
     <mitre>
       <id>T1021.002</id>
@@ -351,7 +351,7 @@
   </rule>
   <rule id="112554" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharpMove\.exe$</field>
+    <field name="win.eventdata.image">\\SharpMove.exe$</field>
     <field name="win.eventdata.commandLine">action=create|action=dcom|action=executevbs|action=hijackdcom|action=modschtask|action=modsvc|action=query|action=scm|action=startservice|action=taskscheduler</field>
     <description>Sigma: HackTool - SharpMove Tool Execution</description>
     <mitre>
@@ -361,8 +361,8 @@
   </rule>
   <rule id="112561" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> use | \\\\.*\\.*\$</field>
-    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <field name="win.eventdata.commandLine"> use | \\\\\\\\\.*\\\\\.*\$</field>
+    <field name="win.eventdata.image">\\net.exe$|\\net1.exe$</field>
     <description>Sigma: Windows Admin Share Mount Via Net.EXE</description>
     <mitre>
       <id>T1021.002</id>
@@ -372,7 +372,7 @@
   <rule id="112562" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> use | http</field>
-    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <field name="win.eventdata.image">\\net.exe$|\\net1.exe$</field>
     <description>Sigma: Windows Internet Hosted WebDav Share Mount Via Net.EXE</description>
     <mitre>
       <id>T1021.002</id>
@@ -381,7 +381,7 @@
   </rule>
   <rule id="112567" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">rundll32\.exe|rundll32</field>
+    <field name="win.eventdata.commandLine">rundll32.exe|rundll32</field>
     <description>Sigma: Rundll32 Execution Without Parameters</description>
     <mitre>
       <id>T1021.002</id>
@@ -392,8 +392,8 @@
   </rule>
   <rule id="113020" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> use |:.*\\|/USER:.* .*</field>
-    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <field name="win.eventdata.commandLine"> use |:\.*\\\\|/USER:\.* \.*</field>
+    <field name="win.eventdata.image">\\net.exe$|\\net1.exe$</field>
     <description>Sigma: Password Provided In Command Line Of Net.EXE</description>
     <mitre>
       <id>T1021.002</id>

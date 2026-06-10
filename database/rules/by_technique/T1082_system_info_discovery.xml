@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1082_system_info_discovery,">
-  <rule id="100526" level="9">
+  <rule id="100528" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">SHA1=5F1CBC3D99558307BC1250D084FA968521482025|MD5=987B65CD9B9F4E9A1AFD8F8B48CF64A7|SHA256=2B214BDDAAB130C274DE6204AF6DBA5AEEC7433DA99AA950022FA306421A6D32|IMPHASH=444D210CEA1FF8112F256A4997EED7FF|SHA1=3FB89787CB97D902780DA080545584D97FB1C2EB|MD5=228DD0C2E6287547E26FFBD973A40F14|SHA256=55F041BF4E78E9BFA6D4EE68BE40E496CE3A1353E1CA4306598589E19802522C|IMPHASH=0479F44DF47CFA2EF1CCC4416A538663</field>
     <description>Sigma: HackTool - PCHunter Execution</description>
@@ -11,29 +11,29 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100527" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\PCHunter64\.exe$|\PCHunter32\.exe$</field>
-    <description>Sigma: HackTool - PCHunter Execution</description>
-    <mitre>
-      <id>T1082</id>
-      <id>T1057</id>
-      <id>T1012</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100528" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">PCHunter\.exe</field>
-    <description>Sigma: HackTool - PCHunter Execution</description>
-    <mitre>
-      <id>T1082</id>
-      <id>T1057</id>
-      <id>T1012</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
   <rule id="100529" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\PCHunter64.exe$|\\PCHunter32.exe$</field>
+    <description>Sigma: HackTool - PCHunter Execution</description>
+    <mitre>
+      <id>T1082</id>
+      <id>T1057</id>
+      <id>T1012</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100530" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">PCHunter.exe</field>
+    <description>Sigma: HackTool - PCHunter Execution</description>
+    <mitre>
+      <id>T1082</id>
+      <id>T1057</id>
+      <id>T1012</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100531" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Epoolsoft Windows Information View Tools</field>
     <description>Sigma: HackTool - PCHunter Execution</description>
@@ -44,20 +44,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104699" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SystemInformer\.exe$</field>
-    <description>Sigma: PUA - System Informer Execution</description>
-    <mitre>
-      <id>T1082</id>
-      <id>T1564</id>
-      <id>T1543</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
   <rule id="104700" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">SystemInformer\.exe</field>
+    <field name="win.eventdata.image">\\SystemInformer.exe$</field>
     <description>Sigma: PUA - System Informer Execution</description>
     <mitre>
       <id>T1082</id>
@@ -68,7 +57,7 @@
   </rule>
   <rule id="104701" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.description">System Informer</field>
+    <field name="win.eventdata.originalFileName">SystemInformer.exe</field>
     <description>Sigma: PUA - System Informer Execution</description>
     <mitre>
       <id>T1082</id>
@@ -79,7 +68,7 @@
   </rule>
   <rule id="104702" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.product">System Informer</field>
+    <field name="win.eventdata.description">System Informer</field>
     <description>Sigma: PUA - System Informer Execution</description>
     <mitre>
       <id>T1082</id>
@@ -89,6 +78,17 @@
     <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="104703" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.product">System Informer</field>
+    <description>Sigma: PUA - System Informer Execution</description>
+    <mitre>
+      <id>T1082</id>
+      <id>T1564</id>
+      <id>T1543</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104704" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">MD5=19426363A37C03C3ED6FEDF57B6696EC|SHA1=8B12C6DA8FAC0D5E8AB999C31E5EA04AF32D53DC|SHA256=8EE9D84DE50803545937A63C686822388A3338497CDDB660D5D69CF68B68F287|IMPHASH=B68908ADAEB5D662F87F2528AF318F12</field>
     <description>Sigma: PUA - System Informer Execution</description>
@@ -101,7 +101,7 @@
   </rule>
   <rule id="107203" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">https://github\.com/carlospolop/PEASS-ng/releases/latest/download/</field>
+    <field name="win.eventdata.commandLine">https://github.com/carlospolop/PEASS-ng/releases/latest/download/</field>
     <description>Sigma: HackTool - winPEAS Execution</description>
     <mitre>
       <id>T1082</id>
@@ -145,7 +145,7 @@
   </rule>
   <rule id="107207" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">winPEAS\.exe</field>
+    <field name="win.eventdata.originalFileName">winPEAS.exe</field>
     <description>Sigma: HackTool - winPEAS Execution</description>
     <mitre>
       <id>T1082</id>
@@ -156,7 +156,7 @@
   </rule>
   <rule id="107208" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\winPEASany_ofs\.exe$|\winPEASany\.exe$|\winPEASx64_ofs\.exe$|\winPEASx64\.exe$|\winPEASx86_ofs\.exe$|\winPEASx86\.exe$</field>
+    <field name="win.eventdata.image">\\winPEASany_ofs.exe$|\\winPEASany.exe$|\\winPEASx64_ofs.exe$|\\winPEASx64.exe$|\\winPEASx86_ofs.exe$|\\winPEASx86.exe$</field>
     <description>Sigma: HackTool - winPEAS Execution</description>
     <mitre>
       <id>T1082</id>
@@ -176,7 +176,7 @@
   </rule>
   <rule id="111041" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\dtrace\.exe$</field>
+    <field name="win.eventdata.image">\\dtrace.exe$</field>
     <field name="win.eventdata.commandLine">lkd\(0\)</field>
     <description>Sigma: Suspicious Kernel Dump Using Dtrace</description>
     <mitre>

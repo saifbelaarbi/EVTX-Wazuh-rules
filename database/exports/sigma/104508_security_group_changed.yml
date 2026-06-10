@@ -1,0 +1,20 @@
+title: Security group changed
+id: cd81febc-00f6-56db-97fe-48bd5341bfde
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104508).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/danderspritz-evtx/examples/post-Security.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: '4735'
+  condition: selection
+level: low
+tags:
+- attack.t1098
+- attack.persistence

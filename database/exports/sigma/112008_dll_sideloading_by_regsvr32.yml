@@ -1,0 +1,20 @@
+title: DLL sideloading by regsvr32
+id: cecb85e5-82a6-5472-aea2-45e87e051665
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112008).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image: regsvr32
+  condition: selection
+level: medium
+tags:
+- attack.t1218.010
+- attack.defense-evasion

@@ -1,0 +1,20 @@
+title: User account created
+id: 94f8ccad-d815-53a7-a6fa-2688d58dd371
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104008).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Defense Evasion/DE_Fake_ComputerAccount_4720.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: '4720'
+  condition: selection
+level: medium
+tags:
+- attack.t1136.001
+- attack.persistence

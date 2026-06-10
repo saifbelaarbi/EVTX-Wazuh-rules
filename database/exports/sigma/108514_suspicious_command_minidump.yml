@@ -1,0 +1,20 @@
+title: 'Suspicious command: minidump'
+id: 6e243e95-0ff4-5f87-93f9-156c215bb710
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  108514).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_10_1_memdump_comsvcs_minidump.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    CommandLine: minidump
+  condition: selection
+level: high
+tags:
+- attack.t1003.001
+- attack.credential-access

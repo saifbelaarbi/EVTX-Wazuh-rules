@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1112_unknown,">
-  <rule id="104537" level="10">
+  <rule id="104538" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657</field>
-    <field name="win.eventdata.objectName">\Environment</field>
+    <field name="win.eventdata.objectName">\\Environment</field>
     <field name="win.eventdata.objectValueName">COMPlus_ETWEnabled|COMPlus_ETWFlags</field>
     <field name="win.eventdata.newValue">0</field>
     <description>Sigma: ETW Logging Disabled In .NET Processes - Registry</description>
@@ -13,10 +13,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104538" level="10">
+  <rule id="104539" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657</field>
-    <field name="win.eventdata.objectName">\SOFTWARE\Microsoft\\.NETFramework$</field>
+    <field name="win.eventdata.objectName">\\SOFTWARE\\Microsoft\\.NETFramework$</field>
     <field name="win.eventdata.objectValueName">ETWEnabled</field>
     <field name="win.eventdata.newValue">0</field>
     <description>Sigma: ETW Logging Disabled In .NET Processes - Registry</description>
@@ -26,10 +26,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104548" level="10">
+  <rule id="104549" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657</field>
-    <field name="win.eventdata.objectName">WINEVT\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9\}|WINEVT\Channels\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9\}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
     <field name="win.eventdata.objectValueName">Enabled</field>
     <field name="win.eventdata.newValue">0</field>
     <description>Sigma: Sysmon Channel Reference Deletion</description>
@@ -38,10 +38,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104549" level="10">
+  <rule id="104550" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4663</field>
-    <field name="win.eventdata.objectName">WINEVT\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9\}|WINEVT\Channels\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9\}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
     <field name="win.eventdata.accessMask">0x10000</field>
     <description>Sigma: Sysmon Channel Reference Deletion</description>
     <mitre>
@@ -49,9 +49,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104671" level="9">
+  <rule id="104672" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">CreateObject|Wscript\.shell|\.RegWrite</field>
+    <field name="win.eventdata.scriptBlockText">CreateObject|Wscript.shell|.RegWrite</field>
     <description>Sigma: Registry Modification Attempt Via VBScript - PowerShell</description>
     <mitre>
       <id>T1112</id>
@@ -59,10 +59,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104705" level="9">
+  <rule id="104706" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">add</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <description>Sigma: Potentially Suspicious Desktop Background Change Using Reg.EXE</description>
     <mitre>
       <id>T1112</id>
@@ -70,20 +70,11 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104706" level="9">
+  <rule id="104707" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">C:\Users\|%temp%|%tmp%|%appdata%|\AppData\Local\Temp\|C:\Windows\Temp\|C:\ProgramData\</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine">C:\\Users\\|%temp%|%tmp%|%appdata%|\\AppData\\Local\\Temp\\|C:\\Windows\\Temp\\|C:\\ProgramData\\</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <description>Sigma: Potential Suspicious Registry File Imported Via Reg.EXE</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104707" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\System\CurrentControlSet\Control\Lsa|DisableRestrictedAdmin</field>
-    <description>Sigma: RestrictedAdminMode Registry Value Tampering - ProcCreation</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -91,17 +82,26 @@
   </rule>
   <rule id="104708" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\System\CurrentControlSet\Control\Lsa|NoLMHash| 0</field>
+    <field name="win.eventdata.commandLine">\\System\\CurrentControlSet\\Control\\Lsa|DisableRestrictedAdmin</field>
+    <description>Sigma: RestrictedAdminMode Registry Value Tampering - ProcCreation</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104709" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\\System\\CurrentControlSet\\Control\\Lsa|NoLMHash| 0</field>
     <description>Sigma: Enable LM Hash Storage - ProcCreation</description>
     <mitre>
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104711" level="10">
+  <rule id="104712" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\AppDataLow\Software\Microsoft\|\Policies\Microsoft\Windows\OOBE|\Policies\Microsoft\Windows NT\CurrentVersion\Winlogon|\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon|\CurrentControlSet\Control\SecurityProviders\WDigest|\Microsoft\Windows Defender\</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine">\\AppDataLow\\Software\\Microsoft\\|\\Policies\\Microsoft\\Windows\\OOBE|\\Policies\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon|\\SOFTWARE\\Microsoft\\Windows NT\\Currentversion\\Winlogon|\\CurrentControlSet\\Control\\SecurityProviders\\WDigest|\\Microsoft\\Windows Defender\\</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <description>Sigma: Reg Add Suspicious Paths</description>
     <mitre>
       <id>T1112</id>
@@ -109,21 +109,11 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104712" level="9">
+  <rule id="104713" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> /i | /s |\.reg</field>
-    <field name="win.eventdata.image">\regedit\.exe$</field>
+    <field name="win.eventdata.commandLine"> /i | /s |.reg</field>
+    <field name="win.eventdata.image">\\regedit.exe$</field>
     <description>Sigma: Imports Registry Key From a File</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104713" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">:[^ \\]</field>
-    <field name="win.eventdata.image">\regedit\.exe$</field>
-    <description>Sigma: Imports Registry Key From an ADS</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -131,7 +121,17 @@
   </rule>
   <rule id="104714" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\regini\.exe$</field>
+    <field name="win.eventdata.commandLine">:[^ \\]</field>
+    <field name="win.eventdata.image">\\regedit.exe$</field>
+    <description>Sigma: Imports Registry Key From an ADS</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104715" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\regini.exe$</field>
     <field name="win.eventdata.commandLine">:[^ \\]</field>
     <description>Sigma: Suspicious Registry Modification From ADS Via Regini.EXE</description>
     <mitre>
@@ -139,16 +139,16 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104719" level="10">
+  <rule id="104720" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">BaseFlushAppcompatCache|#46|apphelp\.dll</field>
+    <field name="win.eventdata.commandLine">BaseFlushAppcompatCache|#46|apphelp.dll</field>
     <description>Sigma: ShimCache Flush</description>
     <mitre>
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104728" level="10">
+  <rule id="104729" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">ImagePath|FailureCommand|ServiceDLL|Services</field>
     <field name="win.eventdata.integrityLevel">Medium|S-1-16-8192</field>
@@ -158,9 +158,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104733" level="9">
+  <rule id="104734" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">CreateObject|Wscript\.shell|\.RegWrite</field>
+    <field name="win.eventdata.commandLine">CreateObject|Wscript.shell|.RegWrite</field>
     <description>Sigma: Registry Modification Attempt Via VBScript</description>
     <mitre>
       <id>T1112</id>
@@ -168,9 +168,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104734" level="9">
+  <rule id="104735" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\VBoxDrvInst\.exe$</field>
+    <field name="win.eventdata.image">\\VBoxDrvInst.exe$</field>
     <field name="win.eventdata.commandLine">driver|executeinf</field>
     <description>Sigma: Suspicious VBoxDrvInst.exe Parameters</description>
     <mitre>
@@ -178,19 +178,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104754" level="9">
+  <rule id="104755" level="9">
     <if_sid>61614</if_sid>
-    <field name="win.eventdata.targetObject">\shell\open\command$</field>
+    <field name="win.eventdata.targetObject">\\shell\\open\\command$</field>
     <description>Sigma: Removal of Potential COM Hijacking Registry Keys</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104758" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\IsCredGuardEnabled$</field>
-    <description>Sigma: Wdigest CredGuard Registry Modification</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -198,9 +189,8 @@
   </rule>
   <rule id="104759" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.system.eventID">12|13</field>
-    <field name="win.eventdata.targetObject">\services\localNETService$</field>
-    <description>Sigma: Registry Entries For Azorult Malware</description>
+    <field name="win.eventdata.targetObject">\\IsCredGuardEnabled$</field>
+    <description>Sigma: Wdigest CredGuard Registry Modification</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -208,34 +198,44 @@
   </rule>
   <rule id="104760" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\firm\soft\Name$</field>
+    <field name="win.system.eventID">12|13</field>
+    <field name="win.eventdata.targetObject">\\services\\localNETService$</field>
+    <description>Sigma: Registry Entries For Azorult Malware</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104761" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Software\\firm\\soft\\Name$</field>
     <description>Sigma: Potential Qakbot Registry Activity</description>
     <mitre>
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104764" level="10">
+  <rule id="104765" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">HKLM\SOFTWARE\Microsoft\HTMLHelp\data</field>
+    <field name="win.eventdata.targetObject">HKLM\\SOFTWARE\\Microsoft\\HTMLHelp\\data</field>
     <description>Sigma: RedMimicry Winnti Playbook Registry Manipulation</description>
     <mitre>
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104765" level="9">
+  <rule id="104766" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\StubPath$</field>
+    <field name="win.eventdata.targetObject">\\StubPath$</field>
     <description>Sigma: Run Once Task Configuration in Registry</description>
     <mitre>
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104767" level="9">
+  <rule id="104768" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.image">\mshta\.exe$|\wscript\.exe$|\cscript\.exe$</field>
+    <field name="win.eventdata.image">\\mshta.exe$|\\wscript.exe$|\\cscript.exe$</field>
     <description>Sigma: Registry Tampering by Potentially Suspicious Processes</description>
     <mitre>
       <id>T1112</id>
@@ -243,9 +243,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104769" level="9">
+  <rule id="104770" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">System\CurrentControlSet\Control\Terminal Server\fAllowToGetHelp$</field>
+    <field name="win.eventdata.targetObject">System\\CurrentControlSet\\Control\\Terminal Server\\fAllowToGetHelp$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Allow RDP Remote Assistance Feature</description>
     <mitre>
@@ -253,20 +253,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104770" level="9">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Winternals\BGInfo\Database$</field>
-    <description>Sigma: New BgInfo.EXE Custom DB Path Registry Configuration</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
   <rule id="104771" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Winternals\BGInfo\UserFields\</field>
-    <field name="win.eventdata.details">^4</field>
-    <description>Sigma: New BgInfo.EXE Custom VBScript Registry Configuration</description>
+    <field name="win.eventdata.targetObject">\\Software\\Winternals\\BGInfo\\Database$</field>
+    <description>Sigma: New BgInfo.EXE Custom DB Path Registry Configuration</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -274,7 +264,17 @@
   </rule>
   <rule id="104772" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Winternals\BGInfo\UserFields\</field>
+    <field name="win.eventdata.targetObject">\\Software\\Winternals\\BGInfo\\UserFields\\</field>
+    <field name="win.eventdata.details">^4</field>
+    <description>Sigma: New BgInfo.EXE Custom VBScript Registry Configuration</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104773" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Software\\Winternals\\BGInfo\\UserFields\\</field>
     <field name="win.eventdata.details">^6</field>
     <description>Sigma: New BgInfo.EXE Custom WMI Query Registry Configuration</description>
     <mitre>
@@ -282,9 +282,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104774" level="9">
+  <rule id="104775" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Internet$|\LocalIntranet$|\MyComputer$|\TrustedSites$|\UntrustedSites$</field>
+    <field name="win.eventdata.targetObject">\\Internet$|\\LocalIntranet$|\\MyComputer$|\\TrustedSites$|\\UntrustedSites$</field>
     <field name="win.eventdata.details">Enabled</field>
     <description>Sigma: ClickOnce Trust Prompt Tampering</description>
     <mitre>
@@ -292,20 +292,20 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104779" level="10">
+  <rule id="104780" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\ImagePath$</field>
-    <field name="win.eventdata.details">\Users\Public\|\Perflogs\|\ADMIN\$\|\Temp\</field>
+    <field name="win.eventdata.targetObject">\\ImagePath$</field>
+    <field name="win.eventdata.details">\\Users\\Public\\|\\Perflogs\\|\\ADMIN\$\\|\\Temp\\</field>
     <description>Sigma: Service Binary in Suspicious Folder</description>
     <mitre>
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104780" level="10">
+  <rule id="104781" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Start$</field>
-    <field name="win.eventdata.image">\Users\Public\|\Perflogs\|\ADMIN\$\|\Temp\</field>
+    <field name="win.eventdata.targetObject">\\Start$</field>
+    <field name="win.eventdata.image">\\Users\\Public\\|\\Perflogs\\|\\ADMIN\$\\|\\Temp\\</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)|DWORD \(0x00000001\)|DWORD \(0x00000002\)</field>
     <description>Sigma: Service Binary in Suspicious Folder</description>
     <mitre>
@@ -313,7 +313,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104781" level="9">
+  <rule id="104782" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">NoChangingWallpaper$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
@@ -324,20 +324,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104782" level="9">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ConsentPromptBehaviorAdmin$|Software\Microsoft\Windows\CurrentVersion\Policies\System\InactivityTimeoutSecs$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\shutdownwithoutlogon$|SOFTWARE\Microsoft\Windows\CurrentVersion\PushNotifications\ToastEnabled$|SYSTEM\CurrentControlSet\Control\Storage\Write Protection$|SYSTEM\CurrentControlSet\Control\StorageDevicePolicies\WriteProtect$</field>
-    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
-    <description>Sigma: Disable Internal Tools or Feature in Registry</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
   <rule id="104783" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisableCMD$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoControlPanel$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoRun$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\StartMenuLogOff$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableChangePassword$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableLockWorkstation$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableRegistryTools$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableTaskmgr$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\NoDispBackgroundPage$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\NoDispCPL$|SOFTWARE\Policies\Microsoft\Windows\Explorer\DisableNotificationCenter$|SOFTWARE\Policies\Microsoft\Windows\System\DisableCMD$</field>
-    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\ConsentPromptBehaviorAdmin$|Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\InactivityTimeoutSecs$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\shutdownwithoutlogon$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\PushNotifications\\ToastEnabled$|SYSTEM\\CurrentControlSet\\Control\\Storage\\Write Protection$|SYSTEM\\CurrentControlSet\\Control\\StorageDevicePolicies\\WriteProtect$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
     <description>Sigma: Disable Internal Tools or Feature in Registry</description>
     <mitre>
       <id>T1112</id>
@@ -346,9 +336,9 @@
   </rule>
   <rule id="104784" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">Windows\CurrentVersion\ImmersiveShell\UseActionCenterExperience$</field>
-    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
-    <description>Sigma: Disable Windows Security Center Notifications</description>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\DisableCMD$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoControlPanel$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoRun$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\StartMenuLogOff$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\DisableChangePassword$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\DisableLockWorkstation$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\DisableRegistryTools$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\DisableTaskmgr$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\NoDispBackgroundPage$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\NoDispCPL$|SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer\\DisableNotificationCenter$|SOFTWARE\\Policies\\Microsoft\\Windows\\System\\DisableCMD$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Disable Internal Tools or Feature in Registry</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -356,7 +346,17 @@
   </rule>
   <rule id="104785" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun$</field>
+    <field name="win.eventdata.targetObject">Windows\\CurrentVersion\\ImmersiveShell\\UseActionCenterExperience$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Disable Windows Security Center Notifications</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104786" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\DisallowRun$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Add DisallowRun Execution to Registry</description>
     <mitre>
@@ -364,9 +364,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104790" level="10">
+  <rule id="104791" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\COMPlus_ETWEnabled$|\COMPlus_ETWFlags$</field>
+    <field name="win.eventdata.targetObject">\\COMPlus_ETWEnabled$|\\COMPlus_ETWFlags$</field>
     <field name="win.eventdata.details">0|DWORD \(0x00000000\)</field>
     <description>Sigma: ETW Logging Disabled In .NET Processes - Sysmon Registry</description>
     <mitre>
@@ -375,9 +375,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104791" level="10">
+  <rule id="104792" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\\.NETFramework\ETWEnabled$</field>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\.NETFramework\\ETWEnabled$</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
     <description>Sigma: ETW Logging Disabled In .NET Processes - Sysmon Registry</description>
     <mitre>
@@ -386,29 +386,19 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104794" level="10">
+  <rule id="104795" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">HKLM\System\CurrentControlSet\Services\Fax\ObjectName</field>
+    <field name="win.eventdata.targetObject">HKLM\\System\\CurrentControlSet\\Services\\Fax\\ObjectName</field>
     <description>Sigma: Change User Account Associated with the FAX Service</description>
     <mitre>
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104795" level="10">
+  <rule id="104796" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Microsoft\Fax\Device Providers\|\ImageName</field>
+    <field name="win.eventdata.targetObject">\\Software\\Microsoft\\Fax\\Device Providers\\|\\ImageName</field>
     <description>Sigma: Change the Fax Dll</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104800" level="9">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowInfoTip$|SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ShowCompColor$</field>
-    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
-    <description>Sigma: Registry Hide Function from User</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -416,7 +406,17 @@
   </rule>
   <rule id="104801" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\HideClock$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\HideSCAHealth$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\HideSCANetwork$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\HideSCAPower$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\HideSCAVolume$</field>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowInfoTip$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\ShowCompColor$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Registry Hide Function from User</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104802" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideClock$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideSCAHealth$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideSCANetwork$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideSCAPower$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\HideSCAVolume$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Registry Hide Function from User</description>
     <mitre>
@@ -424,19 +424,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104802" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">System\CurrentControlSet\Control\Lsa\DisableRestrictedAdmin$</field>
-    <description>Sigma: RestrictedAdminMode Registry Value Tampering</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
   <rule id="104803" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\\.NETFramework\NGenAssemblyUsageLog$</field>
-    <description>Sigma: NET NGenAssemblyUsageLog Registry Key Tamper</description>
+    <field name="win.eventdata.targetObject">System\\CurrentControlSet\\Control\\Lsa\\DisableRestrictedAdmin$</field>
+    <description>Sigma: RestrictedAdminMode Registry Value Tampering</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -444,9 +435,8 @@
   </rule>
   <rule id="104804" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Security\AccessVBOM$</field>
-    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
-    <description>Sigma: Trust Access Disable For VBApplications</description>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\.NETFramework\\NGenAssemblyUsageLog$</field>
+    <description>Sigma: NET NGenAssemblyUsageLog Registry Key Tamper</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -454,7 +444,17 @@
   </rule>
   <rule id="104805" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Outlook\Security\EnableUnsafeClientMailRules$</field>
+    <field name="win.eventdata.targetObject">\\Security\\AccessVBOM$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
+    <description>Sigma: Trust Access Disable For VBApplications</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104806" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Outlook\\Security\\EnableUnsafeClientMailRules$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Outlook EnableUnsafeClientMailRules Setting Enabled - Registry</description>
     <mitre>
@@ -462,19 +462,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104807" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Security\Trusted Documents\TrustRecords</field>
-    <description>Sigma: Macro Enabled In A Potentially Suspicious Document</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
   <rule id="104808" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Path$</field>
-    <description>Sigma: Uncommon Microsoft Office Trusted Location Added</description>
+    <field name="win.eventdata.targetObject">\\Security\\Trusted Documents\\TrustRecords</field>
+    <description>Sigma: Macro Enabled In A Potentially Suspicious Document</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -482,7 +473,16 @@
   </rule>
   <rule id="104809" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Security\VBAWarnings$</field>
+    <field name="win.eventdata.targetObject">\\Path$</field>
+    <description>Sigma: Uncommon Microsoft Office Trusted Location Added</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104810" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Security\\VBAWarnings$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Office Macros Warning Disabled</description>
     <mitre>
@@ -490,9 +490,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104813" level="9">
+  <rule id="104814" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">^HKCR\</field>
+    <field name="win.eventdata.targetObject">^HKCR\\</field>
     <field name="win.eventdata.details">^URL:</field>
     <description>Sigma: Potential Persistence Via Custom Protocol Handler</description>
     <mitre>
@@ -500,19 +500,10 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104814" level="9">
+  <rule id="104815" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Microsoft\Windows NT\CurrentVersion\Event Viewer\MicrosoftRedirectionProgram|\Microsoft\Windows NT\CurrentVersion\Event Viewer\MicrosoftRedirectionURL</field>
+    <field name="win.eventdata.targetObject">\\Microsoft\\Windows NT\\CurrentVersion\\Event Viewer\\MicrosoftRedirectionProgram|\\Microsoft\\Windows NT\\CurrentVersion\\Event Viewer\\MicrosoftRedirectionURL</field>
     <description>Sigma: Potential Persistence Via Event Viewer Events.asp</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104822" level="10">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\URL$|\Outlook\WebView\</field>
-    <description>Sigma: Potential Persistence Via Outlook Home Page</description>
     <mitre>
       <id>T1112</id>
     </mitre>
@@ -520,7 +511,16 @@
   </rule>
   <rule id="104823" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Stamp$|\Outlook\Today\</field>
+    <field name="win.eventdata.targetObject">\\URL$|\\Outlook\\WebView\\</field>
+    <description>Sigma: Potential Persistence Via Outlook Home Page</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104824" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Stamp$|\\Outlook\\Today\\</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Potential Persistence Via Outlook Today Page</description>
     <mitre>
@@ -528,9 +528,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104826" level="10">
+  <rule id="104827" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\MSDTC\MTxOCI\OracleOciLib$</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\MSDTC\\MTxOCI\\OracleOciLib$</field>
     <description>Sigma: Registry Modification for OCI DLL Redirection</description>
     <mitre>
       <id>T1112</id>
@@ -538,9 +538,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104830" level="9">
+  <rule id="104831" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoLogOff$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoDesktop$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoRun$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoFind$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoControlPanel$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoFileMenu$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoClose$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoSetTaskbar$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoPropertiesMyDocuments$|SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\NoTrayContextMenu$</field>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoLogOff$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoDesktop$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoRun$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoFind$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoControlPanel$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoFileMenu$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoClose$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoSetTaskbar$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoPropertiesMyDocuments$|SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoTrayContextMenu$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Registry Explorer Policy Modification</description>
     <mitre>
@@ -548,9 +548,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104832" level="9">
+  <rule id="104833" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">SOFTWARE\Policies\Microsoft\Windows Defender\UX Configuration\Notification_Suppress$</field>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Policies\\Microsoft\\Windows Defender\\UX Configuration\\Notification_Suppress$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Activate Suppression of Windows Security Center Notifications</description>
     <mitre>
@@ -558,9 +558,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104836" level="10">
+  <rule id="104837" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">System\CurrentControlSet\Control\Lsa\NoLMHash$</field>
+    <field name="win.eventdata.targetObject">System\\CurrentControlSet\\Control\\Lsa\\NoLMHash$</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
     <description>Sigma: Enable LM Hash Storage</description>
     <mitre>
@@ -568,9 +568,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104837" level="9">
+  <rule id="104838" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\fDenyTSConnections$|\fSingleSessionPerUser$|\UserAuthentication$</field>
+    <field name="win.eventdata.targetObject">\\fDenyTSConnections$|\\fSingleSessionPerUser$|\\UserAuthentication$</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
     <description>Sigma: RDP Sensitive Settings Changed to Zero</description>
     <mitre>
@@ -578,9 +578,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104838" level="10">
+  <rule id="104839" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Control\Terminal Server\InitialProgram|\Control\Terminal Server\WinStations\RDP-Tcp\InitialProgram|\services\TermService\Parameters\ServiceDll|\Terminal Server\WinStations\RDP-Tcp\SecurityLayer|\Windows NT\Terminal Services\InitialProgram</field>
+    <field name="win.eventdata.targetObject">\\Control\\Terminal Server\\InitialProgram|\\Control\\Terminal Server\\WinStations\\RDP-Tcp\\InitialProgram|\\services\\TermService\\Parameters\\ServiceDll|\\Terminal Server\\WinStations\\RDP-Tcp\\SecurityLayer|\\Windows NT\\Terminal Services\\InitialProgram</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: RDP Sensitive Settings Changed</description>
     <mitre>
@@ -588,9 +588,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104840" level="10">
+  <rule id="104841" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">WDigest\UseLogonCredential$</field>
+    <field name="win.eventdata.targetObject">WDigest\\UseLogonCredential$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Wdigest Enable UseLogonCredential</description>
     <mitre>
@@ -598,9 +598,9 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104842" level="9">
+  <rule id="104843" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Microsoft\Windows NT\CurrentVersion\Winlogon\AllowMultipleTSSessions$</field>
+    <field name="win.eventdata.targetObject">\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\AllowMultipleTSSessions$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)$</field>
     <description>Sigma: Winlogon AllowMultipleTSSessions Enable</description>
     <mitre>
@@ -608,7 +608,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="112022" level="9">
+  <rule id="112029" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">shell</field>
     <description>Registry modification in persistence key: shell</description>
@@ -617,7 +617,7 @@
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="112023" level="9">
+  <rule id="112030" level="9">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.targetObject">shell</field>
     <description>Registry modification in persistence key: shell</description>
@@ -626,7 +626,7 @@
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="112032" level="9">
+  <rule id="112039" level="9">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.targetObject">currentversion\\explorer\\shell</field>
     <description>Registry modification in persistence key: currentversion\explorer\shell</description>

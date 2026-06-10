@@ -3,7 +3,7 @@
   <rule id="107148" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">assoc |exefile</field>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
+    <field name="win.eventdata.image">\\cmd.exe$</field>
     <description>Sigma: Change Default File Association To Executable Via Assoc</description>
     <mitre>
       <id>T1546.001</id>

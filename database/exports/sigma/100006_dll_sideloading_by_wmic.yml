@@ -1,0 +1,20 @@
+title: DLL sideloading by wmic
+id: 25a1fea2-4a38-5176-a84d-e57887d4a61b
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100006).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/exec_wmic_xsl_internet_sysmon_3_1_11.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image: wmic
+  condition: selection
+level: medium
+tags:
+- attack.t1047
+- attack.execution

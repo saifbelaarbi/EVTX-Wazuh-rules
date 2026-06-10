@@ -218,23 +218,29 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
         cmdline = event_data.get("CommandLine", "").lower()
         event_data.get("ParentImage", "").lower()
 
-        # Check for known suspicious processes
+        # Check for known suspicious processes — match on the field the
+        # indicator actually appeared in, or the rule never fires.
         for proc in SUSPICIOUS_PROCESSES:
-            if proc in image or proc in cmdline:
-                patterns.append(
-                    DetectionPattern(
-                        event_id=event_id,
-                        channel=channel,
-                        provider_name=provider,
-                        field_matches={"win.eventdata.image": proc},
-                        tactic=tactic or "execution",
-                        technique_name=f"Suspicious process: {proc}",
-                        description=f"Suspicious process '{proc}' execution detected",
-                        source_evtx=source_path,
-                        confidence="high",
-                        sample_event=event,
-                    )
+            if proc in image:
+                proc_field = "win.eventdata.image"
+            elif proc in cmdline:
+                proc_field = "win.eventdata.commandLine"
+            else:
+                continue
+            patterns.append(
+                DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={proc_field: proc},
+                    tactic=tactic or "execution",
+                    technique_name=f"Suspicious process: {proc}",
+                    description=f"Suspicious process '{proc}' execution detected",
+                    source_evtx=source_path,
+                    confidence="high",
+                    sample_event=event,
                 )
+            )
 
         # Check for suspicious command-line patterns
         for pattern in SUSPICIOUS_CMD_PATTERNS:
@@ -527,21 +533,31 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
 
     # === Sysmon WMI Events (Event ID 19, 20, 21) ===
     elif event_id in (19, 20, 21) and "Sysmon" in provider:
-        consumer = event_data.get("Consumer", "") or event_data.get("Name", "")
-        patterns.append(
-            DetectionPattern(
-                event_id=event_id,
-                channel=channel,
-                provider_name=provider,
-                field_matches={"win.eventdata.consumer": consumer[:60] if consumer else "wmi_event"},
-                tactic=tactic or "persistence",
-                technique_name=f"WMI event subscription (EventID {event_id})",
-                description="WMI event subscription activity detected",
-                source_evtx=source_path,
-                confidence="medium",
-                sample_event=event,
+        # Event 21 carries Consumer; events 19/20 only carry Name — match on
+        # the field that actually exists in the event.
+        if event_data.get("Consumer"):
+            wmi_field, wmi_value = "win.eventdata.consumer", event_data["Consumer"]
+        elif event_data.get("Name"):
+            wmi_field, wmi_value = "win.eventdata.name", event_data["Name"]
+        elif event_data.get("Operation"):
+            wmi_field, wmi_value = "win.eventdata.operation", event_data["Operation"]
+        else:
+            wmi_field, wmi_value = "", ""
+        if wmi_value:
+            patterns.append(
+                DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={wmi_field: wmi_value[:60]},
+                    tactic=tactic or "persistence",
+                    technique_name=f"WMI event subscription (EventID {event_id})",
+                    description="WMI event subscription activity detected",
+                    source_evtx=source_path,
+                    confidence="medium",
+                    sample_event=event,
+                )
             )
-        )
 
     # === Windows Security - Failed Logon (4625) ===
     elif event_id == 4625 and "Security" in channel:
@@ -695,25 +711,30 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
         image_path = event_data.get("ImagePath", "").lower()
         matched = False
         for proc in SUSPICIOUS_PROCESSES:
-            if proc in image_path or proc in service_name.lower():
-                patterns.append(
-                    DetectionPattern(
-                        event_id=event_id,
-                        channel=channel,
-                        provider_name=provider,
-                        field_matches={
-                            "win.eventdata.serviceName": service_name,
-                            "win.eventdata.imagePath": proc,
-                        },
-                        tactic=tactic or "persistence",
-                        technique_name=f"Suspicious service: {service_name}",
-                        description=f"Suspicious service '{service_name}' installed",
-                        source_evtx=source_path,
-                        confidence="high",
-                        sample_event=event,
-                    )
+            if proc in image_path:
+                svc_field = "win.eventdata.imagePath"
+            elif proc in service_name.lower():
+                svc_field = "win.eventdata.serviceName"
+            else:
+                continue
+            patterns.append(
+                DetectionPattern(
+                    event_id=event_id,
+                    channel=channel,
+                    provider_name=provider,
+                    field_matches={
+                        "win.eventdata.serviceName": service_name,
+                        svc_field: proc,
+                    },
+                    tactic=tactic or "persistence",
+                    technique_name=f"Suspicious service: {service_name}",
+                    description=f"Suspicious service '{service_name}' installed",
+                    source_evtx=source_path,
+                    confidence="high",
+                    sample_event=event,
                 )
-                matched = True
+            )
+            matched = True
         if not matched:
             for sp in SUSPICIOUS_SERVICE_PATTERNS:
                 if sp in image_path:

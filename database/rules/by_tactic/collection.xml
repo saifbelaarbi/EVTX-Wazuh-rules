@@ -6,7 +6,7 @@
     <field name="win.eventdata.logonType">3</field>
     <field name="win.eventdata.targetUserName">ANONYMOUS LOGON</field>
     <field name="win.eventdata.workstationName">-</field>
-    <field name="win.eventdata.ipAddress">127\.0\.0\.1|::1</field>
+    <field name="win.eventdata.ipAddress">127.0.0.1|::1</field>
     <description>Sigma: RottenPotato Like Attack Pattern</description>
     <mitre>
       <id>T1557.001</id>
@@ -16,7 +16,7 @@
   <rule id="113501" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657|4656|4663</field>
-    <field name="win.eventdata.objectName">\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\NonPackaged|\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam\NonPackaged</field>
+    <field name="win.eventdata.objectName">\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone\\NonPackaged|\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam\\NonPackaged</field>
     <description>Sigma: Processes Accessing the Microphone and Webcam</description>
     <mitre>
       <id>T1123</id>
@@ -47,7 +47,7 @@
   <rule id="113504" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.relativeTargetName">\.bak$|\.dmp$|\.edb$|\.kirbi$|\.msg$|\.nsf$|\.nst$|\.oab$|\.ost$|\.pst$|\.rdp$</field>
+    <field name="win.eventdata.relativeTargetName">.bak$|.dmp$|.edb$|.kirbi$|.msg$|.nsf$|.nst$|.oab$|.ost$|.pst$|.rdp$</field>
     <description>Sigma: Suspicious Access to Sensitive File Extensions</description>
     <mitre>
       <id>T1039</id>
@@ -58,7 +58,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DistributedCOM</field>
     <field name="win.system.eventID">10001</field>
-    <field name="win.eventdata.param1">C:\Program Files\Common Files\microsoft shared\ink\TabTip\.exe</field>
+    <field name="win.eventdata.param1">C:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe</field>
     <field name="win.eventdata.param2">2147943140</field>
     <field name="win.eventdata.param3">\{054AAE20-4BEA-4347-8A35-64A533254A9D\}</field>
     <description>Sigma: Local Privilege Escalation Indicator TabTip</description>
@@ -69,7 +69,7 @@
   </rule>
   <rule id="113506" level="7">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.image">\gup\.exe$</field>
+    <field name="win.eventdata.image">\\gup.exe$</field>
     <description>Sigma: Notepad++ Updater DNS Query to Uncommon Domains</description>
     <mitre>
       <id>T1195.002</id>
@@ -89,7 +89,7 @@
   </rule>
   <rule id="113508" level="8">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\gup\.exe$</field>
+    <field name="win.eventdata.image">\\gup.exe$</field>
     <description>Sigma: Uncommon File Created by Notepad++ Updater Gup.EXE</description>
     <mitre>
       <id>T1195.002</id>
@@ -99,7 +99,7 @@
   </rule>
   <rule id="113509" level="7">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\MICROSOFT##WID\tsql\query</field>
+    <field name="win.eventdata.pipeName">\\MICROSOFT##WID\\tsql\\query</field>
     <description>Sigma: ADFS Database Named Pipe Connection By Uncommon Tool</description>
     <mitre>
       <id>T1005</id>
@@ -108,7 +108,7 @@
   </rule>
   <rule id="113510" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.data">Compress-Archive -Path.*-DestinationPath \$env:TEMP|Compress-Archive -Path.*-DestinationPath.*\AppData\Local\Temp\|Compress-Archive -Path.*-DestinationPath.*:\Windows\Temp\</field>
+    <field name="win.eventdata.data">Compress-Archive -Path\.*-DestinationPath \$env:TEMP|Compress-Archive -Path\.*-DestinationPath\.*\\AppData\\Local\\Temp\\|Compress-Archive -Path\.*-DestinationPath\.*:\\Windows\\Temp\\</field>
     <description>Sigma: Zip A Folder With PowerShell For Staging In Temp - PowerShell</description>
     <mitre>
       <id>T1074.001</id>
@@ -126,7 +126,7 @@
   </rule>
   <rule id="113512" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">Compress-Archive -Path.*-DestinationPath \$env:TEMP|Compress-Archive -Path.*-DestinationPath.*\AppData\Local\Temp\|Compress-Archive -Path.*-DestinationPath.*:\Windows\Temp\</field>
+    <field name="win.eventdata.contextInfo">Compress-Archive -Path\.*-DestinationPath \$env:TEMP|Compress-Archive -Path\.*-DestinationPath\.*\\AppData\\Local\\Temp\\|Compress-Archive -Path\.*-DestinationPath\.*:\\Windows\\Temp\\</field>
     <description>Sigma: Zip A Folder With PowerShell For Staging In Temp  - PowerShell Module</description>
     <mitre>
       <id>T1074.001</id>
@@ -135,7 +135,7 @@
   </rule>
   <rule id="113513" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.rtf|\.pdf|\.txt| -Recurse | -Include </field>
+    <field name="win.eventdata.scriptBlockText">.doc|.docx|.xls|.xlsx|.ppt|.pptx|.rtf|.pdf|.txt| -Recurse | -Include </field>
     <description>Sigma: Automated Collection Command PowerShell</description>
     <mitre>
       <id>T1119</id>
@@ -144,7 +144,7 @@
   </rule>
   <rule id="113514" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\.CopyFromScreen</field>
+    <field name="win.eventdata.scriptBlockText">.CopyFromScreen</field>
     <description>Sigma: Windows Screen Capture with CopyFromScreen</description>
     <mitre>
       <id>T1113</id>
@@ -153,7 +153,7 @@
   </rule>
   <rule id="113515" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[Windows\.Input\.Keyboard\]::IsKeyDown\(\[System\.Windows\.Input\.Key\]::</field>
+    <field name="win.eventdata.scriptBlockText">\[Windows.Input.Keyboard\]::IsKeyDown\(\[System.Windows.Input.Key\]::</field>
     <description>Sigma: Potential Keylogger Activity</description>
     <mitre>
       <id>T1056.001</id>
@@ -162,7 +162,7 @@
   </rule>
   <rule id="113516" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Get-Inbox\.ps1|Microsoft\.Office\.Interop\.Outlook|Microsoft\.Office\.Interop\.Outlook\.olDefaultFolders|-comobject outlook\.application</field>
+    <field name="win.eventdata.scriptBlockText">Get-Inbox.ps1|Microsoft.Office.Interop.Outlook|Microsoft.Office.Interop.Outlook.olDefaultFolders|-comobject outlook.application</field>
     <description>Sigma: Powershell Local Email Collection</description>
     <mitre>
       <id>T1114.001</id>
@@ -171,7 +171,7 @@
   </rule>
   <rule id="113517" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">&gt; \$env:TEMP\</field>
+    <field name="win.eventdata.scriptBlockText">&gt; \$env:TEMP\\</field>
     <description>Sigma: Recon Information for Export with PowerShell</description>
     <mitre>
       <id>T1119</id>
@@ -180,7 +180,7 @@
   </rule>
   <rule id="113518" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Compress-Archive -Path.*-DestinationPath \$env:TEMP|Compress-Archive -Path.*-DestinationPath.*\AppData\Local\Temp\|Compress-Archive -Path.*-DestinationPath.*:\Windows\Temp\</field>
+    <field name="win.eventdata.scriptBlockText">Compress-Archive -Path\.*-DestinationPath \$env:TEMP|Compress-Archive -Path\.*-DestinationPath\.*\\AppData\\Local\\Temp\\|Compress-Archive -Path\.*-DestinationPath\.*:\\Windows\\Temp\\</field>
     <description>Sigma: Zip A Folder With PowerShell For Staging In Temp - PowerShell Script</description>
     <mitre>
       <id>T1074.001</id>
@@ -189,7 +189,7 @@
   </rule>
   <rule id="113519" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.dmp|\.dump|\.hdmp</field>
+    <field name="win.eventdata.commandLine">.dmp|.dump|.hdmp</field>
     <field name="win.eventdata.description">7-Zip</field>
     <description>Sigma: 7Zip Compressing Dump Files</description>
     <mitre>
@@ -209,8 +209,8 @@
   </rule>
   <rule id="113521" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Windows\WebCache</field>
-    <field name="win.eventdata.image">\esentutl\.exe$</field>
+    <field name="win.eventdata.commandLine">\\Windows\\WebCache</field>
+    <field name="win.eventdata.image">\\esentutl.exe$</field>
     <description>Sigma: Esentutl Steals Browser Information</description>
     <mitre>
       <id>T1005</id>
@@ -219,7 +219,7 @@
   </rule>
   <rule id="113522" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\gup\.exe$</field>
+    <field name="win.eventdata.parentImage">\\gup.exe$</field>
     <field name="win.eventdata.commandLine">bitsadmin|certutil|curl|finger|forfiles|regsvr32|rundll32|wget</field>
     <description>Sigma: Suspicious Child Process of Notepad++ Updater - GUP.Exe</description>
     <mitre>
@@ -239,7 +239,7 @@
   </rule>
   <rule id="113524" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\goldenPac|\karmaSMB|\kintercept|\ntlmrelayx|\rpcdump|\samrdump|\secretsdump|\smbexec|\smbrelayx|\wmiexec|\wmipersist</field>
+    <field name="win.eventdata.image">\\goldenPac|\\karmaSMB|\\kintercept|\\ntlmrelayx|\\rpcdump|\\samrdump|\\secretsdump|\\smbexec|\\smbrelayx|\\wmiexec|\\wmipersist</field>
     <description>Sigma: HackTool - Impacket Tools Execution</description>
     <mitre>
       <id>T1557.001</id>
@@ -248,7 +248,7 @@
   </rule>
   <rule id="113525" level="13">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\atexec_windows\.exe$|\dcomexec_windows\.exe$|\dpapi_windows\.exe$|\findDelegation_windows\.exe$|\GetADUsers_windows\.exe$|\GetNPUsers_windows\.exe$|\getPac_windows\.exe$|\getST_windows\.exe$|\getTGT_windows\.exe$|\GetUserSPNs_windows\.exe$|\ifmap_windows\.exe$|\mimikatz_windows\.exe$|\netview_windows\.exe$|\nmapAnswerMachine_windows\.exe$|\opdump_windows\.exe$|\psexec_windows\.exe$|\rdp_check_windows\.exe$|\sambaPipe_windows\.exe$|\smbclient_windows\.exe$|\smbserver_windows\.exe$|\sniff_windows\.exe$|\sniffer_windows\.exe$|\split_windows\.exe$|\ticketer_windows\.exe$</field>
+    <field name="win.eventdata.image">\\atexec_windows.exe$|\\dcomexec_windows.exe$|\\dpapi_windows.exe$|\\findDelegation_windows.exe$|\\GetADUsers_windows.exe$|\\GetNPUsers_windows.exe$|\\getPac_windows.exe$|\\getST_windows.exe$|\\getTGT_windows.exe$|\\GetUserSPNs_windows.exe$|\\ifmap_windows.exe$|\\mimikatz_windows.exe$|\\netview_windows.exe$|\\nmapAnswerMachine_windows.exe$|\\opdump_windows.exe$|\\psexec_windows.exe$|\\rdp_check_windows.exe$|\\sambaPipe_windows.exe$|\\smbclient_windows.exe$|\\smbserver_windows.exe$|\\sniff_windows.exe$|\\sniffer_windows.exe$|\\split_windows.exe$|\\ticketer_windows.exe$</field>
     <description>Sigma: HackTool - Impacket Tools Execution</description>
     <mitre>
       <id>T1557.001</id>
@@ -266,7 +266,7 @@
   </rule>
   <rule id="113527" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">PetitPotam|RottenPotato|HotPotato|JuicyPotato|\just_dce_|Juicy Potato|\temp\rot\.exe|\Potato\.exe|\SpoolSample\.exe|\Responder\.exe|\smbrelayx|\ntlmrelayx|\LocalPotato</field>
+    <field name="win.eventdata.image">PetitPotam|RottenPotato|HotPotato|JuicyPotato|\\just_dce_|Juicy Potato|\\temp\\rot.exe|\\Potato.exe|\\SpoolSample.exe|\\Responder.exe|\\smbrelayx|\\ntlmrelayx|\\LocalPotato</field>
     <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
     <mitre>
       <id>T1557.001</id>
@@ -275,7 +275,7 @@
   </rule>
   <rule id="113528" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Invoke-Tater| smbrelay| ntlmrelay|cme smb | /ntlm:NTLMhash |Invoke-PetitPotam|\.exe -t .* -p </field>
+    <field name="win.eventdata.commandLine">Invoke-Tater| smbrelay| ntlmrelay|cme smb | /ntlm:NTLMhash |Invoke-PetitPotam|.exe -t \.* -p </field>
     <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
     <mitre>
       <id>T1557.001</id>
@@ -294,7 +294,7 @@
   </rule>
   <rule id="113530" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <field name="win.eventdata.image">\\net.exe$|\\net1.exe$</field>
     <field name="win.eventdata.commandLine"> Järjestelmänvalvoja | Rendszergazda | Администратор | Administrateur | Administrador | Administratör | Administrator | guest | DefaultAccount | "Järjestelmänvalvoja" | "Rendszergazda" | "Администратор" | "Administrateur" | "Administrador" | "Administratör" | "Administrator" | "guest" | "DefaultAccount" | 'Järjestelmänvalvoja' | 'Rendszergazda' | 'Администратор' | 'Administrateur' | 'Administrador' | 'Administratör' | 'Administrator' | 'guest' | 'DefaultAccount' </field>
     <description>Sigma: Suspicious Manipulation Of Default Accounts Via Net.EXE</description>
     <mitre>
@@ -322,7 +322,7 @@
   </rule>
   <rule id="113533" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Compress-Archive -Path.*-DestinationPath \$env:TEMP|Compress-Archive -Path.*-DestinationPath.*\AppData\Local\Temp\|Compress-Archive -Path.*-DestinationPath.*:\Windows\Temp\</field>
+    <field name="win.eventdata.commandLine">Compress-Archive -Path\.*-DestinationPath \$env:TEMP|Compress-Archive -Path\.*-DestinationPath\.*\\AppData\\Local\\Temp\\|Compress-Archive -Path\.*-DestinationPath\.*:\\Windows\\Temp\\</field>
     <description>Sigma: Folder Compress To Potentially Suspicious Output Via Compress-Archive Cmdlet</description>
     <mitre>
       <id>T1074.001</id>
@@ -331,7 +331,7 @@
   </rule>
   <rule id="113534" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Psr\.exe$</field>
+    <field name="win.eventdata.image">\\Psr.exe$</field>
     <field name="win.eventdata.commandLine">/start|-start</field>
     <description>Sigma: Screen Capture Activity Via Psr.EXE</description>
     <mitre>
@@ -350,7 +350,7 @@
   </rule>
   <rule id="113536" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <field name="win.eventdata.commandLine">add|0|DisableAIDataAnalysis</field>
     <description>Sigma: Windows Recall Feature Enabled Via Reg.EXE</description>
     <mitre>
@@ -366,7 +366,7 @@
   </rule>
   <rule id="113538" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\secedit\.exe$</field>
+    <field name="win.eventdata.image">\\secedit.exe$</field>
     <field name="win.eventdata.commandLine">/configure|/db</field>
     <description>Sigma: Potential Suspicious Activity Using SeCEdit</description>
     <mitre>
@@ -378,7 +378,7 @@
   </rule>
   <rule id="113539" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SoundRecorder\.exe$</field>
+    <field name="win.eventdata.image">\\SoundRecorder.exe$</field>
     <field name="win.eventdata.commandLine">/FILE</field>
     <description>Sigma: Audio Capture via SoundRecorder</description>
     <mitre>
@@ -389,7 +389,7 @@
   <rule id="113540" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">VeeamBackup|From </field>
-    <field name="win.eventdata.image">\sqlcmd\.exe$</field>
+    <field name="win.eventdata.image">\\sqlcmd.exe$</field>
     <description>Sigma: Veeam Backup Database Suspicious Query</description>
     <mitre>
       <id>T1005</id>
@@ -398,8 +398,8 @@
   </rule>
   <rule id="113541" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">SELECT|TOP|\[VeeamBackup\]\.\[dbo\]\.\[Credentials\]</field>
-    <field name="win.eventdata.image">\sqlcmd\.exe$</field>
+    <field name="win.eventdata.commandLine">SELECT|TOP|\[VeeamBackup\].\[dbo\].\[Credentials\]</field>
+    <field name="win.eventdata.image">\\sqlcmd.exe$</field>
     <description>Sigma: VeeamBackup Database Credentials Dump Via Sqlcmd.EXE</description>
     <mitre>
       <id>T1005</id>
@@ -418,8 +418,8 @@
   </rule>
   <rule id="113543" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\tree\.com$|\WMIC\.exe$|\doskey\.exe$|\sc\.exe$</field>
-    <field name="win.eventdata.parentCommandLine"> &gt; %TEMP%\| &gt; %TMP%\</field>
+    <field name="win.eventdata.image">\\tree.com$|\\WMIC.exe$|\\doskey.exe$|\\sc.exe$</field>
+    <field name="win.eventdata.parentCommandLine"> &gt; %TEMP%\\| &gt; %TMP%\\</field>
     <description>Sigma: Recon Information for Export with Command Prompt</description>
     <mitre>
       <id>T1119</id>
@@ -428,8 +428,8 @@
   </rule>
   <rule id="113544" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.dmp|\.dump|\.hdmp</field>
-    <field name="win.eventdata.image">\rar\.exe$|\winrar\.exe$</field>
+    <field name="win.eventdata.commandLine">.dmp|.dump|.hdmp</field>
+    <field name="win.eventdata.image">\\rar.exe$|\\winrar.exe$</field>
     <description>Sigma: Winrar Compressing Dump Files</description>
     <mitre>
       <id>T1560.001</id>
@@ -438,7 +438,7 @@
   </rule>
   <rule id="113545" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\rar\.exe$|\winrar\.exe$</field>
+    <field name="win.eventdata.image">\\rar.exe$|\\winrar.exe$</field>
     <description>Sigma: WinRAR Execution in Non-Standard Folder</description>
     <mitre>
       <id>T1560.001</id>
@@ -447,7 +447,7 @@
   </rule>
   <rule id="113546" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">winzip\.exe|winzip64\.exe</field>
+    <field name="win.eventdata.commandLine">winzip.exe|winzip64.exe</field>
     <description>Sigma: Compress Data and Lock With Password for Exfiltration With WINZIP</description>
     <mitre>
       <id>T1560.001</id>
@@ -457,7 +457,7 @@
   <rule id="113547" level="7">
     <if_sid>61614</if_sid>
     <field name="win.eventdata.eventType">DeleteValue</field>
-    <field name="win.eventdata.targetObject">\Microsoft\Windows\WindowsAI\DisableAIDataAnalysis$</field>
+    <field name="win.eventdata.targetObject">\\Microsoft\\Windows\\WindowsAI\\DisableAIDataAnalysis$</field>
     <description>Sigma: Windows Recall Feature Enabled - DisableAIDataAnalysis Value Deleted</description>
     <mitre>
       <id>T1113</id>
@@ -466,7 +466,7 @@
   </rule>
   <rule id="113548" level="8">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">:#Windows#Temp#|:#\$Recycle\.bin#|:#Temp#|:#Users#Public#|:#Users#Default#|:#Users#Desktop#|\NonPackaged</field>
+    <field name="win.eventdata.targetObject">:#Windows#Temp#|:#\$Recycle.bin#|:#Temp#|:#Users#Public#|:#Users#Default#|:#Users#Desktop#|\\NonPackaged</field>
     <description>Sigma: Suspicious Camera and Microphone Access</description>
     <mitre>
       <id>T1125</id>
@@ -476,7 +476,7 @@
   </rule>
   <rule id="113549" level="7">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Control\Session Manager\Configuration Manager\EnablePeriodicBackup$</field>
+    <field name="win.eventdata.targetObject">\\Control\\Session Manager\\Configuration Manager\\EnablePeriodicBackup$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)</field>
     <description>Sigma: Periodic Backup For System Registry Hives Enabled</description>
     <mitre>
@@ -486,7 +486,7 @@
   </rule>
   <rule id="113550" level="7">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Policies\Microsoft\Windows\WindowsAI\DisableAIDataAnalysis$</field>
+    <field name="win.eventdata.targetObject">\\Software\\Policies\\Microsoft\\Windows\\WindowsAI\\DisableAIDataAnalysis$</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
     <description>Sigma: Windows Recall Feature Enabled - Registry</description>
     <mitre>

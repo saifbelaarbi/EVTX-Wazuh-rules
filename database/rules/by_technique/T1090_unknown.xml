@@ -12,7 +12,7 @@
   </rule>
   <rule id="110069" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[System\.Net\.HttpWebRequest\]|System\.Net\.Sockets\.TcpListener|AcceptTcpClient</field>
+    <field name="win.eventdata.scriptBlockText">\[System.Net.HttpWebRequest\]|System.Net.Sockets.TcpListener|AcceptTcpClient</field>
     <description>Sigma: Suspicious TCP Tunnel Via PowerShell Script</description>
     <mitre>
       <id>T1090</id>
@@ -21,7 +21,7 @@
   </rule>
   <rule id="110097" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe -tran |\.exe -slave </field>
+    <field name="win.eventdata.commandLine">.exe -tran |.exe -slave </field>
     <description>Sigma: HackTool - Htran/NATBypass Execution</description>
     <mitre>
       <id>T1090</id>
@@ -30,7 +30,7 @@
   </rule>
   <rule id="110098" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\htran\.exe$|\lcx\.exe$</field>
+    <field name="win.eventdata.image">\\htran.exe$|\\lcx.exe$</field>
     <description>Sigma: HackTool - Htran/NATBypass Execution</description>
     <mitre>
       <id>T1090</id>
@@ -39,7 +39,7 @@
   </rule>
   <rule id="110124" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\frpc\.ini</field>
+    <field name="win.eventdata.commandLine">\\frpc.ini</field>
     <description>Sigma: PUA - Fast Reverse Proxy (FRP) Execution</description>
     <mitre>
       <id>T1090</id>
@@ -57,7 +57,7 @@
   </rule>
   <rule id="110126" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\frpc\.exe$|\frps\.exe$</field>
+    <field name="win.eventdata.image">\\frpc.exe$|\\frps.exe$</field>
     <description>Sigma: PUA - Fast Reverse Proxy (FRP) Execution</description>
     <mitre>
       <id>T1090</id>
@@ -66,7 +66,7 @@
   </rule>
   <rule id="110127" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\iox\.exe$</field>
+    <field name="win.eventdata.image">\\iox.exe$</field>
     <description>Sigma: PUA- IOX Tunneling Tool Execution</description>
     <mitre>
       <id>T1090</id>
@@ -75,7 +75,7 @@
   </rule>
   <rule id="110128" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe fwd -l |\.exe fwd -r |\.exe proxy -l |\.exe proxy -r </field>
+    <field name="win.eventdata.commandLine">.exe fwd -l |.exe fwd -r |.exe proxy -l |.exe proxy -r </field>
     <description>Sigma: PUA- IOX Tunneling Tool Execution</description>
     <mitre>
       <id>T1090</id>
@@ -120,7 +120,7 @@
   </rule>
   <rule id="110141" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\npc\.exe$</field>
+    <field name="win.eventdata.image">\\npc.exe$</field>
     <description>Sigma: PUA - NPS Tunneling Tool Execution</description>
     <mitre>
       <id>T1090</id>
@@ -139,7 +139,7 @@
   </rule>
   <rule id="112563" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <field name="win.eventdata.image">\\netsh.exe$</field>
     <field name="win.eventdata.commandLine">interface|portproxy|add|v4tov4</field>
     <description>Sigma: New Port Forwarding Rule Added Via Netsh.EXE</description>
     <mitre>
@@ -150,7 +150,7 @@
   <rule id="112564" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> i| p|=3389| c</field>
-    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <field name="win.eventdata.image">\\netsh.exe$</field>
     <description>Sigma: RDP Port Forwarding Rule Added Via Netsh.EXE</description>
     <mitre>
       <id>T1090</id>
@@ -159,7 +159,7 @@
   </rule>
   <rule id="112576" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Services\PortProxy\v4tov4\tcp\</field>
+    <field name="win.eventdata.targetObject">\\Services\\PortProxy\\v4tov4\\tcp\\</field>
     <description>Sigma: New PortProxy Registry Entry Added</description>
     <mitre>
       <id>T1090</id>

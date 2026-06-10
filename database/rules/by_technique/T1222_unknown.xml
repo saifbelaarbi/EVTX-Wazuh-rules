@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1222_unknown,">
-  <rule id="100316" level="9">
+  <rule id="100318" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">FullControl|Allow|-AclObject </field>
     <description>Sigma: PowerShell Set-Acl On Windows Folder - PsScript</description>

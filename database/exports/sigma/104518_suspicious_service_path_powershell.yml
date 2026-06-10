@@ -1,0 +1,21 @@
+title: 'Suspicious service path: powershell'
+id: 5e9edc31-37a7-5c93-bb16-67dad7bd68c2
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104518).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/metasploit-psexec-powershell-target-system.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    ServiceName: UWdKhYTIQWWJxHfx
+    ImagePath: powershell
+  condition: selection
+level: medium
+tags:
+- attack.t1543.003
+- attack.persistence

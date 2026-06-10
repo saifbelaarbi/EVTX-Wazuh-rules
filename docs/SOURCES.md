@@ -6,20 +6,20 @@ This document describes the EVTX sample sources used to generate the Wazuh rule 
 
 | # | Source | Repository | EVTX Files Used | Rules Generated |
 |---|--------|------------|-----------------|-----------------|
-| 1 | [EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) | `EVTX-ATTACK-SAMPLES` | 43 | 92 |
+| 1 | [EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) | `EVTX-ATTACK-SAMPLES` | 43 | 99 |
 | 2 | [EVTX-to-MITRE-Attack](https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack) | `EVTX-to-MITRE-Attack` | 12 | 509 |
 | 3 | [Security-Datasets](https://github.com/OTRF/Security-Datasets) | `Security-Datasets` | 1 | 1 |
 | 4 | [danderspritz-evtx](https://github.com/fox-it/danderspritz-evtx) | `danderspritz-evtx` | 1 | 2 |
 | 5 | [hayabusa-sample-evtx](https://github.com/Yamato-Security/hayabusa-sample-evtx) | `hayabusa-sample-evtx` | 5 | 15 |
-| 6 | unknown | `unknown` | 2230 | 2670 |
-| | **Total** | | **2292** | **3289** |
+| 6 | unknown | `unknown` | 2232 | 2673 |
+| | **Total** | | **2294** | **3299** |
 
 ## EVTX-ATTACK-SAMPLES
 **Repository:** https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES
 
 | Directory | EVTX Files | Rules Generated | Sample Files |
 |-----------|------------|-----------------|--------------|
-| AutomatedTestingTools | 5 | 39 | `DE_timestomp_and_dll_sideloading_and_RunPersist.evtx`, `rundll32_cmd_schtask.evtx`, `sideloading_injection_persistence_run_key.evtx` +2 more |
+| AutomatedTestingTools | 5 | 46 | `DE_timestomp_and_dll_sideloading_and_RunPersist.evtx`, `rundll32_cmd_schtask.evtx`, `sideloading_injection_persistence_run_key.evtx` +2 more |
 | Command and Control | 1 | 4 | `DE_RDP_Tunnel_5156.evtx` |
 | Credential Access | 9 | 13 | `CA_4624_4625_LogonType2_LogonProc_chrome.evtx`, `CA_sysmon_hashdump_cmd_meterpreter.evtx`, `Powershell_4104_MiniDumpWriteDump_Lsass.evtx` +6 more |
 | Defense Evasion | 6 | 7 | `DE_Fake_ComputerAccount_4720.evtx`, `DE_ProcessHerpaderping_Sysmon_11_10_1_7.evtx`, `Sysmon 7  Update Session Orchestrator Dll Hijack.evtx` +3 more |
@@ -67,7 +67,7 @@ This document describes the EVTX sample sources used to generate the Wazuh rule 
 
 | Directory | EVTX Files | Rules Generated | Sample Files |
 |-----------|------------|-----------------|--------------|
-| (root) | 2230 | 2670 | `win_application_error_lsass_crash.yml`, `win_application_error_msmpeng_crash.yml`, `win_esent_ntdsutil_abuse.yml` +2227 more |
+| (root) | 2232 | 2673 | `win_av_relevant_match.yml`, `win_application_error_lsass_crash.yml`, `win_application_error_msmpeng_crash.yml` +2229 more |
 
 ## Credits
 

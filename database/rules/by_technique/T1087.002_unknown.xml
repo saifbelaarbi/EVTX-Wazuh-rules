@@ -15,7 +15,7 @@
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4662</field>
     <field name="win.eventdata.objectType">bf967aba-0de6-11d0-a285-00aa003049e2</field>
-    <field name="win.eventdata.accessMask">1.$|3.$|4.$|7.$|9.$|B.$|D.$|F.$</field>
+    <field name="win.eventdata.accessMask">1\.$|3\.$|4\.$|7\.$|9\.$|B\.$|D\.$|F\.$</field>
     <description>Sigma: Potential AD User Enumeration From Non-Machine Account</description>
     <mitre>
       <id>T1087.002</id>
@@ -37,8 +37,8 @@
   </rule>
   <rule id="111016" level="6">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.dat$</field>
+    <field name="win.eventdata.image">\\ADExp.exe$|\\ADExplorer.exe$|\\ADExplorer64.exe$|\\ADExplorer64a.exe$</field>
+    <field name="win.eventdata.targetFilename">.dat$</field>
     <description>Sigma: ADExplorer Writing Complete AD Snapshot Into .dat File</description>
     <mitre>
       <id>T1087.002</id>
@@ -76,7 +76,7 @@
   </rule>
   <rule id="111085" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\AdFind\.exe$</field>
+    <field name="win.eventdata.image">\\AdFind.exe$</field>
     <description>Sigma: PUA - AdFind.EXE Execution</description>
     <mitre>
       <id>T1087.002</id>
@@ -85,7 +85,7 @@
   </rule>
   <rule id="111086" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">AdFind\.exe</field>
+    <field name="win.eventdata.originalFileName">AdFind.exe</field>
     <description>Sigma: PUA - AdFind.EXE Execution</description>
     <mitre>
       <id>T1087.002</id>
@@ -104,7 +104,7 @@
   <rule id="111127" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">snapshot</field>
-    <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
+    <field name="win.eventdata.image">\\ADExp.exe$|\\ADExplorer.exe$|\\ADExplorer64.exe$|\\ADExplorer64a.exe$</field>
     <description>Sigma: Active Directory Database Snapshot Via ADExplorer</description>
     <mitre>
       <id>T1087.002</id>
@@ -115,8 +115,8 @@
   </rule>
   <rule id="111128" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Downloads\|\Users\Public\|\AppData\|\Windows\Temp\</field>
-    <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
+    <field name="win.eventdata.commandLine">\\Downloads\\|\\Users\\Public\\|\\AppData\\|\\Windows\\Temp\\</field>
+    <field name="win.eventdata.image">\\ADExp.exe$|\\ADExplorer.exe$|\\ADExplorer64.exe$|\\ADExplorer64a.exe$</field>
     <description>Sigma: Suspicious Active Directory Database Snapshot Via ADExplorer</description>
     <mitre>
       <id>T1087.002</id>
@@ -127,7 +127,7 @@
   </rule>
   <rule id="114520" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\csvde\.exe$</field>
+    <field name="win.eventdata.image">\\csvde.exe$</field>
     <field name="win.eventdata.commandLine"> -f</field>
     <description>Sigma: Active Directory Structure Export Via Csvde.EXE</description>
     <mitre>

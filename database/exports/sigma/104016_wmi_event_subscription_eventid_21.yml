@@ -1,0 +1,20 @@
+title: WMI event subscription (EventID 21)
+id: 44c554e9-a646-52e5-b523-7a42747404ac
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104016).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/wmighost_sysmon_20_21_1.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Consumer: ' "\\\\?\\root\\subscription:ActiveScriptEventConsumer.Name=\'
+  condition: selection
+level: medium
+tags:
+- attack.t1546.003
+- attack.persistence

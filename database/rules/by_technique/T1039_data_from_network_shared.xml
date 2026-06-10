@@ -2,7 +2,7 @@
 <group name="windows,T1039_data_from_network_shared,">
   <rule id="112569" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\\\\.*\\.*\$|\Sysvol\</field>
+    <field name="win.eventdata.commandLine">\\\\\\\\\.*\\\\\.*\$|\\Sysvol\\</field>
     <description>Sigma: Copy From Or To Admin Share Or Sysvol Folder</description>
     <mitre>
       <id>T1039</id>
@@ -14,7 +14,7 @@
   <rule id="113504" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.relativeTargetName">\.bak$|\.dmp$|\.edb$|\.kirbi$|\.msg$|\.nsf$|\.nst$|\.oab$|\.ost$|\.pst$|\.rdp$</field>
+    <field name="win.eventdata.relativeTargetName">.bak$|.dmp$|.edb$|.kirbi$|.msg$|.nsf$|.nst$|.oab$|.ost$|.pst$|.rdp$</field>
     <description>Sigma: Suspicious Access to Sensitive File Extensions</description>
     <mitre>
       <id>T1039</id>

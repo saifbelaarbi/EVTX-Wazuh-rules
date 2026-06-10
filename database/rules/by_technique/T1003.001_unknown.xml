@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1003.001_unknown,">
-  <rule id="100371" level="9">
+  <rule id="100373" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -hang | -pn | -pmn | -p | -po | -c | -sc </field>
-    <field name="win.eventdata.image">\adplus\.exe$</field>
+    <field name="win.eventdata.image">\\adplus.exe$</field>
     <description>Sigma: Potential Adplus.EXE Abuse</description>
     <mitre>
       <id>T1003.001</id>
@@ -22,23 +22,14 @@
   </rule>
   <rule id="108502" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">procdump</field>
+    <field name="win.eventdata.commandLine">procdump</field>
     <description>Suspicious process 'procdump' execution detected</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108503" level="11">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">procdump</field>
-    <description>Suspicious command-line pattern 'procdump' detected</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,evtx_generated,</group>
-  </rule>
-  <rule id="108506" level="12">
+  <rule id="108505" level="12">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.targetImage">lsass</field>
     <description>Remote thread created targeting LSASS process - possible credential dumping</description>
@@ -47,7 +38,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108507" level="12">
+  <rule id="108506" level="12">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">lsass</field>
     <field name="win.eventdata.grantedAccess">0x1f1fff</field>
@@ -57,7 +48,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108508" level="11">
+  <rule id="108507" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">minidump</field>
     <description>Suspicious PowerShell script block containing 'minidump'</description>
@@ -66,7 +57,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108509" level="12">
+  <rule id="108508" level="12">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">lsass</field>
     <field name="win.eventdata.grantedAccess">0x1000</field>
@@ -76,7 +67,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108510" level="12">
+  <rule id="108509" level="12">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">lsass</field>
     <field name="win.eventdata.grantedAccess">0x1410</field>
@@ -86,7 +77,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108511" level="12">
+  <rule id="108510" level="12">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">lsass</field>
     <field name="win.eventdata.grantedAccess">0x1fffff</field>
@@ -96,7 +87,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108512" level="11">
+  <rule id="108511" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">procdump</field>
     <description>File created by suspicious process 'procdump'</description>
@@ -105,7 +96,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108513" level="11">
+  <rule id="108512" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">dumpert</field>
     <description>Suspicious command-line pattern 'dumpert' detected</description>
@@ -114,16 +105,16 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108514" level="11">
+  <rule id="108513" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">comsvcs\.dll</field>
+    <field name="win.eventdata.commandLine">comsvcs.dll</field>
     <description>Suspicious command-line pattern 'comsvcs.dll' detected</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108515" level="11">
+  <rule id="108514" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">minidump</field>
     <description>Suspicious command-line pattern 'minidump' detected</description>
@@ -132,7 +123,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108516" level="12">
+  <rule id="108515" level="12">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">lsass</field>
     <field name="win.eventdata.grantedAccess">0x143a</field>
@@ -142,7 +133,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108517" level="12">
+  <rule id="108516" level="12">
     <if_sid>61612</if_sid>
     <field name="win.eventdata.targetImage">lsass</field>
     <field name="win.eventdata.grantedAccess">0x101ffb</field>
@@ -152,7 +143,7 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108520" level="13">
+  <rule id="108519" level="13">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">sekurlsa::</field>
     <description>PowerShell module logging captured: 'sekurlsa::'</description>
@@ -161,20 +152,20 @@
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108522" level="11">
+  <rule id="108521" level="11">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">comsvcs\.dll</field>
+    <field name="win.eventdata.scriptBlockText">comsvcs.dll</field>
     <description>Suspicious PowerShell script block containing 'comsvcs.dll'</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,evtx_generated,</group>
   </rule>
-  <rule id="108524" level="12">
+  <rule id="108523" level="12">
     <if_sid>60003</if_sid>
     <field name="win.eventdata.provider_Name">Application Error</field>
     <field name="win.system.eventID">1000</field>
-    <field name="win.eventdata.appName">lsass\.exe</field>
+    <field name="win.eventdata.appName">lsass.exe</field>
     <field name="win.eventdata.exceptionCode">c0000001</field>
     <description>Sigma: LSASS Process Crashed - Application</description>
     <mitre>
@@ -182,19 +173,19 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108537" level="12">
+  <rule id="108536" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4663|4656</field>
     <field name="win.eventdata.accessMask">0x100000|0x1010|0x1400|0x1410|0x1418|0x1438|0x143a|0x1f0fff|0x1f1fff|0x1f2fff|0x1f3fff|0x40|143a|1f0fff|1f1fff|1f2fff|1f3fff</field>
     <field name="win.eventdata.objectType">Process</field>
-    <field name="win.eventdata.objectName">\lsass\.exe$</field>
+    <field name="win.eventdata.objectName">\\lsass.exe$</field>
     <description>Sigma: LSASS Access From Non System Account</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108538" level="12">
+  <rule id="108537" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceFileName">cachedump|dumpsvc|fgexec|gsecdump|mimidrv|pwdump|servpw</field>
@@ -206,10 +197,10 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108547" level="12">
+  <rule id="108546" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656</field>
-    <field name="win.eventdata.processName">\lsass\.exe$</field>
+    <field name="win.eventdata.processName">\\lsass.exe$</field>
     <field name="win.eventdata.accessMask">0x705</field>
     <field name="win.eventdata.objectType">SAM_DOMAIN</field>
     <description>Sigma: Password Dumper Activity on LSASS</description>
@@ -218,10 +209,10 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108548" level="12">
+  <rule id="108547" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656</field>
-    <field name="win.eventdata.objectName">\lsass\.exe$</field>
+    <field name="win.eventdata.objectName">\\lsass.exe$</field>
     <field name="win.eventdata.accessMask">0x40|0x1400|0x100000|0x1410|0x1010|0x1438|0x143a|0x1418|0x1f0fff|0x1f1fff|0x1f2fff|0x1f3fff</field>
     <description>Sigma: Potentially Suspicious AccessMask Requested From LSASS</description>
     <mitre>
@@ -229,10 +220,10 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108549" level="12">
+  <rule id="108548" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4663</field>
-    <field name="win.eventdata.objectName">\lsass\.exe$</field>
+    <field name="win.eventdata.objectName">\\lsass.exe$</field>
     <field name="win.eventdata.accessList">4484|4416</field>
     <description>Sigma: Potentially Suspicious AccessMask Requested From LSASS</description>
     <mitre>
@@ -240,7 +231,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108557" level="12">
+  <rule id="108556" level="12">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -253,11 +244,21 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108558" level="12">
+  <rule id="108557" level="12">
     <if_sid>60005</if_sid>
     <field name="win.system.eventID">1121</field>
-    <field name="win.eventdata.path">\lsass\.exe$</field>
+    <field name="win.eventdata.path">\\lsass.exe$</field>
     <description>Sigma: LSASS Access Detected via Attack Surface Reduction</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108560" level="12">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.sourceImage">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <description>Sigma: Potential Credential Dumping Attempt Via PowerShell Remote Thread</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
@@ -265,17 +266,7 @@
   </rule>
   <rule id="108561" level="12">
     <if_sid>61610</if_sid>
-    <field name="win.eventdata.sourceImage">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
-    <description>Sigma: Potential Credential Dumping Attempt Via PowerShell Remote Thread</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108562" level="12">
-    <if_sid>61610</if_sid>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
     <field name="win.eventdata.startModule"></field>
     <description>Sigma: Password Dumper Remote Thread in LSASS</description>
     <mitre>
@@ -283,9 +274,20 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108570" level="12">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\\fgdump-log|\\kirbi|\\pwdump|\\pwhashes|\\wce_ccache|\\wce_krbtkts</field>
+    <description>Sigma: Cred Dump Tools Dropped Files</description>
+    <mitre>
+      <id>T1003.001</id>
+      <id>T1003.002</id>
+      <id>T1003.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108571" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\fgdump-log|\kirbi|\pwdump|\pwhashes|\wce_ccache|\wce_krbtkts</field>
+    <field name="win.eventdata.targetFilename">\\cachedump.exe$|\\cachedump64.exe$|\\DumpExt.dll$|\\DumpSvc.exe$|\\Dumpy.exe$|\\fgexec.exe$|\\lsremora.dll$|\\lsremora64.dll$|\\NTDS.out$|\\procdump.exe$|\\procdump64.exe$|\\procdump64a.exe$|\\pstgdump.exe$|\\pwdump.exe$|\\SAM.out$|\\SECURITY.out$|\\servpw.exe$|\\servpw64.exe$|\\SYSTEM.out$|\\test.pwd$|\\wceaux.dll$</field>
     <description>Sigma: Cred Dump Tools Dropped Files</description>
     <mitre>
       <id>T1003.001</id>
@@ -296,17 +298,6 @@
   </rule>
   <rule id="108572" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\cachedump\.exe$|\cachedump64\.exe$|\DumpExt\.dll$|\DumpSvc\.exe$|\Dumpy\.exe$|\fgexec\.exe$|\lsremora\.dll$|\lsremora64\.dll$|\NTDS\.out$|\procdump\.exe$|\procdump64\.exe$|\procdump64a\.exe$|\pstgdump\.exe$|\pwdump\.exe$|\SAM\.out$|\SECURITY\.out$|\servpw\.exe$|\servpw64\.exe$|\SYSTEM\.out$|\test\.pwd$|\wceaux\.dll$</field>
-    <description>Sigma: Cred Dump Tools Dropped Files</description>
-    <mitre>
-      <id>T1003.001</id>
-      <id>T1003.002</id>
-      <id>T1003.003</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108573" level="12">
-    <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.txt$</field>
     <description>Sigma: HackTool - CrackMapExec File Indicators</description>
     <mitre>
@@ -314,25 +305,25 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108574" level="12">
+  <rule id="108573" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">dumpert\.dmp$</field>
+    <field name="win.eventdata.targetFilename">dumpert.dmp$</field>
     <description>Sigma: HackTool - Dumpert Process Dumper Default File</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108581" level="12">
+  <rule id="108580" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Temp\debug\.bin$</field>
+    <field name="win.eventdata.targetFilename">\\Temp\\debug.bin$</field>
     <description>Sigma: HackTool - SafetyKatz Dump Indicator</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108582" level="12">
+  <rule id="108581" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\sessionresume_[a-zA-Z]{8}$</field>
     <description>Sigma: HackTool - Impacket File Indicators</description>
@@ -341,9 +332,18 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108582" level="12">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\\Andrew.dmp$|\\Coredump.dmp$|\\lsass.dmp$|\\lsass.rar$|\\lsass.zip$|\\NotLSASS.zip$|\\PPLBlade.dmp$|\\rustive.dmp$</field>
+    <description>Sigma: LSASS Process Memory Dump Files</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108583" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Andrew\.dmp$|\Coredump\.dmp$|\lsass\.dmp$|\lsass\.rar$|\lsass\.zip$|\NotLSASS\.zip$|\PPLBlade\.dmp$|\rustive\.dmp$</field>
+    <field name="win.eventdata.targetFilename">\\lsass_2|\\lsassdmp|\\lsassdump</field>
     <description>Sigma: LSASS Process Memory Dump Files</description>
     <mitre>
       <id>T1003.001</id>
@@ -352,7 +352,7 @@
   </rule>
   <rule id="108584" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\lsass_2|\lsassdmp|\lsassdump</field>
+    <field name="win.eventdata.targetFilename">\\lsass|.dmp</field>
     <description>Sigma: LSASS Process Memory Dump Files</description>
     <mitre>
       <id>T1003.001</id>
@@ -361,7 +361,7 @@
   </rule>
   <rule id="108585" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\lsass|\.dmp</field>
+    <field name="win.eventdata.targetFilename">.mdmp$</field>
     <description>Sigma: LSASS Process Memory Dump Files</description>
     <mitre>
       <id>T1003.001</id>
@@ -370,7 +370,7 @@
   </rule>
   <rule id="108586" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.mdmp$</field>
+    <field name="win.eventdata.targetFilename">.dmp$</field>
     <description>Sigma: LSASS Process Memory Dump Files</description>
     <mitre>
       <id>T1003.001</id>
@@ -379,8 +379,8 @@
   </rule>
   <rule id="108587" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.dmp$</field>
-    <description>Sigma: LSASS Process Memory Dump Files</description>
+    <field name="win.eventdata.targetFilename">.dmp$</field>
+    <description>Sigma: LSASS Process Dump Artefact In CrashDumps Folder</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
@@ -388,36 +388,27 @@
   </rule>
   <rule id="108588" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.dmp$</field>
-    <description>Sigma: LSASS Process Dump Artefact In CrashDumps Folder</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108589" level="12">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">C:\WINDOWS\system32\WerFault\.exe</field>
-    <field name="win.eventdata.targetFilename">\lsass|lsass\.exe</field>
+    <field name="win.eventdata.image">C:\\WINDOWS\\system32\\WerFault.exe</field>
+    <field name="win.eventdata.targetFilename">\\lsass|lsass.exe</field>
     <description>Sigma: WerFault LSASS Process Memory Dump</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108596" level="12">
+  <rule id="108595" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">:\Windows\system32\taskmgr\.exe$|:\Windows\SysWOW64\taskmgr\.exe$</field>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\|\lsass|\.DMP</field>
+    <field name="win.eventdata.image">:\\Windows\\system32\\taskmgr.exe$|:\\Windows\\SysWOW64\\taskmgr.exe$</field>
+    <field name="win.eventdata.targetFilename">\\AppData\\Local\\Temp\\|\\lsass|.DMP</field>
     <description>Sigma: LSASS Process Memory Dump Creation Via Taskmgr.EXE</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108597" level="12">
+  <rule id="108596" level="12">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\rundll32\.exe$</field>
+    <field name="win.eventdata.image">\\rundll32.exe$</field>
     <field name="win.eventdata.hashes">IMPHASH=eed93054cb555f3de70eaa9787f32ebb|IMPHASH=5e0dbdec1fce52daae251a110b4f309d|IMPHASH=eadbccbb324829acb5f2bbe87e5549a8|IMPHASH=407ca0f7b523319d758a40d7c0193699|IMPHASH=281d618f4e6271e527e6386ea6f748de</field>
     <description>Sigma: Suspicious Renamed Comsvcs DLL Loaded By Rundll32</description>
     <mitre>
@@ -425,9 +416,9 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108599" level="12">
+  <rule id="108598" level="12">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\dbghelp\.dll$|\dbgcore\.dll$</field>
+    <field name="win.eventdata.imageLoaded">\\dbghelp.dll$|\\dbgcore.dll$</field>
     <field name="win.eventdata.signed">false</field>
     <description>Sigma: Suspicious Unsigned Dbghelp/Dbgcore DLL Loaded</description>
     <mitre>
@@ -435,9 +426,9 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108601" level="12">
+  <rule id="108600" level="12">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\lsass\.exe$</field>
+    <field name="win.eventdata.image">\\lsass.exe$</field>
     <field name="win.eventdata.signed">false</field>
     <description>Sigma: Unsigned Image Loaded Into LSASS Process</description>
     <mitre>
@@ -445,9 +436,9 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108604" level="13">
+  <rule id="108603" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\cachedump|\lsadump|\wceservicepipe</field>
+    <field name="win.eventdata.pipeName">\\cachedump|\\lsadump|\\wceservicepipe</field>
     <description>Sigma: HackTool - Credential Dumping Tools Named Pipe Created</description>
     <mitre>
       <id>T1003.001</id>
@@ -456,7 +447,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108626" level="12">
+  <rule id="108625" level="12">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Get-Process lsass</field>
     <description>Sigma: PowerShell Get-Process LSASS in ScriptBlock</description>
@@ -465,9 +456,18 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108628" level="13">
+  <rule id="108627" level="13">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.sourceImage">\Akagi\.exe$|\Akagi64\.exe$|\atexec_windows\.exe$|\Certify\.exe$|\Certipy\.exe$|\CoercedPotato\.exe$|\crackmapexec\.exe$|\CreateMiniDump\.exe$|\dcomexec_windows\.exe$|\dpapi_windows\.exe$|\findDelegation_windows\.exe$|\GetADUsers_windows\.exe$|\GetNPUsers_windows\.exe$|\getPac_windows\.exe$|\getST_windows\.exe$|\getTGT_windows\.exe$|\GetUserSPNs_windows\.exe$|\gmer\.exe$|\hashcat\.exe$|\htran\.exe$|\ifmap_windows\.exe$|\impersonate\.exe$|\Inveigh\.exe$|\LocalPotato\.exe$|\mimikatz_windows\.exe$|\mimikatz\.exe$|\netview_windows\.exe$|\nmapAnswerMachine_windows\.exe$|\opdump_windows\.exe$|\PasswordDump\.exe$|\Potato\.exe$|\PowerTool\.exe$|\PowerTool64\.exe$|\psexec_windows\.exe$|\PurpleSharp\.exe$|\pypykatz\.exe$|\QuarksPwDump\.exe$|\rdp_check_windows\.exe$|\Rubeus\.exe$|\SafetyKatz\.exe$|\sambaPipe_windows\.exe$|\SelectMyParent\.exe$|\SharpChisel\.exe$|\SharPersist\.exe$|\SharpEvtMute\.exe$|\SharpImpersonation\.exe$|\SharpLDAPmonitor\.exe$|\SharpLdapWhoami\.exe$|\SharpUp\.exe$|\SharpView\.exe$|\smbclient_windows\.exe$|\smbserver_windows\.exe$|\sniff_windows\.exe$|\sniffer_windows\.exe$|\split_windows\.exe$|\SpoolSample\.exe$|\Stracciatella\.exe$|\SysmonEOP\.exe$|\temp\rot\.exe$|\ticketer_windows\.exe$|\TruffleSnout\.exe$|\winPEASany_ofs\.exe$|\winPEASany\.exe$|\winPEASx64_ofs\.exe$|\winPEASx64\.exe$|\winPEASx86_ofs\.exe$|\winPEASx86\.exe$|\xordump\.exe$</field>
+    <field name="win.eventdata.sourceImage">\\Akagi.exe$|\\Akagi64.exe$|\\atexec_windows.exe$|\\Certify.exe$|\\Certipy.exe$|\\CoercedPotato.exe$|\\crackmapexec.exe$|\\CreateMiniDump.exe$|\\dcomexec_windows.exe$|\\dpapi_windows.exe$|\\findDelegation_windows.exe$|\\GetADUsers_windows.exe$|\\GetNPUsers_windows.exe$|\\getPac_windows.exe$|\\getST_windows.exe$|\\getTGT_windows.exe$|\\GetUserSPNs_windows.exe$|\\gmer.exe$|\\hashcat.exe$|\\htran.exe$|\\ifmap_windows.exe$|\\impersonate.exe$|\\Inveigh.exe$|\\LocalPotato.exe$|\\mimikatz_windows.exe$|\\mimikatz.exe$|\\netview_windows.exe$|\\nmapAnswerMachine_windows.exe$|\\opdump_windows.exe$|\\PasswordDump.exe$|\\Potato.exe$|\\PowerTool.exe$|\\PowerTool64.exe$|\\psexec_windows.exe$|\\PurpleSharp.exe$|\\pypykatz.exe$|\\QuarksPwDump.exe$|\\rdp_check_windows.exe$|\\Rubeus.exe$|\\SafetyKatz.exe$|\\sambaPipe_windows.exe$|\\SelectMyParent.exe$|\\SharpChisel.exe$|\\SharPersist.exe$|\\SharpEvtMute.exe$|\\SharpImpersonation.exe$|\\SharpLDAPmonitor.exe$|\\SharpLdapWhoami.exe$|\\SharpUp.exe$|\\SharpView.exe$|\\smbclient_windows.exe$|\\smbserver_windows.exe$|\\sniff_windows.exe$|\\sniffer_windows.exe$|\\split_windows.exe$|\\SpoolSample.exe$|\\Stracciatella.exe$|\\SysmonEOP.exe$|\\temp\\rot.exe$|\\ticketer_windows.exe$|\\TruffleSnout.exe$|\\winPEASany_ofs.exe$|\\winPEASany.exe$|\\winPEASx64_ofs.exe$|\\winPEASx64.exe$|\\winPEASx86_ofs.exe$|\\winPEASx86.exe$|\\xordump.exe$</field>
+    <description>Sigma: HackTool - Generic Process Access</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108628" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.sourceImage">\\goldenPac|\\just_dce_|\\karmaSMB|\\kintercept|\\LocalPotato|\\ntlmrelayx|\\rpcdump|\\samrdump|\\secretsdump|\\smbexec|\\smbrelayx|\\wmiexec|\\wmipersist|HotPotato|Juicy Potato|JuicyPotato|PetitPotam|RottenPotato</field>
     <description>Sigma: HackTool - Generic Process Access</description>
     <mitre>
       <id>T1003.001</id>
@@ -476,8 +476,10 @@
   </rule>
   <rule id="108629" level="12">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.sourceImage">\goldenPac|\just_dce_|\karmaSMB|\kintercept|\LocalPotato|\ntlmrelayx|\rpcdump|\samrdump|\secretsdump|\smbexec|\smbrelayx|\wmiexec|\wmipersist|HotPotato|Juicy Potato|JuicyPotato|PetitPotam|RottenPotato</field>
-    <description>Sigma: HackTool - Generic Process Access</description>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <field name="win.eventdata.sourceImage">\\rundll32.exe$</field>
+    <field name="win.eventdata.callTrace">comsvcs.dll</field>
+    <description>Sigma: Lsass Memory Dump via Comsvcs DLL</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
@@ -485,18 +487,7 @@
   </rule>
   <rule id="108630" level="12">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
-    <field name="win.eventdata.sourceImage">\rundll32\.exe$</field>
-    <field name="win.eventdata.callTrace">comsvcs\.dll</field>
-    <description>Sigma: Lsass Memory Dump via Comsvcs DLL</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108631" level="12">
-    <if_sid>61612</if_sid>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
     <field name="win.eventdata.sourceImage">dump</field>
     <field name="win.eventdata.grantedAccess">10$|30$|50$|70$|90$|B0$|D0$|F0$|18$|38$|58$|78$|98$|B8$|D8$|F8$|1A$|3A$|5A$|7A$|9A$|BA$|DA$|FA$|0x14C2$|FF$</field>
     <description>Sigma: LSASS Memory Access by Tool With Dump Keyword In Name</description>
@@ -505,21 +496,21 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108632" level="12">
+  <rule id="108631" level="12">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
     <field name="win.eventdata.grantedAccess">0x1038|0x1438|0x143a|0x1fffff</field>
-    <field name="win.eventdata.callTrace">dbgcore\.dll|dbghelp\.dll|kernel32\.dll|kernelbase\.dll|ntdll\.dll</field>
+    <field name="win.eventdata.callTrace">dbgcore.dll|dbghelp.dll|kernel32.dll|kernelbase.dll|ntdll.dll</field>
     <description>Sigma: Potential Credential Dumping Activity Via LSASS</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108633" level="12">
+  <rule id="108632" level="12">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
-    <field name="win.eventdata.callTrace">python27\.dll\+|python3.*\.dll\+|:\Windows\System32\KERNELBASE\.dll\+|:\Windows\SYSTEM32\ntdll\.dll\+</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <field name="win.eventdata.callTrace">python27.dll\+|python3\.*.dll\+|:\\Windows\\System32\\KERNELBASE.dll\+|:\\Windows\\SYSTEM32\\ntdll.dll\+</field>
     <field name="win.eventdata.grantedAccess">0x1FFFFF</field>
     <description>Sigma: Credential Dumping Activity By Python Based Tool</description>
     <mitre>
@@ -527,10 +518,10 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108634" level="12">
+  <rule id="108633" level="12">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
-    <field name="win.eventdata.sourceImage">:\Windows\system32\wsmprovhost\.exe$</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <field name="win.eventdata.sourceImage">:\\Windows\\system32\\wsmprovhost.exe$</field>
     <description>Sigma: Remote LSASS Process Access Through Windows Remote Management</description>
     <mitre>
       <id>T1003.001</id>
@@ -539,13 +530,23 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108634" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <field name="win.eventdata.sourceImage">\\svchost.exe$</field>
+    <field name="win.eventdata.grantedAccess">0x14c0</field>
+    <field name="win.eventdata.callTrace">seclogon.dll</field>
+    <description>Sigma: Suspicious LSASS Access Via MalSecLogon</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108635" level="12">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
-    <field name="win.eventdata.sourceImage">\svchost\.exe$</field>
-    <field name="win.eventdata.grantedAccess">0x14c0</field>
-    <field name="win.eventdata.callTrace">seclogon\.dll</field>
-    <description>Sigma: Suspicious LSASS Access Via MalSecLogon</description>
+    <field name="win.eventdata.grantedAccess">30$|50$|70$|90$|B0$|D0$|F0$|18$|38$|58$|78$|98$|B8$|D8$|F8$|1A$|3A$|5A$|7A$|9A$|BA$|DA$|FA$|0x14C2$</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <description>Sigma: Potentially Suspicious GrantedAccess Flags On LSASS</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
@@ -553,18 +554,8 @@
   </rule>
   <rule id="108636" level="12">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.grantedAccess">30$|50$|70$|90$|B0$|D0$|F0$|18$|38$|58$|78$|98$|B8$|D8$|F8$|1A$|3A$|5A$|7A$|9A$|BA$|DA$|FA$|0x14C2$</field>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
-    <description>Sigma: Potentially Suspicious GrantedAccess Flags On LSASS</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108637" level="12">
-    <if_sid>61612</if_sid>
-    <field name="win.eventdata.sourceImage">\WerFault\.exe$</field>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
+    <field name="win.eventdata.sourceImage">\\WerFault.exe$</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
     <field name="win.eventdata.grantedAccess">0x1FFFFF</field>
     <description>Sigma: Credential Dumping Attempt Via WerFault</description>
     <mitre>
@@ -572,10 +563,10 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108638" level="12">
+  <rule id="108637" level="12">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
-    <field name="win.eventdata.sourceImage">\TrolleyExpress\.exe$|\ProcessDump\.exe$|\dump64\.exe$</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <field name="win.eventdata.sourceImage">\\TrolleyExpress.exe$|\\ProcessDump.exe$|\\dump64.exe$</field>
     <field name="win.eventdata.grantedAccess">10$|30$|50$|70$|90$|B0$|D0$|F0$|18$|38$|58$|78$|98$|B8$|D8$|F8$|1A$|3A$|5A$|7A$|9A$|BA$|DA$|FA$|0x14C2$|FF$</field>
     <description>Sigma: LSASS Access From Potentially White-Listed Processes</description>
     <mitre>
@@ -583,11 +574,11 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108639" level="12">
+  <rule id="108638" level="12">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.targetImage">\lsass\.exe$</field>
-    <field name="win.eventdata.callTrace">dbgcore\.dll|dbghelp\.dll</field>
-    <field name="win.eventdata.sourceImage">:\Perflogs\|:\Temp\|:\Users\Public\|\\$Recycle\.Bin\|\AppData\Roaming\|\Contacts\|\Desktop\|\Documents\|\Downloads\|\Favorites\|\Favourites\|\inetpub\wwwroot\|\Music\|\Pictures\|\Start Menu\Programs\Startup\|\Users\Default\|\Videos\|\Windows\Temp\</field>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <field name="win.eventdata.callTrace">dbgcore.dll|dbghelp.dll</field>
+    <field name="win.eventdata.sourceImage">:\\Perflogs\\|:\\Temp\\|:\\Users\\Public\\|\\\$Recycle.Bin\\|\\AppData\\Roaming\\|\\Contacts\\|\\Desktop\\|\\Documents\\|\\Downloads\\|\\Favorites\\|\\Favourites\\|\\inetpub\\wwwroot\\|\\Music\\|\\Pictures\\|\\Start Menu\\Programs\\Startup\\|\\Users\\Default\\|\\Videos\\|\\Windows\\Temp\\</field>
     <description>Sigma: Suspicious Process Access to LSASS with Dbgcore/Dbghelp DLLs</description>
     <mitre>
       <id>T1003.001</id>
@@ -595,9 +586,9 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108649" level="12">
+  <rule id="108648" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\dump64\.exe$</field>
+    <field name="win.eventdata.image">\\dump64.exe$</field>
     <field name="win.eventdata.originalFileName">procdump</field>
     <description>Sigma: Potential Windows Defender AV Bypass Via Dump64.EXE Rename</description>
     <mitre>
@@ -605,10 +596,19 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108657" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">cmd.exe /c |cmd.exe /r |cmd.exe /k |cmd /c |cmd /r |cmd /k |Imagename eq lsass.exe</field>
+    <field name="win.eventdata.user">AUTHORI|AUTORI</field>
+    <description>Sigma: HackTool - CrackMapExec Process Patterns</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108658" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">cmd\.exe /c |cmd\.exe /r |cmd\.exe /k |cmd /c |cmd /r |cmd /k |Imagename eq lsass\.exe</field>
-    <field name="win.eventdata.user">AUTHORI|AUTORI</field>
+    <field name="win.eventdata.commandLine">do rundll32.exe C:\\windows\\System32\\comsvcs.dll, MiniDump|\\Windows\\Temp\\| full|%%B</field>
     <description>Sigma: HackTool - CrackMapExec Process Patterns</description>
     <mitre>
       <id>T1003.001</id>
@@ -617,7 +617,7 @@
   </rule>
   <rule id="108659" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">do rundll32\.exe C:\windows\System32\comsvcs\.dll, MiniDump|\Windows\Temp\| full|%%B</field>
+    <field name="win.eventdata.commandLine">tasklist /v /fo csv|findstr /i "lsass"</field>
     <description>Sigma: HackTool - CrackMapExec Process Patterns</description>
     <mitre>
       <id>T1003.001</id>
@@ -626,23 +626,14 @@
   </rule>
   <rule id="108660" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">tasklist /v /fo csv|findstr /i "lsass"</field>
-    <description>Sigma: HackTool - CrackMapExec Process Patterns</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108661" level="12">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\CreateMiniDump\.exe$</field>
+    <field name="win.eventdata.image">\\CreateMiniDump.exe$</field>
     <description>Sigma: HackTool - CreateMiniDump Execution</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108662" level="12">
+  <rule id="108661" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=4a07f944a83e8a7c2525efa35dd30e2f</field>
     <description>Sigma: HackTool - CreateMiniDump Execution</description>
@@ -651,16 +642,16 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108663" level="12">
+  <rule id="108662" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Doppelganger\.exe$</field>
+    <field name="win.eventdata.image">\\Doppelganger.exe$</field>
     <description>Sigma: HackTool - Doppelanger LSASS Dumper Execution</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108664" level="12">
+  <rule id="108663" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=AB94D5217896ADCD765A06B2D52F0AEB|IMPHASH=65F0EA61156EE0C2A35421926F0C7F78</field>
     <description>Sigma: HackTool - Doppelanger LSASS Dumper Execution</description>
@@ -669,7 +660,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108665" level="12">
+  <rule id="108664" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">MD5=09D278F9DE118EF09163C6140255C690</field>
     <description>Sigma: HackTool - Dumpert Process Dumper Execution</description>
@@ -678,10 +669,19 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108666" level="12">
+  <rule id="108665" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Dumpert\.dll</field>
+    <field name="win.eventdata.commandLine">Dumpert.dll</field>
     <description>Sigma: HackTool - Dumpert Process Dumper Execution</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108668" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.dmp|lsass|.obf|dump|--outfile:</field>
+    <description>Sigma: HackTool - HandleKatz LSASS Dumper Execution</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
@@ -689,7 +689,8 @@
   </rule>
   <rule id="108669" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.dmp|lsass|\.obf|dump|--outfile:</field>
+    <field name="win.eventdata.image">\\loader.exe$</field>
+    <field name="win.eventdata.commandLine">--pid:</field>
     <description>Sigma: HackTool - HandleKatz LSASS Dumper Execution</description>
     <mitre>
       <id>T1003.001</id>
@@ -698,16 +699,6 @@
   </rule>
   <rule id="108670" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\loader\.exe$</field>
-    <field name="win.eventdata.commandLine">--pid:</field>
-    <description>Sigma: HackTool - HandleKatz LSASS Dumper Execution</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108671" level="12">
-    <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=38D9E015591BBFD4929E0D0F47FA0055|IMPHASH=0E2216679CA6E1094D63322E3412D650</field>
     <description>Sigma: HackTool - HandleKatz LSASS Dumper Execution</description>
     <mitre>
@@ -715,9 +706,18 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108674" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\Inveigh.exe$</field>
+    <description>Sigma: HackTool - Inveigh Execution</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108675" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Inveigh\.exe$</field>
+    <field name="win.eventdata.originalFileName">\\Inveigh.exe|\\Inveigh.dll</field>
     <description>Sigma: HackTool - Inveigh Execution</description>
     <mitre>
       <id>T1003.001</id>
@@ -726,7 +726,7 @@
   </rule>
   <rule id="108676" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">\Inveigh\.exe|\Inveigh\.dll</field>
+    <field name="win.eventdata.description">Inveigh</field>
     <description>Sigma: HackTool - Inveigh Execution</description>
     <mitre>
       <id>T1003.001</id>
@@ -735,15 +735,6 @@
   </rule>
   <rule id="108677" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.description">Inveigh</field>
-    <description>Sigma: HackTool - Inveigh Execution</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108678" level="12">
-    <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -SpooferIP| -ReplyToIPs | -ReplyToDomains | -ReplyToMACs | -SnifferIP</field>
     <description>Sigma: HackTool - Inveigh Execution</description>
     <mitre>
@@ -751,7 +742,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108692" level="13">
+  <rule id="108691" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">::aadcookie|::detours|::memssp|::mflt|::ncroutemon|::ngcsign|::printnightmare|::skeleton|::preshutdown|::mstsc|::multirdp</field>
     <description>Sigma: HackTool - Mimikatz Execution</description>
@@ -762,7 +753,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108693" level="13">
+  <rule id="108692" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">rpc::|token::|crypto::|dpapi::|sekurlsa::|kerberos::|lsadump::|privilege::|process::|vault::</field>
     <description>Sigma: HackTool - Mimikatz Execution</description>
@@ -773,7 +764,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108694" level="13">
+  <rule id="108693" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">DumpCreds|mimikatz</field>
     <description>Sigma: HackTool - Mimikatz Execution</description>
@@ -784,9 +775,18 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108701" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\SafetyKatz.exe$</field>
+    <description>Sigma: HackTool - SafetyKatz Execution</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108702" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SafetyKatz\.exe$</field>
+    <field name="win.eventdata.originalFileName">SafetyKatz.exe</field>
     <description>Sigma: HackTool - SafetyKatz Execution</description>
     <mitre>
       <id>T1003.001</id>
@@ -795,15 +795,6 @@
   </rule>
   <rule id="108703" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">SafetyKatz\.exe</field>
-    <description>Sigma: HackTool - SafetyKatz Execution</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108704" level="12">
-    <if_sid>61603</if_sid>
     <field name="win.eventdata.description">SafetyKatz</field>
     <description>Sigma: HackTool - SafetyKatz Execution</description>
     <mitre>
@@ -811,7 +802,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108708" level="12">
+  <rule id="108707" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=136F0A8572C058A96436C82E541E4C41|IMPHASH=589657C64DDE88533186C39F82FA1F50|IMPHASH=6BFE09EFCB4FFDE061EBDBAFC4DB84CF|IMPHASH=7D490037BF450877E6D0287BDCFF8D2E|IMPHASH=8AB93B061287C79F3088C5BC7E7D97ED|IMPHASH=A53A02B997935FD8EEDCB5F7ABAB9B9F|IMPHASH=BA434A7A729EEC20E136CA4C32D6C740|IMPHASH=BD1D1547DA13C0FCB6C15E86217D5EB8|IMPHASH=E96A73C7BF33A464C510EDE582318BF2</field>
     <description>Sigma: HackTool - Windows Credential Editor (WCE) Execution</description>
@@ -820,16 +811,16 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108709" level="12">
+  <rule id="108708" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\WCE\.exe$|\WCE64\.exe$</field>
+    <field name="win.eventdata.image">\\WCE.exe$|\\WCE64.exe$</field>
     <description>Sigma: HackTool - Windows Credential Editor (WCE) Execution</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108711" level="12">
+  <rule id="108710" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">(?i)\.exe[\"\']?\s+[^\"]{0,64}werfaultsecure\.exe[\"\']?\s+\d{2,10}</field>
     <description>Sigma: HackTool - WSASS Execution</description>
@@ -838,7 +829,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108712" level="12">
+  <rule id="108711" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=32F5095C9BBDCACF28FD4060EB4DFC42</field>
     <description>Sigma: HackTool - WSASS Execution</description>
@@ -847,18 +838,18 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108713" level="12">
+  <rule id="108712" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\wsass\.exe$</field>
+    <field name="win.eventdata.image">\\wsass.exe$</field>
     <description>Sigma: HackTool - WSASS Execution</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108718" level="11">
+  <rule id="108717" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\sqldumper\.exe$</field>
+    <field name="win.eventdata.image">\\sqldumper.exe$</field>
     <field name="win.eventdata.commandLine">0x0110|0x01100:40</field>
     <description>Sigma: Dumping Process via Sqldumper.exe</description>
     <mitre>
@@ -866,11 +857,20 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108737" level="12">
+  <rule id="108736" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /o | /p </field>
-    <field name="win.eventdata.image">\rdrleakdiag\.exe$</field>
+    <field name="win.eventdata.image">\\rdrleakdiag.exe$</field>
     <description>Sigma: Process Memory Dump via RdrLeakDiag.EXE</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108757" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">lsass.dmp|lsass.zip|lsass.rar|Andrew.dmp|Coredump.dmp|NotLSASS.zip|lsass_2|lsassdump|lsassdmp</field>
+    <description>Sigma: LSASS Dump Keyword In CommandLine</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
@@ -878,7 +878,7 @@
   </rule>
   <rule id="108758" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">lsass\.dmp|lsass\.zip|lsass\.rar|Andrew\.dmp|Coredump\.dmp|NotLSASS\.zip|lsass_2|lsassdump|lsassdmp</field>
+    <field name="win.eventdata.commandLine">lsass|.dmp</field>
     <description>Sigma: LSASS Dump Keyword In CommandLine</description>
     <mitre>
       <id>T1003.001</id>
@@ -887,7 +887,7 @@
   </rule>
   <rule id="108759" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">lsass|\.dmp</field>
+    <field name="win.eventdata.commandLine">SQLDmpr|.mdmp</field>
     <description>Sigma: LSASS Dump Keyword In CommandLine</description>
     <mitre>
       <id>T1003.001</id>
@@ -896,29 +896,29 @@
   </rule>
   <rule id="108760" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">SQLDmpr|\.mdmp</field>
+    <field name="win.eventdata.commandLine">nanodump|.dmp</field>
     <description>Sigma: LSASS Dump Keyword In CommandLine</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108761" level="12">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">nanodump|\.dmp</field>
-    <description>Sigma: LSASS Dump Keyword In CommandLine</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108786" level="12">
+  <rule id="108785" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentUser">AUTHORI|AUTORI</field>
     <field name="win.eventdata.user">AUTHORI|AUTORI</field>
     <field name="win.eventdata.commandLine"> -u -p | -ip | -s </field>
-    <field name="win.eventdata.image">\Werfault\.exe$</field>
+    <field name="win.eventdata.image">\\Werfault.exe$</field>
     <description>Sigma: Potential Credential Dumping Via WER</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108788" level="12">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">Services\\WCESERVICE\\Start</field>
+    <description>Sigma: Windows Credential Editor Registry</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
@@ -926,25 +926,16 @@
   </rule>
   <rule id="108789" level="12">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">Services\WCESERVICE\Start</field>
-    <description>Sigma: Windows Credential Editor Registry</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108790" level="12">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">Microsoft\Windows NT\CurrentVersion\SilentProcessExit\lsass\.exe</field>
+    <field name="win.eventdata.targetObject">Microsoft\\Windows NT\\CurrentVersion\\SilentProcessExit\\lsass.exe</field>
     <description>Sigma: Potential Credential Dumping Via LSASS SilentProcessExit Technique</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108792" level="12">
+  <rule id="108791" level="12">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\DumpType|\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\lsass\.exe\DumpType</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps\\DumpType|\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps\\lsass.exe\\DumpType</field>
     <field name="win.eventdata.details">DWORD \(0x00000002\)</field>
     <description>Sigma: Lsass Full Dump Request Via DumpType Registry Settings</description>
     <mitre>

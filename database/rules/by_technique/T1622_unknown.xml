@@ -2,7 +2,7 @@
 <group name="windows,T1622_unknown,">
   <rule id="111107" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\ProcessHacker_</field>
+    <field name="win.eventdata.image">\\ProcessHacker_</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
     <mitre>
       <id>T1622</id>
@@ -13,7 +13,7 @@
   </rule>
   <rule id="111108" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\ProcessHacker\.exe$</field>
+    <field name="win.eventdata.image">\\ProcessHacker.exe$</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
     <mitre>
       <id>T1622</id>
@@ -24,7 +24,7 @@
   </rule>
   <rule id="111109" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">ProcessHacker\.exe|Process Hacker</field>
+    <field name="win.eventdata.originalFileName">ProcessHacker.exe|Process Hacker</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
     <mitre>
       <id>T1622</id>

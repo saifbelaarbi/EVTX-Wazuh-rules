@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1615_unknown,">
-  <rule id="104687" level="10">
+  <rule id="104688" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharpUp\.exe$</field>
+    <field name="win.eventdata.image">\\SharpUp.exe$</field>
     <description>Sigma: HackTool - SharpUp PrivEsc Tool Execution</description>
     <mitre>
       <id>T1615</id>
@@ -11,7 +11,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104688" level="10">
+  <rule id="104689" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">SharpUp</field>
     <description>Sigma: HackTool - SharpUp PrivEsc Tool Execution</description>
@@ -22,7 +22,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104689" level="10">
+  <rule id="104690" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">HijackablePaths|UnquotedServicePath|ProcessDLLHijack|ModifiableServiceBinaries|ModifiableScheduledTask|DomainGPPPassword|CachedGPPPassword</field>
     <description>Sigma: HackTool - SharpUp PrivEsc Tool Execution</description>
@@ -35,7 +35,7 @@
   </rule>
   <rule id="111046" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\gpresult\.exe$</field>
+    <field name="win.eventdata.image">\\gpresult.exe$</field>
     <field name="win.eventdata.commandLine">/z|/v</field>
     <description>Sigma: Gpresult Display Group Policy Information</description>
     <mitre>
@@ -45,8 +45,8 @@
   </rule>
   <rule id="111070" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">gatherNetworkInfo\.vbs</field>
-    <field name="win.eventdata.image">\cscript\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.commandLine">gatherNetworkInfo.vbs</field>
+    <field name="win.eventdata.image">\\cscript.exe$|\\wscript.exe$</field>
     <description>Sigma: Potential Reconnaissance Activity Via GatherNetworkInfo.VBS</description>
     <mitre>
       <id>T1615</id>
@@ -56,7 +56,7 @@
   </rule>
   <rule id="111122" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">gatherNetworkInfo\.vbs</field>
+    <field name="win.eventdata.commandLine">gatherNetworkInfo.vbs</field>
     <description>Sigma: Suspicious Reconnaissance Activity Via GatherNetworkInfo.VBS</description>
     <mitre>
       <id>T1615</id>

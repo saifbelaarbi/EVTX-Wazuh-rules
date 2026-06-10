@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1048_exfil_over_alt_protocol,">
-  <rule id="100388" level="8">
+  <rule id="100390" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> out | queryout </field>
-    <field name="win.eventdata.image">\bcp\.exe$</field>
+    <field name="win.eventdata.image">\\bcp.exe$</field>
     <description>Sigma: Data Export From MSSQL Table Via BCP.EXE</description>
     <mitre>
       <id>T1048</id>
@@ -32,7 +32,7 @@
   </rule>
   <rule id="114528" level="13">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">sftp:|rest:http|s3:s3\.|s3\.http|azure:| gs:|rclone:|swift:| b2:| init | -r </field>
+    <field name="win.eventdata.commandLine">sftp:|rest:http|s3:s3.|s3.http|azure:| gs:|rclone:|swift:| b2:| init | -r </field>
     <description>Sigma: PUA - Restic Backup Tool Execution</description>
     <mitre>
       <id>T1048</id>
@@ -62,7 +62,7 @@
   </rule>
   <rule id="114534" level="13">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\\\\127\.0\.0\.1\\admin\$\\|\\\\localhost\\admin\$\\</field>
+    <field name="win.eventdata.commandLine">\\\\\\\\127.0.0.1\\\\admin\$\\\\|\\\\\\\\localhost\\\\admin\$\\\\</field>
     <description>Sigma: Suspicious Redirection to Local Admin Share</description>
     <mitre>
       <id>T1048</id>
@@ -71,7 +71,7 @@
   </rule>
   <rule id="114535" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\tapinstall\.exe$</field>
+    <field name="win.eventdata.image">\\tapinstall.exe$</field>
     <description>Sigma: Tap Installer Execution</description>
     <mitre>
       <id>T1048</id>

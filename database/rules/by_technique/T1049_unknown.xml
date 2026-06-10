@@ -2,7 +2,7 @@
 <group name="windows,T1049_unknown,">
   <rule id="111064" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">SharpView\.exe</field>
+    <field name="win.eventdata.originalFileName">SharpView.exe</field>
     <description>Sigma: HackTool - SharpView Execution</description>
     <mitre>
       <id>T1049</id>
@@ -13,7 +13,7 @@
   </rule>
   <rule id="111065" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharpView\.exe$</field>
+    <field name="win.eventdata.image">\\SharpView.exe$</field>
     <description>Sigma: HackTool - SharpView Execution</description>
     <mitre>
       <id>T1049</id>

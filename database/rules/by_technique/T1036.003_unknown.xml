@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1036.003_unknown,">
-  <rule id="100337" level="8">
+  <rule id="100339" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Start-Process|-PassThru |-FilePath </field>
     <description>Sigma: Suspicious Start-Process PassThru</description>
@@ -9,10 +9,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100792" level="8">
+  <rule id="100794" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--set-</field>
-    <field name="win.eventdata.image">\rcedit-x64\.exe$|\rcedit-x86\.exe$</field>
+    <field name="win.eventdata.image">\\rcedit-x64.exe$|\\rcedit-x86.exe$</field>
     <description>Sigma: PUA - Potential PE Metadata Tamper Using Rcedit</description>
     <mitre>
       <id>T1036.003</id>
@@ -21,16 +21,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100840" level="8">
+  <rule id="100842" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">Cmd\.Exe|CONHOST\.EXE|7z\.exe|7za\.exe|WinRAR\.exe|wevtutil\.exe|net\.exe|net1\.exe|netsh\.exe|InstallUtil\.exe</field>
+    <field name="win.eventdata.originalFileName">Cmd.Exe|CONHOST.EXE|7z.exe|7za.exe|WinRAR.exe|wevtutil.exe|net.exe|net1.exe|netsh.exe|InstallUtil.exe</field>
     <description>Sigma: Potential Defense Evasion Via Binary Rename</description>
     <mitre>
       <id>T1036.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100841" level="9">
+  <rule id="100843" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Execute processes remotely</field>
     <description>Sigma: Potential Defense Evasion Via Rename Of Highly Relevant Binaries</description>
@@ -39,7 +39,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100845" level="9">
+  <rule id="100847" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">Java Update Scheduler|Java\(TM\) Update Scheduler</field>
     <description>Sigma: Renamed Jusched.EXE Execution</description>
@@ -48,25 +48,25 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100847" level="9">
+  <rule id="100849" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">msdt\.exe</field>
+    <field name="win.eventdata.originalFileName">msdt.exe</field>
     <description>Sigma: Renamed Msdt.EXE Execution</description>
     <mitre>
       <id>T1036.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100851" level="9">
+  <rule id="100853" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">Excel\.exe|MSACCESS\.EXE|MSPUB\.EXE|OneNote\.exe|OneNoteM\.exe|OUTLOOK\.EXE|POWERPNT\.EXE|WinWord\.exe|Olk\.exe</field>
+    <field name="win.eventdata.originalFileName">Excel.exe|MSACCESS.EXE|MSPUB.EXE|OneNote.exe|OneNoteM.exe|OUTLOOK.EXE|POWERPNT.EXE|WinWord.exe|Olk.exe</field>
     <description>Sigma: Renamed Office Binary Execution</description>
     <mitre>
       <id>T1036.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100857" level="9">
+  <rule id="100859" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /create | /delete | /query | /change | /run | /end </field>
     <description>Sigma: Renamed Schtasks Execution</description>
@@ -76,7 +76,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100859" level="9">
+  <rule id="100861" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName">procdump</field>
     <field name="win.eventdata.commandLine"> /accepteula</field>
@@ -86,28 +86,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100917" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
-    <field name="win.eventdata.commandLine">copy </field>
-    <description>Sigma: Suspicious Copy From or To System Directory</description>
-    <mitre>
-      <id>T1036.003</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100918" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\robocopy\.exe$|\xcopy\.exe$</field>
-    <description>Sigma: Suspicious Copy From or To System Directory</description>
-    <mitre>
-      <id>T1036.003</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
   <rule id="100919" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">robocopy\.exe|XCOPY\.EXE</field>
+    <field name="win.eventdata.image">\\cmd.exe$</field>
+    <field name="win.eventdata.commandLine">copy </field>
     <description>Sigma: Suspicious Copy From or To System Directory</description>
     <mitre>
       <id>T1036.003</id>
@@ -116,7 +98,25 @@
   </rule>
   <rule id="100920" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\robocopy.exe$|\\xcopy.exe$</field>
+    <description>Sigma: Suspicious Copy From or To System Directory</description>
+    <mitre>
+      <id>T1036.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100921" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">robocopy.exe|XCOPY.EXE</field>
+    <description>Sigma: Suspicious Copy From or To System Directory</description>
+    <mitre>
+      <id>T1036.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100922" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <field name="win.eventdata.commandLine">copy-item| copy |cpi | cp </field>
     <description>Sigma: Suspicious Copy From or To System Directory</description>
     <mitre>
@@ -124,28 +124,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100921" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
-    <field name="win.eventdata.commandLine">copy </field>
-    <description>Sigma: LOL-Binary Copied From System Directory</description>
-    <mitre>
-      <id>T1036.003</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100922" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\robocopy\.exe$|\xcopy\.exe$</field>
-    <description>Sigma: LOL-Binary Copied From System Directory</description>
-    <mitre>
-      <id>T1036.003</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
   <rule id="100923" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">robocopy\.exe|XCOPY\.EXE</field>
+    <field name="win.eventdata.image">\\cmd.exe$</field>
+    <field name="win.eventdata.commandLine">copy </field>
     <description>Sigma: LOL-Binary Copied From System Directory</description>
     <mitre>
       <id>T1036.003</id>
@@ -154,7 +136,25 @@
   </rule>
   <rule id="100924" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\robocopy.exe$|\\xcopy.exe$</field>
+    <description>Sigma: LOL-Binary Copied From System Directory</description>
+    <mitre>
+      <id>T1036.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100925" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">robocopy.exe|XCOPY.EXE</field>
+    <description>Sigma: LOL-Binary Copied From System Directory</description>
+    <mitre>
+      <id>T1036.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100926" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <field name="win.eventdata.commandLine">copy-item| copy |cpi | cp </field>
     <description>Sigma: LOL-Binary Copied From System Directory</description>
     <mitre>
@@ -162,19 +162,19 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101131" level="9">
+  <rule id="101133" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Microsoft\Windows\Windows Error Reporting\Hangs\ReflectDebugger$</field>
+    <field name="win.eventdata.targetObject">\\Microsoft\\Windows\\Windows Error Reporting\\Hangs\\ReflectDebugger$</field>
     <description>Sigma: Potential WerFault ReflectDebugger Registry Value Abuse</description>
     <mitre>
       <id>T1036.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101146" level="8">
+  <rule id="101148" level="8">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\CurrentControlSet\Control\Session Manager\PendingFileRenameOperations</field>
-    <field name="win.eventdata.image">\reg\.exe$|\regedit\.exe$</field>
+    <field name="win.eventdata.targetObject">\\CurrentControlSet\\Control\\Session Manager\\PendingFileRenameOperations</field>
+    <field name="win.eventdata.image">\\reg.exe$|\\regedit.exe$</field>
     <description>Sigma: Potential PendingFileRenameOperations Tampering</description>
     <mitre>
       <id>T1036.003</id>

@@ -3,56 +3,58 @@
 # Each template describes a multi-stage attack chain that Wazuh detects with a
 # correlation rule (<if_matched_sid> + <frequency>/<timeframe> + <same_field>).
 #
-# The `if_sid` / `if_matched_sid` values are placeholders (0). Wire them to the
-# real Wazuh rule ids that fire for each stage before deploying. The builder
-# emits valid XML regardless so the rule shape can be reviewed/tested.
+# Wazuh semantics:
+#   if_matched_sid:  the EARLIER stage — this rule must have already fired
+#                    `frequency` times within `timeframe` seconds
+#   if_sid:          the TRIGGERING stage — the current event must match this
+#                    rule for the composite alert to fire
+#   same_field:      Wazuh field that must hold the same value across the
+#                    correlated events (both rules must decode this field)
 #
-# Stage dict keys:
-#   if_sid:          a prerequisite rule that must have already fired
-#   if_matched_sid:  the rule whose repeated/correlated firing triggers the alert
-#   same_field:      Wazuh field that must match across correlated events
-#   comment:         human note describing the stage (ignored by the builder)
+# The SIDs below are wired to rules in database/metadata/rule_index.json.
+# After a clean regeneration, verify the IDs still point at the intended
+# rules (`python -m generator stats` / rule_index.json) before deploying.
 
 - name: discovery_then_lateral_movement
-  description: Host/network discovery followed by remote logon by the same user within 5 minutes
+  description: Account/group reconnaissance followed by a remote logon to the same host within 5 minutes
   tactic: lateral_movement
   frequency: 2
   timeframe: 300
   level: 12
   mitre_ids: [T1021, T1087]
   stages:
-    - {if_sid: 0, comment: "discovery rule (e.g. net.exe / whoami enumeration)"}
-    - {if_matched_sid: 0, same_field: "win.eventdata.user", comment: "remote logon by same user"}
+    - {if_matched_sid: 111071, comment: "Suspicious Group And Account Reconnaissance Activity Using Net.EXE"}
+    - {if_sid: 112501, same_field: "win.system.computer", comment: "Remote logon (type 3) to the same host"}
 
 - name: credential_access_then_exfil
-  description: Credential dumping followed by outbound data transfer from the same host within 5 minutes
+  description: LSASS credential dumping followed by an outbound connection from a suspicious path on the same host within 5 minutes
   tactic: exfiltration
   frequency: 2
   timeframe: 300
   level: 13
   mitre_ids: [T1003, T1041]
   stages:
-    - {if_sid: 0, comment: "credential access rule (e.g. LSASS access / mimikatz)"}
-    - {if_matched_sid: 0, same_field: "win.system.computer", comment: "outbound transfer from same host"}
+    - {if_matched_sid: 108501, comment: "LSASS memory access (Sysmon 10)"}
+    - {if_sid: 110061, same_field: "win.system.computer", comment: "Network connection initiated from suspicious folder on same host"}
 
 - name: brute_force_then_logon
-  description: Repeated failed logons followed by a successful logon for the same account within 5 minutes
+  description: Repeated failed logons followed by a successful remote logon for the same account within 5 minutes
   tactic: credential_access
   frequency: 5
   timeframe: 300
   level: 12
   mitre_ids: [T1110]
   stages:
-    - {if_sid: 0, comment: "failed logon rule (Security 4625)"}
-    - {if_matched_sid: 0, same_field: "win.eventdata.targetUserName", comment: "successful logon same account"}
+    - {if_matched_sid: 108504, comment: "Failed logon attempt (Security 4625), 5x"}
+    - {if_sid: 112501, same_field: "win.eventdata.targetUserName", comment: "Successful remote logon (4624 type 3) same account"}
 
 - name: service_install_then_network
-  description: New service installation followed by an outbound network connection by the same image within 5 minutes
+  description: Suspicious service installation followed by an outbound network connection from the same host within 5 minutes
   tactic: persistence
   frequency: 2
   timeframe: 300
   level: 12
   mitre_ids: [T1543, T1071]
   stages:
-    - {if_sid: 0, comment: "service install rule (System 7045 / Sysmon)"}
-    - {if_matched_sid: 0, same_field: "win.eventdata.image", comment: "network connection same image"}
+    - {if_matched_sid: 104564, comment: "Suspicious Service Installation (System 7045)"}
+    - {if_sid: 110061, same_field: "win.system.computer", comment: "Network connection from suspicious folder on same host"}

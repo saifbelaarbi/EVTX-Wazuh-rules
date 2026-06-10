@@ -1,0 +1,20 @@
+title: File created by rundll32
+id: ce131274-c1e3-5b9a-b55f-d1d7c4b0765f
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112002).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/rundll32_cmd_schtask.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image: rundll32
+  condition: selection
+level: medium
+tags:
+- attack.t1218.011
+- attack.defense-evasion

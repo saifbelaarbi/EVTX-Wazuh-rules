@@ -1,0 +1,22 @@
+title: 'Suspicious PowerShell: bypass'
+id: 83d6efbe-5f9a-5a85-af6c-c56cff81d42d
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100015).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense
+  Evasion/T1562.004-Impair Defenses-Disable or Modify System Firewall/ID4103-4104-2004-OpenSSH
+  firewall rule activation.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    ScriptBlockText: bypass
+  condition: selection
+level: medium
+tags:
+- attack.t1059.001
+- attack.execution

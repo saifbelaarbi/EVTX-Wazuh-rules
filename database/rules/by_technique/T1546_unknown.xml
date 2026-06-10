@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1546_unknown,">
-  <rule id="104776" level="10">
+  <rule id="104777" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Software\Classes\Folder\shell\open\command\DelegateExecute</field>
+    <field name="win.eventdata.targetObject">\\Software\\Classes\\Folder\\shell\\open\\command\\DelegateExecute</field>
     <description>Sigma: COM Hijack via Sdclt</description>
     <mitre>
       <id>T1546</id>
@@ -12,7 +12,7 @@
   </rule>
   <rule id="107060" level="11">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">Local\Microsoft\WindowsApps\Get-Variable\.exe$</field>
+    <field name="win.eventdata.targetFilename">Local\\Microsoft\\WindowsApps\\Get-Variable.exe$</field>
     <description>Sigma: Suspicious Get-Variable.exe Creation</description>
     <mitre>
       <id>T1546</id>

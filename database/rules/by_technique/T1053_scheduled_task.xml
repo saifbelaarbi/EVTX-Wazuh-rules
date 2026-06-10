@@ -2,8 +2,8 @@
 <group name="windows,T1053_scheduled_task,">
   <rule id="107062" level="11">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Windows\System32\Tasks</field>
-    <field name="win.eventdata.image">\AppData\|C:\PerfLogs|\Windows\System32\config\systemprofile</field>
+    <field name="win.eventdata.targetFilename">\\Windows\\System32\\Tasks</field>
+    <field name="win.eventdata.image">\\AppData\\|C:\\PerfLogs|\\Windows\\System32\\config\\systemprofile</field>
     <description>Sigma: Suspicious Scheduled Task Write to System32 Tasks</description>
     <mitre>
       <id>T1053</id>
@@ -48,7 +48,7 @@
   </rule>
   <rule id="107189" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharPersist\.exe$</field>
+    <field name="win.eventdata.image">\\SharPersist.exe$</field>
     <description>Sigma: HackTool - SharPersist Execution</description>
     <mitre>
       <id>T1053</id>
@@ -66,7 +66,7 @@
   </rule>
   <rule id="107368" level="11">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\</field>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\</field>
     <description>Sigma: Scheduled TaskCache Change by Uncommon Program</description>
     <mitre>
       <id>T1053</id>

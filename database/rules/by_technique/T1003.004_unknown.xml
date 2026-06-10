@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1003.004_unknown,">
-  <rule id="108533" level="12">
+  <rule id="108532" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4662</field>
     <field name="win.eventdata.objectType">SecretObject</field>
@@ -12,7 +12,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108534" level="11">
+  <rule id="108533" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4692</field>
     <description>Sigma: DPAPI Domain Master Key Backup Attempt</description>

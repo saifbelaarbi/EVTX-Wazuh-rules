@@ -1,0 +1,20 @@
+title: Remote thread injection into LSASS
+id: f967c738-8334-5b94-8623-f8a0218d1f86
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  108505).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    TargetImage: lsass
+  condition: selection
+level: high
+tags:
+- attack.t1003.001
+- attack.credential-access

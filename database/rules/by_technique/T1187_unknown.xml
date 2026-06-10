@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1187_unknown,">
-  <rule id="108540" level="12">
+  <rule id="108539" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.shareName">\IPC\$$</field>
+    <field name="win.eventdata.shareName">\\IPC\$$</field>
     <field name="win.eventdata.relativeTargetName">lsarpc</field>
     <field name="win.eventdata.subjectUserName">ANONYMOUS LOGON</field>
     <description>Sigma: Possible PetitPotam Coerce Authentication Attempt</description>
@@ -12,11 +12,11 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108541" level="12">
+  <rule id="108540" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4768</field>
     <field name="win.eventdata.targetUserName">\$$</field>
-    <field name="win.eventdata.certThumbprint">.*</field>
+    <field name="win.eventdata.certThumbprint">\.*</field>
     <description>Sigma: PetitPotam Suspicious Kerberos TGT Request</description>
     <mitre>
       <id>T1187</id>

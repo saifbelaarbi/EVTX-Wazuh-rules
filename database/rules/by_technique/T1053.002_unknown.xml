@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1053.002_unknown,">
-  <rule id="104673" level="10">
+  <rule id="104674" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\at\.exe$</field>
+    <field name="win.eventdata.image">\\at.exe$</field>
     <field name="win.eventdata.commandLine">interactive</field>
     <description>Sigma: Interactive AT Job</description>
     <mitre>
@@ -13,7 +13,7 @@
   <rule id="107019" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.shareName">\\\\\.*\\IPC\$</field>
+    <field name="win.eventdata.shareName">\\\\\\\\\\\.*\\\\IPC\$</field>
     <field name="win.eventdata.relativeTargetName">atsvc</field>
     <field name="win.eventdata.accessList">WriteData</field>
     <description>Sigma: Remote Task Creation via ATSVC Named Pipe</description>

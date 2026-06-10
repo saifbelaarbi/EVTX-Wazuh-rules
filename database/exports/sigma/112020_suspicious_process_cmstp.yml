@@ -1,0 +1,20 @@
+title: 'Suspicious process: cmstp'
+id: cdc57250-e3ad-57ef-858f-a6a5cce3d574
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112020).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    CommandLine: cmstp
+  condition: selection
+level: medium
+tags:
+- attack.t1218.003
+- attack.defense-evasion

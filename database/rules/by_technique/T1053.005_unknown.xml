@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1053.005_unknown,">
-  <rule id="100074" level="9">
+  <rule id="100076" level="9">
     <if_sid>60100</if_sid>
-    <field name="win.eventdata.taskContent">\AppData\Local\Temp\|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|C:\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\</field>
+    <field name="win.eventdata.taskContent">\\AppData\\Local\\Temp\\|\\AppData\\Roaming\\|\\Users\\Public\\|\\WINDOWS\\Temp\\|C:\\Temp\\|\\Desktop\\|\\Downloads\\|\\Temporary Internet|C:\\ProgramData\\|C:\\Perflogs\\</field>
     <field name="win.system.eventID">4698</field>
     <description>Sigma: Suspicious Scheduled Task Creation</description>
     <mitre>
@@ -10,19 +10,19 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100075" level="9">
+  <rule id="100077" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4699|4701</field>
-    <field name="win.eventdata.taskName">\Windows\SystemRestore\SR|\Windows\Windows Defender\|\Windows\BitLocker|\Windows\WindowsBackup\|\Windows\WindowsUpdate\|\Windows\UpdateOrchestrator\Schedule|\Windows\ExploitGuard</field>
+    <field name="win.eventdata.taskName">\\Windows\\SystemRestore\\SR|\\Windows\\Windows Defender\\|\\Windows\\BitLocker|\\Windows\\WindowsBackup\\|\\Windows\\WindowsUpdate\\|\\Windows\\UpdateOrchestrator\\Schedule|\\Windows\\ExploitGuard</field>
     <description>Sigma: Important Scheduled Task Deleted/Disabled</description>
     <mitre>
       <id>T1053.005</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100076" level="9">
+  <rule id="100078" level="9">
     <if_sid>60100</if_sid>
-    <field name="win.eventdata.taskContentNew">\AppData\Local\Temp\|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|C:\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\</field>
+    <field name="win.eventdata.taskContentNew">\\AppData\\Local\\Temp\\|\\AppData\\Roaming\\|\\Users\\Public\\|\\WINDOWS\\Temp\\|C:\\Temp\\|\\Desktop\\|\\Downloads\\|\\Temporary Internet|C:\\ProgramData\\|C:\\Perflogs\\</field>
     <field name="win.system.eventID">4702</field>
     <description>Sigma: Suspicious Scheduled Task Update</description>
     <mitre>
@@ -30,11 +30,11 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100530" level="12">
+  <rule id="100532" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
-    <field name="win.eventdata.commandLine">/SC ONLOGON|/SC DAILY /ST|/SC ONIDLE|/SC HOURLY|powershell\.exe -NonI|/TN Updater /TR</field>
+    <field name="win.eventdata.parentImage">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <field name="win.eventdata.commandLine">/SC ONLOGON|/SC DAILY /ST|/SC ONIDLE|/SC HOURLY|powershell.exe -NonI|/TN Updater /TR</field>
     <description>Sigma: HackTool - Default PowerSploit/Empire Scheduled Task Creation</description>
     <mitre>
       <id>T1053.005</id>
@@ -42,10 +42,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100886" level="9">
+  <rule id="100888" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">once|00:00</field>
-    <field name="win.eventdata.image">\schtasks\.exe</field>
+    <field name="win.eventdata.image">\\schtasks.exe</field>
     <description>Sigma: Uncommon One Time Only Scheduled Task At 00:00</description>
     <mitre>
       <id>T1053.005</id>
@@ -75,8 +75,8 @@
   <rule id="107022" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.shareName">\SYSVOL$</field>
-    <field name="win.eventdata.relativeTargetName">ScheduledTasks\.xml$</field>
+    <field name="win.eventdata.shareName">\\SYSVOL$</field>
+    <field name="win.eventdata.relativeTargetName">ScheduledTasks.xml$</field>
     <field name="win.eventdata.accessList">WriteData|%%4417</field>
     <description>Sigma: Persistence and Execution at Scale via GPO Scheduled Task</description>
     <mitre>
@@ -87,7 +87,7 @@
   <rule id="107041" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">129</field>
-    <field name="win.eventdata.path">C:\Windows\Temp\|\AppData\Local\Temp\|\Desktop\|\Downloads\|\Users\Public\|C:\Temp\</field>
+    <field name="win.eventdata.path">C:\\Windows\\Temp\\|\\AppData\\Local\\Temp\\|\\Desktop\\|\\Downloads\\|\\Users\\Public\\|C:\\Temp\\</field>
     <description>Sigma: Scheduled Task Executed From A Suspicious Location</description>
     <mitre>
       <id>T1053.005</id>
@@ -97,7 +97,7 @@
   <rule id="107042" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">129</field>
-    <field name="win.eventdata.path">\calc\.exe$|\cscript\.exe$|\mshta\.exe$|\mspaint\.exe$|\notepad\.exe$|\regsvr32\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.path">\\calc.exe$|\\cscript.exe$|\\mshta.exe$|\\mspaint.exe$|\\notepad.exe$|\\regsvr32.exe$|\\wscript.exe$</field>
     <description>Sigma: Scheduled Task Executed Uncommon LOLBIN</description>
     <mitre>
       <id>T1053.005</id>
@@ -106,7 +106,7 @@
   </rule>
   <rule id="107134" level="10">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Invoke-CimMethod|-ClassName|PS_ScheduledTask|-NameSpace|Root\Microsoft\Windows\TaskScheduler</field>
+    <field name="win.eventdata.scriptBlockText">Invoke-CimMethod|-ClassName|PS_ScheduledTask|-NameSpace|Root\\Microsoft\\Windows\\TaskScheduler</field>
     <description>Sigma: Powershell Create Scheduled Task</description>
     <mitre>
       <id>T1053.005</id>
@@ -124,8 +124,8 @@
   </rule>
   <rule id="107239" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
-    <field name="win.eventdata.commandLine">NT AUT| SYSTEM |/RU|/TR|C:\Users\|\AppData\Local\</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <field name="win.eventdata.commandLine">NT AUT| SYSTEM |/RU|/TR|C:\\Users\\|\\AppData\\Local\\</field>
     <description>Sigma: Suspicious Schtasks Execution AppData Folder</description>
     <mitre>
       <id>T1053.005</id>
@@ -135,8 +135,8 @@
   </rule>
   <rule id="107240" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
-    <field name="win.eventdata.commandLine">\AppData\Local\Temp|\AppData\Roaming\|\Users\Public\|\WINDOWS\Temp\|\Desktop\|\Downloads\|\Temporary Internet|C:\ProgramData\|C:\Perflogs\|%ProgramData%|%appdata%|%comspec%|%localappdata%| /TN </field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <field name="win.eventdata.commandLine">\\AppData\\Local\\Temp|\\AppData\\Roaming\\|\\Users\\Public\\|\\WINDOWS\\Temp\\|\\Desktop\\|\\Downloads\\|\\Temporary Internet|C:\\ProgramData\\|C:\\Perflogs\\|%ProgramData%|%appdata%|%comspec%|%localappdata%| /TN </field>
     <description>Sigma: Suspicious Modification Of Scheduled Tasks</description>
     <mitre>
       <id>T1053.005</id>
@@ -145,8 +145,8 @@
   </rule>
   <rule id="107241" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
-    <field name="win.eventdata.commandLine"> /create | /sc once |\Temp\</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <field name="win.eventdata.commandLine"> /create | /sc once |\\Temp\\</field>
     <description>Sigma: Suspicious Scheduled Task Creation Involving Temp Folder</description>
     <mitre>
       <id>T1053.005</id>
@@ -156,7 +156,7 @@
   <rule id="107242" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">powershell|http|-o</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Scheduled Task Creation with Curl and PowerShell Execution Combo</description>
     <mitre>
       <id>T1053.005</id>
@@ -167,9 +167,9 @@
   </rule>
   <rule id="107243" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
-    <field name="win.eventdata.commandLine">:\Perflogs|:\Windows\Temp|\Users\Public|%Public%</field>
-    <field name="win.eventdata.parentCommandLine">\svchost\.exe -k netsvcs -p -s Schedule$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <field name="win.eventdata.commandLine">:\\Perflogs|:\\Windows\\Temp|\\Users\\Public|%Public%</field>
+    <field name="win.eventdata.parentCommandLine">\\svchost.exe -k netsvcs -p -s Schedule$</field>
     <description>Sigma: Schedule Task Creation From Env Variable Or Potentially Suspicious Path Via Schtasks.EXE</description>
     <mitre>
       <id>T1053.005</id>
@@ -179,7 +179,7 @@
   <rule id="107244" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /create </field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Schtasks From Suspicious Folders</description>
     <mitre>
       <id>T1053.005</id>
@@ -189,7 +189,7 @@
   <rule id="107245" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/TN "\{|/TN '\{|/TN \{</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Suspicious Scheduled Task Name As GUID</description>
     <mitre>
       <id>T1053.005</id>
@@ -198,8 +198,8 @@
   </rule>
   <rule id="107246" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
-    <field name="win.eventdata.commandLine"> /create |ssh\.exe|-i</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <field name="win.eventdata.commandLine"> /create |ssh.exe|-i</field>
     <description>Sigma: Potential SSH Tunnel Persistence Install Using A Scheduled Task</description>
     <mitre>
       <id>T1053.005</id>
@@ -208,8 +208,8 @@
   </rule>
   <rule id="107247" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">run |\Application Experience\Microsoft Compatibility Appraiser</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine">run |\\Application Experience\\Microsoft Compatibility Appraiser</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Potential Persistence Via Microsoft Compatibility Appraiser</description>
     <mitre>
       <id>T1053.005</id>
@@ -218,7 +218,7 @@
   </rule>
   <rule id="107248" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">C:\WINDOWS\System32\svchost\.exe</field>
+    <field name="win.eventdata.parentImage">C:\\WINDOWS\\System32\\svchost.exe</field>
     <field name="win.eventdata.parentCommandLine">-k netsvcs|-s Schedule</field>
     <field name="win.eventdata.commandLine"> -windowstyle hidden$| -w hidden$| -ep bypass$| -noni$</field>
     <description>Sigma: Potential Persistence Via Powershell Search Order Hijacking - Task</description>
@@ -231,7 +231,7 @@
   <rule id="107249" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">HKCU:|HKLM:|registry::|HKEY_</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Scheduled Task Executing Payload from Registry</description>
     <mitre>
       <id>T1053.005</id>
@@ -242,7 +242,7 @@
   <rule id="107250" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">HKCU:|HKLM:|registry::|HKEY_</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Scheduled Task Executing Encoded Payload from Registry</description>
     <mitre>
       <id>T1053.005</id>
@@ -252,7 +252,7 @@
   </rule>
   <rule id="107251" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <field name="win.eventdata.commandLine"> ONLOGON | ONSTART | ONCE | ONIDLE </field>
     <description>Sigma: Suspicious Schtasks Schedule Types</description>
     <mitre>
@@ -262,7 +262,7 @@
   </rule>
   <rule id="107252" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <field name="win.eventdata.commandLine"> ONLOGON | ONSTART | ONCE | ONIDLE </field>
     <description>Sigma: Suspicious Schtasks Schedule Type With High Privileges</description>
     <mitre>
@@ -272,7 +272,7 @@
   </rule>
   <rule id="107254" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <field name="win.eventdata.commandLine">/Create </field>
     <description>Sigma: Suspicious Command Patterns In Scheduled Task Creation</description>
     <mitre>
@@ -282,7 +282,7 @@
   </rule>
   <rule id="107255" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <field name="win.eventdata.commandLine">NT AUT| SYSTEM </field>
     <description>Sigma: Schtasks Creation Or Modification With SYSTEM Privileges</description>
     <mitre>
@@ -292,8 +292,8 @@
   </rule>
   <rule id="107256" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> audiodg| conhost| dwm\.exe| explorer| lsass| lsm| mmc| msiexec| regsvr32| rundll32| services| spoolsv| svchost| taskeng| taskhost| wininit| winlogon</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine"> audiodg| conhost| dwm.exe| explorer| lsass| lsm| mmc| msiexec| regsvr32| rundll32| services| spoolsv| svchost| taskeng| taskhost| wininit| winlogon</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Scheduled Task Creation Masquerading as System Processes</description>
     <mitre>
       <id>T1053.005</id>
@@ -304,8 +304,8 @@
   </rule>
   <rule id="107369" level="11">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Command$</field>
-    <field name="win.eventdata.details">\.bat|\.bin|\.cmd|\.dat|\.dll|\.exe|\.hta|\.jar|\.js|\.msi|\.ps|\.sh|\.vb</field>
+    <field name="win.eventdata.targetObject">\\Command$</field>
+    <field name="win.eventdata.details">.bat|.bin|.cmd|.dat|.dll|.exe|.hta|.jar|.js|.msi|.ps|.sh|.vb</field>
     <description>Sigma: Potential Registry Persistence Attempt Via Windows Telemetry</description>
     <mitre>
       <id>T1053.005</id>

@@ -1,0 +1,22 @@
+title: 'Suspicious service: mimikatz driver (mimidrv)'
+id: 2293ac60-0278-5f86-84a8-0a5a6dc3fab1
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  108517).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0003-Persistence/T1543.003-Create
+  or Modify System Process-Windows Service/ID7045-New service for Mimikatz +npcap.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    ServiceName: mimikatz driver \(mimidrv\)
+    ImagePath: mimikatz
+  condition: selection
+level: critical
+tags:
+- attack.t1003
+- attack.credential-access

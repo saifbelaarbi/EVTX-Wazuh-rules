@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1059.001_unknown,">
-  <rule id="100001" level="8">
+  <rule id="100002" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">iex\(</field>
     <description>Suspicious command-line pattern 'iex(' detected</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100004" level="8">
+  <rule id="100005" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-nop </field>
     <description>Suspicious command-line pattern '-nop ' detected</description>
@@ -18,7 +18,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100007" level="8">
+  <rule id="100008" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">bypass</field>
     <description>Suspicious command-line pattern 'bypass' detected</description>
@@ -27,7 +27,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100008" level="8">
+  <rule id="100009" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-w hidden</field>
     <description>Suspicious command-line pattern '-w hidden' detected</description>
@@ -36,7 +36,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100009" level="8">
+  <rule id="100010" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">downloadstring</field>
     <description>Suspicious PowerShell script block containing 'downloadstring'</description>
@@ -45,7 +45,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100010" level="8">
+  <rule id="100011" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">iex\(</field>
     <description>Suspicious PowerShell script block containing 'iex('</description>
@@ -54,7 +54,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100011" level="8">
+  <rule id="100012" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">downloadstring</field>
     <description>PowerShell module logging captured: 'downloadstring'</description>
@@ -63,7 +63,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100012" level="8">
+  <rule id="100013" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">iex\(</field>
     <description>PowerShell module logging captured: 'iex('</description>
@@ -72,7 +72,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100013" level="8">
+  <rule id="100014" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">invoke-expression</field>
     <description>PowerShell module logging captured: 'invoke-expression'</description>
@@ -81,7 +81,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100014" level="8">
+  <rule id="100015" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">bypass</field>
     <description>Suspicious PowerShell script block containing 'bypass'</description>
@@ -90,7 +90,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100016" level="8">
+  <rule id="100017" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">invoke-expression</field>
     <description>Suspicious PowerShell script block containing 'invoke-expression'</description>
@@ -99,7 +99,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100017" level="8">
+  <rule id="100018" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">invoke-webrequest</field>
     <description>Suspicious PowerShell script block containing 'invoke-webrequest'</description>
@@ -108,7 +108,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100018" level="8">
+  <rule id="100019" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">-nop </field>
     <description>Suspicious PowerShell script block containing '-nop '</description>
@@ -117,7 +117,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100072" level="9">
+  <rule id="100074" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5156</field>
     <field name="win.eventdata.destPort">5985|5986</field>
@@ -128,43 +128,43 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100162" level="13">
+  <rule id="100164" level="13">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Add-ConstrainedDelegationBackdoor\.ps1$|\Add-Exfiltration\.ps1$|\Add-Persistence\.ps1$|\Add-RegBackdoor\.ps1$|\Add-RemoteRegBackdoor\.ps1$|\Add-ScrnSaveBackdoor\.ps1$|\ADRecon\.ps1$|\AzureADRecon\.ps1$|\BadSuccessor\.ps1$|\Check-VM\.ps1$|\ConvertTo-ROT13\.ps1$|\Copy-VSS\.ps1$|\Create-MultipleSessions\.ps1$|\DNS_TXT_Pwnage\.ps1$|\dnscat2\.ps1$|\Do-Exfiltration\.ps1$|\DomainPasswordSpray\.ps1$|\Download_Execute\.ps1$|\Download-Execute-PS\.ps1$|\Enable-DuplicateToken\.ps1$|\Enabled-DuplicateToken\.ps1$|\Execute-Command-MSSQL\.ps1$|\Execute-DNSTXT-Code\.ps1$|\Execute-OnTime\.ps1$|\ExetoText\.ps1$|\Exploit-Jboss\.ps1$|\Find-AVSignature\.ps1$|\Find-Fruit\.ps1$|\Find-GPOLocation\.ps1$|\Find-TrustedDocuments\.ps1$|\FireBuster\.ps1$|\FireListener\.ps1$|\Get-ApplicationHost\.ps1$|\Get-ChromeDump\.ps1$|\Get-ClipboardContents\.ps1$|\Get-ComputerDetail\.ps1$|\Get-FoxDump\.ps1$|\Get-GPPAutologon\.ps1$|\Get-GPPPassword\.ps1$|\Get-IndexedItem\.ps1$|\Get-Keystrokes\.ps1$|\Get-LSASecret\.ps1$|\Get-MicrophoneAudio\.ps1$|\Get-PassHashes\.ps1$|\Get-PassHints\.ps1$|\Get-RegAlwaysInstallElevated\.ps1$|\Get-RegAutoLogon\.ps1$|\Get-RickAstley\.ps1$|\Get-Screenshot\.ps1$|\Get-SecurityPackages\.ps1$|\Get-ServiceFilePermission\.ps1$|\Get-ServicePermission\.ps1$|\Get-ServiceUnquoted\.ps1$|\Get-SiteListPassword\.ps1$|\Get-System\.ps1$|\Get-TimedScreenshot\.ps1$|\Get-UnattendedInstallFile\.ps1$|\Get-Unconstrained\.ps1$|\Get-USBKeystrokes\.ps1$|\Get-VaultCredential\.ps1$|\Get-VulnAutoRun\.ps1$|\Get-VulnSchTask\.ps1$|\Get-WebConfig\.ps1$|\Get-WebCredentials\.ps1$|\Get-WLAN-Keys\.ps1$|\Gupt-Backdoor\.ps1$|\HTTP-Backdoor\.ps1$|\HTTP-Login\.ps1$|\Install-ServiceBinary\.ps1$|\Install-SSP\.ps1$|\Invoke-ACLScanner\.ps1$|\Invoke-ADSBackdoor\.ps1$|\Invoke-AmsiBypass\.ps1$|\Invoke-ARPScan\.ps1$|\Invoke-BackdoorLNK\.ps1$|\Invoke-BadPotato\.ps1$|\Invoke-BetterSafetyKatz\.ps1$|\Invoke-BruteForce\.ps1$|\Invoke-BypassUAC\.ps1$|\Invoke-Carbuncle\.ps1$|\Invoke-Certify\.ps1$|\Invoke-ConPtyShell\.ps1$|\Invoke-CredentialInjection\.ps1$|\Invoke-CredentialsPhish\.ps1$|\Invoke-DAFT\.ps1$|\Invoke-DCSync\.ps1$|\Invoke-Decode\.ps1$|\Invoke-DinvokeKatz\.ps1$|\Invoke-DllInjection\.ps1$|\Invoke-DNSExfiltrator\.ps1$|\Invoke-DNSUpdate\.ps1$|\Invoke-DowngradeAccount\.ps1$|\Invoke-EgressCheck\.ps1$|\Invoke-Encode\.ps1$|\Invoke-EventViewer\.ps1$|\Invoke-Eyewitness\.ps1$|\Invoke-FakeLogonScreen\.ps1$|\Invoke-Farmer\.ps1$|\Invoke-Get-RBCD-Threaded\.ps1$|\Invoke-Gopher\.ps1$|\Invoke-Grouper2\.ps1$|\Invoke-Grouper3\.ps1$|\Invoke-HandleKatz\.ps1$|\Invoke-Interceptor\.ps1$|\Invoke-Internalmonologue\.ps1$|\Invoke-Inveigh\.ps1$|\Invoke-InveighRelay\.ps1$|\Invoke-JSRatRegsvr\.ps1$|\Invoke-JSRatRundll\.ps1$|\Invoke-KrbRelay\.ps1$|\Invoke-KrbRelayUp\.ps1$|\Invoke-LdapSignCheck\.ps1$|\Invoke-Lockless\.ps1$|\Invoke-MalSCCM\.ps1$|\Invoke-Mimikatz\.ps1$|\Invoke-MimikatzWDigestDowngrade\.ps1$|\Invoke-Mimikittenz\.ps1$|\Invoke-MITM6\.ps1$|\Invoke-NanoDump\.ps1$|\Invoke-NetRipper\.ps1$|\Invoke-NetworkRelay\.ps1$|\Invoke-NinjaCopy\.ps1$|\Invoke-OxidResolver\.ps1$|\Invoke-P0wnedshell\.ps1$|\Invoke-P0wnedshellx86\.ps1$|\Invoke-Paranoia\.ps1$|\Invoke-PortScan\.ps1$|\Invoke-PoshRatHttp\.ps1$|\Invoke-PoshRatHttps\.ps1$|\Invoke-PostExfil\.ps1$|\Invoke-PowerDump\.ps1$|\Invoke-PowerDPAPI\.ps1$|\Invoke-PowerShellIcmp\.ps1$|\Invoke-PowerShellTCP\.ps1$|\Invoke-PowerShellTcpOneLine\.ps1$|\Invoke-PowerShellTcpOneLineBind\.ps1$|\Invoke-PowerShellUdp\.ps1$|\Invoke-PowerShellUdpOneLine\.ps1$|\Invoke-PowerShellWMI\.ps1$|\Invoke-PowerThIEf\.ps1$|\Invoke-PPLDump\.ps1$|\Invoke-Prasadhak\.ps1$|\Invoke-PsExec\.ps1$|\Invoke-PsGcat\.ps1$|\Invoke-PsGcatAgent\.ps1$|\Invoke-PSInject\.ps1$|\Invoke-PsUaCme\.ps1$|\Invoke-ReflectivePEInjection\.ps1$|\Invoke-ReverseDNSLookup\.ps1$|\Invoke-Rubeus\.ps1$|\Invoke-RunAs\.ps1$|\Invoke-SafetyKatz\.ps1$|\Invoke-SauronEye\.ps1$|\Invoke-SCShell\.ps1$|\Invoke-Seatbelt\.ps1$|\Invoke-ServiceAbuse\.ps1$|\Invoke-SessionGopher\.ps1$|\Invoke-ShellCode\.ps1$|\Invoke-SMBScanner\.ps1$|\Invoke-Snaffler\.ps1$|\Invoke-Spoolsample\.ps1$|\Invoke-SSHCommand\.ps1$|\Invoke-SSIDExfil\.ps1$|\Invoke-StandIn\.ps1$|\Invoke-StickyNotesExtract\.ps1$|\Invoke-Tater\.ps1$|\Invoke-Thunderfox\.ps1$|\Invoke-ThunderStruck\.ps1$|\Invoke-TokenManipulation\.ps1$|\Invoke-Tokenvator\.ps1$|\Invoke-TotalExec\.ps1$|\Invoke-UrbanBishop\.ps1$|\Invoke-UserHunter\.ps1$|\Invoke-VoiceTroll\.ps1$|\Invoke-Whisker\.ps1$|\Invoke-WinEnum\.ps1$|\Invoke-winPEAS\.ps1$|\Invoke-WireTap\.ps1$|\Invoke-WmiCommand\.ps1$|\Invoke-WScriptBypassUAC\.ps1$|\Invoke-Zerologon\.ps1$|\Keylogger\.ps1$|\MailRaider\.ps1$|\New-HoneyHash\.ps1$|\OfficeMemScraper\.ps1$|\Offline_Winpwn\.ps1$|\Out-CHM\.ps1$|\Out-DnsTxt\.ps1$|\Out-Excel\.ps1$|\Out-HTA\.ps1$|\Out-Java\.ps1$|\Out-JS\.ps1$|\Out-Minidump\.ps1$|\Out-RundllCommand\.ps1$|\Out-SCF\.ps1$|\Out-SCT\.ps1$|\Out-Shortcut\.ps1$|\Out-WebQuery\.ps1$|\Out-Word\.ps1$|\Parse_Keys\.ps1$|\Port-Scan\.ps1$|\PowerBreach\.ps1$|\powercat\.ps1$|\Powermad\.ps1$|\PowerRunAsSystem\.psm1$|\PowerSharpPack\.ps1$|\PowerUp\.ps1$|\PowerUpSQL\.ps1$|\PowerView\.ps1$|\PSAsyncShell\.ps1$|\RemoteHashRetrieval\.ps1$|\Remove-Persistence\.ps1$|\Remove-PoshRat\.ps1$|\Remove-Update\.ps1$|\Run-EXEonRemote\.ps1$|\Schtasks-Backdoor\.ps1$|\Set-DCShadowPermissions\.ps1$|\Set-MacAttribute\.ps1$|\Set-RemotePSRemoting\.ps1$|\Set-RemoteWMI\.ps1$|\Set-Wallpaper\.ps1$|\Show-TargetScreen\.ps1$|\Speak\.ps1$|\Start-CaptureServer\.ps1$|\Start-WebcamRecorder\.ps1$|\StringToBase64\.ps1$|\TexttoExe\.ps1$|\Veeam-Get-Creds\.ps1$|\VolumeShadowCopyTools\.ps1$|\WinPwn\.ps1$|\WSUSpendu\.ps1$</field>
+    <field name="win.eventdata.targetFilename">\\Add-ConstrainedDelegationBackdoor.ps1$|\\Add-Exfiltration.ps1$|\\Add-Persistence.ps1$|\\Add-RegBackdoor.ps1$|\\Add-RemoteRegBackdoor.ps1$|\\Add-ScrnSaveBackdoor.ps1$|\\ADRecon.ps1$|\\AzureADRecon.ps1$|\\BadSuccessor.ps1$|\\Check-VM.ps1$|\\ConvertTo-ROT13.ps1$|\\Copy-VSS.ps1$|\\Create-MultipleSessions.ps1$|\\DNS_TXT_Pwnage.ps1$|\\dnscat2.ps1$|\\Do-Exfiltration.ps1$|\\DomainPasswordSpray.ps1$|\\Download_Execute.ps1$|\\Download-Execute-PS.ps1$|\\Enable-DuplicateToken.ps1$|\\Enabled-DuplicateToken.ps1$|\\Execute-Command-MSSQL.ps1$|\\Execute-DNSTXT-Code.ps1$|\\Execute-OnTime.ps1$|\\ExetoText.ps1$|\\Exploit-Jboss.ps1$|\\Find-AVSignature.ps1$|\\Find-Fruit.ps1$|\\Find-GPOLocation.ps1$|\\Find-TrustedDocuments.ps1$|\\FireBuster.ps1$|\\FireListener.ps1$|\\Get-ApplicationHost.ps1$|\\Get-ChromeDump.ps1$|\\Get-ClipboardContents.ps1$|\\Get-ComputerDetail.ps1$|\\Get-FoxDump.ps1$|\\Get-GPPAutologon.ps1$|\\Get-GPPPassword.ps1$|\\Get-IndexedItem.ps1$|\\Get-Keystrokes.ps1$|\\Get-LSASecret.ps1$|\\Get-MicrophoneAudio.ps1$|\\Get-PassHashes.ps1$|\\Get-PassHints.ps1$|\\Get-RegAlwaysInstallElevated.ps1$|\\Get-RegAutoLogon.ps1$|\\Get-RickAstley.ps1$|\\Get-Screenshot.ps1$|\\Get-SecurityPackages.ps1$|\\Get-ServiceFilePermission.ps1$|\\Get-ServicePermission.ps1$|\\Get-ServiceUnquoted.ps1$|\\Get-SiteListPassword.ps1$|\\Get-System.ps1$|\\Get-TimedScreenshot.ps1$|\\Get-UnattendedInstallFile.ps1$|\\Get-Unconstrained.ps1$|\\Get-USBKeystrokes.ps1$|\\Get-VaultCredential.ps1$|\\Get-VulnAutoRun.ps1$|\\Get-VulnSchTask.ps1$|\\Get-WebConfig.ps1$|\\Get-WebCredentials.ps1$|\\Get-WLAN-Keys.ps1$|\\Gupt-Backdoor.ps1$|\\HTTP-Backdoor.ps1$|\\HTTP-Login.ps1$|\\Install-ServiceBinary.ps1$|\\Install-SSP.ps1$|\\Invoke-ACLScanner.ps1$|\\Invoke-ADSBackdoor.ps1$|\\Invoke-AmsiBypass.ps1$|\\Invoke-ARPScan.ps1$|\\Invoke-BackdoorLNK.ps1$|\\Invoke-BadPotato.ps1$|\\Invoke-BetterSafetyKatz.ps1$|\\Invoke-BruteForce.ps1$|\\Invoke-BypassUAC.ps1$|\\Invoke-Carbuncle.ps1$|\\Invoke-Certify.ps1$|\\Invoke-ConPtyShell.ps1$|\\Invoke-CredentialInjection.ps1$|\\Invoke-CredentialsPhish.ps1$|\\Invoke-DAFT.ps1$|\\Invoke-DCSync.ps1$|\\Invoke-Decode.ps1$|\\Invoke-DinvokeKatz.ps1$|\\Invoke-DllInjection.ps1$|\\Invoke-DNSExfiltrator.ps1$|\\Invoke-DNSUpdate.ps1$|\\Invoke-DowngradeAccount.ps1$|\\Invoke-EgressCheck.ps1$|\\Invoke-Encode.ps1$|\\Invoke-EventViewer.ps1$|\\Invoke-Eyewitness.ps1$|\\Invoke-FakeLogonScreen.ps1$|\\Invoke-Farmer.ps1$|\\Invoke-Get-RBCD-Threaded.ps1$|\\Invoke-Gopher.ps1$|\\Invoke-Grouper2.ps1$|\\Invoke-Grouper3.ps1$|\\Invoke-HandleKatz.ps1$|\\Invoke-Interceptor.ps1$|\\Invoke-Internalmonologue.ps1$|\\Invoke-Inveigh.ps1$|\\Invoke-InveighRelay.ps1$|\\Invoke-JSRatRegsvr.ps1$|\\Invoke-JSRatRundll.ps1$|\\Invoke-KrbRelay.ps1$|\\Invoke-KrbRelayUp.ps1$|\\Invoke-LdapSignCheck.ps1$|\\Invoke-Lockless.ps1$|\\Invoke-MalSCCM.ps1$|\\Invoke-Mimikatz.ps1$|\\Invoke-MimikatzWDigestDowngrade.ps1$|\\Invoke-Mimikittenz.ps1$|\\Invoke-MITM6.ps1$|\\Invoke-NanoDump.ps1$|\\Invoke-NetRipper.ps1$|\\Invoke-NetworkRelay.ps1$|\\Invoke-NinjaCopy.ps1$|\\Invoke-OxidResolver.ps1$|\\Invoke-P0wnedshell.ps1$|\\Invoke-P0wnedshellx86.ps1$|\\Invoke-Paranoia.ps1$|\\Invoke-PortScan.ps1$|\\Invoke-PoshRatHttp.ps1$|\\Invoke-PoshRatHttps.ps1$|\\Invoke-PostExfil.ps1$|\\Invoke-PowerDump.ps1$|\\Invoke-PowerDPAPI.ps1$|\\Invoke-PowerShellIcmp.ps1$|\\Invoke-PowerShellTCP.ps1$|\\Invoke-PowerShellTcpOneLine.ps1$|\\Invoke-PowerShellTcpOneLineBind.ps1$|\\Invoke-PowerShellUdp.ps1$|\\Invoke-PowerShellUdpOneLine.ps1$|\\Invoke-PowerShellWMI.ps1$|\\Invoke-PowerThIEf.ps1$|\\Invoke-PPLDump.ps1$|\\Invoke-Prasadhak.ps1$|\\Invoke-PsExec.ps1$|\\Invoke-PsGcat.ps1$|\\Invoke-PsGcatAgent.ps1$|\\Invoke-PSInject.ps1$|\\Invoke-PsUaCme.ps1$|\\Invoke-ReflectivePEInjection.ps1$|\\Invoke-ReverseDNSLookup.ps1$|\\Invoke-Rubeus.ps1$|\\Invoke-RunAs.ps1$|\\Invoke-SafetyKatz.ps1$|\\Invoke-SauronEye.ps1$|\\Invoke-SCShell.ps1$|\\Invoke-Seatbelt.ps1$|\\Invoke-ServiceAbuse.ps1$|\\Invoke-SessionGopher.ps1$|\\Invoke-ShellCode.ps1$|\\Invoke-SMBScanner.ps1$|\\Invoke-Snaffler.ps1$|\\Invoke-Spoolsample.ps1$|\\Invoke-SSHCommand.ps1$|\\Invoke-SSIDExfil.ps1$|\\Invoke-StandIn.ps1$|\\Invoke-StickyNotesExtract.ps1$|\\Invoke-Tater.ps1$|\\Invoke-Thunderfox.ps1$|\\Invoke-ThunderStruck.ps1$|\\Invoke-TokenManipulation.ps1$|\\Invoke-Tokenvator.ps1$|\\Invoke-TotalExec.ps1$|\\Invoke-UrbanBishop.ps1$|\\Invoke-UserHunter.ps1$|\\Invoke-VoiceTroll.ps1$|\\Invoke-Whisker.ps1$|\\Invoke-WinEnum.ps1$|\\Invoke-winPEAS.ps1$|\\Invoke-WireTap.ps1$|\\Invoke-WmiCommand.ps1$|\\Invoke-WScriptBypassUAC.ps1$|\\Invoke-Zerologon.ps1$|\\Keylogger.ps1$|\\MailRaider.ps1$|\\New-HoneyHash.ps1$|\\OfficeMemScraper.ps1$|\\Offline_Winpwn.ps1$|\\Out-CHM.ps1$|\\Out-DnsTxt.ps1$|\\Out-Excel.ps1$|\\Out-HTA.ps1$|\\Out-Java.ps1$|\\Out-JS.ps1$|\\Out-Minidump.ps1$|\\Out-RundllCommand.ps1$|\\Out-SCF.ps1$|\\Out-SCT.ps1$|\\Out-Shortcut.ps1$|\\Out-WebQuery.ps1$|\\Out-Word.ps1$|\\Parse_Keys.ps1$|\\Port-Scan.ps1$|\\PowerBreach.ps1$|\\powercat.ps1$|\\Powermad.ps1$|\\PowerRunAsSystem.psm1$|\\PowerSharpPack.ps1$|\\PowerUp.ps1$|\\PowerUpSQL.ps1$|\\PowerView.ps1$|\\PSAsyncShell.ps1$|\\RemoteHashRetrieval.ps1$|\\Remove-Persistence.ps1$|\\Remove-PoshRat.ps1$|\\Remove-Update.ps1$|\\Run-EXEonRemote.ps1$|\\Schtasks-Backdoor.ps1$|\\Set-DCShadowPermissions.ps1$|\\Set-MacAttribute.ps1$|\\Set-RemotePSRemoting.ps1$|\\Set-RemoteWMI.ps1$|\\Set-Wallpaper.ps1$|\\Show-TargetScreen.ps1$|\\Speak.ps1$|\\Start-CaptureServer.ps1$|\\Start-WebcamRecorder.ps1$|\\StringToBase64.ps1$|\\TexttoExe.ps1$|\\Veeam-Get-Creds.ps1$|\\VolumeShadowCopyTools.ps1$|\\WinPwn.ps1$|\\WSUSpendu.ps1$</field>
     <description>Sigma: Malicious PowerShell Scripts - FileCreation</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100163" level="9">
+  <rule id="100165" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.ps1$</field>
+    <field name="win.eventdata.targetFilename">.ps1$</field>
     <description>Sigma: Malicious PowerShell Scripts - FileCreation</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100191" level="9">
+  <rule id="100193" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">C:\Windows\System32\config\systemprofile\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history\.txt|C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-Interactive</field>
+    <field name="win.eventdata.targetFilename">C:\\Windows\\System32\\config\\systemprofile\\AppData\\Roaming\\Microsoft\\Windows\\PowerShell\\PSReadLine\\ConsoleHost_history.txt|C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Microsoft\\Windows\\PowerShell\\StartupProfileData-Interactive</field>
     <description>Sigma: Suspicious Interactive PowerShell as SYSTEM</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100204" level="8">
+  <rule id="100206" level="8">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.description">System\.Management\.Automation</field>
+    <field name="win.eventdata.description">System.Management.Automation</field>
     <description>Sigma: PowerShell Core DLL Loaded By Non PowerShell Process</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100222" level="8">
+  <rule id="100224" level="8">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.commandLine"></field>
     <description>Sigma: Suspicious WSMAN Provider Image Loads</description>
@@ -174,7 +174,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100233" level="9">
+  <rule id="100235" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.destinationPort">5985|5986</field>
     <field name="win.eventdata.initiated">true</field>
@@ -186,16 +186,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100236" level="8">
+  <rule id="100238" level="8">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\PSHost</field>
+    <field name="win.eventdata.pipeName">^\\PSHost</field>
     <description>Sigma: Alternate PowerShell Hosts Pipe</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100240" level="8">
+  <rule id="100242" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.data">-q=txt http|-querytype=txt http|-type=txt http|nslookup|\[1\]</field>
     <description>Sigma: Nslookup PowerShell Download Cradle</description>
@@ -204,25 +204,25 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100241" level="8">
+  <rule id="100243" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.data">EngineVersion=2\.</field>
+    <field name="win.eventdata.data">EngineVersion=2.</field>
     <description>Sigma: PowerShell Downgrade Attack - PowerShell</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100242" level="9">
+  <rule id="100244" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.data">HostVersion=3\.</field>
+    <field name="win.eventdata.data">HostVersion=3.</field>
     <description>Sigma: PowerShell Called from an Executable Version Mismatch</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100245" level="8">
+  <rule id="100247" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.data">ProviderName=WSMan</field>
     <description>Sigma: Suspicious Non PowerShell WSMAN COM Provider</description>
@@ -232,16 +232,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100246" level="8">
+  <rule id="100248" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">.*</field>
+    <field name="win.eventdata.contextInfo">\.*</field>
     <description>Sigma: Alternate PowerShell Hosts - PowerShell Module</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100247" level="9">
+  <rule id="100249" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">\$DoIt|harmj0y|mattifestation|_RastaMouse|tifkin_|0xdeadbeef</field>
     <description>Sigma: Bad Opsec Powershell Code Artifacts</description>
@@ -250,27 +250,27 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100250" level="13">
+  <rule id="100252" level="13">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">Add-ConstrainedDelegationBackdoor\.ps1|Add-Exfiltration\.ps1|Add-Persistence\.ps1|Add-RegBackdoor\.ps1|Add-RemoteRegBackdoor\.ps1|Add-ScrnSaveBackdoor\.ps1|BadSuccessor\.ps1|Check-VM\.ps1|ConvertTo-ROT13\.ps1|Copy-VSS\.ps1|Create-MultipleSessions\.ps1|DNS_TXT_Pwnage\.ps1|dnscat2\.ps1|Do-Exfiltration\.ps1|DomainPasswordSpray\.ps1|Download_Execute\.ps1|Download-Execute-PS\.ps1|Enabled-DuplicateToken\.ps1|Enable-DuplicateToken\.ps1|Execute-Command-MSSQL\.ps1|Execute-DNSTXT-Code\.ps1|Execute-OnTime\.ps1|ExetoText\.ps1|Exploit-Jboss\.ps1|Find-AVSignature\.ps1|Find-Fruit\.ps1|Find-GPOLocation\.ps1|Find-TrustedDocuments\.ps1|FireBuster\.ps1|FireListener\.ps1|Get-ApplicationHost\.ps1|Get-ChromeDump\.ps1|Get-ClipboardContents\.ps1|Get-ComputerDetail\.ps1|Get-FoxDump\.ps1|Get-GPPAutologon\.ps1|Get-GPPPassword\.ps1|Get-IndexedItem\.ps1|Get-Keystrokes\.ps1|Get-LSASecret\.ps1|Get-MicrophoneAudio\.ps1|Get-PassHashes\.ps1|Get-PassHints\.ps1|Get-RegAlwaysInstallElevated\.ps1|Get-RegAutoLogon\.ps1|Get-RickAstley\.ps1|Get-Screenshot\.ps1|Get-SecurityPackages\.ps1|Get-ServiceFilePermission\.ps1|Get-ServicePermission\.ps1|Get-ServiceUnquoted\.ps1|Get-SiteListPassword\.ps1|Get-System\.ps1|Get-TimedScreenshot\.ps1|Get-UnattendedInstallFile\.ps1|Get-Unconstrained\.ps1|Get-USBKeystrokes\.ps1|Get-VaultCredential\.ps1|Get-VulnAutoRun\.ps1|Get-VulnSchTask\.ps1|Get-WebConfig\.ps1|Get-WebCredentials\.ps1|Get-WLAN-Keys\.ps1|Gupt-Backdoor\.ps1|HTTP-Backdoor\.ps1|HTTP-Login\.ps1|Install-ServiceBinary\.ps1|Install-SSP\.ps1|Invoke-ACLScanner\.ps1|Invoke-ADSBackdoor\.ps1|Invoke-AmsiBypass\.ps1|Invoke-ARPScan\.ps1|Invoke-BackdoorLNK\.ps1|Invoke-BadPotato\.ps1|Invoke-BetterSafetyKatz\.ps1|Invoke-BruteForce\.ps1|Invoke-BypassUAC\.ps1|Invoke-Carbuncle\.ps1|Invoke-Certify\.ps1|Invoke-ConPtyShell\.ps1|Invoke-CredentialInjection\.ps1|Invoke-CredentialsPhish\.ps1|Invoke-DAFT\.ps1|Invoke-DCSync\.ps1|Invoke-Decode\.ps1|Invoke-DinvokeKatz\.ps1|Invoke-DllInjection\.ps1|Invoke-DNSExfiltrator\.ps1|Invoke-DowngradeAccount\.ps1|Invoke-EgressCheck\.ps1|Invoke-Encode\.ps1|Invoke-EventViewer\.ps1|Invoke-Eyewitness\.ps1|Invoke-FakeLogonScreen\.ps1|Invoke-Farmer\.ps1|Invoke-Get-RBCD-Threaded\.ps1|Invoke-Gopher\.ps1|Invoke-Grouper2\.ps1|Invoke-Grouper3\.ps1|Invoke-HandleKatz\.ps1|Invoke-Interceptor\.ps1|Invoke-Internalmonologue\.ps1|Invoke-Inveigh\.ps1|Invoke-InveighRelay\.ps1|Invoke-JSRatRegsvr\.ps1|Invoke-JSRatRundll\.ps1|Invoke-KrbRelay\.ps1|Invoke-KrbRelayUp\.ps1|Invoke-LdapSignCheck\.ps1|Invoke-Lockless\.ps1|Invoke-MalSCCM\.ps1|Invoke-Mimikatz\.ps1|Invoke-MimikatzWDigestDowngrade\.ps1|Invoke-Mimikittenz\.ps1|Invoke-MITM6\.ps1|Invoke-NanoDump\.ps1|Invoke-NetRipper\.ps1|Invoke-NetworkRelay\.ps1|Invoke-NinjaCopy\.ps1|Invoke-OxidResolver\.ps1|Invoke-P0wnedshell\.ps1|Invoke-P0wnedshellx86\.ps1|Invoke-Paranoia\.ps1|Invoke-PortScan\.ps1|Invoke-PoshRatHttp\.ps1|Invoke-PoshRatHttps\.ps1|Invoke-PostExfil\.ps1|Invoke-PowerDump\.ps1|Invoke-PowerDPAPI\.ps1|Invoke-PowerShellIcmp\.ps1|Invoke-PowerShellTCP\.ps1|Invoke-PowerShellTcpOneLine\.ps1|Invoke-PowerShellTcpOneLineBind\.ps1|Invoke-PowerShellUdp\.ps1|Invoke-PowerShellUdpOneLine\.ps1|Invoke-PowerShellWMI\.ps1|Invoke-PowerThIEf\.ps1|Invoke-PPLDump\.ps1|Invoke-Prasadhak\.ps1|Invoke-PsExec\.ps1|Invoke-PsGcat\.ps1|Invoke-PsGcatAgent\.ps1|Invoke-PSInject\.ps1|Invoke-PsUaCme\.ps1|Invoke-ReflectivePEInjection\.ps1|Invoke-ReverseDNSLookup\.ps1|Invoke-Rubeus\.ps1|Invoke-RunAs\.ps1|Invoke-SafetyKatz\.ps1|Invoke-SauronEye\.ps1|Invoke-SCShell\.ps1|Invoke-Seatbelt\.ps1|Invoke-ServiceAbuse\.ps1|Invoke-SessionGopher\.ps1|Invoke-ShellCode\.ps1|Invoke-SMBScanner\.ps1|Invoke-Snaffler\.ps1|Invoke-Spoolsample\.ps1|Invoke-SSHCommand\.ps1|Invoke-SSIDExfil\.ps1|Invoke-StandIn\.ps1|Invoke-StickyNotesExtract\.ps1|Invoke-Tater\.ps1|Invoke-Thunderfox\.ps1|Invoke-ThunderStruck\.ps1|Invoke-TokenManipulation\.ps1|Invoke-Tokenvator\.ps1|Invoke-TotalExec\.ps1|Invoke-UrbanBishop\.ps1|Invoke-UserHunter\.ps1|Invoke-VoiceTroll\.ps1|Invoke-Whisker\.ps1|Invoke-WinEnum\.ps1|Invoke-winPEAS\.ps1|Invoke-WireTap\.ps1|Invoke-WmiCommand\.ps1|Invoke-WScriptBypassUAC\.ps1|Invoke-Zerologon\.ps1|Keylogger\.ps1|MailRaider\.ps1|New-HoneyHash\.ps1|OfficeMemScraper\.ps1|Offline_Winpwn\.ps1|Out-CHM\.ps1|Out-DnsTxt\.ps1|Out-Excel\.ps1|Out-HTA\.ps1|Out-Java\.ps1|Out-JS\.ps1|Out-Minidump\.ps1|Out-RundllCommand\.ps1|Out-SCF\.ps1|Out-SCT\.ps1|Out-Shortcut\.ps1|Out-WebQuery\.ps1|Out-Word\.ps1|Parse_Keys\.ps1|Port-Scan\.ps1|PowerBreach\.ps1|powercat\.ps1|PowerRunAsSystem\.psm1|PowerSharpPack\.ps1|PowerUp\.ps1|PowerUpSQL\.ps1|PowerView\.ps1|PSAsyncShell\.ps1|RemoteHashRetrieval\.ps1|Remove-Persistence\.ps1|Remove-PoshRat\.ps1|Remove-Update\.ps1|Run-EXEonRemote\.ps1|Schtasks-Backdoor\.ps1|Set-DCShadowPermissions\.ps1|Set-MacAttribute\.ps1|Set-RemotePSRemoting\.ps1|Set-RemoteWMI\.ps1|Set-Wallpaper\.ps1|Show-TargetScreen\.ps1|Speak\.ps1|Start-CaptureServer\.ps1|Start-WebcamRecorder\.ps1|StringToBase64\.ps1|TexttoExe\.ps1|Veeam-Get-Creds\.ps1|VolumeShadowCopyTools\.ps1|WinPwn\.ps1|WSUSpendu\.ps1</field>
+    <field name="win.eventdata.contextInfo">Add-ConstrainedDelegationBackdoor.ps1|Add-Exfiltration.ps1|Add-Persistence.ps1|Add-RegBackdoor.ps1|Add-RemoteRegBackdoor.ps1|Add-ScrnSaveBackdoor.ps1|BadSuccessor.ps1|Check-VM.ps1|ConvertTo-ROT13.ps1|Copy-VSS.ps1|Create-MultipleSessions.ps1|DNS_TXT_Pwnage.ps1|dnscat2.ps1|Do-Exfiltration.ps1|DomainPasswordSpray.ps1|Download_Execute.ps1|Download-Execute-PS.ps1|Enabled-DuplicateToken.ps1|Enable-DuplicateToken.ps1|Execute-Command-MSSQL.ps1|Execute-DNSTXT-Code.ps1|Execute-OnTime.ps1|ExetoText.ps1|Exploit-Jboss.ps1|Find-AVSignature.ps1|Find-Fruit.ps1|Find-GPOLocation.ps1|Find-TrustedDocuments.ps1|FireBuster.ps1|FireListener.ps1|Get-ApplicationHost.ps1|Get-ChromeDump.ps1|Get-ClipboardContents.ps1|Get-ComputerDetail.ps1|Get-FoxDump.ps1|Get-GPPAutologon.ps1|Get-GPPPassword.ps1|Get-IndexedItem.ps1|Get-Keystrokes.ps1|Get-LSASecret.ps1|Get-MicrophoneAudio.ps1|Get-PassHashes.ps1|Get-PassHints.ps1|Get-RegAlwaysInstallElevated.ps1|Get-RegAutoLogon.ps1|Get-RickAstley.ps1|Get-Screenshot.ps1|Get-SecurityPackages.ps1|Get-ServiceFilePermission.ps1|Get-ServicePermission.ps1|Get-ServiceUnquoted.ps1|Get-SiteListPassword.ps1|Get-System.ps1|Get-TimedScreenshot.ps1|Get-UnattendedInstallFile.ps1|Get-Unconstrained.ps1|Get-USBKeystrokes.ps1|Get-VaultCredential.ps1|Get-VulnAutoRun.ps1|Get-VulnSchTask.ps1|Get-WebConfig.ps1|Get-WebCredentials.ps1|Get-WLAN-Keys.ps1|Gupt-Backdoor.ps1|HTTP-Backdoor.ps1|HTTP-Login.ps1|Install-ServiceBinary.ps1|Install-SSP.ps1|Invoke-ACLScanner.ps1|Invoke-ADSBackdoor.ps1|Invoke-AmsiBypass.ps1|Invoke-ARPScan.ps1|Invoke-BackdoorLNK.ps1|Invoke-BadPotato.ps1|Invoke-BetterSafetyKatz.ps1|Invoke-BruteForce.ps1|Invoke-BypassUAC.ps1|Invoke-Carbuncle.ps1|Invoke-Certify.ps1|Invoke-ConPtyShell.ps1|Invoke-CredentialInjection.ps1|Invoke-CredentialsPhish.ps1|Invoke-DAFT.ps1|Invoke-DCSync.ps1|Invoke-Decode.ps1|Invoke-DinvokeKatz.ps1|Invoke-DllInjection.ps1|Invoke-DNSExfiltrator.ps1|Invoke-DowngradeAccount.ps1|Invoke-EgressCheck.ps1|Invoke-Encode.ps1|Invoke-EventViewer.ps1|Invoke-Eyewitness.ps1|Invoke-FakeLogonScreen.ps1|Invoke-Farmer.ps1|Invoke-Get-RBCD-Threaded.ps1|Invoke-Gopher.ps1|Invoke-Grouper2.ps1|Invoke-Grouper3.ps1|Invoke-HandleKatz.ps1|Invoke-Interceptor.ps1|Invoke-Internalmonologue.ps1|Invoke-Inveigh.ps1|Invoke-InveighRelay.ps1|Invoke-JSRatRegsvr.ps1|Invoke-JSRatRundll.ps1|Invoke-KrbRelay.ps1|Invoke-KrbRelayUp.ps1|Invoke-LdapSignCheck.ps1|Invoke-Lockless.ps1|Invoke-MalSCCM.ps1|Invoke-Mimikatz.ps1|Invoke-MimikatzWDigestDowngrade.ps1|Invoke-Mimikittenz.ps1|Invoke-MITM6.ps1|Invoke-NanoDump.ps1|Invoke-NetRipper.ps1|Invoke-NetworkRelay.ps1|Invoke-NinjaCopy.ps1|Invoke-OxidResolver.ps1|Invoke-P0wnedshell.ps1|Invoke-P0wnedshellx86.ps1|Invoke-Paranoia.ps1|Invoke-PortScan.ps1|Invoke-PoshRatHttp.ps1|Invoke-PoshRatHttps.ps1|Invoke-PostExfil.ps1|Invoke-PowerDump.ps1|Invoke-PowerDPAPI.ps1|Invoke-PowerShellIcmp.ps1|Invoke-PowerShellTCP.ps1|Invoke-PowerShellTcpOneLine.ps1|Invoke-PowerShellTcpOneLineBind.ps1|Invoke-PowerShellUdp.ps1|Invoke-PowerShellUdpOneLine.ps1|Invoke-PowerShellWMI.ps1|Invoke-PowerThIEf.ps1|Invoke-PPLDump.ps1|Invoke-Prasadhak.ps1|Invoke-PsExec.ps1|Invoke-PsGcat.ps1|Invoke-PsGcatAgent.ps1|Invoke-PSInject.ps1|Invoke-PsUaCme.ps1|Invoke-ReflectivePEInjection.ps1|Invoke-ReverseDNSLookup.ps1|Invoke-Rubeus.ps1|Invoke-RunAs.ps1|Invoke-SafetyKatz.ps1|Invoke-SauronEye.ps1|Invoke-SCShell.ps1|Invoke-Seatbelt.ps1|Invoke-ServiceAbuse.ps1|Invoke-SessionGopher.ps1|Invoke-ShellCode.ps1|Invoke-SMBScanner.ps1|Invoke-Snaffler.ps1|Invoke-Spoolsample.ps1|Invoke-SSHCommand.ps1|Invoke-SSIDExfil.ps1|Invoke-StandIn.ps1|Invoke-StickyNotesExtract.ps1|Invoke-Tater.ps1|Invoke-Thunderfox.ps1|Invoke-ThunderStruck.ps1|Invoke-TokenManipulation.ps1|Invoke-Tokenvator.ps1|Invoke-TotalExec.ps1|Invoke-UrbanBishop.ps1|Invoke-UserHunter.ps1|Invoke-VoiceTroll.ps1|Invoke-Whisker.ps1|Invoke-WinEnum.ps1|Invoke-winPEAS.ps1|Invoke-WireTap.ps1|Invoke-WmiCommand.ps1|Invoke-WScriptBypassUAC.ps1|Invoke-Zerologon.ps1|Keylogger.ps1|MailRaider.ps1|New-HoneyHash.ps1|OfficeMemScraper.ps1|Offline_Winpwn.ps1|Out-CHM.ps1|Out-DnsTxt.ps1|Out-Excel.ps1|Out-HTA.ps1|Out-Java.ps1|Out-JS.ps1|Out-Minidump.ps1|Out-RundllCommand.ps1|Out-SCF.ps1|Out-SCT.ps1|Out-Shortcut.ps1|Out-WebQuery.ps1|Out-Word.ps1|Parse_Keys.ps1|Port-Scan.ps1|PowerBreach.ps1|powercat.ps1|PowerRunAsSystem.psm1|PowerSharpPack.ps1|PowerUp.ps1|PowerUpSQL.ps1|PowerView.ps1|PSAsyncShell.ps1|RemoteHashRetrieval.ps1|Remove-Persistence.ps1|Remove-PoshRat.ps1|Remove-Update.ps1|Run-EXEonRemote.ps1|Schtasks-Backdoor.ps1|Set-DCShadowPermissions.ps1|Set-MacAttribute.ps1|Set-RemotePSRemoting.ps1|Set-RemoteWMI.ps1|Set-Wallpaper.ps1|Show-TargetScreen.ps1|Speak.ps1|Start-CaptureServer.ps1|Start-WebcamRecorder.ps1|StringToBase64.ps1|TexttoExe.ps1|Veeam-Get-Creds.ps1|VolumeShadowCopyTools.ps1|WinPwn.ps1|WSUSpendu.ps1</field>
     <description>Sigma: Malicious PowerShell Scripts - PoshModule</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100251" level="9">
+  <rule id="100253" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">Invoke-Sharp|\.ps1</field>
+    <field name="win.eventdata.contextInfo">Invoke-Sharp|.ps1</field>
     <description>Sigma: Malicious PowerShell Scripts - PoshModule</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100264" level="9">
+  <rule id="100266" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo"> = ServerRemoteHost |wsmprovhost\.exe</field>
+    <field name="win.eventdata.contextInfo"> = ServerRemoteHost |wsmprovhost.exe</field>
     <description>Sigma: Remote PowerShell Session (PS Module)</description>
     <mitre>
       <id>T1059.001</id>
@@ -278,16 +278,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100266" level="8">
+  <rule id="100268" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">System\.Net\.WebClient</field>
+    <field name="win.eventdata.contextInfo">System.Net.WebClient</field>
     <description>Sigma: Suspicious PowerShell Download - PoshModule</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100267" level="9">
+  <rule id="100269" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.contextInfo"> -noni | -noninteractive </field>
     <description>Sigma: Suspicious PowerShell Invocations - Generic - PowerShell Module</description>
@@ -296,7 +296,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100268" level="9">
+  <rule id="100270" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.contextInfo">-nop| -w |hidden| -c |\[Convert\]::FromBase64String</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
@@ -305,7 +305,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100269" level="9">
+  <rule id="100271" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.contextInfo"> -w |hidden|-ep|bypass|-Enc</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
@@ -314,7 +314,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100270" level="9">
+  <rule id="100272" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.contextInfo"> -w |hidden|-noni|-nop| -c |iex|New-Object</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
@@ -323,36 +323,36 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100271" level="9">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">iex|New-Object|Net\.WebClient|\.Download</field>
-    <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
-    <mitre>
-      <id>T1059.001</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100272" level="9">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">\software\microsoft\windows\currentversion\run|\software\wow6432node\microsoft\windows\currentversion\run|\software\microsoft\windows\currentversion\policies\explorer\run|reg|add</field>
-    <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
-    <mitre>
-      <id>T1059.001</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
   <rule id="100273" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">bypass|-noprofile|-windowstyle|hidden|new-object|system\.net\.webclient|\.download</field>
+    <field name="win.eventdata.contextInfo">iex|New-Object|Net.WebClient|.Download</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100279" level="9">
+  <rule id="100274" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command \| nslookup 2&gt;&amp;1 \| Out-String|New-RandomDNSField|\[Convert\]::ToString\(\$SYNOptions, 16\)|\$Session\.Dead = \$True|\$Session\["Driver"\] -eq</field>
+    <field name="win.eventdata.contextInfo">\\software\\microsoft\\windows\\currentversion\\run|\\software\\wow6432node\\microsoft\\windows\\currentversion\\run|\\software\\microsoft\\windows\\currentversion\\policies\\explorer\\run|reg|add</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100275" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.contextInfo">bypass|-noprofile|-windowstyle|hidden|new-object|system.net.webclient|.download</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100281" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command \| nslookup 2&gt;&amp;1 \| Out-String|New-RandomDNSField|\[Convert\]::ToString\(\$SYNOptions, 16\)|\$Session.Dead = \$True|\$Session\["Driver"\] -eq</field>
     <description>Sigma: Silence.EDA Detection</description>
     <mitre>
       <id>T1059.001</id>
@@ -361,7 +361,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100283" level="8">
+  <rule id="100285" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-LocalUser</field>
     <description>Sigma: PowerShell Create Local User</description>
@@ -371,7 +371,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100287" level="9">
+  <rule id="100289" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Add-ADDBSidHistory|Add-ADNgcKey|Add-ADReplNgcKey|ConvertFrom-ADManagedPasswordBlob|ConvertFrom-GPPrefPassword|ConvertFrom-ManagedPasswordBlob|ConvertFrom-UnattendXmlPassword|ConvertFrom-UnicodePassword|ConvertTo-AADHash|ConvertTo-GPPrefPassword|ConvertTo-KerberosKey|ConvertTo-LMHash|ConvertTo-MsoPasswordHash|ConvertTo-NTHash|ConvertTo-OrgIdHash|ConvertTo-UnicodePassword|Disable-ADDBAccount|Enable-ADDBAccount|Get-ADDBAccount|Get-ADDBBackupKey|Get-ADDBDomainController|Get-ADDBGroupManagedServiceAccount|Get-ADDBKdsRootKey|Get-ADDBSchemaAttribute|Get-ADDBServiceAccount|Get-ADDefaultPasswordPolicy|Get-ADKeyCredential|Get-ADPasswordPolicy|Get-ADReplAccount|Get-ADReplBackupKey|Get-ADReplicationAccount|Get-ADSIAccount|Get-AzureADUserEx|Get-BootKey|Get-KeyCredential|Get-LsaBackupKey|Get-LsaPolicy|Get-SamPasswordPolicy|Get-SysKey|Get-SystemKey|New-ADDBRestoreFromMediaScript|New-ADKeyCredential|New-ADNgcKey|New-NTHashSet|Remove-ADDBObject|Save-DPAPIBlob|Set-ADAccountPasswordHash|Set-ADDBAccountPassword|Set-ADDBBootKey|Set-ADDBDomainController|Set-ADDBPrimaryGroup|Set-ADDBSysKey|Set-AzureADUserEx|Set-LsaPolicy|Set-SamAccountPasswordHash|Set-WinUserPasswordHash|Test-ADDBPasswordQuality|Test-ADPasswordQuality|Test-ADReplPasswordQuality|Test-PasswordQuality|Unlock-ADDBAccount|Write-ADNgcKey|Write-ADReplNgcKey</field>
     <description>Sigma: DSInternals Suspicious PowerShell Cmdlets - ScriptBlock</description>
@@ -380,34 +380,34 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100291" level="8">
+  <rule id="100293" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Import-Module "\$Env:Temp\|Import-Module '\$Env:Temp\|Import-Module \$Env:Temp\|Import-Module "\$Env:Appdata\|Import-Module '\$Env:Appdata\|Import-Module \$Env:Appdata\|Import-Module C:\Users\Public\|ipmo "\$Env:Temp\|ipmo '\$Env:Temp\|ipmo \$Env:Temp\|ipmo "\$Env:Appdata\|ipmo '\$Env:Appdata\|ipmo \$Env:Appdata\|ipmo C:\Users\Public\</field>
+    <field name="win.eventdata.scriptBlockText">Import-Module "\$Env:Temp\\|Import-Module '\$Env:Temp\\|Import-Module \$Env:Temp\\|Import-Module "\$Env:Appdata\\|Import-Module '\$Env:Appdata\\|Import-Module \$Env:Appdata\\|Import-Module C:\\Users\\Public\\|ipmo "\$Env:Temp\\|ipmo '\$Env:Temp\\|ipmo \$Env:Temp\\|ipmo "\$Env:Appdata\\|ipmo '\$Env:Appdata\\|ipmo \$Env:Appdata\\|ipmo C:\\Users\\Public\\</field>
     <description>Sigma: Import PowerShell Modules From Suspicious Directories</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100304" level="13">
+  <rule id="100306" level="13">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">AdjustTokenPrivileges|IMAGE_NT_OPTIONAL_HDR64_MAGIC|Metasploit|Microsoft\.Win32\.UnsafeNativeMethods|Mimikatz|MiniDumpWriteDump|PAGE_EXECUTE_READ|ReadProcessMemory\.Invoke|SE_PRIVILEGE_ENABLED|SECURITY_DELEGATION|TOKEN_ADJUST_PRIVILEGES|TOKEN_ALL_ACCESS|TOKEN_ASSIGN_PRIMARY|TOKEN_DUPLICATE|TOKEN_ELEVATION|TOKEN_IMPERSONATE|TOKEN_INFORMATION_CLASS|TOKEN_PRIVILEGES|TOKEN_QUERY</field>
+    <field name="win.eventdata.scriptBlockText">AdjustTokenPrivileges|IMAGE_NT_OPTIONAL_HDR64_MAGIC|Metasploit|Microsoft.Win32.UnsafeNativeMethods|Mimikatz|MiniDumpWriteDump|PAGE_EXECUTE_READ|ReadProcessMemory.Invoke|SE_PRIVILEGE_ENABLED|SECURITY_DELEGATION|TOKEN_ADJUST_PRIVILEGES|TOKEN_ALL_ACCESS|TOKEN_ASSIGN_PRIMARY|TOKEN_DUPLICATE|TOKEN_ELEVATION|TOKEN_IMPERSONATE|TOKEN_INFORMATION_CLASS|TOKEN_PRIVILEGES|TOKEN_QUERY</field>
     <description>Sigma: Malicious PowerShell Keywords</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100305" level="8">
+  <rule id="100307" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">New-Object|-ComObject|MsXml2\.|XmlHttp</field>
+    <field name="win.eventdata.scriptBlockText">New-Object|-ComObject|MsXml2.|XmlHttp</field>
     <description>Sigma: Powershell MsXml COM Object</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100306" level="13">
+  <rule id="100308" level="13">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Add-ConstrainedDelegationBackdoor|Copy-VSS|Create-MultipleSessions|DataToEncode|DNS_TXT_Pwnage|Do-Exfiltration-Dns|Download_Execute|Download-Execute-PS|DownloadAndExtractFromRemoteRegistry|DumpCerts|DumpCreds|DumpHashes|Enable-DuplicateToken|Enable-Duplication|Execute-Command-MSSQL|Execute-DNSTXT-Code|Execute-OnTime|ExetoText|exfill|ExfilOption|FakeDC|FireBuster|FireListener|Get-Information |Get-PassHints|Get-Web-Credentials|Get-WebCredentials|Get-WLAN-Keys|HTTP-Backdoor|Invoke-AmsiBypass|Invoke-BruteForce|Invoke-CredentialsPhish|Invoke-Decode|Invoke-Encode|Invoke-Interceptor|Invoke-JSRatRegsvr|Invoke-JSRatRundll|Invoke-MimikatzWDigestDowngrade|Invoke-NetworkRelay|Invoke-PowerShellIcmp|Invoke-PowerShellUdp|Invoke-Prasadhak|Invoke-PSGcat|Invoke-PsGcatAgent|Invoke-SessionGopher|Invoke-SSIDExfil|LoggedKeys|Nishang|NotAllNameSpaces|Out-CHM|OUT-DNSTXT|Out-HTA|Out-RundllCommand|Out-SCF|Out-SCT|Out-Shortcut|Out-WebQuery|Out-Word|Parse_Keys|Password-List|Powerpreter|Remove-Persistence|Remove-PoshRat|Remove-Update|Run-EXEonRemote|Set-DCShadowPermissions|Set-RemotePSRemoting|Set-RemoteWMI|Shellcode32|Shellcode64|StringtoBase64|TexttoExe</field>
     <description>Sigma: Malicious Nishang PowerShell Commandlets</description>
@@ -416,7 +416,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100308" level="9">
+  <rule id="100310" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Export-PowerViewCSV|Find-DomainLocalGroupMember|Find-DomainObjectPropertyOutlier|Find-DomainProcess|Find-DomainShare|Find-DomainUserEvent|Find-DomainUserLocation|Find-ForeignGroup|Find-ForeignUser|Find-GPOComputerAdmin|Find-GPOLocation|Find-InterestingDomain|Find-InterestingFile|Find-LocalAdminAccess|Find-ManagedSecurityGroups|Get-CachedRDPConnection|Get-DFSshare|Get-DomainDFSShare|Get-DomainDNSRecord|Get-DomainDNSZone|Get-DomainFileServer|Get-DomainGPOComputerLocalGroupMapping|Get-DomainGPOLocalGroup|Get-DomainGPOUserLocalGroupMapping|Get-LastLoggedOn|Get-LoggedOnLocal|Get-NetFileServer|Get-NetForest|Get-NetGPOGroup|Get-NetProcess|Get-NetRDPSession|Get-RegistryMountedDrive|Get-RegLoggedOn|Get-WMIRegCachedRDPConnection|Get-WMIRegLastLoggedOn|Get-WMIRegMountedDrive|Get-WMIRegProxy|Invoke-ACLScanner|Invoke-CheckLocalAdminAccess|Invoke-EnumerateLocalAdmin|Invoke-EventHunter|Invoke-FileFinder|Invoke-Kerberoast|Invoke-MapDomainTrust|Invoke-ProcessHunter|Invoke-RevertToSelf|Invoke-ShareFinder|Invoke-UserHunter|Invoke-UserImpersonation|Remove-RemoteConnection|Request-SPNTicket|Resolve-IPAddress</field>
     <description>Sigma: PowerView PowerShell Cmdlets - ScriptBlock</description>
@@ -425,7 +425,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100309" level="9">
+  <rule id="100311" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">PSAsyncShell</field>
     <description>Sigma: PSAsyncShell - Asynchronous TCP Reverse Shell</description>
@@ -434,7 +434,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100310" level="9">
+  <rule id="100312" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">PS ATTACK!!!</field>
     <description>Sigma: PowerShell PSAttack</description>
@@ -443,7 +443,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100311" level="8">
+  <rule id="100313" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">New-PSSession|-ComputerName </field>
     <description>Sigma: PowerShell Remote Session Creation</description>
@@ -452,7 +452,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100317" level="8">
+  <rule id="100319" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Unrestricted|bypass</field>
     <description>Sigma: Change PowerShell Policies to an Insecure Level - PowerShell</description>
@@ -461,7 +461,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100318" level="9">
+  <rule id="100320" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Invoke-SMBAutoBrute|Invoke-GPOLinks|Invoke-Potato</field>
     <description>Sigma: Malicious ShellIntel PowerShell Commandlets</description>
@@ -470,16 +470,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100323" level="8">
+  <rule id="100325" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\.DownloadFile\(|\.DownloadFileAsync\(|\.DownloadString\(|\.DownloadStringAsync\(</field>
+    <field name="win.eventdata.scriptBlockText">.DownloadFile\(|.DownloadFileAsync\(|.DownloadString\(|.DownloadStringAsync\(</field>
     <description>Sigma: Suspicious PowerShell Download - Powershell Script</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100327" level="9">
+  <rule id="100329" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText"> -noni | -noninteractive </field>
     <description>Sigma: Suspicious PowerShell Invocations - Generic</description>
@@ -488,7 +488,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100328" level="9">
+  <rule id="100330" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">-nop| -w |hidden| -c |\[Convert\]::FromBase64String</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
@@ -497,7 +497,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100329" level="9">
+  <rule id="100331" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText"> -w |hidden|-ep|bypass|-Enc</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
@@ -506,7 +506,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100330" level="9">
+  <rule id="100332" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText"> -w |hidden|-noni|-nop| -c |iex|New-Object</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
@@ -515,52 +515,52 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100331" level="9">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">iex|New-Object|Net\.WebClient|\.Download</field>
-    <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
-    <mitre>
-      <id>T1059.001</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100332" level="9">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\software\microsoft\windows\currentversion\run|\software\wow6432node\microsoft\windows\currentversion\run|\software\microsoft\windows\currentversion\policies\explorer\run|reg|add</field>
-    <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
-    <mitre>
-      <id>T1059.001</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
   <rule id="100333" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">bypass|-noprofile|-windowstyle|hidden|new-object|system\.net\.webclient|\.download</field>
+    <field name="win.eventdata.scriptBlockText">iex|New-Object|Net.WebClient|.Download</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100335" level="8">
+  <rule id="100334" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">System\.Reflection\.Assembly\.Load\(\$|\[System\.Reflection\.Assembly\]::Load\(\$|\[Reflection\.Assembly\]::Load\(\$|System\.Reflection\.AssemblyName|Reflection\.Emit\.AssemblyBuilderAccess|Reflection\.Emit\.CustomAttributeBuilder|Runtime\.InteropServices\.UnmanagedType|Runtime\.InteropServices\.DllImportAttribute|SuspendThread|rundll32</field>
+    <field name="win.eventdata.scriptBlockText">\\software\\microsoft\\windows\\currentversion\\run|\\software\\wow6432node\\microsoft\\windows\\currentversion\\run|\\software\\microsoft\\windows\\currentversion\\policies\\explorer\\run|reg|add</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100335" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">bypass|-noprofile|-windowstyle|hidden|new-object|system.net.webclient|.download</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100337" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">System.Reflection.Assembly.Load\(\$|\[System.Reflection.Assembly\]::Load\(\$|\[Reflection.Assembly\]::Load\(\$|System.Reflection.AssemblyName|Reflection.Emit.AssemblyBuilderAccess|Reflection.Emit.CustomAttributeBuilder|Runtime.InteropServices.UnmanagedType|Runtime.InteropServices.DllImportAttribute|SuspendThread|rundll32</field>
     <description>Sigma: Potential Suspicious PowerShell Keywords</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100345" level="8">
+  <rule id="100347" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[System\.Net\.WebRequest\]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp\.WinHttpRequest</field>
+    <field name="win.eventdata.scriptBlockText">\[System.Net.WebRequest\]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
     <description>Sigma: Usage Of Web Request Commands And Cmdlets - ScriptBlock</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100348" level="9">
+  <rule id="100350" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">OpenProcessToken|DuplicateTokenEx|CloseHandle</field>
     <description>Sigma: Potential WinAPI Calls Via PowerShell Scripts</description>
@@ -570,7 +570,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100349" level="9">
+  <rule id="100351" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">VirtualAlloc|OpenProcess|WriteProcessMemory|CreateRemoteThread</field>
     <description>Sigma: Potential WinAPI Calls Via PowerShell Scripts</description>
@@ -580,7 +580,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100350" level="9">
+  <rule id="100352" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">WriteProcessMemory|VirtualAlloc|ReadProcessMemory|VirtualFree</field>
     <description>Sigma: Potential WinAPI Calls Via PowerShell Scripts</description>
@@ -590,7 +590,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100351" level="9">
+  <rule id="100353" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">OpenProcessToken|LookupPrivilegeValue|AdjustTokenPrivileges</field>
     <description>Sigma: Potential WinAPI Calls Via PowerShell Scripts</description>
@@ -600,35 +600,35 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100357" level="8">
+  <rule id="100359" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">New-Object|System\.Xml\.XmlDocument|\.Load</field>
+    <field name="win.eventdata.scriptBlockText">New-Object|System.Xml.XmlDocument|.Load</field>
     <description>Sigma: Powershell XML Execute Command</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100409" level="9">
+  <rule id="100411" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe |\.dll |\.bat |\.vbs |\.ps1 |&amp; start /b |\DavWWWRoot\</field>
-    <field name="win.eventdata.image">\cmd\.exe</field>
+    <field name="win.eventdata.commandLine">.exe |.dll |.bat |.vbs |.ps1 |&amp; start /b |\\DavWWWRoot\\</field>
+    <field name="win.eventdata.image">\\cmd.exe</field>
     <description>Sigma: Suspicious File Execution From Internet Hosted WebDav Share</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100410" level="9">
+  <rule id="100412" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">cmd\.exe/c|\cmd/c|"cmd/c|cmd\.exe/k|\cmd/k|"cmd/k|cmd\.exe/r|\cmd/r|"cmd/r</field>
+    <field name="win.eventdata.commandLine">cmd.exe/c|\\cmd/c|"cmd/c|cmd.exe/k|\\cmd/k|"cmd/k|cmd.exe/r|\\cmd/r|"cmd/r</field>
     <description>Sigma: Cmd.EXE Missing Space Characters Execution Anomaly</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100411" level="9">
+  <rule id="100413" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/cwhoami|/cpowershell|/cschtasks|/cbitsadmin|/ccertutil|/kwhoami|/kpowershell|/kschtasks|/kbitsadmin|/kcertutil</field>
     <description>Sigma: Cmd.EXE Missing Space Characters Execution Anomaly</description>
@@ -637,19 +637,19 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100412" level="9">
+  <rule id="100414" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">cmd\.exe /c|cmd /c|cmd\.exe /k|cmd /k|cmd\.exe /r|cmd /r</field>
+    <field name="win.eventdata.commandLine">cmd.exe /c|cmd /c|cmd.exe /k|cmd /k|cmd.exe /r|cmd /r</field>
     <description>Sigma: Cmd.EXE Missing Space Characters Execution Anomaly</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100423" level="8">
+  <rule id="100425" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--headless|powershell</field>
-    <field name="win.eventdata.image">\conhost\.exe$</field>
+    <field name="win.eventdata.image">\\conhost.exe$</field>
     <description>Sigma: Powershell Executed From Headless ConHost Process</description>
     <mitre>
       <id>T1059.001</id>
@@ -658,7 +658,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100489" level="9">
+  <rule id="100491" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-Command|-EncodedCommand|-Nop|-Window|Hidden</field>
     <description>Sigma: HackTool - Covenant PowerShell Launcher</description>
@@ -668,9 +668,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100490" level="9">
+  <rule id="100492" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">sv o \(New-Object IO\.MemorySteam\);sv d |mshta file\.hta|GruntHTTP|-EncodedCommand cwB2ACAAbwAgA</field>
+    <field name="win.eventdata.commandLine">sv o \(New-Object IO.MemorySteam\);sv d |mshta file.hta|GruntHTTP|-EncodedCommand cwB2ACAAbwAgA</field>
     <description>Sigma: HackTool - Covenant PowerShell Launcher</description>
     <mitre>
       <id>T1059.001</id>
@@ -678,10 +678,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100498" level="9">
+  <rule id="100500" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">join.*split|\( \$ShellId\[1\]\+\$ShellId\[13\]\+'x'\)|\( \$PSHome\[.*\]\+\$PSHOME\[.*\]\+|\( \$env:Public\[13\]\+\$env:Public\[5\]\+'x'\)|\( \$env:ComSpec\[4,.*,25\]-Join''\)|\[1,3\]\+'x'-Join''\)</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine">join\.*split|\( \$ShellId\[1\]\+\$ShellId\[13\]\+'x'\)|\( \$PSHome\[\.*\]\+\$PSHOME\[\.*\]\+|\( \$env:Public\[13\]\+\$env:Public\[5\]\+'x'\)|\( \$env:ComSpec\[4,\.*,25\]-Join''\)|\[1,3\]\+'x'-Join''\)</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: HackTool - CrackMapExec PowerShell Obfuscation</description>
     <mitre>
       <id>T1059.001</id>
@@ -689,7 +689,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100504" level="12">
+  <rule id="100506" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -NoP -sta -NonI -W Hidden -Enc | -noP -sta -w 1 -enc | -NoP -NonI -W Hidden -enc | -noP -sta -w 1 -enc| -enc  SQB| -nop -exec bypass -EncodedCommand </field>
     <description>Sigma: HackTool - Empire PowerShell Launch Parameters</description>
@@ -698,10 +698,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100582" level="8">
+  <rule id="100584" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentCommandLine">\WindowsPowerShell\Modules\Pester\</field>
-    <field name="win.eventdata.parentImage">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.parentCommandLine">\\WindowsPowerShell\\Modules\\Pester\\</field>
+    <field name="win.eventdata.parentImage">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Execute Code with Pester.bat as Parent</description>
     <mitre>
       <id>T1059.001</id>
@@ -709,9 +709,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100583" level="8">
+  <rule id="100585" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">help|\.</field>
+    <field name="win.eventdata.commandLine">help|\\\.</field>
     <description>Sigma: Execute Code with Pester.bat</description>
     <mitre>
       <id>T1059.001</id>
@@ -719,10 +719,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100634" level="8">
+  <rule id="100636" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\sqlps\.exe$</field>
-    <field name="win.eventdata.image">\sqlps\.exe$</field>
+    <field name="win.eventdata.parentImage">\\sqlps.exe$</field>
+    <field name="win.eventdata.image">\\sqlps.exe$</field>
     <description>Sigma: Detection of PowerShell Execution via Sqlps.exe</description>
     <mitre>
       <id>T1059.001</id>
@@ -730,9 +730,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100635" level="8">
+  <rule id="100637" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\sqltoolsps\.exe$</field>
+    <field name="win.eventdata.image">\\sqltoolsps.exe$</field>
     <description>Sigma: SQL Client Tools PowerShell Session Detection</description>
     <mitre>
       <id>T1059.001</id>
@@ -740,45 +740,45 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100680" level="9">
+  <rule id="100682" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Suspicious Encoded PowerShell Command Line</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100681" level="9">
+  <rule id="100683" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -e | -en | -enc | -enco</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Suspicious PowerShell Encoded Command Patterns</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100685" level="9">
+  <rule id="100687" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> hidden </field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Malicious Base64 Encoded PowerShell Keywords in Command Lines</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100686" level="9">
+  <rule id="100688" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">IEX \(\[|iex \(\[|iex \(New|IEX \(New|IEX\(\[|iex\(\[|iex\(New|IEX\(New|IEX\(\('|iex\(\('</field>
+    <field name="win.eventdata.commandLine">SUVYIChb|lFWCAoWw|JRVggKFs|aWV4IChb|lleCAoWw|pZXggKFs|aWV4IChOZXc|lleCAoTmV3|pZXggKE5ldw|SUVYIChOZXc|lFWCAoTmV3|JRVggKE5ldw|SUVYKFs|lFWChb|JRVgoWw|aWV4KFs|lleChb|pZXgoWw|aWV4KE5ldw|lleChOZXc|pZXgoTmV3|SUVYKE5ldw|lFWChOZXc|JRVgoTmV3|SUVYKCgn|lFWCgoJw|JRVgoKCc|aWV4KCgn|lleCgoJw|pZXgoKCc</field>
     <description>Sigma: PowerShell Base64 Encoded IEX Cmdlet</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100687" level="9">
+  <rule id="100689" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">SQBFAFgAIAAoAFsA|kARQBYACAAKABbA|JAEUAWAAgACgAWw|aQBlAHgAIAAoAFsA|kAZQB4ACAAKABbA|pAGUAeAAgACgAWw|aQBlAHgAIAAoAE4AZQB3A|kAZQB4ACAAKABOAGUAdw|pAGUAeAAgACgATgBlAHcA|SQBFAFgAIAAoAE4AZQB3A|kARQBYACAAKABOAGUAdw|JAEUAWAAgACgATgBlAHcA</field>
     <description>Sigma: PowerShell Base64 Encoded IEX Cmdlet</description>
@@ -787,10 +787,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100688" level="9">
+  <rule id="100690" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">SQBuAHYAbwBrAGUALQ|kAbgB2AG8AawBlAC0A|JAG4AdgBvAGsAZQAtA|SW52b2tlL|ludm9rZS|JbnZva2Ut</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: PowerShell Base64 Encoded Invoke Keyword</description>
     <mitre>
       <id>T1059.001</id>
@@ -798,7 +798,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100691" level="9">
+  <rule id="100693" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">WwBSAGUAZgBsAGUAYwB0AGkAbwBuAC4AQQBzAHMAZQBtAGIAbAB5AF0AOgA6AEwAbwBhAGQAKA|sAUgBlAGYAbABlAGMAdABpAG8AbgAuAEEAcwBzAGUAbQBiAGwAeQBdADoAOgBMAG8AYQBkACgA|bAFIAZQBmAGwAZQBjAHQAaQBvAG4ALgBBAHMAcwBlAG0AYgBsAHkAXQA6ADoATABvAGEAZAAoA|AFsAcgBlAGYAbABlAGMAdABpAG8AbgAuAGEAcwBzAGUAbQBiAGwAeQBdADoAOgAoACIATABvAGEAZAAiAC|BbAHIAZQBmAGwAZQBjAHQAaQBvAG4ALgBhAHMAcwBlAG0AYgBsAHkAXQA6ADoAKAAiAEwAbwBhAGQAIgAp|AWwByAGUAZgBsAGUAYwB0AGkAbwBuAC4AYQBzAHMAZQBtAGIAbAB5AF0AOgA6ACgAIgBMAG8AYQBkACIAK|WwBSAGUAZgBsAGUAYwB0AGkAbwBuAC4AQQBzAHMAZQBtAGIAbAB5AF0AOgA6ACgAIgBMAG8AYQBkACIAKQ|sAUgBlAGYAbABlAGMAdABpAG8AbgAuAEEAcwBzAGUAbQBiAGwAeQBdADoAOgAoACIATABvAGEAZAAiACkA|bAFIAZQBmAGwAZQBjAHQAaQBvAG4ALgBBAHMAcwBlAG0AYgBsAHkAXQA6ADoAKAAiAEwAbwBhAGQAIgApA|WwByAGUAZgBsAGUAYwB0AGkAbwBuAC4AYQBzAHMAZQBtAGIAbAB5AF0AOgA6AEwAbwBhAGQAKA|sAcgBlAGYAbABlAGMAdABpAG8AbgAuAGEAcwBzAGUAbQBiAGwAeQBdADoAOgBMAG8AYQBkACgA|bAHIAZQBmAGwAZQBjAHQAaQBvAG4ALgBhAHMAcwBlAG0AYgBsAHkAXQA6ADoATABvAGEAZAAoA</field>
     <description>Sigma: PowerShell Base64 Encoded Reflective Assembly Load</description>
@@ -809,7 +809,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100692" level="9">
+  <rule id="100694" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">OgA6ACgAIgBMACIAKwAiAG8AYQBkACIAKQ|oAOgAoACIATAAiACsAIgBvAGEAZAAiACkA|6ADoAKAAiAEwAIgArACIAbwBhAGQAIgApA|OgA6ACgAIgBMAG8AIgArACIAYQBkACIAKQ|oAOgAoACIATABvACIAKwAiAGEAZAAiACkA|6ADoAKAAiAEwAbwAiACsAIgBhAGQAIgApA|OgA6ACgAIgBMAG8AYQAiACsAIgBkACIAKQ|oAOgAoACIATABvAGEAIgArACIAZAAiACkA|6ADoAKAAiAEwAbwBhACIAKwAiAGQAIgApA|OgA6ACgAJwBMACcAKwAnAG8AYQBkACcAKQ|oAOgAoACcATAAnACsAJwBvAGEAZAAnACkA|6ADoAKAAnAEwAJwArACcAbwBhAGQAJwApA|OgA6ACgAJwBMAG8AJwArACcAYQBkACcAKQ|oAOgAoACcATABvACcAKwAnAGEAZAAnACkA|6ADoAKAAnAEwAbwAnACsAJwBhAGQAJwApA|OgA6ACgAJwBMAG8AYQAnACsAJwBkACcAKQ|oAOgAoACcATABvAGEAJwArACcAZAAnACkA|6ADoAKAAnAEwAbwBhACcAKwAnAGQAJwApA</field>
     <description>Sigma: Suspicious Encoded And Obfuscated Reflection Assembly Load Function Call</description>
@@ -819,9 +819,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100693" level="9">
+  <rule id="100695" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <field name="win.eventdata.commandLine">VwBpAG4AMwAyAF8ATABvAGcAZwBlAGQATwBuAFUAcwBlAHIA|cAaQBuADMAMgBfAEwAbwBnAGcAZQBkAE8AbgBVAHMAZQByA|XAGkAbgAzADIAXwBMAG8AZwBnAGUAZABPAG4AVQBzAGUAcg|V2luMzJfTG9nZ2VkT25Vc2Vy|dpbjMyX0xvZ2dlZE9uVXNlc|XaW4zMl9Mb2dnZWRPblVzZX</field>
     <description>Sigma: PowerShell Base64 Encoded WMI Classes</description>
     <mitre>
@@ -830,10 +830,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100701" level="8">
+  <rule id="100703" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">http|\\\\|InstallProduct\(</field>
-    <field name="win.eventdata.image">\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine">http|\\\\\\\\|InstallProduct\(</field>
+    <field name="win.eventdata.image">\\powershell_ise.exe$|\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: PowerShell MSI Install via WindowsInstaller COM From Remote Location</description>
     <mitre>
       <id>T1059.001</id>
@@ -842,9 +842,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100710" level="8">
+  <rule id="100712" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$</field>
     <field name="win.eventdata.commandLine"> -version 2 | -versio 2 | -versi 2 | -vers 2 | -ver 2 | -ve 2 | -v 2 </field>
     <description>Sigma: Potential PowerShell Downgrade Attack</description>
     <mitre>
@@ -852,10 +852,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100711" level="9">
+  <rule id="100713" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$</field>
-    <field name="win.eventdata.commandLine">http://127\.0\.0\.1|%\{\(IRM \$_\)\}|Invoke</field>
+    <field name="win.eventdata.image">\\powershell.exe$</field>
+    <field name="win.eventdata.commandLine">http://127.0.0.1|%\{\(IRM \$_\)\}|Invoke</field>
     <description>Sigma: Obfuscated PowerShell OneLiner Execution</description>
     <mitre>
       <id>T1059.001</id>
@@ -863,17 +863,17 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100713" level="8">
+  <rule id="100715" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">string\(|file\(|net\.webclient\)\.|download</field>
-    <field name="win.eventdata.image">\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine">string\(|file\(|net.webclient\).|download</field>
+    <field name="win.eventdata.image">\\powershell_ise.exe$|\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: PowerShell Download Pattern</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100715" level="9">
+  <rule id="100717" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Add-ADDBSidHistory|Add-ADNgcKey|Add-ADReplNgcKey|ConvertFrom-ADManagedPasswordBlob|ConvertFrom-GPPrefPassword|ConvertFrom-ManagedPasswordBlob|ConvertFrom-UnattendXmlPassword|ConvertFrom-UnicodePassword|ConvertTo-AADHash|ConvertTo-GPPrefPassword|ConvertTo-KerberosKey|ConvertTo-LMHash|ConvertTo-MsoPasswordHash|ConvertTo-NTHash|ConvertTo-OrgIdHash|ConvertTo-UnicodePassword|Disable-ADDBAccount|Enable-ADDBAccount|Get-ADDBAccount|Get-ADDBBackupKey|Get-ADDBDomainController|Get-ADDBGroupManagedServiceAccount|Get-ADDBKdsRootKey|Get-ADDBSchemaAttribute|Get-ADDBServiceAccount|Get-ADDefaultPasswordPolicy|Get-ADKeyCredential|Get-ADPasswordPolicy|Get-ADReplAccount|Get-ADReplBackupKey|Get-ADReplicationAccount|Get-ADSIAccount|Get-AzureADUserEx|Get-BootKey|Get-KeyCredential|Get-LsaBackupKey|Get-LsaPolicy|Get-SamPasswordPolicy|Get-SysKey|Get-SystemKey|New-ADDBRestoreFromMediaScript|New-ADKeyCredential|New-ADNgcKey|New-NTHashSet|Remove-ADDBObject|Save-DPAPIBlob|Set-ADAccountPasswordHash|Set-ADDBAccountPassword|Set-ADDBBootKey|Set-ADDBDomainController|Set-ADDBPrimaryGroup|Set-ADDBSysKey|Set-AzureADUserEx|Set-LsaPolicy|Set-SamAccountPasswordHash|Set-WinUserPasswordHash|Test-ADDBPasswordQuality|Test-ADPasswordQuality|Test-ADReplPasswordQuality|Test-PasswordQuality|Unlock-ADDBAccount|Write-ADNgcKey|Write-ADReplNgcKey</field>
     <description>Sigma: DSInternals Suspicious PowerShell Cmdlets</description>
@@ -882,9 +882,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100717" level="8">
+  <rule id="100719" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <field name="win.eventdata.commandLine"> -e | -en | -enc | -enco| -ec </field>
     <description>Sigma: Suspicious Execution of Powershell with Base64</description>
     <mitre>
@@ -892,7 +892,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100718" level="8">
+  <rule id="100720" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">cat |get-content |type </field>
     <description>Sigma: Powershell Inline Execution From A File</description>
@@ -901,26 +901,26 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100720" level="9">
+  <rule id="100722" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.commandLine">::FromBase64String|\.GetString\(\[System\.Convert\]::</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.commandLine">::FromBase64String|.GetString\(\[System.Convert\]::</field>
     <description>Sigma: Suspicious PowerShell IEX Execution Patterns</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100722" level="8">
+  <rule id="100724" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Import-Module "\$Env:Temp\|Import-Module '\$Env:Temp\|Import-Module \$Env:Temp\|Import-Module "\$Env:Appdata\|Import-Module '\$Env:Appdata\|Import-Module \$Env:Appdata\|Import-Module C:\Users\Public\|ipmo "\$Env:Temp\|ipmo '\$Env:Temp\|ipmo \$Env:Temp\|ipmo "\$Env:Appdata\|ipmo '\$Env:Appdata\|ipmo \$Env:Appdata\|ipmo C:\Users\Public\</field>
+    <field name="win.eventdata.commandLine">Import-Module "\$Env:Temp\\|Import-Module '\$Env:Temp\\|Import-Module \$Env:Temp\\|Import-Module "\$Env:Appdata\\|Import-Module '\$Env:Appdata\\|Import-Module \$Env:Appdata\\|Import-Module C:\\Users\\Public\\|ipmo "\$Env:Temp\\|ipmo '\$Env:Temp\\|ipmo \$Env:Temp\\|ipmo "\$Env:Appdata\\|ipmo '\$Env:Appdata\\|ipmo \$Env:Appdata\\|ipmo C:\\Users\\Public\\</field>
     <description>Sigma: Import PowerShell Modules From Suspicious Directories - ProcCreation</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100730" level="9">
+  <rule id="100732" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\[char\]0x|\(WCHAR\)0x</field>
     <description>Sigma: Potential PowerShell Obfuscation Via WCHAR/CHAR</description>
@@ -930,49 +930,49 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100731" level="9">
+  <rule id="100733" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.commandLine">-f C:\Users\Public|-f "C:\Users\Public|-f %Public%|-fi C:\Users\Public|-fi "C:\Users\Public|-fi %Public%|-fil C:\Users\Public|-fil "C:\Users\Public|-fil %Public%|-file C:\Users\Public|-file "C:\Users\Public|-file %Public%</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.commandLine">-f C:\\Users\\Public|-f "C:\\Users\\Public|-f %Public%|-fi C:\\Users\\Public|-fi "C:\\Users\\Public|-fi %Public%|-fil C:\\Users\\Public|-fil "C:\\Users\\Public|-fil %Public%|-file C:\\Users\\Public|-file "C:\\Users\\Public|-file %Public%</field>
     <description>Sigma: Execution of Powershell Script in Public Folder</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100734" level="9">
+  <rule id="100736" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> Net\.Sockets\.TCPClient|\.GetStream\(|\.Write\(</field>
-    <field name="win.eventdata.originalFileName">PowerShell\.EXE|pwsh\.dll</field>
+    <field name="win.eventdata.commandLine"> Net.Sockets.TCPClient|.GetStream\(|.Write\(</field>
+    <field name="win.eventdata.originalFileName">PowerShell.EXE|pwsh.dll</field>
     <description>Sigma: Potential Powershell ReverseShell Connection</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100737" level="8">
+  <rule id="100739" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\wscript\.exe$|\cscript\.exe$</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.parentImage">\\wscript.exe$|\\cscript.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Suspicious PowerShell Invocation From Script Engines</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100738" level="8">
+  <rule id="100740" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.commandLine">\Windows\Temp|\Temporary Internet|\AppData\Local\Temp|\AppData\Roaming\Temp|%TEMP%|%TMP%|%LocalAppData%\Temp</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.commandLine">\\Windows\\Temp|\\Temporary Internet|\\AppData\\Local\\Temp|\\AppData\\Roaming\\Temp|%TEMP%|%TMP%|%LocalAppData%\\Temp</field>
     <description>Sigma: Potentially Suspicious Powershell Script Execution From Temp Folder</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100741" level="8">
+  <rule id="100743" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">powershell_ise\.exe|PowerShell\.EXE|pwsh\.dll</field>
+    <field name="win.eventdata.originalFileName">powershell_ise.exe|PowerShell.EXE|pwsh.dll</field>
     <field name="win.eventdata.commandLine">-executionpolicy | -ep | -exec </field>
     <description>Sigma: Change PowerShell Policies to an Insecure Level</description>
     <mitre>
@@ -980,10 +980,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100743" level="9">
+  <rule id="100745" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Microsoft\.Exchange\.Powershell\.Snapin|Microsoft\.Exchange\.Management\.PowerShell\.SnapIn</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine">Microsoft.Exchange.Powershell.Snapin|Microsoft.Exchange.Management.PowerShell.SnapIn</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Exchange PowerShell Snap-Ins Usage</description>
     <mitre>
       <id>T1059.001</id>
@@ -991,18 +991,18 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100744" level="9">
+  <rule id="100746" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">IEX \(\(New-Object Net\.WebClient\)\.DownloadString|IEX \(New-Object Net\.WebClient\)\.DownloadString|IEX\(\(New-Object Net\.WebClient\)\.DownloadString|IEX\(New-Object Net\.WebClient\)\.DownloadString| -command \(New-Object System\.Net\.WebClient\)\.DownloadFile\(| -c \(New-Object System\.Net\.WebClient\)\.DownloadFile\(</field>
+    <field name="win.eventdata.commandLine">IEX \(\(New-Object Net.WebClient\).DownloadString|IEX \(New-Object Net.WebClient\).DownloadString|IEX\(\(New-Object Net.WebClient\).DownloadString|IEX\(New-Object Net.WebClient\).DownloadString| -command \(New-Object System.Net.WebClient\).DownloadFile\(| -c \(New-Object System.Net.WebClient\).DownloadFile\(</field>
     <description>Sigma: Suspicious PowerShell Download and Execute Pattern</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100745" level="9">
+  <rule id="100747" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <field name="win.eventdata.commandLine"> -windowstyle h | -windowstyl h| -windowsty h| -windowst h| -windows h| -windo h| -wind h| -win h| -wi h| -win h | -win hi | -win hid | -win hidd | -win hidde | -NoPr | -NoPro | -NoProf | -NoProfi | -NoProfil | -nonin | -nonint | -noninte | -noninter | -nonintera | -noninterac | -noninteract | -noninteracti | -noninteractiv | -ec | -encodedComman | -encodedComma | -encodedComm | -encodedCom | -encodedCo | -encodedC | -encoded | -encode | -encod | -enco | -en | -executionpolic | -executionpoli | -executionpol | -executionpo | -executionp | -execution bypass| -executio bypass| -executi bypass| -execut bypass| -execu bypass| -exec bypass| -exe bypass| -ex bypass| -ep bypass| /windowstyle h | /windowstyl h| /windowsty h| /windowst h| /windows h| /windo h| /wind h| /win h| /wi h| /win h | /win hi | /win hid | /win hidd | /win hidde | /NoPr | /NoPro | /NoProf | /NoProfi | /NoProfil | /nonin | /nonint | /noninte | /noninter | /nonintera | /noninterac | /noninteract | /noninteracti | /noninteractiv | /ec | /encodedComman | /encodedComma | /encodedComm | /encodedCom | /encodedCo | /encodedC | /encoded | /encode | /encod | /enco | /en | /executionpolic | /executionpoli | /executionpol | /executionpo | /executionp | /execution bypass| /executio bypass| /executi bypass| /execut bypass| /execu bypass| /exec bypass| /exe bypass| /ex bypass| /ep bypass</field>
     <description>Sigma: Suspicious PowerShell Parameter Substring</description>
     <mitre>
@@ -1010,39 +1010,39 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100746" level="9">
+  <rule id="100748" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">tomcat</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Suspicious PowerShell Parent Process</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100747" level="8">
+  <rule id="100749" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Local\|Roaming\|\AppData\</field>
+    <field name="win.eventdata.commandLine">Local\\|Roaming\\|\\AppData\\</field>
     <description>Sigma: PowerShell Script Run in AppData</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100750" level="9">
+  <rule id="100752" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">TgBlAFQALgB3AEUAQg|4AZQBUAC4AdwBFAEIA|OAGUAVAAuAHcARQBCA|bgBFAHQALgB3AGUAYg|4ARQB0AC4AdwBlAGIA|uAEUAdAAuAHcAZQBiA|TgBFAHQALgB3AGUAYg|OAEUAdAAuAHcAZQBiA|bgBlAFQALgB3AGUAYg|4AZQBUAC4AdwBlAGIA|uAGUAVAAuAHcAZQBiA|TgBlAFQALgB3AGUAYg|OAGUAVAAuAHcAZQBiA|bgBFAFQALgB3AGUAYg|4ARQBUAC4AdwBlAGIA|uAEUAVAAuAHcAZQBiA|bgBlAHQALgBXAGUAYg|4AZQB0AC4AVwBlAGIA|uAGUAdAAuAFcAZQBiA|bgBFAHQALgBXAGUAYg|4ARQB0AC4AVwBlAGIA|uAEUAdAAuAFcAZQBiA|TgBFAHQALgBXAGUAYg|OAEUAdAAuAFcAZQBiA|bgBlAFQALgBXAGUAYg|4AZQBUAC4AVwBlAGIA|uAGUAVAAuAFcAZQBiA|TgBlAFQALgBXAGUAYg|OAGUAVAAuAFcAZQBiA|bgBFAFQALgBXAGUAYg|4ARQBUAC4AVwBlAGIA|uAEUAVAAuAFcAZQBiA|bgBlAHQALgB3AEUAYg|4AZQB0AC4AdwBFAGIA|uAGUAdAAuAHcARQBiA|TgBlAHQALgB3AEUAYg|OAGUAdAAuAHcARQBiA|bgBFAHQALgB3AEUAYg|4ARQB0AC4AdwBFAGIA|uAEUAdAAuAHcARQBiA|TgBFAHQALgB3AEUAYg|OAEUAdAAuAHcARQBiA|bgBlAFQALgB3AEUAYg|4AZQBUAC4AdwBFAGIA|uAGUAVAAuAHcARQBiA|TgBlAFQALgB3AEUAYg|OAGUAVAAuAHcARQBiA|bgBFAFQALgB3AEUAYg|4ARQBUAC4AdwBFAGIA|uAEUAVAAuAHcARQBiA|TgBFAFQALgB3AEUAYg|OAEUAVAAuAHcARQBiA|bgBlAHQALgBXAEUAYg|4AZQB0AC4AVwBFAGIA|uAGUAdAAuAFcARQBiA|TgBlAHQALgBXAEUAYg|OAGUAdAAuAFcARQBiA|bgBFAHQALgBXAEUAYg|4ARQB0AC4AVwBFAGIA|uAEUAdAAuAFcARQBiA|TgBFAHQALgBXAEUAYg|OAEUAdAAuAFcARQBiA|bgBlAFQALgBXAEUAYg|4AZQBUAC4AVwBFAGIA|uAGUAVAAuAFcARQBiA|TgBlAFQALgBXAEUAYg|OAGUAVAAuAFcARQBiA|bgBFAFQALgBXAEUAYg|4ARQBUAC4AVwBFAGIA|uAEUAVAAuAFcARQBiA|TgBFAFQALgBXAEUAYg|OAEUAVAAuAFcARQBiA|bgBlAHQALgB3AGUAQg|4AZQB0AC4AdwBlAEIA|uAGUAdAAuAHcAZQBCA|TgBlAHQALgB3AGUAQg|OAGUAdAAuAHcAZQBCA|bgBFAHQALgB3AGUAQg|4ARQB0AC4AdwBlAEIA|uAEUAdAAuAHcAZQBCA|TgBFAHQALgB3AGUAQg|OAEUAdAAuAHcAZQBCA|bgBlAFQALgB3AGUAQg|4AZQBUAC4AdwBlAEIA|uAGUAVAAuAHcAZQBCA|TgBlAFQALgB3AGUAQg|OAGUAVAAuAHcAZQBCA|bgBFAFQALgB3AGUAQg|4ARQBUAC4AdwBlAEIA|uAEUAVAAuAHcAZQBCA|TgBFAFQALgB3AGUAQg|OAEUAVAAuAHcAZQBCA|bgBlAHQALgBXAGUAQg|4AZQB0AC4AVwBlAEIA|uAGUAdAAuAFcAZQBCA|TgBlAHQALgBXAGUAQg|OAGUAdAAuAFcAZQBCA|bgBFAHQALgBXAGUAQg|4ARQB0AC4AVwBlAEIA|uAEUAdAAuAFcAZQBCA|TgBFAHQALgBXAGUAQg|OAEUAdAAuAFcAZQBCA|bgBlAFQALgBXAGUAQg|4AZQBUAC4AVwBlAEIA|uAGUAVAAuAFcAZQBCA|TgBlAFQALgBXAGUAQg|OAGUAVAAuAFcAZQBCA|bgBFAFQALgBXAGUAQg|4ARQBUAC4AVwBlAEIA|uAEUAVAAuAFcAZQBCA|TgBFAFQALgBXAGUAQg|OAEUAVAAuAFcAZQBCA|bgBlAHQALgB3AEUAQg|4AZQB0AC4AdwBFAEIA|uAGUAdAAuAHcARQBCA|TgBlAHQALgB3AEUAQg|OAGUAdAAuAHcARQBCA|bgBFAHQALgB3AEUAQg|4ARQB0AC4AdwBFAEIA|uAEUAdAAuAHcARQBCA|TgBFAHQALgB3AEUAQg|OAEUAdAAuAHcARQBCA|bgBlAFQALgB3AEUAQg|uAGUAVAAuAHcARQBCA|bgBFAFQALgB3AEUAQg|4ARQBUAC4AdwBFAEIA|uAEUAVAAuAHcARQBCA|TgBFAFQALgB3AEUAQg|OAEUAVAAuAHcARQBCA|TgBlAHQALgBXAEUAQg|4AZQB0AC4AVwBFAEIA|OAGUAdAAuAFcARQBCA|bgBFAHQALgBXAEUAQg|4ARQB0AC4AVwBFAEIA|uAEUAdAAuAFcARQBCA|TgBFAHQALgBXAEUAQg|OAEUAdAAuAFcARQBCA|bgBlAFQALgBXAEUAQg|4AZQBUAC4AVwBFAEIA|uAGUAVAAuAFcARQBCA|TgBlAFQALgBXAEUAQg|OAGUAVAAuAFcARQBCA|bgBFAFQALgBXAEUAQg|4ARQBUAC4AVwBFAEIA|uAEUAVAAuAFcARQBCA</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Net WebClient Casing Anomalies</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100752" level="8">
+  <rule id="100754" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">bxor</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Suspicious XOR Encoded PowerShell Command</description>
     <mitre>
       <id>T1059.001</id>
@@ -1051,7 +1051,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100925" level="9">
+  <rule id="100927" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">net\s+view|sc\s+query</field>
     <description>Sigma: Potential Data Exfiltration Activity Via CommandLine Tools</description>
@@ -1060,31 +1060,31 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100935" level="8">
+  <rule id="100937" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">C:\Windows\explorer\.exe</field>
-    <field name="win.eventdata.image">C:\Windows\System32\cmd\.exe</field>
-    <field name="win.eventdata.commandLine">powershell|\.lnk</field>
+    <field name="win.eventdata.parentImage">C:\\Windows\\explorer.exe</field>
+    <field name="win.eventdata.image">C:\\Windows\\System32\\cmd.exe</field>
+    <field name="win.eventdata.commandLine">powershell|.lnk</field>
     <description>Sigma: Hidden Powershell in Link File Pattern</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100983" level="8">
+  <rule id="100985" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\[System\.Net\.WebRequest\]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp\.WinHttpRequest</field>
+    <field name="win.eventdata.commandLine">\[System.Net.WebRequest\]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
     <description>Sigma: Usage Of Web Request Commands And Cmdlets</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101025" level="8">
+  <rule id="101027" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\explorer\.exe$</field>
-    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\mshta\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$</field>
-    <field name="win.eventdata.commandLine">\DavWWWRoot\</field>
+    <field name="win.eventdata.parentImage">\\explorer.exe$</field>
+    <field name="win.eventdata.image">\\cmd.exe$|\\cscript.exe$|\\mshta.exe$|\\powershell.exe$|\\pwsh.exe$|\\wscript.exe$</field>
+    <field name="win.eventdata.commandLine">\\DavWWWRoot\\</field>
     <description>Sigma: Potentially Suspicious WebDAV LNK Execution</description>
     <mitre>
       <id>T1059.001</id>
@@ -1092,9 +1092,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101039" level="8">
+  <rule id="101041" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\wsmprovhost\.exe$</field>
+    <field name="win.eventdata.image">\\wsmprovhost.exe$</field>
     <description>Sigma: Remote PowerShell Session Host Process (WinRM)</description>
     <mitre>
       <id>T1059.001</id>
@@ -1102,9 +1102,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101040" level="8">
+  <rule id="101042" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\wsmprovhost\.exe$</field>
+    <field name="win.eventdata.parentImage">\\wsmprovhost.exe$</field>
     <description>Sigma: Remote PowerShell Session Host Process (WinRM)</description>
     <mitre>
       <id>T1059.001</id>
@@ -1112,27 +1112,18 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101141" level="9">
+  <rule id="101143" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Microsoft\Windows\CurrentVersion\Explorer\RunMRU</field>
+    <field name="win.eventdata.targetObject">\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RunMRU</field>
     <description>Sigma: Potentially Suspicious Command Executed Via Run Dialog Box - Registry</description>
     <mitre>
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104664" level="10">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Add-PswaAuthorizationRule|-UserName .*|-ComputerName .*</field>
-    <description>Sigma: PowerShell Web Access Installation - PsScript</description>
-    <mitre>
-      <id>T1059.001</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
   <rule id="104665" level="10">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Install-PswaWebApplication</field>
+    <field name="win.eventdata.scriptBlockText">Add-PswaAuthorizationRule|-UserName \.*|-ComputerName \.*</field>
     <description>Sigma: PowerShell Web Access Installation - PsScript</description>
     <mitre>
       <id>T1059.001</id>
@@ -1141,6 +1132,15 @@
   </rule>
   <rule id="104666" level="10">
     <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Install-PswaWebApplication</field>
+    <description>Sigma: PowerShell Web Access Installation - PsScript</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104667" level="10">
+    <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Install-WindowsFeature WindowsPowerShellWebAccess</field>
     <description>Sigma: PowerShell Web Access Installation - PsScript</description>
     <mitre>
@@ -1148,7 +1148,7 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="108623" level="12">
+  <rule id="108622" level="12">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">PromptForCredential</field>
     <description>Sigma: PowerShell Credential Prompt</description>
@@ -1159,7 +1159,7 @@
   </rule>
   <rule id="110116" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Invoke-RestMethod |Invoke-WebRequest |IRM |IWR |http|OutFile|\.dll</field>
+    <field name="win.eventdata.commandLine">Invoke-RestMethod |Invoke-WebRequest |IRM |IWR |http|OutFile|.dll</field>
     <description>Sigma: Potential DLL File Download Via PowerShell Invoke-WebRequest</description>
     <mitre>
       <id>T1059.001</id>
@@ -1169,7 +1169,7 @@
   </rule>
   <rule id="111023" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Function Get-ADRExcelComOb|Get-ADRGPO|Get-ADRDomainController|ADRecon-Report\.xlsx</field>
+    <field name="win.eventdata.scriptBlockText">Function Get-ADRExcelComOb|Get-ADRGPO|Get-ADRDomainController|ADRecon-Report.xlsx</field>
     <description>Sigma: PowerShell ADRecon Execution</description>
     <mitre>
       <id>T1059.001</id>

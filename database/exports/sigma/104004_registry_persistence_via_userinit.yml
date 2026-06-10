@@ -1,0 +1,20 @@
+title: Registry persistence via userinit
+id: 5f074584-c1d5-542a-935c-291d67eeddf2
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104004).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    TargetObject: userinit
+  condition: selection
+level: medium
+tags:
+- attack.t1547.004
+- attack.persistence

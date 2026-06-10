@@ -12,7 +12,7 @@
   <rule id="107153" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> executecmd64 | invokeexe | injectDll </field>
-    <field name="win.eventdata.image">\dctask64\.exe$</field>
+    <field name="win.eventdata.image">\\dctask64.exe$</field>
     <description>Sigma: ManageEngine Endpoint Central Dctask64.EXE Potential Abuse</description>
     <mitre>
       <id>T1055.001</id>
@@ -32,7 +32,7 @@
   <rule id="107215" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /d | /c </field>
-    <field name="win.eventdata.image">\tracker\.exe$</field>
+    <field name="win.eventdata.image">\\tracker.exe$</field>
     <description>Sigma: Potential DLL Injection Or Execution Using Tracker.exe</description>
     <mitre>
       <id>T1055.001</id>
@@ -41,7 +41,7 @@
   </rule>
   <rule id="107231" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">mavinject32\.exe|mavinject64\.exe</field>
+    <field name="win.eventdata.originalFileName">mavinject32.exe|mavinject64.exe</field>
     <description>Sigma: Renamed Mavinject.EXE Execution</description>
     <mitre>
       <id>T1055.001</id>

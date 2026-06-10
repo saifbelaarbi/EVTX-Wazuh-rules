@@ -159,10 +159,14 @@ def build_rule(pattern: DetectionPattern) -> dict:
     if_sid = etree.SubElement(rule_elem, "if_sid")
     if_sid.text = str(parent_sid)
 
-    # Field matches (indicator strings are escaped to literal OS-regex)
-    for field_name, value in pattern.field_matches.items():
+    # Field matches (indicator strings are escaped to literal OS-regex).
+    # The escaped form is stored in metadata too so rule_index.json mirrors
+    # the deployed XML — the logtest simulator and sigma_exporter both
+    # interpret metadata field_matches as OSRegex.
+    osregex_fields = {name: _to_osregex(str(value)) for name, value in pattern.field_matches.items()}
+    for field_name, value in osregex_fields.items():
         field_elem = etree.SubElement(rule_elem, "field", name=field_name)
-        field_elem.text = _to_osregex(str(value))
+        field_elem.text = value
 
     # Description
     desc = etree.SubElement(rule_elem, "description")
@@ -193,7 +197,7 @@ def build_rule(pattern: DetectionPattern) -> dict:
         "parent_sid": parent_sid,
         "confidence": pattern.confidence,
         "created": date.today().isoformat(),
-        "field_matches": pattern.field_matches,
+        "field_matches": osregex_fields,
         "mitre_ids": mitre_ids,
         "source_category": _source_category_for(pattern),
         "sample_event": _minimize_event(pattern.sample_event, pattern.field_matches),

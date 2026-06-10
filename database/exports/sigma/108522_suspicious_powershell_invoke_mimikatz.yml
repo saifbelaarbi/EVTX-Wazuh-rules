@@ -1,0 +1,20 @@
+title: 'Suspicious PowerShell: invoke-mimikatz'
+id: a28ac92e-92cf-5a4a-95f2-1ff5d171ba84
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  108522).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/Powershell-Invoke-Obfuscation-many.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    ScriptBlockText: invoke-mimikatz
+  condition: selection
+level: critical
+tags:
+- attack.t1003
+- attack.credential-access

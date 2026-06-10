@@ -1,0 +1,20 @@
+title: 'Suspicious PowerShell: invoke-obfuscation'
+id: 4724f122-8933-5bec-b0bb-2a7e6b59b4bc
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112040).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/Powershell-Invoke-Obfuscation-many.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    ScriptBlockText: invoke-obfuscation
+  condition: selection
+level: medium
+tags:
+- attack.t1027
+- attack.defense-evasion

@@ -13,7 +13,7 @@
   <rule id="107152" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">New-ADServiceAccount|-CreateDelegatedServiceAccount|-path</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\powershell_ise\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$|\\powershell_ise.exe$</field>
     <description>Sigma: New DMSA Service Account Created in Specific OUs</description>
     <mitre>
       <id>T1078.002</id>

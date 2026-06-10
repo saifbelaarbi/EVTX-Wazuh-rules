@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1046_unknown,">
-  <rule id="108615" level="12">
+  <rule id="108614" level="12">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Offline_Winpwn|WinPwn |WinPwn\.exe|WinPwn\.ps1</field>
+    <field name="win.eventdata.scriptBlockText">Offline_Winpwn|WinPwn |WinPwn.exe|WinPwn.ps1</field>
     <description>Sigma: HackTool - WinPwn Execution - ScriptBlock</description>
     <mitre>
       <id>T1046</id>
@@ -11,9 +11,9 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108710" level="12">
+  <rule id="108709" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Offline_Winpwn|WinPwn |WinPwn\.exe|WinPwn\.ps1</field>
+    <field name="win.eventdata.commandLine">Offline_Winpwn|WinPwn |WinPwn.exe|WinPwn.ps1</field>
     <description>Sigma: HackTool - WinPwn Execution</description>
     <mitre>
       <id>T1046</id>
@@ -24,7 +24,7 @@
   </rule>
   <rule id="111013" level="6">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\Advanced IP Scanner 2</field>
+    <field name="win.eventdata.targetFilename">\\AppData\\Local\\Temp\\Advanced IP Scanner 2</field>
     <description>Sigma: Advanced IP Scanner - File Event</description>
     <mitre>
       <id>T1046</id>
@@ -34,7 +34,7 @@
   <rule id="111019" level="6">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\python|\.exe</field>
+    <field name="win.eventdata.image">\\python|.exe</field>
     <description>Sigma: Python Initiated Connection</description>
     <mitre>
       <id>T1046</id>
@@ -53,7 +53,7 @@
   </rule>
   <rule id="111090" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\advanced_ip_scanner</field>
+    <field name="win.eventdata.image">\\advanced_ip_scanner</field>
     <description>Sigma: PUA - Advanced IP Scanner Execution</description>
     <mitre>
       <id>T1046</id>
@@ -93,7 +93,7 @@
   </rule>
   <rule id="111094" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\advanced_port_scanner</field>
+    <field name="win.eventdata.image">\\advanced_port_scanner</field>
     <description>Sigma: PUA - Advanced Port Scanner Execution</description>
     <mitre>
       <id>T1046</id>
@@ -123,7 +123,7 @@
   </rule>
   <rule id="111100" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\netscan\.exe$</field>
+    <field name="win.eventdata.image">\\netscan.exe$</field>
     <description>Sigma: PUA - SoftPerfect Netscan Execution</description>
     <mitre>
       <id>T1046</id>
@@ -150,7 +150,7 @@
   </rule>
   <rule id="111103" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\NimScan\.exe$</field>
+    <field name="win.eventdata.image">\\NimScan.exe$</field>
     <description>Sigma: PUA - NimScan Execution</description>
     <mitre>
       <id>T1046</id>
@@ -168,7 +168,7 @@
   </rule>
   <rule id="111105" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\nmap\.exe$|\zennmap\.exe$</field>
+    <field name="win.eventdata.image">\\nmap.exe$|\\zennmap.exe$</field>
     <description>Sigma: PUA - Nmap/Zenmap Execution</description>
     <mitre>
       <id>T1046</id>
@@ -177,7 +177,7 @@
   </rule>
   <rule id="111106" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">nmap\.exe|zennmap\.exe</field>
+    <field name="win.eventdata.originalFileName">nmap.exe|zennmap.exe</field>
     <description>Sigma: PUA - Nmap/Zenmap Execution</description>
     <mitre>
       <id>T1046</id>

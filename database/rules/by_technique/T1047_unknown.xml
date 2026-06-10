@@ -2,6 +2,15 @@
 <group name="windows,T1047_unknown,">
   <rule id="100000" level="9">
     <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">wmic</field>
+    <description>Suspicious process 'wmic' execution detected</description>
+    <mitre>
+      <id>T1047</id>
+    </mitre>
+    <group>execution,evtx_generated,</group>
+  </rule>
+  <rule id="100001" level="9">
+    <if_sid>61603</if_sid>
     <field name="win.eventdata.image">wmic</field>
     <description>Suspicious process 'wmic' execution detected</description>
     <mitre>
@@ -9,7 +18,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100002" level="8">
+  <rule id="100003" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">wmic</field>
     <description>File created by suspicious process 'wmic'</description>
@@ -18,7 +27,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100003" level="9">
+  <rule id="100004" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">wmic</field>
     <field name="win.eventdata.destinationPort">443</field>
@@ -28,7 +37,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100005" level="9">
+  <rule id="100006" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">wmic</field>
     <description>Image load by suspicious process 'wmic'</description>
@@ -37,7 +46,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100006" level="9">
+  <rule id="100007" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.image">wmic</field>
     <field name="win.eventdata.destinationPort">80</field>
@@ -47,7 +56,7 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100015" level="8">
+  <rule id="100016" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">invoke-wmimethod</field>
     <description>Suspicious PowerShell script block containing 'invoke-wmimethod'</description>
@@ -56,10 +65,10 @@
     </mitre>
     <group>execution,evtx_generated,</group>
   </rule>
-  <rule id="100080" level="9">
+  <rule id="100082" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5145</field>
-    <field name="win.eventdata.relativeTargetName">\wbem\wbemcomn\.dll$</field>
+    <field name="win.eventdata.relativeTargetName">\\wbem\\wbemcomn.dll$</field>
     <description>Sigma: T1047 Wmiprvse Wbemcomn DLL Hijack</description>
     <mitre>
       <id>T1047</id>
@@ -67,10 +76,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100107" level="9">
+  <rule id="100109" level="9">
     <if_sid>60005</if_sid>
     <field name="win.system.eventID">1121</field>
-    <field name="win.eventdata.processName">\wmiprvse\.exe$|\psexesvc\.exe$</field>
+    <field name="win.eventdata.processName">\\wmiprvse.exe$|\\psexesvc.exe$</field>
     <description>Sigma: PSExec and WMI Process Creations Block</description>
     <mitre>
       <id>T1047</id>
@@ -78,10 +87,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100197" level="9">
+  <rule id="100199" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.image">System</field>
-    <field name="win.eventdata.targetFilename">\wbem\wbemcomn\.dll$</field>
+    <field name="win.eventdata.targetFilename">\\wbem\\wbemcomn.dll$</field>
     <description>Sigma: Wmiprvse Wbemcomn DLL Hijack - File</description>
     <mitre>
       <id>T1047</id>
@@ -89,10 +98,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100221" level="9">
+  <rule id="100223" level="9">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\wmiprvse\.exe$</field>
-    <field name="win.eventdata.imageLoaded">\wbem\wbemcomn\.dll$</field>
+    <field name="win.eventdata.image">\\wmiprvse.exe$</field>
+    <field name="win.eventdata.imageLoaded">\\wbem\\wbemcomn.dll$</field>
     <description>Sigma: Wmiprvse Wbemcomn DLL Hijack</description>
     <mitre>
       <id>T1047</id>
@@ -100,16 +109,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100238" level="8">
+  <rule id="100240" level="8">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.image">\scrcons\.exe$</field>
+    <field name="win.eventdata.image">\\scrcons.exe$</field>
     <description>Sigma: WMI Event Consumer Created Named Pipe</description>
     <mitre>
       <id>T1047</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100354" level="8">
+  <rule id="100356" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Get-WmiObject |gwmi | Win32_Service |Name|DisplayName|PathName|StartMode</field>
     <description>Sigma: WMIC Unquoted Services Path Lookup - PowerShell</description>
@@ -118,7 +127,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100355" level="9">
+  <rule id="100357" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">WMImplant| change_user | gen_cli | command_exec | disable_wdigest | disable_winrm | enable_wdigest | enable_winrm | registry_mod | remote_posh | sched_job | service_mod | process_kill | active_users | basic_info | power_off | vacant_system | logon_events </field>
     <description>Sigma: WMImplant Hack Tool</description>
@@ -128,10 +137,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100479" level="9">
+  <rule id="100481" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\hh\.exe$</field>
-    <field name="win.eventdata.image">\CertReq\.exe$|\CertUtil\.exe$|\cmd\.exe$|\cscript\.exe$|\installutil\.exe$|\MSbuild\.exe$|\MSHTA\.EXE$|\msiexec\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\schtasks\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\\hh.exe$</field>
+    <field name="win.eventdata.image">\\CertReq.exe$|\\CertUtil.exe$|\\cmd.exe$|\\cscript.exe$|\\installutil.exe$|\\MSbuild.exe$|\\MSHTA.EXE$|\\msiexec.exe$|\\powershell.exe$|\\pwsh.exe$|\\regsvr32.exe$|\\rundll32.exe$|\\schtasks.exe$|\\wmic.exe$|\\wscript.exe$</field>
     <description>Sigma: HTML Help HH.EXE Suspicious Child Process</description>
     <mitre>
       <id>T1047</id>
@@ -140,10 +149,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100480" level="9">
+  <rule id="100482" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">HH\.exe</field>
-    <field name="win.eventdata.commandLine">\.application|\AppData\Local\Temp\|\Content\.Outlook\|\Downloads\|\Users\Public\|\Windows\Temp\</field>
+    <field name="win.eventdata.originalFileName">HH.exe</field>
+    <field name="win.eventdata.commandLine">.application|\\AppData\\Local\\Temp\\|\\Content.Outlook\\|\\Downloads\\|\\Users\\Public\\|\\Windows\\Temp\\</field>
     <description>Sigma: Suspicious HH.EXE Execution</description>
     <mitre>
       <id>T1047</id>
@@ -152,31 +161,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100491" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\crackmapexec\.exe$</field>
-    <description>Sigma: HackTool - CrackMapExec Execution</description>
-    <mitre>
-      <id>T1047</id>
-      <id>T1053</id>
-      <id>T1059.003</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100492" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> --local-auth| -u | -x </field>
-    <description>Sigma: HackTool - CrackMapExec Execution</description>
-    <mitre>
-      <id>T1047</id>
-      <id>T1053</id>
-      <id>T1059.003</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
   <rule id="100493" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> --local-auth| -u | -p | -H 'NTHASH'</field>
+    <field name="win.eventdata.image">\\crackmapexec.exe$</field>
     <description>Sigma: HackTool - CrackMapExec Execution</description>
     <mitre>
       <id>T1047</id>
@@ -187,7 +174,7 @@
   </rule>
   <rule id="100494" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> mssql | -u | -p | -M | -d </field>
+    <field name="win.eventdata.commandLine"> --local-auth| -u | -x </field>
     <description>Sigma: HackTool - CrackMapExec Execution</description>
     <mitre>
       <id>T1047</id>
@@ -198,7 +185,7 @@
   </rule>
   <rule id="100495" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> smb | -u | -H | -M | -o </field>
+    <field name="win.eventdata.commandLine"> --local-auth| -u | -p | -H 'NTHASH'</field>
     <description>Sigma: HackTool - CrackMapExec Execution</description>
     <mitre>
       <id>T1047</id>
@@ -209,7 +196,7 @@
   </rule>
   <rule id="100496" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> smb | -u | -p | --local-auth</field>
+    <field name="win.eventdata.commandLine"> mssql | -u | -p | -M | -d </field>
     <description>Sigma: HackTool - CrackMapExec Execution</description>
     <mitre>
       <id>T1047</id>
@@ -220,6 +207,28 @@
   </rule>
   <rule id="100497" level="9">
     <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> smb | -u | -H | -M | -o </field>
+    <description>Sigma: HackTool - CrackMapExec Execution</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1053</id>
+      <id>T1059.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100498" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> smb | -u | -p | --local-auth</field>
+    <description>Sigma: HackTool - CrackMapExec Execution</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1053</id>
+      <id>T1059.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="100499" level="9">
+    <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -M pe_inject </field>
     <description>Sigma: HackTool - CrackMapExec Execution</description>
     <mitre>
@@ -229,10 +238,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100507" level="9">
+  <rule id="100509" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentCommandLine">svchost\.exe -k netsvcs|taskeng\.exe</field>
-    <field name="win.eventdata.commandLine">cmd\.exe|/C|Windows\Temp\|&amp;1</field>
+    <field name="win.eventdata.parentCommandLine">svchost.exe -k netsvcs|taskeng.exe</field>
+    <field name="win.eventdata.commandLine">cmd.exe|/C|Windows\\Temp\\|&amp;1</field>
     <description>Sigma: HackTool - Potential Impacket Lateral Movement Activity</description>
     <mitre>
       <id>T1047</id>
@@ -240,10 +249,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100508" level="9">
+  <rule id="100510" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\wmiprvse\.exe$|\mmc\.exe$|\explorer\.exe$|\services\.exe$</field>
-    <field name="win.eventdata.commandLine">cmd\.exe|/Q|/c|\\\\127\.0\.0\.1\\|&amp;1</field>
+    <field name="win.eventdata.parentImage">\\wmiprvse.exe$|\\mmc.exe$|\\explorer.exe$|\\services.exe$</field>
+    <field name="win.eventdata.commandLine">cmd.exe|/Q|/c|\\\\\\\\127.0.0.1\\\\|&amp;1</field>
     <description>Sigma: HackTool - Potential Impacket Lateral Movement Activity</description>
     <mitre>
       <id>T1047</id>
@@ -251,10 +260,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100663" level="9">
+  <rule id="100665" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\EQNEDT32\.EXE$|\EXCEL\.EXE$|\MSACCESS\.EXE$|\MSPUB\.exe$|\ONENOTE\.EXE$|\POWERPNT\.exe$|\VISIO\.exe$|\WINWORD\.EXE$|\wordpad\.exe$|\wordview\.exe$</field>
-    <field name="win.eventdata.originalFileName">bitsadmin\.exe|CertOC\.exe|CertUtil\.exe|Cmd\.Exe|CMSTP\.EXE|cscript\.exe|curl\.exe|HH\.exe|IEExec\.exe|InstallUtil\.exe|javaw\.exe|Microsoft\.Workflow\.Compiler\.exe|msdt\.exe|MSHTA\.EXE|msiexec\.exe|Msxsl\.exe|odbcconf\.exe|pcalua\.exe|PowerShell\.EXE|RegAsm\.exe|RegSvcs\.exe|REGSVR32\.exe|RUNDLL32\.exe|schtasks\.exe|ScriptRunner\.exe|wmic\.exe|WorkFolders\.exe|wscript\.exe</field>
+    <field name="win.eventdata.parentImage">\\EQNEDT32.EXE$|\\EXCEL.EXE$|\\MSACCESS.EXE$|\\MSPUB.exe$|\\ONENOTE.EXE$|\\POWERPNT.exe$|\\VISIO.exe$|\\WINWORD.EXE$|\\wordpad.exe$|\\wordview.exe$</field>
+    <field name="win.eventdata.originalFileName">bitsadmin.exe|CertOC.exe|CertUtil.exe|Cmd.Exe|CMSTP.EXE|cscript.exe|curl.exe|HH.exe|IEExec.exe|InstallUtil.exe|javaw.exe|Microsoft.Workflow.Compiler.exe|msdt.exe|MSHTA.EXE|msiexec.exe|Msxsl.exe|odbcconf.exe|pcalua.exe|PowerShell.EXE|RegAsm.exe|RegSvcs.exe|REGSVR32.exe|RUNDLL32.exe|schtasks.exe|ScriptRunner.exe|wmic.exe|WorkFolders.exe|wscript.exe</field>
     <description>Sigma: Suspicious Microsoft Office Child Process</description>
     <mitre>
       <id>T1047</id>
@@ -263,20 +272,20 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100887" level="9">
+  <rule id="100889" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\scrcons\.exe$</field>
-    <field name="win.eventdata.image">\svchost\.exe$|\dllhost\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$|\cscript\.exe$|\schtasks\.exe$|\regsvr32\.exe$|\mshta\.exe$|\rundll32\.exe$|\msiexec\.exe$|\msbuild\.exe$</field>
+    <field name="win.eventdata.parentImage">\\scrcons.exe$</field>
+    <field name="win.eventdata.image">\\svchost.exe$|\\dllhost.exe$|\\powershell.exe$|\\pwsh.exe$|\\wscript.exe$|\\cscript.exe$|\\schtasks.exe$|\\regsvr32.exe$|\\mshta.exe$|\\rundll32.exe$|\\msiexec.exe$|\\msbuild.exe$</field>
     <description>Sigma: Script Event Consumer Spawning Process</description>
     <mitre>
       <id>T1047</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101042" level="9">
+  <rule id="101044" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/Namespace:\\\\root\\Microsoft\\Windows\\Defender</field>
-    <field name="win.eventdata.originalFileName">wmic\.exe</field>
+    <field name="win.eventdata.commandLine">/Namespace:\\\\\\\\root\\\\Microsoft\\\\Windows\\\\Defender</field>
+    <field name="win.eventdata.originalFileName">wmic.exe</field>
     <description>Sigma: Potential Windows Defender Tampering Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
@@ -284,31 +293,11 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101043" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">process|call|create</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
-    <description>Sigma: New Process Created Via Wmic.EXE</description>
-    <mitre>
-      <id>T1047</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101044" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">csproduct</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
-    <description>Sigma: Hardware Model Reconnaissance Via Wmic.EXE</description>
-    <mitre>
-      <id>T1047</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
   <rule id="101045" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> qfe</field>
-    <field name="win.eventdata.originalFileName">wmic\.exe</field>
-    <description>Sigma: Windows Hotfix Updates Reconnaissance Via Wmic.EXE</description>
+    <field name="win.eventdata.commandLine">process|call|create</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: New Process Created Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
     </mitre>
@@ -316,9 +305,9 @@
   </rule>
   <rule id="101046" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">process</field>
-    <field name="win.eventdata.image">\WMIC\.exe$</field>
-    <description>Sigma: Process Reconnaissance Via Wmic.EXE</description>
+    <field name="win.eventdata.commandLine">csproduct</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: Hardware Model Reconnaissance Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
     </mitre>
@@ -326,9 +315,9 @@
   </rule>
   <rule id="101047" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Product</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
-    <description>Sigma: Potential Product Reconnaissance Via Wmic.EXE</description>
+    <field name="win.eventdata.commandLine"> qfe</field>
+    <field name="win.eventdata.originalFileName">wmic.exe</field>
+    <description>Sigma: Windows Hotfix Updates Reconnaissance Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
     </mitre>
@@ -336,20 +325,19 @@
   </rule>
   <rule id="101048" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">AntiVirusProduct|AntiSpywareProduct|FirewallProduct</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
-    <description>Sigma: Potential Product Class Reconnaissance Via Wmic.EXE</description>
+    <field name="win.eventdata.commandLine">process</field>
+    <field name="win.eventdata.image">\\WMIC.exe$</field>
+    <description>Sigma: Process Reconnaissance Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
-      <id>T1082</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="101049" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">service</field>
-    <field name="win.eventdata.image">\WMIC\.exe$</field>
-    <description>Sigma: Service Reconnaissance Via Wmic.EXE</description>
+    <field name="win.eventdata.commandLine">Product</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: Potential Product Reconnaissance Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
     </mitre>
@@ -357,30 +345,30 @@
   </rule>
   <rule id="101050" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> service get |name,displayname,pathname,startmode</field>
-    <field name="win.eventdata.originalFileName">wmic\.exe</field>
-    <description>Sigma: Potential Unquoted Service Path Reconnaissance Via Wmic.EXE</description>
-    <mitre>
-      <id>T1047</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101051" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> volumename| logicaldisk</field>
-    <field name="win.eventdata.image">\WMIC\.exe$</field>
-    <description>Sigma: System Disk And Volume Reconnaissance Via Wmic.EXE</description>
+    <field name="win.eventdata.commandLine">AntiVirusProduct|AntiSpywareProduct|FirewallProduct</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: Potential Product Class Reconnaissance Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
       <id>T1082</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101051" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">service</field>
+    <field name="win.eventdata.image">\\WMIC.exe$</field>
+    <description>Sigma: Service Reconnaissance Via Wmic.EXE</description>
+    <mitre>
+      <id>T1047</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="101052" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/node:</field>
-    <field name="win.eventdata.image">\WMIC\.exe$</field>
-    <description>Sigma: WMIC Remote Command Execution</description>
+    <field name="win.eventdata.commandLine"> service get |name,displayname,pathname,startmode</field>
+    <field name="win.eventdata.originalFileName">wmic.exe</field>
+    <description>Sigma: Potential Unquoted Service Path Reconnaissance Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
     </mitre>
@@ -388,18 +376,39 @@
   </rule>
   <rule id="101053" level="8">
     <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> volumename| logicaldisk</field>
+    <field name="win.eventdata.image">\\WMIC.exe$</field>
+    <description>Sigma: System Disk And Volume Reconnaissance Via Wmic.EXE</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1082</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101054" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/node:</field>
+    <field name="win.eventdata.image">\\WMIC.exe$</field>
+    <description>Sigma: WMIC Remote Command Execution</description>
+    <mitre>
+      <id>T1047</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101055" level="8">
+    <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">stopservice|startservice| call </field>
-    <field name="win.eventdata.originalFileName">wmic\.exe</field>
+    <field name="win.eventdata.originalFileName">wmic.exe</field>
     <description>Sigma: Service Started/Stopped Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101054" level="8">
+  <rule id="101056" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Manual|Disabled|ChangeStartMode</field>
-    <field name="win.eventdata.image">\WMIC\.exe$</field>
+    <field name="win.eventdata.image">\\WMIC.exe$</field>
     <description>Sigma: Service Startup Type Change Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
@@ -407,10 +416,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101055" level="9">
+  <rule id="101057" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">://|\\\\</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
+    <field name="win.eventdata.commandLine">://|\\\\\\\\</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
     <description>Sigma: Potential Remote SquiblyTwo Technique Execution</description>
     <mitre>
       <id>T1047</id>
@@ -419,39 +428,39 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101057" level="9">
+  <rule id="101059" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">rundll32|bitsadmin|regsvr32|cmd\.exe /c |cmd\.exe /k |cmd\.exe /r |cmd /c |cmd /k |cmd /r |powershell|pwsh|certutil|cscript|wscript|mshta|\Users\Public\|\Windows\Temp\|\AppData\Local\|%temp%|%tmp%|%ProgramData%|%appdata%|%comspec%|%localappdata%|call |create </field>
+    <field name="win.eventdata.commandLine">rundll32|bitsadmin|regsvr32|cmd.exe /c |cmd.exe /k |cmd.exe /r |cmd /c |cmd /k |cmd /r |powershell|pwsh|certutil|cscript|wscript|mshta|\\Users\\Public\\|\\Windows\\Temp\\|\\AppData\\Local\\|%temp%|%tmp%|%ProgramData%|%appdata%|%comspec%|%localappdata%|call |create </field>
     <description>Sigma: Suspicious Process Created Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101058" level="8">
+  <rule id="101060" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">call|terminate</field>
-    <field name="win.eventdata.image">\WMIC\.exe$</field>
+    <field name="win.eventdata.image">\\WMIC.exe$</field>
     <description>Sigma: Application Terminated Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101059" level="8">
+  <rule id="101061" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">call|uninstall</field>
-    <field name="win.eventdata.image">\WMIC\.exe$</field>
+    <field name="win.eventdata.image">\\WMIC.exe$</field>
     <description>Sigma: Application Removed Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101063" level="8">
+  <rule id="101065" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">[-/]format:</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
+    <field name="win.eventdata.commandLine">[-/–—]format:</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
     <description>Sigma: XSL Script Execution Via WMIC.EXE</description>
     <mitre>
       <id>T1047</id>
@@ -460,19 +469,19 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101064" level="8">
+  <rule id="101066" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\WmiPrvSe\.exe$</field>
+    <field name="win.eventdata.parentImage">\\WmiPrvSe.exe$</field>
     <description>Sigma: WmiPrvSE Spawned A Process</description>
     <mitre>
       <id>T1047</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101065" level="8">
+  <rule id="101067" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.parentImage">\WmiPrvSE\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.parentImage">\\WmiPrvSE.exe$</field>
     <description>Sigma: Potential WMI Lateral Movement WmiPrvSE Spawned PowerShell</description>
     <mitre>
       <id>T1047</id>
@@ -480,10 +489,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101066" level="9">
+  <rule id="101068" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\wbem\WmiPrvSE\.exe$</field>
-    <field name="win.eventdata.image">\certutil\.exe$|\cscript\.exe$|\mshta\.exe$|\msiexec\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\verclsid\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\\wbem\\WmiPrvSE.exe$</field>
+    <field name="win.eventdata.image">\\certutil.exe$|\\cscript.exe$|\\mshta.exe$|\\msiexec.exe$|\\regsvr32.exe$|\\rundll32.exe$|\\verclsid.exe$|\\wscript.exe$</field>
     <description>Sigma: Suspicious WmiPrvSE Child Process</description>
     <mitre>
       <id>T1047</id>
@@ -492,10 +501,10 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="104749" level="9">
+  <rule id="104750" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">call|stdregprov</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
     <description>Sigma: Registry Manipulation via WMI Stdregprov</description>
     <mitre>
       <id>T1047</id>
@@ -506,7 +515,7 @@
   </rule>
   <rule id="107165" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">cmd\.exe /Q /c .* 1&gt; \\\\.*\\.*\\.* 2&gt;&amp;1|cmd\.exe /C .* &gt; \\\\.*\\.*\\.* 2&gt;&amp;1|cmd\.exe /C .* &gt; .*\\Temp\\.* 2&gt;&amp;1|powershell\.exe -exec bypass -noni -nop -w 1 -C "|powershell\.exe -noni -nop -w 1 -enc </field>
+    <field name="win.eventdata.commandLine">cmd.exe /Q /c \.* 1&gt; \\\\\\\\\.*\\\\\.*\\\\\.* 2&gt;&amp;1|cmd.exe /C \.* &gt; \\\\\\\\\.*\\\\\.*\\\\\.* 2&gt;&amp;1|cmd.exe /C \.* &gt; \.*\\\\Temp\\\\\.* 2&gt;&amp;1|powershell.exe -exec bypass -noni -nop -w 1 -C "|powershell.exe -noni -nop -w 1 -enc </field>
     <description>Sigma: HackTool - CrackMapExec Execution Patterns</description>
     <mitre>
       <id>T1047</id>
@@ -518,7 +527,7 @@
   <rule id="107305" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">useraccount| set |passwordexpires|false</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
     <description>Sigma: Password Set to Never Expire via WMI</description>
     <mitre>
       <id>T1047</id>
@@ -528,7 +537,7 @@
   </rule>
   <rule id="107382" level="11">
     <if_sid>61621</if_sid>
-    <field name="win.eventdata.destination">WriteProcessMemory|This program cannot be run in DOS mode|This program must be run under Win32</field>
+    <field name="win.eventdata.destination">V3JpdGVQcm9jZXNzTWVtb3J5|dyaXRlUHJvY2Vzc01lbW9yeQ|Xcml0ZVByb2Nlc3NNZW1vcnk|VGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1vZGU|RoaXMgcHJvZ3JhbSBjYW5ub3QgYmUgcnVuIGluIERPUyBtb2Rl|UaGlzIHByb2dyYW0gY2Fubm90IGJlIHJ1biBpbiBET1MgbW9kZQ|VGhpcyBwcm9ncmFtIG11c3QgYmUgcnVuIHVuZGVyIFdpbjMy|RoaXMgcHJvZ3JhbSBtdXN0IGJlIHJ1biB1bmRlciBXaW4zMg|UaGlzIHByb2dyYW0gbXVzdCBiZSBydW4gdW5kZXIgV2luMzI</field>
     <description>Sigma: Suspicious Encoded Scripts in a WMI Consumer</description>
     <mitre>
       <id>T1047</id>
@@ -539,7 +548,7 @@
   <rule id="111135" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">computersystem</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
     <description>Sigma: Computer System Reconnaissance Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>

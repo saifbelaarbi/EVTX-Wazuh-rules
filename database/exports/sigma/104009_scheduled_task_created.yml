@@ -1,0 +1,20 @@
+title: Scheduled task created
+id: a5354b1d-5c4c-5503-940c-2b6d0f066851
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104009).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/temp_scheduled_task_4698_4699.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: '4698'
+  condition: selection
+level: medium
+tags:
+- attack.t1053.005
+- attack.persistence

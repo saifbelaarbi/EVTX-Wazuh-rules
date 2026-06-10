@@ -3,7 +3,7 @@
   <rule id="113501" level="7">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657|4656|4663</field>
-    <field name="win.eventdata.objectName">\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\NonPackaged|\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam\NonPackaged</field>
+    <field name="win.eventdata.objectName">\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone\\NonPackaged|\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam\\NonPackaged</field>
     <description>Sigma: Processes Accessing the Microphone and Webcam</description>
     <mitre>
       <id>T1123</id>
@@ -21,7 +21,7 @@
   </rule>
   <rule id="113539" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SoundRecorder\.exe$</field>
+    <field name="win.eventdata.image">\\SoundRecorder.exe$</field>
     <field name="win.eventdata.commandLine">/FILE</field>
     <description>Sigma: Audio Capture via SoundRecorder</description>
     <mitre>

@@ -3,34 +3,34 @@
   <rule id="110007" level="9">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">api\.put\.io|upload\.put\.io</field>
+    <field name="win.eventdata.queryName">api.put.io|upload.put.io</field>
     <description>Sigma: DNS Query To Put.io - DNS Client</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110044" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\server\node\.exe$</field>
-    <field name="win.eventdata.targetFilename">\\.vscode-server\data\User\History\</field>
+    <field name="win.eventdata.image">\\server\\node.exe$</field>
+    <field name="win.eventdata.targetFilename">\\.vscode-server\\data\\User\\History\\</field>
     <description>Sigma: Visual Studio Code Tunnel Remote File Creation</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110045" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\code_tunnel\.json$</field>
+    <field name="win.eventdata.targetFilename">\\code_tunnel.json$</field>
     <description>Sigma: Renamed VsCode Code Tunnel Execution - File Indicator</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110057" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\excel\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$|\wordview\.exe$</field>
+    <field name="win.eventdata.image">\\excel.exe$|\\outlook.exe$|\\powerpnt.exe$|\\winword.exe$|\\wordview.exe$</field>
     <description>Sigma: Office Application Initiated Network Connection Over Uncommon Ports</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110062" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\wordpad\.exe$</field>
+    <field name="win.eventdata.image">\\wordpad.exe$</field>
     <description>Sigma: Suspicious Wordpad Outbound Connections</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>

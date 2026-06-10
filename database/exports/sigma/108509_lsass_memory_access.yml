@@ -1,0 +1,21 @@
+title: LSASS memory access
+id: e3f69976-b733-5db1-965d-bf92819d2c78
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  108509).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    TargetImage: lsass
+    GrantedAccess: '0x1410'
+  condition: selection
+level: high
+tags:
+- attack.t1003.001
+- attack.credential-access

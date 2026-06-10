@@ -11,7 +11,7 @@
   </rule>
   <rule id="111014" level="11">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">BloodHound\.zip$|_computers\.json$|_containers\.json$|_gpos\.json$|_groups\.json$|_ous\.json$|_users\.json$</field>
+    <field name="win.eventdata.targetFilename">BloodHound.zip$|_computers.json$|_containers.json$|_gpos.json$|_groups.json$|_ous.json$|_users.json$</field>
     <description>Sigma: BloodHound Collection Files</description>
     <mitre>
       <id>T1087.001</id>
@@ -22,7 +22,7 @@
   </rule>
   <rule id="111047" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> -CollectionMethod All | --CollectionMethods Session | --Loop --Loopduration | --PortScanTimeout |\.exe -c All -d |Invoke-Bloodhound|Get-BloodHoundData</field>
+    <field name="win.eventdata.commandLine"> -CollectionMethod All | --CollectionMethods Session | --Loop --Loopduration | --PortScanTimeout |.exe -c All -d |Invoke-Bloodhound|Get-BloodHoundData</field>
     <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
     <mitre>
       <id>T1087.001</id>
@@ -88,7 +88,7 @@
   </rule>
   <rule id="111053" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Bloodhound\.exe|\SharpHound\.exe</field>
+    <field name="win.eventdata.image">\\Bloodhound.exe|\\SharpHound.exe</field>
     <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
     <mitre>
       <id>T1087.001</id>
@@ -99,7 +99,7 @@
   </rule>
   <rule id="111071" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <field name="win.eventdata.image">\\net.exe$|\\net1.exe$</field>
     <field name="win.eventdata.commandLine"> group | localgroup </field>
     <description>Sigma: Suspicious Group And Account Reconnaissance Activity Using Net.EXE</description>
     <mitre>

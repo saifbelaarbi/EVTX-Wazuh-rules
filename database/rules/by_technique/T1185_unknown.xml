@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1185_unknown,">
-  <rule id="108640" level="12">
+  <rule id="108639" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--remote-debugging-|--user-data-dir|--headless</field>
     <description>Sigma: Potential Data Stealing Via Chromium Headless Debugging</description>
@@ -10,7 +10,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108641" level="11">
+  <rule id="108640" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> --remote-debugging-</field>
     <description>Sigma: Browser Started with Remote Debugging</description>
@@ -19,9 +19,9 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108642" level="11">
+  <rule id="108641" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\firefox\.exe$</field>
+    <field name="win.eventdata.image">\\firefox.exe$</field>
     <field name="win.eventdata.commandLine"> -start-debugger-server</field>
     <description>Sigma: Browser Started with Remote Debugging</description>
     <mitre>
