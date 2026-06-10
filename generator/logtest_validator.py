@@ -1,6 +1,7 @@
 """Validate Wazuh rules against source events via simulation or live wazuh-logtest."""
 
 import json
+import os
 import re
 import subprocess
 from dataclasses import dataclass, field
@@ -233,15 +234,18 @@ def _run_via_api(event_json: str, config: dict) -> dict:
         return {"error": "requests package not installed: pip install requests"}
 
     wazuh_cfg = config.get("wazuh", {})
-    api_url = wazuh_cfg.get("api_url", "")
-    user = wazuh_cfg.get("api_user", "wazuh-wui")
-    password = ""
+    # Environment variables take precedence over config.yaml so containerized
+    # runs (docker-compose) can inject credentials without editing files.
+    api_url = os.environ.get("WAZUH_API_URL") or wazuh_cfg.get("api_url", "")
+    user = os.environ.get("WAZUH_API_USER") or wazuh_cfg.get("api_user", "wazuh-wui")
+    password = os.environ.get("WAZUH_API_PASSWORD", "")
 
-    pw_file = wazuh_cfg.get("api_password_file", "")
-    if pw_file:
-        pw_path = Path(pw_file).expanduser()
-        if pw_path.exists():
-            password = pw_path.read_text().strip()
+    if not password:
+        pw_file = wazuh_cfg.get("api_password_file", "")
+        if pw_file:
+            pw_path = Path(pw_file).expanduser()
+            if pw_path.exists():
+                password = pw_path.read_text().strip()
 
     if not password:
         password = wazuh_cfg.get("api_password", "")

@@ -6,6 +6,9 @@ services:
       - "55000:55000"
       - "1514:1514/udp"
       - "1515:1515"
+    environment:
+      API_USERNAME: wazuh-wui
+      API_PASSWORD: "MyS3cr37P450r.*-"
     volumes:
       - wazuh-etc:/var/ossec/etc
       - wazuh-logs:/var/ossec/logs
@@ -22,6 +25,10 @@ services:
     depends_on:
       wazuh-manager:
         condition: service_healthy
+    environment:
+      WAZUH_API_URL: https://wazuh-manager:55000
+      WAZUH_API_USER: wazuh-wui
+      WAZUH_API_PASSWORD: "MyS3cr37P450r.*-"
     volumes:
       - ./database:/app/database
       - ./data:/app/data

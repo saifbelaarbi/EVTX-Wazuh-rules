@@ -3,6 +3,11 @@ set -e
 
 echo "=== EVTX-Wazuh-Rules Pipeline ==="
 
+# API connection (overridable via docker-compose environment)
+WAZUH_API="${WAZUH_API_URL:-https://wazuh-manager:55000}"
+WAZUH_USER="${WAZUH_API_USER:-wazuh-wui}"
+WAZUH_PASS="${WAZUH_API_PASSWORD:-MyS3cr37P450r.*-}"
+
 # ── 1. Download sources ──
 echo ""
 echo ">> Downloading EVTX samples..."
@@ -27,7 +32,7 @@ python -m generator convert-sigma --auto-approve --min-level medium
 
 echo ""
 echo ">> Building composite correlation rules..."
-python -m generator build-composites
+python -m generator build-composites --auto-approve
 
 # ── 3. Validate (structural) ──
 echo ""
@@ -47,10 +52,8 @@ cp database/rules/by_tactic/*.xml /rules-deploy/ 2>/dev/null || true
 # Restart Wazuh manager via API to reload rules
 echo ">> Restarting Wazuh manager to load new rules..."
 
-# Get API token (default credentials: wazuh-wui / wazuh-wui)
-WAZUH_API="https://wazuh-manager:55000"
 TOKEN=$(curl -sk -X POST "${WAZUH_API}/security/user/authenticate" \
-    -u "wazuh-wui:wazuh-wui" 2>/dev/null | python -c "
+    -u "${WAZUH_USER}:${WAZUH_PASS}" 2>/dev/null | python -c "
 import sys, json
 try:
     data = json.load(sys.stdin)
