@@ -1,0 +1,21 @@
+title: LSASS memory access
+id: 70f578e0-4bfa-59a3-81dd-21b1dde2c94e
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  108501).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    TargetImage: lsass
+    GrantedAccess: '0x1010'
+  condition: selection
+level: high
+tags:
+- attack.t1003.001
+- attack.credential-access

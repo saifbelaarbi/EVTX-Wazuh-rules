@@ -5,7 +5,7 @@
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">3</field>
     <field name="win.eventdata.authenticationPackageName">Kerberos</field>
-    <field name="win.eventdata.ipAddress">127\.0\.0\.1</field>
+    <field name="win.eventdata.ipAddress">127.0.0.1</field>
     <field name="win.eventdata.targetUserSid">-500$</field>
     <description>Sigma: Potential Privilege Escalation via Local Kerberos Relay over LDAP</description>
     <mitre>
@@ -37,7 +37,7 @@
   </rule>
   <rule id="107144" level="11">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.targetImage">\svchost\.exe$</field>
+    <field name="win.eventdata.targetImage">\\svchost.exe$</field>
     <field name="win.eventdata.grantedAccess">0x143a</field>
     <description>Sigma: Credential Dumping Attempt Via Svchost</description>
     <mitre>
@@ -47,8 +47,8 @@
   </rule>
   <rule id="107226" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\regedit\.exe$</field>
-    <field name="win.eventdata.parentImage">\TrustedInstaller\.exe$|\ProcessHacker\.exe$</field>
+    <field name="win.eventdata.image">\\regedit.exe$</field>
+    <field name="win.eventdata.parentImage">\\TrustedInstaller.exe$|\\ProcessHacker.exe$</field>
     <description>Sigma: Regedit as Trusted Installer</description>
     <mitre>
       <id>T1548</id>
@@ -57,8 +57,8 @@
   </rule>
   <rule id="107259" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\cmd\.exe$</field>
-    <field name="win.eventdata.parentImage">\winlogon\.exe$|\services\.exe$|\lsass\.exe$|\csrss\.exe$|\smss\.exe$|\wininit\.exe$|\spoolsv\.exe$|\searchindexer\.exe$</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$|\\cmd.exe$</field>
+    <field name="win.eventdata.parentImage">\\winlogon.exe$|\\services.exe$|\\lsass.exe$|\\csrss.exe$|\\smss.exe$|\\wininit.exe$|\\spoolsv.exe$|\\searchindexer.exe$</field>
     <field name="win.eventdata.user">AUTHORI|AUTORI</field>
     <description>Sigma: Abused Debug Privilege by Arbitrary Parent Processes</description>
     <mitre>
@@ -68,8 +68,8 @@
   </rule>
   <rule id="107286" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\mmc\.exe$</field>
-    <field name="win.eventdata.parentCommandLine">WF\.msc</field>
+    <field name="win.eventdata.parentImage">\\mmc.exe$</field>
+    <field name="win.eventdata.parentCommandLine">WF.msc</field>
     <description>Sigma: UAC Bypass via Windows Firewall Snap-In Hijack</description>
     <mitre>
       <id>T1548</id>

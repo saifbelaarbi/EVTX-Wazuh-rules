@@ -2,7 +2,7 @@
 <group name="windows,T1134.004_unknown,">
   <rule id="107174" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SelectMyParent\.exe$</field>
+    <field name="win.eventdata.image">\\SelectMyParent.exe$</field>
     <description>Sigma: HackTool - PPID Spoofing SelectMyParent Tool Execution</description>
     <mitre>
       <id>T1134.004</id>

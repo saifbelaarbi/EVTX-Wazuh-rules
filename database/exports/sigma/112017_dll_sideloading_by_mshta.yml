@@ -1,0 +1,20 @@
+title: DLL sideloading by mshta
+id: 4b073be8-e800-58a3-912e-563c229b1322
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112017).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image: mshta
+  condition: selection
+level: medium
+tags:
+- attack.t1218.005
+- attack.defense-evasion

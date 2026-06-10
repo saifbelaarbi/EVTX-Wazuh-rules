@@ -1,0 +1,20 @@
+title: Security group created
+id: 7f618e77-d93f-5823-807f-1604f4b09a25
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104507).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/danderspritz-evtx/examples/post-Security.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: '4731'
+  condition: selection
+level: low
+tags:
+- attack.t1098
+- attack.persistence

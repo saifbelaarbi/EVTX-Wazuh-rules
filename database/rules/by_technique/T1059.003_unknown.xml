@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1059.003_unknown,">
-  <rule id="100324" level="8">
+  <rule id="100326" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Start-Process</field>
     <description>Sigma: Powershell Execute Batch Script</description>
@@ -9,9 +9,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100407" level="8">
+  <rule id="100409" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
+    <field name="win.eventdata.image">\\cmd.exe$</field>
     <field name="win.eventdata.commandLine">http|://|%AppData%</field>
     <description>Sigma: Command Line Execution with Suspicious URL and AppData Strings</description>
     <mitre>
@@ -21,31 +21,31 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100414" level="9">
+  <rule id="100416" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentCommandLine">/\.\./\.\./</field>
-    <field name="win.eventdata.parentImage">\cmd\.exe$</field>
+    <field name="win.eventdata.parentCommandLine">/../../</field>
+    <field name="win.eventdata.parentImage">\\cmd.exe$</field>
     <description>Sigma: Potential CommandLine Path Traversal Via Cmd.EXE</description>
     <mitre>
       <id>T1059.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100418" level="8">
+  <rule id="100420" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">&lt;</field>
-    <field name="win.eventdata.originalFileName">Cmd\.Exe</field>
+    <field name="win.eventdata.originalFileName">Cmd.Exe</field>
     <description>Sigma: Read Contents From Stdin Via Cmd.EXE</description>
     <mitre>
       <id>T1059.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100422" level="8">
+  <rule id="100424" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">--pty</field>
-    <field name="win.eventdata.parentImage">\ITSMService\.exe$</field>
-    <field name="win.eventdata.image">\ssh-shellhost\.exe$</field>
+    <field name="win.eventdata.parentImage">\\ITSMService.exe$</field>
+    <field name="win.eventdata.image">\\ssh-shellhost.exe$</field>
     <description>Sigma: OpenEDR Spawning Command Shell</description>
     <mitre>
       <id>T1059.003</id>
@@ -54,52 +54,52 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100424" level="9">
+  <rule id="100426" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">conhost</field>
-    <field name="win.eventdata.commandLine">/\.\./\.\./</field>
+    <field name="win.eventdata.commandLine">/../../</field>
     <description>Sigma: Conhost.exe CommandLine Path Traversal</description>
     <mitre>
       <id>T1059.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100482" level="13">
+  <rule id="100484" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">psinject|spawnas|make_token|remote-exec|rev2self|dcsync|logonpasswords|execute-assembly|getsystem</field>
-    <field name="win.eventdata.originalFileName">Cmd\.Exe</field>
+    <field name="win.eventdata.originalFileName">Cmd.Exe</field>
     <description>Sigma: Operator Bloopers Cobalt Strike Commands</description>
     <mitre>
       <id>T1059.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100483" level="13">
+  <rule id="100485" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Invoke-UserHunter|Invoke-ShareFinder|Invoke-Kerberoast|Invoke-SMBAutoBrute|Invoke-Nightmare|zerologon|av_query</field>
-    <field name="win.eventdata.originalFileName">Cmd\.Exe</field>
+    <field name="win.eventdata.originalFileName">Cmd.Exe</field>
     <description>Sigma: Operator Bloopers Cobalt Strike Modules</description>
     <mitre>
       <id>T1059.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100524" level="8">
+  <rule id="100526" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\cmd\.exe$</field>
-    <field name="win.eventdata.parentCommandLine">\.bat$</field>
-    <field name="win.eventdata.image">\xcopy\.exe$</field>
-    <field name="win.eventdata.commandLine">powershell\.exe|\.bat\.exe</field>
+    <field name="win.eventdata.parentImage">\\cmd.exe$</field>
+    <field name="win.eventdata.parentCommandLine">.bat$</field>
+    <field name="win.eventdata.image">\\xcopy.exe$</field>
+    <field name="win.eventdata.commandLine">powershell.exe|.bat.exe</field>
     <description>Sigma: HackTool - Jlaive In-Memory Assembly Execution</description>
     <mitre>
       <id>T1059.003</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100525" level="9">
+  <rule id="100527" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/q|/c|chcp</field>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
+    <field name="win.eventdata.image">\\cmd.exe$</field>
     <description>Sigma: HackTool - Koadic Execution</description>
     <mitre>
       <id>T1059.003</id>
@@ -108,7 +108,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100913" level="8">
+  <rule id="100915" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">for /f|tokens=|in \(|dir</field>
     <description>Sigma: Suspicious Usage of For Loop with Recursive Directory Search in CMD</description>
@@ -118,7 +118,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100914" level="8">
+  <rule id="100916" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">for /f|tokens=|in \(|dir</field>
     <description>Sigma: Suspicious Usage of For Loop with Recursive Directory Search in CMD</description>

@@ -1,0 +1,22 @@
+title: DNS query by psexec
+id: 6246ff41-7320-59eb-bbd4-fdd95c939147
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112510).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/EVTX_full_APT_attack_steps/ID11,13,17,18-PSexec
+  as system execution.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image: psexec
+    QueryName: fs03vuln
+  condition: selection
+level: medium
+tags:
+- attack.t1021.002
+- attack.lateral-movement

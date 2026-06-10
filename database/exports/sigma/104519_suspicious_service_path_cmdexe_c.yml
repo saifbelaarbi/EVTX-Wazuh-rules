@@ -1,0 +1,21 @@
+title: 'Suspicious service path: cmd.exe /c'
+id: 6849e514-df51-5111-a403-107cd48a10aa
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104519).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/hayabusa-sample-evtx/DeepBlueCLI/metasploit-psexec-powershell-target-system.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    ServiceName: genusn
+    ImagePath: cmd.exe /c
+  condition: selection
+level: medium
+tags:
+- attack.t1543.003
+- attack.persistence

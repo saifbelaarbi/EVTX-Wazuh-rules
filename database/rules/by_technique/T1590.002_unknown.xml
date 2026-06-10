@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1590.002_unknown,">
-  <rule id="100041" level="8">
+  <rule id="100043" level="8">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">6004</field>
     <description>Sigma: Failed DNS Zone Transfer</description>

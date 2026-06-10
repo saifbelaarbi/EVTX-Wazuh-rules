@@ -1,0 +1,21 @@
+title: 'PowerShell module: iex('
+id: d981e1a3-b739-56c3-8e17-e89e40972df6
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100013).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1059.001-PowerShell/ID4103-4104-Payload
+  download via PowerShell.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    Payload: iex\(
+  condition: selection
+level: medium
+tags:
+- attack.t1059.001
+- attack.execution

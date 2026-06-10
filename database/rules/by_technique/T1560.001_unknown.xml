@@ -2,7 +2,7 @@
 <group name="windows,T1560.001_unknown,">
   <rule id="113519" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.dmp|\.dump|\.hdmp</field>
+    <field name="win.eventdata.commandLine">.dmp|.dump|.hdmp</field>
     <field name="win.eventdata.description">7-Zip</field>
     <description>Sigma: 7Zip Compressing Dump Files</description>
     <mitre>
@@ -22,7 +22,7 @@
   </rule>
   <rule id="113530" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <field name="win.eventdata.image">\\net.exe$|\\net1.exe$</field>
     <field name="win.eventdata.commandLine"> Järjestelmänvalvoja | Rendszergazda | Администратор | Administrateur | Administrador | Administratör | Administrator | guest | DefaultAccount | "Järjestelmänvalvoja" | "Rendszergazda" | "Администратор" | "Administrateur" | "Administrador" | "Administratör" | "Administrator" | "guest" | "DefaultAccount" | 'Järjestelmänvalvoja' | 'Rendszergazda' | 'Администратор' | 'Administrateur' | 'Administrador' | 'Administratör' | 'Administrator' | 'guest' | 'DefaultAccount' </field>
     <description>Sigma: Suspicious Manipulation Of Default Accounts Via Net.EXE</description>
     <mitre>
@@ -41,8 +41,8 @@
   </rule>
   <rule id="113544" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.dmp|\.dump|\.hdmp</field>
-    <field name="win.eventdata.image">\rar\.exe$|\winrar\.exe$</field>
+    <field name="win.eventdata.commandLine">.dmp|.dump|.hdmp</field>
+    <field name="win.eventdata.image">\\rar.exe$|\\winrar.exe$</field>
     <description>Sigma: Winrar Compressing Dump Files</description>
     <mitre>
       <id>T1560.001</id>
@@ -51,7 +51,7 @@
   </rule>
   <rule id="113545" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\rar\.exe$|\winrar\.exe$</field>
+    <field name="win.eventdata.image">\\rar.exe$|\\winrar.exe$</field>
     <description>Sigma: WinRAR Execution in Non-Standard Folder</description>
     <mitre>
       <id>T1560.001</id>
@@ -60,7 +60,7 @@
   </rule>
   <rule id="113546" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">winzip\.exe|winzip64\.exe</field>
+    <field name="win.eventdata.commandLine">winzip.exe|winzip64.exe</field>
     <description>Sigma: Compress Data and Lock With Password for Exfiltration With WINZIP</description>
     <mitre>
       <id>T1560.001</id>

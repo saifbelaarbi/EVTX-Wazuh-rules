@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1558_steal_kerberos_ticket,">
-  <rule id="108544" level="12">
+  <rule id="108543" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4649</field>
     <description>Sigma: Replay Attack Detected</description>
@@ -9,16 +9,16 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108577" level="13">
+  <rule id="108576" level="13">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.kirbi$|mimilsa\.log$</field>
+    <field name="win.eventdata.targetFilename">.kirbi$|mimilsa.log$</field>
     <description>Sigma: HackTool - Mimikatz Kirbi File Creation</description>
     <mitre>
       <id>T1558</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108603" level="11">
+  <rule id="108602" level="11">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.destinationPort">88</field>
     <field name="win.eventdata.initiated">true</field>

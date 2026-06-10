@@ -2,7 +2,7 @@
 <group name="windows,T1005_data_from_local_system,">
   <rule id="113509" level="7">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\MICROSOFT##WID\tsql\query</field>
+    <field name="win.eventdata.pipeName">\\MICROSOFT##WID\\tsql\\query</field>
     <description>Sigma: ADFS Database Named Pipe Connection By Uncommon Tool</description>
     <mitre>
       <id>T1005</id>
@@ -11,8 +11,8 @@
   </rule>
   <rule id="113521" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Windows\WebCache</field>
-    <field name="win.eventdata.image">\esentutl\.exe$</field>
+    <field name="win.eventdata.commandLine">\\Windows\\WebCache</field>
+    <field name="win.eventdata.image">\\esentutl.exe$</field>
     <description>Sigma: Esentutl Steals Browser Information</description>
     <mitre>
       <id>T1005</id>
@@ -22,7 +22,7 @@
   <rule id="113540" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">VeeamBackup|From </field>
-    <field name="win.eventdata.image">\sqlcmd\.exe$</field>
+    <field name="win.eventdata.image">\\sqlcmd.exe$</field>
     <description>Sigma: Veeam Backup Database Suspicious Query</description>
     <mitre>
       <id>T1005</id>
@@ -31,8 +31,8 @@
   </rule>
   <rule id="113541" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">SELECT|TOP|\[VeeamBackup\]\.\[dbo\]\.\[Credentials\]</field>
-    <field name="win.eventdata.image">\sqlcmd\.exe$</field>
+    <field name="win.eventdata.commandLine">SELECT|TOP|\[VeeamBackup\].\[dbo\].\[Credentials\]</field>
+    <field name="win.eventdata.image">\\sqlcmd.exe$</field>
     <description>Sigma: VeeamBackup Database Credentials Dump Via Sqlcmd.EXE</description>
     <mitre>
       <id>T1005</id>

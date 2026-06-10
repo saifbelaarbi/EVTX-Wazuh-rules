@@ -2,7 +2,7 @@
 <group name="windows,T1518.001_unknown,">
   <rule id="111028" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\.*avira\.*|\.*carbonblack\.*|\.*cylance\.*|\.*defender\.*|\.*kaspersky\.*|\.*malware\.*|\.*sentinel\.*|\.*symantec\.*|\.*virus\.*</field>
+    <field name="win.eventdata.scriptBlockText">\\\.*avira\\\.*|\\\.*carbonblack\\\.*|\\\.*cylance\\\.*|\\\.*defender\\\.*|\\\.*kaspersky\\\.*|\\\.*malware\\\.*|\\\.*sentinel\\\.*|\\\.*symantec\\\.*|\\\.*virus\\\.*</field>
     <description>Sigma: Security Software Discovery Via Powershell Script</description>
     <mitre>
       <id>T1518.001</id>
@@ -12,7 +12,7 @@
   <rule id="111044" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> avira$| avira"$| cb$| cb"$| cylance$| cylance"$| defender$| defender"$| kaspersky$| kaspersky"$| kes$| kes"$| mc$| mc"$| sec$| sec"$| sentinel$| sentinel"$| symantec$| symantec"$| virus$| virus"$</field>
-    <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>
+    <field name="win.eventdata.image">\\find.exe$|\\findstr.exe$</field>
     <description>Sigma: Security Tools Keyword Lookup Via Findstr.EXE</description>
     <mitre>
       <id>T1518.001</id>
@@ -22,7 +22,7 @@
   <rule id="111045" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> 385201</field>
-    <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>
+    <field name="win.eventdata.image">\\find.exe$|\\findstr.exe$</field>
     <description>Sigma: Sysmon Discovery Via Default Driver Altitude Using Findstr.EXE</description>
     <mitre>
       <id>T1518.001</id>

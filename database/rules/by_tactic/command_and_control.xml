@@ -59,7 +59,7 @@
   <rule id="110006" level="13">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">^aaa\.stage\.|^post\.1</field>
+    <field name="win.eventdata.queryName">^aaa.stage.|^post.1</field>
     <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - DNS Client</description>
     <mitre>
       <id>T1071.004</id>
@@ -69,14 +69,14 @@
   <rule id="110007" level="9">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">api\.put\.io|upload\.put\.io</field>
+    <field name="win.eventdata.queryName">api.put.io|upload.put.io</field>
     <description>Sigma: DNS Query To Put.io - DNS Client</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110008" level="10">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">\.hiddenservice\.net$|\.onion\.ca$|\.onion\.cab$|\.onion\.casa$|\.onion\.city$|\.onion\.direct$|\.onion\.dog$|\.onion\.glass$|\.onion\.gq$|\.onion\.guide$|\.onion\.in\.net$|\.onion\.ink$|\.onion\.it$|\.onion\.link$|\.onion\.lt$|\.onion\.lu$|\.onion\.ly$|\.onion\.mn$|\.onion\.network$|\.onion\.nu$|\.onion\.pet$|\.onion\.plus$|\.onion\.pt$|\.onion\.pw$|\.onion\.rip$|\.onion\.sh$|\.onion\.si$|\.onion\.to$|\.onion\.top$|\.onion\.ws$|\.onion$|\.s1\.tor-gateways\.de$|\.s2\.tor-gateways\.de$|\.s3\.tor-gateways\.de$|\.s4\.tor-gateways\.de$|\.s5\.tor-gateways\.de$|\.t2w\.pw$|\.tor2web\.ae\.org$|\.tor2web\.blutmagie\.de$|\.tor2web\.com$|\.tor2web\.fi$|\.tor2web\.io$|\.tor2web\.org$|\.tor2web\.xyz$|\.torlink\.co$</field>
+    <field name="win.eventdata.queryName">.hiddenservice.net$|.onion.ca$|.onion.cab$|.onion.casa$|.onion.city$|.onion.direct$|.onion.dog$|.onion.glass$|.onion.gq$|.onion.guide$|.onion.in.net$|.onion.ink$|.onion.it$|.onion.link$|.onion.lt$|.onion.lu$|.onion.ly$|.onion.mn$|.onion.network$|.onion.nu$|.onion.pet$|.onion.plus$|.onion.pt$|.onion.pw$|.onion.rip$|.onion.sh$|.onion.si$|.onion.to$|.onion.top$|.onion.ws$|.onion$|.s1.tor-gateways.de$|.s2.tor-gateways.de$|.s3.tor-gateways.de$|.s4.tor-gateways.de$|.s5.tor-gateways.de$|.t2w.pw$|.tor2web.ae.org$|.tor2web.blutmagie.de$|.tor2web.com$|.tor2web.fi$|.tor2web.io$|.tor2web.org$|.tor2web.xyz$|.torlink.co$</field>
     <description>Sigma: Query Tor Onion Address - DNS Client</description>
     <mitre>
       <id>T1090.003</id>
@@ -107,7 +107,7 @@
   <rule id="110011" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
-    <field name="win.eventdata.attributeValue">.*</field>
+    <field name="win.eventdata.attributeValue">\.*</field>
     <field name="win.eventdata.attributeLDAPDisplayName">primaryInternationalISDNNumber|otherFacsimileTelephoneNumber|primaryTelexNumber</field>
     <description>Sigma: Suspicious LDAP-Attributes Used</description>
     <mitre>
@@ -131,7 +131,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">MeshAgent\.exe</field>
+    <field name="win.eventdata.imagePath">MeshAgent.exe</field>
     <description>Sigma: Mesh Agent Service Installation</description>
     <mitre>
       <id>T1219.002</id>
@@ -142,7 +142,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">tacticalrmm\.exe</field>
+    <field name="win.eventdata.imagePath">tacticalrmm.exe</field>
     <description>Sigma: TacticalRMM Service Installation</description>
     <mitre>
       <id>T1219.002</id>
@@ -161,7 +161,7 @@
   </rule>
   <rule id="110016" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.image">\AppInstaller\.exe$</field>
+    <field name="win.eventdata.image">\\AppInstaller.exe$</field>
     <description>Sigma: AppX Package Installation Attempts Via AppInstaller.EXE</description>
     <mitre>
       <id>T1105</id>
@@ -170,7 +170,7 @@
   </rule>
   <rule id="110017" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.v2\.argotunnel\.com$|protocol-v2\.argotunnel\.com$|trycloudflare\.com$|update\.argotunnel\.com$</field>
+    <field name="win.eventdata.queryName">.v2.argotunnel.com$|protocol-v2.argotunnel.com$|trycloudflare.com$|update.argotunnel.com$</field>
     <description>Sigma: Cloudflared Tunnels Related DNS Requests</description>
     <mitre>
       <id>T1071.001</id>
@@ -180,7 +180,7 @@
   </rule>
   <rule id="110018" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">msapp\.workers\.dev|trycloudflare\.com|infinityfreeapp\.com|my5353\.com|reurl\.cc|lihi\.cc|tinyurl\.com</field>
+    <field name="win.eventdata.queryName">msapp.workers.dev|trycloudflare.com|infinityfreeapp.com|my5353.com|reurl.cc|lihi.cc|tinyurl.com</field>
     <description>Sigma: DNS Query To Common Malware Hosting and Shortener Services</description>
     <mitre>
       <id>T1071.004</id>
@@ -189,7 +189,7 @@
   </rule>
   <rule id="110019" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.devtunnels\.ms$</field>
+    <field name="win.eventdata.queryName">.devtunnels.ms$</field>
     <description>Sigma: DNS Query To Devtunnels Domain</description>
     <mitre>
       <id>T1071.001</id>
@@ -199,7 +199,7 @@
   </rule>
   <rule id="110020" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">azurewebsites\.net$</field>
+    <field name="win.eventdata.queryName">azurewebsites.net$</field>
     <description>Sigma: DNS Query To AzureWebsites.NET By Non-Browser Process</description>
     <mitre>
       <id>T1219.002</id>
@@ -208,7 +208,7 @@
   </rule>
   <rule id="110021" level="10">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.image">\finger\.exe$</field>
+    <field name="win.eventdata.image">\\finger.exe$</field>
     <description>Sigma: DNS Query by Finger Utility</description>
     <mitre>
       <id>T1071.004</id>
@@ -218,7 +218,7 @@
   </rule>
   <rule id="110022" level="13">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">^aaa\.stage\.|^post\.1</field>
+    <field name="win.eventdata.queryName">^aaa.stage.|^post.1</field>
     <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - Sysmon</description>
     <mitre>
       <id>T1071.004</id>
@@ -227,7 +227,7 @@
   </rule>
   <rule id="110023" level="13">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.stage\.123456\.</field>
+    <field name="win.eventdata.queryName">.stage.123456.</field>
     <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - Sysmon</description>
     <mitre>
       <id>T1071.004</id>
@@ -236,7 +236,7 @@
   </rule>
   <rule id="110024" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">agent\.jumpcloud\.com$|agentreporting\.atera\.com$|ammyy\.com$|api\.parsec\.app$|api\.playanext\.com$|api\.splashtop\.com$|app\.atera\.com$|assist\.zoho\.com$|authentication\.logmeininc\.com$|beyondtrustcloud\.com$|cdn\.kaseya\.net$|client\.teamviewer\.com$|comserver\.corporate\.beanywhere\.com$|control\.connectwise\.com$|downloads\.zohocdn\.com$|dwservice\.net$|express\.gotoassist\.com$|getgo\.com$|getscreen\.me$|integratedchat\.teamviewer\.com$|join\.zoho\.com$|kickstart\.jumpcloud\.com$|license\.bomgar\.com$|logmein-gateway\.com$|logmein\.com$|logmeincdn\.http\.internapcdn\.net$|n-able\.com$|net\.anydesk\.com$|netsupportsoftware\.com$|parsecusercontent\.com$|pubsub\.atera\.com$|relay\.kaseya\.net$|relay\.screenconnect\.com$|relay\.splashtop\.com$|remoteassistance\.support\.services\.microsoft\.com$|remotedesktop-pa\.googleapis\.com$|remoteutilities\.com$|secure\.logmeinrescue\.com$|services\.vnc\.com$|static\.remotepc\.com$|swi-rc\.com$|swi-tc\.com$|tailscale\.com$|telemetry\.servers\.qetqo\.com$|tmate\.io$|twingate\.com$|zohoassist\.com$</field>
+    <field name="win.eventdata.queryName">agent.jumpcloud.com$|agentreporting.atera.com$|ammyy.com$|api.parsec.app$|api.playanext.com$|api.splashtop.com$|app.atera.com$|assist.zoho.com$|authentication.logmeininc.com$|beyondtrustcloud.com$|cdn.kaseya.net$|client.teamviewer.com$|comserver.corporate.beanywhere.com$|control.connectwise.com$|downloads.zohocdn.com$|dwservice.net$|express.gotoassist.com$|getgo.com$|getscreen.me$|integratedchat.teamviewer.com$|join.zoho.com$|kickstart.jumpcloud.com$|license.bomgar.com$|logmein-gateway.com$|logmein.com$|logmeincdn.http.internapcdn.net$|n-able.com$|net.anydesk.com$|netsupportsoftware.com$|parsecusercontent.com$|pubsub.atera.com$|relay.kaseya.net$|relay.screenconnect.com$|relay.splashtop.com$|remoteassistance.support.services.microsoft.com$|remotedesktop-pa.googleapis.com$|remoteutilities.com$|secure.logmeinrescue.com$|services.vnc.com$|static.remotepc.com$|swi-rc.com$|swi-tc.com$|tailscale.com$|telemetry.servers.qetqo.com$|tmate.io$|twingate.com$|zohoassist.com$</field>
     <description>Sigma: DNS Query To Remote Access Software Domain From Non-Browser App</description>
     <mitre>
       <id>T1219.002</id>
@@ -254,7 +254,7 @@
   </rule>
   <rule id="110026" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">taf\.teamviewer\.com|udp\.ping\.teamviewer\.com</field>
+    <field name="win.eventdata.queryName">taf.teamviewer.com|udp.ping.teamviewer.com</field>
     <description>Sigma: TeamViewer Domain Query By Non-TeamViewer Application</description>
     <mitre>
       <id>T1219.002</id>
@@ -263,7 +263,7 @@
   </rule>
   <rule id="110027" level="10">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.hiddenservice\.net$|\.onion\.ca$|\.onion\.cab$|\.onion\.casa$|\.onion\.city$|\.onion\.direct$|\.onion\.dog$|\.onion\.glass$|\.onion\.gq$|\.onion\.ink$|\.onion\.it$|\.onion\.link$|\.onion\.lt$|\.onion\.lu$|\.onion\.nu$|\.onion\.pet$|\.onion\.plus$|\.onion\.rip$|\.onion\.sh$|\.onion\.to$|\.onion\.top$|\.onion$|\.s1\.tor-gateways\.de$|\.s2\.tor-gateways\.de$|\.s3\.tor-gateways\.de$|\.s4\.tor-gateways\.de$|\.s5\.tor-gateways\.de$|\.t2w\.pw$|\.tor2web\.ae\.org$|\.tor2web\.blutmagie\.de$|\.tor2web\.com$|\.tor2web\.fi$|\.tor2web\.io$|\.tor2web\.org$|\.tor2web\.xyz$|\.torlink\.co$</field>
+    <field name="win.eventdata.queryName">.hiddenservice.net$|.onion.ca$|.onion.cab$|.onion.casa$|.onion.city$|.onion.direct$|.onion.dog$|.onion.glass$|.onion.gq$|.onion.ink$|.onion.it$|.onion.link$|.onion.lt$|.onion.lu$|.onion.nu$|.onion.pet$|.onion.plus$|.onion.rip$|.onion.sh$|.onion.to$|.onion.top$|.onion$|.s1.tor-gateways.de$|.s2.tor-gateways.de$|.s3.tor-gateways.de$|.s4.tor-gateways.de$|.s5.tor-gateways.de$|.t2w.pw$|.tor2web.ae.org$|.tor2web.blutmagie.de$|.tor2web.com$|.tor2web.fi$|.tor2web.io$|.tor2web.org$|.tor2web.xyz$|.torlink.co$</field>
     <description>Sigma: DNS Query Tor .Onion Address - Sysmon</description>
     <mitre>
       <id>T1090.003</id>
@@ -272,7 +272,7 @@
   </rule>
   <rule id="110028" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.tunnels\.api\.visualstudio\.com$</field>
+    <field name="win.eventdata.queryName">.tunnels.api.visualstudio.com$</field>
     <description>Sigma: DNS Query To Visual Studio Code Tunnels Domain</description>
     <mitre>
       <id>T1071.001</id>
@@ -281,7 +281,7 @@
   </rule>
   <rule id="110029" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.sch$</field>
+    <field name="win.eventdata.targetFilename">.sch$</field>
     <description>Sigma: ADSI-Cache File Creation By Uncommon Tool</description>
     <mitre>
       <id>T1001.003</id>
@@ -290,7 +290,7 @@
   </rule>
   <rule id="110030" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Roaming\AnyDesk\user\.conf|\AppData\Roaming\AnyDesk\system\.conf</field>
+    <field name="win.eventdata.targetFilename">\\AppData\\Roaming\\AnyDesk\\user.conf|\\AppData\\Roaming\\AnyDesk\\system.conf</field>
     <description>Sigma: Anydesk Temporary Artefact</description>
     <mitre>
       <id>T1219.002</id>
@@ -299,8 +299,8 @@
   </rule>
   <rule id="110031" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\AnyDesk\.exe$|\AnyDeskMSI\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.dll$|\.exe$</field>
+    <field name="win.eventdata.image">\\AnyDesk.exe$|\\AnyDeskMSI.exe$</field>
+    <field name="win.eventdata.targetFilename">.dll$|.exe$</field>
     <description>Sigma: Suspicious Binary Writes Via AnyDesk</description>
     <mitre>
       <id>T1219.002</id>
@@ -309,8 +309,8 @@
   </rule>
   <rule id="110032" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\ArcSOC\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.ahk$|\.aspx$|\.au3$|\.bat$|\.cmd$|\.dll$|\.exe$|\.hta$|\.js$|\.ps1$|\.py$|\.vbe$|\.vbs$|\.wsf$</field>
+    <field name="win.eventdata.image">\\ArcSOC.exe$</field>
+    <field name="win.eventdata.targetFilename">.ahk$|.aspx$|.au3$|.bat$|.cmd$|.dll$|.exe$|.hta$|.js$|.ps1$|.py$|.vbe$|.vbs$|.wsf$</field>
     <description>Sigma: Suspicious File Created by ArcSOC.exe</description>
     <mitre>
       <id>T1127</id>
@@ -321,8 +321,8 @@
   </rule>
   <rule id="110033" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\COMODO\Endpoint Manager\ITSMService\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.7z$|\.bat$|\.cmd$|\.com$|\.dll$|\.exe$|\.hta$|\.js$|\.pif$|\.ps1$|\.rar$|\.scr$|\.vbe$|\.vbs$|\.zip$</field>
+    <field name="win.eventdata.image">\\COMODO\\Endpoint Manager\\ITSMService.exe$</field>
+    <field name="win.eventdata.targetFilename">.7z$|.bat$|.cmd$|.com$|.dll$|.exe$|.hta$|.js$|.pif$|.ps1$|.rar$|.scr$|.vbe$|.vbs$|.zip$</field>
     <description>Sigma: Potentially Suspicious File Creation by OpenEDR's ITSMService</description>
     <mitre>
       <id>T1105</id>
@@ -333,7 +333,7 @@
   </rule>
   <rule id="110034" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\LogMeInInc\GoToAssist Remote Support Expert\</field>
+    <field name="win.eventdata.targetFilename">\\AppData\\Local\\Temp\\LogMeInInc\\GoToAssist Remote Support Expert\\</field>
     <description>Sigma: GoToAssist Temporary Installation Artefact</description>
     <mitre>
       <id>T1219.002</id>
@@ -342,7 +342,7 @@
   </rule>
   <rule id="110035" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Inveigh-Log\.txt$|\Inveigh-Cleartext\.txt$|\Inveigh-NTLMv1Users\.txt$|\Inveigh-NTLMv2Users\.txt$|\Inveigh-NTLMv1\.txt$|\Inveigh-NTLMv2\.txt$|\Inveigh-FormInput\.txt$|\Inveigh\.dll$|\Inveigh\.exe$|\Inveigh\.ps1$|\Inveigh-Relay\.ps1$</field>
+    <field name="win.eventdata.targetFilename">\\Inveigh-Log.txt$|\\Inveigh-Cleartext.txt$|\\Inveigh-NTLMv1Users.txt$|\\Inveigh-NTLMv2Users.txt$|\\Inveigh-NTLMv1.txt$|\\Inveigh-NTLMv2.txt$|\\Inveigh-FormInput.txt$|\\Inveigh.dll$|\\Inveigh.exe$|\\Inveigh.ps1$|\\Inveigh-Relay.ps1$</field>
     <description>Sigma: HackTool - Inveigh Execution Artefacts</description>
     <mitre>
       <id>T1219.002</id>
@@ -351,7 +351,7 @@
   </rule>
   <rule id="110036" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">:\windows\temp\sam\.tmp$|:\windows\temp\sec\.tmp$|:\windows\temp\sys\.tmp$</field>
+    <field name="win.eventdata.targetFilename">:\\windows\\temp\\sam.tmp$|:\\windows\\temp\\sec.tmp$|:\\windows\\temp\\sys.tmp$</field>
     <description>Sigma: HackTool - RemoteKrbRelay SMB Relay Secrets Dump Module Indicators</description>
     <mitre>
       <id>T1219.002</id>
@@ -360,7 +360,7 @@
   </rule>
   <rule id="110037" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\TeamViewer_Desktop\.exe$</field>
+    <field name="win.eventdata.targetFilename">\\TeamViewer_Desktop.exe$</field>
     <description>Sigma: Installation of TeamViewer Desktop</description>
     <mitre>
       <id>T1219.002</id>
@@ -369,7 +369,7 @@
   </rule>
   <rule id="110038" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Bin\ScreenConnect\.</field>
+    <field name="win.eventdata.targetFilename">\\Bin\\ScreenConnect.</field>
     <description>Sigma: ScreenConnect Temporary Installation Artefact</description>
     <mitre>
       <id>T1219.002</id>
@@ -378,8 +378,8 @@
   </rule>
   <rule id="110039" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\svchost\.exe$</field>
-    <field name="win.eventdata.targetFilename">\Personalization\LockScreenImage\</field>
+    <field name="win.eventdata.image">\\svchost.exe$</field>
+    <field name="win.eventdata.targetFilename">\\Personalization\\LockScreenImage\\</field>
     <description>Sigma: Suspicious Desktopimgdownldr Target File</description>
     <mitre>
       <id>T1105</id>
@@ -388,8 +388,8 @@
   </rule>
   <rule id="110040" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\eqnedt32\.exe$|\wordpad\.exe$|\wordview\.exe$|\cmdl32\.exe$|\certutil\.exe$|\certoc\.exe$|\CertReq\.exe$|\bitsadmin\.exe$|\Desktopimgdownldr\.exe$|\esentutl\.exe$|\expand\.exe$|\extrac32\.exe$|\replace\.exe$|\mshta\.exe$|\ftp\.exe$|\Ldifde\.exe$|\RdrCEF\.exe$|\hh\.exe$|\finger\.exe$|\findstr\.exe$</field>
-    <field name="win.eventdata.targetFilename">:\Perflogs|:\ProgramData\|:\Temp\|:\Users\Public\|:\Windows\|\\$Recycle\.Bin\|\AppData\Local\|\AppData\Roaming\|\Contacts\|\Desktop\|\Favorites\|\Favourites\|\inetpub\wwwroot\|\Music\|\Pictures\|\Start Menu\Programs\Startup\|\Users\Default\|\Videos\</field>
+    <field name="win.eventdata.image">\\eqnedt32.exe$|\\wordpad.exe$|\\wordview.exe$|\\cmdl32.exe$|\\certutil.exe$|\\certoc.exe$|\\CertReq.exe$|\\bitsadmin.exe$|\\Desktopimgdownldr.exe$|\\esentutl.exe$|\\expand.exe$|\\extrac32.exe$|\\replace.exe$|\\mshta.exe$|\\ftp.exe$|\\Ldifde.exe$|\\RdrCEF.exe$|\\hh.exe$|\\finger.exe$|\\findstr.exe$</field>
+    <field name="win.eventdata.targetFilename">:\\Perflogs|:\\ProgramData\\|:\\Temp\\|:\\Users\\Public\\|:\\Windows\\|\\\$Recycle.Bin\\|\\AppData\\Local\\|\\AppData\\Roaming\\|\\Contacts\\|\\Desktop\\|\\Favorites\\|\\Favourites\\|\\inetpub\\wwwroot\\|\\Music\\|\\Pictures\\|\\Start Menu\\Programs\\Startup\\|\\Users\\Default\\|\\Videos\\</field>
     <description>Sigma: Legitimate Application Writing Files In Uncommon Location</description>
     <mitre>
       <id>T1218</id>
@@ -399,7 +399,7 @@
   </rule>
   <rule id="110041" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\TeamViewer\RemotePrinting\tvprint\.db$|\TeamViewer\TVNetwork\.log$</field>
+    <field name="win.eventdata.targetFilename">\\TeamViewer\\RemotePrinting\\tvprint.db$|\\TeamViewer\\TVNetwork.log$</field>
     <description>Sigma: TeamViewer Remote Session</description>
     <mitre>
       <id>T1219.002</id>
@@ -408,7 +408,7 @@
   </rule>
   <rule id="110042" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\TeamViewer|_Logfile\.log</field>
+    <field name="win.eventdata.targetFilename">\\TeamViewer|_Logfile.log</field>
     <description>Sigma: TeamViewer Remote Session</description>
     <mitre>
       <id>T1219.002</id>
@@ -417,8 +417,8 @@
   </rule>
   <rule id="110043" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\mstsc\.exe$</field>
-    <field name="win.eventdata.targetFilename">\Microsoft\Windows\Start Menu\Programs\Startup\</field>
+    <field name="win.eventdata.image">\\mstsc.exe$</field>
+    <field name="win.eventdata.targetFilename">\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\</field>
     <description>Sigma: Hijack Legit RDP Session to Move Laterally</description>
     <mitre>
       <id>T1219.002</id>
@@ -427,14 +427,14 @@
   </rule>
   <rule id="110044" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\server\node\.exe$</field>
-    <field name="win.eventdata.targetFilename">\\.vscode-server\data\User\History\</field>
+    <field name="win.eventdata.image">\\server\\node.exe$</field>
+    <field name="win.eventdata.targetFilename">\\.vscode-server\\data\\User\\History\\</field>
     <description>Sigma: Visual Studio Code Tunnel Remote File Creation</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110045" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\code_tunnel\.json$</field>
+    <field name="win.eventdata.targetFilename">\\code_tunnel.json$</field>
     <description>Sigma: Renamed VsCode Code Tunnel Execution - File Indicator</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
@@ -449,7 +449,7 @@
   </rule>
   <rule id="110047" level="10">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">\certutil\.exe$</field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.destinationPort">80|135|443|445</field>
     <description>Sigma: Uncommon Network Connection Initiated By Certutil.EXE</description>
@@ -461,7 +461,7 @@
   <rule id="110048" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">azurewebsites\.net$</field>
+    <field name="win.eventdata.destinationHostname">azurewebsites.net$</field>
     <description>Sigma: Network Connection Initiated To AzureWebsites.NET By Non-Browser Process</description>
     <mitre>
       <id>T1102</id>
@@ -472,7 +472,7 @@
   <rule id="110049" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">\.t\.me$|4shared\.com$|abuse\.ch$|anonfiles\.com$|cdn\.discordapp\.com$|cloudflare\.com$|ddns\.net$|discord\.com$|docs\.google\.com$|drive\.google\.com$|dropbox\.com$|dropmefiles\.com$|facebook\.com$|feeds\.rapidfeeds\.com$|fotolog\.com$|ghostbin\.co/$|githubusercontent\.com$|gofile\.io$|hastebin\.com$|imgur\.com$|livejournal\.com$|mediafire\.com$|mega\.co\.nz$|mega\.nz$|onedrive\.com$|pages\.dev$|paste\.ee$|pastebin\.com$|pastebin\.pl$|pastetext\.net$|pixeldrain\.com$|privatlab\.com$|privatlab\.net$|reddit\.com$|send\.exploit\.in$|sendspace\.com$|steamcommunity\.com$|storage\.googleapis\.com$|technet\.microsoft\.com$|temp\.sh$|transfer\.sh$|trycloudflare\.com$|twitter\.com$|ufile\.io$|vimeo\.com$|w3spaces\.com$|wetransfer\.com$|workers\.dev$|youtube\.com$</field>
+    <field name="win.eventdata.destinationHostname">.t.me$|4shared.com$|abuse.ch$|anonfiles.com$|cdn.discordapp.com$|cloudflare.com$|ddns.net$|discord.com$|docs.google.com$|drive.google.com$|dropbox.com$|dropmefiles.com$|facebook.com$|feeds.rapidfeeds.com$|fotolog.com$|ghostbin.co/$|githubusercontent.com$|gofile.io$|hastebin.com$|imgur.com$|livejournal.com$|mediafire.com$|mega.co.nz$|mega.nz$|onedrive.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|reddit.com$|send.exploit.in$|sendspace.com$|steamcommunity.com$|storage.googleapis.com$|technet.microsoft.com$|temp.sh$|transfer.sh$|trycloudflare.com$|twitter.com$|ufile.io$|vimeo.com$|w3spaces.com$|wetransfer.com$|workers.dev$|youtube.com$</field>
     <description>Sigma: New Connection Initiated To Potential Dead Drop Resolver Domain</description>
     <mitre>
       <id>T1102</id>
@@ -483,7 +483,7 @@
   <rule id="110050" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">api\.dropboxapi\.com$|content\.dropboxapi\.com$</field>
+    <field name="win.eventdata.destinationHostname">api.dropboxapi.com$|content.dropboxapi.com$</field>
     <description>Sigma: Suspicious Dropbox API Usage</description>
     <mitre>
       <id>T1105</id>
@@ -493,7 +493,7 @@
   </rule>
   <rule id="110051" level="9">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationHostname">drive\.googleapis\.com|oauth2\.googleapis\.com|sheets\.googleapis\.com|www\.googleapis\.com</field>
+    <field name="win.eventdata.destinationHostname">drive.googleapis.com|oauth2.googleapis.com|sheets.googleapis.com|www.googleapis.com</field>
     <description>Sigma: Suspicious Non-Browser Network Communication With Google API</description>
     <mitre>
       <id>T1102</id>
@@ -502,7 +502,7 @@
   </rule>
   <rule id="110052" level="10">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationHostname">\.localto\.net$|\.localtonet\.com$</field>
+    <field name="win.eventdata.destinationHostname">.localto.net$|.localtonet.com$</field>
     <field name="win.eventdata.initiated">true</field>
     <description>Sigma: Communication To LocaltoNet Tunneling Service Initiated</description>
     <mitre>
@@ -515,7 +515,7 @@
   <rule id="110053" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">\.portmap\.io$</field>
+    <field name="win.eventdata.destinationHostname">.portmap.io$</field>
     <description>Sigma: Network Communication Initiated To Portmap.IO Domain</description>
     <mitre>
       <id>T1041</id>
@@ -525,7 +525,7 @@
   </rule>
   <rule id="110054" level="9">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationHostname">api\.telegram\.org</field>
+    <field name="win.eventdata.destinationHostname">api.telegram.org</field>
     <description>Sigma: Suspicious Non-Browser Network Communication With Telegram API</description>
     <mitre>
       <id>T1102</id>
@@ -537,7 +537,7 @@
   <rule id="110055" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\finger\.exe$</field>
+    <field name="win.eventdata.image">\\finger.exe$</field>
     <description>Sigma: Network Connection Initiated via Finger.EXE</description>
     <mitre>
       <id>T1071.004</id>
@@ -548,7 +548,7 @@
   <rule id="110056" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\IMEWDBLD\.exe$</field>
+    <field name="win.eventdata.image">\\IMEWDBLD.exe$</field>
     <description>Sigma: Network Connection Initiated By IMEWDBLD.EXE</description>
     <mitre>
       <id>T1105</id>
@@ -558,14 +558,14 @@
   <rule id="110057" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\excel\.exe$|\outlook\.exe$|\powerpnt\.exe$|\winword\.exe$|\wordview\.exe$</field>
+    <field name="win.eventdata.image">\\excel.exe$|\\outlook.exe$|\\powerpnt.exe$|\\winword.exe$|\\wordview.exe$</field>
     <description>Sigma: Office Application Initiated Network Connection Over Uncommon Ports</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110058" level="10">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationIp">127\.0\.0\.0/8|::1/128</field>
-    <field name="win.eventdata.image">\svchost\.exe$</field>
+    <field name="win.eventdata.destinationIp">^127.|^::1.</field>
+    <field name="win.eventdata.image">\\svchost.exe$</field>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.sourcePort">3389</field>
     <description>Sigma: RDP Over Reverse SSH Tunnel</description>
@@ -577,7 +577,7 @@
   </rule>
   <rule id="110059" level="10">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">\svchost\.exe$</field>
+    <field name="win.eventdata.image">\\svchost.exe$</field>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.sourcePort">3389</field>
     <field name="win.eventdata.destinationPort">80|443</field>
@@ -591,8 +591,8 @@
   <rule id="110060" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">\.githubusercontent\.com$|anonfiles\.com$|cdn\.discordapp\.com$|ddns\.net$|dl\.dropboxusercontent\.com$|ghostbin\.co$|github\.com$|glitch\.me$|gofile\.io$|hastebin\.com$|mediafire\.com$|mega\.co\.nz$|mega\.nz$|onrender\.com$|pages\.dev$|paste\.ee$|pastebin\.com$|pastebin\.pl$|pastetext\.net$|pixeldrain\.com$|privatlab\.com$|privatlab\.net$|send\.exploit\.in$|sendspace\.com$|storage\.googleapis\.com$|storjshare\.io$|supabase\.co$|temp\.sh$|transfer\.sh$|trycloudflare\.com$|ufile\.io$|w3spaces\.com$|workers\.dev$</field>
-    <field name="win.eventdata.image">:\\$Recycle\.bin|:\Perflogs\|:\Temp\|:\Users\Default\|:\Users\Public\|:\Windows\Fonts\|:\Windows\IME\|:\Windows\System32\Tasks\|:\Windows\Tasks\|:\Windows\Temp\|\AppData\Temp\|\config\systemprofile\|\Windows\addins\</field>
+    <field name="win.eventdata.destinationHostname">.githubusercontent.com$|anonfiles.com$|cdn.discordapp.com$|ddns.net$|dl.dropboxusercontent.com$|ghostbin.co$|github.com$|glitch.me$|gofile.io$|hastebin.com$|mediafire.com$|mega.co.nz$|mega.nz$|onrender.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|send.exploit.in$|sendspace.com$|storage.googleapis.com$|storjshare.io$|supabase.co$|temp.sh$|transfer.sh$|trycloudflare.com$|ufile.io$|w3spaces.com$|workers.dev$</field>
+    <field name="win.eventdata.image">:\\\$Recycle.bin|:\\Perflogs\\|:\\Temp\\|:\\Users\\Default\\|:\\Users\\Public\\|:\\Windows\\Fonts\\|:\\Windows\\IME\\|:\\Windows\\System32\\Tasks\\|:\\Windows\\Tasks\\|:\\Windows\\Temp\\|\\AppData\\Temp\\|\\config\\systemprofile\\|\\Windows\\addins\\</field>
     <description>Sigma: Network Communication Initiated To File Sharing Domains From Process Located In Suspicious Folder</description>
     <mitre>
       <id>T1105</id>
@@ -602,7 +602,7 @@
   <rule id="110061" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">:\\$Recycle\.bin|:\Perflogs\|:\Temp\|:\Users\Default\|:\Users\Public\|:\Windows\Fonts\|:\Windows\IME\|:\Windows\System32\Tasks\|:\Windows\Tasks\|\config\systemprofile\|\Contacts\|\Favorites\|\Favourites\|\Music\|\Pictures\|\Videos\|\Windows\addins\</field>
+    <field name="win.eventdata.image">:\\\$Recycle.bin|:\\Perflogs\\|:\\Temp\\|:\\Users\\Default\\|:\\Users\\Public\\|:\\Windows\\Fonts\\|:\\Windows\\IME\\|:\\Windows\\System32\\Tasks\\|:\\Windows\\Tasks\\|\\config\\systemprofile\\|\\Contacts\\|\\Favorites\\|\\Favourites\\|\\Music\\|\\Pictures\\|\\Videos\\|\\Windows\\addins\\</field>
     <description>Sigma: Network Connection Initiated From Process Located In Potentially Suspicious Or Uncommon Location</description>
     <mitre>
       <id>T1105</id>
@@ -612,15 +612,15 @@
   <rule id="110062" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\wordpad\.exe$</field>
+    <field name="win.eventdata.image">\\wordpad.exe$</field>
     <description>Sigma: Suspicious Wordpad Outbound Connections</description>
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110063" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\wscript\.exe$|\cscript\.exe$</field>
-    <field name="win.eventdata.destinationIp">127\.0\.0\.0/8|10\.0\.0\.0/8|172\.16\.0\.0/12|192\.168\.0\.0/16|169\.254\.0\.0/16|::1/128|fe80::/10|fc00::/7</field>
+    <field name="win.eventdata.image">\\wscript.exe$|\\cscript.exe$</field>
+    <field name="win.eventdata.destinationIp">^127.|^10.|^172.|^192.168.|^169.254.|^::1.|^fe80::.|^fc00::.</field>
     <description>Sigma: Local Network Connection Initiated By Script Interpreter</description>
     <mitre>
       <id>T1105</id>
@@ -630,7 +630,7 @@
   <rule id="110064" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\wscript\.exe$|\cscript\.exe$</field>
+    <field name="win.eventdata.image">\\wscript.exe$|\\cscript.exe$</field>
     <description>Sigma: Outbound Network Connection Initiated By Script Interpreter</description>
     <mitre>
       <id>T1105</id>
@@ -639,7 +639,7 @@
   </rule>
   <rule id="110065" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.data">powercat |powercat\.ps1</field>
+    <field name="win.eventdata.data">powercat |powercat.ps1</field>
     <description>Sigma: Netcat The Powershell Version</description>
     <mitre>
       <id>T1095</id>
@@ -676,7 +676,7 @@
   </rule>
   <rule id="110069" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[System\.Net\.HttpWebRequest\]|System\.Net\.Sockets\.TcpListener|AcceptTcpClient</field>
+    <field name="win.eventdata.scriptBlockText">\[System.Net.HttpWebRequest\]|System.Net.Sockets.TcpListener|AcceptTcpClient</field>
     <description>Sigma: Suspicious TCP Tunnel Via PowerShell Script</description>
     <mitre>
       <id>T1090</id>
@@ -694,7 +694,7 @@
   </rule>
   <rule id="110071" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\brave\.exe$|\chrome\.exe$|\msedge\.exe$|\opera\.exe$|\vivaldi\.exe$</field>
+    <field name="win.eventdata.image">\\brave.exe$|\\chrome.exe$|\\msedge.exe$|\\opera.exe$|\\vivaldi.exe$</field>
     <field name="win.eventdata.commandLine">--headless|dump-dom|http</field>
     <description>Sigma: File Download with Headless Browser</description>
     <mitre>
@@ -706,7 +706,7 @@
   <rule id="110072" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">http</field>
-    <field name="win.eventdata.image">\brave\.exe$|\chrome\.exe$|\msedge\.exe$|\opera\.exe$|\vivaldi\.exe$</field>
+    <field name="win.eventdata.image">\\brave.exe$|\\chrome.exe$|\\msedge.exe$|\\opera.exe$|\\vivaldi.exe$</field>
     <description>Sigma: File Download From Browser Process Via Inline URL</description>
     <mitre>
       <id>T1105</id>
@@ -733,7 +733,7 @@
   </rule>
   <rule id="110075" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\tor\.exe$|\Tor Browser\Browser\firefox\.exe$</field>
+    <field name="win.eventdata.image">\\tor.exe$|\\Tor Browser\\Browser\\firefox.exe$</field>
     <description>Sigma: Tor Client/Browser Execution</description>
     <mitre>
       <id>T1090.003</id>
@@ -743,7 +743,7 @@
   <rule id="110076" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-GetCACAPS|http</field>
-    <field name="win.eventdata.image">\certoc\.exe$</field>
+    <field name="win.eventdata.image">\\certoc.exe$</field>
     <description>Sigma: File Download via CertOC.EXE</description>
     <mitre>
       <id>T1105</id>
@@ -753,7 +753,7 @@
   <rule id="110077" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
-    <field name="win.eventdata.image">\certoc\.exe$</field>
+    <field name="win.eventdata.image">\\certoc.exe$</field>
     <description>Sigma: File Download From IP Based URL Via CertOC.EXE</description>
     <mitre>
       <id>T1105</id>
@@ -763,7 +763,7 @@
   <rule id="110078" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">http</field>
-    <field name="win.eventdata.image">\certreq\.exe$</field>
+    <field name="win.eventdata.image">\\certreq.exe$</field>
     <description>Sigma: Suspicious CertReq Command to Download</description>
     <mitre>
       <id>T1105</id>
@@ -773,7 +773,7 @@
   <rule id="110079" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">http</field>
-    <field name="win.eventdata.image">\certutil\.exe$</field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
     <description>Sigma: Suspicious Download Via Certutil.EXE</description>
     <mitre>
       <id>T1027</id>
@@ -784,7 +784,7 @@
   <rule id="110080" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">://1|://2|://3|://4|://5|://6|://7|://8|://9</field>
-    <field name="win.eventdata.image">\certutil\.exe$</field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
     <description>Sigma: Suspicious File Downloaded From Direct IP Via Certutil.EXE</description>
     <mitre>
       <id>T1027</id>
@@ -794,8 +794,8 @@
   </rule>
   <rule id="110081" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.githubusercontent\.com|anonfiles\.com|cdn\.discordapp\.com|ddns\.net|dl\.dropboxusercontent\.com|ghostbin\.co|github\.com|glitch\.me|gofile\.io|hastebin\.com|mediafire\.com|mega\.nz|onrender\.com|pages\.dev|paste\.ee|pastebin\.com|pastebin\.pl|pastetext\.net|privatlab\.com|privatlab\.net|send\.exploit\.in|sendspace\.com|storage\.googleapis\.com|storjshare\.io|supabase\.co|temp\.sh|transfer\.sh|trycloudflare\.com|ufile\.io|w3spaces\.com|workers\.dev</field>
-    <field name="win.eventdata.image">\certutil\.exe$</field>
+    <field name="win.eventdata.commandLine">.githubusercontent.com|anonfiles.com|cdn.discordapp.com|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev</field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
     <description>Sigma: Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE</description>
     <mitre>
       <id>T1027</id>
@@ -805,7 +805,7 @@
   </rule>
   <rule id="110082" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\cloudflared\.exe$</field>
+    <field name="win.eventdata.image">\\cloudflared.exe$</field>
     <description>Sigma: Cloudflared Portable Execution</description>
     <mitre>
       <id>T1090.001</id>
@@ -814,7 +814,7 @@
   </rule>
   <rule id="110083" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\cloudflared\.exe$|\cloudflared-windows-386\.exe$|\cloudflared-windows-amd64\.exe$</field>
+    <field name="win.eventdata.image">\\cloudflared.exe$|\\cloudflared-windows-386.exe$|\\cloudflared-windows-amd64.exe$</field>
     <description>Sigma: Cloudflared Quick Tunnel Execution</description>
     <mitre>
       <id>T1090.001</id>
@@ -855,7 +855,7 @@
   </rule>
   <rule id="110087" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">type \\\\| &gt; </field>
+    <field name="win.eventdata.commandLine">type \\\\\\\\| &gt; </field>
     <description>Sigma: Potential Download/Upload Activity Using Type Command</description>
     <mitre>
       <id>T1105</id>
@@ -864,7 +864,7 @@
   </rule>
   <rule id="110088" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">type | &gt; \\\\</field>
+    <field name="win.eventdata.commandLine">type | &gt; \\\\\\\\</field>
     <description>Sigma: Potential Download/Upload Activity Using Type Command</description>
     <mitre>
       <id>T1105</id>
@@ -873,8 +873,8 @@
   </rule>
   <rule id="110089" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\curl\.exe$</field>
-    <field name="win.eventdata.commandLine">\.dll$|\.gif$|\.jpeg$|\.jpg$|\.png$|\.temp$|\.tmp$|\.txt$|\.vbe$|\.vbs$</field>
+    <field name="win.eventdata.image">\\curl.exe$</field>
+    <field name="win.eventdata.commandLine">.dll$|.gif$|.jpeg$|.jpg$|.png$|.temp$|.tmp$|.txt$|.vbe$|.vbs$</field>
     <description>Sigma: Suspicious Curl.EXE Download</description>
     <mitre>
       <id>T1105</id>
@@ -883,8 +883,8 @@
   </rule>
   <rule id="110090" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\desktopimgdownldr\.exe$</field>
-    <field name="win.eventdata.parentImage">\desktopimgdownldr\.exe$</field>
+    <field name="win.eventdata.image">\\desktopimgdownldr.exe$</field>
+    <field name="win.eventdata.parentImage">\\desktopimgdownldr.exe$</field>
     <field name="win.eventdata.commandLine">/lockscreenurl:http</field>
     <description>Sigma: Remote File Download Via Desktopimgdownldr Utility</description>
     <mitre>
@@ -903,7 +903,7 @@
   </rule>
   <rule id="110092" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">finger\.exe</field>
+    <field name="win.eventdata.originalFileName">finger.exe</field>
     <description>Sigma: Finger.EXE Execution</description>
     <mitre>
       <id>T1105</id>
@@ -912,7 +912,7 @@
   </rule>
   <rule id="110093" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\finger\.exe$</field>
+    <field name="win.eventdata.image">\\finger.exe$</field>
     <description>Sigma: Finger.EXE Execution</description>
     <mitre>
       <id>T1105</id>
@@ -921,7 +921,7 @@
   </rule>
   <rule id="110094" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\GfxDownloadWrapper\.exe$</field>
+    <field name="win.eventdata.image">\\GfxDownloadWrapper.exe$</field>
     <field name="win.eventdata.commandLine">http://|https://</field>
     <description>Sigma: Arbitrary File Download Via GfxDownloadWrapper.EXE</description>
     <mitre>
@@ -932,7 +932,7 @@
   <rule id="110095" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">spawnclient</field>
-    <field name="win.eventdata.image">\Runner\.Worker\.exe$</field>
+    <field name="win.eventdata.image">\\Runner.Worker.exe$</field>
     <description>Sigma: Github Self-Hosted Runner Execution</description>
     <mitre>
       <id>T1102.002</id>
@@ -943,7 +943,7 @@
   <rule id="110096" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -unzipTo |http</field>
-    <field name="win.eventdata.image">\GUP\.exe$</field>
+    <field name="win.eventdata.image">\\GUP.exe$</field>
     <description>Sigma: File Download Using Notepad++ GUP Utility</description>
     <mitre>
       <id>T1105</id>
@@ -952,7 +952,7 @@
   </rule>
   <rule id="110097" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe -tran |\.exe -slave </field>
+    <field name="win.eventdata.commandLine">.exe -tran |.exe -slave </field>
     <description>Sigma: HackTool - Htran/NATBypass Execution</description>
     <mitre>
       <id>T1090</id>
@@ -961,7 +961,7 @@
   </rule>
   <rule id="110098" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\htran\.exe$|\lcx\.exe$</field>
+    <field name="win.eventdata.image">\\htran.exe$|\\lcx.exe$</field>
     <description>Sigma: HackTool - Htran/NATBypass Execution</description>
     <mitre>
       <id>T1090</id>
@@ -970,7 +970,7 @@
   </rule>
   <rule id="110099" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharpChisel\.exe$</field>
+    <field name="win.eventdata.image">\\SharpChisel.exe$</field>
     <description>Sigma: HackTool - SharpChisel Execution</description>
     <mitre>
       <id>T1090.001</id>
@@ -998,7 +998,7 @@
   <rule id="110102" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">http://|https://</field>
-    <field name="win.eventdata.image">\IEExec\.exe$</field>
+    <field name="win.eventdata.image">\\IEExec.exe$</field>
     <description>Sigma: File Download And Execution Via IEExec.EXE</description>
     <mitre>
       <id>T1105</id>
@@ -1007,8 +1007,8 @@
   </rule>
   <rule id="110103" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\ManageEngine\ServiceDesk\|\java\.exe</field>
-    <field name="win.eventdata.image">\AppVLP\.exe$|\bash\.exe$|\bitsadmin\.exe$|\calc\.exe$|\certutil\.exe$|\cscript\.exe$|\curl\.exe$|\forfiles\.exe$|\mftrace\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\notepad\.exe$|\powershell\.exe$|\pwsh\.exe$|\query\.exe$|\reg\.exe$|\schtasks\.exe$|\scrcons\.exe$|\sh\.exe$|\systeminfo\.exe$|\whoami\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\\ManageEngine\\ServiceDesk\\|\\java.exe</field>
+    <field name="win.eventdata.image">\\AppVLP.exe$|\\bash.exe$|\\bitsadmin.exe$|\\calc.exe$|\\certutil.exe$|\\cscript.exe$|\\curl.exe$|\\forfiles.exe$|\\mftrace.exe$|\\mshta.exe$|\\net.exe$|\\net1.exe$|\\notepad.exe$|\\powershell.exe$|\\pwsh.exe$|\\query.exe$|\\reg.exe$|\\schtasks.exe$|\\scrcons.exe$|\\sh.exe$|\\systeminfo.exe$|\\whoami.exe$|\\wmic.exe$|\\wscript.exe$</field>
     <description>Sigma: Suspicious Child Process Of Manage Engine ServiceDesk</description>
     <mitre>
       <id>T1102</id>
@@ -1018,7 +1018,7 @@
   <rule id="110104" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">-i|-f</field>
-    <field name="win.eventdata.image">\ldifde\.exe$</field>
+    <field name="win.eventdata.image">\\ldifde.exe$</field>
     <description>Sigma: Import LDAP Data Interchange Format File Via Ldifde.EXE</description>
     <mitre>
       <id>T1218</id>
@@ -1028,7 +1028,7 @@
   </rule>
   <rule id="110105" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">diantz\.exe| \\\\|\.cab</field>
+    <field name="win.eventdata.commandLine">diantz.exe| \\\\\\\\|.cab</field>
     <description>Sigma: Suspicious Diantz Download and Compress Into a CAB File</description>
     <mitre>
       <id>T1105</id>
@@ -1037,7 +1037,7 @@
   </rule>
   <rule id="110106" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/C|/Y| \\\\</field>
+    <field name="win.eventdata.commandLine">/C|/Y| \\\\\\\\</field>
     <description>Sigma: Suspicious Extrac32 Execution</description>
     <mitre>
       <id>T1105</id>
@@ -1046,8 +1046,8 @@
   </rule>
   <rule id="110107" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\PrintBrm\.exe$</field>
-    <field name="win.eventdata.commandLine"> -f|\.zip</field>
+    <field name="win.eventdata.image">\\PrintBrm.exe$</field>
+    <field name="win.eventdata.commandLine"> -f|.zip</field>
     <description>Sigma: PrintBrm ZIP Creation of Extraction</description>
     <mitre>
       <id>T1105</id>
@@ -1057,8 +1057,8 @@
   </rule>
   <rule id="110108" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\replace\.exe$</field>
-    <field name="win.eventdata.commandLine">[-/]a</field>
+    <field name="win.eventdata.image">\\replace.exe$</field>
+    <field name="win.eventdata.commandLine">[-/–—]a</field>
     <description>Sigma: Replace.exe Usage</description>
     <mitre>
       <id>T1105</id>
@@ -1068,7 +1068,7 @@
   <rule id="110109" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">DownloadFile|url</field>
-    <field name="win.eventdata.originalFileName">MpCmdRun\.exe</field>
+    <field name="win.eventdata.originalFileName">MpCmdRun.exe</field>
     <description>Sigma: File Download Via Windows Defender MpCmpRun.EXE</description>
     <mitre>
       <id>T1218</id>
@@ -1088,8 +1088,8 @@
   </rule>
   <rule id="110111" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">:\Users\Public\|:\Windows\System32\spool\drivers\color|:\Windows\System32\Tasks_Migrated |:\Windows\Tasks\|:\Windows\Temp\|:\Windows\Tracing\|\AppData\Local\Temp\|\Downloads\</field>
-    <field name="win.eventdata.image">\mstsc\.exe$</field>
+    <field name="win.eventdata.commandLine">:\\Users\\Public\\|:\\Windows\\System32\\spool\\drivers\\color|:\\Windows\\System32\\Tasks_Migrated |:\\Windows\\Tasks\\|:\\Windows\\Temp\\|:\\Windows\\Tracing\\|\\AppData\\Local\\Temp\\|\\Downloads\\</field>
+    <field name="win.eventdata.image">\\mstsc.exe$</field>
     <description>Sigma: Suspicious Mstsc.EXE Execution With Local RDP File</description>
     <mitre>
       <id>T1219.002</id>
@@ -1109,7 +1109,7 @@
   </rule>
   <rule id="110113" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\plink\.exe$</field>
+    <field name="win.eventdata.image">\\plink.exe$</field>
     <field name="win.eventdata.commandLine"> -P 443| -P 22</field>
     <description>Sigma: Potential RDP Tunneling Via Plink</description>
     <mitre>
@@ -1137,7 +1137,7 @@
   </rule>
   <rule id="110116" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Invoke-RestMethod |Invoke-WebRequest |IRM |IWR |http|OutFile|\.dll</field>
+    <field name="win.eventdata.commandLine">Invoke-RestMethod |Invoke-WebRequest |IRM |IWR |http|OutFile|.dll</field>
     <description>Sigma: Potential DLL File Download Via PowerShell Invoke-WebRequest</description>
     <mitre>
       <id>T1059.001</id>
@@ -1157,7 +1157,7 @@
   <rule id="110118" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">://1|://2|://3|://4|://5|://6|://7|://8|://9</field>
-    <field name="win.eventdata.image">\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\powershell_ise.exe$|\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Suspicious Invoke-WebRequest Execution With DirectIP</description>
     <mitre>
       <id>T1105</id>
@@ -1166,8 +1166,8 @@
   </rule>
   <rule id="110119" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\AppData\|\Desktop\|\Temp\|\Users\Public\|%AppData%|%Public%|%Temp%|%tmp%|:\Windows\</field>
-    <field name="win.eventdata.image">\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine">\\AppData\\|\\Desktop\\|\\Temp\\|\\Users\\Public\\|%AppData%|%Public%|%Temp%|%tmp%|:\\Windows\\</field>
+    <field name="win.eventdata.image">\\powershell_ise.exe$|\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Suspicious Invoke-WebRequest Execution</description>
     <mitre>
       <id>T1105</id>
@@ -1176,7 +1176,7 @@
   </rule>
   <rule id="110120" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\3proxy\.exe$</field>
+    <field name="win.eventdata.image">\\3proxy.exe$</field>
     <description>Sigma: PUA - 3Proxy Execution</description>
     <mitre>
       <id>T1572</id>
@@ -1185,7 +1185,7 @@
   </rule>
   <rule id="110121" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe -i127\.0\.0\.1 -p</field>
+    <field name="win.eventdata.commandLine">.exe -i127.0.0.1 -p</field>
     <description>Sigma: PUA - 3Proxy Execution</description>
     <mitre>
       <id>T1572</id>
@@ -1203,8 +1203,8 @@
   </rule>
   <rule id="110123" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\chisel\.exe$</field>
-    <field name="win.eventdata.commandLine">-socks5|-reverse| r:|:127\.0\.0\.1:|-tls-skip-verify |:socks</field>
+    <field name="win.eventdata.image">\\chisel.exe$</field>
+    <field name="win.eventdata.commandLine">-socks5|-reverse| r:|:127.0.0.1:|-tls-skip-verify |:socks</field>
     <description>Sigma: PUA - Chisel Tunneling Tool Execution</description>
     <mitre>
       <id>T1090.001</id>
@@ -1213,7 +1213,7 @@
   </rule>
   <rule id="110124" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\frpc\.ini</field>
+    <field name="win.eventdata.commandLine">\\frpc.ini</field>
     <description>Sigma: PUA - Fast Reverse Proxy (FRP) Execution</description>
     <mitre>
       <id>T1090</id>
@@ -1231,7 +1231,7 @@
   </rule>
   <rule id="110126" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\frpc\.exe$|\frps\.exe$</field>
+    <field name="win.eventdata.image">\\frpc.exe$|\\frps.exe$</field>
     <description>Sigma: PUA - Fast Reverse Proxy (FRP) Execution</description>
     <mitre>
       <id>T1090</id>
@@ -1240,7 +1240,7 @@
   </rule>
   <rule id="110127" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\iox\.exe$</field>
+    <field name="win.eventdata.image">\\iox.exe$</field>
     <description>Sigma: PUA- IOX Tunneling Tool Execution</description>
     <mitre>
       <id>T1090</id>
@@ -1249,7 +1249,7 @@
   </rule>
   <rule id="110128" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe fwd -l |\.exe fwd -r |\.exe proxy -l |\.exe proxy -r </field>
+    <field name="win.eventdata.commandLine">.exe fwd -l |.exe fwd -r |.exe proxy -l |.exe proxy -r </field>
     <description>Sigma: PUA- IOX Tunneling Tool Execution</description>
     <mitre>
       <id>T1090</id>
@@ -1276,7 +1276,7 @@
   </rule>
   <rule id="110131" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\nc\.exe$|\ncat\.exe$|\netcat\.exe$</field>
+    <field name="win.eventdata.image">\\nc.exe$|\\ncat.exe$|\\netcat.exe$</field>
     <description>Sigma: PUA - Netcat Suspicious Execution</description>
     <mitre>
       <id>T1095</id>
@@ -1294,7 +1294,7 @@
   </rule>
   <rule id="110133" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> start |--all|--config|\.yml</field>
+    <field name="win.eventdata.commandLine"> start |--all|--config|.yml</field>
     <description>Sigma: PUA - Ngrok Execution</description>
     <mitre>
       <id>T1572</id>
@@ -1303,7 +1303,7 @@
   </rule>
   <rule id="110134" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">ngrok\.exe$</field>
+    <field name="win.eventdata.image">ngrok.exe$</field>
     <field name="win.eventdata.commandLine"> tcp | http | authtoken </field>
     <description>Sigma: PUA - Ngrok Execution</description>
     <mitre>
@@ -1313,7 +1313,7 @@
   </rule>
   <rule id="110135" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe authtoken |\.exe start --all</field>
+    <field name="win.eventdata.commandLine">.exe authtoken |.exe start --all</field>
     <description>Sigma: PUA - Ngrok Execution</description>
     <mitre>
       <id>T1572</id>
@@ -1331,7 +1331,7 @@
   </rule>
   <rule id="110137" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\nimgrab\.exe$</field>
+    <field name="win.eventdata.image">\\nimgrab.exe$</field>
     <description>Sigma: PUA - Nimgrab Execution</description>
     <mitre>
       <id>T1105</id>
@@ -1367,7 +1367,7 @@
   </rule>
   <rule id="110141" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\npc\.exe$</field>
+    <field name="win.eventdata.image">\\npc.exe$</field>
     <description>Sigma: PUA - NPS Tunneling Tool Execution</description>
     <mitre>
       <id>T1090</id>
@@ -1386,7 +1386,7 @@
   </rule>
   <rule id="110143" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\AnyDesk\.exe$|\AnyDeskMSI\.exe$</field>
+    <field name="win.eventdata.image">\\AnyDesk.exe$|\\AnyDeskMSI.exe$</field>
     <description>Sigma: Remote Access Tool - AnyDesk Execution</description>
     <mitre>
       <id>T1219.002</id>
@@ -1422,7 +1422,7 @@
   </rule>
   <rule id="110147" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/c |echo |\.exe --set-password</field>
+    <field name="win.eventdata.commandLine">/c |echo |.exe --set-password</field>
     <description>Sigma: Remote Access Tool - AnyDesk Piped Password Via CLI</description>
     <mitre>
       <id>T1219.002</id>
@@ -1440,7 +1440,7 @@
   </rule>
   <rule id="110149" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\AnyDesk\.exe$|\AnyDeskMSI\.exe$</field>
+    <field name="win.eventdata.image">\\AnyDesk.exe$|\\AnyDeskMSI.exe$</field>
     <description>Sigma: Remote Access Tool - Anydesk Execution From Suspicious Folder</description>
     <mitre>
       <id>T1219.002</id>
@@ -1467,7 +1467,7 @@
   </rule>
   <rule id="110152" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.company">LogMeIn, Inc\.</field>
+    <field name="win.eventdata.company">LogMeIn, Inc.</field>
     <description>Sigma: Remote Access Tool - GoToAssist Execution</description>
     <mitre>
       <id>T1219.002</id>
@@ -1494,7 +1494,7 @@
   </rule>
   <rule id="110155" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.company">LogMeIn, Inc\.</field>
+    <field name="win.eventdata.company">LogMeIn, Inc.</field>
     <description>Sigma: Remote Access Tool - LogMeIn Execution</description>
     <mitre>
       <id>T1219.002</id>
@@ -1512,8 +1512,8 @@
   </rule>
   <rule id="110157" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\meshagent\.exe$</field>
-    <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.parentImage">\\meshagent.exe$</field>
+    <field name="win.eventdata.image">\\cmd.exe$|\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Remote Access Tool - MeshAgent Command Execution via MeshCentral</description>
     <mitre>
       <id>T1219.002</id>
@@ -1549,7 +1549,7 @@
   </rule>
   <rule id="110161" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">PCICFGUI\.EXE</field>
+    <field name="win.eventdata.originalFileName">PCICFGUI.EXE</field>
     <description>Sigma: Remote Access Tool - NetSupport Execution</description>
     <mitre>
       <id>T1219.002</id>
@@ -1595,8 +1595,8 @@
   </rule>
   <rule id="110166" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentCommandLine">:\Windows\TEMP\ScreenConnect\|run\.cmd</field>
-    <field name="win.eventdata.image">\bitsadmin\.exe$|\cmd\.exe$|\curl\.exe$|\dllhost\.exe$|\net\.exe$|\nltest\.exe$|\powershell\.exe$|\pwsh\.exe$|\rundll32\.exe$|\wevtutil\.exe$</field>
+    <field name="win.eventdata.parentCommandLine">:\\Windows\\TEMP\\ScreenConnect\\|run.cmd</field>
+    <field name="win.eventdata.image">\\bitsadmin.exe$|\\cmd.exe$|\\curl.exe$|\\dllhost.exe$|\\net.exe$|\\nltest.exe$|\\powershell.exe$|\\pwsh.exe$|\\rundll32.exe$|\\wevtutil.exe$</field>
     <description>Sigma: Remote Access Tool - ScreenConnect Potential Suspicious Remote Command Execution</description>
     <mitre>
       <id>T1219.002</id>
@@ -1605,7 +1605,7 @@
   </rule>
   <rule id="110167" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SimpleService\.exe$</field>
+    <field name="win.eventdata.image">\\SimpleService.exe$</field>
     <description>Sigma: Remote Access Tool - Simple Help Execution</description>
     <mitre>
       <id>T1219.002</id>
@@ -1614,7 +1614,7 @@
   </rule>
   <rule id="110168" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\TacticalAgent\tacticalrmm\.exe</field>
+    <field name="win.eventdata.image">\\TacticalAgent\\tacticalrmm.exe</field>
     <field name="win.eventdata.commandLine">--api|--auth|--client-id|--site-id|--agent-type</field>
     <description>Sigma: Remote Access Tool - TacticalRMM Agent Registration to Potentially Attacker-Controlled Server</description>
     <mitre>
@@ -1643,7 +1643,7 @@
   </rule>
   <rule id="110171" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">UltraViewer_Desktop\.exe</field>
+    <field name="win.eventdata.originalFileName">UltraViewer_Desktop.exe</field>
     <description>Sigma: Remote Access Tool - UltraViewer Execution</description>
     <mitre>
       <id>T1219.002</id>
@@ -1688,7 +1688,7 @@
   </rule>
   <rule id="110176" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\ssh\.exe$</field>
+    <field name="win.eventdata.image">\\ssh.exe$</field>
     <field name="win.eventdata.commandLine"> -R </field>
     <description>Sigma: Port Forwarding Activity Via SSH.EXE</description>
     <mitre>
@@ -1700,7 +1700,7 @@
   </rule>
   <rule id="110177" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\ssh\.exe$</field>
+    <field name="win.eventdata.image">\\ssh.exe$</field>
     <field name="win.eventdata.commandLine">:3389</field>
     <description>Sigma: Potential RDP Tunneling Via SSH</description>
     <mitre>
@@ -1710,7 +1710,7 @@
   </rule>
   <rule id="110178" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\amazon-ssm-agent\.exe$</field>
+    <field name="win.eventdata.image">\\amazon-ssm-agent.exe$</field>
     <field name="win.eventdata.commandLine">-register |-code |-id |-region </field>
     <description>Sigma: Potential Amazon SSM Agent Hijacking</description>
     <mitre>
@@ -1720,8 +1720,8 @@
   </rule>
   <rule id="110179" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">https://attachment\.outlook\.live\.net/owa/|https://onenoteonlinesync\.onenote\.com/onenoteonlinesync/</field>
-    <field name="win.eventdata.image">\curl\.exe$|\wget\.exe$</field>
+    <field name="win.eventdata.commandLine">https://attachment.outlook.live.net/owa/|https://onenoteonlinesync.onenote.com/onenoteonlinesync/</field>
+    <field name="win.eventdata.image">\\curl.exe$|\\wget.exe$</field>
     <description>Sigma: Suspicious Download from Office Domain</description>
     <mitre>
       <id>T1105</id>
@@ -1731,7 +1731,7 @@
   </rule>
   <rule id="110180" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\Velociraptor\.exe$</field>
+    <field name="win.eventdata.parentImage">\\Velociraptor.exe$</field>
     <field name="win.eventdata.commandLine">msiexec|/i|http</field>
     <description>Sigma: Suspicious Velociraptor Child Process</description>
     <mitre>
@@ -1742,7 +1742,7 @@
   <rule id="110181" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.user">AUTHORI|AUTORI</field>
-    <field name="win.eventdata.image">\tscon\.exe$</field>
+    <field name="win.eventdata.image">\\tscon.exe$</field>
     <description>Sigma: Suspicious TSCON Start as SYSTEM</description>
     <mitre>
       <id>T1219.002</id>
@@ -1778,7 +1778,7 @@
   </rule>
   <rule id="110185" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">VNCViewer\.exe</field>
+    <field name="win.eventdata.originalFileName">VNCViewer.exe</field>
     <description>Sigma: Use of UltraVNC Remote Access Software</description>
     <mitre>
       <id>T1219.002</id>
@@ -1788,7 +1788,7 @@
   <rule id="110186" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName"></field>
-    <field name="win.eventdata.commandLine">\.exe tunnel$</field>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
     <description>Sigma: Visual Studio Code Tunnel Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -1799,8 +1799,8 @@
   <rule id="110187" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine"> tunnel$</field>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
-    <field name="win.eventdata.commandLine">/d /c |\servers\Stable-|code-server\.cmd</field>
+    <field name="win.eventdata.image">\\cmd.exe$</field>
+    <field name="win.eventdata.commandLine">/d /c |\\servers\\Stable-|code-server.cmd</field>
     <description>Sigma: Visual Studio Code Tunnel Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -1810,7 +1810,7 @@
   </rule>
   <rule id="110188" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe tunnel|--accept-server-license-terms</field>
+    <field name="win.eventdata.commandLine">.exe tunnel|--accept-server-license-terms</field>
     <description>Sigma: Visual Studio Code Tunnel Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -1820,10 +1820,10 @@
   </rule>
   <rule id="110189" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\server\node\.exe$</field>
-    <field name="win.eventdata.parentCommandLine">\.vscode-server</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.commandLine">\terminal\browser\media\shellIntegration\.ps1</field>
+    <field name="win.eventdata.parentImage">\\server\\node.exe$</field>
+    <field name="win.eventdata.parentCommandLine">.vscode-server</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.commandLine">\\terminal\\browser\\media\\shellIntegration.ps1</field>
     <description>Sigma: Visual Studio Code Tunnel Shell Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -1833,7 +1833,7 @@
   <rule id="110190" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName"></field>
-    <field name="win.eventdata.commandLine">\.exe tunnel$</field>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
     <description>Sigma: Renamed Visual Studio Code Tunnel Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -1843,7 +1843,7 @@
   </rule>
   <rule id="110191" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">tunnel |service|internal-run|tunnel-service\.log</field>
+    <field name="win.eventdata.commandLine">tunnel |service|internal-run|tunnel-service.log</field>
     <description>Sigma: Visual Studio Code Tunnel Service Installation</description>
     <mitre>
       <id>T1071.001</id>
@@ -1852,7 +1852,7 @@
   </rule>
   <rule id="110192" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\OneDrive\UpdateOfficeConfig\UpdateRingSettingURLFromOC</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\OneDrive\\UpdateOfficeConfig\\UpdateRingSettingURLFromOC</field>
     <description>Sigma: Lolbas OneDriveStandaloneUpdater.exe Proxy Download</description>
     <mitre>
       <id>T1105</id>

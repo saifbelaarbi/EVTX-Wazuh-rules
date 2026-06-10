@@ -2,7 +2,7 @@
 <group name="windows,T1114.001_unknown,">
   <rule id="113516" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Get-Inbox\.ps1|Microsoft\.Office\.Interop\.Outlook|Microsoft\.Office\.Interop\.Outlook\.olDefaultFolders|-comobject outlook\.application</field>
+    <field name="win.eventdata.scriptBlockText">Get-Inbox.ps1|Microsoft.Office.Interop.Outlook|Microsoft.Office.Interop.Outlook.olDefaultFolders|-comobject outlook.application</field>
     <description>Sigma: Powershell Local Email Collection</description>
     <mitre>
       <id>T1114.001</id>

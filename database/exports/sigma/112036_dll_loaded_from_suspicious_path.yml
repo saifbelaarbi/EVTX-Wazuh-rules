@@ -1,0 +1,20 @@
+title: DLL loaded from suspicious path
+id: 275e70b6-6049-5553-8a71-a8c71d1de9e0
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112036).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/Sysmon_UACME_39.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    ImageLoaded: \temp\
+  condition: selection
+level: medium
+tags:
+- attack.t1574.002
+- attack.defense-evasion

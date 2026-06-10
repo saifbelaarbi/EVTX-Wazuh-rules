@@ -1,0 +1,20 @@
+title: 'Suspicious PowerShell: minidump'
+id: ae90cc30-8cc9-57a1-a916-34d496ddc13b
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  108507).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/Powershell_4104_MiniDumpWriteDump_Lsass.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    ScriptBlockText: minidump
+  condition: selection
+level: high
+tags:
+- attack.t1003.001
+- attack.credential-access

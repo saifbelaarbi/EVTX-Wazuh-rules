@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1078_valid_accounts,">
-  <rule id="104544" level="9">
+  <rule id="104545" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4625|4776</field>
     <field name="win.eventdata.status">0xC0000072|0xC000006F|0xC0000070|0xC0000413|0xC000018C|0xC000015B</field>
@@ -33,7 +33,7 @@
   <rule id="107032" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4648</field>
-    <field name="win.eventdata.processName">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\winrs\.exe$|\wmic\.exe$|\net\.exe$|\net1\.exe$|\reg\.exe$</field>
+    <field name="win.eventdata.processName">\\cmd.exe$|\\powershell.exe$|\\pwsh.exe$|\\winrs.exe$|\\wmic.exe$|\\net.exe$|\\net1.exe$|\\reg.exe$</field>
     <description>Sigma: Suspicious Remote Logon with Explicit Credentials</description>
     <mitre>
       <id>T1078</id>

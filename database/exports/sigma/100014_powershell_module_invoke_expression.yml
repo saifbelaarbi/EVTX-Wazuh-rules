@@ -1,0 +1,21 @@
+title: 'PowerShell module: invoke-expression'
+id: f3da7ed2-0d92-54b1-97ec-bf46664cbf99
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100014).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense
+  Evasion/T1027-Obfuscated Files or Information/ID4103-4104-CrackMapExec payload execution.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    Payload: invoke-expression
+  condition: selection
+level: medium
+tags:
+- attack.t1059.001
+- attack.execution

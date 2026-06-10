@@ -21,7 +21,7 @@
   <rule id="114002" level="13">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656|4663|4658</field>
-    <field name="win.eventdata.objectName">\.AAA$|\.ZZZ$</field>
+    <field name="win.eventdata.objectName">.AAA$|.ZZZ$</field>
     <description>Sigma: Potential Secure Deletion with SDelete</description>
     <mitre>
       <id>T1070.004</id>
@@ -46,7 +46,7 @@
     <field name="win.eventdata.provider_Name">Ntfs</field>
     <field name="win.system.eventID">55</field>
     <field name="win.eventdata.origin">File System Driver</field>
-    <field name="win.eventdata.description">contains a corrupted file record|The name of the file is "\"</field>
+    <field name="win.eventdata.description">contains a corrupted file record|The name of the file is "\\"</field>
     <description>Sigma: NTFS Vulnerability Exploitation</description>
     <mitre>
       <id>T1499.001</id>
@@ -56,7 +56,7 @@
   <rule id="114005" level="14">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">141|142</field>
-    <field name="win.eventdata.taskName">\Windows\SystemRestore\SR|\Windows\Windows Defender\|\Windows\BitLocker|\Windows\WindowsBackup\|\Windows\WindowsUpdate\|\Windows\UpdateOrchestrator\|\Windows\ExploitGuard</field>
+    <field name="win.eventdata.taskName">\\Windows\\SystemRestore\\SR|\\Windows\\Windows Defender\\|\\Windows\\BitLocker|\\Windows\\WindowsBackup\\|\\Windows\\WindowsUpdate\\|\\Windows\\UpdateOrchestrator\\|\\Windows\\ExploitGuard</field>
     <description>Sigma: Important Scheduled Task Deleted or Disabled</description>
     <mitre>
       <id>T1489</id>
@@ -65,8 +65,8 @@
   </rule>
   <rule id="114006" level="13">
     <if_sid>61625</if_sid>
-    <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wt\.exe$|\rundll32\.exe$|\regsvr32\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.VHD$|\.bac$|\.bak$|\.wbcat$|\.bkf$|\.set$|\.win$|\.dsk$</field>
+    <field name="win.eventdata.image">\\cmd.exe$|\\powershell.exe$|\\pwsh.exe$|\\wt.exe$|\\rundll32.exe$|\\regsvr32.exe$</field>
+    <field name="win.eventdata.targetFilename">.VHD$|.bac$|.bak$|.wbcat$|.bkf$|.set$|.win$|.dsk$</field>
     <description>Sigma: Backup Files Deleted</description>
     <mitre>
       <id>T1490</id>
@@ -75,8 +75,8 @@
   </rule>
   <rule id="114007" level="13">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.sourceFilename">\.doc$|\.docx$|\.jpeg$|\.jpg$|\.lnk$|\.pdf$|\.png$|\.pst$|\.rtf$|\.xls$|\.xlsx$</field>
-    <field name="win.eventdata.targetFilename">\.doc\.|\.docx\.|\.jpeg\.|\.jpg\.|\.lnk\.|\.pdf\.|\.png\.|\.pst\.|\.rtf\.|\.xls\.|\.xlsx\.</field>
+    <field name="win.eventdata.sourceFilename">.doc$|.docx$|.jpeg$|.jpg$|.lnk$|.pdf$|.png$|.pst$|.rtf$|.xls$|.xlsx$</field>
+    <field name="win.eventdata.targetFilename">.doc.|.docx.|.jpeg.|.jpg.|.lnk.|.pdf.|.png.|.pst.|.rtf.|.xls.|.xlsx.</field>
     <description>Sigma: Suspicious Appended Extension</description>
     <mitre>
       <id>T1486</id>
@@ -85,8 +85,8 @@
   </rule>
   <rule id="114008" level="14">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\RstrtMgr\.dll$</field>
-    <field name="win.eventdata.image">:\Perflogs\|:\Users\Public\|\Temporary Internet</field>
+    <field name="win.eventdata.imageLoaded">\\RstrtMgr.dll$</field>
+    <field name="win.eventdata.image">:\\Perflogs\\|:\\Users\\Public\\|\\Temporary Internet</field>
     <description>Sigma: Load Of RstrtMgr.DLL By A Suspicious Process</description>
     <mitre>
       <id>T1486</id>
@@ -96,7 +96,7 @@
   </rule>
   <rule id="114009" level="14">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\vss_ps\.dll$</field>
+    <field name="win.eventdata.imageLoaded">\\vss_ps.dll$</field>
     <description>Sigma: Suspicious Volume Shadow Copy VSS_PS.dll Load</description>
     <mitre>
       <id>T1490</id>
@@ -105,7 +105,7 @@
   </rule>
   <rule id="114010" level="14">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\vssapi\.dll$</field>
+    <field name="win.eventdata.imageLoaded">\\vssapi.dll$</field>
     <description>Sigma: Suspicious Volume Shadow Copy Vssapi.dll Load</description>
     <mitre>
       <id>T1490</id>
@@ -114,7 +114,7 @@
   </rule>
   <rule id="114011" level="13">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.imageLoaded">\vsstrace\.dll$</field>
+    <field name="win.eventdata.imageLoaded">\\vsstrace.dll$</field>
     <description>Sigma: Potentially Suspicious Volume Shadow Copy Vsstrace.dll Load</description>
     <mitre>
       <id>T1490</id>
@@ -123,7 +123,7 @@
   </rule>
   <rule id="114012" level="14">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationHostname">alimabi\.cn|ap\.luckpool\.net|bcn\.pool\.minergate\.com|bcn\.vip\.pool\.minergate\.com|bohemianpool\.com|ca-aipg\.miningocean\.org|ca-dynex\.miningocean\.org|ca-neurai\.miningocean\.org|ca-qrl\.miningocean\.org|ca-upx\.miningocean\.org|ca-zephyr\.miningocean\.org|ca\.minexmr\.com|ca\.monero\.herominers\.com|cbd\.monerpool\.org|cbdv2\.monerpool\.org|cryptmonero\.com|crypto-pool\.fr|crypto-pool\.info|cryptonight-hub\.miningpoolhub\.com|d1pool\.ddns\.net|d5pool\.us|daili01\.monerpool\.org|de-aipg\.miningocean\.org|de-dynex\.miningocean\.org|de-zephyr\.miningocean\.org|de\.minexmr\.com|dl\.nbminer\.com|donate\.graef\.in|donate\.ssl\.xmrig\.com|donate\.v2\.xmrig\.com|donate\.xmrig\.com|donate2\.graef\.in|drill\.moneroworld\.com|dwarfpool\.com|emercoin\.com|emercoin\.net|emergate\.net|ethereumpool\.co|eu\.luckpool\.net|eu\.minerpool\.pw|fcn-xmr\.pool\.minergate\.com|fee\.xmrig\.com|fr-aipg\.miningocean\.org|fr-dynex\.miningocean\.org|fr-neurai\.miningocean\.org|fr-qrl\.miningocean\.org|fr-upx\.miningocean\.org|fr-zephyr\.miningocean\.org|fr\.minexmr\.com|hellominer\.com|herominers\.com|hk-aipg\.miningocean\.org|hk-dynex\.miningocean\.org|hk-neurai\.miningocean\.org|hk-qrl\.miningocean\.org|hk-upx\.miningocean\.org|hk-zephyr\.miningocean\.org|huadong1-aeon\.ppxxmr\.com|iwanttoearn\.money|jw-js1\.ppxxmr\.com|koto-pool\.work|lhr\.nbminer\.com|lhr3\.nbminer\.com|linux\.monerpool\.org|lokiturtle\.herominers\.com|luckpool\.net|masari\.miner\.rocks|mine\.c3pool\.com|mine\.moneropool\.com|mine\.ppxxmr\.com|mine\.zpool\.ca|mine1\.ppxxmr\.com|minemonero\.gq|miner\.ppxxmr\.com|miner\.rocks|minercircle\.com|minergate\.com|minerpool\.pw|minerrocks\.com|miners\.pro|minerxmr\.ru|minexmr\.cn|minexmr\.com|mining-help\.ru|miningpoolhub\.com|mixpools\.org|moner\.monerpool\.org|moner1min\.monerpool\.org|monero-master\.crypto-pool\.fr|monero\.crypto-pool\.fr|monero\.hashvault\.pro|monero\.herominers\.com|monero\.lindon-pool\.win|monero\.miners\.pro|monero\.riefly\.id|monero\.us\.to|monerocean\.stream|monerogb\.com|monerohash\.com|moneroocean\.stream|moneropool\.com|moneropool\.nl|monerorx\.com|monerpool\.org|moriaxmr\.com|mro\.pool\.minergate\.com|multipool\.us|myxmr\.pw|na\.luckpool\.net|nanopool\.org|nbminer\.com|node3\.luckpool\.net|noobxmr\.com|pangolinminer\.comgandalph3000\.com|pool\.4i7i\.com|pool\.armornetwork\.org|pool\.cortins\.tk|pool\.gntl\.co\.uk|pool\.hashvault\.pro|pool\.minergate\.com|pool\.minexmr\.com|pool\.monero\.hashvault\.pro|pool\.ppxxmr\.com|pool\.somec\.cc|pool\.support|pool\.supportxmr\.com|pool\.usa-138\.com|pool\.xmr\.pt|pool\.xmrfast\.com|pool2\.armornetwork\.org|poolchange\.ppxxmr\.com|pooldd\.com|poolmining\.org|poolto\.be|ppxvip1\.ppxxmr\.com|ppxxmr\.com|prohash\.net|r\.twotouchauthentication\.online|randomx\.xmrig\.com|ratchetmining\.com|seed\.emercoin\.com|seed\.emercoin\.net|seed\.emergate\.net|seed1\.joulecoin\.org|seed2\.joulecoin\.org|seed3\.joulecoin\.org|seed4\.joulecoin\.org|seed5\.joulecoin\.org|seed6\.joulecoin\.org|seed7\.joulecoin\.org|seed8\.joulecoin\.org|sg-aipg\.miningocean\.org|sg-dynex\.miningocean\.org|sg-neurai\.miningocean\.org|sg-qrl\.miningocean\.org|sg-upx\.miningocean\.org|sg-zephyr\.miningocean\.org|sg\.minexmr\.com|sheepman\.mine\.bz|siamining\.com|sumokoin\.minerrocks\.com|supportxmr\.com|suprnova\.cc|teracycle\.net|trtl\.cnpool\.cc|trtl\.pool\.mine2gether\.com|turtle\.miner\.rocks|us-aipg\.miningocean\.org|us-dynex\.miningocean\.org|us-neurai\.miningocean\.org|us-west\.minexmr\.com|us-zephyr\.miningocean\.org|usxmrpool\.com|viaxmr\.com|webservicepag\.webhop\.net|xiazai\.monerpool\.org|xiazai1\.monerpool\.org|xmc\.pool\.minergate\.com|xmo\.pool\.minergate\.com|xmr-asia1\.nanopool\.org|xmr-au1\.nanopool\.org|xmr-eu1\.nanopool\.org|xmr-eu2\.nanopool\.org|xmr-jp1\.nanopool\.org|xmr-us-east1\.nanopool\.org|xmr-us-west1\.nanopool\.org|xmr-us\.suprnova\.cc|xmr-usa\.dwarfpool\.com|xmr\.2miners\.com|xmr\.5b6b7b\.ru|xmr\.alimabi\.cn|xmr\.bohemianpool\.com|xmr\.crypto-pool\.fr|xmr\.crypto-pool\.info|xmr\.f2pool\.com|xmr\.hashcity\.org|xmr\.hex7e4\.ru|xmr\.ip28\.net|xmr\.monerpool\.org|xmr\.mypool\.online|xmr\.nanopool\.org|xmr\.pool\.gntl\.co\.uk|xmr\.pool\.minergate\.com|xmr\.poolto\.be|xmr\.ppxxmr\.com|xmr\.prohash\.net|xmr\.simka\.pw|xmr\.somec\.cc|xmr\.suprnova\.cc|xmr\.usa-138\.com|xmr\.vip\.pool\.minergate\.com|xmr1min\.monerpool\.org|xmrf\.520fjh\.org|xmrf\.fjhan\.club|xmrfast\.com|xmrigcc\.graef\.in|xmrminer\.cc|xmrpool\.de|xmrpool\.eu|xmrpool\.me|xmrpool\.net|xmrpool\.xyz|xx11m\.monerpool\.org|xx11mv2\.monerpool\.org|xxx\.hex7e4\.ru|zarabotaibitok\.ru|zer0day\.ru</field>
+    <field name="win.eventdata.destinationHostname">alimabi.cn|ap.luckpool.net|bcn.pool.minergate.com|bcn.vip.pool.minergate.com|bohemianpool.com|ca-aipg.miningocean.org|ca-dynex.miningocean.org|ca-neurai.miningocean.org|ca-qrl.miningocean.org|ca-upx.miningocean.org|ca-zephyr.miningocean.org|ca.minexmr.com|ca.monero.herominers.com|cbd.monerpool.org|cbdv2.monerpool.org|cryptmonero.com|crypto-pool.fr|crypto-pool.info|cryptonight-hub.miningpoolhub.com|d1pool.ddns.net|d5pool.us|daili01.monerpool.org|de-aipg.miningocean.org|de-dynex.miningocean.org|de-zephyr.miningocean.org|de.minexmr.com|dl.nbminer.com|donate.graef.in|donate.ssl.xmrig.com|donate.v2.xmrig.com|donate.xmrig.com|donate2.graef.in|drill.moneroworld.com|dwarfpool.com|emercoin.com|emercoin.net|emergate.net|ethereumpool.co|eu.luckpool.net|eu.minerpool.pw|fcn-xmr.pool.minergate.com|fee.xmrig.com|fr-aipg.miningocean.org|fr-dynex.miningocean.org|fr-neurai.miningocean.org|fr-qrl.miningocean.org|fr-upx.miningocean.org|fr-zephyr.miningocean.org|fr.minexmr.com|hellominer.com|herominers.com|hk-aipg.miningocean.org|hk-dynex.miningocean.org|hk-neurai.miningocean.org|hk-qrl.miningocean.org|hk-upx.miningocean.org|hk-zephyr.miningocean.org|huadong1-aeon.ppxxmr.com|iwanttoearn.money|jw-js1.ppxxmr.com|koto-pool.work|lhr.nbminer.com|lhr3.nbminer.com|linux.monerpool.org|lokiturtle.herominers.com|luckpool.net|masari.miner.rocks|mine.c3pool.com|mine.moneropool.com|mine.ppxxmr.com|mine.zpool.ca|mine1.ppxxmr.com|minemonero.gq|miner.ppxxmr.com|miner.rocks|minercircle.com|minergate.com|minerpool.pw|minerrocks.com|miners.pro|minerxmr.ru|minexmr.cn|minexmr.com|mining-help.ru|miningpoolhub.com|mixpools.org|moner.monerpool.org|moner1min.monerpool.org|monero-master.crypto-pool.fr|monero.crypto-pool.fr|monero.hashvault.pro|monero.herominers.com|monero.lindon-pool.win|monero.miners.pro|monero.riefly.id|monero.us.to|monerocean.stream|monerogb.com|monerohash.com|moneroocean.stream|moneropool.com|moneropool.nl|monerorx.com|monerpool.org|moriaxmr.com|mro.pool.minergate.com|multipool.us|myxmr.pw|na.luckpool.net|nanopool.org|nbminer.com|node3.luckpool.net|noobxmr.com|pangolinminer.comgandalph3000.com|pool.4i7i.com|pool.armornetwork.org|pool.cortins.tk|pool.gntl.co.uk|pool.hashvault.pro|pool.minergate.com|pool.minexmr.com|pool.monero.hashvault.pro|pool.ppxxmr.com|pool.somec.cc|pool.support|pool.supportxmr.com|pool.usa-138.com|pool.xmr.pt|pool.xmrfast.com|pool2.armornetwork.org|poolchange.ppxxmr.com|pooldd.com|poolmining.org|poolto.be|ppxvip1.ppxxmr.com|ppxxmr.com|prohash.net|r.twotouchauthentication.online|randomx.xmrig.com|ratchetmining.com|seed.emercoin.com|seed.emercoin.net|seed.emergate.net|seed1.joulecoin.org|seed2.joulecoin.org|seed3.joulecoin.org|seed4.joulecoin.org|seed5.joulecoin.org|seed6.joulecoin.org|seed7.joulecoin.org|seed8.joulecoin.org|sg-aipg.miningocean.org|sg-dynex.miningocean.org|sg-neurai.miningocean.org|sg-qrl.miningocean.org|sg-upx.miningocean.org|sg-zephyr.miningocean.org|sg.minexmr.com|sheepman.mine.bz|siamining.com|sumokoin.minerrocks.com|supportxmr.com|suprnova.cc|teracycle.net|trtl.cnpool.cc|trtl.pool.mine2gether.com|turtle.miner.rocks|us-aipg.miningocean.org|us-dynex.miningocean.org|us-neurai.miningocean.org|us-west.minexmr.com|us-zephyr.miningocean.org|usxmrpool.com|viaxmr.com|webservicepag.webhop.net|xiazai.monerpool.org|xiazai1.monerpool.org|xmc.pool.minergate.com|xmo.pool.minergate.com|xmr-asia1.nanopool.org|xmr-au1.nanopool.org|xmr-eu1.nanopool.org|xmr-eu2.nanopool.org|xmr-jp1.nanopool.org|xmr-us-east1.nanopool.org|xmr-us-west1.nanopool.org|xmr-us.suprnova.cc|xmr-usa.dwarfpool.com|xmr.2miners.com|xmr.5b6b7b.ru|xmr.alimabi.cn|xmr.bohemianpool.com|xmr.crypto-pool.fr|xmr.crypto-pool.info|xmr.f2pool.com|xmr.hashcity.org|xmr.hex7e4.ru|xmr.ip28.net|xmr.monerpool.org|xmr.mypool.online|xmr.nanopool.org|xmr.pool.gntl.co.uk|xmr.pool.minergate.com|xmr.poolto.be|xmr.ppxxmr.com|xmr.prohash.net|xmr.simka.pw|xmr.somec.cc|xmr.suprnova.cc|xmr.usa-138.com|xmr.vip.pool.minergate.com|xmr1min.monerpool.org|xmrf.520fjh.org|xmrf.fjhan.club|xmrfast.com|xmrigcc.graef.in|xmrminer.cc|xmrpool.de|xmrpool.eu|xmrpool.me|xmrpool.net|xmrpool.xyz|xx11m.monerpool.org|xx11mv2.monerpool.org|xxx.hex7e4.ru|zarabotaibitok.ru|zer0day.ru</field>
     <description>Sigma: Network Communication With Crypto Mining Pool</description>
     <mitre>
       <id>T1496</id>
@@ -169,7 +169,7 @@
   <rule id="114017" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">set|ignoreallfailures</field>
-    <field name="win.eventdata.image">\bcdedit\.exe$</field>
+    <field name="win.eventdata.image">\\bcdedit.exe$</field>
     <description>Sigma: Boot Configuration Tampering Via Bcdedit.EXE</description>
     <mitre>
       <id>T1490</id>
@@ -179,7 +179,7 @@
   <rule id="114018" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /w:</field>
-    <field name="win.eventdata.originalFileName">CIPHER\.EXE</field>
+    <field name="win.eventdata.originalFileName">CIPHER.EXE</field>
     <description>Sigma: Deleted Data Overwritten Via Cipher.EXE</description>
     <mitre>
       <id>T1485</id>
@@ -188,7 +188,7 @@
   </rule>
   <rule id="114019" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">copy |\\\\\.\\GLOBALROOT\\Device\\HarddiskVolumeShadowCopy</field>
+    <field name="win.eventdata.commandLine">copy |\\\\\\\\\\\.\\\\GLOBALROOT\\\\Device\\\\HarddiskVolumeShadowCopy</field>
     <description>Sigma: Copy From VolumeShadowCopy Via Cmd.EXE</description>
     <mitre>
       <id>T1490</id>
@@ -198,7 +198,7 @@
   <rule id="114020" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">deletejournal|createjournal|setZeroData</field>
-    <field name="win.eventdata.image">\fsutil\.exe$</field>
+    <field name="win.eventdata.image">\\fsutil.exe$</field>
     <description>Sigma: Fsutil Suspicious Invocation</description>
     <mitre>
       <id>T1070</id>
@@ -208,7 +208,7 @@
   </rule>
   <rule id="114021" level="13">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\gpg\.exe$|\gpg2\.exe$</field>
+    <field name="win.eventdata.image">\\gpg.exe$|\\gpg2.exe$</field>
     <description>Sigma: Portable Gpg.EXE Execution</description>
     <mitre>
       <id>T1486</id>
@@ -227,7 +227,7 @@
   <rule id="114023" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/disable</field>
-    <field name="win.eventdata.image">\reagentc\.exe$</field>
+    <field name="win.eventdata.image">\\reagentc.exe$</field>
     <description>Sigma: Windows Recovery Environment Disabled Via Reagentc</description>
     <mitre>
       <id>T1490</id>
@@ -236,7 +236,7 @@
   </rule>
   <rule id="114024" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">EnableBDEWithNoTPM|UseAdvancedStartup|UseTPM|UseTPMKey|UseTPMKeyPIN|RecoveryKeyMessageSource|UseTPMPIN|RecoveryKeyMessage|ADD|\SOFTWARE\Policies\Microsoft\FVE|/v|/f</field>
+    <field name="win.eventdata.commandLine">EnableBDEWithNoTPM|UseAdvancedStartup|UseTPM|UseTPMKey|UseTPMKeyPIN|RecoveryKeyMessageSource|UseTPMPIN|RecoveryKeyMessage|ADD|\\SOFTWARE\\Policies\\Microsoft\\FVE|/v|/f</field>
     <description>Sigma: Suspicious Reg Add BitLocker</description>
     <mitre>
       <id>T1486</id>
@@ -245,8 +245,8 @@
   </rule>
   <rule id="114025" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\SOFTWARE\Policies\Microsoft\Windows NT\SystemRestore|\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$|\reg\.exe$</field>
+    <field name="win.eventdata.commandLine">\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\SystemRestore|\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SystemRestore</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$|\\reg.exe$</field>
     <description>Sigma: System Restore Registry Modification via CommandLine</description>
     <mitre>
       <id>T1490</id>
@@ -255,7 +255,7 @@
   </rule>
   <rule id="114026" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">gpg\.exe</field>
+    <field name="win.eventdata.originalFileName">gpg.exe</field>
     <description>Sigma: Renamed Gpg.EXE Execution</description>
     <mitre>
       <id>T1486</id>
@@ -264,7 +264,7 @@
   </rule>
   <rule id="114027" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">sdelete\.exe</field>
+    <field name="win.eventdata.originalFileName">sdelete.exe</field>
     <description>Sigma: Renamed Sysinternals Sdelete Execution</description>
     <mitre>
       <id>T1485</id>
@@ -273,8 +273,8 @@
   </rule>
   <rule id="114028" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Windows\BitLocker|\Windows\ExploitGuard|\Windows\SystemRestore\SR|\Windows\UpdateOrchestrator\|\Windows\Windows Defender\|\Windows\WindowsBackup\|\Windows\WindowsUpdate\</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine">\\Windows\\BitLocker|\\Windows\\ExploitGuard|\\Windows\\SystemRestore\\SR|\\Windows\\UpdateOrchestrator\\|\\Windows\\Windows Defender\\|\\Windows\\WindowsBackup\\|\\Windows\\WindowsUpdate\\</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Delete Important Scheduled Task</description>
     <mitre>
       <id>T1489</id>
@@ -283,8 +283,8 @@
   </rule>
   <rule id="114029" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
-    <field name="win.eventdata.commandLine"> /delete |/tn \.*| /f</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <field name="win.eventdata.commandLine"> /delete |/tn \\\.*| /f</field>
     <description>Sigma: Delete All Scheduled Tasks</description>
     <mitre>
       <id>T1489</id>
@@ -293,8 +293,8 @@
   </rule>
   <rule id="114030" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Windows\BitLocker|\Windows\ExploitGuard|\Windows\ExploitGuard\ExploitGuard MDM policy Refresh|\Windows\SystemRestore\SR|\Windows\UpdateOrchestrator\|\Windows\Windows Defender\|\Windows\WindowsBackup\|\Windows\WindowsUpdate\</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine">\\Windows\\BitLocker|\\Windows\\ExploitGuard|\\Windows\\ExploitGuard\\ExploitGuard MDM policy Refresh|\\Windows\\SystemRestore\\SR|\\Windows\\UpdateOrchestrator\\|\\Windows\\Windows Defender\\|\\Windows\\WindowsBackup\\|\\Windows\\WindowsUpdate\\</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Disable Important Scheduled Task</description>
     <mitre>
       <id>T1489</id>
@@ -303,7 +303,7 @@
   </rule>
   <rule id="114031" level="13">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\shutdown\.exe$</field>
+    <field name="win.eventdata.image">\\shutdown.exe$</field>
     <field name="win.eventdata.commandLine">/r |/s </field>
     <description>Sigma: Suspicious Execution of Shutdown</description>
     <mitre>
@@ -313,7 +313,7 @@
   </rule>
   <rule id="114032" level="13">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\shutdown\.exe$</field>
+    <field name="win.eventdata.image">\\shutdown.exe$</field>
     <field name="win.eventdata.commandLine">/l</field>
     <description>Sigma: Suspicious Execution of Shutdown to Log Out</description>
     <mitre>
@@ -323,7 +323,7 @@
   </rule>
   <rule id="114033" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> --cpu-priority=|--donate-level=0| -o pool\.| --nicehash| --algo=rx/0 |stratum\+tcp://|stratum\+udp://|LS1kb25hdGUtbGV2ZWw9|0tZG9uYXRlLWxldmVsP|tLWRvbmF0ZS1sZXZlbD|c3RyYXR1bSt0Y3A6Ly|N0cmF0dW0rdGNwOi8v|zdHJhdHVtK3RjcDovL|c3RyYXR1bSt1ZHA6Ly|N0cmF0dW0rdWRwOi8v|zdHJhdHVtK3VkcDovL</field>
+    <field name="win.eventdata.commandLine"> --cpu-priority=|--donate-level=0| -o pool.| --nicehash| --algo=rx/0 |stratum\+tcp://|stratum\+udp://|LS1kb25hdGUtbGV2ZWw9|0tZG9uYXRlLWxldmVsP|tLWRvbmF0ZS1sZXZlbD|c3RyYXR1bSt0Y3A6Ly|N0cmF0dW0rdGNwOi8v|zdHJhdHVtK3RjcDovL|c3RyYXR1bSt1ZHA6Ly|N0cmF0dW0rdWRwOi8v|zdHJhdHVtK3VkcDovL</field>
     <description>Sigma: Potential Crypto Mining Activity</description>
     <mitre>
       <id>T1496</id>
@@ -332,7 +332,7 @@
   </rule>
   <rule id="114034" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\\NTDS\.dit|\\SYSTEM|\\SECURITY</field>
+    <field name="win.eventdata.commandLine">\\\\NTDS.dit|\\\\SYSTEM|\\\\SECURITY</field>
     <description>Sigma: Sensitive File Access Via Volume Shadow Copy Backup</description>
     <mitre>
       <id>T1490</id>
@@ -341,8 +341,8 @@
   </rule>
   <rule id="114035" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> delete |\.delete\(\)| pause | stop |Stop-Service |Remove-Service </field>
-    <field name="win.eventdata.originalFileName">net\.exe|net1\.exe|PowerShell_ISE\.EXE|PowerShell\.EXE|psservice\.exe|pwsh\.dll|sc\.exe|wmic\.exe</field>
+    <field name="win.eventdata.commandLine"> delete |.delete\(\)| pause | stop |Stop-Service |Remove-Service </field>
+    <field name="win.eventdata.originalFileName">net.exe|net1.exe|PowerShell_ISE.EXE|PowerShell.EXE|psservice.exe|pwsh.dll|sc.exe|wmic.exe</field>
     <description>Sigma: Suspicious Windows Service Tampering</description>
     <mitre>
       <id>T1489</id>
@@ -352,7 +352,7 @@
   </rule>
   <rule id="114036" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\vssadmin\.exe$</field>
+    <field name="win.eventdata.image">\\vssadmin.exe$</field>
     <field name="win.eventdata.commandLine">unbounded|/MaxSize=|shadowstorage|quiet</field>
     <description>Sigma: Shadow Copies Deletion Using Operating Systems Utilities</description>
     <mitre>
@@ -363,7 +363,7 @@
   </rule>
   <rule id="114037" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">sdelete\.exe</field>
+    <field name="win.eventdata.originalFileName">sdelete.exe</field>
     <description>Sigma: Potential File Overwrite Via Sysinternals SDelete</description>
     <mitre>
       <id>T1485</id>
@@ -373,7 +373,7 @@
   <rule id="114038" level="14">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">keepVersions:0|backup</field>
-    <field name="win.eventdata.image">\wbadmin\.exe$</field>
+    <field name="win.eventdata.image">\\wbadmin.exe$</field>
     <description>Sigma: All Backups Deleted Via Wbadmin.EXE</description>
     <mitre>
       <id>T1490</id>
@@ -383,7 +383,7 @@
   <rule id="114039" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">delete |backup</field>
-    <field name="win.eventdata.image">\wbadmin\.exe$</field>
+    <field name="win.eventdata.image">\\wbadmin.exe$</field>
     <description>Sigma: Windows Backup Deleted Via Wbadmin.EXE</description>
     <mitre>
       <id>T1490</id>
@@ -393,7 +393,7 @@
   <rule id="114040" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> recovery|recoveryTarget|itemtype:File</field>
-    <field name="win.eventdata.image">\wbadmin\.exe$</field>
+    <field name="win.eventdata.image">\\wbadmin.exe$</field>
     <description>Sigma: File Recovery From Backup Via Wbadmin.EXE</description>
     <mitre>
       <id>T1490</id>
@@ -412,7 +412,7 @@
   </rule>
   <rule id="114042" level="13">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Blob$</field>
+    <field name="win.eventdata.targetObject">\\Blob$</field>
     <field name="win.eventdata.details">Binary Data</field>
     <description>Sigma: New Root or CA or AuthRoot Certificate to Store</description>
     <mitre>
@@ -422,7 +422,7 @@
   </rule>
   <rule id="114043" level="14">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\LegalNoticeCaption|\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\LegalNoticeText</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeCaption|\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\LegalNoticeText</field>
     <field name="win.eventdata.details">encrypted|Unlock-Password|paying</field>
     <description>Sigma: Potential Ransomware Activity Using LegalNotice Message</description>
     <mitre>

@@ -12,7 +12,7 @@
   <rule id="114005" level="14">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">141|142</field>
-    <field name="win.eventdata.taskName">\Windows\SystemRestore\SR|\Windows\Windows Defender\|\Windows\BitLocker|\Windows\WindowsBackup\|\Windows\WindowsUpdate\|\Windows\UpdateOrchestrator\|\Windows\ExploitGuard</field>
+    <field name="win.eventdata.taskName">\\Windows\\SystemRestore\\SR|\\Windows\\Windows Defender\\|\\Windows\\BitLocker|\\Windows\\WindowsBackup\\|\\Windows\\WindowsUpdate\\|\\Windows\\UpdateOrchestrator\\|\\Windows\\ExploitGuard</field>
     <description>Sigma: Important Scheduled Task Deleted or Disabled</description>
     <mitre>
       <id>T1489</id>
@@ -21,8 +21,8 @@
   </rule>
   <rule id="114028" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Windows\BitLocker|\Windows\ExploitGuard|\Windows\SystemRestore\SR|\Windows\UpdateOrchestrator\|\Windows\Windows Defender\|\Windows\WindowsBackup\|\Windows\WindowsUpdate\</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine">\\Windows\\BitLocker|\\Windows\\ExploitGuard|\\Windows\\SystemRestore\\SR|\\Windows\\UpdateOrchestrator\\|\\Windows\\Windows Defender\\|\\Windows\\WindowsBackup\\|\\Windows\\WindowsUpdate\\</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Delete Important Scheduled Task</description>
     <mitre>
       <id>T1489</id>
@@ -31,8 +31,8 @@
   </rule>
   <rule id="114029" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
-    <field name="win.eventdata.commandLine"> /delete |/tn \.*| /f</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <field name="win.eventdata.commandLine"> /delete |/tn \\\.*| /f</field>
     <description>Sigma: Delete All Scheduled Tasks</description>
     <mitre>
       <id>T1489</id>
@@ -41,8 +41,8 @@
   </rule>
   <rule id="114030" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Windows\BitLocker|\Windows\ExploitGuard|\Windows\ExploitGuard\ExploitGuard MDM policy Refresh|\Windows\SystemRestore\SR|\Windows\UpdateOrchestrator\|\Windows\Windows Defender\|\Windows\WindowsBackup\|\Windows\WindowsUpdate\</field>
-    <field name="win.eventdata.image">\schtasks\.exe$</field>
+    <field name="win.eventdata.commandLine">\\Windows\\BitLocker|\\Windows\\ExploitGuard|\\Windows\\ExploitGuard\\ExploitGuard MDM policy Refresh|\\Windows\\SystemRestore\\SR|\\Windows\\UpdateOrchestrator\\|\\Windows\\Windows Defender\\|\\Windows\\WindowsBackup\\|\\Windows\\WindowsUpdate\\</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Disable Important Scheduled Task</description>
     <mitre>
       <id>T1489</id>
@@ -51,8 +51,8 @@
   </rule>
   <rule id="114035" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> delete |\.delete\(\)| pause | stop |Stop-Service |Remove-Service </field>
-    <field name="win.eventdata.originalFileName">net\.exe|net1\.exe|PowerShell_ISE\.EXE|PowerShell\.EXE|psservice\.exe|pwsh\.dll|sc\.exe|wmic\.exe</field>
+    <field name="win.eventdata.commandLine"> delete |.delete\(\)| pause | stop |Stop-Service |Remove-Service </field>
+    <field name="win.eventdata.originalFileName">net.exe|net1.exe|PowerShell_ISE.EXE|PowerShell.EXE|psservice.exe|pwsh.dll|sc.exe|wmic.exe</field>
     <description>Sigma: Suspicious Windows Service Tampering</description>
     <mitre>
       <id>T1489</id>

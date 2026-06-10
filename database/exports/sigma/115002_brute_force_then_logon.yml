@@ -1,0 +1,17 @@
+title: brute_force_then_logon
+id: 8f0ba2cc-a74f-5335-afee-8be85a419dc2
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  115002).
+references: []
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+detection:
+  selection: {}
+  condition: selection
+level: high
+tags:
+- attack.t1110
+- attack.credential-access

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1552.004_unknown,">
-  <rule id="108612" level="11">
+  <rule id="108611" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Export-PfxCertificate|Export-Certificate</field>
     <description>Sigma: Certificate Exported Via PowerShell - ScriptBlock</description>
@@ -9,7 +9,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108724" level="11">
+  <rule id="108723" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Export-PfxCertificate |Export-Certificate </field>
     <description>Sigma: Certificate Exported Via PowerShell</description>
@@ -19,7 +19,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108725" level="12">
+  <rule id="108724" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">Get-Process lsas|ps lsas|gps lsas</field>
     <description>Sigma: PowerShell Get-Process LSASS</description>
@@ -28,9 +28,9 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108771" level="11">
+  <rule id="108770" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.key|\.pgp|\.gpg|\.ppk|\.p12|\.pem|\.pfx|\.cer|\.p7b|\.asc</field>
+    <field name="win.eventdata.commandLine">.key|.pgp|.gpg|.ppk|.p12|.pem|.pfx|.cer|.p7b|.asc</field>
     <description>Sigma: Private Keys Reconnaissance Via CommandLine Tools</description>
     <mitre>
       <id>T1552.004</id>

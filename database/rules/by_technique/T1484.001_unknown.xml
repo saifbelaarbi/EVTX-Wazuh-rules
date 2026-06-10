@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1484.001_unknown,">
-  <rule id="104545" level="9">
+  <rule id="104546" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136|5145</field>
     <description>Sigma: Startup/Logon Script Added to Group Policy Object</description>
@@ -34,7 +34,7 @@
   </rule>
   <rule id="107140" level="10">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\SOFTWARE\Policies\Microsoft\Windows\System</field>
+    <field name="win.eventdata.scriptBlockText">\\SOFTWARE\\Policies\\Microsoft\\Windows\\System</field>
     <description>Sigma: Modify Group Policy Settings - ScriptBlockLogging</description>
     <mitre>
       <id>T1484.001</id>
@@ -43,8 +43,8 @@
   </rule>
   <rule id="107216" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">gpme\.msc|gpobject:</field>
-    <field name="win.eventdata.image">\mmc\.exe$</field>
+    <field name="win.eventdata.commandLine">gpme.msc|gpobject:</field>
+    <field name="win.eventdata.image">\\mmc.exe$</field>
     <description>Sigma: Windows Default Domain GPO Modification via GPME</description>
     <mitre>
       <id>T1484.001</id>
@@ -53,8 +53,8 @@
   </rule>
   <rule id="107224" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\SOFTWARE\Policies\Microsoft\Windows\System</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine">\\SOFTWARE\\Policies\\Microsoft\\Windows\\System</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <description>Sigma: Modify Group Policy Settings</description>
     <mitre>
       <id>T1484.001</id>

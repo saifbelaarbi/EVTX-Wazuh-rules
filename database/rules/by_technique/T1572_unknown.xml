@@ -2,7 +2,7 @@
 <group name="windows,T1572_unknown,">
   <rule id="110052" level="10">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationHostname">\.localto\.net$|\.localtonet\.com$</field>
+    <field name="win.eventdata.destinationHostname">.localto.net$|.localtonet.com$</field>
     <field name="win.eventdata.initiated">true</field>
     <description>Sigma: Communication To LocaltoNet Tunneling Service Initiated</description>
     <mitre>
@@ -14,8 +14,8 @@
   </rule>
   <rule id="110058" level="10">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationIp">127\.0\.0\.0/8|::1/128</field>
-    <field name="win.eventdata.image">\svchost\.exe$</field>
+    <field name="win.eventdata.destinationIp">^127.|^::1.</field>
+    <field name="win.eventdata.image">\\svchost.exe$</field>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.sourcePort">3389</field>
     <description>Sigma: RDP Over Reverse SSH Tunnel</description>
@@ -27,7 +27,7 @@
   </rule>
   <rule id="110059" level="10">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">\svchost\.exe$</field>
+    <field name="win.eventdata.image">\\svchost.exe$</field>
     <field name="win.eventdata.initiated">true</field>
     <field name="win.eventdata.sourcePort">3389</field>
     <field name="win.eventdata.destinationPort">80|443</field>
@@ -51,7 +51,7 @@
   </rule>
   <rule id="110113" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\plink\.exe$</field>
+    <field name="win.eventdata.image">\\plink.exe$</field>
     <field name="win.eventdata.commandLine"> -P 443| -P 22</field>
     <description>Sigma: Potential RDP Tunneling Via Plink</description>
     <mitre>
@@ -61,7 +61,7 @@
   </rule>
   <rule id="110120" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\3proxy\.exe$</field>
+    <field name="win.eventdata.image">\\3proxy.exe$</field>
     <description>Sigma: PUA - 3Proxy Execution</description>
     <mitre>
       <id>T1572</id>
@@ -70,7 +70,7 @@
   </rule>
   <rule id="110121" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe -i127\.0\.0\.1 -p</field>
+    <field name="win.eventdata.commandLine">.exe -i127.0.0.1 -p</field>
     <description>Sigma: PUA - 3Proxy Execution</description>
     <mitre>
       <id>T1572</id>
@@ -97,7 +97,7 @@
   </rule>
   <rule id="110133" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> start |--all|--config|\.yml</field>
+    <field name="win.eventdata.commandLine"> start |--all|--config|.yml</field>
     <description>Sigma: PUA - Ngrok Execution</description>
     <mitre>
       <id>T1572</id>
@@ -106,7 +106,7 @@
   </rule>
   <rule id="110134" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">ngrok\.exe$</field>
+    <field name="win.eventdata.image">ngrok.exe$</field>
     <field name="win.eventdata.commandLine"> tcp | http | authtoken </field>
     <description>Sigma: PUA - Ngrok Execution</description>
     <mitre>
@@ -116,7 +116,7 @@
   </rule>
   <rule id="110135" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe authtoken |\.exe start --all</field>
+    <field name="win.eventdata.commandLine">.exe authtoken |.exe start --all</field>
     <description>Sigma: PUA - Ngrok Execution</description>
     <mitre>
       <id>T1572</id>
@@ -125,7 +125,7 @@
   </rule>
   <rule id="110176" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\ssh\.exe$</field>
+    <field name="win.eventdata.image">\\ssh.exe$</field>
     <field name="win.eventdata.commandLine"> -R </field>
     <description>Sigma: Port Forwarding Activity Via SSH.EXE</description>
     <mitre>
@@ -137,7 +137,7 @@
   </rule>
   <rule id="110177" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\ssh\.exe$</field>
+    <field name="win.eventdata.image">\\ssh.exe$</field>
     <field name="win.eventdata.commandLine">:3389</field>
     <description>Sigma: Potential RDP Tunneling Via SSH</description>
     <mitre>

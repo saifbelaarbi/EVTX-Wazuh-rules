@@ -1,0 +1,20 @@
+title: 'Suspicious named pipe: \ntsvcs'
+id: 9f301e81-a8a5-5a3c-8c00-bd9be214c11a
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112503).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Discovery/Discovery_Remote_System_NamedPipes_Sysmon_18.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    PipeName: \ntsvcs
+  condition: selection
+level: high
+tags:
+- attack.t1021.002
+- attack.lateral-movement

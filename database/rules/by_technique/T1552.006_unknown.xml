@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1552.006_unknown,">
-  <rule id="108569" level="11">
+  <rule id="108568" level="11">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.fileName">audit\.csv$|Files\.xml$|GptTmpl\.inf$|groups\.xml$|Registry\.pol$|Registry\.xml$|scheduledtasks\.xml$|scripts\.ini$|services\.xml$|\sysvol\|\Policies\</field>
+    <field name="win.eventdata.fileName">audit.csv$|Files.xml$|GptTmpl.inf$|groups.xml$|Registry.pol$|Registry.xml$|scheduledtasks.xml$|scripts.ini$|services.xml$|\\sysvol\\|\\Policies\\</field>
     <description>Sigma: Access To Potentially Sensitive Sysvol Files By Uncommon Applications</description>
+    <mitre>
+      <id>T1552.006</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108654" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">cpassword|\\sysvol\\|.xml</field>
+    <field name="win.eventdata.image">\\find.exe$|\\findstr.exe$</field>
+    <description>Sigma: Findstr GPP Passwords</description>
     <mitre>
       <id>T1552.006</id>
     </mitre>
@@ -11,37 +21,27 @@
   </rule>
   <rule id="108655" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">cpassword|\sysvol\|\.xml</field>
-    <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>
-    <description>Sigma: Findstr GPP Passwords</description>
-    <mitre>
-      <id>T1552.006</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108656" level="12">
-    <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">lsass</field>
-    <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>
+    <field name="win.eventdata.image">\\find.exe$|\\findstr.exe$</field>
     <description>Sigma: LSASS Process Reconnaissance Via Findstr.EXE</description>
     <mitre>
       <id>T1552.006</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108657" level="11">
+  <rule id="108656" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">"Everyone"|'Everyone'|"BUILTIN\\"|'BUILTIN\'</field>
-    <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>
+    <field name="win.eventdata.commandLine">"Everyone"|'Everyone'|"BUILTIN\\\\"|'BUILTIN\\'</field>
+    <field name="win.eventdata.image">\\find.exe$|\\findstr.exe$</field>
     <description>Sigma: Permission Misconfiguration Reconnaissance Via Findstr.EXE</description>
     <mitre>
       <id>T1552.006</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108775" level="11">
+  <rule id="108774" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\SYSVOL\|\policies\</field>
+    <field name="win.eventdata.commandLine">\\SYSVOL\\|\\policies\\</field>
     <description>Sigma: Suspicious SYSVOL Domain Group Policy Access</description>
     <mitre>
       <id>T1552.006</id>

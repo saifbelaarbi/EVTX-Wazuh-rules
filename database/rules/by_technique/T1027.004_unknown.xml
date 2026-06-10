@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1027.004_unknown,">
-  <rule id="100429" level="8">
+  <rule id="100431" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\csc\.exe$</field>
-    <field name="win.eventdata.commandLine">:\Perflogs\|:\Users\Public\|\AppData\Local\Temp\|\Temporary Internet|\Windows\Temp\</field>
+    <field name="win.eventdata.image">\\csc.exe$</field>
+    <field name="win.eventdata.commandLine">:\\Perflogs\\|:\\Users\\Public\\|\\AppData\\Local\\Temp\\|\\Temporary Internet|\\Windows\\Temp\\</field>
     <description>Sigma: Dynamic .NET Compilation Via Csc.EXE</description>
     <mitre>
       <id>T1027.004</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100599" level="9">
+  <rule id="100601" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\vbc\.exe$</field>
-    <field name="win.eventdata.image">\cvtres\.exe$</field>
+    <field name="win.eventdata.parentImage">\\vbc.exe$</field>
+    <field name="win.eventdata.image">\\cvtres.exe$</field>
     <description>Sigma: Visual Basic Command Line Compiler Usage</description>
     <mitre>
       <id>T1027.004</id>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1553.005_unknown,">
-  <rule id="100315" level="8">
+  <rule id="100317" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Mount-DiskImage |-ImagePath |Get-Volume|\.DriveLetter|invoke-item |\):\</field>
+    <field name="win.eventdata.scriptBlockText">Mount-DiskImage |-ImagePath |Get-Volume|.DriveLetter|invoke-item |\):\\</field>
     <description>Sigma: Suspicious Invoke-Item From Mount-DiskImage</description>
     <mitre>
       <id>T1553.005</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100338" level="8">
+  <rule id="100340" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Unblock-File |-Path </field>
     <description>Sigma: Suspicious Unblock-File</description>

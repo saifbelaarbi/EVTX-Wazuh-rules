@@ -12,7 +12,7 @@
   <rule id="111001" level="6">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">30</field>
-    <field name="win.eventdata.searchFilter">\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483648\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483656\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483652\)|\(groupType:1\.2\.840\.113556\.1\.4\.803:=2147483650\)|\(sAMAccountType=805306369\)|\(sAMAccountType=805306368\)|\(sAMAccountType=536870913\)|\(sAMAccountType=536870912\)|\(sAMAccountType=268435457\)|\(sAMAccountType=268435456\)|\(objectCategory=groupPolicyContainer\)|\(objectCategory=organizationalUnit\)|\(objectCategory=nTDSDSA\)|\(objectCategory=server\)|\(objectCategory=domain\)|\(objectCategory=person\)|\(objectCategory=group\)|\(objectCategory=user\)|\(objectClass=trustedDomain\)|\(objectClass=computer\)|\(objectClass=server\)|\(objectClass=group\)|\(objectClass=user\)|\(primaryGroupID=521\)|\(primaryGroupID=516\)|\(primaryGroupID=515\)|\(primaryGroupID=512\)|Domain Admins|objectGUID=\.*|\(schemaIDGUID=\.*\)|admincount=1</field>
+    <field name="win.eventdata.searchFilter">\(groupType:1.2.840.113556.1.4.803:=2147483648\)|\(groupType:1.2.840.113556.1.4.803:=2147483656\)|\(groupType:1.2.840.113556.1.4.803:=2147483652\)|\(groupType:1.2.840.113556.1.4.803:=2147483650\)|\(sAMAccountType=805306369\)|\(sAMAccountType=805306368\)|\(sAMAccountType=536870913\)|\(sAMAccountType=536870912\)|\(sAMAccountType=268435457\)|\(sAMAccountType=268435456\)|\(objectCategory=groupPolicyContainer\)|\(objectCategory=organizationalUnit\)|\(objectCategory=nTDSDSA\)|\(objectCategory=server\)|\(objectCategory=domain\)|\(objectCategory=person\)|\(objectCategory=group\)|\(objectCategory=user\)|\(objectClass=trustedDomain\)|\(objectClass=computer\)|\(objectClass=server\)|\(objectClass=group\)|\(objectClass=user\)|\(primaryGroupID=521\)|\(primaryGroupID=516\)|\(primaryGroupID=515\)|\(primaryGroupID=512\)|Domain Admins|objectGUID=\\\.*|\(schemaIDGUID=\\\.*\)|admincount=1</field>
     <description>Sigma: Potential Active Directory Reconnaissance/Enumeration Via LDAP</description>
     <mitre>
       <id>T1069.002</id>
@@ -25,7 +25,7 @@
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656|4663</field>
     <field name="win.eventdata.objectType">Key</field>
-    <field name="win.eventdata.objectName">\REGISTRY\MACHINE\SOFTWARE\Microsoft\Microsoft Online\Reporting\MonitoringAgent</field>
+    <field name="win.eventdata.objectName">\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Microsoft Online\\Reporting\\MonitoringAgent</field>
     <description>Sigma: Azure AD Health Monitoring Agent Registry Keys Access</description>
     <mitre>
       <id>T1012</id>
@@ -36,7 +36,7 @@
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656|4663</field>
     <field name="win.eventdata.objectType">Key</field>
-    <field name="win.eventdata.objectName">\REGISTRY\MACHINE\SOFTWARE\Microsoft\ADHealthAgent</field>
+    <field name="win.eventdata.objectName">\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\ADHealthAgent</field>
     <description>Sigma: Azure AD Health Service Agents Registry Keys Access</description>
     <mitre>
       <id>T1012</id>
@@ -58,7 +58,7 @@
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4662</field>
     <field name="win.eventdata.objectType">bf967aba-0de6-11d0-a285-00aa003049e2</field>
-    <field name="win.eventdata.accessMask">1.$|3.$|4.$|7.$|9.$|B.$|D.$|F.$</field>
+    <field name="win.eventdata.accessMask">1\.$|3\.$|4\.$|7\.$|9\.$|B\.$|D\.$|F\.$</field>
     <description>Sigma: Potential AD User Enumeration From Non-Machine Account</description>
     <mitre>
       <id>T1087.002</id>
@@ -102,7 +102,7 @@
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656</field>
     <field name="win.eventdata.objectType">Key</field>
-    <field name="win.eventdata.objectName">\SAM$</field>
+    <field name="win.eventdata.objectName">\\SAM$</field>
     <description>Sigma: SAM Registry Hive Handle Request</description>
     <mitre>
       <id>T1012</id>
@@ -139,7 +139,7 @@
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4656|4663</field>
     <field name="win.eventdata.objectType">key</field>
-    <field name="win.eventdata.objectName">lsa\JD$|lsa\GBG$|lsa\Skew1$|lsa\Data$</field>
+    <field name="win.eventdata.objectName">lsa\\JD$|lsa\\GBG$|lsa\\Skew1$|lsa\\Data$</field>
     <description>Sigma: SysKey Registry Keys Access</description>
     <mitre>
       <id>T1012</id>
@@ -148,7 +148,7 @@
   </rule>
   <rule id="111013" level="6">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\AppData\Local\Temp\Advanced IP Scanner 2</field>
+    <field name="win.eventdata.targetFilename">\\AppData\\Local\\Temp\\Advanced IP Scanner 2</field>
     <description>Sigma: Advanced IP Scanner - File Event</description>
     <mitre>
       <id>T1046</id>
@@ -157,7 +157,7 @@
   </rule>
   <rule id="111014" level="11">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">BloodHound\.zip$|_computers\.json$|_containers\.json$|_gpos\.json$|_groups\.json$|_ous\.json$|_users\.json$</field>
+    <field name="win.eventdata.targetFilename">BloodHound.zip$|_computers.json$|_containers.json$|_gpos.json$|_groups.json$|_ous.json$|_users.json$</field>
     <description>Sigma: BloodHound Collection Files</description>
     <mitre>
       <id>T1087.001</id>
@@ -168,14 +168,14 @@
   </rule>
   <rule id="111015" level="6">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Hotfixinfo\.txt$|\netiostate\.txt$|\sysportslog\.txt$|\VmSwitchLog\.evtx$</field>
+    <field name="win.eventdata.targetFilename">\\Hotfixinfo.txt$|\\netiostate.txt$|\\sysportslog.txt$|\\VmSwitchLog.evtx$</field>
     <description>Sigma: GatherNetworkInfo.VBS Reconnaissance Script Output</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111016" level="6">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.dat$</field>
+    <field name="win.eventdata.image">\\ADExp.exe$|\\ADExplorer.exe$|\\ADExplorer64.exe$|\\ADExplorer64a.exe$</field>
+    <field name="win.eventdata.targetFilename">.dat$</field>
     <description>Sigma: ADExplorer Writing Complete AD Snapshot Into .dat File</description>
     <mitre>
       <id>T1087.002</id>
@@ -196,7 +196,7 @@
   </rule>
   <rule id="111018" level="6">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationHostname">www\.ip\.cn|l2\.io</field>
+    <field name="win.eventdata.destinationHostname">www.ip.cn|l2.io</field>
     <description>Sigma: Suspicious Network Connection to IP Lookup Service APIs</description>
     <mitre>
       <id>T1016</id>
@@ -206,7 +206,7 @@
   <rule id="111019" level="6">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\python|\.exe</field>
+    <field name="win.eventdata.image">\\python|.exe</field>
     <description>Sigma: Python Initiated Connection</description>
     <mitre>
       <id>T1046</id>
@@ -215,25 +215,25 @@
   </rule>
   <rule id="111020" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">Microsoft\.ActiveDirectory\.Management\.dll</field>
+    <field name="win.eventdata.payload">Microsoft.ActiveDirectory.Management.dll</field>
     <description>Sigma: Potential Active Directory Enumeration Using AD Module - PsModule</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111021" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Import-Module |Microsoft\.ActiveDirectory\.Management\.dll</field>
+    <field name="win.eventdata.scriptBlockText">Import-Module |Microsoft.ActiveDirectory.Management.dll</field>
     <description>Sigma: Potential Active Directory Enumeration Using AD Module - PsScript</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111022" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">ipmo Microsoft\.ActiveDirectory\.Management\.dll</field>
+    <field name="win.eventdata.scriptBlockText">ipmo Microsoft.ActiveDirectory.Management.dll</field>
     <description>Sigma: Potential Active Directory Enumeration Using AD Module - PsScript</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111023" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Function Get-ADRExcelComOb|Get-ADRGPO|Get-ADRDomainController|ADRecon-Report\.xlsx</field>
+    <field name="win.eventdata.scriptBlockText">Function Get-ADRExcelComOb|Get-ADRGPO|Get-ADRDomainController|ADRecon-Report.xlsx</field>
     <description>Sigma: PowerShell ADRecon Execution</description>
     <mitre>
       <id>T1059.001</id>
@@ -251,7 +251,7 @@
   </rule>
   <rule id="111025" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText"> \| Select |Out-File|Set-Content|Add-Content| -Filter \.*</field>
+    <field name="win.eventdata.scriptBlockText"> \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
     <description>Sigma: Computer Discovery And Export Via Get-ADComputer Cmdlet - PowerShell</description>
     <mitre>
       <id>T1033</id>
@@ -269,7 +269,7 @@
   </rule>
   <rule id="111027" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">New-Object |System\.DirectoryServices\.DirectorySearcher|\.PropertiesToLoad\.Add|\.findall\(\)|Properties\.name</field>
+    <field name="win.eventdata.scriptBlockText">New-Object |System.DirectoryServices.DirectorySearcher|.PropertiesToLoad.Add|.findall\(\)|Properties.name</field>
     <description>Sigma: DirectorySearcher Powershell Exploitation</description>
     <mitre>
       <id>T1018</id>
@@ -278,7 +278,7 @@
   </rule>
   <rule id="111028" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\.*avira\.*|\.*carbonblack\.*|\.*cylance\.*|\.*defender\.*|\.*kaspersky\.*|\.*malware\.*|\.*sentinel\.*|\.*symantec\.*|\.*virus\.*</field>
+    <field name="win.eventdata.scriptBlockText">\\\.*avira\\\.*|\\\.*carbonblack\\\.*|\\\.*cylance\\\.*|\\\.*defender\\\.*|\\\.*kaspersky\\\.*|\\\.*malware\\\.*|\\\.*sentinel\\\.*|\\\.*symantec\\\.*|\\\.*virus\\\.*</field>
     <description>Sigma: Security Software Discovery Via Powershell Script</description>
     <mitre>
       <id>T1518.001</id>
@@ -293,7 +293,7 @@
   </rule>
   <rule id="111030" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">-Properties.*TrustedForDelegation|-Properties.*TrustedToAuthForDelegation|-Properties.*msDS-AllowedToDelegateTo|-Properties.*PrincipalsAllowedToDelegateToAccount|-LDAPFilter.*\(userAccountControl:1\.2\.840\.113556\.1\.4\.803:=524288\)</field>
+    <field name="win.eventdata.scriptBlockText">-Properties\.*TrustedForDelegation|-Properties\.*TrustedToAuthForDelegation|-Properties\.*msDS-AllowedToDelegateTo|-Properties\.*PrincipalsAllowedToDelegateToAccount|-LDAPFilter\.*\(userAccountControl:1.2.840.113556.1.4.803:=524288\)</field>
     <description>Sigma: Potential Unconstrained Delegation Discovery Via Get-ADComputer - ScriptBlock</description>
     <mitre>
       <id>T1018</id>
@@ -313,7 +313,7 @@
   </rule>
   <rule id="111032" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">get-itemProperty|\software\|select-object|format-table</field>
+    <field name="win.eventdata.scriptBlockText">get-itemProperty|\\software\\|select-object|format-table</field>
     <description>Sigma: Detected Windows Software Discovery - PowerShell</description>
     <mitre>
       <id>T1518</id>
@@ -331,7 +331,7 @@
   </rule>
   <rule id="111034" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \.*</field>
+    <field name="win.eventdata.scriptBlockText"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
     <description>Sigma: User Discovery And Export Via Get-ADUser Cmdlet - PowerShell</description>
     <mitre>
       <id>T1033</id>
@@ -340,9 +340,9 @@
   </rule>
   <rule id="111035" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\cmd\.exe$</field>
+    <field name="win.eventdata.parentImage">\\cmd.exe$</field>
     <field name="win.eventdata.parentCommandLine"> -c | -r | -k </field>
-    <field name="win.eventdata.image">\chcp\.com$</field>
+    <field name="win.eventdata.image">\\chcp.com$</field>
     <field name="win.eventdata.commandLine">chcp$|chcp $|chcp  $</field>
     <description>Sigma: Console CodePage Lookup Via CHCP</description>
     <mitre>
@@ -353,27 +353,27 @@
   <rule id="111036" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/enumrecords|/enumzones|/ZonePrint|/info</field>
-    <field name="win.eventdata.image">\dnscmd\.exe$</field>
+    <field name="win.eventdata.image">\\dnscmd.exe$</field>
     <description>Sigma: Potential Discovery Activity Via Dnscmd.EXE</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111037" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">driverquery\.exe$</field>
-    <field name="win.eventdata.parentImage">\cscript\.exe$|\mshta\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.image">driverquery.exe$</field>
+    <field name="win.eventdata.parentImage">\\cscript.exe$|\\mshta.exe$|\\regsvr32.exe$|\\rundll32.exe$|\\wscript.exe$</field>
     <description>Sigma: Potential Recon Activity Using DriverQuery.EXE</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111038" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">driverquery\.exe$</field>
+    <field name="win.eventdata.image">driverquery.exe$</field>
     <description>Sigma: DriverQuery.EXE Execution</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111039" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">trustedDomain</field>
-    <field name="win.eventdata.image">\dsquery\.exe$</field>
+    <field name="win.eventdata.image">\\dsquery.exe$</field>
     <description>Sigma: Domain Trust Discovery Via Dsquery</description>
     <mitre>
       <id>T1482</id>
@@ -391,7 +391,7 @@
   </rule>
   <rule id="111041" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\dtrace\.exe$</field>
+    <field name="win.eventdata.image">\\dtrace.exe$</field>
     <field name="win.eventdata.commandLine">lkd\(0\)</field>
     <description>Sigma: Suspicious Kernel Dump Using Dtrace</description>
     <mitre>
@@ -401,8 +401,8 @@
   </rule>
   <rule id="111042" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.image">\explorer\.exe$</field>
+    <field name="win.eventdata.parentImage">\\cmd.exe$|\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.image">\\explorer.exe$</field>
     <field name="win.eventdata.commandLine">shell:mycomputerfolder</field>
     <description>Sigma: File Explorer Folder Opened Using Explorer Folder Shortcut Via Shell</description>
     <mitre>
@@ -412,7 +412,7 @@
   </rule>
   <rule id="111043" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">ipconfig.*\|.*find|net.*\|.*find|netstat.*\|.*find|ping.*\|.*find|systeminfo.*\|.*find|tasklist.*\|.*find|whoami.*\|.*find</field>
+    <field name="win.eventdata.commandLine">ipconfig\.*\|\.*find|net\.*\|\.*find|netstat\.*\|\.*find|ping\.*\|\.*find|systeminfo\.*\|\.*find|tasklist\.*\|\.*find|whoami\.*\|\.*find</field>
     <description>Sigma: Recon Command Output Piped To Findstr.EXE</description>
     <mitre>
       <id>T1057</id>
@@ -422,7 +422,7 @@
   <rule id="111044" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> avira$| avira"$| cb$| cb"$| cylance$| cylance"$| defender$| defender"$| kaspersky$| kaspersky"$| kes$| kes"$| mc$| mc"$| sec$| sec"$| sentinel$| sentinel"$| symantec$| symantec"$| virus$| virus"$</field>
-    <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>
+    <field name="win.eventdata.image">\\find.exe$|\\findstr.exe$</field>
     <description>Sigma: Security Tools Keyword Lookup Via Findstr.EXE</description>
     <mitre>
       <id>T1518.001</id>
@@ -432,7 +432,7 @@
   <rule id="111045" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> 385201</field>
-    <field name="win.eventdata.image">\find\.exe$|\findstr\.exe$</field>
+    <field name="win.eventdata.image">\\find.exe$|\\findstr.exe$</field>
     <description>Sigma: Sysmon Discovery Via Default Driver Altitude Using Findstr.EXE</description>
     <mitre>
       <id>T1518.001</id>
@@ -441,7 +441,7 @@
   </rule>
   <rule id="111046" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\gpresult\.exe$</field>
+    <field name="win.eventdata.image">\\gpresult.exe$</field>
     <field name="win.eventdata.commandLine">/z|/v</field>
     <description>Sigma: Gpresult Display Group Policy Information</description>
     <mitre>
@@ -451,7 +451,7 @@
   </rule>
   <rule id="111047" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> -CollectionMethod All | --CollectionMethods Session | --Loop --Loopduration | --PortScanTimeout |\.exe -c All -d |Invoke-Bloodhound|Get-BloodHoundData</field>
+    <field name="win.eventdata.commandLine"> -CollectionMethod All | --CollectionMethods Session | --Loop --Loopduration | --PortScanTimeout |.exe -c All -d |Invoke-Bloodhound|Get-BloodHoundData</field>
     <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
     <mitre>
       <id>T1087.001</id>
@@ -517,7 +517,7 @@
   </rule>
   <rule id="111053" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Bloodhound\.exe|\SharpHound\.exe</field>
+    <field name="win.eventdata.image">\\Bloodhound.exe|\\SharpHound.exe</field>
     <description>Sigma: HackTool - Bloodhound/Sharphound Execution</description>
     <mitre>
       <id>T1087.001</id>
@@ -528,7 +528,7 @@
   </rule>
   <rule id="111054" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Certify\.exe$</field>
+    <field name="win.eventdata.image">\\Certify.exe$</field>
     <field name="win.eventdata.commandLine"> /vulnerable| /template:| /altname:| /domain:| /path:| /ca:</field>
     <description>Sigma: HackTool - Certify Execution</description>
     <mitre>
@@ -538,7 +538,7 @@
   </rule>
   <rule id="111055" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Certipy\.exe$</field>
+    <field name="win.eventdata.image">\\Certipy.exe$</field>
     <field name="win.eventdata.commandLine"> -bloodhound| -ca-pfx | -dc-ip | -kirbi| -old-bloodhound| -pfx | -target| -template| -username | -vulnerable|auth -pfx|shadow auto|shadow list</field>
     <description>Sigma: HackTool - Certipy Execution</description>
     <mitre>
@@ -548,7 +548,7 @@
   </rule>
   <rule id="111056" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\nxc\.exe$</field>
+    <field name="win.eventdata.image">\\nxc.exe$</field>
     <field name="win.eventdata.commandLine"> ftp | ldap | mssql | nfs | rdp | smb | ssh | vnc | winrm | wmi </field>
     <description>Sigma: HackTool - NetExec Execution</description>
     <mitre>
@@ -565,13 +565,13 @@
   </rule>
   <rule id="111058" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharpLDAPmonitor\.exe$</field>
+    <field name="win.eventdata.image">\\SharpLDAPmonitor.exe$</field>
     <description>Sigma: HackTool - SharpLDAPmonitor Execution</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111059" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">SharpLDAPmonitor\.exe</field>
+    <field name="win.eventdata.originalFileName">SharpLDAPmonitor.exe</field>
     <description>Sigma: HackTool - SharpLDAPmonitor Execution</description>
     <group>discovery,sigma_converted,</group>
   </rule>
@@ -586,7 +586,7 @@
   </rule>
   <rule id="111061" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharpLdapWhoami\.exe$</field>
+    <field name="win.eventdata.image">\\SharpLdapWhoami.exe$</field>
     <description>Sigma: HackTool - SharpLdapWhoami Execution</description>
     <mitre>
       <id>T1033</id>
@@ -613,7 +613,7 @@
   </rule>
   <rule id="111064" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">SharpView\.exe</field>
+    <field name="win.eventdata.originalFileName">SharpView.exe</field>
     <description>Sigma: HackTool - SharpView Execution</description>
     <mitre>
       <id>T1049</id>
@@ -624,7 +624,7 @@
   </rule>
   <rule id="111065" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharpView\.exe$</field>
+    <field name="win.eventdata.image">\\SharpView.exe$</field>
     <description>Sigma: HackTool - SharpView Execution</description>
     <mitre>
       <id>T1049</id>
@@ -655,7 +655,7 @@
   </rule>
   <rule id="111068" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">TruffleSnout\.exe</field>
+    <field name="win.eventdata.originalFileName">TruffleSnout.exe</field>
     <description>Sigma: HackTool - TruffleSnout Execution</description>
     <mitre>
       <id>T1482</id>
@@ -664,7 +664,7 @@
   </rule>
   <rule id="111069" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\TruffleSnout\.exe$</field>
+    <field name="win.eventdata.image">\\TruffleSnout.exe$</field>
     <description>Sigma: HackTool - TruffleSnout Execution</description>
     <mitre>
       <id>T1482</id>
@@ -673,8 +673,8 @@
   </rule>
   <rule id="111070" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">gatherNetworkInfo\.vbs</field>
-    <field name="win.eventdata.image">\cscript\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.commandLine">gatherNetworkInfo.vbs</field>
+    <field name="win.eventdata.image">\\cscript.exe$|\\wscript.exe$</field>
     <description>Sigma: Potential Reconnaissance Activity Via GatherNetworkInfo.VBS</description>
     <mitre>
       <id>T1615</id>
@@ -684,7 +684,7 @@
   </rule>
   <rule id="111071" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\net\.exe$|\net1\.exe$</field>
+    <field name="win.eventdata.image">\\net.exe$|\\net1.exe$</field>
     <field name="win.eventdata.commandLine"> group | localgroup </field>
     <description>Sigma: Suspicious Group And Account Reconnaissance Activity Using Net.EXE</description>
     <mitre>
@@ -696,7 +696,7 @@
   <rule id="111072" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">trace|start</field>
-    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <field name="win.eventdata.image">\\netsh.exe$</field>
     <description>Sigma: New Network Trace Capture Started Via Netsh.EXE</description>
     <mitre>
       <id>T1040</id>
@@ -706,7 +706,7 @@
   <rule id="111073" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">wlan| s| p| k|=clear</field>
-    <field name="win.eventdata.image">\netsh\.exe$</field>
+    <field name="win.eventdata.image">\\netsh.exe$</field>
     <description>Sigma: Harvesting Of Wifi Credentials Via Netsh.EXE</description>
     <mitre>
       <id>T1040</id>
@@ -715,7 +715,7 @@
   </rule>
   <rule id="111074" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\nltest\.exe$</field>
+    <field name="win.eventdata.image">\\nltest.exe$</field>
     <field name="win.eventdata.commandLine">server|query</field>
     <description>Sigma: Potential Recon Activity Via Nltest.EXE</description>
     <mitre>
@@ -726,7 +726,7 @@
   </rule>
   <rule id="111075" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">nslookup|_ldap\._tcp\.dc\._msdcs\.</field>
+    <field name="win.eventdata.commandLine">nslookup|_ldap._tcp.dc._msdcs.</field>
     <description>Sigma: Network Reconnaissance Activity</description>
     <mitre>
       <id>T1087</id>
@@ -736,7 +736,7 @@
   </rule>
   <rule id="111076" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\pktmon\.exe$</field>
+    <field name="win.eventdata.image">\\pktmon.exe$</field>
     <description>Sigma: PktMon.EXE Execution</description>
     <mitre>
       <id>T1040</id>
@@ -745,7 +745,7 @@
   </rule>
   <rule id="111077" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">PktMon\.exe</field>
+    <field name="win.eventdata.originalFileName">PktMon.exe</field>
     <description>Sigma: PktMon.EXE Execution</description>
     <mitre>
       <id>T1040</id>
@@ -754,15 +754,15 @@
   </rule>
   <rule id="111078" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Microsoft\.ActiveDirectory\.Management\.dll</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine">Microsoft.ActiveDirectory.Management.dll</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Potential Active Directory Enumeration Using AD Module - ProcCreation</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111079" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \.*</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Computer Discovery And Export Via Get-ADComputer Cmdlet</description>
     <mitre>
       <id>T1033</id>
@@ -780,8 +780,8 @@
   </rule>
   <rule id="111081" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \.*</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: User Discovery And Export Via Get-ADUser Cmdlet</description>
     <mitre>
       <id>T1033</id>
@@ -817,7 +817,7 @@
   </rule>
   <rule id="111085" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\AdFind\.exe$</field>
+    <field name="win.eventdata.image">\\AdFind.exe$</field>
     <description>Sigma: PUA - AdFind.EXE Execution</description>
     <mitre>
       <id>T1087.002</id>
@@ -826,7 +826,7 @@
   </rule>
   <rule id="111086" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">AdFind\.exe</field>
+    <field name="win.eventdata.originalFileName">AdFind.exe</field>
     <description>Sigma: PUA - AdFind.EXE Execution</description>
     <mitre>
       <id>T1087.002</id>
@@ -865,7 +865,7 @@
   </rule>
   <rule id="111090" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\advanced_ip_scanner</field>
+    <field name="win.eventdata.image">\\advanced_ip_scanner</field>
     <description>Sigma: PUA - Advanced IP Scanner Execution</description>
     <mitre>
       <id>T1046</id>
@@ -905,7 +905,7 @@
   </rule>
   <rule id="111094" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\advanced_port_scanner</field>
+    <field name="win.eventdata.image">\\advanced_port_scanner</field>
     <description>Sigma: PUA - Advanced Port Scanner Execution</description>
     <mitre>
       <id>T1046</id>
@@ -935,7 +935,7 @@
   </rule>
   <rule id="111097" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Crassus\.exe$</field>
+    <field name="win.eventdata.image">\\Crassus.exe$</field>
     <description>Sigma: PUA - Crassus Execution</description>
     <mitre>
       <id>T1590.001</id>
@@ -944,7 +944,7 @@
   </rule>
   <rule id="111098" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">Crassus\.exe</field>
+    <field name="win.eventdata.originalFileName">Crassus.exe</field>
     <description>Sigma: PUA - Crassus Execution</description>
     <mitre>
       <id>T1590.001</id>
@@ -962,7 +962,7 @@
   </rule>
   <rule id="111100" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\netscan\.exe$</field>
+    <field name="win.eventdata.image">\\netscan.exe$</field>
     <description>Sigma: PUA - SoftPerfect Netscan Execution</description>
     <mitre>
       <id>T1046</id>
@@ -989,7 +989,7 @@
   </rule>
   <rule id="111103" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\NimScan\.exe$</field>
+    <field name="win.eventdata.image">\\NimScan.exe$</field>
     <description>Sigma: PUA - NimScan Execution</description>
     <mitre>
       <id>T1046</id>
@@ -1007,7 +1007,7 @@
   </rule>
   <rule id="111105" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\nmap\.exe$|\zennmap\.exe$</field>
+    <field name="win.eventdata.image">\\nmap.exe$|\\zennmap.exe$</field>
     <description>Sigma: PUA - Nmap/Zenmap Execution</description>
     <mitre>
       <id>T1046</id>
@@ -1016,7 +1016,7 @@
   </rule>
   <rule id="111106" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">nmap\.exe|zennmap\.exe</field>
+    <field name="win.eventdata.originalFileName">nmap.exe|zennmap.exe</field>
     <description>Sigma: PUA - Nmap/Zenmap Execution</description>
     <mitre>
       <id>T1046</id>
@@ -1025,7 +1025,7 @@
   </rule>
   <rule id="111107" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\ProcessHacker_</field>
+    <field name="win.eventdata.image">\\ProcessHacker_</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
     <mitre>
       <id>T1622</id>
@@ -1036,7 +1036,7 @@
   </rule>
   <rule id="111108" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\ProcessHacker\.exe$</field>
+    <field name="win.eventdata.image">\\ProcessHacker.exe$</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
     <mitre>
       <id>T1622</id>
@@ -1047,7 +1047,7 @@
   </rule>
   <rule id="111109" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">ProcessHacker\.exe|Process Hacker</field>
+    <field name="win.eventdata.originalFileName">ProcessHacker.exe|Process Hacker</field>
     <description>Sigma: PUA - Process Hacker Execution</description>
     <mitre>
       <id>T1622</id>
@@ -1091,7 +1091,7 @@
   </rule>
   <rule id="111113" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\Seatbelt\.exe$</field>
+    <field name="win.eventdata.image">\\Seatbelt.exe$</field>
     <field name="win.eventdata.commandLine"> -outputfile=</field>
     <description>Sigma: PUA - Seatbelt Execution</description>
     <mitre>
@@ -1103,7 +1103,7 @@
   </rule>
   <rule id="111114" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\trufflehog\.exe$</field>
+    <field name="win.eventdata.image">\\trufflehog.exe$</field>
     <field name="win.eventdata.commandLine"> --results=verified</field>
     <description>Sigma: PUA - TruffleHog Execution</description>
     <mitre>
@@ -1114,8 +1114,8 @@
   </rule>
   <rule id="111115" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">currentVersion\windows|winlogon\|currentVersion\shellServiceObjectDelayLoad|currentVersion\run|currentVersion\policies\explorer\run|currentcontrolset\services</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine">currentVersion\\windows|winlogon\\|currentVersion\\shellServiceObjectDelayLoad|currentVersion\\run|currentVersion\\policies\\explorer\\run|currentcontrolset\\services</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <description>Sigma: Potential Configuration And Service Reconnaissance Via Reg.EXE</description>
     <mitre>
       <id>T1012</id>
@@ -1125,8 +1125,8 @@
   </rule>
   <rule id="111116" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\reg\.exe$</field>
-    <field name="win.eventdata.commandLine">query|\software\|/v|svcversion</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
+    <field name="win.eventdata.commandLine">query|\\software\\|/v|svcversion</field>
     <description>Sigma: Detected Windows Software Discovery</description>
     <mitre>
       <id>T1518</id>
@@ -1135,8 +1135,8 @@
   </rule>
   <rule id="111117" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">query|Control\Nls\Language</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine">query|Control\\Nls\\Language</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <description>Sigma: System Language Discovery via Reg.Exe</description>
     <mitre>
       <id>T1614.001</id>
@@ -1167,7 +1167,7 @@
   </rule>
   <rule id="111120" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">AdFind\.exe</field>
+    <field name="win.eventdata.originalFileName">AdFind.exe</field>
     <description>Sigma: Renamed AdFind Execution</description>
     <mitre>
       <id>T1018</id>
@@ -1178,7 +1178,7 @@
   </rule>
   <rule id="111121" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">whoami\.exe</field>
+    <field name="win.eventdata.originalFileName">whoami.exe</field>
     <description>Sigma: Renamed Whoami Execution</description>
     <mitre>
       <id>T1033</id>
@@ -1187,7 +1187,7 @@
   </rule>
   <rule id="111122" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">gatherNetworkInfo\.vbs</field>
+    <field name="win.eventdata.commandLine">gatherNetworkInfo.vbs</field>
     <description>Sigma: Suspicious Reconnaissance Activity Via GatherNetworkInfo.VBS</description>
     <mitre>
       <id>T1615</id>
@@ -1197,20 +1197,20 @@
   </rule>
   <rule id="111123" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> 0x|//0x|\.0x|\.00x</field>
+    <field name="win.eventdata.commandLine"> 0x|//0x|.0x|.00x</field>
     <description>Sigma: Obfuscated IP Download Activity</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111124" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\ping\.exe$|\arp\.exe$</field>
-    <field name="win.eventdata.commandLine"> 0x|//0x|\.0x|\.00x</field>
+    <field name="win.eventdata.image">\\ping.exe$|\\arp.exe$</field>
+    <field name="win.eventdata.commandLine"> 0x|//0x|.0x|.00x</field>
     <description>Sigma: Obfuscated IP Via CLI</description>
     <group>discovery,sigma_converted,</group>
   </rule>
   <rule id="111125" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe whoami</field>
+    <field name="win.eventdata.commandLine">.exe whoami</field>
     <description>Sigma: WhoAmI as Parameter</description>
     <mitre>
       <id>T1033</id>
@@ -1230,7 +1230,7 @@
   <rule id="111127" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">snapshot</field>
-    <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
+    <field name="win.eventdata.image">\\ADExp.exe$|\\ADExplorer.exe$|\\ADExplorer64.exe$|\\ADExplorer64a.exe$</field>
     <description>Sigma: Active Directory Database Snapshot Via ADExplorer</description>
     <mitre>
       <id>T1087.002</id>
@@ -1241,8 +1241,8 @@
   </rule>
   <rule id="111128" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Downloads\|\Users\Public\|\AppData\|\Windows\Temp\</field>
-    <field name="win.eventdata.image">\ADExp\.exe$|\ADExplorer\.exe$|\ADExplorer64\.exe$|\ADExplorer64a\.exe$</field>
+    <field name="win.eventdata.commandLine">\\Downloads\\|\\Users\\Public\\|\\AppData\\|\\Windows\\Temp\\</field>
+    <field name="win.eventdata.image">\\ADExp.exe$|\\ADExplorer.exe$|\\ADExplorer64.exe$|\\ADExplorer64a.exe$</field>
     <description>Sigma: Suspicious Active Directory Database Snapshot Via ADExplorer</description>
     <mitre>
       <id>T1087.002</id>
@@ -1254,7 +1254,7 @@
   <rule id="111129" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -d| -x| -s| -c| -g</field>
-    <field name="win.eventdata.originalFileName">psloglist\.exe</field>
+    <field name="win.eventdata.originalFileName">psloglist.exe</field>
     <description>Sigma: Suspicious Use of PsLogList</description>
     <mitre>
       <id>T1087</id>
@@ -1266,7 +1266,7 @@
   <rule id="111130" level="7">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/stripchart|/computer:|/period:|/dataonly|/samples:</field>
-    <field name="win.eventdata.image">\w32tm\.exe$</field>
+    <field name="win.eventdata.image">\\w32tm.exe$</field>
     <description>Sigma: Use of W32tm as Timer</description>
     <mitre>
       <id>T1124</id>
@@ -1276,7 +1276,7 @@
   <rule id="111131" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -all</field>
-    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <field name="win.eventdata.image">\\whoami.exe$</field>
     <description>Sigma: Enumerate All Information With Whoami.EXE</description>
     <mitre>
       <id>T1033</id>
@@ -1286,7 +1286,7 @@
   <rule id="111132" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /groups| -groups</field>
-    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <field name="win.eventdata.image">\\whoami.exe$</field>
     <description>Sigma: Group Membership Reconnaissance Via Whoami.EXE</description>
     <mitre>
       <id>T1033</id>
@@ -1296,7 +1296,7 @@
   <rule id="111133" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /FO CSV| -FO CSV</field>
-    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <field name="win.eventdata.image">\\whoami.exe$</field>
     <description>Sigma: Whoami.EXE Execution With Output Option</description>
     <mitre>
       <id>T1033</id>
@@ -1305,7 +1305,7 @@
   </rule>
   <rule id="111134" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <field name="win.eventdata.image">\\whoami.exe$</field>
     <description>Sigma: Whoami.EXE Execution Anomaly</description>
     <mitre>
       <id>T1033</id>
@@ -1315,7 +1315,7 @@
   <rule id="111135" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">computersystem</field>
-    <field name="win.eventdata.image">\wmic\.exe$</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
     <description>Sigma: Computer System Reconnaissance Via Wmic.EXE</description>
     <mitre>
       <id>T1047</id>

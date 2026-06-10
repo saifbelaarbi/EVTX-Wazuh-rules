@@ -1,0 +1,20 @@
+title: 'Suspicious command: -nop '
+id: 5db1069c-0261-55a9-a48e-b0d809f65c4e
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100005).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/discovery_sysmon_1_iis_pwd_and_config_discovery_appcmd.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    CommandLine: '-nop '
+  condition: selection
+level: medium
+tags:
+- attack.t1059.001
+- attack.execution

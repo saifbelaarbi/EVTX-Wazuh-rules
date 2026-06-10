@@ -1,0 +1,20 @@
+title: Account renamed
+id: 04a3a192-3554-5d2c-80da-b978009362d4
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112037).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/samaccount_spoofing_CVE-2021-42287_CVE-2021-42278_DC_securitylogs.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: '4781'
+  condition: selection
+level: medium
+tags:
+- attack.t1036
+- attack.defense-evasion

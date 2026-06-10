@@ -2,7 +2,7 @@
 <group name="windows,T1547.005_unknown,">
   <rule id="107318" level="11">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Control\Lsa\Security Packages$|\Control\Lsa\OSConfig\Security Packages$</field>
+    <field name="win.eventdata.targetObject">\\Control\\Lsa\\Security Packages$|\\Control\\Lsa\\OSConfig\\Security Packages$</field>
     <description>Sigma: Security Support Provider (SSP) Added to LSA Configuration</description>
     <mitre>
       <id>T1547.005</id>

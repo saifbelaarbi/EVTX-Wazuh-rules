@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1558.003_unknown,">
-  <rule id="108536" level="11">
+  <rule id="108535" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4769</field>
     <field name="win.eventdata.status">0x0</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108550" level="11">
+  <rule id="108549" level="11">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4769</field>
     <field name="win.eventdata.ticketOptions">0x40810000</field>
@@ -22,7 +22,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108553" level="12">
+  <rule id="108552" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4673</field>
     <field name="win.eventdata.service">LsaRegisterLogonProcess\(\)</field>
@@ -33,16 +33,16 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108624" level="12">
+  <rule id="108623" level="12">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">System\.IdentityModel\.Tokens\.KerberosRequestorSecurityToken|\.GetRequest\(\)</field>
+    <field name="win.eventdata.scriptBlockText">System.IdentityModel.Tokens.KerberosRequestorSecurityToken|.GetRequest\(\)</field>
     <description>Sigma: Suspicious Kerberos Ticket Request via PowerShell Script - ScriptBlock</description>
     <mitre>
       <id>T1558.003</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108679" level="12">
+  <rule id="108678" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -spn | -clsid | -rbcd </field>
     <description>Sigma: HackTool - KrbRelay Execution</description>
@@ -51,7 +51,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108680" level="12">
+  <rule id="108679" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">shadowcred|clsid|spn</field>
     <description>Sigma: HackTool - KrbRelay Execution</description>
@@ -60,7 +60,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108681" level="12">
+  <rule id="108680" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">spn |session |clsid </field>
     <description>Sigma: HackTool - KrbRelay Execution</description>
@@ -69,9 +69,18 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108681" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\KrbRelay.exe$</field>
+    <description>Sigma: HackTool - KrbRelay Execution</description>
+    <mitre>
+      <id>T1558.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108682" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\KrbRelay\.exe$</field>
+    <field name="win.eventdata.originalFileName">KrbRelay.exe</field>
     <description>Sigma: HackTool - KrbRelay Execution</description>
     <mitre>
       <id>T1558.003</id>
@@ -80,16 +89,7 @@
   </rule>
   <rule id="108683" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">KrbRelay\.exe</field>
-    <description>Sigma: HackTool - KrbRelay Execution</description>
-    <mitre>
-      <id>T1558.003</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108684" level="12">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\RemoteKrbRelay\.exe$</field>
+    <field name="win.eventdata.image">\\RemoteKrbRelay.exe$</field>
     <field name="win.eventdata.commandLine">-addgroupmember |-group |-groupuser </field>
     <description>Sigma: HackTool - RemoteKrbRelay Execution</description>
     <mitre>
@@ -97,7 +97,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108685" level="12">
+  <rule id="108684" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> relay | -Domain | -ComputerName </field>
     <description>Sigma: HackTool - KrbRelayUp Execution</description>
@@ -107,7 +107,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108686" level="12">
+  <rule id="108685" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> krbscm | -sc </field>
     <description>Sigma: HackTool - KrbRelayUp Execution</description>
@@ -117,7 +117,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108687" level="12">
+  <rule id="108686" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> spawn | -d | -cn | -cp </field>
     <description>Sigma: HackTool - KrbRelayUp Execution</description>
@@ -127,9 +127,19 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108687" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\KrbRelayUp.exe$</field>
+    <description>Sigma: HackTool - KrbRelayUp Execution</description>
+    <mitre>
+      <id>T1558.003</id>
+      <id>T1550.003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108688" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\KrbRelayUp\.exe$</field>
+    <field name="win.eventdata.originalFileName">KrbRelayUp.exe</field>
     <description>Sigma: HackTool - KrbRelayUp Execution</description>
     <mitre>
       <id>T1558.003</id>
@@ -137,30 +147,20 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108689" level="12">
+  <rule id="108725" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">KrbRelayUp\.exe</field>
-    <description>Sigma: HackTool - KrbRelayUp Execution</description>
-    <mitre>
-      <id>T1558.003</id>
-      <id>T1550.003</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108726" level="12">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">System\.IdentityModel\.Tokens\.KerberosRequestorSecurityToken|\.GetRequest\(\)</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine">System.IdentityModel.Tokens.KerberosRequestorSecurityToken|.GetRequest\(\)</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Suspicious Kerberos Ticket Request via CLI</description>
     <mitre>
       <id>T1558.003</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108751" level="11">
+  <rule id="108750" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -q | /q </field>
-    <field name="win.eventdata.image">\setspn\.exe$</field>
+    <field name="win.eventdata.image">\\setspn.exe$</field>
     <description>Sigma: Potential SPN Enumeration Via Setspn.EXE</description>
     <mitre>
       <id>T1558.003</id>

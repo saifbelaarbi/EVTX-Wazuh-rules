@@ -5,7 +5,7 @@
     <field name="win.eventdata.provider_Name">Ntfs</field>
     <field name="win.system.eventID">55</field>
     <field name="win.eventdata.origin">File System Driver</field>
-    <field name="win.eventdata.description">contains a corrupted file record|The name of the file is "\"</field>
+    <field name="win.eventdata.description">contains a corrupted file record|The name of the file is "\\"</field>
     <description>Sigma: NTFS Vulnerability Exploitation</description>
     <mitre>
       <id>T1499.001</id>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1055_process_injection,">
-  <rule id="100217" level="9">
+  <rule id="100219" level="9">
     <if_sid>61609</if_sid>
-    <field name="win.eventdata.image">\cmstp\.exe$|\cscript\.exe$|\mshta\.exe$|\msxsl\.exe$|\regsvr32\.exe$|\wmic\.exe$|\wscript\.exe$</field>
-    <field name="win.eventdata.imageLoaded">\clr\.dll$|\mscoree\.dll$|\mscorlib\.dll$</field>
+    <field name="win.eventdata.image">\\cmstp.exe$|\\cscript.exe$|\\mshta.exe$|\\msxsl.exe$|\\regsvr32.exe$|\\wmic.exe$|\\wscript.exe$</field>
+    <field name="win.eventdata.imageLoaded">\\clr.dll$|\\mscoree.dll$|\\mscorlib.dll$</field>
     <description>Sigma: DotNet CLR DLL Loaded By Scripting Applications</description>
     <mitre>
       <id>T1055</id>
@@ -12,7 +12,7 @@
   </rule>
   <rule id="107045" level="11">
     <if_sid>61610</if_sid>
-    <field name="win.eventdata.sourceImage">\bash\.exe$|\cscript\.exe$|\cvtres\.exe$|\defrag\.exe$|\dialer\.exe$|\dnx\.exe$|\esentutl\.exe$|\excel\.exe$|\expand\.exe$|\find\.exe$|\findstr\.exe$|\forfiles\.exe$|\gpupdate\.exe$|\hh\.exe$|\installutil\.exe$|\lync\.exe$|\makecab\.exe$|\mDNSResponder\.exe$|\monitoringhost\.exe$|\msbuild\.exe$|\mshta\.exe$|\mspaint\.exe$|\outlook\.exe$|\ping\.exe$|\provtool\.exe$|\python\.exe$|\regsvr32\.exe$|\robocopy\.exe$|\runonce\.exe$|\sapcimc\.exe$|\smartscreen\.exe$|\spoolsv\.exe$|\tstheme\.exe$|\userinit\.exe$|\vssadmin\.exe$|\vssvc\.exe$|\w3wp\.exe$|\winscp\.exe$|\winword\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.sourceImage">\\bash.exe$|\\cscript.exe$|\\cvtres.exe$|\\defrag.exe$|\\dialer.exe$|\\dnx.exe$|\\esentutl.exe$|\\excel.exe$|\\expand.exe$|\\find.exe$|\\findstr.exe$|\\forfiles.exe$|\\gpupdate.exe$|\\hh.exe$|\\installutil.exe$|\\lync.exe$|\\makecab.exe$|\\mDNSResponder.exe$|\\monitoringhost.exe$|\\msbuild.exe$|\\mshta.exe$|\\mspaint.exe$|\\outlook.exe$|\\ping.exe$|\\provtool.exe$|\\python.exe$|\\regsvr32.exe$|\\robocopy.exe$|\\runonce.exe$|\\sapcimc.exe$|\\smartscreen.exe$|\\spoolsv.exe$|\\tstheme.exe$|\\userinit.exe$|\\vssadmin.exe$|\\vssvc.exe$|\\w3wp.exe$|\\winscp.exe$|\\winword.exe$|\\wmic.exe$|\\wscript.exe$</field>
     <description>Sigma: Rare Remote Thread Creation By Uncommon Source Image</description>
     <mitre>
       <id>T1055</id>
@@ -21,7 +21,7 @@
   </rule>
   <rule id="107046" level="10">
     <if_sid>61610</if_sid>
-    <field name="win.eventdata.sourceImage">\explorer\.exe$|\iexplore\.exe$|\msiexec\.exe$|\powerpnt\.exe$|\schtasks\.exe$|\winlogon\.exe$</field>
+    <field name="win.eventdata.sourceImage">\\explorer.exe$|\\iexplore.exe$|\\msiexec.exe$|\\powerpnt.exe$|\\schtasks.exe$|\\winlogon.exe$</field>
     <description>Sigma: Remote Thread Creation By Uncommon Source Image</description>
     <mitre>
       <id>T1055</id>
@@ -30,8 +30,8 @@
   </rule>
   <rule id="107059" level="10">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\mobsync\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.dll$|\.exe$</field>
+    <field name="win.eventdata.image">\\mobsync.exe$</field>
+    <field name="win.eventdata.targetFilename">.dll$|.exe$</field>
     <description>Sigma: Created Files by Microsoft Sync Center</description>
     <mitre>
       <id>T1055</id>
@@ -41,7 +41,7 @@
   </rule>
   <rule id="107093" level="11">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">\notepad\.exe$</field>
+    <field name="win.eventdata.image">\\notepad.exe$</field>
     <description>Sigma: Network Connection Initiated Via Notepad.EXE</description>
     <mitre>
       <id>T1055</id>
@@ -50,7 +50,7 @@
   </rule>
   <rule id="107094" level="10">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">\mobsync\.exe$</field>
+    <field name="win.eventdata.image">\\mobsync.exe$</field>
     <description>Sigma: Microsoft Sync Center Suspicious Network Connections</description>
     <mitre>
       <id>T1055</id>
@@ -60,7 +60,7 @@
   </rule>
   <rule id="107095" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\MSSE-|-server</field>
+    <field name="win.eventdata.pipeName">\\MSSE-|-server</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -69,7 +69,7 @@
   </rule>
   <rule id="107096" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\interprocess_</field>
+    <field name="win.eventdata.pipeName">^\\interprocess_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -78,7 +78,7 @@
   </rule>
   <rule id="107097" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\lsarpc_</field>
+    <field name="win.eventdata.pipeName">^\\lsarpc_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -87,7 +87,7 @@
   </rule>
   <rule id="107098" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\mojo_</field>
+    <field name="win.eventdata.pipeName">^\\mojo_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -96,7 +96,7 @@
   </rule>
   <rule id="107099" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\msagent_</field>
+    <field name="win.eventdata.pipeName">^\\msagent_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -105,7 +105,7 @@
   </rule>
   <rule id="107100" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\netlogon_</field>
+    <field name="win.eventdata.pipeName">^\\netlogon_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -114,7 +114,7 @@
   </rule>
   <rule id="107101" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\postex_</field>
+    <field name="win.eventdata.pipeName">^\\postex_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -123,7 +123,7 @@
   </rule>
   <rule id="107102" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\samr_</field>
+    <field name="win.eventdata.pipeName">^\\samr_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -132,7 +132,7 @@
   </rule>
   <rule id="107103" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\srvsvc_</field>
+    <field name="win.eventdata.pipeName">^\\srvsvc_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -141,7 +141,7 @@
   </rule>
   <rule id="107104" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\status_</field>
+    <field name="win.eventdata.pipeName">^\\status_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -150,7 +150,7 @@
   </rule>
   <rule id="107105" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\wkssvc_</field>
+    <field name="win.eventdata.pipeName">^\\wkssvc_</field>
     <description>Sigma: CobaltStrike Named Pipe</description>
     <mitre>
       <id>T1055</id>
@@ -339,7 +339,7 @@
   </rule>
   <rule id="107126" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">^\DserNamePipe|^\f4c3|^\f53f|^\fullduplex_|^\mojo\.5688\.8052\.183894939787088877|^\mojo\.5688\.8052\.35780273329370473|^\MsFteWds|^\msrpc_|^\mypipe-f|^\mypipe-h|^\ntsvcs|^\PGMessagePipe|^\rpc_|^\scerpc|^\SearchTextHarvester|^\spoolss|^\win_svc|^\win\msrpc_|^\windows\.update\.manager|^\wkssvc</field>
+    <field name="win.eventdata.pipeName">^\\DserNamePipe|^\\f4c3|^\\f53f|^\\fullduplex_|^\\mojo.5688.8052.183894939787088877|^\\mojo.5688.8052.35780273329370473|^\\MsFteWds|^\\msrpc_|^\\mypipe-f|^\\mypipe-h|^\\ntsvcs|^\\PGMessagePipe|^\\rpc_|^\\scerpc|^\\SearchTextHarvester|^\\spoolss|^\\win_svc|^\\win\\msrpc_|^\\windows.update.manager|^\\wkssvc</field>
     <description>Sigma: CobaltStrike Named Pipe Patterns</description>
     <mitre>
       <id>T1055</id>
@@ -348,7 +348,7 @@
   </rule>
   <rule id="107127" level="13">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\demoagent_11|\demoagent_22</field>
+    <field name="win.eventdata.pipeName">\\demoagent_11|\\demoagent_22</field>
     <description>Sigma: CobaltStrike Named Pipe Patterns</description>
     <mitre>
       <id>T1055</id>
@@ -357,7 +357,7 @@
   </rule>
   <rule id="107128" level="11">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\coerced\</field>
+    <field name="win.eventdata.pipeName">\\coerced\\</field>
     <description>Sigma: HackTool - CoercedPotato Named Pipe Creation</description>
     <mitre>
       <id>T1055</id>
@@ -366,7 +366,7 @@
   </rule>
   <rule id="107130" level="11">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\pipe\|\pipe\srvsvc</field>
+    <field name="win.eventdata.pipeName">\\pipe\\|\\pipe\\srvsvc</field>
     <description>Sigma: HackTool - EfsPotato Named Pipe Creation</description>
     <mitre>
       <id>T1055</id>
@@ -375,7 +375,7 @@
   </rule>
   <rule id="107132" level="12">
     <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\46a676ab7f179e511e30dd2dc41bd388|\583da945-62af-10e8-4902-a8f205c72b2e|\6e7645c4-32c5-4fe3-aabf-e94c2f4370e7|\9f81f59bc58452127884ce513865ed20|\adschemerpc|\ahexec|\AnonymousPipe|\bc31a7|\bc367|\bizkaz|\csexecsvc|\dce_3d|\e710f28d59aa529d6792ca6ff0ca1b34|\gruntsvc|\isapi_dg|\isapi_dg2|\isapi_http|\jaccdpqnvbrrxlaf|\lsassw|\NamePipe_MoreWindows|\pcheap_reuse|\Posh.*|\rpchlp_3|\sdlrpc|\svcctl|\testPipe|\winsession</field>
+    <field name="win.eventdata.pipeName">\\46a676ab7f179e511e30dd2dc41bd388|\\583da945-62af-10e8-4902-a8f205c72b2e|\\6e7645c4-32c5-4fe3-aabf-e94c2f4370e7|\\9f81f59bc58452127884ce513865ed20|\\adschemerpc|\\ahexec|\\AnonymousPipe|\\bc31a7|\\bc367|\\bizkaz|\\csexecsvc|\\dce_3d|\\e710f28d59aa529d6792ca6ff0ca1b34|\\gruntsvc|\\isapi_dg|\\isapi_dg2|\\isapi_http|\\jaccdpqnvbrrxlaf|\\lsassw|\\NamePipe_MoreWindows|\\pcheap_reuse|\\Posh\.*|\\rpchlp_3|\\sdlrpc|\\svcctl|\\testPipe|\\winsession</field>
     <description>Sigma: Malicious Named Pipe Created</description>
     <mitre>
       <id>T1055</id>
@@ -394,8 +394,8 @@
   </rule>
   <rule id="107157" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\dllhost\.exe$</field>
-    <field name="win.eventdata.commandLine">dllhost\.exe|dllhost</field>
+    <field name="win.eventdata.image">\\dllhost.exe$</field>
+    <field name="win.eventdata.commandLine">dllhost.exe|dllhost</field>
     <description>Sigma: Dllhost.EXE Execution Anomaly</description>
     <mitre>
       <id>T1055</id>
@@ -404,7 +404,7 @@
   </rule>
   <rule id="107162" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\CoercedPotato\.exe$</field>
+    <field name="win.eventdata.image">\\CoercedPotato.exe$</field>
     <description>Sigma: HackTool - CoercedPotato Execution</description>
     <mitre>
       <id>T1055</id>
@@ -440,9 +440,9 @@
   </rule>
   <rule id="107218" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\msra\.exe$</field>
-    <field name="win.eventdata.parentCommandLine">msra\.exe$</field>
-    <field name="win.eventdata.image">\arp\.exe$|\cmd\.exe$|\net\.exe$|\netstat\.exe$|\nslookup\.exe$|\route\.exe$|\schtasks\.exe$|\whoami\.exe$</field>
+    <field name="win.eventdata.parentImage">\\msra.exe$</field>
+    <field name="win.eventdata.parentCommandLine">msra.exe$</field>
+    <field name="win.eventdata.image">\\arp.exe$|\\cmd.exe$|\\net.exe$|\\netstat.exe$|\\nslookup.exe$|\\route.exe$|\\schtasks.exe$|\\whoami.exe$</field>
     <description>Sigma: Potential Process Injection Via Msra.EXE</description>
     <mitre>
       <id>T1055</id>
@@ -451,7 +451,7 @@
   </rule>
   <rule id="107233" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">rundll32\.exe|Execute|RegRead|window\.close</field>
+    <field name="win.eventdata.commandLine">rundll32.exe|Execute|RegRead|window.close</field>
     <description>Sigma: Suspicious Rundll32 Invoking Inline VBScript</description>
     <mitre>
       <id>T1055</id>
@@ -460,7 +460,7 @@
   </rule>
   <rule id="107269" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">:\Windows\Sysnative\</field>
+    <field name="win.eventdata.commandLine">:\\Windows\\Sysnative\\</field>
     <description>Sigma: Process Creation Using Sysnative Folder</description>
     <mitre>
       <id>T1055</id>
@@ -469,7 +469,7 @@
   </rule>
   <rule id="107271" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\userinit\.exe$</field>
+    <field name="win.eventdata.parentImage">\\userinit.exe$</field>
     <description>Sigma: Suspicious Userinit Child Process</description>
     <mitre>
       <id>T1055</id>
@@ -478,8 +478,8 @@
   </rule>
   <rule id="107272" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">svchost\.exe$</field>
-    <field name="win.eventdata.image">\svchost\.exe$</field>
+    <field name="win.eventdata.commandLine">svchost.exe$</field>
+    <field name="win.eventdata.image">\\svchost.exe$</field>
     <description>Sigma: Suspect Svchost Activity</description>
     <mitre>
       <id>T1055</id>
@@ -488,8 +488,8 @@
   </rule>
   <rule id="107301" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\wermgr\.exe$</field>
-    <field name="win.eventdata.image">\cmd\.exe$|\cscript\.exe$|\ipconfig\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\netstat\.exe$|\nslookup\.exe$|\powershell_ise\.exe$|\powershell\.exe$|\pwsh\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\systeminfo\.exe$|\whoami\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\\wermgr.exe$</field>
+    <field name="win.eventdata.image">\\cmd.exe$|\\cscript.exe$|\\ipconfig.exe$|\\mshta.exe$|\\net.exe$|\\net1.exe$|\\netstat.exe$|\\nslookup.exe$|\\powershell_ise.exe$|\\powershell.exe$|\\pwsh.exe$|\\regsvr32.exe$|\\rundll32.exe$|\\systeminfo.exe$|\\whoami.exe$|\\wscript.exe$</field>
     <description>Sigma: Suspicious Child Process Of Wermgr.EXE</description>
     <mitre>
       <id>T1055</id>

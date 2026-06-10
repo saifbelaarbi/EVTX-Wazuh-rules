@@ -2,30 +2,30 @@
 <group name="windows,unknown_initial_access,">
   <rule id="113015" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\keytool\.exe$</field>
-    <field name="win.eventdata.image">\cmd\.exe$|\sh\.exe$|\bash\.exe$|\powershell\.exe$|\pwsh\.exe$|\schtasks\.exe$|\certutil\.exe$|\whoami\.exe$|\bitsadmin\.exe$|\wscript\.exe$|\cscript\.exe$|\scrcons\.exe$|\regsvr32\.exe$|\hh\.exe$|\wmic\.exe$|\mshta\.exe$|\rundll32\.exe$|\forfiles\.exe$|\scriptrunner\.exe$|\mftrace\.exe$|\AppVLP\.exe$|\systeminfo\.exe$|\reg\.exe$|\query\.exe$</field>
+    <field name="win.eventdata.parentImage">\\keytool.exe$</field>
+    <field name="win.eventdata.image">\\cmd.exe$|\\sh.exe$|\\bash.exe$|\\powershell.exe$|\\pwsh.exe$|\\schtasks.exe$|\\certutil.exe$|\\whoami.exe$|\\bitsadmin.exe$|\\wscript.exe$|\\cscript.exe$|\\scrcons.exe$|\\regsvr32.exe$|\\hh.exe$|\\wmic.exe$|\\mshta.exe$|\\rundll32.exe$|\\forfiles.exe$|\\scriptrunner.exe$|\\mftrace.exe$|\\AppVLP.exe$|\\systeminfo.exe$|\\reg.exe$|\\query.exe$</field>
     <description>Sigma: Suspicious Shells Spawn by Java Utility Keytool</description>
     <group>initial_access,sigma_converted,</group>
   </rule>
   <rule id="113016" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\java\.exe$</field>
-    <field name="win.eventdata.image">\AppVLP\.exe$|\bitsadmin\.exe$|\certutil\.exe$|\cscript\.exe$|\curl\.exe$|\forfiles\.exe$|\hh\.exe$|\mftrace\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\query\.exe$|\reg\.exe$|\regsvr32\.exe$|\rundll32\.exe$|\schtasks\.exe$|\scrcons\.exe$|\scriptrunner\.exe$|\sh\.exe$|\systeminfo\.exe$|\whoami\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\\java.exe$</field>
+    <field name="win.eventdata.image">\\AppVLP.exe$|\\bitsadmin.exe$|\\certutil.exe$|\\cscript.exe$|\\curl.exe$|\\forfiles.exe$|\\hh.exe$|\\mftrace.exe$|\\mshta.exe$|\\net.exe$|\\net1.exe$|\\query.exe$|\\reg.exe$|\\regsvr32.exe$|\\rundll32.exe$|\\schtasks.exe$|\\scrcons.exe$|\\scriptrunner.exe$|\\sh.exe$|\\systeminfo.exe$|\\whoami.exe$|\\wmic.exe$|\\wscript.exe$</field>
     <description>Sigma: Suspicious Processes Spawned by Java.EXE</description>
     <group>initial_access,sigma_converted,</group>
   </rule>
   <rule id="113017" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\java\.exe$</field>
-    <field name="win.eventdata.image">\bash\.exe$|\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.parentImage">\\java.exe$</field>
+    <field name="win.eventdata.image">\\bash.exe$|\\cmd.exe$|\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Shell Process Spawned by Java.EXE</description>
     <group>initial_access,sigma_converted,</group>
   </rule>
   <rule id="113019" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\sqlservr\.exe$</field>
+    <field name="win.eventdata.parentImage">\\sqlservr.exe$</field>
     <field name="win.eventdata.parentCommandLine">VEEAMSQL</field>
-    <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wsl\.exe$|\wt\.exe$</field>
+    <field name="win.eventdata.image">\\cmd.exe$|\\powershell.exe$|\\pwsh.exe$|\\wsl.exe$|\\wt.exe$</field>
     <field name="win.eventdata.commandLine">-ex |bypass|cscript|DownloadString|http://|https://|mshta|regsvr32|rundll32|wscript|copy </field>
     <description>Sigma: Suspicious Child Process Of Veeam Dabatase</description>
     <group>initial_access,sigma_converted,</group>

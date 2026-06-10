@@ -3,7 +3,7 @@
   <rule id="110048" level="9">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">azurewebsites\.net$</field>
+    <field name="win.eventdata.destinationHostname">azurewebsites.net$</field>
     <description>Sigma: Network Connection Initiated To AzureWebsites.NET By Non-Browser Process</description>
     <mitre>
       <id>T1102</id>
@@ -14,7 +14,7 @@
   <rule id="110049" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">\.t\.me$|4shared\.com$|abuse\.ch$|anonfiles\.com$|cdn\.discordapp\.com$|cloudflare\.com$|ddns\.net$|discord\.com$|docs\.google\.com$|drive\.google\.com$|dropbox\.com$|dropmefiles\.com$|facebook\.com$|feeds\.rapidfeeds\.com$|fotolog\.com$|ghostbin\.co/$|githubusercontent\.com$|gofile\.io$|hastebin\.com$|imgur\.com$|livejournal\.com$|mediafire\.com$|mega\.co\.nz$|mega\.nz$|onedrive\.com$|pages\.dev$|paste\.ee$|pastebin\.com$|pastebin\.pl$|pastetext\.net$|pixeldrain\.com$|privatlab\.com$|privatlab\.net$|reddit\.com$|send\.exploit\.in$|sendspace\.com$|steamcommunity\.com$|storage\.googleapis\.com$|technet\.microsoft\.com$|temp\.sh$|transfer\.sh$|trycloudflare\.com$|twitter\.com$|ufile\.io$|vimeo\.com$|w3spaces\.com$|wetransfer\.com$|workers\.dev$|youtube\.com$</field>
+    <field name="win.eventdata.destinationHostname">.t.me$|4shared.com$|abuse.ch$|anonfiles.com$|cdn.discordapp.com$|cloudflare.com$|ddns.net$|discord.com$|docs.google.com$|drive.google.com$|dropbox.com$|dropmefiles.com$|facebook.com$|feeds.rapidfeeds.com$|fotolog.com$|ghostbin.co/$|githubusercontent.com$|gofile.io$|hastebin.com$|imgur.com$|livejournal.com$|mediafire.com$|mega.co.nz$|mega.nz$|onedrive.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|reddit.com$|send.exploit.in$|sendspace.com$|steamcommunity.com$|storage.googleapis.com$|technet.microsoft.com$|temp.sh$|transfer.sh$|trycloudflare.com$|twitter.com$|ufile.io$|vimeo.com$|w3spaces.com$|wetransfer.com$|workers.dev$|youtube.com$</field>
     <description>Sigma: New Connection Initiated To Potential Dead Drop Resolver Domain</description>
     <mitre>
       <id>T1102</id>
@@ -24,7 +24,7 @@
   </rule>
   <rule id="110051" level="9">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationHostname">drive\.googleapis\.com|oauth2\.googleapis\.com|sheets\.googleapis\.com|www\.googleapis\.com</field>
+    <field name="win.eventdata.destinationHostname">drive.googleapis.com|oauth2.googleapis.com|sheets.googleapis.com|www.googleapis.com</field>
     <description>Sigma: Suspicious Non-Browser Network Communication With Google API</description>
     <mitre>
       <id>T1102</id>
@@ -33,7 +33,7 @@
   </rule>
   <rule id="110054" level="9">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationHostname">api\.telegram\.org</field>
+    <field name="win.eventdata.destinationHostname">api.telegram.org</field>
     <description>Sigma: Suspicious Non-Browser Network Communication With Telegram API</description>
     <mitre>
       <id>T1102</id>
@@ -66,8 +66,8 @@
   </rule>
   <rule id="110103" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\ManageEngine\ServiceDesk\|\java\.exe</field>
-    <field name="win.eventdata.image">\AppVLP\.exe$|\bash\.exe$|\bitsadmin\.exe$|\calc\.exe$|\certutil\.exe$|\cscript\.exe$|\curl\.exe$|\forfiles\.exe$|\mftrace\.exe$|\mshta\.exe$|\net\.exe$|\net1\.exe$|\notepad\.exe$|\powershell\.exe$|\pwsh\.exe$|\query\.exe$|\reg\.exe$|\schtasks\.exe$|\scrcons\.exe$|\sh\.exe$|\systeminfo\.exe$|\whoami\.exe$|\wmic\.exe$|\wscript\.exe$</field>
+    <field name="win.eventdata.parentImage">\\ManageEngine\\ServiceDesk\\|\\java.exe</field>
+    <field name="win.eventdata.image">\\AppVLP.exe$|\\bash.exe$|\\bitsadmin.exe$|\\calc.exe$|\\certutil.exe$|\\cscript.exe$|\\curl.exe$|\\forfiles.exe$|\\mftrace.exe$|\\mshta.exe$|\\net.exe$|\\net1.exe$|\\notepad.exe$|\\powershell.exe$|\\pwsh.exe$|\\query.exe$|\\reg.exe$|\\schtasks.exe$|\\scrcons.exe$|\\sh.exe$|\\systeminfo.exe$|\\whoami.exe$|\\wmic.exe$|\\wscript.exe$</field>
     <description>Sigma: Suspicious Child Process Of Manage Engine ServiceDesk</description>
     <mitre>
       <id>T1102</id>

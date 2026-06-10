@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1218.004_unknown,">
-  <rule id="112010" level="10">
+  <rule id="112013" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">installutil</field>
+    <description>Suspicious process 'installutil' execution detected</description>
+    <mitre>
+      <id>T1218.004</id>
+    </mitre>
+    <group>defense_evasion,evtx_generated,</group>
+  </rule>
+  <rule id="112014" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">installutil</field>
     <description>Suspicious process 'installutil' execution detected</description>
@@ -9,7 +18,7 @@
     </mitre>
     <group>defense_evasion,evtx_generated,</group>
   </rule>
-  <rule id="112034" level="10">
+  <rule id="112041" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">installutil</field>
     <description>Image load by suspicious process 'installutil'</description>

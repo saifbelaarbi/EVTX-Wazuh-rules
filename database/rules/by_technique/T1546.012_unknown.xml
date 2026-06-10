@@ -3,7 +3,7 @@
   <rule id="107351" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\(Default\)$|Path$</field>
-    <field name="win.eventdata.details">\Users\Public|\AppData\Local\Temp\|\Windows\Temp\|\Desktop\|\Downloads\|%temp%|%tmp%|iex|Invoke-|rundll32|regsvr32|mshta|cscript|wscript|\.bat|\.hta|\.dll|\.ps1</field>
+    <field name="win.eventdata.details">\\Users\\Public|\\AppData\\Local\\Temp\\|\\Windows\\Temp\\|\\Desktop\\|\\Downloads\\|%temp%|%tmp%|iex|Invoke-|rundll32|regsvr32|mshta|cscript|wscript|.bat|.hta|.dll|.ps1</field>
     <description>Sigma: Potential Persistence Via App Paths Default Property</description>
     <mitre>
       <id>T1546.012</id>
@@ -12,7 +12,7 @@
   </rule>
   <rule id="107357" level="11">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Microsoft\Windows NT\CurrentVersion\|\Image File Execution Options\|\GlobalFlag</field>
+    <field name="win.eventdata.targetObject">\\Microsoft\\Windows NT\\CurrentVersion\\|\\Image File Execution Options\\|\\GlobalFlag</field>
     <description>Sigma: Potential Persistence Via GlobalFlags</description>
     <mitre>
       <id>T1546.012</id>
@@ -21,7 +21,7 @@
   </rule>
   <rule id="107358" level="11">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\ReportingMode|\MonitorProcess|\SilentProcessExit\</field>
+    <field name="win.eventdata.targetObject">\\ReportingMode|\\MonitorProcess|\\SilentProcessExit\\</field>
     <description>Sigma: Potential Persistence Via GlobalFlags</description>
     <mitre>
       <id>T1546.012</id>

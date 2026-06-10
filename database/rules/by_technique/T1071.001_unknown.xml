@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1071.001_unknown,">
-  <rule id="100225" level="9">
+  <rule id="100227" level="9">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.image">:\Windows\System32\dialer\.exe$</field>
+    <field name="win.eventdata.image">:\\Windows\\System32\\dialer.exe$</field>
     <field name="win.eventdata.initiated">true</field>
     <description>Sigma: Outbound Network Connection Initiated By Microsoft Dialer</description>
     <mitre>
@@ -12,7 +12,7 @@
   </rule>
   <rule id="110017" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.v2\.argotunnel\.com$|protocol-v2\.argotunnel\.com$|trycloudflare\.com$|update\.argotunnel\.com$</field>
+    <field name="win.eventdata.queryName">.v2.argotunnel.com$|protocol-v2.argotunnel.com$|trycloudflare.com$|update.argotunnel.com$</field>
     <description>Sigma: Cloudflared Tunnels Related DNS Requests</description>
     <mitre>
       <id>T1071.001</id>
@@ -22,7 +22,7 @@
   </rule>
   <rule id="110019" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.devtunnels\.ms$</field>
+    <field name="win.eventdata.queryName">.devtunnels.ms$</field>
     <description>Sigma: DNS Query To Devtunnels Domain</description>
     <mitre>
       <id>T1071.001</id>
@@ -32,7 +32,7 @@
   </rule>
   <rule id="110028" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.tunnels\.api\.visualstudio\.com$</field>
+    <field name="win.eventdata.queryName">.tunnels.api.visualstudio.com$</field>
     <description>Sigma: DNS Query To Visual Studio Code Tunnels Domain</description>
     <mitre>
       <id>T1071.001</id>
@@ -51,7 +51,7 @@
   <rule id="110186" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName"></field>
-    <field name="win.eventdata.commandLine">\.exe tunnel$</field>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
     <description>Sigma: Visual Studio Code Tunnel Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -62,8 +62,8 @@
   <rule id="110187" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine"> tunnel$</field>
-    <field name="win.eventdata.image">\cmd\.exe$</field>
-    <field name="win.eventdata.commandLine">/d /c |\servers\Stable-|code-server\.cmd</field>
+    <field name="win.eventdata.image">\\cmd.exe$</field>
+    <field name="win.eventdata.commandLine">/d /c |\\servers\\Stable-|code-server.cmd</field>
     <description>Sigma: Visual Studio Code Tunnel Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -73,7 +73,7 @@
   </rule>
   <rule id="110188" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe tunnel|--accept-server-license-terms</field>
+    <field name="win.eventdata.commandLine">.exe tunnel|--accept-server-license-terms</field>
     <description>Sigma: Visual Studio Code Tunnel Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -83,10 +83,10 @@
   </rule>
   <rule id="110189" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\server\node\.exe$</field>
-    <field name="win.eventdata.parentCommandLine">\.vscode-server</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
-    <field name="win.eventdata.commandLine">\terminal\browser\media\shellIntegration\.ps1</field>
+    <field name="win.eventdata.parentImage">\\server\\node.exe$</field>
+    <field name="win.eventdata.parentCommandLine">.vscode-server</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.commandLine">\\terminal\\browser\\media\\shellIntegration.ps1</field>
     <description>Sigma: Visual Studio Code Tunnel Shell Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -96,7 +96,7 @@
   <rule id="110190" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.originalFileName"></field>
-    <field name="win.eventdata.commandLine">\.exe tunnel$</field>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
     <description>Sigma: Renamed Visual Studio Code Tunnel Execution</description>
     <mitre>
       <id>T1071.001</id>
@@ -106,7 +106,7 @@
   </rule>
   <rule id="110191" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">tunnel |service|internal-run|tunnel-service\.log</field>
+    <field name="win.eventdata.commandLine">tunnel |service|internal-run|tunnel-service.log</field>
     <description>Sigma: Visual Studio Code Tunnel Service Installation</description>
     <mitre>
       <id>T1071.001</id>

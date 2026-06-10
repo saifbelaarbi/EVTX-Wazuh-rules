@@ -3,7 +3,7 @@
   <rule id="114507" level="12">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">\.btunnel\.co\.in$</field>
+    <field name="win.eventdata.destinationHostname">.btunnel.co.in$</field>
     <description>Sigma: Network Connection Initiated To BTunnels Domains</description>
     <mitre>
       <id>T1567</id>
@@ -14,7 +14,7 @@
   <rule id="114508" level="12">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">\.v2\.argotunnel\.com$|protocol-v2\.argotunnel\.com$|trycloudflare\.com$|update\.argotunnel\.com$</field>
+    <field name="win.eventdata.destinationHostname">.v2.argotunnel.com$|protocol-v2.argotunnel.com$|trycloudflare.com$|update.argotunnel.com$</field>
     <description>Sigma: Network Connection Initiated To Cloudflared Tunnels Domains</description>
     <mitre>
       <id>T1567</id>
@@ -25,7 +25,7 @@
   <rule id="114510" level="13">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">\.ngrok-free\.app$|\.ngrok-free\.dev$|\.ngrok\.app$|\.ngrok\.dev$|\.ngrok\.io$</field>
+    <field name="win.eventdata.destinationHostname">.ngrok-free.app$|.ngrok-free.dev$|.ngrok.app$|.ngrok.dev$|.ngrok.io$</field>
     <description>Sigma: Process Initiated Network Connection To Ngrok Domain</description>
     <mitre>
       <id>T1567</id>
@@ -36,7 +36,7 @@
   </rule>
   <rule id="114511" level="13">
     <if_sid>61605</if_sid>
-    <field name="win.eventdata.destinationHostname">tunnel\.us\.ngrok\.com|tunnel\.eu\.ngrok\.com|tunnel\.ap\.ngrok\.com|tunnel\.au\.ngrok\.com|tunnel\.sa\.ngrok\.com|tunnel\.jp\.ngrok\.com|tunnel\.in\.ngrok\.com</field>
+    <field name="win.eventdata.destinationHostname">tunnel.us.ngrok.com|tunnel.eu.ngrok.com|tunnel.ap.ngrok.com|tunnel.au.ngrok.com|tunnel.sa.ngrok.com|tunnel.jp.ngrok.com|tunnel.in.ngrok.com</field>
     <description>Sigma: Communication To Ngrok Tunneling Service Initiated</description>
     <mitre>
       <id>T1567</id>
@@ -48,7 +48,7 @@
   <rule id="114512" level="12">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.destinationHostname">\.tunnels\.api\.visualstudio\.com$</field>
+    <field name="win.eventdata.destinationHostname">.tunnels.api.visualstudio.com$</field>
     <description>Sigma: Network Connection Initiated To Visual Studio Code Tunnels Domain</description>
     <mitre>
       <id>T1567</id>
@@ -68,7 +68,7 @@
   <rule id="114524" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/in:|/out:|/uri:</field>
-    <field name="win.eventdata.image">\DataSvcUtil\.exe$</field>
+    <field name="win.eventdata.image">\\DataSvcUtil.exe$</field>
     <description>Sigma: LOLBAS Data Exfiltration by DataSvcUtil.exe</description>
     <mitre>
       <id>T1567</id>

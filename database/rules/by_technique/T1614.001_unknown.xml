@@ -2,9 +2,9 @@
 <group name="windows,T1614.001_unknown,">
   <rule id="111035" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\cmd\.exe$</field>
+    <field name="win.eventdata.parentImage">\\cmd.exe$</field>
     <field name="win.eventdata.parentCommandLine"> -c | -r | -k </field>
-    <field name="win.eventdata.image">\chcp\.com$</field>
+    <field name="win.eventdata.image">\\chcp.com$</field>
     <field name="win.eventdata.commandLine">chcp$|chcp $|chcp  $</field>
     <description>Sigma: Console CodePage Lookup Via CHCP</description>
     <mitre>
@@ -14,8 +14,8 @@
   </rule>
   <rule id="111117" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">query|Control\Nls\Language</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine">query|Control\\Nls\\Language</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <description>Sigma: System Language Discovery via Reg.Exe</description>
     <mitre>
       <id>T1614.001</id>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1552.002_unknown,">
-  <rule id="108739" level="11">
+  <rule id="108738" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <field name="win.eventdata.commandLine">/f |HKLM|REG_SZ|/s</field>
     <description>Sigma: Enumeration for Credentials in Registry</description>
     <mitre>
@@ -10,19 +10,19 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108740" level="11">
+  <rule id="108739" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\Software\Aerofox\Foxmail\V3\.1|\Software\Aerofox\FoxmailPreview|\Software\DownloadManager\Passwords|\Software\FTPWare\COREFTP\Sites|\Software\IncrediMail\Identities|\Software\Martin Prikryl\WinSCP 2\Sessions|\Software\Mobatek\MobaXterm\|\Software\OpenSSH\Agent\Keys|\Software\OpenVPN-GUI\configs|\Software\ORL\WinVNC3\Password|\Software\Qualcomm\Eudora\CommandLine|\Software\RealVNC\WinVNC4|\Software\RimArts\B2\Settings|\Software\SimonTatham\PuTTY\Sessions|\Software\SimonTatham\PuTTY\SshHostKeys\|\Software\Sota\FFFTP|\Software\TightVNC\Server|\Software\WOW6432Node\Radmin\v3\.0\Server\Parameters\Radmin</field>
+    <field name="win.eventdata.commandLine">\\Software\\Aerofox\\Foxmail\\V3.1|\\Software\\Aerofox\\FoxmailPreview|\\Software\\DownloadManager\\Passwords|\\Software\\FTPWare\\COREFTP\\Sites|\\Software\\IncrediMail\\Identities|\\Software\\Martin Prikryl\\WinSCP 2\\Sessions|\\Software\\Mobatek\\MobaXterm\\|\\Software\\OpenSSH\\Agent\\Keys|\\Software\\OpenVPN-GUI\\configs|\\Software\\ORL\\WinVNC3\\Password|\\Software\\Qualcomm\\Eudora\\CommandLine|\\Software\\RealVNC\\WinVNC4|\\Software\\RimArts\\B2\\Settings|\\Software\\SimonTatham\\PuTTY\\Sessions|\\Software\\SimonTatham\\PuTTY\\SshHostKeys\\|\\Software\\Sota\\FFFTP|\\Software\\TightVNC\\Server|\\Software\\WOW6432Node\\Radmin\\v3.0\\Server\\Parameters\\Radmin</field>
     <description>Sigma: Enumeration for 3rd Party Creds From CLI</description>
     <mitre>
       <id>T1552.002</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108741" level="12">
+  <rule id="108740" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">save|export</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <description>Sigma: Registry Export of Third-Party Credentials</description>
     <mitre>
       <id>T1552.002</id>

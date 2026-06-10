@@ -1,0 +1,20 @@
+title: 'Suspicious named pipe: \psexe'
+id: ff8b041e-a1aa-5e20-b963-20c143e5401c
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112507).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_psexec_dwell.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    PipeName: \psexe
+  condition: selection
+level: high
+tags:
+- attack.t1021.002
+- attack.lateral-movement

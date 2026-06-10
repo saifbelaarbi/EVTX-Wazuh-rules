@@ -33,7 +33,7 @@
   </rule>
   <rule id="111075" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">nslookup|_ldap\._tcp\.dc\._msdcs\.</field>
+    <field name="win.eventdata.commandLine">nslookup|_ldap._tcp.dc._msdcs.</field>
     <description>Sigma: Network Reconnaissance Activity</description>
     <mitre>
       <id>T1087</id>
@@ -44,7 +44,7 @@
   <rule id="111129" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -d| -x| -s| -c| -g</field>
-    <field name="win.eventdata.originalFileName">psloglist\.exe</field>
+    <field name="win.eventdata.originalFileName">psloglist.exe</field>
     <description>Sigma: Suspicious Use of PsLogList</description>
     <mitre>
       <id>T1087</id>

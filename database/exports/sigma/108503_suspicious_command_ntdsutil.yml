@@ -1,0 +1,20 @@
+title: 'Suspicious command: ntdsutil'
+id: 300e1525-6f4a-5f4b-ae0d-0b5e684ce162
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  108503).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    CommandLine: ntdsutil
+  condition: selection
+level: high
+tags:
+- attack.t1003.003
+- attack.credential-access

@@ -8,26 +8,26 @@
   "defense_evasion": {
     "range_start": 112000,
     "range_end": 112499,
-    "next_id": 112035,
-    "allocated_count": 35
+    "next_id": 112042,
+    "allocated_count": 42
   },
   "persistence": {
     "range_start": 104000,
     "range_end": 106999,
-    "next_id": 104843,
-    "allocated_count": 843
+    "next_id": 104844,
+    "allocated_count": 844
   },
   "credential_access": {
     "range_start": 108500,
     "range_end": 109999,
-    "next_id": 108795,
-    "allocated_count": 295
+    "next_id": 108794,
+    "allocated_count": 294
   },
   "execution": {
     "range_start": 100000,
     "range_end": 103999,
-    "next_id": 101163,
-    "allocated_count": 1163
+    "next_id": 101166,
+    "allocated_count": 1166
   },
   "lateral_movement": {
     "range_start": 112500,
@@ -70,5 +70,11 @@
     "range_end": 113499,
     "next_id": 113032,
     "allocated_count": 32
+  },
+  "composite": {
+    "range_start": 115000,
+    "range_end": 119999,
+    "next_id": 115004,
+    "allocated_count": 4
   }
 }

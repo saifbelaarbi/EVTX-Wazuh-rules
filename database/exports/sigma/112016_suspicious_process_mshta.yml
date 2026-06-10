@@ -1,0 +1,20 @@
+title: 'Suspicious process: mshta'
+id: 03ab26ed-39dd-560f-97a8-95679d1a7064
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112016).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image: mshta
+  condition: selection
+level: medium
+tags:
+- attack.t1218.005
+- attack.defense-evasion

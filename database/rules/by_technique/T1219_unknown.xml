@@ -2,7 +2,7 @@
 <group name="windows,T1219_unknown,">
   <rule id="110168" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\TacticalAgent\tacticalrmm\.exe</field>
+    <field name="win.eventdata.image">\\TacticalAgent\\tacticalrmm.exe</field>
     <field name="win.eventdata.commandLine">--api|--auth|--client-id|--site-id|--agent-type</field>
     <description>Sigma: Remote Access Tool - TacticalRMM Agent Registration to Potentially Attacker-Controlled Server</description>
     <mitre>
@@ -13,7 +13,7 @@
   </rule>
   <rule id="110180" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\Velociraptor\.exe$</field>
+    <field name="win.eventdata.parentImage">\\Velociraptor.exe$</field>
     <field name="win.eventdata.commandLine">msiexec|/i|http</field>
     <description>Sigma: Suspicious Velociraptor Child Process</description>
     <mitre>

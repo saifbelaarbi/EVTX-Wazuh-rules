@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1134.005_unknown,">
-  <rule id="104543" level="9">
+  <rule id="104544" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4738</field>
     <field name="win.eventdata.sidHistory">-|%%1793</field>

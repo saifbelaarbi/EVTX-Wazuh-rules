@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1559.002_unknown,">
-  <rule id="101129" level="8">
+  <rule id="101131" level="8">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Excel\Security\DisableDDEServerLaunch$|\Excel\Security\DisableDDEServerLookup$</field>
+    <field name="win.eventdata.targetObject">\\Excel\\Security\\DisableDDEServerLaunch$|\\Excel\\Security\\DisableDDEServerLookup$</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
     <description>Sigma: Enable Microsoft Dynamic Data Exchange</description>
     <mitre>
@@ -10,9 +10,9 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="101130" level="8">
+  <rule id="101132" level="8">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\Word\Security\AllowDDE$</field>
+    <field name="win.eventdata.targetObject">\\Word\\Security\\AllowDDE$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)|DWORD \(0x00000002\)</field>
     <description>Sigma: Enable Microsoft Dynamic Data Exchange</description>
     <mitre>

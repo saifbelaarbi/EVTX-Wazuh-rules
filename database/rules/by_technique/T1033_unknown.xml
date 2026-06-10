@@ -2,7 +2,7 @@
 <group name="windows,T1033_unknown,">
   <rule id="107302" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">whoami\.exe</field>
+    <field name="win.eventdata.originalFileName">whoami.exe</field>
     <field name="win.eventdata.user">AUTHORI|AUTORI|TrustedInstaller</field>
     <description>Sigma: Whoami.EXE Execution From Privileged Process</description>
     <mitre>
@@ -13,7 +13,7 @@
   <rule id="107303" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /priv| -priv</field>
-    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <field name="win.eventdata.image">\\whoami.exe$</field>
     <description>Sigma: Security Privileges Enumeration Via Whoami.EXE</description>
     <mitre>
       <id>T1033</id>
@@ -31,7 +31,7 @@
   </rule>
   <rule id="111025" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText"> \| Select |Out-File|Set-Content|Add-Content| -Filter \.*</field>
+    <field name="win.eventdata.scriptBlockText"> \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
     <description>Sigma: Computer Discovery And Export Via Get-ADComputer Cmdlet - PowerShell</description>
     <mitre>
       <id>T1033</id>
@@ -40,7 +40,7 @@
   </rule>
   <rule id="111034" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \.*</field>
+    <field name="win.eventdata.scriptBlockText"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
     <description>Sigma: User Discovery And Export Via Get-ADUser Cmdlet - PowerShell</description>
     <mitre>
       <id>T1033</id>
@@ -58,7 +58,7 @@
   </rule>
   <rule id="111061" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\SharpLdapWhoami\.exe$</field>
+    <field name="win.eventdata.image">\\SharpLdapWhoami.exe$</field>
     <description>Sigma: HackTool - SharpLdapWhoami Execution</description>
     <mitre>
       <id>T1033</id>
@@ -85,8 +85,8 @@
   </rule>
   <rule id="111079" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \.*</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Computer Discovery And Export Via Get-ADComputer Cmdlet</description>
     <mitre>
       <id>T1033</id>
@@ -95,8 +95,8 @@
   </rule>
   <rule id="111081" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \.*</field>
-    <field name="win.eventdata.image">\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: User Discovery And Export Via Get-ADUser Cmdlet</description>
     <mitre>
       <id>T1033</id>
@@ -105,7 +105,7 @@
   </rule>
   <rule id="111121" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">whoami\.exe</field>
+    <field name="win.eventdata.originalFileName">whoami.exe</field>
     <description>Sigma: Renamed Whoami Execution</description>
     <mitre>
       <id>T1033</id>
@@ -114,7 +114,7 @@
   </rule>
   <rule id="111125" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\.exe whoami</field>
+    <field name="win.eventdata.commandLine">.exe whoami</field>
     <description>Sigma: WhoAmI as Parameter</description>
     <mitre>
       <id>T1033</id>
@@ -124,7 +124,7 @@
   <rule id="111131" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -all</field>
-    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <field name="win.eventdata.image">\\whoami.exe$</field>
     <description>Sigma: Enumerate All Information With Whoami.EXE</description>
     <mitre>
       <id>T1033</id>
@@ -134,7 +134,7 @@
   <rule id="111132" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /groups| -groups</field>
-    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <field name="win.eventdata.image">\\whoami.exe$</field>
     <description>Sigma: Group Membership Reconnaissance Via Whoami.EXE</description>
     <mitre>
       <id>T1033</id>
@@ -144,7 +144,7 @@
   <rule id="111133" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /FO CSV| -FO CSV</field>
-    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <field name="win.eventdata.image">\\whoami.exe$</field>
     <description>Sigma: Whoami.EXE Execution With Output Option</description>
     <mitre>
       <id>T1033</id>
@@ -153,7 +153,7 @@
   </rule>
   <rule id="111134" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\whoami\.exe$</field>
+    <field name="win.eventdata.image">\\whoami.exe$</field>
     <description>Sigma: Whoami.EXE Execution Anomaly</description>
     <mitre>
       <id>T1033</id>

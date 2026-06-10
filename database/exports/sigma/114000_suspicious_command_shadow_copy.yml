@@ -1,0 +1,20 @@
+title: 'Suspicious command: shadow copy'
+id: f4a86931-5b5f-5fdb-a1df-e862eec47038
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  114000).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Execution/sysmon_exec_from_vss_persistence.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    CommandLine: shadow copy
+  condition: selection
+level: critical
+tags:
+- attack.t1490
+- attack.impact

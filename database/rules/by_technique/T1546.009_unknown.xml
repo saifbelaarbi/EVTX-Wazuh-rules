@@ -2,7 +2,7 @@
 <group name="windows,T1546.009_unknown,">
   <rule id="107312" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\AppCertDlls</field>
+    <field name="win.eventdata.targetObject">HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCertDlls</field>
     <description>Sigma: New DLL Added to AppCertDlls Registry Key</description>
     <mitre>
       <id>T1546.009</id>
@@ -11,7 +11,7 @@
   </rule>
   <rule id="107313" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.newName">HKLM\SYSTEM\CurentControlSet\Control\Session Manager\AppCertDlls</field>
+    <field name="win.eventdata.newName">HKLM\\SYSTEM\\CurentControlSet\\Control\\Session Manager\\AppCertDlls</field>
     <description>Sigma: New DLL Added to AppCertDlls Registry Key</description>
     <mitre>
       <id>T1546.009</id>

@@ -20,7 +20,7 @@
   </rule>
   <rule id="111114" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\trufflehog\.exe$</field>
+    <field name="win.eventdata.image">\\trufflehog.exe$</field>
     <field name="win.eventdata.commandLine"> --results=verified</field>
     <description>Sigma: PUA - TruffleHog Execution</description>
     <mitre>

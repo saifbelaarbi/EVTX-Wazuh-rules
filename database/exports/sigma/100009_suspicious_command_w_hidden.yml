@@ -1,0 +1,20 @@
+title: 'Suspicious command: -w hidden'
+id: d9c2994f-322f-5aaf-ac6b-26abb6627b0f
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100009).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Lateral Movement/LM_sysmon_psexec_smb_meterpreter.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    CommandLine: -w hidden
+  condition: selection
+level: medium
+tags:
+- attack.t1059.001
+- attack.execution

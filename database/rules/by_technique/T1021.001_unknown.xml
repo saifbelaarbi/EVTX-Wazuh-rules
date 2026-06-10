@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1021.001_unknown,">
-  <rule id="104709" level="10">
+  <rule id="104710" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> add |\CurrentControlSet\Control\Terminal Server|REG_DWORD| /f</field>
-    <field name="win.eventdata.image">\reg\.exe$</field>
+    <field name="win.eventdata.commandLine"> add |\\CurrentControlSet\\Control\\Terminal Server|REG_DWORD| /f</field>
+    <field name="win.eventdata.image">\\reg.exe$</field>
     <description>Sigma: Potential Tampering With RDP Related Registry Keys Via Reg.EXE</description>
     <mitre>
       <id>T1021.001</id>
@@ -35,7 +35,7 @@
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4624</field>
     <field name="win.eventdata.logonType">10</field>
-    <field name="win.eventdata.ipAddress">::1|127\.0\.0\.1</field>
+    <field name="win.eventdata.ipAddress">::1|127.0.0.1</field>
     <description>Sigma: RDP Login from Localhost</description>
     <mitre>
       <id>T1021.001</id>
@@ -64,7 +64,7 @@
   <rule id="112559" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> /v:</field>
-    <field name="win.eventdata.image">\mstsc\.exe$</field>
+    <field name="win.eventdata.image">\\mstsc.exe$</field>
     <description>Sigma: New Remote Desktop Connection Initiated Via Mstsc.EXE</description>
     <mitre>
       <id>T1021.001</id>
@@ -74,7 +74,7 @@
   <rule id="112566" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">SetAllowTSConnections</field>
-    <field name="win.eventdata.image">\wmic\.exe$|\powershell\.exe$|\pwsh\.exe$</field>
+    <field name="win.eventdata.image">\\wmic.exe$|\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: RDP Enable or Disable via Win32_TerminalServiceSetting WMI Class</description>
     <mitre>
       <id>T1021.001</id>

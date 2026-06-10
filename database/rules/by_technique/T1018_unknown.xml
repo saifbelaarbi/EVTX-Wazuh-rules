@@ -2,7 +2,7 @@
 <group name="windows,T1018_unknown,">
   <rule id="111027" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">New-Object |System\.DirectoryServices\.DirectorySearcher|\.PropertiesToLoad\.Add|\.findall\(\)|Properties\.name</field>
+    <field name="win.eventdata.scriptBlockText">New-Object |System.DirectoryServices.DirectorySearcher|.PropertiesToLoad.Add|.findall\(\)|Properties.name</field>
     <description>Sigma: DirectorySearcher Powershell Exploitation</description>
     <mitre>
       <id>T1018</id>
@@ -11,7 +11,7 @@
   </rule>
   <rule id="111030" level="6">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">-Properties.*TrustedForDelegation|-Properties.*TrustedToAuthForDelegation|-Properties.*msDS-AllowedToDelegateTo|-Properties.*PrincipalsAllowedToDelegateToAccount|-LDAPFilter.*\(userAccountControl:1\.2\.840\.113556\.1\.4\.803:=524288\)</field>
+    <field name="win.eventdata.scriptBlockText">-Properties\.*TrustedForDelegation|-Properties\.*TrustedToAuthForDelegation|-Properties\.*msDS-AllowedToDelegateTo|-Properties\.*PrincipalsAllowedToDelegateToAccount|-LDAPFilter\.*\(userAccountControl:1.2.840.113556.1.4.803:=524288\)</field>
     <description>Sigma: Potential Unconstrained Delegation Discovery Via Get-ADComputer - ScriptBlock</description>
     <mitre>
       <id>T1018</id>
@@ -22,7 +22,7 @@
   </rule>
   <rule id="111056" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\nxc\.exe$</field>
+    <field name="win.eventdata.image">\\nxc.exe$</field>
     <field name="win.eventdata.commandLine"> ftp | ldap | mssql | nfs | rdp | smb | ssh | vnc | winrm | wmi </field>
     <description>Sigma: HackTool - NetExec Execution</description>
     <mitre>
@@ -66,7 +66,7 @@
   </rule>
   <rule id="111120" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">AdFind\.exe</field>
+    <field name="win.eventdata.originalFileName">AdFind.exe</field>
     <description>Sigma: Renamed AdFind Execution</description>
     <mitre>
       <id>T1018</id>

@@ -1,0 +1,21 @@
+title: 'Suspicious PowerShell: iex('
+id: 481235de-b072-524f-ba50-5fefb27e18db
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100011).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1059.001-PowerShell/ID4103-4104-Payload
+  download via PowerShell.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    ScriptBlockText: iex\(
+  condition: selection
+level: medium
+tags:
+- attack.t1059.001
+- attack.execution

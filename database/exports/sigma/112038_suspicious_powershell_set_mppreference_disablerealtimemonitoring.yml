@@ -1,0 +1,22 @@
+title: 'Suspicious PowerShell: set-mppreference -disablerealtimemonitoring'
+id: 8448e48d-f4df-52ee-a1aa-0b198a1484f4
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112038).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0005-Defense
+  Evasion/T1562.001-Impair Defenses-Disable or Modify tool/ID800-4103-4104 Defender
+  critical features disabled (PowerShell).evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    ScriptBlockText: set-mppreference -disablerealtimemonitoring
+  condition: selection
+level: medium
+tags:
+- attack.t1562.001
+- attack.defense-evasion

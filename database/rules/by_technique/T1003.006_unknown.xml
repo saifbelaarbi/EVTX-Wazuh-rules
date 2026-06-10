@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1003.006_unknown,">
-  <rule id="108531" level="12">
+  <rule id="108530" level="12">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4662</field>
     <field name="win.eventdata.accessMask">0x100</field>
@@ -11,7 +11,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108532" level="13">
+  <rule id="108531" level="13">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4662</field>
     <field name="win.eventdata.properties">Replicating Directory Changes All|1131f6ad-9c07-11d1-f79f-00c04fc2dcd2|1131f6aa-9c07-11d1-f79f-00c04fc2dcd2|9923a32a-3607-11d2-b9be-0000f87a36b2|89e95b76-444d-4c62-991a-0facbeda640c</field>
@@ -22,7 +22,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108613" level="11">
+  <rule id="108612" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Get-ADReplAccount|-All |-Server </field>
     <description>Sigma: Suspicious Get-ADReplAccount</description>

@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1587.001_unknown,">
-  <rule id="100047" level="9">
+  <rule id="100049" level="9">
     <if_sid>60000</if_sid>
     <field name="win.eventdata.">OabVirtualDirectory| -ExternalUrl </field>
+    <field name="full_log">eval\(request</field>
     <description>Sigma: ProxyLogon MSExchange OabVirtualDirectory</description>
     <mitre>
       <id>T1587.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100159" level="9">
+  <rule id="100161" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Microsoft\Word\STARTUP</field>
+    <field name="win.eventdata.targetFilename">\\Microsoft\\Word\\STARTUP</field>
     <description>Sigma: Uncommon File Created In Office Startup Folder</description>
     <mitre>
       <id>T1587.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100195" level="8">
+  <rule id="100197" level="8">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.image">\brave\.exe$|\chrome\.exe$|\firefox\.exe$|\iexplore\.exe$|\maxthon\.exe$|\MicrosoftEdge\.exe$|\msedge\.exe$|\msedgewebview2\.exe$|\opera\.exe$|\safari\.exe$|\seamonkey\.exe$|\vivaldi\.exe$|\whale\.exe$</field>
-    <field name="win.eventdata.targetFilename">\.vhd</field>
+    <field name="win.eventdata.image">\\brave.exe$|\\chrome.exe$|\\firefox.exe$|\\iexplore.exe$|\\maxthon.exe$|\\MicrosoftEdge.exe$|\\msedge.exe$|\\msedgewebview2.exe$|\\opera.exe$|\\safari.exe$|\\seamonkey.exe$|\\vivaldi.exe$|\\whale.exe$</field>
+    <field name="win.eventdata.targetFilename">.vhd</field>
     <description>Sigma: VHD Image Download Via Browser</description>
     <mitre>
       <id>T1587.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100767" level="9">
+  <rule id="100769" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\csexec\.exe$</field>
+    <field name="win.eventdata.image">\\csexec.exe$</field>
     <description>Sigma: PUA - CsExec Execution</description>
     <mitre>
       <id>T1587.001</id>
@@ -38,7 +39,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100768" level="9">
+  <rule id="100770" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.description">csexec</field>
     <description>Sigma: PUA - CsExec Execution</description>
@@ -48,7 +49,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100992" level="9">
+  <rule id="100994" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -s cmd| -s -i cmd| -i -s cmd| -s pwsh| -s -i pwsh| -i -s pwsh| -s powershell| -s -i powershell| -i -s powershell</field>
     <description>Sigma: PsExec/PAExec Escalation to LOCAL SYSTEM</description>
@@ -57,16 +58,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100993" level="9">
+  <rule id="100995" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">accepteula| -u | -p | \\\\</field>
+    <field name="win.eventdata.commandLine">accepteula| -u | -p | \\\\\\\\</field>
     <description>Sigma: Potential PsExec Remote Execution</description>
     <mitre>
       <id>T1587.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
-  <rule id="100998" level="9">
+  <rule id="101000" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine"> -s cmd| -s -i cmd| -i -s cmd| -s pwsh| -s -i pwsh| -i -s pwsh| -s powershell| -s -i powershell| -i -s powershell</field>
     <description>Sigma: Potential Privilege Escalation To LOCAL SYSTEM</description>

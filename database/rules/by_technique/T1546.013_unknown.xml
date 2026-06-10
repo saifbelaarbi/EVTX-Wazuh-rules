@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1546.013_unknown,">
-  <rule id="104604" level="9">
+  <rule id="104605" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Microsoft\.PowerShell_profile\.ps1$|\PowerShell\profile\.ps1$|\Program Files\PowerShell\7-preview\profile\.ps1$|\Program Files\PowerShell\7\profile\.ps1$|\Windows\System32\WindowsPowerShell\v1\.0\profile\.ps1$|\WindowsPowerShell\profile\.ps1$</field>
+    <field name="win.eventdata.targetFilename">\\Microsoft.PowerShell_profile.ps1$|\\PowerShell\\profile.ps1$|\\Program Files\\PowerShell\\7-preview\\profile.ps1$|\\Program Files\\PowerShell\\7\\profile.ps1$|\\Windows\\System32\\WindowsPowerShell\\v1.0\\profile.ps1$|\\WindowsPowerShell\\profile.ps1$</field>
     <description>Sigma: PowerShell Profile Modification</description>
     <mitre>
       <id>T1546.013</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104607" level="9">
+  <rule id="104608" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\Microsoft\.VSCode_profile\.ps1$</field>
+    <field name="win.eventdata.targetFilename">\\Microsoft.VSCode_profile.ps1$</field>
     <description>Sigma: VsCode Powershell Profile Modification</description>
     <mitre>
       <id>T1546.013</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="104669" level="9">
+  <rule id="104670" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">-Value "IEX |-Value "Invoke-Expression|-Value "Invoke-WebRequest|-Value "Start-Process|-Value 'IEX |-Value 'Invoke-Expression|-Value 'Invoke-WebRequest|-Value 'Start-Process</field>
     <description>Sigma: Potential Persistence Via PowerShell User Profile Using Add-Content</description>

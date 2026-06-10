@@ -1,0 +1,20 @@
+title: 'Suspicious process: regsvr32'
+id: 4accd74b-03b7-5647-999b-289fd3d4a762
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112007).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image: regsvr32
+  condition: selection
+level: medium
+tags:
+- attack.t1218.010
+- attack.defense-evasion

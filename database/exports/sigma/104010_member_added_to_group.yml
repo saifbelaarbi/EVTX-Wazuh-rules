@@ -1,0 +1,20 @@
+title: Member added to group
+id: 9e6572a5-2a15-5549-bae1-c4fbdffcce36
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104010).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Persistence/Network_Service_Guest_added_to_admins_4732.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: '4732'
+  condition: selection
+level: low
+tags:
+- attack.t1098
+- attack.persistence

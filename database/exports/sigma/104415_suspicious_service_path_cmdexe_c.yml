@@ -1,0 +1,22 @@
+title: 'Suspicious service path: cmd.exe /c'
+id: 90d11ca6-12c3-5348-92da-2e9d918bf47f
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  104415).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service
+  execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    ServiceName: YmplY3QgU3lzdGVtLldpbmRvd3MuRm9ybXMuQnV0dG9uDQogICAgICAgICRCdXR0b24uTG9jYXRpb24gPSBuZXctb2JqZWN0IFN5c3RlbS5EcmF3aW5nLlNpemUoMTAwLDUwKQ0KICAgICAgICAkQn
+    ImagePath: cmd.exe /c
+  condition: selection
+level: medium
+tags:
+- attack.t1543.003
+- attack.persistence

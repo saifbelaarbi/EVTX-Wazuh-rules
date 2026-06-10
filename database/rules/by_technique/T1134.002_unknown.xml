@@ -11,8 +11,8 @@
   </rule>
   <rule id="107264" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentUser">\NETWORK SERVICE$|\LOCAL SERVICE$</field>
-    <field name="win.eventdata.user">\SYSTEM$|\Système$|\СИСТЕМА$</field>
+    <field name="win.eventdata.parentUser">\\NETWORK SERVICE$|\\LOCAL SERVICE$</field>
+    <field name="win.eventdata.user">\\SYSTEM$|\\Système$|\\СИСТЕМА$</field>
     <field name="win.eventdata.integrityLevel">System|S-1-16-16384</field>
     <description>Sigma: Suspicious Child Process Created as System</description>
     <mitre>

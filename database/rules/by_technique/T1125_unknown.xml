@@ -2,7 +2,7 @@
 <group name="windows,T1125_unknown,">
   <rule id="113548" level="8">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">:#Windows#Temp#|:#\$Recycle\.bin#|:#Temp#|:#Users#Public#|:#Users#Default#|:#Users#Desktop#|\NonPackaged</field>
+    <field name="win.eventdata.targetObject">:#Windows#Temp#|:#\$Recycle.bin#|:#Temp#|:#Users#Public#|:#Users#Default#|:#Users#Desktop#|\\NonPackaged</field>
     <description>Sigma: Suspicious Camera and Microphone Access</description>
     <mitre>
       <id>T1125</id>

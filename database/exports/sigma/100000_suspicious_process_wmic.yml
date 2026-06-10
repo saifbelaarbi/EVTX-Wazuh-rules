@@ -1,0 +1,20 @@
+title: 'Suspicious process: wmic'
+id: 717b640a-ce67-5e8b-8d84-cc49cdbd2ee0
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100000).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    CommandLine: wmic
+  condition: selection
+level: medium
+tags:
+- attack.t1047
+- attack.execution

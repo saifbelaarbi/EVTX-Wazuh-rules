@@ -2,7 +2,7 @@
 <group name="windows,T1074.001_unknown,">
   <rule id="113510" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.data">Compress-Archive -Path.*-DestinationPath \$env:TEMP|Compress-Archive -Path.*-DestinationPath.*\AppData\Local\Temp\|Compress-Archive -Path.*-DestinationPath.*:\Windows\Temp\</field>
+    <field name="win.eventdata.data">Compress-Archive -Path\.*-DestinationPath \$env:TEMP|Compress-Archive -Path\.*-DestinationPath\.*\\AppData\\Local\\Temp\\|Compress-Archive -Path\.*-DestinationPath\.*:\\Windows\\Temp\\</field>
     <description>Sigma: Zip A Folder With PowerShell For Staging In Temp - PowerShell</description>
     <mitre>
       <id>T1074.001</id>
@@ -11,7 +11,7 @@
   </rule>
   <rule id="113512" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">Compress-Archive -Path.*-DestinationPath \$env:TEMP|Compress-Archive -Path.*-DestinationPath.*\AppData\Local\Temp\|Compress-Archive -Path.*-DestinationPath.*:\Windows\Temp\</field>
+    <field name="win.eventdata.contextInfo">Compress-Archive -Path\.*-DestinationPath \$env:TEMP|Compress-Archive -Path\.*-DestinationPath\.*\\AppData\\Local\\Temp\\|Compress-Archive -Path\.*-DestinationPath\.*:\\Windows\\Temp\\</field>
     <description>Sigma: Zip A Folder With PowerShell For Staging In Temp  - PowerShell Module</description>
     <mitre>
       <id>T1074.001</id>
@@ -20,7 +20,7 @@
   </rule>
   <rule id="113518" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Compress-Archive -Path.*-DestinationPath \$env:TEMP|Compress-Archive -Path.*-DestinationPath.*\AppData\Local\Temp\|Compress-Archive -Path.*-DestinationPath.*:\Windows\Temp\</field>
+    <field name="win.eventdata.scriptBlockText">Compress-Archive -Path\.*-DestinationPath \$env:TEMP|Compress-Archive -Path\.*-DestinationPath\.*\\AppData\\Local\\Temp\\|Compress-Archive -Path\.*-DestinationPath\.*:\\Windows\\Temp\\</field>
     <description>Sigma: Zip A Folder With PowerShell For Staging In Temp - PowerShell Script</description>
     <mitre>
       <id>T1074.001</id>
@@ -29,7 +29,7 @@
   </rule>
   <rule id="113533" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Compress-Archive -Path.*-DestinationPath \$env:TEMP|Compress-Archive -Path.*-DestinationPath.*\AppData\Local\Temp\|Compress-Archive -Path.*-DestinationPath.*:\Windows\Temp\</field>
+    <field name="win.eventdata.commandLine">Compress-Archive -Path\.*-DestinationPath \$env:TEMP|Compress-Archive -Path\.*-DestinationPath\.*\\AppData\\Local\\Temp\\|Compress-Archive -Path\.*-DestinationPath\.*:\\Windows\\Temp\\</field>
     <description>Sigma: Folder Compress To Potentially Suspicious Output Via Compress-Archive Cmdlet</description>
     <mitre>
       <id>T1074.001</id>

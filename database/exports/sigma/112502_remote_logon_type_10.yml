@@ -1,0 +1,21 @@
+title: Remote logon (type 10)
+id: 9510b483-f1ce-5624-bfc7-8031656751f0
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  112502).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Command and Control/DE_RDP_Tunnel_5156.evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: '4624'
+    LogonType: '10'
+  condition: selection
+level: medium
+tags:
+- attack.t1021.001
+- attack.lateral-movement

@@ -3,7 +3,7 @@
   <rule id="110006" level="13">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">3008</field>
-    <field name="win.eventdata.queryName">^aaa\.stage\.|^post\.1</field>
+    <field name="win.eventdata.queryName">^aaa.stage.|^post.1</field>
     <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - DNS Client</description>
     <mitre>
       <id>T1071.004</id>
@@ -12,7 +12,7 @@
   </rule>
   <rule id="110018" level="9">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">msapp\.workers\.dev|trycloudflare\.com|infinityfreeapp\.com|my5353\.com|reurl\.cc|lihi\.cc|tinyurl\.com</field>
+    <field name="win.eventdata.queryName">msapp.workers.dev|trycloudflare.com|infinityfreeapp.com|my5353.com|reurl.cc|lihi.cc|tinyurl.com</field>
     <description>Sigma: DNS Query To Common Malware Hosting and Shortener Services</description>
     <mitre>
       <id>T1071.004</id>
@@ -21,7 +21,7 @@
   </rule>
   <rule id="110021" level="10">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.image">\finger\.exe$</field>
+    <field name="win.eventdata.image">\\finger.exe$</field>
     <description>Sigma: DNS Query by Finger Utility</description>
     <mitre>
       <id>T1071.004</id>
@@ -31,7 +31,7 @@
   </rule>
   <rule id="110022" level="13">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">^aaa\.stage\.|^post\.1</field>
+    <field name="win.eventdata.queryName">^aaa.stage.|^post.1</field>
     <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - Sysmon</description>
     <mitre>
       <id>T1071.004</id>
@@ -40,7 +40,7 @@
   </rule>
   <rule id="110023" level="13">
     <if_sid>61624</if_sid>
-    <field name="win.eventdata.queryName">\.stage\.123456\.</field>
+    <field name="win.eventdata.queryName">.stage.123456.</field>
     <description>Sigma: Suspicious Cobalt Strike DNS Beaconing - Sysmon</description>
     <mitre>
       <id>T1071.004</id>
@@ -50,7 +50,7 @@
   <rule id="110055" level="10">
     <if_sid>61605</if_sid>
     <field name="win.eventdata.initiated">true</field>
-    <field name="win.eventdata.image">\finger\.exe$</field>
+    <field name="win.eventdata.image">\\finger.exe$</field>
     <description>Sigma: Network Connection Initiated via Finger.EXE</description>
     <mitre>
       <id>T1071.004</id>

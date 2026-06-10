@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1555_unknown,">
-  <rule id="108595" level="12">
+  <rule id="108594" level="12">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\.cer$|\.key$|\.pfx$|\.pvk$</field>
+    <field name="win.eventdata.targetFilename">.cer$|.key$|.pfx$|.pvk$</field>
     <description>Sigma: DPAPI Backup Keys And Certificate Export Activity IOC</description>
     <mitre>
       <id>T1555</id>
@@ -10,7 +10,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108608" level="11">
+  <rule id="108607" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Get-PasswordVaultCredentials|Get-CredManCreds</field>
     <description>Sigma: Dump Credentials from Windows Credential Manager With PowerShell</description>
@@ -19,9 +19,18 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108608" level="11">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-Object|Windows.Security.Credentials.PasswordVault</field>
+    <description>Sigma: Dump Credentials from Windows Credential Manager With PowerShell</description>
+    <mitre>
+      <id>T1555</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108609" level="11">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">New-Object|Windows\.Security\.Credentials\.PasswordVault</field>
+    <field name="win.eventdata.scriptBlockText">New-Object|Microsoft.CSharp.CSharpCodeProvider|\[System.Runtime.InteropServices.RuntimeEnvironment\]::GetRuntimeDirectory\(\)\)|Collections.ArrayList|System.CodeDom.Compiler.CompilerParameters</field>
     <description>Sigma: Dump Credentials from Windows Credential Manager With PowerShell</description>
     <mitre>
       <id>T1555</id>
@@ -30,15 +39,6 @@
   </rule>
   <rule id="108610" level="11">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">New-Object|Microsoft\.CSharp\.CSharpCodeProvider|\[System\.Runtime\.InteropServices\.RuntimeEnvironment\]::GetRuntimeDirectory\(\)\)|Collections\.ArrayList|System\.CodeDom\.Compiler\.CompilerParameters</field>
-    <description>Sigma: Dump Credentials from Windows Credential Manager With PowerShell</description>
-    <mitre>
-      <id>T1555</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108611" level="11">
-    <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">Windows Credentials|Web Credentials|/listcreds:</field>
     <description>Sigma: Enumerate Credentials from Windows Credential Manager With PowerShell</description>
     <mitre>
@@ -46,7 +46,7 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108705" level="12">
+  <rule id="108704" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.company">SecurityXploded</field>
     <description>Sigma: HackTool - SecurityXploded Execution</description>
@@ -55,28 +55,28 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108705" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">PasswordDump.exe$</field>
+    <description>Sigma: HackTool - SecurityXploded Execution</description>
+    <mitre>
+      <id>T1555</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="108706" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">PasswordDump\.exe$</field>
+    <field name="win.eventdata.originalFileName">PasswordDump.exe$</field>
     <description>Sigma: HackTool - SecurityXploded Execution</description>
     <mitre>
       <id>T1555</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="108707" level="12">
+  <rule id="108749" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName">PasswordDump\.exe$</field>
-    <description>Sigma: HackTool - SecurityXploded Execution</description>
-    <mitre>
-      <id>T1555</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108750" level="12">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage">\Serv-U\.exe$</field>
-    <field name="win.eventdata.image">\cmd\.exe$|\powershell\.exe$|\pwsh\.exe$|\wscript\.exe$|\cscript\.exe$|\sh\.exe$|\bash\.exe$|\schtasks\.exe$|\regsvr32\.exe$|\wmic\.exe$|\mshta\.exe$|\rundll32\.exe$|\msiexec\.exe$|\forfiles\.exe$|\scriptrunner\.exe$</field>
+    <field name="win.eventdata.parentImage">\\Serv-U.exe$</field>
+    <field name="win.eventdata.image">\\cmd.exe$|\\powershell.exe$|\\pwsh.exe$|\\wscript.exe$|\\cscript.exe$|\\sh.exe$|\\bash.exe$|\\schtasks.exe$|\\regsvr32.exe$|\\wmic.exe$|\\mshta.exe$|\\rundll32.exe$|\\msiexec.exe$|\\forfiles.exe$|\\scriptrunner.exe$</field>
     <description>Sigma: Suspicious Serv-U Process Pattern</description>
     <mitre>
       <id>T1555</id>

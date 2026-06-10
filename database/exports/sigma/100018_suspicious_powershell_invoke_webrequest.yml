@@ -1,0 +1,22 @@
+title: 'Suspicious PowerShell: invoke-webrequest'
+id: 40837df5-396f-552c-b258-2f806f8b225a
+status: experimental
+description: Auto-generated from EVTX attack sample by EVTX-Wazuh-Rules (Wazuh rule
+  100018).
+references:
+- /home/user/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0007-Discovery/T1016-System
+  Network Configuration Discovery/ID800-4103-4104-Firewall configuration enumerated
+  (PowerShell).evtx
+author: EVTX-Wazuh-Rules
+date: '2026-06-10'
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    ScriptBlockText: invoke-webrequest
+  condition: selection
+level: medium
+tags:
+- attack.t1059.001
+- attack.execution

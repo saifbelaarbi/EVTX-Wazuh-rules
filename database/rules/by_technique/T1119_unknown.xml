@@ -2,7 +2,7 @@
 <group name="windows,T1119_unknown,">
   <rule id="113513" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\.doc|\.docx|\.xls|\.xlsx|\.ppt|\.pptx|\.rtf|\.pdf|\.txt| -Recurse | -Include </field>
+    <field name="win.eventdata.scriptBlockText">.doc|.docx|.xls|.xlsx|.ppt|.pptx|.rtf|.pdf|.txt| -Recurse | -Include </field>
     <description>Sigma: Automated Collection Command PowerShell</description>
     <mitre>
       <id>T1119</id>
@@ -11,7 +11,7 @@
   </rule>
   <rule id="113517" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">&gt; \$env:TEMP\</field>
+    <field name="win.eventdata.scriptBlockText">&gt; \$env:TEMP\\</field>
     <description>Sigma: Recon Information for Export with PowerShell</description>
     <mitre>
       <id>T1119</id>
@@ -30,8 +30,8 @@
   </rule>
   <rule id="113543" level="7">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\tree\.com$|\WMIC\.exe$|\doskey\.exe$|\sc\.exe$</field>
-    <field name="win.eventdata.parentCommandLine"> &gt; %TEMP%\| &gt; %TMP%\</field>
+    <field name="win.eventdata.image">\\tree.com$|\\WMIC.exe$|\\doskey.exe$|\\sc.exe$</field>
+    <field name="win.eventdata.parentCommandLine"> &gt; %TEMP%\\| &gt; %TMP%\\</field>
     <description>Sigma: Recon Information for Export with Command Prompt</description>
     <mitre>
       <id>T1119</id>
