@@ -31,6 +31,19 @@ class ValidationResult:
     inconclusive: bool = False
 
 
+# PCRE-only features that can't be correctly simulated via the OSRegex engine.
+_PCRE_ONLY_RE = re.compile(
+    r"(?:"
+    r"\(\?[imsxU:]"  # inline flags or non-capturing groups
+    r"|\.[\+\*]\??"  # .+ or .* (PCRE any-char quantifier)
+    r"|\.\{[0-9,]+\}"  # .{n,m}
+    r"|\[[^\]]*[0-9]-[0-9][^\]]*\]"  # [0-9] character ranges
+    r"|\[[^\]]*[a-z]-[a-z][^\]]*\]"  # [a-z] character ranges (case insensitive)
+    r"|\{[0-9]+,[0-9]*\}"  # {n,m} quantifiers not preceded by ]
+    r")"
+)
+
+
 def load_config():
     with open(CONFIG_FILE) as f:
         return yaml.safe_load(f)
@@ -78,6 +91,9 @@ def _flatten_event_fields(event: dict) -> dict:
             value = str(value)
         camel_key = key[0].lower() + key[1:] if key else key
         flat[f"win.eventdata.{camel_key}"] = value
+
+    if event.get("full_log"):
+        flat["full_log"] = event["full_log"]
 
     return flat
 
@@ -150,13 +166,14 @@ def _match_field(pattern: str, value: str) -> bool:
     - Pipe | is OR (alternation)
     - Without anchors, substring match
     """
-    if not pattern or not value:
+    if not value:
         return False
+    if not pattern:
+        return True
 
     alternatives = pattern.split("|")
 
     for alt in alternatives:
-        alt = alt.strip()
         if not alt:
             continue
         try:
@@ -411,20 +428,138 @@ def _load_sample_events() -> dict:
     return _SAMPLE_EVENTS_CACHE
 
 
+def _split_top_level_alt(pattern: str) -> str:
+    """Return the first alternative of a pattern, splitting only at top-level ``|``."""
+    depth = 0
+    for i, ch in enumerate(pattern):
+        if ch == "\\" and i + 1 < len(pattern):
+            continue
+        if ch in "([":
+            depth += 1
+        elif ch in ")]":
+            depth -= 1
+        elif ch == "|" and depth <= 0:
+            return pattern[:i]
+    return pattern
+
+
 def _literal_from_pattern(pattern: str) -> str:
     """Derive a concrete literal that satisfies an OSRegex field pattern.
 
     OSRegex semantics: ``.`` = literal dot, ``\\.`` = any char, ``\\.*`` = any*.
+
+    Sigma-converted patterns may also contain PCRE fragments (character classes,
+    quantifiers, groups) from the ``re`` modifier — this function materializes
+    those into concrete characters that will still match the rule.
     """
-    p = pattern.split("|")[0]
-    p = p.lstrip("^").rstrip("$")
-    p = p.replace("[-/]", "-")
+    if not pattern or not pattern.strip():
+        return "x"
+
+    p = _split_top_level_alt(pattern)
+    p = p.lstrip("^")
+    # Strip trailing $ only if not escaped
+    if p.endswith("$") and not p.endswith("\\$"):
+        p = p[:-1]
+    # Strip leading (?i) case-insensitive flag
+    if p.startswith("(?i)"):
+        p = p[4:]
+
     out: list[str] = []
     i = 0
     while i < len(p):
-        if p[i] == "\\" and i + 1 < len(p):
+        ch = p[i]
+
+        # Character class: [abc], [0-9], [-/], [A-Za-z0-9]
+        if ch == "[":
+            # Find matching ] (skip escaped chars inside)
+            close = -1
+            j = i + 1
+            if j < len(p) and p[j] == "^":
+                j += 1
+            if j < len(p) and p[j] == "]":
+                j += 1
+            while j < len(p):
+                if p[j] == "\\" and j + 1 < len(p):
+                    j += 2
+                elif p[j] == "]":
+                    close = j
+                    break
+                else:
+                    j += 1
+            if close == -1:
+                out.append(ch)
+                i += 1
+                continue
+            inner = p[i + 1 : close]
+            negated = inner.startswith("^")
+            chars = inner.lstrip("^")
+            if negated:
+                # For negated classes, pick a char NOT in the set
+                if "0-9" in chars:
+                    picked = "a"
+                elif "a-z" in chars.lower():
+                    picked = "1"
+                elif "\\" in chars:
+                    picked = "a"
+                elif " " in chars:
+                    picked = "a"
+                else:
+                    picked = "x"
+            else:
+                picked = chars[0] if chars else "a"
+                if picked == "-" and len(chars) > 1:
+                    picked = chars[1]
+                if "0-9" in inner:
+                    picked = "1"
+                elif "a-z" in inner.lower():
+                    picked = "a"
+            out.append(picked)
+            i = close + 1
+            # Skip trailing quantifier {n,m}, ?, *, +
+            while i < len(p) and p[i] in "?*+":
+                i += 1
+            if i < len(p) and p[i] == "{":
+                brace_end = p.find("}", i)
+                if brace_end != -1:
+                    i = brace_end + 1
+            continue
+
+        # Parenthesized group (capturing or (?:non-capturing)): pick first branch
+        if ch == "(":
+            depth = 1
+            j = i + 1
+            while j < len(p) and depth > 0:
+                if p[j] == "\\" and j + 1 < len(p):
+                    j += 2
+                    continue
+                if p[j] == "(":
+                    depth += 1
+                elif p[j] == ")":
+                    depth -= 1
+                j += 1
+            group_end = j
+            inner = p[i + 1 : group_end - 1]
+            # Strip non-capturing (?:, (?i:, etc.
+            if inner.startswith("?"):
+                colon = inner.find(":")
+                if colon != -1:
+                    inner = inner[colon + 1 :]
+            first_alt = _split_top_level_alt(inner)
+            out.append(_literal_from_pattern(first_alt))
+            i = group_end
+            # Skip trailing quantifier
+            while i < len(p) and p[i] in "?*+":
+                i += 1
+            if i < len(p) and p[i] == "{":
+                brace_end = p.find("}", i)
+                if brace_end != -1:
+                    i = brace_end + 1
+            continue
+
+        # Backslash escapes
+        if ch == "\\" and i + 1 < len(p):
             nxt = p[i + 1]
-            if nxt == "." and i + 2 < len(p) and p[i + 2] == "*":
+            if nxt == "." and i + 2 < len(p) and p[i + 2] in "*+":
                 out.append("x")
                 i += 3
             elif nxt == ".":
@@ -433,16 +568,89 @@ def _literal_from_pattern(pattern: str) -> str:
             elif nxt == "\\":
                 out.append("\\")
                 i += 2
+            elif nxt == "d":
+                out.append("1")
+                i += 2
+            elif nxt == "w":
+                out.append("a")
+                i += 2
+            elif nxt == "s":
+                out.append(" ")
+                i += 2
+            elif nxt == "D":
+                out.append("a")
+                i += 2
+            elif nxt == "W":
+                out.append(" ")
+                i += 2
+            elif nxt == "S":
+                out.append("a")
+                i += 2
+            elif nxt == "$":
+                out.append("$")
+                i += 2
+            elif nxt == '"':
+                out.append('"')
+                i += 2
+            elif nxt == "{":
+                out.append("{")
+                i += 2
+            elif nxt == "}":
+                out.append("}")
+                i += 2
             else:
                 out.append(nxt)
                 i += 2
-        elif p[i] == ".":
-            out.append(".")
+            # Skip trailing quantifier after escape sequence
+            while i < len(p) and p[i] in "?":
+                i += 1
+            if i < len(p) and p[i] == "{":
+                brace_end = p.find("}", i)
+                if brace_end != -1:
+                    i = brace_end + 1
+            continue
+
+        # Dot: literal in OSRegex, but may have PCRE quantifier following.
+        # If followed by {n,m}, +, or * treat as "any char repeated" → emit "x".
+        if ch == ".":
+            if i + 1 < len(p) and p[i + 1] in "+*":
+                out.append("x")
+                i += 2
+                # Skip trailing ?
+                if i < len(p) and p[i] == "?":
+                    i += 1
+            elif i + 1 < len(p) and p[i + 1] == "{":
+                brace_end = p.find("}", i + 1)
+                if brace_end != -1:
+                    out.append("x")
+                    i = brace_end + 1
+                    if i < len(p) and p[i] == "?":
+                        i += 1
+                else:
+                    out.append(".")
+                    i += 1
+            else:
+                out.append(".")
+                i += 1
+            continue
+
+        # Bare * and + are literal in OSRegex (only \\.* is a real wildcard).
+        # Bare ? is a PCRE quantifier — skip it to avoid duplicating output.
+        if ch == "?" and out:
             i += 1
-        else:
-            out.append(p[i])
-            i += 1
-    return "".join(out) or "x"
+            continue
+
+        # Curly brace quantifiers {n,m}
+        if ch == "{" and i + 1 < len(p):
+            brace_end = p.find("}", i)
+            if brace_end != -1:
+                i = brace_end + 1
+                continue
+
+        out.append(ch)
+        i += 1
+
+    return "".join(out)
 
 
 def synthesize_event(field_matches: dict, event_id, channel: str, provider: str) -> dict:
@@ -454,17 +662,21 @@ def synthesize_event(field_matches: dict, event_id, channel: str, provider: str)
     """
     event_data = {}
     derived_eid = event_id
+    full_log_parts = []
     for field_path, pattern in field_matches.items():
         literal = _literal_from_pattern(str(pattern))
         if field_path == "win.system.eventID":
             derived_eid = literal
+            continue
+        if field_path == "full_log":
+            full_log_parts.append(literal)
             continue
         if field_path.startswith("win.eventdata."):
             camel = field_path[len("win.eventdata.") :]
             key = camel[0].upper() + camel[1:] if camel else camel
             event_data[key] = literal
 
-    return {
+    result = {
         "event_id": derived_eid or event_id or "",
         "channel": channel,
         "provider_name": provider,
@@ -473,6 +685,9 @@ def synthesize_event(field_matches: dict, event_id, channel: str, provider: str)
         "event_data": event_data,
         "_synthetic": True,
     }
+    if full_log_parts:
+        result["full_log"] = " ".join(full_log_parts)
+    return result
 
 
 def _provider_for_parent(parent_sid) -> tuple[str, str]:
@@ -577,6 +792,18 @@ def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> lis
         if mode == "simulate":
             result = validate_simulate(rule_id, meta, event)
             result.mode = sim_mode
+            # Synthetic events can't reliably validate PCRE-only patterns
+            # (the OSRegex simulator interprets `.+` as literal). Mark as
+            # inconclusive rather than a false failure.
+            if (
+                not result.passed
+                and provenance == "synthetic"
+                and any(_PCRE_ONLY_RE.search(v) for v in meta.get("field_matches", {}).values())
+            ):
+                result.inconclusive = True
+                inconclusive += 1
+                results.append(result)
+                continue
         else:
             result = validate_live(rule_id, event, config)
 

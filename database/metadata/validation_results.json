@@ -182,10 +182,10 @@
     "inconclusive": false
   },
   "100020": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: full_log = 'Adfind' vs ''"
+      "  PASS: full_log = 'Adfind' vs 'Adfind'"
     ],
     "error": "",
     "inconclusive": false
@@ -472,11 +472,11 @@
     "inconclusive": false
   },
   "100049": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata. = 'OabVirtualDirectory| -ExternalUrl ' vs 'OabVirtualDirectory'",
-      "  FAIL: full_log = 'eval\\(request' vs ''"
+      "  PASS: full_log = 'eval\\(request' vs 'eval(request'"
     ],
     "error": "",
     "inconclusive": false
@@ -585,11 +585,11 @@
     "inconclusive": false
   },
   "100060": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4697' vs '4697'",
-      "  FAIL: win.eventdata.serviceFileName = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[s*d{1,3}s*]s*+s*$PSHome['"
+      "  PASS: win.eventdata.serviceFileName = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[ *1 *] *+ *$PSHome['"
     ],
     "error": "",
     "inconclusive": false
@@ -649,7 +649,7 @@
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4697' vs '4697'",
-      "  PASS: win.eventdata.serviceFileName = '\\(Clipboard\\|i' vs '(Clipboard\\'"
+      "  PASS: win.eventdata.serviceFileName = '\\(Clipboard\\|i' vs '(Clipboard|i'"
     ],
     "error": "",
     "inconclusive": false
@@ -697,21 +697,21 @@
     "inconclusive": false
   },
   "100071": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4720' vs '4720'",
-      "  FAIL: win.eventdata.samAccountName = '\\$' vs '\\'"
+      "  PASS: win.eventdata.samAccountName = '\\$' vs '$'"
     ],
     "error": "",
     "inconclusive": false
   },
   "100072": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4781' vs '4781'",
-      "  FAIL: win.eventdata.newTargetUserName = '\\$' vs '\\'"
+      "  PASS: win.eventdata.newTargetUserName = '\\$' vs '$'"
     ],
     "error": "",
     "inconclusive": false
@@ -895,11 +895,11 @@
     "inconclusive": false
   },
   "100090": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '7045' vs '7045'",
-      "  FAIL: win.eventdata.imagePath = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[s*d{1,3}s*]s*+s*$PSHome['"
+      "  PASS: win.eventdata.imagePath = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[ *1 *] *+ *$PSHome['"
     ],
     "error": "",
     "inconclusive": false
@@ -965,7 +965,7 @@
     "details": [
       "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
       "  PASS: win.system.eventID = '7045' vs '7045'",
-      "  PASS: win.eventdata.imagePath = '\\(Clipboard\\|i' vs '(Clipboard\\'"
+      "  PASS: win.eventdata.imagePath = '\\(Clipboard\\|i' vs '(Clipboard|i'"
     ],
     "error": "",
     "inconclusive": false
@@ -1292,10 +1292,10 @@
     "inconclusive": false
   },
   "100129": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.contents = 'http[s]?://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs 'http[s]?://[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}'",
+      "  PASS: win.eventdata.contents = 'http[s]?://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs 'https://1x1x1x1'",
       "  PASS: win.eventdata.targetFilename = '.ps1:Zone|.bat:Zone|.exe:Zone|.vbe:Zone|.vbs:Zone|.dll:Zone|.one:Zone|.cmd:Zone|.hta:Zone|.xll:Zone|.lnk:Zone' vs '.ps1:Zone'"
     ],
     "error": "",
@@ -2185,10 +2185,10 @@
     "inconclusive": false
   },
   "100224": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '' vs 'x'"
+      "  PASS: win.eventdata.commandLine = '' vs 'x'"
     ],
     "error": "",
     "inconclusive": false
@@ -2471,40 +2471,40 @@
     "inconclusive": false
   },
   "100254": {
-    "passed": true,
-    "mode": "simulate_synthetic",
-    "details": [
-      "  PASS: win.eventdata.payload = 'cmd.{0,5}(?:/c|/r).+clip(?:\\.exe)?.{0,4}&&.+clipboard]::\\(\\s\\\\\"\\{\\d\\}.+-f.+\"' vs 'cmd.{0,5}(?:/c'"
-    ],
-    "error": "",
-    "inconclusive": false
-  },
-  "100255": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.payload = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[s*d{1,3}s*]s*+s*$PSHome['"
+      "  FAIL: win.eventdata.payload = 'cmd.{0,5}(?:/c|/r).+clip(?:\\.exe)?.{0,4}&&.+clipboard]::\\(\\s\\\\\"\\{\\d\\}.+-f.+\"' vs 'cmdx/cxclipxexex&&xclipboard]::( \\\"{1}x-fx\"'"
+    ],
+    "error": "",
+    "inconclusive": true
+  },
+  "100255": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.payload = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[ *1 *] *+ *$PSHome['"
     ],
     "error": "",
     "inconclusive": false
   },
   "100256": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.payload = 'cmd.{0,5}(?:/c|/r).+powershell.+(?:\\$\\{?input\\}?|noexit).+\"' vs 'cmd.{0,5}(?:/c'"
+      "  FAIL: win.eventdata.payload = 'cmd.{0,5}(?:/c|/r).+powershell.+(?:\\$\\{?input\\}?|noexit).+\"' vs 'cmdx/cxpowershellx${input}x\"'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100257": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.payload = 'cmd.{0,5}(?:/c|/r)(?:\\s|)\"set\\s[a-zA-Z]{3,6}.*(?:\\{\\d\\}){1,}\\\\\"\\s+?-f(?:.*\\)){1,}.*\"' vs 'cmd.{0,5}(?:/c'"
+      "  FAIL: win.eventdata.payload = 'cmd.{0,5}(?:/c|/r)(?:\\s|)\"set\\s[a-zA-Z]{3,6}.*(?:\\{\\d\\}){1,}\\\\\"\\s+?-f(?:.*\\)){1,}.*\"' vs 'cmdx/c \"set ax{1}\\\" +-fx)x\"'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100258": {
     "passed": true,
@@ -2528,19 +2528,19 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.payload = '(?i)(set).*&&\\s?set.*(environment|invoke|\\$?\\{?input).*&&.*\"' vs '(?i)(set).*&&s?set.*(environment'"
+      "  FAIL: win.eventdata.payload = '(?i)(set).*&&\\s?set.*(environment|invoke|\\$?\\{?input).*&&.*\"' vs 'setx&& setxenvironmentx&&x\"'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100261": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.payload = '(?i)echo.*clip.*&&.*(Clipboard|i`?n`?v`?o`?k`?e`?)' vs '(?i)echo.*clip.*&&.*(Clipboard'"
+      "  FAIL: win.eventdata.payload = '(?i)echo.*clip.*&&.*(Clipboard|i`?n`?v`?o`?k`?e`?)' vs 'echoxclipx&&xClipboard'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100262": {
     "passed": true,
@@ -2564,10 +2564,10 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.payload = '(?i)&&set.*(\\{\\d\\}){2,}\\\\\"\\s+?-f.*&&.*cmd.*/c' vs '(?i)&&set.*({d}){2,}\\\"s+?-f.*&&.*cmd.*/c'"
+      "  FAIL: win.eventdata.payload = '(?i)&&set.*(\\{\\d\\}){2,}\\\\\"\\s+?-f.*&&.*cmd.*/c' vs '&&setx{1}\\\" +-fx&&xcmdx/c'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100265": {
     "passed": true,
@@ -2831,40 +2831,40 @@
     "inconclusive": false
   },
   "100294": {
-    "passed": true,
-    "mode": "simulate_synthetic",
-    "details": [
-      "  PASS: win.eventdata.scriptBlockText = 'cmd.{0,5}(?:/c|/r).+clip(?:\\.exe)?.{0,4}&&.+clipboard]::\\(\\s\\\\\"\\{\\d\\}.+-f.+\"' vs 'cmd.{0,5}(?:/c'"
-    ],
-    "error": "",
-    "inconclusive": false
-  },
-  "100295": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.scriptBlockText = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[s*d{1,3}s*]s*+s*$PSHome['"
+      "  FAIL: win.eventdata.scriptBlockText = 'cmd.{0,5}(?:/c|/r).+clip(?:\\.exe)?.{0,4}&&.+clipboard]::\\(\\s\\\\\"\\{\\d\\}.+-f.+\"' vs 'cmdx/cxclipxexex&&xclipboard]::( \\\"{1}x-fx\"'"
+    ],
+    "error": "",
+    "inconclusive": true
+  },
+  "100295": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[ *1 *] *+ *$PSHome['"
     ],
     "error": "",
     "inconclusive": false
   },
   "100296": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.scriptBlockText = 'cmd.{0,5}(?:/c|/r).+powershell.+(?:\\$?\\{?input\\}?|noexit).+\"' vs 'cmd.{0,5}(?:/c'"
+      "  FAIL: win.eventdata.scriptBlockText = 'cmd.{0,5}(?:/c|/r).+powershell.+(?:\\$?\\{?input\\}?|noexit).+\"' vs 'cmdx/cxpowershellx${input}x\"'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100297": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.scriptBlockText = 'cmd.{0,5}(?:/c|/r)(?:\\s|)\"set\\s[a-zA-Z]{3,6}.*(?:\\{\\d\\}){1,}\\\\\"\\s+?-f(?:.*\\)){1,}.*\"' vs 'cmd.{0,5}(?:/c'"
+      "  FAIL: win.eventdata.scriptBlockText = 'cmd.{0,5}(?:/c|/r)(?:\\s|)\"set\\s[a-zA-Z]{3,6}.*(?:\\{\\d\\}){1,}\\\\\"\\s+?-f(?:.*\\)){1,}.*\"' vs 'cmdx/c \"set ax{1}\\\" +-fx)x\"'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100298": {
     "passed": true,
@@ -2888,19 +2888,19 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.scriptBlockText = '(?i)(set).*&&\\s?set.*(environment|invoke|\\$\\{?input).*&&.*\"' vs '(?i)(set).*&&s?set.*(environment'"
+      "  FAIL: win.eventdata.scriptBlockText = '(?i)(set).*&&\\s?set.*(environment|invoke|\\$\\{?input).*&&.*\"' vs 'setx&& setxenvironmentx&&x\"'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100301": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.scriptBlockText = '(?i)echo.*clip.*&&.*(Clipboard|i`?n`?v`?o`?k`?e`?)' vs '(?i)echo.*clip.*&&.*(Clipboard'"
+      "  FAIL: win.eventdata.scriptBlockText = '(?i)echo.*clip.*&&.*(Clipboard|i`?n`?v`?o`?k`?e`?)' vs 'echoxclipx&&xClipboard'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100302": {
     "passed": true,
@@ -2924,10 +2924,10 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.scriptBlockText = '(?i)&&set.*(\\{\\d\\}){2,}\\\\\"\\s+?-f.*&&.*cmd.*/c' vs '(?i)&&set.*({d}){2,}\\\"s+?-f.*&&.*cmd.*/c'"
+      "  FAIL: win.eventdata.scriptBlockText = '(?i)&&set.*(\\{\\d\\}){2,}\\\\\"\\s+?-f.*&&.*cmd.*/c' vs '&&setx{1}\\\" +-fx&&xcmdx/c'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100305": {
     "passed": true,
@@ -3113,7 +3113,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.scriptBlockText = '.DownloadFile\\(|.DownloadFileAsync\\(|.DownloadString\\(|.DownloadStringAsync\\(' vs '.DownloadFile('"
+      "  PASS: win.eventdata.scriptBlockText = '.DownloadFile\\(|.DownloadFileAsync\\(|.DownloadString\\(|.DownloadStringAsync\\(' vs '.DownloadFile(|.DownloadFileAsync(|.DownloadString(|.DownloadStringAsync('"
     ],
     "error": "",
     "inconclusive": false
@@ -3218,10 +3218,10 @@
     "inconclusive": false
   },
   "100337": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.scriptBlockText = 'System.Reflection.Assembly.Load\\(\\$|\\[System.Reflection.Assembly\\]::Load\\(\\$|\\[Reflection.Assembly\\]::Load\\(\\$|System.Reflection.AssemblyName|Reflection.Emit.AssemblyBuilderAccess|Reflection.Emit.CustomAttributeBuilder|Runtime.InteropServices.UnmanagedType|Runtime.InteropServices.DllImportAttribute|SuspendThread|rundll32' vs 'System.Reflection.Assembly.Load(\\'"
+      "  PASS: win.eventdata.scriptBlockText = 'System.Reflection.Assembly.Load\\(\\$|\\[System.Reflection.Assembly\\]::Load\\(\\$|\\[Reflection.Assembly\\]::Load\\(\\$|System.Reflection.AssemblyName|Reflection.Emit.AssemblyBuilderAccess|Reflection.Emit.CustomAttributeBuilder|Runtime.InteropServices.UnmanagedType|Runtime.InteropServices.DllImportAttribute|SuspendThread|rundll32' vs 'System.Reflection.Assembly.Load($|[System.Reflection.Assembly]::Load($|[Reflecti'"
     ],
     "error": "",
     "inconclusive": false
@@ -3320,7 +3320,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.scriptBlockText = '.BackupEventlog\\(|.ChangeSecurityPermissions\\(|.ChangeSecurityPermissionsEx\\(|.ClearEventLog\\(|.Delete\\(|.DeleteEx\\(|.Rename\\(|.TakeOwnerShip\\(|.TakeOwnerShipEx\\(' vs '.BackupEventlog('"
+      "  PASS: win.eventdata.scriptBlockText = '.BackupEventlog\\(|.ChangeSecurityPermissions\\(|.ChangeSecurityPermissionsEx\\(|.ClearEventLog\\(|.Delete\\(|.DeleteEx\\(|.Rename\\(|.TakeOwnerShip\\(|.TakeOwnerShipEx\\(' vs '.BackupEventlog(|.ChangeSecurityPermissions(|.ChangeSecurityPermissionsEx(|.Clea'"
     ],
     "error": "",
     "inconclusive": false
@@ -3437,11 +3437,11 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.callTrace = '^C:\\\\Windows\\\\SYSTEM32\\\\ntdll\\.dll\\+[a-z0-9]{4,6}\\|C:\\\\Windows\\\\System32\\\\KERNELBASE\\.dll\\+[a-z0-9]{4,6}\\|UNKNOWN\\([A-Z0-9]{16}\\)$' vs 'C:\\Windows\\SYSTEM32\\ntdllxdll+[a-z0-9]{4,6}\\'",
+      "  FAIL: win.eventdata.callTrace = '^C:\\\\Windows\\\\SYSTEM32\\\\ntdll\\.dll\\+[a-z0-9]{4,6}\\|C:\\\\Windows\\\\System32\\\\KERNELBASE\\.dll\\+[a-z0-9]{4,6}\\|UNKNOWN\\([A-Z0-9]{16}\\)$' vs 'C:\\Windows\\SYSTEM32\\ntdllxdll+1\\'",
       "  PASS: win.eventdata.grantedAccess = '0x1028|0x1fffff' vs '0x1028'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100362": {
     "passed": true,
@@ -3817,20 +3817,20 @@
     "inconclusive": false
   },
   "100400": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]decode |[-/\u2013\u2014]decodehex ' vs '[-/\u2013\u2014]decode '",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]decode |[-/\u2013\u2014]decodehex ' vs '/decode '",
       "  PASS: win.eventdata.image = '\\\\certutil.exe$' vs '\\certutil.exe'"
     ],
     "error": "",
     "inconclusive": false
   },
   "100401": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]encode' vs '[-/\u2013\u2014]encode'",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]encode' vs '/encode'",
       "  PASS: win.eventdata.image = '\\\\certutil.exe$' vs '\\certutil.exe'"
     ],
     "error": "",
@@ -3857,10 +3857,10 @@
     "inconclusive": false
   },
   "100404": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]exportPFX ' vs '[-/\u2013\u2014]exportPFX '",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]exportPFX ' vs '/exportPFX '",
       "  PASS: win.eventdata.image = '\\\\certutil.exe$' vs '\\certutil.exe'"
     ],
     "error": "",
@@ -4151,10 +4151,10 @@
     "inconclusive": false
   },
   "100434": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\s-c\\s' vs 's-cs'",
+      "  PASS: win.eventdata.commandLine = '\\s-c\\s' vs ' -c '",
       "  PASS: win.eventdata.image = '\\\\curl.exe$' vs '\\curl.exe'"
     ],
     "error": "",
@@ -4171,20 +4171,20 @@
     "inconclusive": false
   },
   "100436": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs '://[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}'",
+      "  PASS: win.eventdata.commandLine = '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs '://1x1x1x1'",
       "  PASS: win.eventdata.image = '\\\\curl.exe$' vs '\\curl.exe'"
     ],
     "error": "",
     "inconclusive": false
   },
   "100437": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs '://[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}'",
+      "  PASS: win.eventdata.commandLine = '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs '://1x1x1x1'",
       "  PASS: win.eventdata.image = '\\\\curl.exe$' vs '\\curl.exe'"
     ],
     "error": "",
@@ -4201,10 +4201,10 @@
     "inconclusive": false
   },
   "100439": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\s-k\\s' vs 's-ks'",
+      "  PASS: win.eventdata.commandLine = '\\s-k\\s' vs ' -k '",
       "  PASS: win.eventdata.image = '\\\\curl.exe$' vs '\\curl.exe'"
     ],
     "error": "",
@@ -4306,10 +4306,10 @@
     "inconclusive": false
   },
   "100450": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]s ' vs '[-/\u2013\u2014]s '",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]s ' vs '/s '",
       "  PASS: win.eventdata.originalFileName = 'diskshadow.exe' vs 'diskshadow.exe'"
     ],
     "error": "",
@@ -4532,12 +4532,12 @@
     "inconclusive": false
   },
   "100473": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.parentImage = '\\\\ftp.exe$' vs '\\ftp.exe'",
       "  PASS: win.eventdata.image = '\\\\ftp.exe$' vs '\\ftp.exe'",
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]s:' vs '[-/\u2013\u2014]s:'"
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]s:' vs '/s:'"
     ],
     "error": "",
     "inconclusive": false
@@ -4903,28 +4903,28 @@
     "inconclusive": false
   },
   "100512": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[s*d{1,3}s*]s*+s*$PSHome['"
+      "  PASS: win.eventdata.commandLine = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[ *1 *] *+ *$PSHome['"
     ],
     "error": "",
     "inconclusive": false
   },
   "100513": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\$ShellId\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$ShellId\\[' vs '$ShellId[s*d{1,3}s*]s*+s*$ShellId['"
+      "  PASS: win.eventdata.commandLine = '\\$ShellId\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$ShellId\\[' vs '$ShellId[ *1 *] *+ *$ShellId['"
     ],
     "error": "",
     "inconclusive": false
   },
   "100514": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\$env:Public\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$env:Public\\[' vs '$env:Public[s*d{1,3}s*]s*+s*$env:Public['"
+      "  PASS: win.eventdata.commandLine = '\\$env:Public\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$env:Public\\[' vs '$env:Public[ *1 *] *+ *$env:Public['"
     ],
     "error": "",
     "inconclusive": false
@@ -4933,16 +4933,16 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\$env:ComSpec\\[(?:\\s*\\d{1,3}\\s*,){2}' vs '$env:ComSpec[(?:s*d{1,3}s*,){2}'"
+      "  FAIL: win.eventdata.commandLine = '\\$env:ComSpec\\[(?:\\s*\\d{1,3}\\s*,){2}' vs '$env:ComSpec[ *1 *,'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100516": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\*mdr\\*\\W\\s*\\)\\.Name' vs '*mdr*Ws*)xName'"
+      "  PASS: win.eventdata.commandLine = '\\*mdr\\*\\W\\s*\\)\\.Name' vs '*mdr*  *)xName'"
     ],
     "error": "",
     "inconclusive": false
@@ -4957,31 +4957,31 @@
     "inconclusive": false
   },
   "100518": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\[String\\]\\s*\\$VerbosePreference' vs '[String]s*$VerbosePreference'"
+      "  PASS: win.eventdata.commandLine = '\\[String\\]\\s*\\$VerbosePreference' vs '[String] *$VerbosePreference'"
     ],
     "error": "",
     "inconclusive": false
   },
   "100519": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = 'cmd.{0,5}(?:/c|/r).+powershell.+(?:\\$\\{?input\\}?|noexit).+\\\"' vs 'cmd.{0,5}(?:/c'"
+      "  FAIL: win.eventdata.commandLine = 'cmd.{0,5}(?:/c|/r).+powershell.+(?:\\$\\{?input\\}?|noexit).+\\\"' vs 'cmdx/cxpowershellx${input}x\"'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100520": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = 'cmd.{0,5}(?:/c|/r)(?:\\s|)\\\"set\\s[a-zA-Z]{3,6}.*(?:\\{\\d\\}){1,}\\\\\\\"\\s+?\\-f(?:.*\\)){1,}.*\\\"' vs 'cmd.{0,5}(?:/c'"
+      "  FAIL: win.eventdata.commandLine = 'cmd.{0,5}(?:/c|/r)(?:\\s|)\\\"set\\s[a-zA-Z]{3,6}.*(?:\\{\\d\\}){1,}\\\\\\\"\\s+?\\-f(?:.*\\)){1,}.*\\\"' vs 'cmdx/c \"set ax{1}\\\" +-fx)x\"'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100521": {
     "passed": true,
@@ -4996,19 +4996,19 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '(?i)(?:set).*&&\\s?set.*(?:environment|invoke|\\$\\{?input).*&&.*\"' vs '(?i)(?:set).*&&s?set.*(?:environment'"
+      "  FAIL: win.eventdata.commandLine = '(?i)(?:set).*&&\\s?set.*(?:environment|invoke|\\$\\{?input).*&&.*\"' vs 'setx&& setxenvironmentx&&x\"'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100523": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = '(?i)echo.*clip.*&&.*(?:Clipboard|i`?n`?v`?o`?k`?e`?)' vs '(?i)echo.*clip.*&&.*(?:Clipboard'"
+      "  FAIL: win.eventdata.commandLine = '(?i)echo.*clip.*&&.*(?:Clipboard|i`?n`?v`?o`?k`?e`?)' vs 'echoxclipx&&xClipboard'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100524": {
     "passed": true,
@@ -5462,7 +5462,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = ':[^\\\\]|.cab' vs ':[^\\]'"
+      "  PASS: win.eventdata.commandLine = ':[^\\\\]|.cab' vs ':a'"
     ],
     "error": "",
     "inconclusive": false
@@ -5471,7 +5471,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = ':[^\\\\]|.cab' vs ':[^\\]'"
+      "  PASS: win.eventdata.commandLine = ':[^\\\\]|.cab' vs ':a'"
     ],
     "error": "",
     "inconclusive": false
@@ -6038,10 +6038,10 @@
     "inconclusive": false
   },
   "100631": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]q' vs '[-/\u2013\u2014]q'",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]q' vs '/q'",
       "  PASS: win.eventdata.image = '\\\\msiexec.exe$' vs '\\msiexec.exe'"
     ],
     "error": "",
@@ -6199,7 +6199,7 @@
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.image = '\\\\node.exe$' vs '\\node.exe'",
-      "  PASS: win.eventdata.commandLine = '.exec\\(|net.socket|.connect|child_process' vs '.exec('"
+      "  PASS: win.eventdata.commandLine = '.exec\\(|net.socket|.connect|child_process' vs '.exec(|net.socket|.connect|child_process'"
     ],
     "error": "",
     "inconclusive": false
@@ -6474,10 +6474,10 @@
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.image = '\\\\ping.exe$' vs '\\ping.exe'",
-      "  FAIL: win.eventdata.commandLine = '0x[a-fA-F0-9]{8}' vs '0x[a-fA-F0-9]{8}'"
+      "  FAIL: win.eventdata.commandLine = '0x[a-fA-F0-9]{8}' vs '0x1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100676": {
     "passed": true,
@@ -6716,14 +6716,14 @@
     "inconclusive": false
   },
   "100701": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'",
-      "  PASS: win.eventdata.commandLine = '\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+' vs '+.*+.*+.*+.*+.*+.*+.*+.*+.*+.*+.*+.*+.*+'"
+      "  FAIL: win.eventdata.commandLine = '\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+.*\\+' vs '+x+x+x+x+x+x+x+x+x+x+x+x+x+'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100702": {
     "passed": true,
@@ -6845,7 +6845,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = ';iex \\$|\\| IEX|\\|IEX |I`E`X|I`EX|IE`X|iex |IEX \\(|IEX\\(|Invoke-Expression' vs ';iex \\'"
+      "  PASS: win.eventdata.commandLine = ';iex \\$|\\| IEX|\\|IEX |I`E`X|I`EX|IE`X|iex |IEX \\(|IEX\\(|Invoke-Expression' vs ';iex $'"
     ],
     "error": "",
     "inconclusive": false
@@ -6854,7 +6854,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = 'string\\(|file\\(|net.webclient\\).|download' vs 'string('",
+      "  PASS: win.eventdata.commandLine = 'string\\(|file\\(|net.webclient\\).|download' vs 'string(|file(|net.webclient).|download'",
       "  PASS: win.eventdata.image = '\\\\powershell_ise.exe$|\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell_ise.exe'"
     ],
     "error": "",
@@ -7066,11 +7066,11 @@
     "inconclusive": false
   },
   "100738": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'",
-      "  FAIL: win.eventdata.commandLine = '\\s-\\s*<' vs 's-s*<'"
+      "  PASS: win.eventdata.commandLine = '\\s-\\s*<' vs ' - *<'"
     ],
     "error": "",
     "inconclusive": false
@@ -7149,7 +7149,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = 'IEX \\(\\(New-Object Net.WebClient\\).DownloadString|IEX \\(New-Object Net.WebClient\\).DownloadString|IEX\\(\\(New-Object Net.WebClient\\).DownloadString|IEX\\(New-Object Net.WebClient\\).DownloadString| -command \\(New-Object System.Net.WebClient\\).DownloadFile\\(| -c \\(New-Object System.Net.WebClient\\).DownloadFile\\(' vs 'IEX ((New-Object Net.WebClient).DownloadString'"
+      "  PASS: win.eventdata.commandLine = 'IEX \\(\\(New-Object Net.WebClient\\).DownloadString|IEX \\(New-Object Net.WebClient\\).DownloadString|IEX\\(\\(New-Object Net.WebClient\\).DownloadString|IEX\\(New-Object Net.WebClient\\).DownloadString| -command \\(New-Object System.Net.WebClient\\).DownloadFile\\(| -c \\(New-Object System.Net.WebClient\\).DownloadFile\\(' vs 'IEX ((New-Object Net.WebClient).DownloadString|IEX (New-Object Net.WebClient).Do'"
     ],
     "error": "",
     "inconclusive": false
@@ -7187,10 +7187,10 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\w+`(?:\\w+|-|.)`[\\w+|\\s]' vs 'w+`(?:w+'"
+      "  FAIL: win.eventdata.commandLine = '\\w+`(?:\\w+|-|.)`[\\w+|\\s]' vs 'a+`a+`\\'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100751": {
     "passed": true,
@@ -8248,10 +8248,10 @@
     "inconclusive": false
   },
   "100864": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[Rr][Uu][Nn][Dd][Ll][Ll]32(?:\\.[Ee][Xx][Ee])? \\S+?\\w:\\S+?:' vs '[Rr][Uu][Nn][Dd][Ll][Ll]32(?:x[Ee][Xx][Ee])? S+?w:S+?:'",
+      "  PASS: win.eventdata.commandLine = '[Rr][Uu][Nn][Dd][Ll][Ll]32(?:\\.[Ee][Xx][Ee])? \\S+?\\w:\\S+?:' vs 'RUNDLL32xEXE a+a:a+:'",
       "  PASS: win.eventdata.image = '\\\\rundll32.exe$' vs '\\rundll32.exe'"
     ],
     "error": "",
@@ -8739,11 +8739,11 @@
     "inconclusive": false
   },
   "100914": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.parentImage = '\\\\explorer.exe$' vs '\\explorer.exe'",
-      "  FAIL: win.eventdata.commandLine = '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000|\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001|\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002|\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003|\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004|\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005|\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006|\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007|\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008|\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009|\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a|\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|            ' vs '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000'"
+      "  PASS: win.eventdata.commandLine = '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000|\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001|\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002|\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003|\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004|\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005|\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006|\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007|\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008|\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009|\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a|\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|            ' vs '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000'"
     ],
     "error": "",
     "inconclusive": false
@@ -8862,10 +8862,10 @@
     "inconclusive": false
   },
   "100927": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = 'net\\s+view|sc\\s+query' vs 'nets+view'"
+      "  PASS: win.eventdata.commandLine = 'net\\s+view|sc\\s+query' vs 'net +view'"
     ],
     "error": "",
     "inconclusive": false
@@ -9233,7 +9233,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = '.BackupEventlog\\(|.ChangeSecurityPermissions\\(|.ChangeSecurityPermissionsEx\\(|.ClearEventLog\\(|.Delete\\(|.DeleteEx\\(|.Rename\\(|.TakeOwnerShip\\(|.TakeOwnerShipEx\\(' vs '.BackupEventlog('"
+      "  PASS: win.eventdata.commandLine = '.BackupEventlog\\(|.ChangeSecurityPermissions\\(|.ChangeSecurityPermissionsEx\\(|.ClearEventLog\\(|.Delete\\(|.DeleteEx\\(|.Rename\\(|.TakeOwnerShip\\(|.TakeOwnerShipEx\\(' vs '.BackupEventlog(|.ChangeSecurityPermissions(|.ChangeSecurityPermissionsEx(|.Clea'"
     ],
     "error": "",
     "inconclusive": false
@@ -9543,20 +9543,20 @@
     "inconclusive": false
   },
   "101001": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]c' vs '[-/\u2013\u2014]c'",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]c' vs '/c'",
       "  PASS: win.eventdata.image = '\\\\Sysmon64.exe$|\\\\Sysmon.exe$' vs '\\Sysmon64.exe'"
     ],
     "error": "",
     "inconclusive": false
   },
   "101002": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]u' vs '[-/\u2013\u2014]u'",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]u' vs '/u'",
       "  PASS: win.eventdata.image = '\\\\Sysmon64.exe$|\\\\Sysmon.exe$' vs '\\Sysmon64.exe'"
     ],
     "error": "",
@@ -9831,10 +9831,10 @@
     "inconclusive": false
   },
   "101030": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs '://[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}'",
+      "  PASS: win.eventdata.commandLine = '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs '://1x1x1x1'",
       "  PASS: win.eventdata.image = '\\\\wget.exe$' vs '\\wget.exe'"
     ],
     "error": "",
@@ -9891,10 +9891,10 @@
     "inconclusive": false
   },
   "101036": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '://\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|add ' vs '://d{1,3}xd{1,3}xd{1,3}xd{1,3}'",
+      "  PASS: win.eventdata.commandLine = '://\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|add ' vs '://1x1x1x1'",
       "  PASS: win.eventdata.image = '\\\\winget.exe$' vs '\\winget.exe'"
     ],
     "error": "",
@@ -9958,12 +9958,12 @@
     "inconclusive": false
   },
   "101043": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.parentImage = '\\\\wlrmdr.exe$' vs '\\wlrmdr.exe'",
       "  PASS: win.eventdata.image = '\\\\wlrmdr.exe$' vs '\\wlrmdr.exe'",
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]u ' vs '[-/\u2013\u2014]u '"
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]u ' vs '/u '"
     ],
     "error": "",
     "inconclusive": false
@@ -10176,10 +10176,10 @@
     "inconclusive": false
   },
   "101065": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]format:' vs '[-/\u2013\u2014]format:'",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]format:' vs '/format:'",
       "  PASS: win.eventdata.image = '\\\\wmic.exe$' vs '\\wmic.exe'"
     ],
     "error": "",
@@ -10292,10 +10292,10 @@
     "inconclusive": false
   },
   "101077": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.image = '[a-zA-Z]:\\\\' vs '[a-zA-Z]:\\'",
+      "  PASS: win.eventdata.image = '[a-zA-Z]:\\\\' vs 'a:\\'",
       "  PASS: win.eventdata.currentDirectory = '\\\\\\\\\\\\\\\\wsl.localhost' vs '\\\\\\\\wsl.localhost'"
     ],
     "error": "",
@@ -10345,10 +10345,10 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}' vs '{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}}'"
+      "  FAIL: win.eventdata.commandLine = '\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}' vs '{1-1-1-1-1}'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "101083": {
     "passed": true,
@@ -10993,11 +10993,11 @@
     "inconclusive": false
   },
   "101149": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.targetObject = '\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\RunMRU\\\\' vs '\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RunMRU\\'",
-      "  FAIL: win.eventdata.details = '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000|\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001|\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002|\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003|\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004|\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005|\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006|\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007|\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008|\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009|\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a|\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|            ' vs '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000'"
+      "  PASS: win.eventdata.details = '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000|\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001|\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002|\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003|\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004|\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005|\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006|\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007|\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008|\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009|\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a|\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|            ' vs '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000'"
     ],
     "error": "",
     "inconclusive": false
@@ -11012,11 +11012,11 @@
     "inconclusive": false
   },
   "101151": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.targetObject = '\\\\Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\TypedPaths\\\\url1$' vs '\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\TypedPaths\\url1'",
-      "  FAIL: win.eventdata.details = '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000|\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001|\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002|\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003|\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004|\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005|\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006|\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007|\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008|\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009|\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a|\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|            ' vs '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000'"
+      "  PASS: win.eventdata.details = '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000|\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001\u2001|\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002\u2002|\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003\u2003|\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004\u2004|\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005\u2005|\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006\u2006|\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007\u2007|\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008\u2008|\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009\u2009|\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a\u200a|\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|            ' vs '\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000\u2000'"
     ],
     "error": "",
     "inconclusive": false
@@ -11098,10 +11098,10 @@
     "inconclusive": false
   },
   "101160": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: full_log = 'Sysmon config state changed' vs ''"
+      "  PASS: full_log = 'Sysmon config state changed' vs 'Sysmon config state changed'"
     ],
     "error": "",
     "inconclusive": false
@@ -16452,11 +16452,11 @@
     "inconclusive": false
   },
   "104532": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata. = 'New-ExchangeCertificate| -GenerateRequest| -BinaryEncoded| -RequestFile' vs 'New-ExchangeCertificate'",
-      "  FAIL: full_log = '\\\\\\\\\\\\\\\\localhost\\\\\\\\C\\$' vs ''"
+      "  PASS: full_log = '\\\\\\\\\\\\\\\\localhost\\\\\\\\C\\$' vs '\\\\\\\\localhost\\\\C$'"
     ],
     "error": "",
     "inconclusive": false
@@ -16480,10 +16480,10 @@
     "inconclusive": false
   },
   "104535": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: full_log = 'Install-TransportAgent' vs ''"
+      "  PASS: full_log = 'Install-TransportAgent' vs 'Install-TransportAgent'"
     ],
     "error": "",
     "inconclusive": false
@@ -16499,11 +16499,11 @@
     "inconclusive": false
   },
   "104537": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4697' vs '4697'",
-      "  FAIL: win.eventdata.serviceFileName = 'ADMIN\\$|.exe' vs 'ADMIN\\'"
+      "  PASS: win.eventdata.serviceFileName = 'ADMIN\\$|.exe' vs 'ADMIN$'"
     ],
     "error": "",
     "inconclusive": false
@@ -16533,11 +16533,11 @@
     "inconclusive": false
   },
   "104540": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4720' vs '4720'",
-      "  FAIL: win.eventdata.targetUserName = '\\$$' vs '\\'"
+      "  PASS: win.eventdata.targetUserName = '\\$$' vs '$'"
     ],
     "error": "",
     "inconclusive": false
@@ -16658,11 +16658,11 @@
     "inconclusive": false
   },
   "104552": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '40300|40301|40302' vs '40300'",
-      "  FAIL: full_log = 'HybridConnection' vs ''"
+      "  PASS: full_log = 'HybridConnection' vs 'HybridConnection'"
     ],
     "error": "",
     "inconclusive": false
@@ -16771,10 +16771,10 @@
     "details": [
       "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
       "  PASS: win.system.eventID = '7045' vs '7045'",
-      "  FAIL: win.eventdata.imagePath = '^[a-zA-Z]:\\\\windows\\\\temp\\\\[a-zA-Z0-9]{10}\\.exe' vs '[a-zA-Z]:\\windows\\temp\\[a-zA-Z0-9]{10}xexe'"
+      "  FAIL: win.eventdata.imagePath = '^[a-zA-Z]:\\\\windows\\\\temp\\\\[a-zA-Z0-9]{10}\\.exe' vs 'a:\\windows\\temp\\1xexe'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "104563": {
     "passed": true,
@@ -16836,10 +16836,10 @@
     "details": [
       "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
       "  PASS: win.system.eventID = '7045' vs '7045'",
-      "  FAIL: win.eventdata.imagePath = '^[Cc]:\\\\[Pp]rogram[Dd]ata\\\\.{1,9}\\.exe' vs '[Cc]:\\[Pp]rogram[Dd]ata\\.{1,9}xexe'"
+      "  FAIL: win.eventdata.imagePath = '^[Cc]:\\\\[Pp]rogram[Dd]ata\\\\.{1,9}\\.exe' vs 'C:\\ProgramData\\xxexe'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "104569": {
     "passed": true,
@@ -17694,13 +17694,13 @@
     "inconclusive": false
   },
   "104661": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.scriptBlockText = '(Copy-Item|cpi) .{2,128} -Destination .{1,32}\\\\Windows\\\\(System32|SysWOW64)' vs '(Copy-Item'"
+      "  FAIL: win.eventdata.scriptBlockText = '(Copy-Item|cpi) .{2,128} -Destination .{1,32}\\\\Windows\\\\(System32|SysWOW64)' vs 'Copy-Item x -Destination x\\Windows\\System32'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "104662": {
     "passed": true,
@@ -17975,10 +17975,10 @@
     "inconclusive": false
   },
   "104691": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]name:|module' vs '[-/\u2013\u2014]name:'",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]name:|module' vs '/name:'",
       "  PASS: win.eventdata.image = '\\\\appcmd.exe$' vs '\\appcmd.exe'"
     ],
     "error": "",
@@ -18199,7 +18199,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.commandLine = ':[^ \\\\]' vs ':[^ \\]'",
+      "  PASS: win.eventdata.commandLine = ':[^ \\\\]' vs ':a'",
       "  PASS: win.eventdata.image = '\\\\regedit.exe$' vs '\\regedit.exe'"
     ],
     "error": "",
@@ -18210,7 +18210,7 @@
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.image = '\\\\regini.exe$' vs '\\regini.exe'",
-      "  PASS: win.eventdata.commandLine = ':[^ \\\\]' vs ':[^ \\]'"
+      "  PASS: win.eventdata.commandLine = ':[^ \\\\]' vs ':a'"
     ],
     "error": "",
     "inconclusive": false
@@ -18789,10 +18789,10 @@
     "inconclusive": false
   },
   "104776": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.details = 'ADMIN\\$|.exe' vs 'ADMIN\\'",
+      "  PASS: win.eventdata.details = 'ADMIN\\$|.exe' vs 'ADMIN$'",
       "  PASS: win.eventdata.targetObject = '\\\\System\\\\CurrentControlSet\\\\Services' vs '\\System\\CurrentControlSet\\Services'"
     ],
     "error": "",
@@ -19626,11 +19626,11 @@
     "inconclusive": false
   },
   "107019": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5145' vs '5145'",
-      "  FAIL: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC\\'",
+      "  PASS: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC$'",
       "  PASS: win.eventdata.relativeTargetName = 'atsvc' vs 'atsvc'",
       "  PASS: win.eventdata.accessList = 'WriteData' vs 'WriteData'"
     ],
@@ -19877,12 +19877,12 @@
     "inconclusive": false
   },
   "107043": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.sourceImage = '\\\\System32\\\\cscript.exe$|\\\\System32\\\\wscript.exe$|\\\\System32\\\\mshta.exe$|\\\\winword.exe$|\\\\excel.exe$' vs '\\System32\\cscript.exe'",
       "  PASS: win.eventdata.targetImage = '\\\\SysWOW64\\\\' vs '\\SysWOW64\\'",
-      "  FAIL: win.eventdata.startModule = '' vs 'x'"
+      "  PASS: win.eventdata.startModule = '' vs 'x'"
     ],
     "error": "",
     "inconclusive": false
@@ -20469,172 +20469,172 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\mojo\\.5688\\.8052\\.(?:183894939787088877|35780273329370473)[0-9a-f]{2}' vs '\\mojox5688x8052x(?:183894939787088877'"
+      "  FAIL: win.eventdata.pipeName = '\\\\mojo\\.5688\\.8052\\.(?:183894939787088877|35780273329370473)[0-9a-f]{2}' vs '\\mojox5688x8052x1838949397870888771'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107107": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\wkssvc_?[0-9a-f]{2}' vs '\\wkssvc_?[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\wkssvc_?[0-9a-f]{2}' vs '\\wkssvc_1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107108": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\ntsvcs[0-9a-f]{2}' vs '\\ntsvcs[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\ntsvcs[0-9a-f]{2}' vs '\\ntsvcs1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107109": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\DserNamePipe[0-9a-f]{2}' vs '\\DserNamePipe[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\DserNamePipe[0-9a-f]{2}' vs '\\DserNamePipe1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107110": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\SearchTextHarvester[0-9a-f]{2}' vs '\\SearchTextHarvester[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\SearchTextHarvester[0-9a-f]{2}' vs '\\SearchTextHarvester1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107111": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\mypipe-(?:f|h)[0-9a-f]{2}' vs '\\mypipe-(?:f'"
+      "  FAIL: win.eventdata.pipeName = '\\\\mypipe-(?:f|h)[0-9a-f]{2}' vs '\\mypipe-f1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107112": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\windows\\.update\\.manager[0-9a-f]{2,3}' vs '\\windowsxupdatexmanager[0-9a-f]{2,3}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\windows\\.update\\.manager[0-9a-f]{2,3}' vs '\\windowsxupdatexmanager1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107113": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\ntsvcs_[0-9a-f]{2}' vs '\\ntsvcs_[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\ntsvcs_[0-9a-f]{2}' vs '\\ntsvcs_1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107114": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\scerpc_?[0-9a-f]{2}' vs '\\scerpc_?[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\scerpc_?[0-9a-f]{2}' vs '\\scerpc_1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107115": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\PGMessagePipe[0-9a-f]{2}' vs '\\PGMessagePipe[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\PGMessagePipe[0-9a-f]{2}' vs '\\PGMessagePipe1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107116": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\MsFteWds[0-9a-f]{2}' vs '\\MsFteWds[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\MsFteWds[0-9a-f]{2}' vs '\\MsFteWds1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107117": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\f4c3[0-9a-f]{2}' vs '\\f4c3[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\f4c3[0-9a-f]{2}' vs '\\f4c31'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107118": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\fullduplex_[0-9a-f]{2}' vs '\\fullduplex_[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\fullduplex_[0-9a-f]{2}' vs '\\fullduplex_1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107119": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\msrpc_[0-9a-f]{4}' vs '\\msrpc_[0-9a-f]{4}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\msrpc_[0-9a-f]{4}' vs '\\msrpc_1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107120": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\win\\\\msrpc_[0-9a-f]{2}' vs '\\win\\msrpc_[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\win\\\\msrpc_[0-9a-f]{2}' vs '\\win\\msrpc_1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107121": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\f53f[0-9a-f]{2}' vs '\\f53f[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\f53f[0-9a-f]{2}' vs '\\f53f1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107122": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\rpc_[0-9a-f]{2}' vs '\\rpc_[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\rpc_[0-9a-f]{2}' vs '\\rpc_1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107123": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\spoolss_[0-9a-f]{2}' vs '\\spoolss_[0-9a-f]{2}'"
+      "  FAIL: win.eventdata.pipeName = '\\\\spoolss_[0-9a-f]{2}' vs '\\spoolss_1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107124": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.pipeName = '\\\\Winsock2\\\\CatalogChangeListener-[0-9a-f]{3}-0,' vs '\\Winsock2\\CatalogChangeListener-[0-9a-f]{3}-0,'"
+      "  FAIL: win.eventdata.pipeName = '\\\\Winsock2\\\\CatalogChangeListener-[0-9a-f]{3}-0,' vs '\\Winsock2\\CatalogChangeListener-1-0,'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107125": {
     "passed": true,
@@ -20793,7 +20793,7 @@
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  PASS: win.eventdata.scriptBlockText = '::GetTypeFromCLSID\\(|.ShellExecute\\(' vs '::GetTypeFromCLSID('"
+      "  PASS: win.eventdata.scriptBlockText = '::GetTypeFromCLSID\\(|.ShellExecute\\(' vs '::GetTypeFromCLSID(|.ShellExecute('"
     ],
     "error": "",
     "inconclusive": false
@@ -22984,10 +22984,10 @@
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.targetObject = 'Software\\\\Classes\\\\Folder\\\\shell\\\\open\\\\command\\\\SymbolicLinkValue$' vs 'Software\\Classes\\Folder\\shell\\open\\command\\SymbolicLinkValue'",
-      "  FAIL: win.eventdata.details = '-1[0-9]{3}\\\\Software\\\\Classes\\\\' vs '-1[0-9]{3}\\Software\\Classes\\'"
+      "  FAIL: win.eventdata.details = '-1[0-9]{3}\\\\Software\\\\Classes\\\\' vs '-11\\Software\\Classes\\'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "107374": {
     "passed": true,
@@ -23408,11 +23408,11 @@
     "inconclusive": false
   },
   "108534": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5145' vs '5145'",
-      "  FAIL: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\ADMIN\\$' vs '\\\\\\\\\\x\\\\ADMIN\\'",
+      "  PASS: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\ADMIN\\$' vs '\\\\\\\\\\x\\\\ADMIN$'",
       "  PASS: win.eventdata.relativeTargetName = 'SYSTEM32\\\\|.tmp' vs 'SYSTEM32\\'"
     ],
     "error": "",
@@ -23462,11 +23462,11 @@
     "inconclusive": false
   },
   "108539": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5145' vs '5145'",
-      "  FAIL: win.eventdata.shareName = '\\\\IPC\\$$' vs '\\IPC\\'",
+      "  PASS: win.eventdata.shareName = '\\\\IPC\\$$' vs '\\IPC$'",
       "  PASS: win.eventdata.relativeTargetName = 'lsarpc' vs 'lsarpc'",
       "  PASS: win.eventdata.subjectUserName = 'ANONYMOUS LOGON' vs 'ANONYMOUS LOGON'"
     ],
@@ -23474,11 +23474,11 @@
     "inconclusive": false
   },
   "108540": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4768' vs '4768'",
-      "  FAIL: win.eventdata.targetUserName = '\\$$' vs '\\'",
+      "  PASS: win.eventdata.targetUserName = '\\$$' vs '$'",
       "  PASS: win.eventdata.certThumbprint = '\\.*' vs 'x'"
     ],
     "error": "",
@@ -23612,11 +23612,11 @@
     "inconclusive": false
   },
   "108553": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '31017' vs '31017'",
-      "  FAIL: win.eventdata.userName = '' vs 'x'",
+      "  PASS: win.eventdata.userName = '' vs 'x'",
       "  PASS: win.eventdata.serverName = '^\\\\1' vs '\\1'"
     ],
     "error": "",
@@ -23694,11 +23694,11 @@
     "inconclusive": false
   },
   "108561": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.targetImage = '\\\\lsass.exe$' vs '\\lsass.exe'",
-      "  FAIL: win.eventdata.startModule = '' vs 'x'"
+      "  PASS: win.eventdata.startModule = '' vs 'x'"
     ],
     "error": "",
     "inconclusive": false
@@ -23797,10 +23797,10 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.targetFilename = '\\\\[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.txt$' vs '\\[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}xtxt'"
+      "  FAIL: win.eventdata.targetFilename = '\\\\[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\.txt$' vs '\\1-1-1-1-1xtxt'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "108573": {
     "passed": true,
@@ -23861,10 +23861,10 @@
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.image = '\\\\svchost.exe$' vs '\\svchost.exe'",
-      "  FAIL: win.eventdata.targetFilename = '\\\\Windows\\\\System32\\\\[a-zA-Z0-9]{8}\\.tmp$' vs '\\Windows\\System32\\[a-zA-Z0-9]{8}xtmp'"
+      "  FAIL: win.eventdata.targetFilename = '\\\\Windows\\\\System32\\\\[a-zA-Z0-9]{8}\\.tmp$' vs '\\Windows\\System32\\1xtmp'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "108580": {
     "passed": true,
@@ -23879,10 +23879,10 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.targetFilename = '\\\\sessionresume_[a-zA-Z]{8}$' vs '\\sessionresume_[a-zA-Z]{8}'"
+      "  FAIL: win.eventdata.targetFilename = '\\\\sessionresume_[a-zA-Z]{8}$' vs '\\sessionresume_a'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "108582": {
     "passed": true,
@@ -25085,10 +25085,10 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '(?i)\\.exe[\\\"\\']?\\s+[^\\\"]{0,64}werfaultsecure\\.exe[\\\"\\']?\\s+\\d{2,10}' vs '(?i)xexe[\"']?s+[^\"]{0,64}werfaultsecurexexe[\"']?s+d{2,10}'"
+      "  FAIL: win.eventdata.commandLine = '(?i)\\.exe[\\\"\\']?\\s+[^\\\"]{0,64}werfaultsecure\\.exe[\\\"\\']?\\s+\\d{2,10}' vs 'xexe\\ +awerfaultsecurexexe\\ +1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "108711": {
     "passed": true,
@@ -25418,10 +25418,10 @@
     "inconclusive": false
   },
   "108746": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]s' vs '[-/\u2013\u2014]s'",
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]s' vs '/s'",
       "  PASS: win.eventdata.image = '\\\\RpcPing.exe$' vs '\\RpcPing.exe'"
     ],
     "error": "",
@@ -26612,10 +26612,10 @@
     "inconclusive": false
   },
   "110077": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs '://[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}x[0-9]{1,3}'",
+      "  PASS: win.eventdata.commandLine = '://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}' vs '://1x1x1x1'",
       "  PASS: win.eventdata.image = '\\\\certoc.exe$' vs '\\certoc.exe'"
     ],
     "error": "",
@@ -26906,11 +26906,11 @@
     "inconclusive": false
   },
   "110108": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.image = '\\\\replace.exe$' vs '\\replace.exe'",
-      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]a' vs '[-/\u2013\u2014]a'"
+      "  PASS: win.eventdata.commandLine = '[-/\u2013\u2014]a' vs '/a'"
     ],
     "error": "",
     "inconclusive": false
@@ -27626,10 +27626,10 @@
     "inconclusive": false
   },
   "110186": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.originalFileName = '' vs 'x'",
+      "  PASS: win.eventdata.originalFileName = '' vs 'x'",
       "  PASS: win.eventdata.commandLine = '.exe tunnel$' vs '.exe tunnel'"
     ],
     "error": "",
@@ -27668,10 +27668,10 @@
     "inconclusive": false
   },
   "110190": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.originalFileName = '' vs 'x'",
+      "  PASS: win.eventdata.originalFileName = '' vs 'x'",
       "  PASS: win.eventdata.commandLine = '.exe tunnel$' vs '.exe tunnel'"
     ],
     "error": "",
@@ -29562,11 +29562,11 @@
     "inconclusive": false
   },
   "112518": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5145' vs '5145'",
-      "  FAIL: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC\\'",
+      "  PASS: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC$'",
       "  PASS: win.eventdata.relativeTargetName = 'spoolss' vs 'spoolss'"
     ],
     "error": "",
@@ -29583,22 +29583,22 @@
     "inconclusive": false
   },
   "112520": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5145' vs '5145'",
-      "  FAIL: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC\\'",
+      "  PASS: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC$'",
       "  PASS: win.eventdata.relativeTargetName = 'RemCom_stdin|RemCom_stdout|RemCom_stderr' vs 'RemCom_stdin'"
     ],
     "error": "",
     "inconclusive": false
   },
   "112521": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5145' vs '5145'",
-      "  FAIL: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC\\'"
+      "  PASS: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC$'"
     ],
     "error": "",
     "inconclusive": false
@@ -29610,33 +29610,33 @@
       "  PASS: win.system.eventID = '4625|4624' vs '4625'",
       "  PASS: win.eventdata.logonType = '3' vs '3'",
       "  PASS: win.eventdata.authenticationPackageName = 'NTLM' vs 'NTLM'",
-      "  FAIL: win.eventdata.workstationName = '^[A-Za-z0-9]{16}$' vs '[A-Za-z0-9]{16}'"
+      "  FAIL: win.eventdata.workstationName = '^[A-Za-z0-9]{16}$' vs '1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "112523": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4776' vs '4776'",
-      "  FAIL: win.eventdata.workstation = '^[A-Za-z0-9]{16}$' vs '[A-Za-z0-9]{16}'"
+      "  FAIL: win.eventdata.workstation = '^[A-Za-z0-9]{16}$' vs '1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "112524": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4697' vs '4697'",
-      "  FAIL: win.eventdata.serviceFileName = '^%systemroot%\\\\[a-zA-Z]{8}\\.exe$' vs '%systemroot%\\[a-zA-Z]{8}xexe'",
-      "  FAIL: win.eventdata.serviceName = '(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)' vs '(^[a-zA-Z]{4}$)'",
+      "  FAIL: win.eventdata.serviceFileName = '^%systemroot%\\\\[a-zA-Z]{8}\\.exe$' vs '%systemroot%\\axexe'",
+      "  FAIL: win.eventdata.serviceName = '(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)' vs 'a'",
       "  PASS: win.eventdata.serviceStartType = '3' vs '3'",
       "  PASS: win.eventdata.serviceType = '0x10' vs '0x10'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "112525": {
     "passed": true,
@@ -29669,11 +29669,11 @@
     "inconclusive": false
   },
   "112528": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5145' vs '5145'",
-      "  FAIL: win.eventdata.shareName = 'C\\$$' vs 'C\\'",
+      "  PASS: win.eventdata.shareName = 'C\\$$' vs 'C$'",
       "  PASS: win.eventdata.accessMask = '0x2' vs '0x2'"
     ],
     "error": "",
@@ -29690,22 +29690,22 @@
     "inconclusive": false
   },
   "112530": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5145' vs '5145'",
-      "  FAIL: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC\\'",
+      "  PASS: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC$'",
       "  PASS: win.eventdata.relativeTargetName = '-stdin$|-stdout$|-stderr$' vs '-stdin'"
     ],
     "error": "",
     "inconclusive": false
   },
   "112531": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5145' vs '5145'",
-      "  FAIL: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC\\'",
+      "  PASS: win.eventdata.shareName = '\\\\\\\\\\\\\\\\\\\\\\.*\\\\\\\\IPC\\$' vs '\\\\\\\\\\x\\\\IPC$'",
       "  PASS: win.eventdata.relativeTargetName = 'svcctl' vs 'svcctl'",
       "  PASS: win.eventdata.accessList = 'WriteData' vs 'WriteData'"
     ],
@@ -29713,11 +29713,11 @@
     "inconclusive": false
   },
   "112532": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4000' vs '4000'",
-      "  FAIL: win.eventdata.shareName = 'IPC\\$|ADMIN\\$|C\\$' vs 'IPC\\'",
+      "  PASS: win.eventdata.shareName = 'IPC\\$|ADMIN\\$|C\\$' vs 'IPC$'",
       "  PASS: win.eventdata.signingUsed = 'false' vs 'false'"
     ],
     "error": "",
@@ -29734,11 +29734,11 @@
     "inconclusive": false
   },
   "112534": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '5805|5723' vs '5805'",
-      "  FAIL: full_log = 'kali' vs ''"
+      "  PASS: full_log = 'kali' vs 'kali'"
     ],
     "error": "",
     "inconclusive": false
@@ -29777,28 +29777,28 @@
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.targetFilename = '\\\\Windows\\\\__1\\d{9}\\.\\d{1,7}$' vs '\\Windows\\__1d{9}xd{1,7}'"
+      "  FAIL: win.eventdata.targetFilename = '\\\\Windows\\\\__1\\d{9}\\.\\d{1,7}$' vs '\\Windows\\__11x1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "112539": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.targetFilename = 'C:\\\\__1\\d{9}\\.\\d{1,7}$' vs 'C:\\__1d{9}xd{1,7}'"
+      "  FAIL: win.eventdata.targetFilename = 'C:\\\\__1\\d{9}\\.\\d{1,7}$' vs 'C:\\__11x1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "112540": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.targetFilename = 'D:\\\\__1\\d{9}\\.\\d{1,7}$' vs 'D:\\__1d{9}xd{1,7}'"
+      "  FAIL: win.eventdata.targetFilename = 'D:\\\\__1\\d{9}\\.\\d{1,7}$' vs 'D:\\__11x1'"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "112541": {
     "passed": true,
@@ -30072,10 +30072,10 @@
     "inconclusive": false
   },
   "112569": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '\\\\\\\\\\\\\\\\\\.*\\\\\\\\\\.*\\$|\\\\Sysvol\\\\' vs '\\\\\\\\x\\\\x\\'"
+      "  PASS: win.eventdata.commandLine = '\\\\\\\\\\\\\\\\\\.*\\\\\\\\\\.*\\$|\\\\Sysvol\\\\' vs '\\\\\\\\x\\\\x$'"
     ],
     "error": "",
     "inconclusive": false
@@ -30167,19 +30167,19 @@
     "inconclusive": false
   },
   "113002": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.samAccountName = '\\$$' vs '\\'"
+      "  PASS: win.eventdata.samAccountName = '\\$$' vs '$'"
     ],
     "error": "",
     "inconclusive": false
   },
   "113003": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.targetUserName = '\\$$' vs '\\'"
+      "  PASS: win.eventdata.targetUserName = '\\$$' vs '$'"
     ],
     "error": "",
     "inconclusive": false
@@ -30411,10 +30411,10 @@
     "inconclusive": false
   },
   "113027": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
-      "  FAIL: win.eventdata.commandLine = '                 |\\\\u0009|\\\\u000A|\\\\u0011|\\\\u0012|\\\\u0013|\\\\u000B|\\\\u000C|\\\\u000D' vs '                 '",
+      "  PASS: win.eventdata.commandLine = '                 |\\\\u0009|\\\\u000A|\\\\u0011|\\\\u0012|\\\\u0013|\\\\u000B|\\\\u000C|\\\\u000D' vs '                 '",
       "  PASS: win.eventdata.parentImage = '\\\\explorer.exe$' vs '\\explorer.exe'"
     ],
     "error": "",
@@ -31686,13 +31686,13 @@
     "inconclusive": false
   },
   "114533": {
-    "passed": false,
+    "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.parentImage = '\\\\svchost.exe$' vs '\\svchost.exe'",
       "  PASS: win.eventdata.parentCommandLine = '-s WebClient' vs '-s WebClient'",
       "  PASS: win.eventdata.image = '\\\\rundll32.exe$' vs '\\rundll32.exe'",
-      "  FAIL: win.eventdata.commandLine = '://\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}' vs '://d{1,3}xd{1,3}xd{1,3}xd{1,3}'"
+      "  PASS: win.eventdata.commandLine = '://\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}' vs '://1x1x1x1'"
     ],
     "error": "",
     "inconclusive": false

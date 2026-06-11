@@ -107,14 +107,28 @@ Draft rules go to `database/drafts/` for human review (default behavior without 
 - Generated rules must reference a valid `if_sid` parent that exists in Wazuh defaults
 - All CLI commands use Click groups: `python -m collector <cmd>` and `python -m generator <cmd>`
 - The `data/` directory is gitignored — never commit downloaded EVTX files
+- **Wazuh OSRegex inverts PCRE dot semantics**: `.` is a literal dot, `\.` is any character, and quantifiers (`*`/`+`) only apply to backslash-expressions. All escaping lives in `rule_builder._to_osregex`, `sigma_converter._escape_osregex*`, and `logtest_validator._osregex_to_python` — keep them in sync.
+- `rule_index.json` `field_matches` stores the **escaped OSRegex**, identical to the deployed XML (the logtest simulator and `sigma_exporter` interpret it as OSRegex, not raw literals)
+- `sources/composite_templates.yaml` references concrete rule SIDs. `if_matched_sid` = the earlier repeated stage, `if_sid` = the triggering event. **After any clean regeneration, re-verify those SIDs against the new `rule_index.json`** — IDs shift when analyzer changes alter the pattern count.
+
+## Clean Regeneration
+
+The correlator dedupes on exact `field_matches` equality, so regenerating on top of an
+existing database after a pattern-format change ADDS near-duplicates instead of fixing
+rules. To regenerate cleanly, wipe first (everything is committed, so this is recoverable):
+```bash
+rm -rf database/rules database/drafts database/exports database/navigator_layer.json \
+  database/metadata/{rule_index,id_allocations,provenance,sample_events,validation_results,sigma_conversion_errors,changelog}.json
+```
+then run generate → convert-sigma → build-composites (verify template SIDs!) → validate → logtest.
 
 ## Quality Gates
 
 After any rebuild, verify:
 ```bash
-python -m pytest tests/                              # 93+ tests pass
+python -m pytest tests/                              # 175+ tests pass
 python -m generator validate                          # 0 structural errors
-python -m generator logtest --mode simulate --save    # pass-rate above baseline
+python -m generator logtest --mode simulate --save    # pass-rate ≥96% (baseline 96.5%)
 ```
 Check `database/metadata/id_allocations.json` — all 12 tactic ranges should be populated, execution should not be capped. Check `database/rules/by_source/` — sysmon/security/powershell should have rules, not just other.xml.
 
