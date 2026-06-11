@@ -38,7 +38,8 @@ def test_match_field_alternation():
 
 
 def test_match_field_empty():
-    assert not _match_field("", "value")
+    assert _match_field("", "value")  # empty pattern = field exists → matches
+    assert not _match_field("", "")
     assert not _match_field("pattern", "")
 
 
@@ -101,8 +102,27 @@ def test_literal_replaces_wildcards():
     # In OSRegex, \\.* is zero-or-more any char (the real wildcard)
     result = _literal_from_pattern("foo\\.*bar")
     assert "\\.*" not in result
-    # Plain .* is literal dot + literal star in OSRegex — stays as-is
-    assert _literal_from_pattern("foo.*bar") == "foo.*bar"
+    # .* is treated as PCRE wildcard for synthesis (Sigma re-modifier patterns)
+    assert _literal_from_pattern("foo.*bar") == "fooxbar"
+
+
+def test_literal_handles_pcre_features():
+    # Character classes
+    assert _literal_from_pattern("[0-9]{1,3}") == "1"
+    assert _literal_from_pattern("[a-zA-Z]") == "a"
+    assert _literal_from_pattern("[-/]") == "/"
+    # Dollar escape
+    assert _literal_from_pattern("\\$") == "$"
+    # Non-capturing groups
+    assert _literal_from_pattern("(?:foo|bar)") == "foo"
+    # PCRE character classes
+    assert _literal_from_pattern("\\d") == "1"
+    assert _literal_from_pattern("\\s") == " "
+    # Empty pattern — returns placeholder since empty field values don't match
+    assert _literal_from_pattern("") == "x"
+    # .+ and .{n,m}
+    assert _literal_from_pattern(".+") == "x"
+    assert _literal_from_pattern(".{0,5}") == "x"
 
 
 # ── _provider_for_parent ──

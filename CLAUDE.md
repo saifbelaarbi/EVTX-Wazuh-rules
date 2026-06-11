@@ -126,9 +126,9 @@ then run generate → convert-sigma → build-composites (verify template SIDs!)
 
 After any rebuild, verify:
 ```bash
-python -m pytest tests/                              # 93+ tests pass
+python -m pytest tests/                              # 175+ tests pass
 python -m generator validate                          # 0 structural errors
-python -m generator logtest --mode simulate --save    # pass-rate above baseline
+python -m generator logtest --mode simulate --save    # pass-rate ≥96% (baseline 96.5%)
 ```
 Check `database/metadata/id_allocations.json` — all 12 tactic ranges should be populated, execution should not be capped. Check `database/rules/by_source/` — sysmon/security/powershell should have rules, not just other.xml.
 
