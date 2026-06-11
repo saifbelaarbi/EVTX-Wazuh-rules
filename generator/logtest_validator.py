@@ -34,9 +34,9 @@ class ValidationResult:
 # PCRE-only features that can't be correctly simulated via the OSRegex engine.
 _PCRE_ONLY_RE = re.compile(
     r"(?:"
-    r"\(\?[imsxU:]"      # inline flags or non-capturing groups
-    r"|\.[\+\*]\??"      # .+ or .* (PCRE any-char quantifier)
-    r"|\.\{[0-9,]+\}"    # .{n,m}
+    r"\(\?[imsxU:]"  # inline flags or non-capturing groups
+    r"|\.[\+\*]\??"  # .+ or .* (PCRE any-char quantifier)
+    r"|\.\{[0-9,]+\}"  # .{n,m}
     r"|\[[^\]]*[0-9]-[0-9][^\]]*\]"  # [0-9] character ranges
     r"|\[[^\]]*[a-z]-[a-z][^\]]*\]"  # [a-z] character ranges (case insensitive)
     r"|\{[0-9]+,[0-9]*\}"  # {n,m} quantifiers not preceded by ]
