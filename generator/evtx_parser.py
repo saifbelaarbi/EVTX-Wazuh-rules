@@ -186,6 +186,9 @@ _NON_EVENT_JSON = {
     "tsconfig.json",
     "composer.json",
     "manifest.json",
+    "toc_template.json",
+    "first_occurence.json",
+    "interesting_events.json",
 }
 
 

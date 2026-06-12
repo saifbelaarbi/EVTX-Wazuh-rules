@@ -91,7 +91,7 @@ except Exception:
     # ── 6. Live API logtest ──
     echo ""
     echo ">> Running live API logtest against Wazuh manager..."
-    python -m generator logtest --mode api --save
+    python -m generator logtest --mode live --save
 else
     echo "!! Could not authenticate with Wazuh API — skipping live logtest"
     echo "   (offline simulation results are still available)"
