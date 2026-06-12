@@ -7,6 +7,7 @@ WORKDIR /app
 COPY . .
 
 RUN pip install --no-cache-dir ".[dev]" requests && \
+    sed -i 's/\r$//' docker-entrypoint.sh && \
     chmod +x docker-entrypoint.sh
 
 CMD ["sh", "docker-entrypoint.sh"]

@@ -1,0 +1,21 @@
+# Force LF on shell scripts and the docker entrypoint so they run under
+# dash/sh even when cloned on Windows/WSL with core.autocrlf=true.
+# A CRLF in docker-entrypoint.sh makes `set -e` fail with
+# "set: Illegal option -" and the pipeline container exits immediately.
+*.sh            text eol=lf
+docker-entrypoint.sh text eol=lf
+Dockerfile      text eol=lf
+
+# Normalize line endings for text sources; let git auto-detect the rest.
+*.py            text eol=lf
+*.yaml          text eol=lf
+*.yml           text eol=lf
+*.json          text eol=lf
+*.md            text eol=lf
+*.xml           text eol=lf
+
+# Binary assets — never touch line endings.
+*.xlsx          binary
+*.evtx          binary
+*.png           binary
+*.jpg           binary

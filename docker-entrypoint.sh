@@ -66,8 +66,27 @@ if [ -n "$TOKEN" ]; then
     # Restart manager
     curl -sk -X PUT "${WAZUH_API}/manager/restart" \
         -H "Authorization: Bearer ${TOKEN}" > /dev/null 2>&1
-    echo ">> Waiting for Wazuh to reload rules..."
-    sleep 15
+    echo ">> Waiting for Wazuh to reload rules (polling API, up to 120s)..."
+    # A manager restart can take 30-60s; poll the API until it answers again
+    # instead of a fixed sleep that may be too short.
+    sleep 10
+    i=0
+    while [ "$i" -lt 22 ]; do
+        READY=$(curl -sk -X POST "${WAZUH_API}/security/user/authenticate" \
+            -u "${WAZUH_USER}:${WAZUH_PASS}" 2>/dev/null | python -c "
+import sys, json
+try:
+    print(json.load(sys.stdin)['data']['token'][:8])
+except Exception:
+    print('')
+")
+        if [ -n "$READY" ]; then
+            echo ">> Wazuh API back up after restart."
+            break
+        fi
+        i=$((i + 1))
+        sleep 5
+    done
 
     # ── 6. Live API logtest ──
     echo ""
