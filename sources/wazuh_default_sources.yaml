@@ -1,8 +1,13 @@
 wazuh_defaults:
   - name: wazuh-ruleset
-    repo: wazuh/wazuh-ruleset
-    url: https://github.com/wazuh/wazuh-ruleset.git
+    # The standalone wazuh/wazuh-ruleset repo is deprecated/read-only.
+    # Official rules + decoders now live inside the wazuh/wazuh monorepo
+    # under the top-level `ruleset/` directory.
+    repo: wazuh/wazuh
+    url: https://github.com/wazuh/wazuh.git
     type: github_clone
-    description: "Official Wazuh default rules and decoders"
-    rules_subdir: rules
-    decoders_subdir: decoders
+    description: "Official Wazuh default rules and decoders (wazuh/wazuh monorepo)"
+    # Only check out the ruleset/ subtree — the full monorepo is large.
+    sparse_subdir: ruleset
+    rules_subdir: ruleset/rules
+    decoders_subdir: ruleset/decoders

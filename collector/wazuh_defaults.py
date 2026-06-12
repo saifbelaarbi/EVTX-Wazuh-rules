@@ -36,6 +36,8 @@ def download_wazuh_defaults() -> dict | None:
     console.print(f"\n[bold blue]Downloading Wazuh defaults:[/] {source['name']}")
     console.print(f"  URL: {source['url']}")
 
+    sparse_subdir = source.get("sparse_subdir")
+
     if dest.exists():
         console.print("  [yellow]Already exists,[/] pulling updates...")
         result = subprocess.run(
@@ -45,6 +47,29 @@ def download_wazuh_defaults() -> dict | None:
         )
         if result.returncode != 0:
             console.print(f"  [red]Pull failed:[/] {result.stderr.strip()}")
+            return None
+    elif sparse_subdir:
+        # wazuh/wazuh is a large monorepo — blobless + sparse checkout pulls
+        # only the requested subtree (e.g. ruleset/) instead of the whole repo.
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        clone = subprocess.run(
+            [
+                "git", "clone", "--depth", "1", "--filter=blob:none",
+                "--sparse", source["url"], str(dest),
+            ],
+            capture_output=True,
+            text=True,
+        )
+        if clone.returncode != 0:
+            console.print(f"  [red]Clone failed:[/] {clone.stderr.strip()}")
+            return None
+        sparse = subprocess.run(
+            ["git", "-C", str(dest), "sparse-checkout", "set", sparse_subdir],
+            capture_output=True,
+            text=True,
+        )
+        if sparse.returncode != 0:
+            console.print(f"  [red]Sparse checkout failed:[/] {sparse.stderr.strip()}")
             return None
     else:
         dest.parent.mkdir(parents=True, exist_ok=True)
