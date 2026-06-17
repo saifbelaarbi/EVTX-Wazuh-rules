@@ -44,13 +44,9 @@ echo ""
 echo ">> Running offline simulation logtest..."
 python -m generator logtest --mode simulate --save
 
-# ── 5. Deploy rules to Wazuh manager ──
+# ── 5. Deploy rules to Wazuh manager via API ──
 echo ""
 echo ">> Deploying rules to Wazuh manager..."
-cp database/rules/by_tactic/*.xml /rules-deploy/ 2>/dev/null || true
-
-# Restart Wazuh manager via API to reload rules
-echo ">> Restarting Wazuh manager to load new rules..."
 
 TOKEN=$(curl -sk -X POST "${WAZUH_API}/security/user/authenticate" \
     -u "${WAZUH_USER}:${WAZUH_PASS}" 2>/dev/null | python -c "
@@ -63,12 +59,43 @@ except Exception:
 ")
 
 if [ -n "$TOKEN" ]; then
-    # Restart manager
+    # Upload each rule file via the Wazuh API (PUT /rules/files/<name>)
+    # This places them where Wazuh expects and auto-includes them.
+    UPLOADED=0
+    FAILED=0
+    for RULE_FILE in database/rules/by_tactic/*.xml; do
+        [ -f "$RULE_FILE" ] || continue
+        FNAME=$(basename "$RULE_FILE")
+        RESP=$(curl -sk -X PUT "${WAZUH_API}/rules/files/${FNAME}" \
+            -H "Authorization: Bearer ${TOKEN}" \
+            -H "Content-Type: application/octet-stream" \
+            --data-binary "@${RULE_FILE}" 2>/dev/null)
+        ERR=$(echo "$RESP" | python -c "
+import sys, json
+try:
+    r = json.load(sys.stdin)
+    print(r.get('error', 0))
+except Exception:
+    print('parse_error')
+")
+        if [ "$ERR" = "0" ]; then
+            UPLOADED=$((UPLOADED + 1))
+        else
+            FAILED=$((FAILED + 1))
+            echo "  [WARN] Failed to upload ${FNAME}: ${RESP}" | head -c 200
+            echo ""
+        fi
+    done
+    echo ">> Uploaded ${UPLOADED} rule files via API (${FAILED} failed)"
+
+    # Also copy to shared volume as backup
+    cp database/rules/by_tactic/*.xml /rules-deploy/ 2>/dev/null || true
+
+    # Restart manager to load new rules
+    echo ">> Restarting Wazuh manager to load new rules..."
     curl -sk -X PUT "${WAZUH_API}/manager/restart" \
         -H "Authorization: Bearer ${TOKEN}" > /dev/null 2>&1
     echo ">> Waiting for Wazuh to reload rules (polling API, up to 120s)..."
-    # A manager restart can take 30-60s; poll the API until it answers again
-    # instead of a fixed sleep that may be too short.
     sleep 10
     i=0
     while [ "$i" -lt 22 ]; do
@@ -87,6 +114,18 @@ except Exception:
         i=$((i + 1))
         sleep 5
     done
+
+    # Verify rules were loaded
+    LOADED=$(curl -sk -X GET "${WAZUH_API}/rules?limit=1&offset=0&q=id>100000" \
+        -H "Authorization: Bearer ${TOKEN}" 2>/dev/null | python -c "
+import sys, json
+try:
+    r = json.load(sys.stdin)
+    print(r.get('data', {}).get('total_affected_items', 0))
+except Exception:
+    print(0)
+")
+    echo ">> Wazuh reports ${LOADED} custom rules loaded (id>100000)"
 
     # ── 6. Live API logtest ──
     echo ""
