@@ -54,8 +54,14 @@ def download_wazuh_defaults() -> dict | None:
         dest.parent.mkdir(parents=True, exist_ok=True)
         clone = subprocess.run(
             [
-                "git", "clone", "--depth", "1", "--filter=blob:none",
-                "--sparse", source["url"], str(dest),
+                "git",
+                "clone",
+                "--depth",
+                "1",
+                "--filter=blob:none",
+                "--sparse",
+                source["url"],
+                str(dest),
             ],
             capture_output=True,
             text=True,
