@@ -5,6 +5,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ALLOCATIONS_FILE = PROJECT_ROOT / "database" / "metadata" / "id_allocations.json"
+RULE_INDEX_FILE = PROJECT_ROOT / "database" / "metadata" / "rule_index.json"
 
 
 def _load_allocations() -> dict:
@@ -47,6 +48,26 @@ def load_ranges_from_config(config: dict) -> dict:
     return ranges or TACTIC_RANGES
 
 
+def _max_id_in_use(tactic: str) -> int | None:
+    """Scan rule_index.json for the highest ID actually in use for a tactic."""
+    if not RULE_INDEX_FILE.exists():
+        return None
+    try:
+        with open(RULE_INDEX_FILE) as f:
+            index = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
+
+    range_start, range_end = TACTIC_RANGES.get(tactic, (0, 0))
+    max_id = None
+    for rid_str, meta in index.items():
+        rid = int(rid_str)
+        if range_start <= rid <= range_end:
+            if max_id is None or rid > max_id:
+                max_id = rid
+    return max_id
+
+
 def allocate_id(tactic: str) -> int:
     """Allocate the next available rule ID for a given tactic."""
     allocations = _load_allocations()
@@ -59,8 +80,17 @@ def allocate_id(tactic: str) -> int:
     # Get the next available ID
     next_id = allocations.get(tactic, {}).get("next_id", range_start)
 
+    # If the pointer is past the range, recalculate from actual usage.
+    # This handles re-runs where build_rules allocated IDs that were
+    # later discarded by the correlator (dedup), wasting ID slots.
     if next_id > range_end:
-        raise RuntimeError(f"ID range exhausted for tactic '{tactic}' (range {range_start}-{range_end})")
+        max_used = _max_id_in_use(tactic)
+        if max_used is not None:
+            next_id = max_used + 1
+        else:
+            next_id = range_start
+        if next_id > range_end:
+            raise RuntimeError(f"ID range exhausted for tactic '{tactic}' (range {range_start}-{range_end})")
 
     # Update allocations
     if tactic not in allocations:
