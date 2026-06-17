@@ -4,11 +4,13 @@ import json
 import os
 import re
 import subprocess
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 
 import yaml
 from rich.console import Console
+from rich.progress import BarColumn, MofNCompleteColumn, Progress, SpinnerColumn, TextColumn, TimeElapsedColumn
 
 console = Console()
 
@@ -758,67 +760,172 @@ def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> lis
     index = _load_rule_index()
     config = load_config()
 
-    results = []
-    tested = 0
-    passed = 0
-    inconclusive = 0
-    provenance_counts: dict[str, int] = {}
-
-    console.print(f"[bold]Validating {len(index)} rules (mode={mode})...[/]\n")
-
+    # Pre-filter to get the actual work list
+    work_items = []
     for rule_id_str, meta in sorted(index.items(), key=lambda x: int(x[0])):
         if source_filter and source_filter not in meta.get("source_evtx", ""):
             continue
+        work_items.append((rule_id_str, meta))
 
-        event, provenance = _resolve_sample_event(rule_id_str, meta)
+    total = len(work_items)
+    console.print(f"\n[bold]Validating {total} rules (mode={mode})[/]")
+    if mode == "live":
+        wazuh_cfg = config.get("wazuh", {})
+        api_url = os.environ.get("WAZUH_API_URL") or wazuh_cfg.get("api_url", "")
+        console.print(f"  Target: [cyan]{api_url or 'SSH fallback'}[/]")
 
-        if not event:
-            inconclusive += 1
-            results.append(
-                ValidationResult(
-                    rule_id=int(rule_id_str),
-                    passed=False,
-                    mode=mode,
-                    error="No sample event could be resolved",
-                    inconclusive=True,
-                )
-            )
-            continue
+    results = []
+    tested = 0
+    passed = 0
+    failed = 0
+    inconclusive = 0
+    errors = 0
+    provenance_counts: dict[str, int] = {}
+    tactic_stats: dict[str, dict] = {}
+    recent_failures: list[str] = []
+    start_time = time.monotonic()
+    api_errors_consecutive = 0
 
-        provenance_counts[provenance] = provenance_counts.get(provenance, 0) + 1
-        rule_id = int(rule_id_str)
-        sim_mode = f"simulate_{provenance}" if mode == "simulate" else mode
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        BarColumn(),
+        MofNCompleteColumn(),
+        TextColumn("[green]{task.fields[passed]}[/] passed"),
+        TextColumn("[red]{task.fields[failed]}[/] failed"),
+        TimeElapsedColumn(),
+        console=console,
+        transient=False,
+    ) as progress:
+        task = progress.add_task(
+            f"[bold]{mode}[/]",
+            total=total,
+            passed=0,
+            failed=0,
+        )
 
-        if mode == "simulate":
-            result = validate_simulate(rule_id, meta, event)
-            result.mode = sim_mode
-            # Synthetic events can't reliably validate PCRE-only patterns
-            # (the OSRegex simulator interprets `.+` as literal). Mark as
-            # inconclusive rather than a false failure.
-            if (
-                not result.passed
-                and provenance == "synthetic"
-                and any(_PCRE_ONLY_RE.search(v) for v in meta.get("field_matches", {}).values())
-            ):
-                result.inconclusive = True
+        for i, (rule_id_str, meta) in enumerate(work_items):
+            event, provenance = _resolve_sample_event(rule_id_str, meta)
+            tactic = meta.get("tactic", "unknown")
+
+            if not event:
                 inconclusive += 1
-                results.append(result)
+                results.append(
+                    ValidationResult(
+                        rule_id=int(rule_id_str),
+                        passed=False,
+                        mode=mode,
+                        error="No sample event could be resolved",
+                        inconclusive=True,
+                    )
+                )
+                progress.update(task, advance=1)
                 continue
-        else:
-            result = validate_live(rule_id, event, config)
 
-        results.append(result)
-        tested += 1
-        if result.passed:
-            passed += 1
+            provenance_counts[provenance] = provenance_counts.get(provenance, 0) + 1
+            rule_id = int(rule_id_str)
+            sim_mode = f"simulate_{provenance}" if mode == "simulate" else mode
 
-    console.print("\n[bold]Validation Complete[/]")
-    console.print(f"  Tested: {tested}")
-    console.print(f"  Passed: [green]{passed}[/]")
-    console.print(f"  Failed: [red]{tested - passed}[/]")
-    console.print(f"  Inconclusive: [yellow]{inconclusive}[/]")
+            if mode == "simulate":
+                result = validate_simulate(rule_id, meta, event)
+                result.mode = sim_mode
+                if (
+                    not result.passed
+                    and provenance == "synthetic"
+                    and any(_PCRE_ONLY_RE.search(v) for v in meta.get("field_matches", {}).values())
+                ):
+                    result.inconclusive = True
+                    inconclusive += 1
+                    results.append(result)
+                    progress.update(task, advance=1)
+                    continue
+            else:
+                result = validate_live(rule_id, event, config)
+
+            results.append(result)
+            tested += 1
+
+            # Track per-tactic stats
+            if tactic not in tactic_stats:
+                tactic_stats[tactic] = {"tested": 0, "passed": 0, "failed": 0}
+            tactic_stats[tactic]["tested"] += 1
+
+            if result.passed:
+                passed += 1
+                tactic_stats[tactic]["passed"] += 1
+                api_errors_consecutive = 0
+            else:
+                failed += 1
+                tactic_stats[tactic]["failed"] += 1
+                if result.error:
+                    errors += 1
+                    api_errors_consecutive += 1
+                    if api_errors_consecutive == 10 and mode == "live":
+                        console.print("\n  [red bold]10 consecutive API errors — connection may be down[/]")
+                else:
+                    api_errors_consecutive = 0
+                recent_failures.append(f"Rule {rule_id} ({tactic}): {result.error or 'field mismatch'}")
+
+            progress.update(task, advance=1, passed=passed, failed=failed)
+
+            # Print a batch summary every 500 rules
+            if (i + 1) % 500 == 0 and i + 1 < total:
+                elapsed = time.monotonic() - start_time
+                rate = (i + 1) / elapsed if elapsed > 0 else 0
+                eta = (total - i - 1) / rate if rate > 0 else 0
+                pass_rate = (passed / tested * 100) if tested else 0
+                console.print(
+                    f"  [dim]Checkpoint {i + 1}/{total}: "
+                    f"{pass_rate:.1f}% pass rate, "
+                    f"{rate:.0f} rules/s, "
+                    f"ETA {eta:.0f}s[/]"
+                )
+
+    # ── Summary ──
+    elapsed = time.monotonic() - start_time
+    rate = tested / elapsed if elapsed > 0 else 0
+    pass_rate = (passed / tested * 100) if tested else 0
+
+    console.print(f"\n[bold]{'=' * 50}[/]")
+    console.print(f"[bold]Validation Complete[/] ({elapsed:.1f}s, {rate:.0f} rules/s)")
+    console.print(f"{'=' * 50}")
+    console.print(f"  Total rules:    {total}")
+    console.print(f"  Tested:         {tested}")
+    console.print(f"  Passed:         [green]{passed}[/]")
+    console.print(f"  Failed:         [red]{failed}[/]")
+    console.print(f"  Inconclusive:   [yellow]{inconclusive}[/]")
+    if errors:
+        console.print(f"  Errors:         [red]{errors}[/]")
+    console.print(
+        f"  Pass rate:      [{'green' if pass_rate >= 90 else 'yellow' if pass_rate >= 50 else 'red'}]{pass_rate:.1f}%[/]"
+    )
+
+    # Event provenance breakdown
+    console.print("\n[bold]Event Sources:[/]")
     for prov, cnt in sorted(provenance_counts.items()):
-        console.print(f"  Event source ({prov}): {cnt}")
+        console.print(f"  {prov:12s}: {cnt}")
+
+    # Per-tactic breakdown
+    if tactic_stats:
+        console.print("\n[bold]Per-Tactic Results:[/]")
+        for tactic_name in sorted(tactic_stats.keys()):
+            ts = tactic_stats[tactic_name]
+            t_rate = (ts["passed"] / ts["tested"] * 100) if ts["tested"] else 0
+            color = "green" if t_rate >= 90 else "yellow" if t_rate >= 50 else "red"
+            console.print(
+                f"  {tactic_name:30s}  "
+                f"{ts['tested']:4d} tested  "
+                f"[green]{ts['passed']:4d}[/] passed  "
+                f"[red]{ts['failed']:4d}[/] failed  "
+                f"[{color}]{t_rate:5.1f}%[/]"
+            )
+
+    # Show last few failures for quick debugging
+    if recent_failures:
+        show = recent_failures[-10:]
+        console.print(f"\n[bold]Recent Failures ({len(recent_failures)} total, showing last {len(show)}):[/]")
+        for f in show:
+            console.print(f"  [red]✗[/] {f}")
 
     return results
 
