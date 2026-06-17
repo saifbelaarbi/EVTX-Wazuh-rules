@@ -355,7 +355,11 @@ def validate_live(rule_id: int, event: dict, config: dict) -> ValidationResult:
     wazuh_cfg = config.get("wazuh", {})
     if wazuh_cfg.get("api_url"):
         result = _run_via_api(event_json, config)
-        if "error" not in result:
+        # Wazuh API returns {"error": 0, "data": {...}} on success.
+        # Our internal errors use {"error": "some string"}.
+        api_err = result.get("error")
+        is_internal_error = isinstance(api_err, str)
+        if not is_internal_error:
             data = result.get("data", {}).get("output", {})
             matched_rule = data.get("rule", {}).get("id", "")
             passed = str(matched_rule) == str(rule_id)
@@ -370,13 +374,14 @@ def validate_live(rule_id: int, event: dict, config: dict) -> ValidationResult:
                 mode="live_api",
                 details=details,
             )
-        api_error = result["error"]
+        api_error = api_err
     else:
         api_error = "API not configured"
 
     if wazuh_cfg.get("ssh_host"):
         result = _run_via_ssh(event_json, config)
-        if "error" not in result:
+        ssh_err = result.get("error")
+        if not isinstance(ssh_err, str):
             output = result.get("output", "")
             passed = str(rule_id) in output
             details = [f"SSH output: {output[:200]}"]
@@ -386,7 +391,7 @@ def validate_live(rule_id: int, event: dict, config: dict) -> ValidationResult:
                 mode="live_ssh",
                 details=details,
             )
-        ssh_error = result["error"]
+        ssh_error = ssh_err
     else:
         ssh_error = "SSH not configured"
 
