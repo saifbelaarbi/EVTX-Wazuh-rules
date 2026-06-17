@@ -177,22 +177,49 @@ def _get_text(parent, tag: str, ns: dict) -> str:
     return elem.text if elem is not None and elem.text else ""
 
 
+# JSON files that ship in the EVTX sample repos but are tooling/config
+# artifacts, not event exports — skip them quietly instead of erroring.
+_NON_EVENT_JSON = {
+    "settings.json",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json",
+    "composer.json",
+    "manifest.json",
+    "toc_template.json",
+    "first_occurence.json",
+    "interesting_events.json",
+}
+
+
 def parse_json_export(file_path: Path) -> list[dict]:
     """Parse JSON/JSONL exports (e.g., from EvtxECmd, chainsaw, hayabusa)."""
+    if file_path.name.lower() in _NON_EVENT_JSON:
+        return []
+
     events = []
     try:
         with open(file_path) as f:
             content = f.read().strip()
             if content.startswith("["):
                 raw_events = json.loads(content)
+            elif content.startswith("{"):
+                # A single JSON object — either one event or a config file.
+                parsed = json.loads(content)
+                raw_events = [parsed]
             else:
                 # JSONL format
                 raw_events = [json.loads(line) for line in content.splitlines() if line.strip()]
 
         for raw in raw_events:
+            if not isinstance(raw, dict):
+                continue
             event = _normalize_json_event(raw)
             event["_source_file"] = str(file_path)
             events.append(event)
+    except json.JSONDecodeError:
+        # Not a valid JSON event export (e.g. JSONC config) — skip quietly.
+        console.print(f"[yellow]Skipping non-event JSON {file_path.name}[/]")
     except Exception as e:
         console.print(f"[red]Failed to parse JSON {file_path.name}:[/] {e}")
 
