@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <group name="windows,T1003.001_unknown,">
   <rule id="100373" level="9">
     <if_sid>61603</if_sid>
@@ -267,7 +267,6 @@
   <rule id="108561" level="12">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.targetImage">\\lsass.exe$</field>
-    <field name="win.eventdata.startModule"></field>
     <description>Sigma: Password Dumper Remote Thread in LSASS</description>
     <mitre>
       <id>T1003.001</id>

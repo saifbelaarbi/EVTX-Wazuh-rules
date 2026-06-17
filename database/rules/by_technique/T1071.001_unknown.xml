@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <group name="windows,T1071.001_unknown,">
   <rule id="100227" level="9">
     <if_sid>61605</if_sid>
@@ -50,7 +50,6 @@
   </rule>
   <rule id="110186" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName"></field>
     <field name="win.eventdata.commandLine">.exe tunnel$</field>
     <description>Sigma: Visual Studio Code Tunnel Execution</description>
     <mitre>
@@ -95,7 +94,6 @@
   </rule>
   <rule id="110190" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.originalFileName"></field>
     <field name="win.eventdata.commandLine">.exe tunnel$</field>
     <description>Sigma: Renamed Visual Studio Code Tunnel Execution</description>
     <mitre>

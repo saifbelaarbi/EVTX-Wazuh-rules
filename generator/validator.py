@@ -160,6 +160,13 @@ def validate_database(rules_dir: Path) -> list[str]:
                 if desc is None or not desc.text:
                     errors.append(f"{xml_file.name}: Rule {rule_id} missing description")
 
+                for field_elem in rule_elem.findall("field"):
+                    if field_elem.text is None or not field_elem.text.strip():
+                        fname = field_elem.get("name", "?")
+                        errors.append(
+                            f'{xml_file.name}: Rule {rule_id} has empty <field name="{fname}"> (Wazuh rejects this)'
+                        )
+
         except etree.XMLSyntaxError as e:
             errors.append(f"{xml_file.name}: XML syntax error - {e}")
 
