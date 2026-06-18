@@ -12,7 +12,7 @@ services:
     volumes:
       - wazuh-etc:/var/ossec/etc
       - wazuh-logs:/var/ossec/logs
-      - rules-share:/var/ossec/etc/rules/evtx-rules
+      - rules-share:/var/ossec/etc/rules
     healthcheck:
       test: ["CMD-SHELL", "/var/ossec/bin/wazuh-control status | grep -q 'is running'"]
       interval: 10s

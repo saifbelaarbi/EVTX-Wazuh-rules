@@ -44,9 +44,20 @@ echo ""
 echo ">> Running offline simulation logtest..."
 python -m generator logtest --mode simulate --save
 
-# ── 5. Deploy rules to Wazuh manager via API ──
+# ── 5. Deploy rules to Wazuh manager ──
 echo ""
 echo ">> Deploying rules to Wazuh manager..."
+
+# Primary method: copy rule files into the shared volume.
+# The volume is mounted at /var/ossec/etc/rules/ on the manager,
+# so Wazuh's <rule_dir>etc/rules</rule_dir> auto-loads them.
+DEPLOYED=0
+for RULE_FILE in database/rules/by_tactic/*.xml; do
+    [ -f "$RULE_FILE" ] || continue
+    cp "$RULE_FILE" /rules-deploy/
+    DEPLOYED=$((DEPLOYED + 1))
+done
+echo ">> Copied ${DEPLOYED} rule files to shared volume (/var/ossec/etc/rules/)"
 
 TOKEN=$(curl -sk -X POST "${WAZUH_API}/security/user/authenticate" \
     -u "${WAZUH_USER}:${WAZUH_PASS}" 2>/dev/null | python -c "
@@ -59,39 +70,7 @@ except Exception:
 ")
 
 if [ -n "$TOKEN" ]; then
-    # Upload each rule file via the Wazuh API (PUT /rules/files/<name>)
-    # This places them where Wazuh expects and auto-includes them.
-    UPLOADED=0
-    FAILED=0
-    for RULE_FILE in database/rules/by_tactic/*.xml; do
-        [ -f "$RULE_FILE" ] || continue
-        FNAME=$(basename "$RULE_FILE")
-        RESP=$(curl -sk -X PUT "${WAZUH_API}/rules/files/${FNAME}" \
-            -H "Authorization: Bearer ${TOKEN}" \
-            -H "Content-Type: application/octet-stream" \
-            --data-binary "@${RULE_FILE}" 2>/dev/null)
-        ERR=$(echo "$RESP" | python -c "
-import sys, json
-try:
-    r = json.load(sys.stdin)
-    print(r.get('error', 0))
-except Exception:
-    print('parse_error')
-")
-        if [ "$ERR" = "0" ]; then
-            UPLOADED=$((UPLOADED + 1))
-        else
-            FAILED=$((FAILED + 1))
-            echo "  [WARN] Failed to upload ${FNAME}: ${RESP}" | head -c 200
-            echo ""
-        fi
-    done
-    echo ">> Uploaded ${UPLOADED} rule files via API (${FAILED} failed)"
-
-    # Also copy to shared volume as backup
-    cp database/rules/by_tactic/*.xml /rules-deploy/ 2>/dev/null || true
-
-    # Restart manager to load new rules
+    # Restart manager to load new rules from the shared volume
     echo ">> Restarting Wazuh manager to load new rules..."
     curl -sk -X PUT "${WAZUH_API}/manager/restart" \
         -H "Authorization: Bearer ${TOKEN}" > /dev/null 2>&1
@@ -115,6 +94,17 @@ except Exception:
         sleep 5
     done
 
+    # Re-auth after restart (old token expired)
+    TOKEN=$(curl -sk -X POST "${WAZUH_API}/security/user/authenticate" \
+        -u "${WAZUH_USER}:${WAZUH_PASS}" 2>/dev/null | python -c "
+import sys, json
+try:
+    data = json.load(sys.stdin)
+    print(data['data']['token'])
+except Exception:
+    print('')
+")
+
     # Verify rules were loaded
     LOADED=$(curl -sk -X GET "${WAZUH_API}/rules?limit=1&offset=0&q=id>100000" \
         -H "Authorization: Bearer ${TOKEN}" 2>/dev/null | python -c "
@@ -126,6 +116,11 @@ except Exception:
     print(0)
 ")
     echo ">> Wazuh reports ${LOADED} custom rules loaded (id>100000)"
+
+    if [ "$LOADED" = "0" ]; then
+        echo ">> [WARN] No custom rules loaded — check Wazuh manager logs:"
+        echo ">>   docker compose exec wazuh-manager cat /var/ossec/logs/ossec.log | tail -50"
+    fi
 
     # ── 6. Live API logtest ──
     echo ""
