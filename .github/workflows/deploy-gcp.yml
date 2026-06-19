@@ -1,0 +1,296 @@
+name: Deploy to GCP
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Action to perform"
+        type: choice
+        options:
+          - deploy
+          - logs-only
+          - destroy
+        default: deploy
+      vm_name:
+        description: "GCE VM name"
+        default: "evtx-wazuh-pipeline"
+      zone:
+        description: "GCE zone"
+        default: "us-central1-a"
+      machine_type:
+        description: "Machine type (e2-standard-2 = 2 vCPU, 8 GB)"
+        default: "e2-standard-2"
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+
+jobs:
+  deploy:
+    if: inputs.action == 'deploy'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Create or start VM
+        run: |
+          set -e
+          VM="${{ inputs.vm_name }}"
+          ZONE="${{ inputs.zone }}"
+
+          STATUS=$(gcloud compute instances describe "$VM" --zone="$ZONE" \
+            --format="value(status)" 2>/dev/null || echo "NOT_FOUND")
+
+          if [ "$STATUS" = "NOT_FOUND" ]; then
+            echo ">> Creating VM $VM..."
+            gcloud compute instances create "$VM" \
+              --zone="$ZONE" \
+              --machine-type="${{ inputs.machine_type }}" \
+              --image-family=ubuntu-2204-lts \
+              --image-project=ubuntu-os-cloud \
+              --boot-disk-size=50GB \
+              --scopes=cloud-platform \
+              --tags=evtx-pipeline
+            echo ">> Waiting for VM to be ready..."
+            sleep 30
+          elif [ "$STATUS" = "TERMINATED" ]; then
+            echo ">> Starting existing VM $VM..."
+            gcloud compute instances start "$VM" --zone="$ZONE"
+            sleep 15
+          else
+            echo ">> VM $VM already running (status: $STATUS)"
+          fi
+
+          # Wait until SSH is available
+          for i in $(seq 1 12); do
+            if gcloud compute ssh "$VM" --zone="$ZONE" --command="echo ok" 2>/dev/null; then
+              echo ">> SSH ready"
+              break
+            fi
+            echo ">> Waiting for SSH... (attempt $i/12)"
+            sleep 10
+          done
+
+      - name: Install Docker on VM
+        run: |
+          VM="${{ inputs.vm_name }}"
+          ZONE="${{ inputs.zone }}"
+          gcloud compute ssh "$VM" --zone="$ZONE" --command='
+            if command -v docker &>/dev/null; then
+              echo ">> Docker already installed: $(docker --version)"
+            else
+              echo ">> Installing Docker..."
+              sudo apt-get update -qq
+              sudo apt-get install -y -qq docker.io docker-compose-plugin
+              sudo systemctl enable docker
+              sudo systemctl start docker
+              sudo usermod -aG docker $USER
+              echo ">> Docker installed: $(docker --version)"
+            fi
+          '
+
+      - name: Clone/update repo and deploy
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          VM="${{ inputs.vm_name }}"
+          ZONE="${{ inputs.zone }}"
+
+          gcloud compute ssh "$VM" --zone="$ZONE" --command="
+            set -e
+            REPO_DIR=\$HOME/evtx-wazuh-rules
+
+            if [ -d \"\$REPO_DIR/.git\" ]; then
+              echo '>> Pulling latest code...'
+              cd \"\$REPO_DIR\"
+              git fetch origin main
+              git reset --hard origin/main
+            else
+              echo '>> Cloning repository...'
+              git clone https://${GH_PAT}@github.com/saifbelaarbi/EVTX-Wazuh-rules.git \"\$REPO_DIR\"
+              cd \"\$REPO_DIR\"
+            fi
+
+            echo '>> Stopping any existing containers...'
+            sudo docker compose down -v 2>/dev/null || true
+
+            echo '>> Building and starting pipeline...'
+            sudo docker compose up --build -d
+
+            echo '>> Containers started. Waiting for pipeline to begin...'
+            sleep 5
+            sudo docker compose ps
+          "
+
+      - name: Stream pipeline logs
+        run: |
+          VM="${{ inputs.vm_name }}"
+          ZONE="${{ inputs.zone }}"
+
+          echo ">> Streaming pipeline logs (timeout: 35 min)..."
+          # Follow logs until pipeline container exits or timeout
+          timeout 2100 gcloud compute ssh "$VM" --zone="$ZONE" --command="
+            cd \$HOME/evtx-wazuh-rules
+
+            # Follow pipeline container logs until it exits
+            sudo docker compose logs -f pipeline 2>&1 &
+            LOG_PID=\$!
+
+            # Wait for pipeline container to exit
+            while sudo docker compose ps --format json | grep -q '\"pipeline\".*running'; do
+              sleep 10
+            done
+            sleep 5
+
+            # Also check if it finished already
+            if ! sudo docker compose ps --format json | grep -q '\"pipeline\"'; then
+              echo ''
+              echo '>> Pipeline container has exited.'
+            fi
+
+            kill \$LOG_PID 2>/dev/null || true
+
+            echo ''
+            echo '========================================='
+            echo '  PIPELINE COMPLETE — FINAL STATUS'
+            echo '========================================='
+            sudo docker compose ps -a
+            echo ''
+
+            # Show Wazuh manager status
+            echo '>> Wazuh manager status:'
+            sudo docker compose exec -T wazuh-manager /var/ossec/bin/wazuh-control status 2>/dev/null || echo '(manager not running)'
+            echo ''
+
+            # Count loaded custom rules
+            echo '>> Custom rules loaded in Wazuh:'
+            sudo docker compose exec -T wazuh-manager find /var/ossec/etc/rules/ -name '*.xml' -newer /var/ossec/etc/rules/local_rules.xml 2>/dev/null | wc -l || echo '0'
+            echo ''
+
+            # Show database output summary
+            echo '>> Database output:'
+            ls -la \$HOME/evtx-wazuh-rules/database/rules/by_tactic/ 2>/dev/null || echo '(no rules generated yet)'
+            echo ''
+            echo '>> Rule count:'
+            grep -c '\"rule_id\"' \$HOME/evtx-wazuh-rules/database/metadata/rule_index.json 2>/dev/null || echo '0'
+          " 2>&1 | tee /tmp/pipeline-output.log
+
+      - name: Upload full logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-logs-${{ github.run_number }}
+          path: /tmp/pipeline-output.log
+          retention-days: 30
+
+      - name: Post summary
+        if: always()
+        run: |
+          echo "## GCP Deploy Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **VM**: \`${{ inputs.vm_name }}\` in \`${{ inputs.zone }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Machine**: \`${{ inputs.machine_type }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Run**: #${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f /tmp/pipeline-output.log ]; then
+            RULES=$(grep -o 'Rule count:.*' /tmp/pipeline-output.log | tail -1 || echo "unknown")
+            PASS_RATE=$(grep -o '[0-9]*\.[0-9]*% pass' /tmp/pipeline-output.log | tail -1 || echo "unknown")
+            echo "- **Rules**: $RULES" >> $GITHUB_STEP_SUMMARY
+            echo "- **Pass rate**: $PASS_RATE" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "<details><summary>Last 100 lines of output</summary>" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            tail -100 /tmp/pipeline-output.log >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            echo "</details>" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  fetch-logs:
+    if: inputs.action == 'logs-only'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Fetch logs from VM
+        run: |
+          VM="${{ inputs.vm_name }}"
+          ZONE="${{ inputs.zone }}"
+
+          gcloud compute ssh "$VM" --zone="$ZONE" --command="
+            cd \$HOME/evtx-wazuh-rules 2>/dev/null || { echo 'Repo not found'; exit 1; }
+
+            echo '========================================='
+            echo '  CONTAINER STATUS'
+            echo '========================================='
+            sudo docker compose ps -a
+            echo ''
+
+            echo '========================================='
+            echo '  PIPELINE LOGS (last 500 lines)'
+            echo '========================================='
+            sudo docker compose logs --tail=500 pipeline 2>&1
+            echo ''
+
+            echo '========================================='
+            echo '  WAZUH MANAGER LOGS (last 100 lines)'
+            echo '========================================='
+            sudo docker compose logs --tail=100 wazuh-manager 2>&1
+            echo ''
+
+            echo '========================================='
+            echo '  DATABASE STATUS'
+            echo '========================================='
+            echo 'Rule files:'
+            ls -la \$HOME/evtx-wazuh-rules/database/rules/by_tactic/ 2>/dev/null || echo '(none)'
+            echo ''
+            echo 'Rule count:'
+            grep -c '\"rule_id\"' \$HOME/evtx-wazuh-rules/database/metadata/rule_index.json 2>/dev/null || echo '0'
+            echo ''
+            echo 'Validation results:'
+            cat \$HOME/evtx-wazuh-rules/database/metadata/validation_results.json 2>/dev/null | head -50 || echo '(none)'
+          " 2>&1 | tee /tmp/gcp-logs.log
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gcp-logs-${{ github.run_number }}
+          path: /tmp/gcp-logs.log
+          retention-days: 7
+
+  destroy:
+    if: inputs.action == 'destroy'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Delete VM
+        run: |
+          VM="${{ inputs.vm_name }}"
+          ZONE="${{ inputs.zone }}"
+          echo ">> Deleting VM $VM in $ZONE..."
+          gcloud compute instances delete "$VM" --zone="$ZONE" --quiet
+          echo ">> VM deleted."
