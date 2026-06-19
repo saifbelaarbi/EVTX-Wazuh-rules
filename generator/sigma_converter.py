@@ -629,6 +629,8 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
         if_sid.text = str(parent_sid)
 
         for field_name, pattern in clean_fields.items():
+            if not pattern or not pattern.strip():
+                continue
             field_elem = etree.SubElement(rule_elem, "field", name=field_name)
             field_elem.text = pattern
 

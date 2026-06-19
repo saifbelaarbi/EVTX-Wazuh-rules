@@ -165,6 +165,8 @@ def build_rule(pattern: DetectionPattern) -> dict:
     # interpret metadata field_matches as OSRegex.
     osregex_fields = {name: _to_osregex(str(value)) for name, value in pattern.field_matches.items()}
     for field_name, value in osregex_fields.items():
+        if not value or not value.strip():
+            continue
         field_elem = etree.SubElement(rule_elem, "field", name=field_name)
         field_elem.text = value
 

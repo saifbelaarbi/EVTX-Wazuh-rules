@@ -18538,7 +18538,6 @@
     "created": "",
     "field_matches": {
       "win.system.eventID": "31017",
-      "win.eventdata.userName": "",
       "win.eventdata.serverName": "^\\\\1"
     },
     "sigma_id": "71886b70-d7b4-4dbf-acce-87d2ca135262",
@@ -20331,8 +20330,7 @@
     "created": "",
     "field_matches": {
       "win.eventdata.sourceImage": "\\\\System32\\\\cscript.exe$|\\\\System32\\\\wscript.exe$|\\\\System32\\\\mshta.exe$|\\\\winword.exe$|\\\\excel.exe$",
-      "win.eventdata.targetImage": "\\\\SysWOW64\\\\",
-      "win.eventdata.startModule": ""
+      "win.eventdata.targetImage": "\\\\SysWOW64\\\\"
     },
     "sigma_id": "2e4e488a-6164-4811-9ea1-f960c7359c40",
     "version": 1,
@@ -20460,8 +20458,7 @@
     "confidence": "high",
     "created": "",
     "field_matches": {
-      "win.eventdata.targetImage": "\\\\lsass.exe$",
-      "win.eventdata.startModule": ""
+      "win.eventdata.targetImage": "\\\\lsass.exe$"
     },
     "sigma_id": "f239b326-2f41-4d6b-9dfa-c846a60ef505",
     "version": 1,
@@ -27722,9 +27719,7 @@
     "parent_sid": 61609,
     "confidence": "medium",
     "created": "",
-    "field_matches": {
-      "win.eventdata.commandLine": ""
-    },
+    "field_matches": {},
     "sigma_id": "ad1f4bb9-8dfb-4765-adb6-2a7cfb6c0f94",
     "version": 1,
     "last_modified": "2026-06-10T23:00:36.937606+00:00"
@@ -63359,7 +63354,6 @@
     "confidence": "medium",
     "created": "",
     "field_matches": {
-      "win.eventdata.originalFileName": "",
       "win.eventdata.commandLine": ".exe tunnel$"
     },
     "sigma_id": "90d6bd71-dffb-4989-8d86-a827fedd6624",
@@ -63452,7 +63446,6 @@
     "confidence": "high",
     "created": "",
     "field_matches": {
-      "win.eventdata.originalFileName": "",
       "win.eventdata.commandLine": ".exe tunnel$"
     },
     "sigma_id": "2cf29f11-e356-4f61-98c0-1bdb9393d6da",
