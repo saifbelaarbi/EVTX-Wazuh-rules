@@ -60,9 +60,9 @@ jobs:
           echo "## Integration Test Results" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          # Rule count
+          # Rule count (rule_index.json keys are rule IDs)
           if [ -f database/metadata/rule_index.json ]; then
-            RULES=$(grep -c '"rule_id"' database/metadata/rule_index.json 2>/dev/null || echo "0")
+            RULES=$(python3 -c "import json; print(len(json.load(open('database/metadata/rule_index.json'))))" 2>/dev/null || echo "0")
             echo "- **Rules generated**: $RULES" >> $GITHUB_STEP_SUMMARY
           fi
 
@@ -70,16 +70,21 @@ jobs:
           TACTIC_FILES=$(ls database/rules/by_tactic/*.xml 2>/dev/null | wc -l || echo "0")
           echo "- **Tactic files**: $TACTIC_FILES" >> $GITHUB_STEP_SUMMARY
 
-          # Validation results
+          # Validation results (per-rule dict — compute summary)
           if [ -f database/metadata/validation_results.json ]; then
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### Logtest Results" >> $GITHUB_STEP_SUMMARY
             echo '```json' >> $GITHUB_STEP_SUMMARY
-            python3 -c "
+            python3 << 'PYEOF' >> $GITHUB_STEP_SUMMARY 2>/dev/null
           import json
           v = json.load(open('database/metadata/validation_results.json'))
-          print(json.dumps({k: v[k] for k in ['mode','total_rules','passed','failed','pass_rate','inconclusive'] if k in v}, indent=2))
-          " >> $GITHUB_STEP_SUMMARY 2>/dev/null || cat database/metadata/validation_results.json | head -20 >> $GITHUB_STEP_SUMMARY
+          total = len(v)
+          passed = sum(1 for r in v.values() if isinstance(r, dict) and r.get('passed'))
+          inconclusive = sum(1 for r in v.values() if isinstance(r, dict) and r.get('inconclusive'))
+          considered = total - inconclusive
+          rate = (passed / considered * 100) if considered else 0
+          print(json.dumps({"total_rules": total, "passed": passed, "inconclusive": inconclusive, "pass_rate": f"{rate:.1f}%"}, indent=2))
+          PYEOF
             echo '```' >> $GITHUB_STEP_SUMMARY
           fi
 
@@ -105,12 +110,12 @@ jobs:
         run: |
           ERRORS=0
 
-          # Check rules were generated
+          # Check rules were generated (rule_index.json keys are rule IDs)
           if [ ! -f database/metadata/rule_index.json ]; then
             echo "::error::No rule_index.json — pipeline did not generate rules"
             ERRORS=$((ERRORS + 1))
           else
-            RULES=$(grep -c '"rule_id"' database/metadata/rule_index.json 2>/dev/null || echo "0")
+            RULES=$(python3 -c "import json; print(len(json.load(open('database/metadata/rule_index.json'))))" 2>/dev/null || echo "0")
             if [ "$RULES" -lt 1000 ]; then
               echo "::error::Only $RULES rules generated (expected 3000+)"
               ERRORS=$((ERRORS + 1))
@@ -128,13 +133,18 @@ jobs:
             echo ">> $TACTIC_FILES tactic files"
           fi
 
-          # Check simulation logtest pass rate
+          # Check simulation logtest pass rate (per-rule dict)
           if [ -f database/metadata/validation_results.json ]; then
-            PASS_RATE=$(python3 -c "
+            PASS_RATE=$(python3 << 'PYEOF'
           import json
           v = json.load(open('database/metadata/validation_results.json'))
-          rate = v.get('pass_rate', '0%')
-          print(rate.replace('%',''))" 2>/dev/null || echo "0")
+          total = len(v)
+          inconclusive = sum(1 for r in v.values() if isinstance(r, dict) and r.get('inconclusive'))
+          passed = sum(1 for r in v.values() if isinstance(r, dict) and r.get('passed'))
+          considered = total - inconclusive
+          print(f"{passed / considered * 100:.1f}" if considered else "0")
+          PYEOF
+          )
 
             PASS_INT=$(echo "$PASS_RATE" | cut -d. -f1)
             if [ "$PASS_INT" -lt 50 ]; then
