@@ -2,6 +2,9 @@
 data/
 *.evtx
 
+# Pipeline run logs (saved to GCS bucket)
+database/logs/
+
 # Python
 __pycache__/
 *.pyc

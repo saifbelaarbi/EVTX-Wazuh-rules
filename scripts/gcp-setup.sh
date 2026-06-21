@@ -21,8 +21,8 @@ echo "Project: $PROJECT_ID"
 echo ""
 
 # Enable required APIs
-echo ">> Enabling Compute Engine API..."
-gcloud services enable compute.googleapis.com --project="$PROJECT_ID"
+echo ">> Enabling Compute Engine + Cloud Storage APIs..."
+gcloud services enable compute.googleapis.com storage.googleapis.com --project="$PROJECT_ID"
 
 # Create service account
 if gcloud iam service-accounts describe "$SA_EMAIL" --project="$PROJECT_ID" 2>/dev/null; then
@@ -35,8 +35,8 @@ else
 fi
 
 # Grant permissions
-echo ">> Granting Compute Engine permissions..."
-for ROLE in roles/compute.admin roles/iam.serviceAccountUser; do
+echo ">> Granting Compute Engine + Storage permissions..."
+for ROLE in roles/compute.admin roles/iam.serviceAccountUser roles/storage.admin; do
     gcloud projects add-iam-policy-binding "$PROJECT_ID" \
         --member="serviceAccount:$SA_EMAIL" \
         --role="$ROLE" \
@@ -71,6 +71,16 @@ echo "   Create at: https://github.com/settings/tokens?type=beta"
 echo "   Scope: repo (read access to saifbelaarbi/EVTX-Wazuh-rules)"
 echo ""
 echo "Then trigger: Actions → Deploy to GCP → Run workflow → deploy"
+echo ""
+echo "Logs will be saved to:"
+echo "  - GCS bucket: gs://${PROJECT_ID}-evtx-logs/runs/"
+echo "  - GitHub Actions artifacts (30-day retention)"
+echo ""
+echo "To browse past runs:"
+echo "  gcloud storage ls gs://${PROJECT_ID}-evtx-logs/runs/"
+echo ""
+echo "To read a specific run's log:"
+echo "  gcloud storage cat gs://${PROJECT_ID}-evtx-logs/runs/<TIMESTAMP>/console-output.log"
 echo ""
 echo "To see the key contents:"
 echo "  cat $KEY_FILE"

@@ -1,7 +1,22 @@
 #!/bin/sh
 set -e
 
+# ── Logging setup: re-exec self through tee on first invocation ──
+RUN_ID=$(date -u +%Y%m%dT%H%M%SZ)
+LOG_DIR="database/logs"
+mkdir -p "$LOG_DIR"
+LOG_FILE="$LOG_DIR/pipeline-${RUN_ID}.log"
+export RUN_ID LOG_FILE
+
+if [ -z "$_EVTX_LOGGED" ]; then
+    export _EVTX_LOGGED=1
+    sh "$0" "$@" 2>&1 | tee "$LOG_FILE"
+    exit $?
+fi
+
 echo "=== EVTX-Wazuh-Rules Pipeline ==="
+echo ">> Run ID: ${RUN_ID}"
+echo ">> Started: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 # API connection (overridable via docker-compose environment)
 WAZUH_API="${WAZUH_API_URL:-https://wazuh-manager:55000}"
@@ -146,8 +161,49 @@ python generate_report.py 2>/dev/null || true
 
 echo ""
 echo "=== Pipeline complete ==="
+echo ">> Finished: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 echo "Results in ./database/"
 echo "  rules/by_tactic/    - Wazuh XML rules"
 echo "  metadata/           - rule_index, validation_results, changelog"
 echo "  navigator_layer.json"
 echo "  exports/sigma/      - Sigma YAML back-exports"
+echo "  logs/               - Pipeline run logs"
+
+# ── Generate run summary JSON ──
+python -c "
+import json, os, glob
+from datetime import datetime
+
+summary = {
+    'run_id': '${RUN_ID}',
+    'finished': datetime.utcnow().isoformat() + 'Z',
+    'rule_files': len(glob.glob('database/rules/by_tactic/*.xml')),
+    'rule_count': 0,
+    'validation_errors': 0,
+    'logtest': {},
+}
+
+try:
+    idx = json.load(open('database/metadata/rule_index.json'))
+    summary['rule_count'] = len(idx)
+except Exception:
+    pass
+
+try:
+    val = json.load(open('database/metadata/validation_results.json'))
+    if isinstance(val, dict):
+        summary['logtest'] = {
+            'mode': val.get('mode', ''),
+            'total': val.get('total_rules', 0),
+            'passed': val.get('passed', 0),
+            'failed': val.get('failed', 0),
+            'pass_rate': val.get('pass_rate', ''),
+        }
+except Exception:
+    pass
+
+out = 'database/logs/run-${RUN_ID}.json'
+json.dump(summary, open(out, 'w'), indent=2)
+print(f'>> Run summary saved to {out}')
+print(json.dumps(summary, indent=2))
+" 2>/dev/null || true

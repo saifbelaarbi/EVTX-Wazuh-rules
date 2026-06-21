@@ -23,6 +23,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  LOG_BUCKET: ${{ secrets.GCP_PROJECT_ID }}-evtx-logs
 
 jobs:
   deploy:
@@ -39,6 +40,27 @@ jobs:
 
       - name: Set up gcloud
         uses: google-github-actions/setup-gcloud@v2
+
+      - name: Create log bucket if needed
+        run: |
+          if ! gcloud storage buckets describe "gs://$LOG_BUCKET" 2>/dev/null; then
+            echo ">> Creating log bucket gs://$LOG_BUCKET..."
+            gcloud storage buckets create "gs://$LOG_BUCKET" \
+              --location=us-central1 \
+              --uniform-bucket-level-access \
+              --lifecycle-file=<(cat <<'LIFECYCLE'
+          {
+            "rule": [{
+              "action": {"type": "Delete"},
+              "condition": {"age": 90}
+            }]
+          }
+          LIFECYCLE
+              )
+            echo ">> Bucket created with 90-day auto-delete lifecycle"
+          else
+            echo ">> Log bucket already exists"
+          fi
 
       - name: Create or start VM
         run: |
@@ -69,7 +91,6 @@ jobs:
             echo ">> VM $VM already running (status: $STATUS)"
           fi
 
-          # Wait until SSH is available
           for i in $(seq 1 12); do
             if gcloud compute ssh "$VM" --zone="$ZONE" --command="echo ok" 2>/dev/null; then
               echo ">> SSH ready"
@@ -136,21 +157,17 @@ jobs:
           ZONE="${{ inputs.zone }}"
 
           echo ">> Streaming pipeline logs (timeout: 35 min)..."
-          # Follow logs until pipeline container exits or timeout
           timeout 2100 gcloud compute ssh "$VM" --zone="$ZONE" --command="
             cd \$HOME/evtx-wazuh-rules
 
-            # Follow pipeline container logs until it exits
             sudo docker compose logs -f pipeline 2>&1 &
             LOG_PID=\$!
 
-            # Wait for pipeline container to exit
             while sudo docker compose ps --format json | grep -q '\"pipeline\".*running'; do
               sleep 10
             done
             sleep 5
 
-            # Also check if it finished already
             if ! sudo docker compose ps --format json | grep -q '\"pipeline\"'; then
               echo ''
               echo '>> Pipeline container has exited.'
@@ -165,17 +182,14 @@ jobs:
             sudo docker compose ps -a
             echo ''
 
-            # Show Wazuh manager status
             echo '>> Wazuh manager status:'
             sudo docker compose exec -T wazuh-manager /var/ossec/bin/wazuh-control status 2>/dev/null || echo '(manager not running)'
             echo ''
 
-            # Count loaded custom rules
             echo '>> Custom rules loaded in Wazuh:'
             sudo docker compose exec -T wazuh-manager find /var/ossec/etc/rules/ -name '*.xml' -newer /var/ossec/etc/rules/local_rules.xml 2>/dev/null | wc -l || echo '0'
             echo ''
 
-            # Show database output summary
             echo '>> Database output:'
             ls -la \$HOME/evtx-wazuh-rules/database/rules/by_tactic/ 2>/dev/null || echo '(no rules generated yet)'
             echo ''
@@ -183,34 +197,100 @@ jobs:
             grep -c '\"rule_id\"' \$HOME/evtx-wazuh-rules/database/metadata/rule_index.json 2>/dev/null || echo '0'
           " 2>&1 | tee /tmp/pipeline-output.log
 
-      - name: Upload full logs
+      - name: Collect logs from VM
+        if: always()
+        run: |
+          VM="${{ inputs.vm_name }}"
+          ZONE="${{ inputs.zone }}"
+          mkdir -p /tmp/pipeline-logs
+
+          cp /tmp/pipeline-output.log /tmp/pipeline-logs/console-output.log 2>/dev/null || true
+
+          # Pull structured logs and run summaries from the VM
+          gcloud compute scp --zone="$ZONE" --recurse \
+            "$VM":~/evtx-wazuh-rules/database/logs/ /tmp/pipeline-logs/run-logs/ 2>/dev/null || true
+
+          # Pull validation results and rule index summary
+          gcloud compute scp --zone="$ZONE" \
+            "$VM":~/evtx-wazuh-rules/database/metadata/validation_results.json \
+            /tmp/pipeline-logs/ 2>/dev/null || true
+
+          gcloud compute scp --zone="$ZONE" \
+            "$VM":~/evtx-wazuh-rules/database/metadata/rule_index.json \
+            /tmp/pipeline-logs/ 2>/dev/null || true
+
+          # Pull Wazuh manager logs
+          gcloud compute ssh "$VM" --zone="$ZONE" --command="
+            sudo docker compose -f \$HOME/evtx-wazuh-rules/docker-compose.yml \
+              exec -T wazuh-manager cat /var/ossec/logs/ossec.log 2>/dev/null | tail -200
+          " > /tmp/pipeline-logs/wazuh-manager.log 2>/dev/null || true
+
+          echo ">> Collected logs:"
+          find /tmp/pipeline-logs -type f | sort
+
+      - name: Upload logs to GCS bucket
+        if: always()
+        run: |
+          RUN_TS=$(date -u +%Y%m%dT%H%M%SZ)
+          GCS_PATH="gs://$LOG_BUCKET/runs/${RUN_TS}-run${{ github.run_number }}"
+
+          echo ">> Uploading logs to ${GCS_PATH}..."
+          gcloud storage cp --recursive /tmp/pipeline-logs/ "${GCS_PATH}/" 2>/dev/null || \
+            echo ">> [WARN] GCS upload failed — logs still available as artifacts"
+
+          echo ">> Logs uploaded to: ${GCS_PATH}/"
+          echo ""
+          echo ">> To browse: gcloud storage ls ${GCS_PATH}/"
+          echo ">> To read:   gcloud storage cat ${GCS_PATH}/console-output.log"
+
+      - name: Upload logs as GitHub artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pipeline-logs-${{ github.run_number }}
-          path: /tmp/pipeline-output.log
+          name: pipeline-logs-run${{ github.run_number }}
+          path: /tmp/pipeline-logs/
           retention-days: 30
 
       - name: Post summary
         if: always()
         run: |
+          RUN_TS=$(date -u +%Y%m%dT%H%M%SZ)
+          GCS_PATH="gs://$LOG_BUCKET/runs/${RUN_TS}-run${{ github.run_number }}"
+
           echo "## GCP Deploy Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **VM**: \`${{ inputs.vm_name }}\` in \`${{ inputs.zone }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "- **Machine**: \`${{ inputs.machine_type }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "- **Run**: #${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          echo "| Item | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| VM | \`${{ inputs.vm_name }}\` in \`${{ inputs.zone }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Machine | \`${{ inputs.machine_type }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Run | #${{ github.run_number }} |" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f /tmp/pipeline-logs/run-logs/run-*.json ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Run Report" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat /tmp/pipeline-logs/run-logs/run-*.json >> $GITHUB_STEP_SUMMARY 2>/dev/null
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ -f /tmp/pipeline-logs/console-output.log ]; then
+            RULES=$(grep -o 'Rule count:.*' /tmp/pipeline-logs/console-output.log | tail -1 || echo "unknown")
+            PASS_RATE=$(grep -o '[0-9]*\.[0-9]*% pass' /tmp/pipeline-logs/console-output.log | tail -1 || echo "unknown")
+            echo "| Rules | $RULES |" >> $GITHUB_STEP_SUMMARY
+            echo "| Pass rate | $PASS_RATE |" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Log locations" >> $GITHUB_STEP_SUMMARY
+          echo "- **GCS**: \`${GCS_PATH}/\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Artifact**: Download from this workflow run" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          if [ -f /tmp/pipeline-output.log ]; then
-            RULES=$(grep -o 'Rule count:.*' /tmp/pipeline-output.log | tail -1 || echo "unknown")
-            PASS_RATE=$(grep -o '[0-9]*\.[0-9]*% pass' /tmp/pipeline-output.log | tail -1 || echo "unknown")
-            echo "- **Rules**: $RULES" >> $GITHUB_STEP_SUMMARY
-            echo "- **Pass rate**: $PASS_RATE" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "<details><summary>Last 100 lines of output</summary>" >> $GITHUB_STEP_SUMMARY
+          if [ -f /tmp/pipeline-logs/console-output.log ]; then
+            echo "<details><summary>Last 150 lines of pipeline output</summary>" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
-            tail -100 /tmp/pipeline-output.log >> $GITHUB_STEP_SUMMARY
+            tail -150 /tmp/pipeline-logs/console-output.log >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
             echo "</details>" >> $GITHUB_STEP_SUMMARY
           fi
@@ -228,51 +308,77 @@ jobs:
       - name: Set up gcloud
         uses: google-github-actions/setup-gcloud@v2
 
-      - name: Fetch logs from VM
+      - name: Fetch logs from VM and GCS
         run: |
           VM="${{ inputs.vm_name }}"
           ZONE="${{ inputs.zone }}"
+          mkdir -p /tmp/fetched-logs
 
+          echo '========================================='
+          echo '  CONTAINER STATUS'
+          echo '========================================='
           gcloud compute ssh "$VM" --zone="$ZONE" --command="
             cd \$HOME/evtx-wazuh-rules 2>/dev/null || { echo 'Repo not found'; exit 1; }
-
-            echo '========================================='
-            echo '  CONTAINER STATUS'
-            echo '========================================='
             sudo docker compose ps -a
-            echo ''
+          " 2>&1 | tee /tmp/fetched-logs/container-status.log
+          echo ''
 
-            echo '========================================='
-            echo '  PIPELINE LOGS (last 500 lines)'
-            echo '========================================='
+          echo '========================================='
+          echo '  PIPELINE LOGS (last 500 lines)'
+          echo '========================================='
+          gcloud compute ssh "$VM" --zone="$ZONE" --command="
+            cd \$HOME/evtx-wazuh-rules
             sudo docker compose logs --tail=500 pipeline 2>&1
-            echo ''
+          " 2>&1 | tee /tmp/fetched-logs/pipeline-tail.log
+          echo ''
 
-            echo '========================================='
-            echo '  WAZUH MANAGER LOGS (last 100 lines)'
-            echo '========================================='
-            sudo docker compose logs --tail=100 wazuh-manager 2>&1
-            echo ''
+          echo '========================================='
+          echo '  WAZUH MANAGER LOGS (last 200 lines)'
+          echo '========================================='
+          gcloud compute ssh "$VM" --zone="$ZONE" --command="
+            cd \$HOME/evtx-wazuh-rules
+            sudo docker compose exec -T wazuh-manager tail -200 /var/ossec/logs/ossec.log 2>/dev/null || echo '(not available)'
+          " 2>&1 | tee /tmp/fetched-logs/wazuh-manager.log
+          echo ''
 
-            echo '========================================='
-            echo '  DATABASE STATUS'
-            echo '========================================='
-            echo 'Rule files:'
-            ls -la \$HOME/evtx-wazuh-rules/database/rules/by_tactic/ 2>/dev/null || echo '(none)'
-            echo ''
-            echo 'Rule count:'
-            grep -c '\"rule_id\"' \$HOME/evtx-wazuh-rules/database/metadata/rule_index.json 2>/dev/null || echo '0'
-            echo ''
-            echo 'Validation results:'
-            cat \$HOME/evtx-wazuh-rules/database/metadata/validation_results.json 2>/dev/null | head -50 || echo '(none)'
-          " 2>&1 | tee /tmp/gcp-logs.log
+          echo '========================================='
+          echo '  STRUCTURED RUN LOGS'
+          echo '========================================='
+          gcloud compute scp --zone="$ZONE" --recurse \
+            "$VM":~/evtx-wazuh-rules/database/logs/ /tmp/fetched-logs/run-logs/ 2>/dev/null || echo '(none found)'
 
-      - name: Upload logs
+          if ls /tmp/fetched-logs/run-logs/run-*.json 2>/dev/null; then
+            echo '>> Run summaries:'
+            cat /tmp/fetched-logs/run-logs/run-*.json
+          fi
+          echo ''
+
+          echo '========================================='
+          echo '  DATABASE STATUS'
+          echo '========================================='
+          gcloud compute ssh "$VM" --zone="$ZONE" --command='
+            echo "Rule files:"
+            ls -la $HOME/evtx-wazuh-rules/database/rules/by_tactic/ 2>/dev/null || echo "(none)"
+            echo ""
+            echo "Rule count:"
+            grep -c "rule_id" $HOME/evtx-wazuh-rules/database/metadata/rule_index.json 2>/dev/null || echo "0"
+            echo ""
+            echo "Validation results:"
+            cat $HOME/evtx-wazuh-rules/database/metadata/validation_results.json 2>/dev/null | head -20 || echo "(not available)"
+          ' 2>&1 | tee -a /tmp/fetched-logs/database-status.log
+          echo ''
+
+          echo '========================================='
+          echo '  PAST RUNS IN GCS BUCKET'
+          echo '========================================='
+          gcloud storage ls "gs://$LOG_BUCKET/runs/" 2>/dev/null || echo '(no GCS bucket or no runs yet)'
+
+      - name: Upload fetched logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: gcp-logs-${{ github.run_number }}
-          path: /tmp/gcp-logs.log
+          name: fetched-logs-run${{ github.run_number }}
+          path: /tmp/fetched-logs/
           retention-days: 7
 
   destroy:
