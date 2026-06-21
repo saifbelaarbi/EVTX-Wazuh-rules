@@ -171,7 +171,7 @@ echo "  logs/               - Pipeline run logs"
 
 # ── Generate run summary JSON ──
 python -c "
-import json, os, glob
+import json, glob
 from datetime import datetime
 
 summary = {
@@ -180,7 +180,8 @@ summary = {
     'rule_files': len(glob.glob('database/rules/by_tactic/*.xml')),
     'rule_count': 0,
     'validation_errors': 0,
-    'logtest': {},
+    'simulate': {},
+    'live': {},
 }
 
 try:
@@ -189,18 +190,20 @@ try:
 except Exception:
     pass
 
-try:
-    val = json.load(open('database/metadata/validation_results.json'))
-    if isinstance(val, dict):
-        summary['logtest'] = {
-            'mode': val.get('mode', ''),
-            'total': val.get('total_rules', 0),
-            'passed': val.get('passed', 0),
-            'failed': val.get('failed', 0),
-            'pass_rate': val.get('pass_rate', ''),
-        }
-except Exception:
-    pass
+def _stats_from_per_rule(path):
+    try:
+        v = json.load(open(path))
+    except Exception:
+        return {}
+    total = len(v)
+    passed = sum(1 for r in v.values() if isinstance(r, dict) and r.get('passed'))
+    inconclusive = sum(1 for r in v.values() if isinstance(r, dict) and r.get('inconclusive'))
+    considered = total - inconclusive
+    rate = f'{passed / considered * 100:.1f}%' if considered else '0%'
+    return {'total': total, 'passed': passed, 'failed': considered - passed, 'inconclusive': inconclusive, 'pass_rate': rate}
+
+summary['simulate'] = _stats_from_per_rule('database/metadata/validation_results.json')
+summary['live'] = _stats_from_per_rule('database/metadata/live_validation_results.json')
 
 out = 'database/logs/run-${RUN_ID}.json'
 json.dump(summary, open(out, 'w'), indent=2)
