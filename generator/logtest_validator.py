@@ -244,67 +244,102 @@ def validate_simulate(rule_id: int, rule_meta: dict, event: dict) -> ValidationR
 
 # ── Mode B: Wazuh REST API ──
 
+# Cached API session state (auth token + logtest session token).
+_api_cache: dict[str, str] = {}
 
-def _run_via_api(event_json: str, config: dict) -> dict:
-    """Run logtest via Wazuh REST API."""
-    try:
-        import requests
-        from urllib3.exceptions import InsecureRequestWarning
 
-        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-    except ImportError:
-        return {"error": "requests package not installed: pip install requests"}
+def _get_api_session(config: dict) -> tuple[str, str, str, bool]:
+    """Return (api_url, auth_token, logtest_token, verify_ssl).
+
+    Authenticates once and caches the token for subsequent calls.  Also
+    caches the logtest session token so Wazuh reuses decoder/rule state.
+    """
+    import requests
+    from urllib3.exceptions import InsecureRequestWarning
+
+    requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
     wazuh_cfg = config.get("wazuh", {})
-    # Environment variables take precedence over config.yaml so containerized
-    # runs (docker-compose) can inject credentials without editing files.
     api_url = os.environ.get("WAZUH_API_URL") or wazuh_cfg.get("api_url", "")
+    verify_ssl = wazuh_cfg.get("api_verify_ssl", False)
+
+    if _api_cache.get("auth_token") and _api_cache.get("api_url") == api_url:
+        return api_url, _api_cache["auth_token"], _api_cache.get("logtest_token", ""), verify_ssl
+
     user = os.environ.get("WAZUH_API_USER") or wazuh_cfg.get("api_user", "wazuh-wui")
     password = os.environ.get("WAZUH_API_PASSWORD", "")
-
     if not password:
         pw_file = wazuh_cfg.get("api_password_file", "")
         if pw_file:
             pw_path = Path(pw_file).expanduser()
             if pw_path.exists():
                 password = pw_path.read_text().strip()
-
     if not password:
         password = wazuh_cfg.get("api_password", "")
 
+    auth_resp = requests.post(
+        f"{api_url}/security/user/authenticate",
+        auth=(user, password),
+        verify=verify_ssl,
+        timeout=10,
+    )
+    auth_resp.raise_for_status()
+    token = auth_resp.json()["data"]["token"]
+    _api_cache["auth_token"] = token
+    _api_cache["api_url"] = api_url
+    return api_url, token, _api_cache.get("logtest_token", ""), verify_ssl
+
+
+def _run_via_api(event_json: str, config: dict) -> dict:
+    """Run logtest via Wazuh REST API.
+
+    Uses ``log_format=json`` because the logtest engine does not invoke
+    the native ``windows_eventchannel`` C decoder.  The Docker entrypoint
+    deploys a bridge rule that overrides rule 60000 to accept
+    ``decoded_as=json``, allowing the full parent chain to fire.
+    """
+    try:
+        import requests  # noqa: F811
+    except ImportError:
+        return {"error": "requests package not installed: pip install requests"}
+
+    wazuh_cfg = config.get("wazuh", {})
+    api_url = os.environ.get("WAZUH_API_URL") or wazuh_cfg.get("api_url", "")
     if not api_url:
         return {"error": "wazuh.api_url not configured"}
 
-    verify_ssl = wazuh_cfg.get("api_verify_ssl", False)
-
     try:
-        auth_resp = requests.post(
-            f"{api_url}/security/user/authenticate",
-            auth=(user, password),
-            verify=verify_ssl,
-            timeout=10,
-        )
-        auth_resp.raise_for_status()
-        token = auth_resp.json()["data"]["token"]
+        api_url, auth_token, logtest_token, verify_ssl = _get_api_session(config)
     except Exception as e:
+        _api_cache.clear()
         return {"error": f"API auth failed: {e}"}
 
-    headers = {"Authorization": f"Bearer {token}"}
+    headers = {"Authorization": f"Bearer {auth_token}"}
+    body: dict = {
+        "event": event_json,
+        "log_format": "json",
+        "location": "EventChannel",
+    }
+    if logtest_token:
+        body["token"] = logtest_token
 
     try:
         logtest_resp = requests.put(
             f"{api_url}/logtest",
             headers=headers,
-            json={
-                "event": event_json,
-                "log_format": "eventchannel",
-                "location": "EventChannel",
-            },
+            json=body,
             verify=verify_ssl,
             timeout=30,
         )
+        if logtest_resp.status_code == 401:
+            _api_cache.clear()
+            return {"error": "API auth token expired"}
         logtest_resp.raise_for_status()
-        return logtest_resp.json()
+        result = logtest_resp.json()
+        new_token = result.get("data", {}).get("token")
+        if new_token:
+            _api_cache["logtest_token"] = new_token
+        return result
     except Exception as e:
         return {"error": f"API logtest failed: {e}"}
 
