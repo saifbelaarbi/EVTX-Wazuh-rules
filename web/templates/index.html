@@ -3,50 +3,159 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EVTX-Wazuh Rule Dashboard</title>
+  <title>EVTX-Wazuh · Rule Dashboard</title>
   <style>
-    body { font-family: system-ui, sans-serif; margin: 2rem; color: #1b1b1b; }
-    h1 { margin-bottom: 0.25rem; }
-    .stat { font-size: 1.1rem; margin: 0.25rem 0; }
-    .stat b { font-size: 1.4rem; }
-    table { border-collapse: collapse; margin-top: 1rem; }
-    th, td { text-align: left; padding: 0.35rem 0.9rem; border-bottom: 1px solid #ddd; }
-    th { background: #f4f4f4; }
-    code { background: #f0f0f0; padding: 0.1rem 0.3rem; border-radius: 3px; }
-    .note { margin-top: 1.5rem; color: #555; }
+    :root {
+      --bg: #0b0f1a;
+      --panel: #131a2b;
+      --panel-2: #1a2335;
+      --line: #243049;
+      --text: #e6ebf5;
+      --muted: #8a97b1;
+      --accent: #4f8cff;
+      --accent-2: #8957e5;
+      --good: #2ea44f;
+      --warn: #e3b341;
+      --bad: #e5534b;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, #1b2540 0%, transparent 60%),
+                  radial-gradient(900px 500px at -10% 0%, #21183a 0%, transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+    /* Hero */
+    .hero { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .78rem; font-weight: 600; letter-spacing: .02em;
+      color: var(--accent); background: rgba(79,140,255,.12);
+      border: 1px solid rgba(79,140,255,.3); border-radius: 999px; padding: .35rem .7rem;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem); margin: .6rem 0 .3rem; line-height: 1.1;
+      background: linear-gradient(90deg, #fff 20%, var(--accent) 60%, var(--accent-2) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .sub { color: var(--muted); margin: 0; font-size: 1.02rem; }
+
+    /* Stat cards */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .card {
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line); border-radius: var(--radius); padding: 1.3rem 1.4rem;
+      position: relative; overflow: hidden;
+    }
+    .card::after {
+      content: ""; position: absolute; inset: 0 0 auto auto; width: 120px; height: 120px;
+      background: radial-gradient(circle at top right, rgba(79,140,255,.18), transparent 70%);
+    }
+    .card .k { font-size: .82rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+    .card .v { font-size: 2.1rem; font-weight: 750; margin-top: .35rem; }
+    .card .v small { font-size: .9rem; color: var(--muted); font-weight: 500; }
+    .v.good { color: #58d68a; } .v.warn { color: var(--warn); } .v.bad { color: var(--bad); }
+
+    /* Sections */
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    @media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.3rem 1.4rem;
+    }
+    .panel h2 { margin: 0 0 1rem; font-size: 1.05rem; display: flex; align-items: center; gap: .5rem; }
+    .panel h2 .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+    .panel h2 .dot.alt { background: var(--accent-2); }
+
+    /* Bars */
+    .row { margin: .55rem 0; }
+    .row .label { display: flex; justify-content: space-between; font-size: .88rem; margin-bottom: .3rem; }
+    .row .label span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .track { height: 9px; background: #0e1422; border-radius: 999px; overflow: hidden; }
+    .fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: grow 1s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes grow { from { width: 0 !important; } }
+
+    .api { margin-top: 2rem; color: var(--muted); font-size: .9rem; }
+    code { background: var(--panel-2); border: 1px solid var(--line); padding: .12rem .45rem; border-radius: 6px; color: var(--accent); font-size: .85em; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .foot { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
   </style>
 </head>
 <body>
-  <h1>EVTX-Wazuh Rule Dashboard</h1>
-  <p class="stat">Total rules: <b>{{ stats.total }}</b></p>
-  <p class="stat">Validation pass rate: <b>{{ "%.1f"|format(stats.pass_rate * 100) }}%</b>
-     ({{ stats.passed }} passed)</p>
+  <div class="wrap">
 
-  <h2>Rules by tactic</h2>
-  <table>
-    <thead><tr><th>Tactic</th><th>Count</th></tr></thead>
-    <tbody>
-      {% for tactic, count in stats.by_tactic.items() %}
-      <tr><td>{{ tactic }}</td><td>{{ count }}</td></tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    <header>
+      <span class="badge">● Wazuh detection database</span>
+      <h1>EVTX-Wazuh Rule Dashboard</h1>
+      <p class="sub">MITRE ATT&amp;CK-mapped detections from EVTX attack samples &amp; SigmaHQ.</p>
+    </header>
 
-  <h2>Rules by source</h2>
-  <table>
-    <thead><tr><th>Source</th><th>Count</th></tr></thead>
-    <tbody>
-      {% for source, count in stats.by_source.items() %}
-      <tr><td>{{ source }}</td><td>{{ count }}</td></tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    {% set max_tactic = (stats.by_tactic.values()|max) if stats.by_tactic else 1 %}
+    {% set max_source = (stats.by_source.values()|max) if stats.by_source else 1 %}
+    {% set pr = (stats.pass_rate * 100) %}
 
-  <p class="note">
-    JSON endpoints: <code>/api/stats</code>, <code>/api/rules</code>
-    (filters: <code>?tactic=</code>, <code>?source=</code>, <code>?q=</code>),
-    <code>/api/navigator</code>.
-    Open <a href="/api/rules">/api/rules</a> to browse all rules.
-  </p>
+    <section class="cards">
+      <div class="card">
+        <div class="k">Total rules</div>
+        <div class="v">{{ stats.total }}</div>
+      </div>
+      <div class="card">
+        <div class="k">Validation pass rate</div>
+        <div class="v {{ 'good' if pr >= 90 else 'warn' if pr >= 50 else 'bad' }}">
+          {{ "%.1f"|format(pr) }}<small>%</small>
+        </div>
+      </div>
+      <div class="card">
+        <div class="k">Rules passed</div>
+        <div class="v">{{ stats.passed }}</div>
+      </div>
+      <div class="card">
+        <div class="k">Tactics covered</div>
+        <div class="v">{{ stats.by_tactic|length }}<small> / 12</small></div>
+      </div>
+    </section>
+
+    <section class="grid2">
+      <div class="panel">
+        <h2><span class="dot"></span> Rules by tactic</h2>
+        {% for tactic, count in stats.by_tactic.items()|sort(attribute='1', reverse=true) %}
+        <div class="row">
+          <div class="label"><span>{{ tactic.replace('_', ' ') }}</span><span>{{ count }}</span></div>
+          <div class="track"><div class="fill" style="width: {{ (count / max_tactic * 100)|round(1) }}%"></div></div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="panel">
+        <h2><span class="dot alt"></span> Rules by source</h2>
+        {% for source, count in stats.by_source.items()|sort(attribute='1', reverse=true) %}
+        <div class="row">
+          <div class="label"><span>{{ source }}</span><span>{{ count }}</span></div>
+          <div class="track"><div class="fill" style="width: {{ (count / max_source * 100)|round(1) }}%; background: linear-gradient(90deg, var(--accent-2), var(--accent));"></div></div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <p class="api">
+      <strong>JSON API:</strong>
+      <a href="/api/stats"><code>/api/stats</code></a> ·
+      <a href="/api/rules"><code>/api/rules</code></a>
+      <span style="color:var(--muted)">(filters <code>?tactic=</code> <code>?source=</code> <code>?q=</code>)</span> ·
+      <a href="/api/navigator"><code>/api/navigator</code></a>
+    </p>
+
+    <div class="foot">
+      EVTX-Wazuh-Rules · read-only dashboard · data from <code>database/metadata/</code>
+    </div>
+
+  </div>
 </body>
 </html>

@@ -1,0 +1,1 @@
+../../agents/rule-agent/AGENT.md

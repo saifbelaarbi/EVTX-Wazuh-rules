@@ -1,0 +1,109 @@
+{
+  "asset": "cisco-asa",
+  "display_name": "Cisco ASA Firewall",
+  "log_format": "syslog",
+  "decoder_file": "database/decoders/cisco-asa_decoder.xml",
+  "sample_count": 10,
+  "prematch": "^%ASA-",
+  "fields": [
+    {
+      "name": "id",
+      "wazuh_field": "id",
+      "type": "integer",
+      "example": "106023",
+      "description": "ASA message number (the NNNNNN in %ASA-S-NNNNNN). Pins a rule to a specific event type.",
+      "security_relevant": true
+    },
+    {
+      "name": "srcip",
+      "wazuh_field": "srcip",
+      "type": "ip",
+      "example": "203.0.113.7",
+      "description": "Source IP of the connection or the authenticating client.",
+      "security_relevant": true
+    },
+    {
+      "name": "srcport",
+      "wazuh_field": "srcport",
+      "type": "port",
+      "example": "51234",
+      "description": "Source port.",
+      "security_relevant": false
+    },
+    {
+      "name": "dstip",
+      "wazuh_field": "dstip",
+      "type": "ip",
+      "example": "10.0.0.5",
+      "description": "Destination/target IP.",
+      "security_relevant": true
+    },
+    {
+      "name": "dstport",
+      "wazuh_field": "dstport",
+      "type": "port",
+      "example": "3389",
+      "description": "Destination port (3389/22 indicate RDP/SSH targeting).",
+      "security_relevant": true
+    },
+    {
+      "name": "protocol",
+      "wazuh_field": "protocol",
+      "type": "protocol",
+      "example": "tcp",
+      "description": "L4 protocol of the denied/built connection.",
+      "security_relevant": false
+    },
+    {
+      "name": "srcuser",
+      "wazuh_field": "srcuser",
+      "type": "username",
+      "example": "jdoe",
+      "description": "Account named in AAA auth events or CLI command events.",
+      "security_relevant": true
+    },
+    {
+      "name": "command",
+      "wazuh_field": "data.command",
+      "type": "string",
+      "example": "write memory",
+      "description": "Privileged CLI command executed on the appliance.",
+      "security_relevant": true
+    },
+    {
+      "name": "asa_severity",
+      "wazuh_field": "data.asa_severity",
+      "type": "integer",
+      "example": "4",
+      "description": "ASA syslog severity digit (the S in %ASA-S-NNNNNN).",
+      "security_relevant": false
+    }
+  ],
+  "event_kinds": [
+    {
+      "name": "connection denied by ACL",
+      "message_id": "106023",
+      "example_line": "%ASA-4-106023: Deny tcp src outside:203.0.113.7/51234 dst inside:10.0.0.5/3389 by access-group \"outside_access_in\"",
+      "security_relevant": true
+    },
+    {
+      "name": "AAA authentication rejected",
+      "message_id": "113005",
+      "example_line": "%ASA-6-113005: AAA user authentication Rejected : reason = AAA failure : server = 10.0.0.2 : user = jdoe : user IP = 198.51.100.22",
+      "security_relevant": true
+    },
+    {
+      "name": "AAA authentication successful",
+      "message_id": "113012",
+      "example_line": "%ASA-6-113012: AAA user authentication Successful : server = 10.0.0.2 : user = jdoe",
+      "security_relevant": true
+    },
+    {
+      "name": "privileged CLI command executed",
+      "message_id": "111010",
+      "example_line": "%ASA-5-111010: User 'admin', running 'CLI' from IP 192.0.2.50, executed 'write memory'",
+      "security_relevant": true
+    }
+  ],
+  "notes": "Regex flavor is PCRE2 (type=\"pcre2\"). Standard fields (srcip/dstip/srcport/dstport/protocol/srcuser/id) used where possible so Wazuh's built-in firewall/auth rules and dashboards apply; command and asa_severity are dynamic (data.*). user IP is only present on rejected-auth lines, so srcip is event-kind dependent."
+}

@@ -1,0 +1,1 @@
+../../agents/decoder-agent/AGENT.md

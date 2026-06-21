@@ -100,6 +100,22 @@ Metadata in `database/metadata/`: `rule_index.json`, `id_allocations.json`, `pro
 
 Draft rules go to `database/drafts/` for human review (default behavior without `--auto-approve`).
 
+## Asset Onboarding Agents (Part Two)
+
+Beyond the EVTX/Sigma pipeline, `agents/` holds two **Claude Code subagents** that onboard an
+arbitrary new asset (a firewall, appliance, or app Wazuh doesn't decode by default):
+
+- **decoder-agent** (`agents/decoder-agent/AGENT.md`) — input: a folder of raw logs for **one**
+  asset + a slug. Output: `database/decoders/<asset>_decoder.xml` (Wazuh decoder) +
+  `database/decoders/<asset>_schema.json` (field-schema contract).
+- **rule-agent** (`agents/rule-agent/AGENT.md`) — input: the `<asset>_schema.json`. Output:
+  `database/rules/by_source/<asset>.xml` (MITRE-mapped Wazuh rules referencing the decoder's fields).
+
+The schema (`agents/schemas/field_schema.schema.json`) is the contract between them, so the
+rule-agent never references a field the decoder didn't parse. Both are registered for Claude Code
+via symlinks in `.claude/agents/` (single source of truth stays in `agents/`). A complete Cisco
+ASA worked example lives in the agents' `examples/` folders. See `agents/README.md`.
+
 ## Important Conventions
 
 - Rule IDs use Wazuh's custom range 100000-119999, partitioned per tactic in `config.yaml` under `tactic_id_ranges`

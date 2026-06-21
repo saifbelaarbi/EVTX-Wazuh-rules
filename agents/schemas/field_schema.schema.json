@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/saifbelaarbi/EVTX-Wazuh-rules/agents/schemas/field_schema.schema.json",
+  "title": "Asset Field Schema",
+  "description": "Contract emitted by the decoder-agent and consumed by the rule-agent. Describes the fields a custom Wazuh decoder extracts from one asset's logs.",
+  "type": "object",
+  "required": ["asset", "log_format", "decoder_file", "fields"],
+  "properties": {
+    "asset": {
+      "type": "string",
+      "description": "Short slug for the asset/product, e.g. 'cisco-asa', 'paloalto-panos', 'mysql'. Used in file names and decoder names."
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Human-readable product name, e.g. 'Cisco ASA Firewall'."
+    },
+    "log_format": {
+      "type": "string",
+      "enum": ["syslog", "json", "key_value", "csv", "multiline", "cef", "leef", "freeform"],
+      "description": "Detected top-level format of the log lines."
+    },
+    "decoder_file": {
+      "type": "string",
+      "description": "Path to the generated Wazuh decoder XML, e.g. 'database/decoders/cisco-asa_decoder.xml'."
+    },
+    "sample_count": {
+      "type": "integer",
+      "description": "Number of raw log lines analysed to build this schema."
+    },
+    "prematch": {
+      "type": "string",
+      "description": "The decoder prematch expression used to identify this asset's logs (verbatim as written in the XML)."
+    },
+    "fields": {
+      "type": "array",
+      "description": "Every field the decoder extracts, in decode order.",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "example"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Field name as it appears to rules. Use Wazuh standard names where they apply (srcip, dstip, srcport, dstport, srcuser, dstuser, action, protocol, id, url, status). Otherwise a dynamic field referenced in rules as data.<name>."
+          },
+          "wazuh_field": {
+            "type": "string",
+            "description": "How a rule references this field: a standard tag (e.g. 'srcip') or 'data.<name>' for a dynamic field."
+          },
+          "type": {
+            "type": "string",
+            "enum": ["ip", "port", "integer", "string", "username", "hostname", "path", "url", "timestamp", "mac", "action", "protocol", "hash"],
+            "description": "Semantic type, used by the rule-agent to pick detections and comparators."
+          },
+          "example": {
+            "type": "string",
+            "description": "A real value pulled from the sample logs."
+          },
+          "description": {
+            "type": "string",
+            "description": "What the field means in this product's context."
+          },
+          "security_relevant": {
+            "type": "boolean",
+            "description": "Hint from the decoder-agent that this field is worth alerting on (auth result, command, src/dst, action, severity)."
+          },
+          "enum_values": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Observed distinct values when the field is categorical (e.g. action: ['allow','deny','drop'])."
+          }
+        }
+      }
+    },
+    "event_kinds": {
+      "type": "array",
+      "description": "Distinct event types the decoder-agent observed (e.g. 'authentication failure', 'connection denied', 'config change'). Seeds the rule-agent's detection ideas.",
+      "items": {
+        "type": "object",
+        "required": ["name", "example_line"],
+        "properties": {
+          "name": { "type": "string" },
+          "message_id": { "type": "string", "description": "Product message/event ID if present (e.g. Cisco ASA '%ASA-4-106023')." },
+          "example_line": { "type": "string" },
+          "security_relevant": { "type": "boolean" }
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-form caveats: ambiguous fields, multi-line handling, encodings, fields that vary by event kind."
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<!--
+  Example output of the decoder-agent for asset "cisco-asa".
+  Deploy to /var/ossec/etc/decoders/ (or database/decoders/ in this repo).
+  Regex flavor: PCRE2 (standard dot semantics).
+-->
+<decoder name="cisco-asa">
+  <prematch>^%ASA-</prematch>
+</decoder>
+
+<!-- Message ID, so rules can pin to a specific ASA event -->
+<decoder name="cisco-asa-msgid">
+  <parent>cisco-asa</parent>
+  <regex type="pcre2" offset="after_parent">^(\d+)-(\d+): </regex>
+  <order>data.asa_severity,id</order>
+</decoder>
+
+<!-- %ASA-4-106023: connection denied by ACL -->
+<decoder name="cisco-asa-deny">
+  <parent>cisco-asa</parent>
+  <regex type="pcre2">Deny (\w+) src \S+:(\d+\.\d+\.\d+\.\d+)/(\d+) dst \S+:(\d+\.\d+\.\d+\.\d+)/(\d+)</regex>
+  <order>protocol,srcip,srcport,dstip,dstport</order>
+</decoder>
+
+<!-- %ASA-6-113005: AAA authentication rejected -->
+<decoder name="cisco-asa-auth-fail">
+  <parent>cisco-asa</parent>
+  <regex type="pcre2">authentication Rejected.+user = (\S+) : user IP = (\d+\.\d+\.\d+\.\d+)</regex>
+  <order>srcuser,srcip</order>
+</decoder>
+
+<!-- %ASA-6-113012: AAA authentication successful -->
+<decoder name="cisco-asa-auth-ok">
+  <parent>cisco-asa</parent>
+  <regex type="pcre2">authentication Successful.+user = (\S+)</regex>
+  <order>srcuser</order>
+</decoder>
+
+<!-- %ASA-5-111010: privileged CLI command executed -->
+<decoder name="cisco-asa-cmd">
+  <parent>cisco-asa</parent>
+  <regex type="pcre2">User '(\S+)', running '\S+' from IP (\d+\.\d+\.\d+\.\d+), executed '([^']+)'</regex>
+  <order>srcuser,srcip,data.command</order>
+</decoder>
