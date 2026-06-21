@@ -527,7 +527,7 @@ def logtest_cmd(mode, rule_id, source, verbose, save):
         logtest_validator.print_result(result, verbose=verbose)
 
         if save:
-            logtest_validator.save_results([result])
+            logtest_validator.save_results([result], mode=mode)
     else:
         results = logtest_validator.validate_all_rules(mode=mode, source_filter=source)
 
@@ -536,7 +536,7 @@ def logtest_cmd(mode, rule_id, source, verbose, save):
                 logtest_validator.print_result(r, verbose=True)
 
         if save and results:
-            logtest_validator.save_results(results)
+            logtest_validator.save_results(results, mode=mode)
 
 
 @cli.command("navigator")

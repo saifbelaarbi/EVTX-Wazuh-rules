@@ -1,5 +1,7 @@
 """Validate Wazuh rules against source events via simulation or live wazuh-logtest."""
 
+from __future__ import annotations
+
 import json
 import os
 import re
@@ -21,6 +23,7 @@ PROVENANCE_FILE = PROJECT_ROOT / "database" / "metadata" / "provenance.json"
 SAMPLE_EVENTS_FILE = PROJECT_ROOT / "database" / "metadata" / "sample_events.json"
 RULES_DIR = PROJECT_ROOT / "database" / "rules"
 RESULTS_FILE = PROJECT_ROOT / "database" / "metadata" / "validation_results.json"
+LIVE_RESULTS_FILE = PROJECT_ROOT / "database" / "metadata" / "live_validation_results.json"
 
 
 @dataclass
@@ -348,26 +351,40 @@ def _run_via_ssh(event_json: str, config: dict) -> dict:
         return {"error": f"SSH logtest failed: {e}"}
 
 
+_live_diag_printed = False
+
+
 def validate_live(rule_id: int, event: dict, config: dict) -> ValidationResult:
     """Validate a rule via live wazuh-logtest (API first, SSH fallback)."""
+    global _live_diag_printed
     event_json = format_event_for_wazuh(event)
 
     wazuh_cfg = config.get("wazuh", {})
     if wazuh_cfg.get("api_url"):
         result = _run_via_api(event_json, config)
-        # Wazuh API returns {"error": 0, "data": {...}} on success.
-        # Our internal errors use {"error": "some string"}.
         api_err = result.get("error")
         is_internal_error = isinstance(api_err, str)
         if not is_internal_error:
             data = result.get("data", {}).get("output", {})
             matched_rule = data.get("rule", {}).get("id", "")
+            matched_desc = data.get("rule", {}).get("description", "")
+            decoder_name = data.get("decoder", {}).get("name", "N/A")
             passed = str(matched_rule) == str(rule_id)
             details = [
-                f"API matched rule: {matched_rule}",
+                f"API matched rule: {matched_rule} ({matched_desc})",
                 f"Expected: {rule_id}",
+                f"Decoder: {decoder_name}",
                 f"Level: {data.get('rule', {}).get('level', 'N/A')}",
             ]
+            if not passed and not _live_diag_printed:
+                _live_diag_printed = True
+                console.print("\n  [yellow bold]Live logtest diagnostic (first mismatch):[/]")
+                console.print(f"    Rule {rule_id}: Wazuh matched rule {matched_rule} (decoder: {decoder_name})")
+                console.print(f"    Description: {matched_desc}")
+                predecoder = data.get("predecoder", {})
+                if predecoder:
+                    console.print(f"    Predecoder: {json.dumps(predecoder)[:200]}")
+                console.print(f"    Event sent: {event_json[:300]}")
             return ValidationResult(
                 rule_id=rule_id,
                 passed=passed,
@@ -867,8 +884,17 @@ def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> lis
                     api_errors_consecutive += 1
                     if api_errors_consecutive == 10 and mode == "live":
                         console.print("\n  [red bold]10 consecutive API errors — connection may be down[/]")
+                    if api_errors_consecutive >= 50 and mode == "live":
+                        console.print("\n  [red bold]50 consecutive API errors — aborting live logtest[/]")
+                        break
                 else:
                     api_errors_consecutive = 0
+                    if mode == "live" and tested >= 100 and passed == 0:
+                        console.print(
+                            "\n  [yellow bold]0% pass rate after 100 rules — "
+                            "aborting live logtest (likely event format mismatch)[/]"
+                        )
+                        break
                 recent_failures.append(f"Rule {rule_id} ({tactic}): {result.error or 'field mismatch'}")
 
             progress.update(task, advance=1, passed=passed, failed=failed)
@@ -969,9 +995,15 @@ def validate_single_rule(rule_id: int, mode: str = "simulate") -> ValidationResu
         return validate_live(rule_id, event, config)
 
 
-def save_results(results: list[ValidationResult]):
-    """Save validation results to JSON."""
-    RESULTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+def save_results(results: list[ValidationResult], mode: str | None = None):
+    """Save validation results to JSON.
+
+    Live-mode results go to ``live_validation_results.json`` so they never
+    overwrite the offline simulate results that CI relies on.
+    """
+    is_live = mode == "live" if mode else any(r.mode.startswith("live") for r in results)
+    target = LIVE_RESULTS_FILE if is_live else RESULTS_FILE
+    target.parent.mkdir(parents=True, exist_ok=True)
 
     data = {}
     for r in results:
@@ -983,10 +1015,10 @@ def save_results(results: list[ValidationResult]):
             "inconclusive": r.inconclusive,
         }
 
-    with open(RESULTS_FILE, "w") as f:
+    with open(target, "w") as f:
         json.dump(data, f, indent=2)
 
-    console.print(f"\n[bold green]Results saved to:[/] {RESULTS_FILE}")
+    console.print(f"\n[bold green]Results saved to:[/] {target}")
 
 
 def print_result(result: ValidationResult, verbose: bool = False):

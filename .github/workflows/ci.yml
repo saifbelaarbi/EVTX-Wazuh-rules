@@ -71,13 +71,15 @@ jobs:
           echo "- **Tactic files**: $TACTIC_FILES" >> $GITHUB_STEP_SUMMARY
 
           # Validation results (per-rule dict — compute summary)
-          if [ -f database/metadata/validation_results.json ]; then
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "### Logtest Results" >> $GITHUB_STEP_SUMMARY
-            echo '```json' >> $GITHUB_STEP_SUMMARY
-            python3 << 'PYEOF' >> $GITHUB_STEP_SUMMARY 2>/dev/null
+          for VFILE in database/metadata/validation_results.json database/metadata/live_validation_results.json; do
+            if [ -f "$VFILE" ]; then
+              LABEL=$(basename "$VFILE" .json | sed 's/_/ /g')
+              echo "" >> $GITHUB_STEP_SUMMARY
+              echo "### ${LABEL}" >> $GITHUB_STEP_SUMMARY
+              echo '```json' >> $GITHUB_STEP_SUMMARY
+              python3 << PYEOF >> $GITHUB_STEP_SUMMARY 2>/dev/null
           import json
-          v = json.load(open('database/metadata/validation_results.json'))
+          v = json.load(open('${VFILE}'))
           total = len(v)
           passed = sum(1 for r in v.values() if isinstance(r, dict) and r.get('passed'))
           inconclusive = sum(1 for r in v.values() if isinstance(r, dict) and r.get('inconclusive'))
@@ -85,8 +87,9 @@ jobs:
           rate = (passed / considered * 100) if considered else 0
           print(json.dumps({"total_rules": total, "passed": passed, "inconclusive": inconclusive, "pass_rate": f"{rate:.1f}%"}, indent=2))
           PYEOF
-            echo '```' >> $GITHUB_STEP_SUMMARY
-          fi
+              echo '```' >> $GITHUB_STEP_SUMMARY
+            fi
+          done
 
           # Run summary JSON
           if ls database/logs/run-*.json 2>/dev/null; then
@@ -170,5 +173,6 @@ jobs:
             /tmp/integration.log
             database/logs/
             database/metadata/validation_results.json
+            database/metadata/live_validation_results.json
             database/metadata/rule_index.json
           retention-days: 30
