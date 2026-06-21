@@ -1,0 +1,10 @@
+%ASA-4-106023: Deny tcp src outside:203.0.113.7/51234 dst inside:10.0.0.5/3389 by access-group "outside_access_in"
+%ASA-4-106023: Deny tcp src outside:198.51.100.22/40001 dst inside:10.0.0.5/22 by access-group "outside_access_in"
+%ASA-6-302013: Built inbound TCP connection 12345 for outside:203.0.113.7/51234 (203.0.113.7/51234) to inside:10.0.0.10/443 (10.0.0.10/443)
+%ASA-6-605005: Login permitted from 192.0.2.50/52001 to inside:10.0.0.1/https for user "admin"
+%ASA-6-113012: AAA user authentication Successful : server = 10.0.0.2 : user = jdoe
+%ASA-6-113005: AAA user authentication Rejected : reason = AAA failure : server = 10.0.0.2 : user = jdoe : user IP = 198.51.100.22
+%ASA-6-113005: AAA user authentication Rejected : reason = AAA failure : server = 10.0.0.2 : user = jdoe : user IP = 198.51.100.22
+%ASA-6-113005: AAA user authentication Rejected : reason = AAA failure : server = 10.0.0.2 : user = jdoe : user IP = 198.51.100.22
+%ASA-5-111008: User 'admin' executed the 'configure terminal' command.
+%ASA-5-111010: User 'admin', running 'CLI' from IP 192.0.2.50, executed 'write memory'

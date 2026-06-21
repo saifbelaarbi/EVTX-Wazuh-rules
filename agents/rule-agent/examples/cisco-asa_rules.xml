@@ -1,0 +1,73 @@
+<!--
+  Example output of the rule-agent for asset "cisco-asa", built from
+  agents/decoder-agent/examples/cisco-asa_schema.json.
+  Deploy to /var/ossec/etc/rules/ (or database/rules/by_source/ in this repo).
+-->
+<group name="cisco-asa,firewall,">
+
+  <!-- Base/grouping rule: everything the cisco-asa decoder produces -->
+  <rule id="110900" level="0">
+    <decoded_as>cisco-asa</decoded_as>
+    <description>Cisco ASA messages grouped</description>
+    <group>cisco-asa,</group>
+  </rule>
+
+  <!-- Connection denied by ACL -->
+  <rule id="110901" level="5">
+    <if_sid>110900</if_sid>
+    <id>106023</id>
+    <description>Cisco ASA: connection denied by ACL ($(protocol) $(srcip) -> $(dstip):$(dstport))</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+    <group>cisco-asa,firewall_drop,initial_access,</group>
+  </rule>
+
+  <!-- Single AAA authentication failure -->
+  <rule id="108700" level="5">
+    <if_sid>110900</if_sid>
+    <id>113005</id>
+    <description>Cisco ASA: AAA authentication rejected for user $(srcuser) from $(srcip)</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>cisco-asa,authentication_failed,credential_access,</group>
+  </rule>
+
+  <!-- Brute force: many auth failures from one source IP -->
+  <rule id="108701" level="10" frequency="6" timeframe="120">
+    <if_matched_sid>108700</if_matched_sid>
+    <same_source_ip />
+    <description>Cisco ASA: possible brute force - 6+ auth failures from $(srcip) in 120s</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>cisco-asa,authentication_failures,credential_access,</group>
+  </rule>
+
+  <!-- Successful auth shortly after brute force = likely compromise -->
+  <rule id="108702" level="13">
+    <if_sid>110900</if_sid>
+    <id>113012</id>
+    <if_matched_sid>108701</if_matched_sid>
+    <same_source_ip />
+    <description>Cisco ASA: successful auth from $(srcip) after brute force - possible compromise</description>
+    <mitre>
+      <id>T1110</id>
+      <id>T1078</id>
+    </mitre>
+    <group>cisco-asa,authentication_success,credential_access,</group>
+  </rule>
+
+  <!-- Privileged configuration command -->
+  <rule id="112400" level="8">
+    <if_sid>110900</if_sid>
+    <id>111010</id>
+    <description>Cisco ASA: privileged CLI command '$(data.command)' executed by $(srcuser) from $(srcip)</description>
+    <mitre>
+      <id>T1562.004</id>
+    </mitre>
+    <group>cisco-asa,config_changed,defense_evasion,</group>
+  </rule>
+
+</group>
