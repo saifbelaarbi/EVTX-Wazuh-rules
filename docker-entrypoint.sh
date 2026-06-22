@@ -138,7 +138,60 @@ except Exception:
     fi
 
     # ── 6. Live API logtest ──
+    # The Wazuh logtest API does NOT use the native windows_eventchannel
+    # decoder — it routes events through the JSON decoder instead.
+    # Rule 60000 requires decoded_as=windows_eventchannel, so the entire
+    # parent chain never fires. We patch rule 60000 via the API to also
+    # accept decoded_as=json during logtest.
     echo ""
+    echo ">> Patching rule 60000 for logtest compatibility..."
+    cat > /rules-deploy/0000-logtest-bridge.xml << 'RULEXML'
+<!-- Override rule 60000 to accept JSON-decoded events in logtest.
+     The native windows_eventchannel decoder is not available in the
+     logtest engine, so events arrive as decoded_as=json instead.
+     This override makes the entire parent chain (60000→60004→61600→
+     61603→custom rules) fire for JSON-decoded Windows events. -->
+<group name="windows,">
+  <rule id="60000" level="0" overwrite="yes">
+    <decoded_as>json</decoded_as>
+    <field name="win.system.providerName">\.+</field>
+    <options>no_full_log</options>
+    <description>Group of windows rules</description>
+  </rule>
+</group>
+RULEXML
+    echo ">> Wrote logtest bridge rule (overrides 60000) to shared volume"
+
+    # Restart again so the bridge rule is loaded
+    curl -sk -X PUT "${WAZUH_API}/manager/restart" \
+        -H "Authorization: Bearer ${TOKEN}" > /dev/null 2>&1
+    sleep 15
+    i=0
+    while [ "$i" -lt 12 ]; do
+        READY=$(curl -sk -X POST "${WAZUH_API}/security/user/authenticate" \
+            -u "${WAZUH_USER}:${WAZUH_PASS}" 2>/dev/null | python -c "
+import sys, json
+try:
+    print(json.load(sys.stdin)['data']['token'][:8])
+except Exception:
+    print('')
+")
+        if [ -n "$READY" ]; then break; fi
+        i=$((i + 1))
+        sleep 5
+    done
+
+    # Re-auth after restart
+    TOKEN=$(curl -sk -X POST "${WAZUH_API}/security/user/authenticate" \
+        -u "${WAZUH_USER}:${WAZUH_PASS}" 2>/dev/null | python -c "
+import sys, json
+try:
+    data = json.load(sys.stdin)
+    print(data['data']['token'])
+except Exception:
+    print('')
+")
+
     echo ">> Running live API logtest against Wazuh manager..."
     python -m generator logtest --mode live --save
 else
