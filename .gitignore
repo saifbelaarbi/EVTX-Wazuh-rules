@@ -21,6 +21,9 @@ build/
 *.swp
 *.swo
 
+# Generated dashboard (built by generate_dashboard.py / deployed to Pages)
+site/
+
 # OS
 .DS_Store
 Thumbs.db

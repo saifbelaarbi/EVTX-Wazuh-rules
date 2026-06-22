@@ -39,9 +39,14 @@ jobs:
       - run: ruff format --check .
 
   integration-test:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Skip when the push is the bot's own results commit (prevents a loop).
+    if: >-
+      github.event_name == 'push' && github.ref == 'refs/heads/main'
+      && !contains(github.event.head_commit.message, '[dashboard]')
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -176,3 +181,23 @@ jobs:
             database/metadata/live_validation_results.json
             database/metadata/rule_index.json
           retention-days: 30
+
+      # Commit the fresh validation results (incl. live logtest) back to main
+      # so the GitHub Pages dashboard reflects this run. The [dashboard] tag in
+      # the message skips the integration test on the resulting push, while the
+      # pages.yml path filter still redeploys the dashboard.
+      - name: Publish validation results to dashboard
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f database/metadata/validation_results.json \
+                     database/metadata/live_validation_results.json || true
+          if git diff --cached --quiet; then
+            echo ">> No validation result changes to publish"
+          else
+            git commit -m "chore: update validation results from integration test [dashboard]"
+            for i in 1 2 3 4; do
+              git push origin HEAD:main && break || sleep $((2 ** i))
+            done
+          fi

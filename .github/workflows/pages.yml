@@ -1,0 +1,52 @@
+name: Deploy Dashboard
+
+# Regenerates the static coverage dashboard from the committed rule database
+# and publishes it to GitHub Pages on every push to main (and on demand).
+# The dashboard always reflects the latest ruleset + validation results.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "database/metadata/**"
+      - "generate_dashboard.py"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment; newer runs cancel in-progress ones.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate dashboard
+        env:
+          DASHBOARD_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DASHBOARD_COMMIT: ${{ github.sha }}
+        run: python generate_dashboard.py --out site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

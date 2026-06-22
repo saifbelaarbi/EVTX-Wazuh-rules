@@ -9,8 +9,11 @@ attack samples and SigmaHQ — then onboard *any* new log source with two Claude
 
 [![CI](https://github.com/saifbelaarbi/EVTX-Wazuh-rules/actions/workflows/ci.yml/badge.svg)](https://github.com/saifbelaarbi/EVTX-Wazuh-rules/actions/workflows/ci.yml)
 [![Docker](https://github.com/saifbelaarbi/EVTX-Wazuh-rules/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/saifbelaarbi/EVTX-Wazuh-rules/actions/workflows/docker-publish.yml)
+[![Dashboard](https://github.com/saifbelaarbi/EVTX-Wazuh-rules/actions/workflows/pages.yml/badge.svg)](https://saifbelaarbi.github.io/EVTX-Wazuh-rules/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB.svg?logo=python&logoColor=white)](pyproject.toml)
+
+### 📊 [**Live coverage dashboard →**](https://saifbelaarbi.github.io/EVTX-Wazuh-rules/) · auto-rebuilt on every pipeline run
 
 ![Rules](https://img.shields.io/badge/rules-3%2C303-2ea44f.svg)
 ![Techniques](https://img.shields.io/badge/MITRE%20techniques-289-e8553e.svg)
