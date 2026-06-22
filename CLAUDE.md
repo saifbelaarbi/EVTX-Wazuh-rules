@@ -74,7 +74,7 @@ Additional modules:
 - **sigma_analyzer.py** — Assesses Sigma rule convertibility; holds Win/Linux/cloud logsource mappings
 - **sigma_exporter.py** — Back-converts EVTX-derived Wazuh rules to Sigma YAML
 - **composite_builder.py** — Builds chained correlation rules (`if_matched_sid`/frequency/same_field) from `sources/composite_templates.yaml`
-- **logtest_validator.py** — Validates rules via stored/reparsed/synthetic sample events or live Wazuh API/SSH
+- **logtest_validator.py** — Validates rules via stored/reparsed/synthetic sample events or live Wazuh API/SSH. Simulate results save to `validation_results.json`; live results save to `live_validation_results.json` (separate files to prevent overwrites).
 - **fp_tracker.py** — Append-only false-positive log; feeds a level penalty back into `alert_leveler`
 - **navigator_export.py** — Exports MITRE ATT&CK Navigator layer JSON (sub-techniques preserved)
 - **id_manager.py** — Allocates rule IDs within Wazuh's custom range (100000-119999) partitioned by MITRE tactic
@@ -149,3 +149,11 @@ python -m generator logtest --mode simulate --save    # pass-rate ≥96% (baseli
 Check `database/metadata/id_allocations.json` — all 12 tactic ranges should be populated, execution should not be capped. Check `database/rules/by_source/` — sysmon/security/powershell should have rules, not just other.xml.
 
 See `docs/PLAYBOOK.md` for the full end-to-end workflow, troubleshooting, and roadmap.
+
+## Wazuh Logtest Limitation
+
+The Wazuh logtest API (and `wazuh-logtest` CLI) does **not** invoke the native `windows_eventchannel` C decoder. Events sent with `log_format=eventchannel` are silently decoded via the JSON decoder, so `decoded_as=windows_eventchannel` never matches and the parent rule chain (60000→60004→61600→61603) never fires. This is a known Wazuh limitation (issues #13715, #5599).
+
+**Docker workaround**: `docker-entrypoint.sh` deploys `0000-logtest-bridge.xml` which overrides rule 60000 with `decoded_as=json` + `overwrite="yes"`. The logtest API call uses `log_format=json`. This makes the full parent chain fire for JSON-decoded events in the test environment.
+
+**Production deployments** are unaffected — real Windows agents use the native eventchannel path and rule 60000 works as-is. The bridge rule is only deployed in Docker Compose.
