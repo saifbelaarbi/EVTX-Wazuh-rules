@@ -15,11 +15,13 @@ RULE_INDEX_FILE = PROJECT_ROOT / "database" / "metadata" / "rule_index.json"
 # Valid MITRE technique ID pattern
 MITRE_PATTERN = re.compile(r"^T\d{4}(\.\d{3})?$")
 
-# A lone (odd-count) backslash escaping a char that is LITERAL in Wazuh OSRegex.
-# ``{ } [ ] ?`` must not be escaped — ``\{`` is an invalid sequence Wazuh rejects
-# with error 5107 (CRITICAL, aborts the whole rule file). lxml/PCRE accept it,
-# so this is a Wazuh-specific check the generic XML parse won't catch.
-_BAD_OSREGEX_ESCAPE = re.compile(r"(?<!\\)(?:\\\\)*\\([{}\[\]?])")
+# A lone (odd-count) backslash escaping a char that is NOT a valid Wazuh OSRegex
+# escape. Valid escapes are the character classes (\w \d \s \t \p \b \W \D \S),
+# the any-char \., the literal-escapable metacharacters \( \) \$ \| \^, and \\.
+# Anything else (e.g. \+ \{ \" \- \?) is an invalid sequence Wazuh rejects with
+# error 5107 (CRITICAL, aborts the whole rule file). lxml/PCRE accept these, so
+# this is a Wazuh-specific check the generic XML parse won't catch.
+_BAD_OSREGEX_ESCAPE = re.compile(r"(?<!\\)(?:\\\\)*\\([^wWdDsStpbnrA.()$|^\\])")
 
 # An odd-count trailing backslash in element text. OS_XML treats ``\`` as an
 # escape char, so ``\</tag>`` escapes the ``<`` and Wazuh reports the element as
@@ -194,11 +196,11 @@ def validate_database(rules_dir: Path) -> list[str]:
                         errors.append(
                             f'{xml_file.name}: Rule {rule_id} has empty <field name="{fname}"> (Wazuh rejects this)'
                         )
-                    elif field_elem.text and _BAD_OSREGEX_ESCAPE.search(field_elem.text):
+                    elif field_elem.text and (_m := _BAD_OSREGEX_ESCAPE.search(field_elem.text)):
                         fname = field_elem.get("name", "?")
                         errors.append(
                             f"{xml_file.name}: Rule {rule_id} field '{fname}' has an invalid OSRegex "
-                            "escape (\\{ \\} \\[ \\] \\?) — Wazuh error 5107 aborts the file"
+                            f"escape '\\{_m.group(1)}' — Wazuh error 5107 aborts the file"
                         )
 
         except etree.XMLSyntaxError as e:

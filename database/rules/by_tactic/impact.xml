@@ -322,7 +322,7 @@
   </rule>
   <rule id="114033" level="14">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> --cpu-priority=|--donate-level=0| -o pool.| --nicehash| --algo=rx/0 |stratum\+tcp://|stratum\+udp://|LS1kb25hdGUtbGV2ZWw9|0tZG9uYXRlLWxldmVsP|tLWRvbmF0ZS1sZXZlbD|c3RyYXR1bSt0Y3A6Ly|N0cmF0dW0rdGNwOi8v|zdHJhdHVtK3RjcDovL|c3RyYXR1bSt1ZHA6Ly|N0cmF0dW0rdWRwOi8v|zdHJhdHVtK3VkcDovL</field>
+    <field name="win.eventdata.commandLine"> --cpu-priority=|--donate-level=0| -o pool.| --nicehash| --algo=rx/0 |stratum+tcp://|stratum+udp://|LS1kb25hdGUtbGV2ZWw9|0tZG9uYXRlLWxldmVsP|tLWRvbmF0ZS1sZXZlbD|c3RyYXR1bSt0Y3A6Ly|N0cmF0dW0rdGNwOi8v|zdHJhdHVtK3RjcDovL|c3RyYXR1bSt1ZHA6Ly|N0cmF0dW0rdWRwOi8v|zdHJhdHVtK3VkcDovL</field>
     <description>Sigma: Potential Crypto Mining Activity</description>
     <mitre>
       <id>T1496</id>

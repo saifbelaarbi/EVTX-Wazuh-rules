@@ -91,11 +91,14 @@ TACTIC_FROM_TAG = {
 }
 
 # OSRegex special chars that need backslash-escaping to match literally.
-# NOTE: ``{ } [ ] ?`` are LITERAL in Wazuh OSRegex — escaping them produces an
-# invalid sequence (e.g. ``\{``) that Wazuh rejects with error 5107 ("Syntax
-# error on tag"), which is CRITICAL and aborts loading the whole rule file.
-# Only ``( ) | ^ $ + *`` are genuine OSRegex metacharacters.
-OS_REGEX_SPECIAL = r"+*()|^$"
+# NOTE: ``+ * ? { } [ ]`` are NOT escapable in Wazuh OSRegex — ``+``/``*`` are
+# quantifiers that apply ONLY to a preceding backslash-class (``\w+``, ``\.*``),
+# so a standalone ``+`` is already literal and ``\+`` is an INVALID sequence
+# that Wazuh rejects with error 5107 ("Syntax error on tag"), CRITICAL — it
+# aborts loading the whole rule file. Wazuh's own ruleset only ever escapes
+# ``. ( ) $`` (verified against the default ruleset). So escape just the real
+# metacharacters ``( ) | ^ $`` (and backslash, handled separately).
+OS_REGEX_SPECIAL = r"()|^$"
 
 
 def _escape_osregex(value: str) -> str:

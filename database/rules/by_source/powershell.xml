@@ -210,7 +210,7 @@
   </rule>
   <rule id="100255" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">\$PSHome[\s*\d{1,3}\s*]\s*\+\s*\$PSHome[</field>
+    <field name="win.eventdata.payload">\$PSHome[\s*\d{1,3}\s*]\s*+\s*\$PSHome[</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell Module</description>
     <mitre>
       <id>T1027</id>
@@ -442,7 +442,7 @@
   </rule>
   <rule id="100280" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">if\(0\){{{0}}}' -f \$\(0 -as [char]\) \+|#&lt;NULL&gt;</field>
+    <field name="win.eventdata.scriptBlockText">if\(0\){{{0}}}' -f \$\(0 -as [char]\) +|#&lt;NULL&gt;</field>
     <description>Sigma: Potential AMSI Bypass Script Using NULL Bits</description>
     <mitre>
       <id>T1685</id>
@@ -581,7 +581,7 @@
   </rule>
   <rule id="100295" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\$PSHome[\s*\d{1,3}\s*]\s*\+\s*\$PSHome[</field>
+    <field name="win.eventdata.scriptBlockText">\$PSHome[\s*\d{1,3}\s*]\s*+\s*\$PSHome[</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell</description>
     <mitre>
       <id>T1027</id>

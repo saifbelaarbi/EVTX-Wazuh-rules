@@ -281,7 +281,7 @@
   </rule>
   <rule id="104045" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0\+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
+    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
     <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
@@ -291,7 +291,7 @@
   </rule>
   <rule id="104046" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0\+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
+    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
     <field name="win.eventdata.imagePath">powershell</field>
     <description>Service installed with suspicious path pattern: powershell</description>
     <mitre>
@@ -1701,7 +1701,7 @@
   </rule>
   <rule id="104187" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0\+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
+    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
     <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
@@ -1711,7 +1711,7 @@
   </rule>
   <rule id="104188" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0\+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
+    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
     <field name="win.eventdata.imagePath">powershell</field>
     <description>Service installed with suspicious path pattern: powershell</description>
     <mitre>
@@ -2821,7 +2821,7 @@
   </rule>
   <rule id="104299" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0\+ICBUaGUgdG90YWwgIyBvZiBldm</field>
+    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm</field>
     <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
@@ -2831,7 +2831,7 @@
   </rule>
   <rule id="104300" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0\+ICBUaGUgdG90YWwgIyBvZiBldm</field>
+    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm</field>
     <field name="win.eventdata.imagePath">powershell</field>
     <description>Service installed with suspicious path pattern: powershell</description>
     <mitre>
@@ -3481,7 +3481,7 @@
   </rule>
   <rule id="104365" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0\+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
+    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
     <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
@@ -3491,7 +3491,7 @@
   </rule>
   <rule id="104366" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0\+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
+    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
     <field name="win.eventdata.imagePath">powershell</field>
     <description>Service installed with suspicious path pattern: powershell</description>
     <mitre>
@@ -4401,7 +4401,7 @@
   </rule>
   <rule id="104457" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0\+IEhvdyBzZXZlcmUgb2YgdGhl</field>
+    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl</field>
     <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
@@ -4411,7 +4411,7 @@
   </rule>
   <rule id="104458" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0\+IEhvdyBzZXZlcmUgb2YgdGhl</field>
+    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl</field>
     <field name="win.eventdata.imagePath">powershell</field>
     <description>Service installed with suspicious path pattern: powershell</description>
     <mitre>
@@ -4421,7 +4421,7 @@
   </rule>
   <rule id="104459" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0\+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
+    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
     <field name="win.eventdata.imagePath">cmd.exe /c</field>
     <description>Service installed with suspicious path pattern: cmd.exe /c</description>
     <mitre>
@@ -4431,7 +4431,7 @@
   </rule>
   <rule id="104460" level="9">
     <if_sid>60106</if_sid>
-    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0\+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
+    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
     <field name="win.eventdata.imagePath">powershell</field>
     <description>Service installed with suspicious path pattern: powershell</description>
     <mitre>
