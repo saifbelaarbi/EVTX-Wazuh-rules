@@ -1,0 +1,6 @@
+{
+  "buildCommand": "python3 generate_dashboard.py --out site",
+  "outputDirectory": "site",
+  "framework": null,
+  "installCommand": "echo 'skip'"
+}
