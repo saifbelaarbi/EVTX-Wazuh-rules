@@ -208,7 +208,7 @@
   </rule>
   <rule id="100280" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">if\(0\){{{0}}}' -f \$\(0 -as [char]\) \+|#&lt;NULL&gt;</field>
+    <field name="win.eventdata.scriptBlockText">if\(0\){{{0}}}' -f \$\(0 -as [char]\) +|#&lt;NULL&gt;</field>
     <description>Sigma: Potential AMSI Bypass Script Using NULL Bits</description>
     <mitre>
       <id>T1685</id>
@@ -435,7 +435,7 @@
   </rule>
   <rule id="100681" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">if\(0\){{{0}}}' -f \$\(0 -as [char]\) \+|#&lt;NULL&gt;</field>
+    <field name="win.eventdata.commandLine">if\(0\){{{0}}}' -f \$\(0 -as [char]\) +|#&lt;NULL&gt;</field>
     <description>Sigma: Potential AMSI Bypass Using NULL Bits</description>
     <mitre>
       <id>T1685</id>

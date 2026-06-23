@@ -15,11 +15,13 @@ RULE_INDEX_FILE = PROJECT_ROOT / "database" / "metadata" / "rule_index.json"
 # Valid MITRE technique ID pattern
 MITRE_PATTERN = re.compile(r"^T\d{4}(\.\d{3})?$")
 
-# A lone (odd-count) backslash escaping a char that is LITERAL in Wazuh OSRegex.
-# ``{ } [ ] ?`` must not be escaped — ``\{`` is an invalid sequence Wazuh rejects
-# with error 5107 (CRITICAL, aborts the whole rule file). lxml/PCRE accept it,
-# so this is a Wazuh-specific check the generic XML parse won't catch.
-_BAD_OSREGEX_ESCAPE = re.compile(r"(?<!\\)(?:\\\\)*\\([{}\[\]?])")
+# A lone (odd-count) backslash escaping a char that is NOT escapable in Wazuh
+# OSRegex. ``+ * ? { } [ ]`` must not be escaped — e.g. ``\+`` / ``\{`` are
+# invalid sequences Wazuh rejects with error 5107 (CRITICAL, aborts the whole
+# rule file). (``+``/``*`` are quantifiers that apply only to a preceding
+# backslash-class, so standalone they are already literal.) lxml/PCRE accept
+# these, so this is a Wazuh-specific check the generic XML parse won't catch.
+_BAD_OSREGEX_ESCAPE = re.compile(r"(?<!\\)(?:\\\\)*\\([{}\[\]?+*])")
 
 # An odd-count trailing backslash in element text. OS_XML treats ``\`` as an
 # escape char, so ``\</tag>`` escapes the ``<`` and Wazuh reports the element as

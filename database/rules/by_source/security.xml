@@ -108,7 +108,7 @@
   <rule id="100060" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
-    <field name="win.eventdata.serviceFileName">\$PSHome[\s*\d{1,3}\s*]\s*\+\s*\$PSHome[</field>
+    <field name="win.eventdata.serviceFileName">\$PSHome[\s*\d{1,3}\s*]\s*+\s*\$PSHome[</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation - Security</description>
     <mitre>
       <id>T1027</id>
