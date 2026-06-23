@@ -585,14 +585,14 @@
     "inconclusive": false
   },
   "100060": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '4697' vs '4697'",
-      "  PASS: win.eventdata.serviceFileName = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[ *1 *] *+ *$PSHome['"
+      "  FAIL: win.eventdata.serviceFileName = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[ *1 *] *+ *$PSHome['"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100061": {
     "passed": true,
@@ -895,14 +895,14 @@
     "inconclusive": false
   },
   "100090": {
-    "passed": true,
+    "passed": false,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.system.eventID = '7045' vs '7045'",
-      "  PASS: win.eventdata.imagePath = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[ *1 *] *+ *$PSHome['"
+      "  FAIL: win.eventdata.imagePath = '\\$PSHome\\[\\s*\\d{1,3}\\s*\\]\\s*\\+\\s*\\$PSHome\\[' vs '$PSHome[ *1 *] *+ *$PSHome['"
     ],
     "error": "",
-    "inconclusive": false
+    "inconclusive": true
   },
   "100091": {
     "passed": true,
