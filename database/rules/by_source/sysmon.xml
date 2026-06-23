@@ -1207,7 +1207,7 @@
   </rule>
   <rule id="100361" level="13">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.callTrace">^C:\\Windows\\SYSTEM32\\ntdll\.dll+[a-z0-9]{4,6}\|C:\\Windows\\System32\\KERNELBASE\.dll+[a-z0-9]{4,6}\|UNKNOWN\([A-Z0-9]{16}\)$</field>
+    <field name="win.eventdata.callTrace">^C:\\Windows\\SYSTEM32\\ntdll\.dll+[a-z0-9]{4,6}|C:\\Windows\\System32\\KERNELBASE\.dll+[a-z0-9]{4,6}|UNKNOWN\([A-Z0-9]{16}\)$</field>
     <field name="win.eventdata.grantedAccess">0x1028|0x1fffff</field>
     <description>Sigma: HackTool - CobaltStrike BOF Injection Pattern</description>
     <mitre>
@@ -1674,7 +1674,7 @@
   </rule>
   <rule id="100408" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\^\^|\^\|\^|,;,|;;;;|;; ;;|\(,\(,|%COMSPEC:~| c\^m\^d|\^c\^m\^d| c\^md| cm\^d|\^cm\^d| s\^et | s\^e\^t | se\^t </field>
+    <field name="win.eventdata.commandLine">^^|^|^|,;,|;;;;|;; ;;|\(,\(,|%COMSPEC:~| c^m^d|^c^m^d| c^md| cm^d|^cm^d| s^et | s^e^t | se^t </field>
     <description>Sigma: Potential Dosfuscation Activity</description>
     <mitre>
       <id>T1059</id>
@@ -4531,7 +4531,7 @@
   </rule>
   <rule id="100704" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> \^\| |\\\.*.lnk|-Recurse|-Skip </field>
+    <field name="win.eventdata.commandLine"> ^| |\\\.*.lnk|-Recurse|-Skip </field>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <field name="win.eventdata.originalFileName">PowerShell.EXE|pwsh.dll</field>
     <description>Sigma: PowerShell Execution With Potential Decryption Capabilities</description>
@@ -4625,7 +4625,7 @@
   </rule>
   <rule id="100714" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">;iex \$|\| IEX|\|IEX |I`E`X|I`EX|IE`X|iex |IEX \(|IEX\(|Invoke-Expression</field>
+    <field name="win.eventdata.commandLine">;iex \$|| IEX||IEX |I`E`X|I`EX|IE`X|iex |IEX \(|IEX\(|Invoke-Expression</field>
     <description>Sigma: PowerShell Download and Execution Cradles</description>
     <mitre>
       <id>T1059</id>
@@ -6432,7 +6432,7 @@
   </rule>
   <rule id="100911" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">h\^t\^t\^p|h"t"t"p</field>
+    <field name="win.eventdata.commandLine">h^t^t^p|h"t"t"p</field>
     <description>Sigma: Potential Commandline Obfuscation Using Escape Characters</description>
     <mitre>
       <id>T1140</id>
@@ -12227,7 +12227,7 @@
     <if_sid>61612</if_sid>
     <field name="win.eventdata.sourceImage">:\\Windows\\SysWOW64\\</field>
     <field name="win.eventdata.grantedAccess">0x1fffff</field>
-    <field name="win.eventdata.callTrace">^UNKNOWN\(0000000000000000\)\|UNKNOWN\(0000000000000000\)\|</field>
+    <field name="win.eventdata.callTrace">^UNKNOWN\(0000000000000000\)|UNKNOWN\(0000000000000000\)|</field>
     <description>Sigma: UAC Bypass Using WOW64 Logger DLL Hijack</description>
     <mitre>
       <id>T1548.002</id>
@@ -15558,7 +15558,7 @@
   </rule>
   <rule id="108673" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\^USER\^|\^PASS\^|-p </field>
+    <field name="win.eventdata.commandLine">^USER^|^PASS^|-p </field>
     <description>Sigma: HackTool - Hydra Password Bruteforce Execution</description>
     <mitre>
       <id>T1110</id>
@@ -18570,7 +18570,7 @@
   </rule>
   <rule id="111043" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">ipconfig\.*\|\.*find|net\.*\|\.*find|netstat\.*\|\.*find|ping\.*\|\.*find|systeminfo\.*\|\.*find|tasklist\.*\|\.*find|whoami\.*\|\.*find</field>
+    <field name="win.eventdata.commandLine">ipconfig\.*|\.*find|net\.*|\.*find|netstat\.*|\.*find|ping\.*|\.*find|systeminfo\.*|\.*find|tasklist\.*|\.*find|whoami\.*|\.*find</field>
     <description>Sigma: Recon Command Output Piped To Findstr.EXE</description>
     <mitre>
       <id>T1057</id>
@@ -18919,7 +18919,7 @@
   </rule>
   <rule id="111079" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.commandLine"> &gt; | | Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: Computer Discovery And Export Via Get-ADComputer Cmdlet</description>
     <mitre>
@@ -18938,7 +18938,7 @@
   </rule>
   <rule id="111081" level="6">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> &gt; | \| Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.commandLine"> &gt; | | Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: User Discovery And Export Via Get-ADUser Cmdlet</description>
     <mitre>

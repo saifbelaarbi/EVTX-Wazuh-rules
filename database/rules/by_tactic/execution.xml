@@ -620,7 +620,7 @@
   <rule id="100066" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
-    <field name="win.eventdata.serviceFileName">\(Clipboard\|i</field>
+    <field name="win.eventdata.serviceFileName">\(Clipboard|i</field>
     <description>Sigma: Invoke-Obfuscation Via Use Clip - Security</description>
     <mitre>
       <id>T1027</id>
@@ -938,7 +938,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\(Clipboard\|i</field>
+    <field name="win.eventdata.imagePath">\(Clipboard|i</field>
     <description>Sigma: Invoke-Obfuscation Via Use Clip - System</description>
     <mitre>
       <id>T1027</id>
@@ -2655,7 +2655,7 @@
   </rule>
   <rule id="100281" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command \| nslookup 2&gt;&amp;1 \| Out-String|New-RandomDNSField|[Convert]::ToString\(\$SYNOptions, 16\)|\$Session.Dead = \$True|\$Session["Driver"] -eq</field>
+    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command | nslookup 2&gt;&amp;1 | Out-String|New-RandomDNSField|[Convert]::ToString\(\$SYNOptions, 16\)|\$Session.Dead = \$True|\$Session["Driver"] -eq</field>
     <description>Sigma: Silence.EDA Detection</description>
     <mitre>
       <id>T1059.001</id>
@@ -3393,7 +3393,7 @@
   </rule>
   <rule id="100361" level="13">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.callTrace">^C:\\Windows\\SYSTEM32\\ntdll\.dll+[a-z0-9]{4,6}\|C:\\Windows\\System32\\KERNELBASE\.dll+[a-z0-9]{4,6}\|UNKNOWN\([A-Z0-9]{16}\)$</field>
+    <field name="win.eventdata.callTrace">^C:\\Windows\\SYSTEM32\\ntdll\.dll+[a-z0-9]{4,6}|C:\\Windows\\System32\\KERNELBASE\.dll+[a-z0-9]{4,6}|UNKNOWN\([A-Z0-9]{16}\)$</field>
     <field name="win.eventdata.grantedAccess">0x1028|0x1fffff</field>
     <description>Sigma: HackTool - CobaltStrike BOF Injection Pattern</description>
     <mitre>
@@ -3860,7 +3860,7 @@
   </rule>
   <rule id="100408" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\^\^|\^\|\^|,;,|;;;;|;; ;;|\(,\(,|%COMSPEC:~| c\^m\^d|\^c\^m\^d| c\^md| cm\^d|\^cm\^d| s\^et | s\^e\^t | se\^t </field>
+    <field name="win.eventdata.commandLine">^^|^|^|,;,|;;;;|;; ;;|\(,\(,|%COMSPEC:~| c^m^d|^c^m^d| c^md| cm^d|^cm^d| s^et | s^e^t | se^t </field>
     <description>Sigma: Potential Dosfuscation Activity</description>
     <mitre>
       <id>T1059</id>
@@ -6717,7 +6717,7 @@
   </rule>
   <rule id="100704" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> \^\| |\\\.*.lnk|-Recurse|-Skip </field>
+    <field name="win.eventdata.commandLine"> ^| |\\\.*.lnk|-Recurse|-Skip </field>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <field name="win.eventdata.originalFileName">PowerShell.EXE|pwsh.dll</field>
     <description>Sigma: PowerShell Execution With Potential Decryption Capabilities</description>
@@ -6811,7 +6811,7 @@
   </rule>
   <rule id="100714" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">;iex \$|\| IEX|\|IEX |I`E`X|I`EX|IE`X|iex |IEX \(|IEX\(|Invoke-Expression</field>
+    <field name="win.eventdata.commandLine">;iex \$|| IEX||IEX |I`E`X|I`EX|IE`X|iex |IEX \(|IEX\(|Invoke-Expression</field>
     <description>Sigma: PowerShell Download and Execution Cradles</description>
     <mitre>
       <id>T1059</id>
@@ -8618,7 +8618,7 @@
   </rule>
   <rule id="100911" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">h\^t\^t\^p|h"t"t"p</field>
+    <field name="win.eventdata.commandLine">h^t^t^p|h"t"t"p</field>
     <description>Sigma: Potential Commandline Obfuscation Using Escape Characters</description>
     <mitre>
       <id>T1140</id>

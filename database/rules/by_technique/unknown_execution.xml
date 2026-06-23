@@ -542,7 +542,7 @@
   </rule>
   <rule id="100704" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine"> \^\| |\\\.*.lnk|-Recurse|-Skip </field>
+    <field name="win.eventdata.commandLine"> ^| |\\\.*.lnk|-Recurse|-Skip </field>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <field name="win.eventdata.originalFileName">PowerShell.EXE|pwsh.dll</field>
     <description>Sigma: PowerShell Execution With Potential Decryption Capabilities</description>

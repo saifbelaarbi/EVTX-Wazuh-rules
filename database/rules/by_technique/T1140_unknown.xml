@@ -44,7 +44,7 @@
   </rule>
   <rule id="100911" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">h\^t\^t\^p|h"t"t"p</field>
+    <field name="win.eventdata.commandLine">h^t^t^p|h"t"t"p</field>
     <description>Sigma: Potential Commandline Obfuscation Using Escape Characters</description>
     <mitre>
       <id>T1140</id>

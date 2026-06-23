@@ -1374,7 +1374,7 @@
     <if_sid>61612</if_sid>
     <field name="win.eventdata.sourceImage">:\\Windows\\SysWOW64\\</field>
     <field name="win.eventdata.grantedAccess">0x1fffff</field>
-    <field name="win.eventdata.callTrace">^UNKNOWN\(0000000000000000\)\|UNKNOWN\(0000000000000000\)\|</field>
+    <field name="win.eventdata.callTrace">^UNKNOWN\(0000000000000000\)|UNKNOWN\(0000000000000000\)|</field>
     <description>Sigma: UAC Bypass Using WOW64 Logger DLL Hijack</description>
     <mitre>
       <id>T1548.002</id>

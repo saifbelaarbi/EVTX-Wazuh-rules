@@ -159,7 +159,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\(Clipboard\|i</field>
+    <field name="win.eventdata.imagePath">\(Clipboard|i</field>
     <description>Sigma: Invoke-Obfuscation Via Use Clip - System</description>
     <mitre>
       <id>T1027</id>
@@ -5832,7 +5832,7 @@
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">.bat &amp; del |__output 2\^&gt;\^&amp;1 &gt;</field>
+    <field name="win.eventdata.imagePath">.bat &amp; del |__output 2^&gt;^&amp;1 &gt;</field>
     <description>Sigma: smbexec.py Service Installation</description>
     <mitre>
       <id>T1021.002</id>
