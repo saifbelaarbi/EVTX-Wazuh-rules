@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1078_valid_accounts,">
   <rule id="104545" level="9">
     <if_sid>60100</if_sid>

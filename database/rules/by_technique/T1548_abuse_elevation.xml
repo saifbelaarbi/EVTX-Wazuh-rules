@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1548_abuse_elevation,">
   <rule id="107014" level="11">
     <if_sid>60100</if_sid>

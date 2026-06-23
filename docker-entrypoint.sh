@@ -150,9 +150,11 @@ except Exception:
      The native windows_eventchannel decoder is not available in the
      logtest engine, so events arrive as decoded_as=json instead.
      This override makes the entire parent chain (60000→60004→61600→
-     61603→custom rules) fire for JSON-decoded Windows events. -->
+     61603→custom rules) fire for JSON-decoded Windows events.
+     category=ossec is required — Wazuh rejects overwrite without it. -->
 <group name="windows,">
   <rule id="60000" level="0" overwrite="yes">
+    <category>ossec</category>
     <decoded_as>json</decoded_as>
     <field name="win.system.providerName">\.+</field>
     <options>no_full_log</options>

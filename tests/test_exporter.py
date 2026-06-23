@@ -80,7 +80,7 @@ def test_technique_slug_without_mitre():
 def test_build_xml_group():
     rule = _make_rule()
     xml_str = _build_xml_group([rule], "test_group")
-    assert '<?xml version="1.0"' in xml_str
+    assert '<?xml version="1.0"' not in xml_str
     assert 'name="test_group,"' in xml_str
     assert "<rule" in xml_str
 

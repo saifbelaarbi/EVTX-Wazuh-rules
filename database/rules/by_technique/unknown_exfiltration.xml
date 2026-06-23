@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,unknown_exfiltration,">
   <rule id="114514" level="12">
     <if_sid>91801</if_sid>

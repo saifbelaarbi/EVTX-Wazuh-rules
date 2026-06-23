@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1087_account_discovery,">
   <rule id="111006" level="7">
     <if_sid>60100</if_sid>

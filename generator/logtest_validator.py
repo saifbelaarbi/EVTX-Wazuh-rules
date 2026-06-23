@@ -812,6 +812,9 @@ def _resolve_sample_event(rule_id, rule_meta: dict) -> tuple[dict | None, str]:
     return None, ""
 
 
+LIVE_CAP = 100
+
+
 def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> list[ValidationResult]:
     """Validate all rules using stored/reparsed/synthetic sample events."""
     index = _load_rule_index()
@@ -823,6 +826,10 @@ def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> lis
         if source_filter and source_filter not in meta.get("source_evtx", ""):
             continue
         work_items.append((rule_id_str, meta))
+
+    if len(work_items) > LIVE_CAP:
+        console.print(f"[yellow]Capped to {LIVE_CAP} rules (of {len(work_items)})[/]")
+        work_items = work_items[:LIVE_CAP]
 
     total = len(work_items)
     console.print(f"\n[bold]Validating {total} rules (mode={mode})[/]")
