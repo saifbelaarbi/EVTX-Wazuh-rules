@@ -91,7 +91,7 @@
   </rule>
   <rule id="100242" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.data">-q=txt http|-querytype=txt http|-type=txt http|nslookup|\[1\]</field>
+    <field name="win.eventdata.data">-q=txt http|-querytype=txt http|-type=txt http|nslookup|[1]</field>
     <description>Sigma: Nslookup PowerShell Download Cradle</description>
     <mitre>
       <id>T1059.001</id>
@@ -118,7 +118,7 @@
   </rule>
   <rule id="100245" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.data">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
+    <field name="win.eventdata.data">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {</field>
     <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse</description>
     <mitre>
       <id>T1218</id>
@@ -200,7 +200,7 @@
   </rule>
   <rule id="100254" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">cmd.{0,5}(?:/c|/r).+clip(?:\.exe)?.{0,4}&amp;&amp;.+clipboard]::\(\s\\"\{\d\}.+-f.+"</field>
+    <field name="win.eventdata.payload">cmd.{0,5}(?:/c|/r).+clip(?:\.exe)?.{0,4}&amp;&amp;.+clipboard]::\(\s\\"{\d}.+-f.+"</field>
     <description>Sigma: Invoke-Obfuscation CLIP+ Launcher - PowerShell Module</description>
     <mitre>
       <id>T1027</id>
@@ -210,7 +210,7 @@
   </rule>
   <rule id="100255" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">\$PSHome\[\s*\d{1,3}\s*\]\s*\+\s*\$PSHome\[</field>
+    <field name="win.eventdata.payload">\$PSHome[\s*\d{1,3}\s*]\s*\+\s*\$PSHome[</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell Module</description>
     <mitre>
       <id>T1027</id>
@@ -220,7 +220,7 @@
   </rule>
   <rule id="100256" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">cmd.{0,5}(?:/c|/r).+powershell.+(?:\$\{?input\}?|noexit).+"</field>
+    <field name="win.eventdata.payload">cmd.{0,5}(?:/c|/r).+powershell.+(?:\${?input}?|noexit).+"</field>
     <description>Sigma: Invoke-Obfuscation STDIN+ Launcher - PowerShell Module</description>
     <mitre>
       <id>T1027</id>
@@ -230,7 +230,7 @@
   </rule>
   <rule id="100257" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">cmd.{0,5}(?:/c|/r)(?:\s|)"set\s[a-zA-Z]{3,6}.*(?:\{\d\}){1,}\\"\s+?-f(?:.*\)){1,}.*"</field>
+    <field name="win.eventdata.payload">cmd.{0,5}(?:/c|/r)(?:\s|)"set\s[a-zA-Z]{3,6}.*(?:{\d}){1,}\\"\s+?-f(?:.*\)){1,}.*"</field>
     <description>Sigma: Invoke-Obfuscation VAR+ Launcher - PowerShell Module</description>
     <mitre>
       <id>T1027</id>
@@ -240,7 +240,7 @@
   </rule>
   <rule id="100258" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">readtoend$|text.encoding\]::ascii</field>
+    <field name="win.eventdata.payload">readtoend$|text.encoding]::ascii</field>
     <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell Module</description>
     <mitre>
       <id>T1027</id>
@@ -260,7 +260,7 @@
   </rule>
   <rule id="100260" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">(?i)(set).*&amp;&amp;\s?set.*(environment|invoke|\$?\{?input).*&amp;&amp;.*"</field>
+    <field name="win.eventdata.payload">(?i)(set).*&amp;&amp;\s?set.*(environment|invoke|\$?{?input).*&amp;&amp;.*"</field>
     <description>Sigma: Invoke-Obfuscation Via Stdin - PowerShell Module</description>
     <mitre>
       <id>T1027</id>
@@ -300,7 +300,7 @@
   </rule>
   <rule id="100264" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">(?i)&amp;&amp;set.*(\{\d\}){2,}\\"\s+?-f.*&amp;&amp;.*cmd.*/c</field>
+    <field name="win.eventdata.payload">(?i)&amp;&amp;set.*({\d}){2,}\\"\s+?-f.*&amp;&amp;.*cmd.*/c</field>
     <description>Sigma: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - PowerShell Module</description>
     <mitre>
       <id>T1027</id>
@@ -331,7 +331,7 @@
   </rule>
   <rule id="100267" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
+    <field name="win.eventdata.payload">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {</field>
     <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module</description>
     <mitre>
       <id>T1218</id>
@@ -358,7 +358,7 @@
   </rule>
   <rule id="100270" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">-nop| -w |hidden| -c |\[Convert\]::FromBase64String</field>
+    <field name="win.eventdata.contextInfo">-nop| -w |hidden| -c |[Convert]::FromBase64String</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
     <mitre>
       <id>T1059.001</id>
@@ -433,7 +433,7 @@
   </rule>
   <rule id="100279" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[Ref\].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
+    <field name="win.eventdata.scriptBlockText">[Ref].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
     <description>Sigma: AMSI Bypass Pattern Assembly GetType</description>
     <mitre>
       <id>T1685</id>
@@ -442,7 +442,7 @@
   </rule>
   <rule id="100280" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">if\(0\)\{\{\{0\}\}\}' -f \$\(0 -as \[char\]\) \+|#&lt;NULL&gt;</field>
+    <field name="win.eventdata.scriptBlockText">if\(0\){{{0}}}' -f \$\(0 -as [char]\) \+|#&lt;NULL&gt;</field>
     <description>Sigma: Potential AMSI Bypass Script Using NULL Bits</description>
     <mitre>
       <id>T1685</id>
@@ -451,7 +451,7 @@
   </rule>
   <rule id="100281" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command \| nslookup 2&gt;&amp;1 \| Out-String|New-RandomDNSField|\[Convert\]::ToString\(\$SYNOptions, 16\)|\$Session.Dead = \$True|\$Session\["Driver"\] -eq</field>
+    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command \| nslookup 2&gt;&amp;1 \| Out-String|New-RandomDNSField|[Convert]::ToString\(\$SYNOptions, 16\)|\$Session.Dead = \$True|\$Session["Driver"] -eq</field>
     <description>Sigma: Silence.EDA Detection</description>
     <mitre>
       <id>T1059.001</id>
@@ -518,7 +518,7 @@
   </rule>
   <rule id="100288" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[Reflection.Assembly\]::load</field>
+    <field name="win.eventdata.scriptBlockText">[Reflection.Assembly]::load</field>
     <description>Sigma: Potential In-Memory Execution Using Reflection.Assembly</description>
     <mitre>
       <id>T1620</id>
@@ -571,7 +571,7 @@
   </rule>
   <rule id="100294" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">cmd.{0,5}(?:/c|/r).+clip(?:\.exe)?.{0,4}&amp;&amp;.+clipboard]::\(\s\\"\{\d\}.+-f.+"</field>
+    <field name="win.eventdata.scriptBlockText">cmd.{0,5}(?:/c|/r).+clip(?:\.exe)?.{0,4}&amp;&amp;.+clipboard]::\(\s\\"{\d}.+-f.+"</field>
     <description>Sigma: Invoke-Obfuscation CLIP+ Launcher - PowerShell</description>
     <mitre>
       <id>T1027</id>
@@ -581,7 +581,7 @@
   </rule>
   <rule id="100295" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\$PSHome\[\s*\d{1,3}\s*\]\s*\+\s*\$PSHome\[</field>
+    <field name="win.eventdata.scriptBlockText">\$PSHome[\s*\d{1,3}\s*]\s*\+\s*\$PSHome[</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell</description>
     <mitre>
       <id>T1027</id>
@@ -591,7 +591,7 @@
   </rule>
   <rule id="100296" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">cmd.{0,5}(?:/c|/r).+powershell.+(?:\$?\{?input\}?|noexit).+"</field>
+    <field name="win.eventdata.scriptBlockText">cmd.{0,5}(?:/c|/r).+powershell.+(?:\$?{?input}?|noexit).+"</field>
     <description>Sigma: Invoke-Obfuscation STDIN+ Launcher - Powershell</description>
     <mitre>
       <id>T1027</id>
@@ -601,7 +601,7 @@
   </rule>
   <rule id="100297" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">cmd.{0,5}(?:/c|/r)(?:\s|)"set\s[a-zA-Z]{3,6}.*(?:\{\d\}){1,}\\"\s+?-f(?:.*\)){1,}.*"</field>
+    <field name="win.eventdata.scriptBlockText">cmd.{0,5}(?:/c|/r)(?:\s|)"set\s[a-zA-Z]{3,6}.*(?:{\d}){1,}\\"\s+?-f(?:.*\)){1,}.*"</field>
     <description>Sigma: Invoke-Obfuscation VAR+ Launcher - PowerShell</description>
     <mitre>
       <id>T1027</id>
@@ -611,7 +611,7 @@
   </rule>
   <rule id="100298" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">readtoend$|text.encoding\]::ascii</field>
+    <field name="win.eventdata.scriptBlockText">readtoend$|text.encoding]::ascii</field>
     <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell</description>
     <mitre>
       <id>T1027</id>
@@ -631,7 +631,7 @@
   </rule>
   <rule id="100300" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">(?i)(set).*&amp;&amp;\s?set.*(environment|invoke|\$\{?input).*&amp;&amp;.*"</field>
+    <field name="win.eventdata.scriptBlockText">(?i)(set).*&amp;&amp;\s?set.*(environment|invoke|\${?input).*&amp;&amp;.*"</field>
     <description>Sigma: Invoke-Obfuscation Via Stdin - Powershell</description>
     <mitre>
       <id>T1027</id>
@@ -671,7 +671,7 @@
   </rule>
   <rule id="100304" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">(?i)&amp;&amp;set.*(\{\d\}){2,}\\"\s+?-f.*&amp;&amp;.*cmd.*/c</field>
+    <field name="win.eventdata.scriptBlockText">(?i)&amp;&amp;set.*({\d}){2,}\\"\s+?-f.*&amp;&amp;.*cmd.*/c</field>
     <description>Sigma: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - PowerShell</description>
     <mitre>
       <id>T1027</id>
@@ -765,7 +765,7 @@
   </rule>
   <rule id="100314" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">^function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
+    <field name="win.eventdata.scriptBlockText">^function Get-VMRemoteFXPhysicalVideoAdapter {</field>
     <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock</description>
     <mitre>
       <id>T1218</id>
@@ -909,7 +909,7 @@
   </rule>
   <rule id="100330" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">-nop| -w |hidden| -c |\[Convert\]::FromBase64String</field>
+    <field name="win.eventdata.scriptBlockText">-nop| -w |hidden| -c |[Convert]::FromBase64String</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
     <mitre>
       <id>T1059.001</id>
@@ -972,7 +972,7 @@
   </rule>
   <rule id="100337" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">System.Reflection.Assembly.Load\(\$|\[System.Reflection.Assembly\]::Load\(\$|\[Reflection.Assembly\]::Load\(\$|System.Reflection.AssemblyName|Reflection.Emit.AssemblyBuilderAccess|Reflection.Emit.CustomAttributeBuilder|Runtime.InteropServices.UnmanagedType|Runtime.InteropServices.DllImportAttribute|SuspendThread|rundll32</field>
+    <field name="win.eventdata.scriptBlockText">System.Reflection.Assembly.Load\(\$|[System.Reflection.Assembly]::Load\(\$|[Reflection.Assembly]::Load\(\$|System.Reflection.AssemblyName|Reflection.Emit.AssemblyBuilderAccess|Reflection.Emit.CustomAttributeBuilder|Runtime.InteropServices.UnmanagedType|Runtime.InteropServices.DllImportAttribute|SuspendThread|rundll32</field>
     <description>Sigma: Potential Suspicious PowerShell Keywords</description>
     <mitre>
       <id>T1059.001</id>
@@ -1050,7 +1050,7 @@
   </rule>
   <rule id="100346" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">.CreationTime =|.LastWriteTime =|.LastAccessTime =|\[IO.File\]::SetCreationTime|\[IO.File\]::SetLastAccessTime|\[IO.File\]::SetLastWriteTime</field>
+    <field name="win.eventdata.scriptBlockText">.CreationTime =|.LastWriteTime =|.LastAccessTime =|[IO.File]::SetCreationTime|[IO.File]::SetLastAccessTime|[IO.File]::SetLastWriteTime</field>
     <description>Sigma: Powershell Timestomp</description>
     <mitre>
       <id>T1070.006</id>
@@ -1059,7 +1059,7 @@
   </rule>
   <rule id="100347" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[System.Net.WebRequest\]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
+    <field name="win.eventdata.scriptBlockText">[System.Net.WebRequest]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
     <description>Sigma: Usage Of Web Request Commands And Cmdlets - ScriptBlock</description>
     <mitre>
       <id>T1059.001</id>
@@ -1482,7 +1482,7 @@
   </rule>
   <rule id="108609" level="11">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">New-Object|Microsoft.CSharp.CSharpCodeProvider|\[System.Runtime.InteropServices.RuntimeEnvironment\]::GetRuntimeDirectory\(\)\)|Collections.ArrayList|System.CodeDom.Compiler.CompilerParameters</field>
+    <field name="win.eventdata.scriptBlockText">New-Object|Microsoft.CSharp.CSharpCodeProvider|[System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory\(\)\)|Collections.ArrayList|System.CodeDom.Compiler.CompilerParameters</field>
     <description>Sigma: Dump Credentials from Windows Credential Manager With PowerShell</description>
     <mitre>
       <id>T1555</id>
@@ -1639,7 +1639,7 @@
   </rule>
   <rule id="108626" level="12">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[Credentials\]|\[Veeam.Backup.Common.ProtectedStorage\]::GetLocalString|Invoke-Sqlcmd|Veeam Backup and Replication</field>
+    <field name="win.eventdata.scriptBlockText">[Credentials]|[Veeam.Backup.Common.ProtectedStorage]::GetLocalString|Invoke-Sqlcmd|Veeam Backup and Replication</field>
     <description>Sigma: Veeam Backup Servers Credential Dumping Script Execution</description>
     <group>credential_access,sigma_converted,</group>
   </rule>
@@ -1682,7 +1682,7 @@
   </rule>
   <rule id="110069" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[System.Net.HttpWebRequest\]|System.Net.Sockets.TcpListener|AcceptTcpClient</field>
+    <field name="win.eventdata.scriptBlockText">[System.Net.HttpWebRequest]|System.Net.Sockets.TcpListener|AcceptTcpClient</field>
     <description>Sigma: Suspicious TCP Tunnel Via PowerShell Script</description>
     <mitre>
       <id>T1090</id>
@@ -1844,7 +1844,7 @@
   <rule id="112547" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.contextInfo">:\\Windows\\System32\\wsmprovhost.exe|:\\Windows\\SysWOW64\\wsmprovhost.exe</field>
-    <field name="win.eventdata.payload">value="\(get-location\).path|value="\(get-item\.*\).length|Invoke-Binary |Donut-Loader -process_id\.*-donutfile|Bypass-4MSI|IEX \(\[System.Text.Encoding\]::ASCII.GetString\(\[System.Convert\]::FromBase64String\(\$a\)\)\).replace\('\.\.\.',''\)</field>
+    <field name="win.eventdata.payload">value="\(get-location\).path|value="\(get-item\.*\).length|Invoke-Binary |Donut-Loader -process_id\.*-donutfile|Bypass-4MSI|IEX \([System.Text.Encoding]::ASCII.GetString\([System.Convert]::FromBase64String\(\$a\)\)\).replace\('\.\.\.',''\)</field>
     <description>Sigma: HackTool - Evil-WinRm Execution - PowerShell Module</description>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
@@ -1922,7 +1922,7 @@
   </rule>
   <rule id="113515" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[Windows.Input.Keyboard\]::IsKeyDown\(\[System.Windows.Input.Key\]::</field>
+    <field name="win.eventdata.scriptBlockText">[Windows.Input.Keyboard]::IsKeyDown\([System.Windows.Input.Key]::</field>
     <description>Sigma: Potential Keylogger Activity</description>
     <mitre>
       <id>T1056.001</id>
@@ -2033,7 +2033,7 @@
   </rule>
   <rule id="114518" level="12">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">Get-content |foreach|\[System.Net.Dns\]::GetHostEntry|Out-File</field>
+    <field name="win.eventdata.scriptBlockText">Get-content |foreach|[System.Net.Dns]::GetHostEntry|Out-File</field>
     <description>Sigma: PowerShell Script With File Hostname Resolving Capabilities</description>
     <mitre>
       <id>T1020</id>

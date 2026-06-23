@@ -13,7 +13,7 @@
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
     <field name="win.eventdata.objectClass">groupPolicyContainer</field>
-    <field name="win.eventdata.objectDN">^CN=\{31B2F340-016D-11D2-945F-00C04FB984F9\},CN=POLICIES,CN=SYSTEM|^CN=\{6AC1786C-016F-11D2-945F-00C04FB984F9\},CN=POLICIES,CN=SYSTEM</field>
+    <field name="win.eventdata.objectDN">^CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM|^CN={6AC1786C-016F-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM</field>
     <description>Sigma: Windows Default Domain GPO Modification</description>
     <mitre>
       <id>T1484.001</id>

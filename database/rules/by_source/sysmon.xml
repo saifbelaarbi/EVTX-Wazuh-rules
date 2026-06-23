@@ -123,7 +123,7 @@
   </rule>
   <rule id="100124" level="8">
     <if_sid>61617</if_sid>
-    <field name="win.eventdata.contents">^\[ZoneTransfer\]  ZoneId=3</field>
+    <field name="win.eventdata.contents">^[ZoneTransfer]  ZoneId=3</field>
     <field name="win.eventdata.targetFilename">.exe|.scr|.bat|.cmd|.docx|.hta|.jse|.lnk|.pptx|.ps|.reg|.sct|.vb|.wsc|.wsf|.xlsx</field>
     <description>Sigma: Creation Of a Suspicious ADS File Outside a Browser Download</description>
     <group>execution,sigma_converted,</group>
@@ -712,7 +712,7 @@
   </rule>
   <rule id="100191" level="9">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\u202e|\[U\+202E\]|‮</field>
+    <field name="win.eventdata.targetFilename">\\u202e|[U\+202E]|‮</field>
     <description>Sigma: Potential File Extension Spoofing Using Right-to-Left Override</description>
     <mitre>
       <id>T1036.002</id>
@@ -2184,7 +2184,7 @@
   </rule>
   <rule id="100462" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/factory,\{75dff2b7-6936-4c06-a8bb-676a7b00b24b\}</field>
+    <field name="win.eventdata.commandLine">/factory,{75dff2b7-6936-4c06-a8bb-676a7b00b24b}</field>
     <description>Sigma: Explorer Process Tree Break</description>
     <mitre>
       <id>T1036</id>
@@ -2561,7 +2561,7 @@
   </rule>
   <rule id="100500" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">join\.*split|\( \$ShellId\[1\]\+\$ShellId\[13\]\+'x'\)|\( \$PSHome\[\.*\]\+\$PSHOME\[\.*\]\+|\( \$env:Public\[13\]\+\$env:Public\[5\]\+'x'\)|\( \$env:ComSpec\[4,\.*,25\]-Join''\)|\[1,3\]\+'x'-Join''\)</field>
+    <field name="win.eventdata.commandLine">join\.*split|\( \$ShellId[1]\+\$ShellId[13]\+'x'\)|\( \$PSHome[\.*]\+\$PSHOME[\.*]\+|\( \$env:Public[13]\+\$env:Public[5]\+'x'\)|\( \$env:ComSpec[4,\.*,25]-Join''\)|[1,3]\+'x'-Join''\)</field>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: HackTool - CrackMapExec PowerShell Obfuscation</description>
     <mitre>
@@ -2660,7 +2660,7 @@
   </rule>
   <rule id="100511" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/c|/r|&amp;&amp;|clipboard\]::|-f</field>
+    <field name="win.eventdata.commandLine">/c|/r|&amp;&amp;|clipboard]::|-f</field>
     <description>Sigma: Invoke-Obfuscation CLIP+ Launcher</description>
     <mitre>
       <id>T1027</id>
@@ -2670,7 +2670,7 @@
   </rule>
   <rule id="100512" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\$PSHome\[\s*\d{1,3}\s*\]\s*\+\s*\$PSHome\[</field>
+    <field name="win.eventdata.commandLine">\$PSHome[\s*\d{1,3}\s*]\s*\+\s*\$PSHome[</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation</description>
     <mitre>
       <id>T1027</id>
@@ -2680,7 +2680,7 @@
   </rule>
   <rule id="100513" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\$ShellId\[\s*\d{1,3}\s*\]\s*\+\s*\$ShellId\[</field>
+    <field name="win.eventdata.commandLine">\$ShellId[\s*\d{1,3}\s*]\s*\+\s*\$ShellId[</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation</description>
     <mitre>
       <id>T1027</id>
@@ -2690,7 +2690,7 @@
   </rule>
   <rule id="100514" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\$env:Public\[\s*\d{1,3}\s*\]\s*\+\s*\$env:Public\[</field>
+    <field name="win.eventdata.commandLine">\$env:Public[\s*\d{1,3}\s*]\s*\+\s*\$env:Public[</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation</description>
     <mitre>
       <id>T1027</id>
@@ -2700,7 +2700,7 @@
   </rule>
   <rule id="100515" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\$env:ComSpec\[(?:\s*\d{1,3}\s*,){2}</field>
+    <field name="win.eventdata.commandLine">\$env:ComSpec[(?:\s*\d{1,3}\s*,){2}</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation</description>
     <mitre>
       <id>T1027</id>
@@ -2730,7 +2730,7 @@
   </rule>
   <rule id="100518" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\[String\]\s*\$VerbosePreference</field>
+    <field name="win.eventdata.commandLine">[String]\s*\$VerbosePreference</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation</description>
     <mitre>
       <id>T1027</id>
@@ -2740,7 +2740,7 @@
   </rule>
   <rule id="100519" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">cmd.{0,5}(?:/c|/r).+powershell.+(?:\$\{?input\}?|noexit).+\"</field>
+    <field name="win.eventdata.commandLine">cmd.{0,5}(?:/c|/r).+powershell.+(?:\${?input}?|noexit).+\"</field>
     <description>Sigma: Invoke-Obfuscation STDIN+ Launcher</description>
     <mitre>
       <id>T1027</id>
@@ -2750,7 +2750,7 @@
   </rule>
   <rule id="100520" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">cmd.{0,5}(?:/c|/r)(?:\s|)\"set\s[a-zA-Z]{3,6}.*(?:\{\d\}){1,}\\\"\s+?\-f(?:.*\)){1,}.*\"</field>
+    <field name="win.eventdata.commandLine">cmd.{0,5}(?:/c|/r)(?:\s|)\"set\s[a-zA-Z]{3,6}.*(?:{\d}){1,}\\\"\s+?\-f(?:.*\)){1,}.*\"</field>
     <description>Sigma: Invoke-Obfuscation VAR+ Launcher</description>
     <mitre>
       <id>T1027</id>
@@ -2760,7 +2760,7 @@
   </rule>
   <rule id="100521" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">system.io.compression.deflatestream|system.io.streamreader|readtoend\(|text.encoding\]::ascii</field>
+    <field name="win.eventdata.commandLine">system.io.compression.deflatestream|system.io.streamreader|readtoend\(|text.encoding]::ascii</field>
     <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION</description>
     <mitre>
       <id>T1027</id>
@@ -2770,7 +2770,7 @@
   </rule>
   <rule id="100522" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">(?i)(?:set).*&amp;&amp;\s?set.*(?:environment|invoke|\$\{?input).*&amp;&amp;.*"</field>
+    <field name="win.eventdata.commandLine">(?i)(?:set).*&amp;&amp;\s?set.*(?:environment|invoke|\${?input).*&amp;&amp;.*"</field>
     <description>Sigma: Invoke-Obfuscation Via Stdin</description>
     <mitre>
       <id>T1027</id>
@@ -2800,7 +2800,7 @@
   </rule>
   <rule id="100525" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\{0\}|\{1\}|\{2\}|\{3\}|\{4\}|\{5\}|cmd|/c|-f</field>
+    <field name="win.eventdata.commandLine">{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f</field>
     <description>Sigma: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION</description>
     <mitre>
       <id>T1027</id>
@@ -2983,7 +2983,7 @@
   </rule>
   <rule id="100543" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">-NoExit -Command \[Console\]::OutputEncoding=\[Text.UTF8Encoding\]::UTF8</field>
+    <field name="win.eventdata.commandLine">-NoExit -Command [Console]::OutputEncoding=[Text.UTF8Encoding]::UTF8</field>
     <description>Sigma: HackTool - Sliver C2 Implant Activity Pattern</description>
     <mitre>
       <id>T1059</id>
@@ -4294,7 +4294,7 @@
   </rule>
   <rule id="100680" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\[Ref\].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
+    <field name="win.eventdata.commandLine">[Ref].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
     <description>Sigma: Potential AMSI Bypass Via .NET Reflection</description>
     <mitre>
       <id>T1685</id>
@@ -4303,7 +4303,7 @@
   </rule>
   <rule id="100681" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">if\(0\)\{\{\{0\}\}\}' -f \$\(0 -as \[char\]\) \+|#&lt;NULL&gt;</field>
+    <field name="win.eventdata.commandLine">if\(0\){{{0}}}' -f \$\(0 -as [char]\) \+|#&lt;NULL&gt;</field>
     <description>Sigma: Potential AMSI Bypass Using NULL Bits</description>
     <mitre>
       <id>T1685</id>
@@ -4616,7 +4616,7 @@
   <rule id="100713" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\\powershell.exe$</field>
-    <field name="win.eventdata.commandLine">http://127.0.0.1|%\{\(IRM \$_\)\}|Invoke</field>
+    <field name="win.eventdata.commandLine">http://127.0.0.1|%{\(IRM \$_\)}|Invoke</field>
     <description>Sigma: Obfuscated PowerShell OneLiner Execution</description>
     <mitre>
       <id>T1059.001</id>
@@ -4698,7 +4698,7 @@
   <rule id="100722" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
-    <field name="win.eventdata.commandLine">::FromBase64String|.GetString\(\[System.Convert\]::</field>
+    <field name="win.eventdata.commandLine">::FromBase64String|.GetString\([System.Convert]::</field>
     <description>Sigma: Suspicious PowerShell IEX Execution Patterns</description>
     <mitre>
       <id>T1059.001</id>
@@ -4725,7 +4725,7 @@
   </rule>
   <rule id="100725" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">-nop| -w |hidden| -c |\[Convert\]::FromBase64String</field>
+    <field name="win.eventdata.commandLine">-nop| -w |hidden| -c |[Convert]::FromBase64String</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
     <group>execution,sigma_converted,</group>
   </rule>
@@ -4772,7 +4772,7 @@
   </rule>
   <rule id="100732" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\[char\]0x|\(WCHAR\)0x</field>
+    <field name="win.eventdata.commandLine">[char]0x|\(WCHAR\)0x</field>
     <description>Sigma: Potential PowerShell Obfuscation Via WCHAR/CHAR</description>
     <mitre>
       <id>T1059.001</id>
@@ -7010,7 +7010,7 @@
   </rule>
   <rule id="100976" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\\u202e|\[U\+202E\]|‮</field>
+    <field name="win.eventdata.commandLine">\\u202e|[U\+202E]|‮</field>
     <description>Sigma: Potential Defense Evasion Via Right-to-Left Override</description>
     <mitre>
       <id>T1036.002</id>
@@ -7092,7 +7092,7 @@
   </rule>
   <rule id="100985" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\[System.Net.WebRequest\]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
+    <field name="win.eventdata.commandLine">[System.Net.WebRequest]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
     <description>Sigma: Usage Of Web Request Commands And Cmdlets</description>
     <mitre>
       <id>T1059.001</id>
@@ -7328,7 +7328,7 @@
   <rule id="101012" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\DllHost.exe$</field>
-    <field name="win.eventdata.parentCommandLine"> /Processid:\{3E5FC7F9-9A51-4367-9063-A120244FBEC7\}| /Processid:\{3E000D72-A845-4CD9-BD83-80C07C3B881F\}| /Processid:\{BD54C901-076B-434E-B6C7-17C531F4AB41\}| /Processid:\{D2E7041B-2927-42FB-8E9F-7CE93B6DC937\}| /Processid:\{E9495B87-D950-4AB5-87A5-FF6D70BF3E90\}</field>
+    <field name="win.eventdata.parentCommandLine"> /Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}| /Processid:{3E000D72-A845-4CD9-BD83-80C07C3B881F}| /Processid:{BD54C901-076B-434E-B6C7-17C531F4AB41}| /Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}| /Processid:{E9495B87-D950-4AB5-87A5-FF6D70BF3E90}</field>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
     <description>Sigma: CMSTP UAC Bypass via COM Object Access</description>
     <mitre>
@@ -7340,7 +7340,7 @@
   <rule id="101013" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\DllHost.exe$</field>
-    <field name="win.eventdata.parentCommandLine"> /Processid:\{12C21EA7-2EB8-4B55-9249-AC243DA8C666\}</field>
+    <field name="win.eventdata.parentCommandLine"> /Processid:{12C21EA7-2EB8-4B55-9249-AC243DA8C666}</field>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
     <description>Sigma: UAC Bypass Using IDiagnostic Profile</description>
     <mitre>
@@ -8006,7 +8006,7 @@
   </rule>
   <rule id="101082" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\}</field>
+    <field name="win.eventdata.commandLine">{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}}</field>
     <description>Sigma: COM Object Execution via Xwizard.EXE</description>
     <mitre>
       <id>T1218</id>
@@ -8040,7 +8040,7 @@
   </rule>
   <rule id="101086" level="9">
     <if_sid>61614</if_sid>
-    <field name="win.eventdata.targetObject">\{2781761E-28E0-4109-99FE-B9D127C57AFE\}$|\{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9\}$</field>
+    <field name="win.eventdata.targetObject">{2781761E-28E0-4109-99FE-B9D127C57AFE}$|{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9}$</field>
     <description>Sigma: Removal Of AMSI Provider Registry Keys</description>
     <mitre>
       <id>T1685</id>
@@ -8126,7 +8126,7 @@
   </rule>
   <rule id="101095" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\CLSID\\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec\}\\InProcServer32\\\(Default\)$</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\\InProcServer32\\\(Default\)$</field>
     <description>Sigma: Potential AMSI COM Server Hijacking</description>
     <mitre>
       <id>T1685</id>
@@ -10362,7 +10362,7 @@
   </rule>
   <rule id="104736" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo \[E\]|&amp;echo \[S\]</field>
+    <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo [E]|&amp;echo [S]</field>
     <field name="win.eventdata.image">\\w3wp.exe$</field>
     <description>Sigma: Chopper Webshell Process Pattern</description>
     <mitre>
@@ -10678,7 +10678,7 @@
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">SetValue</field>
     <field name="win.eventdata.targetObject">Classes\\ms-settings\\shell\\open\\command\\\(Default\)$|Classes\\exefile\\shell\\open\\command\\\(Default\)$</field>
-    <field name="win.eventdata.details">\\Software\\Classes\\\{</field>
+    <field name="win.eventdata.details">\\Software\\Classes\\{</field>
     <description>Sigma: Shell Open Registry Keys Manipulation</description>
     <mitre>
       <id>T1548.002</id>
@@ -10982,7 +10982,7 @@
   </rule>
   <rule id="104798" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\CLSID\\\{52A2AAAE-085D-4187-97EA-8C30DB990436\}\\InprocServer32\\\(Default\)</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{52A2AAAE-085D-4187-97EA-8C30DB990436}\\InprocServer32\\\(Default\)</field>
     <description>Sigma: Persistence Via Hhctrl.ocx</description>
     <group>persistence,sigma_converted,</group>
   </rule>
@@ -11140,7 +11140,7 @@
   </rule>
   <rule id="104816" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\SOFTWARE\\Classes\\CLSID|\\PersistentAddinsRegistered\\\{89BCB740-6119-101A-BCB7-00DD010655AF\}</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Classes\\CLSID|\\PersistentAddinsRegistered\\{89BCB740-6119-101A-BCB7-00DD010655AF}</field>
     <description>Sigma: Register New IFiltre For Persistence</description>
     <group>persistence,sigma_converted,</group>
   </rule>
@@ -11516,7 +11516,7 @@
   </rule>
   <rule id="107057" level="11">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\Microsoft\\Windows\\Start Menu\\Programs\\Startup|.lnk.\{0AFACED1-E828-11D1-9187-B532F1E9575D\}</field>
+    <field name="win.eventdata.targetFilename">\\Microsoft\\Windows\\Start Menu\\Programs\\Startup|.lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}</field>
     <field name="win.eventdata.image">\\explorer.exe$</field>
     <description>Sigma: Potential RipZip Attack on Startup Folder</description>
     <mitre>
@@ -13072,7 +13072,7 @@
   </rule>
   <rule id="107235" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">-sta |-localserver |\{|\}</field>
+    <field name="win.eventdata.commandLine">-sta |-localserver |{|}</field>
     <field name="win.eventdata.image">\\rundll32.exe$</field>
     <description>Sigma: Rundll32 Registered COM Objects</description>
     <mitre>
@@ -13176,7 +13176,7 @@
   </rule>
   <rule id="107245" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/TN "\{|/TN '\{|/TN \{</field>
+    <field name="win.eventdata.commandLine">/TN "{|/TN '{|/TN {</field>
     <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Suspicious Scheduled Task Name As GUID</description>
     <mitre>
@@ -13593,7 +13593,7 @@
   <rule id="107287" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\dllhost.exe$</field>
-    <field name="win.eventdata.parentCommandLine">/Processid:\{3E5FC7F9-9A51-4367-9063-A120244FBEC7\}|/Processid:\{D2E7041B-2927-42FB-8E9F-7CE93B6DC937\}</field>
+    <field name="win.eventdata.parentCommandLine">/Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}|/Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}</field>
     <description>Sigma: UAC Bypass via ICMLuaUtil</description>
     <mitre>
       <id>T1548.002</id>
@@ -13636,7 +13636,7 @@
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">"C:\\Windows\\system32\\dism.exe" /online /quiet /norestart /add-package /packagepath:"C:\\Windows\\system32\\pe386" /ignorecheck</field>
     <field name="win.eventdata.integrityLevel">High|System</field>
-    <field name="win.eventdata.commandLine">C:\\Users\\|\\AppData\\Local\\Temp\\|\\dismhost.exe \{</field>
+    <field name="win.eventdata.commandLine">C:\\Users\\|\\AppData\\Local\\Temp\\|\\dismhost.exe {</field>
     <field name="win.eventdata.image">\\DismHost.exe$</field>
     <description>Sigma: UAC Bypass Using NTFS Reparse Point - Process</description>
     <mitre>
@@ -13868,7 +13868,7 @@
   <rule id="107315" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">RenameKey</field>
-    <field name="win.eventdata.newName">\\CLSID\\\{645FF040-5081-101B-9F08-00AA002F954E\}\\shell\\open</field>
+    <field name="win.eventdata.newName">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open</field>
     <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
     <mitre>
       <id>T1547</id>
@@ -13878,7 +13878,7 @@
   <rule id="107316" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">SetValue</field>
-    <field name="win.eventdata.targetObject">\\CLSID\\\{645FF040-5081-101B-9F08-00AA002F954E\}\\shell\\open\\command\\\(Default\)</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open\\command\\\(Default\)</field>
     <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
     <mitre>
       <id>T1547</id>
@@ -13953,7 +13953,7 @@
   </rule>
   <rule id="107324" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\Shellex\\ColumnHandlers|\\Filter|\\Exefile\\Shell\\Open\\Command\\\(Default\)|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\\Instance|\\CLSID\\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\\Instance|\\CLSID\\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\\Instance|\\CLSID\\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\\Instance|\\Classes\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\.exe|\\.cmd|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\Shellex\\ColumnHandlers|\\Filter|\\Exefile\\Shell\\Open\\Command\\\(Default\)|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\Classes\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\.exe|\\.cmd|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
     <description>Sigma: Classes Autorun Keys Modification</description>
     <mitre>
       <id>T1547.001</id>
@@ -13962,7 +13962,7 @@
   </rule>
   <rule id="107325" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows CE Services\\AutoStart|\\Software\\Wow6432Node\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Wow6432Node\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnDisconnect|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnConnect|\\SYSTEM\\Setup\\CmdLine|\\Software\\Microsoft\\Ctf\\LangBarAddin|\\Software\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Classes\\Protocols\\Handler|\\SOFTWARE\\Classes\\Protocols\\Filter|\\SOFTWARE\\Classes\\Htmlfile\\Shell\\Open\\Command\\\(Default\)|\\Environment\\UserInitMprLogonScript|\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\\Scrnsave.exe|\\Software\\Microsoft\\Internet Explorer\\UrlSearchHooks|\\SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\Components|\\Software\\Classes\\Clsid\\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5\}\\Inprocserver32|\\Control Panel\\Desktop\\Scrnsave.exe</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows CE Services\\AutoStart|\\Software\\Wow6432Node\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Wow6432Node\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnDisconnect|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnConnect|\\SYSTEM\\Setup\\CmdLine|\\Software\\Microsoft\\Ctf\\LangBarAddin|\\Software\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Classes\\Protocols\\Handler|\\SOFTWARE\\Classes\\Protocols\\Filter|\\SOFTWARE\\Classes\\Htmlfile\\Shell\\Open\\Command\\\(Default\)|\\Environment\\UserInitMprLogonScript|\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\\Scrnsave.exe|\\Software\\Microsoft\\Internet Explorer\\UrlSearchHooks|\\SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\Components|\\Software\\Classes\\Clsid\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\\Inprocserver32|\\Control Panel\\Desktop\\Scrnsave.exe</field>
     <description>Sigma: Common Autorun Keys Modification</description>
     <mitre>
       <id>T1547.001</id>
@@ -14053,7 +14053,7 @@
   </rule>
   <rule id="107335" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\ShellEx\\ColumnHandlers|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\\Instance|\\CLSID\\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\\Instance|\\CLSID\\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\\Instance|\\CLSID\\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\\Instance|\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\ShellEx\\ColumnHandlers|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
     <description>Sigma: Wow6432Node Classes Autorun Keys Modification</description>
     <mitre>
       <id>T1547.001</id>
@@ -14257,7 +14257,7 @@
   </rule>
   <rule id="107356" level="11">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\CLSID\\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6\}\\InProcServer32\\\(Default\)$</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}\\InProcServer32\\\(Default\)$</field>
     <description>Sigma: Potential PSFactoryBuffer COM Hijacking</description>
     <mitre>
       <id>T1546.015</id>
@@ -16066,7 +16066,7 @@
   </rule>
   <rule id="108726" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Copy-Item|cp \$_.|cpi \$_.|copy \$_.|.File\]::Copy\(|System32\\config\\sam</field>
+    <field name="win.eventdata.commandLine">Copy-Item|cp \$_.|cpi \$_.|copy \$_.|.File]::Copy\(|System32\\config\\sam</field>
     <description>Sigma: PowerShell SAM Copy</description>
     <mitre>
       <id>T1003.002</id>
@@ -16344,7 +16344,7 @@
   </rule>
   <rule id="108754" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">-InstanceId 462\.|.eventid -eq 462\.|.ID -eq 462\.|EventCode=\.462\.|EventIdentifier=\.462\.|System\[EventID=462\.\]|-InstanceId 4778|.eventid -eq 4778|.ID -eq 4778|EventCode=\.4778\.|EventIdentifier=\.4778\.|System\[EventID=4778\]|-InstanceId 25|.eventid -eq 25|.ID -eq 25|EventCode=\.25\.|EventIdentifier=\.25\.|System\[EventID=25\]|-InstanceId 1149|.eventid -eq 1149|.ID -eq 1149|EventCode=\.1149\.|EventIdentifier=\.1149\.|System\[EventID=1149\]|-InstanceId 21|.eventid -eq 21|.ID -eq 21|EventCode=\.21\.|EventIdentifier=\.21\.|System\[EventID=21\]|-InstanceId 22|.eventid -eq 22|.ID -eq 22|EventCode=\.22\.|EventIdentifier=\.22\.|System\[EventID=22\]</field>
+    <field name="win.eventdata.commandLine">-InstanceId 462\.|.eventid -eq 462\.|.ID -eq 462\.|EventCode=\.462\.|EventIdentifier=\.462\.|System[EventID=462\.]|-InstanceId 4778|.eventid -eq 4778|.ID -eq 4778|EventCode=\.4778\.|EventIdentifier=\.4778\.|System[EventID=4778]|-InstanceId 25|.eventid -eq 25|.ID -eq 25|EventCode=\.25\.|EventIdentifier=\.25\.|System[EventID=25]|-InstanceId 1149|.eventid -eq 1149|.ID -eq 1149|EventCode=\.1149\.|EventIdentifier=\.1149\.|System[EventID=1149]|-InstanceId 21|.eventid -eq 21|.ID -eq 21|EventCode=\.21\.|EventIdentifier=\.21\.|System[EventID=21]|-InstanceId 22|.eventid -eq 22|.ID -eq 22|EventCode=\.22\.|EventIdentifier=\.22\.|System[EventID=22]</field>
     <description>Sigma: Potentially Suspicious EventLog Recon Activity Using Log Query Utilities</description>
     <mitre>
       <id>T1552</id>
@@ -20264,7 +20264,7 @@
   <rule id="112574" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\\winrs.exe$</field>
-    <field name="win.eventdata.commandLine">/r:localhost|/r:127.0.0.1|/r:\[::1\]|/remote:localhost|/remote:127.0.0.1|/remote:\[::1\]</field>
+    <field name="win.eventdata.commandLine">/r:localhost|/r:127.0.0.1|/r:[::1]|/remote:localhost|/remote:127.0.0.1|/remote:[::1]</field>
     <description>Sigma: Winrs Local Command Execution</description>
     <mitre>
       <id>T1021.006</id>
@@ -20651,7 +20651,7 @@
   </rule>
   <rule id="113526" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\}" -z$</field>
+    <field name="win.eventdata.commandLine">}" -z$</field>
     <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
     <mitre>
       <id>T1557.001</id>
@@ -20792,7 +20792,7 @@
   </rule>
   <rule id="113541" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">SELECT|TOP|\[VeeamBackup\].\[dbo\].\[Credentials\]</field>
+    <field name="win.eventdata.commandLine">SELECT|TOP|[VeeamBackup].[dbo].[Credentials]</field>
     <field name="win.eventdata.image">\\sqlcmd.exe$</field>
     <description>Sigma: VeeamBackup Database Credentials Dump Via Sqlcmd.EXE</description>
     <mitre>

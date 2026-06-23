@@ -1,7 +1,7 @@
 <group name="windows,T1547_boot_autostart,">
   <rule id="107057" level="11">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\Microsoft\\Windows\\Start Menu\\Programs\\Startup|.lnk.\{0AFACED1-E828-11D1-9187-B532F1E9575D\}</field>
+    <field name="win.eventdata.targetFilename">\\Microsoft\\Windows\\Start Menu\\Programs\\Startup|.lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}</field>
     <field name="win.eventdata.image">\\explorer.exe$</field>
     <description>Sigma: Potential RipZip Attack on Startup Folder</description>
     <mitre>
@@ -31,7 +31,7 @@
   <rule id="107315" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">RenameKey</field>
-    <field name="win.eventdata.newName">\\CLSID\\\{645FF040-5081-101B-9F08-00AA002F954E\}\\shell\\open</field>
+    <field name="win.eventdata.newName">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open</field>
     <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
     <mitre>
       <id>T1547</id>
@@ -41,7 +41,7 @@
   <rule id="107316" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">SetValue</field>
-    <field name="win.eventdata.targetObject">\\CLSID\\\{645FF040-5081-101B-9F08-00AA002F954E\}\\shell\\open\\command\\\(Default\)</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open\\command\\\(Default\)</field>
     <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
     <mitre>
       <id>T1547</id>

@@ -217,7 +217,7 @@
   </rule>
   <rule id="100543" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">-NoExit -Command \[Console\]::OutputEncoding=\[Text.UTF8Encoding\]::UTF8</field>
+    <field name="win.eventdata.commandLine">-NoExit -Command [Console]::OutputEncoding=[Text.UTF8Encoding]::UTF8</field>
     <description>Sigma: HackTool - Sliver C2 Implant Activity Pattern</description>
     <mitre>
       <id>T1059</id>

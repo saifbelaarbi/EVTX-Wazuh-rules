@@ -1,7 +1,7 @@
 <group name="windows,T1620_unknown,">
   <rule id="100288" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[Reflection.Assembly\]::load</field>
+    <field name="win.eventdata.scriptBlockText">[Reflection.Assembly]::load</field>
     <description>Sigma: Potential In-Memory Execution Using Reflection.Assembly</description>
     <mitre>
       <id>T1620</id>

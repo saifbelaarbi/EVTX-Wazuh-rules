@@ -11,7 +11,10 @@ from .id_manager import allocate_id
 
 # OSRegex metacharacters needing escape for literal matching.
 # In Wazuh OSRegex ``.`` is literal — do NOT escape it (``\\.`` = any char).
-_OSREGEX_META = re.compile(r"([\^$*+?()\[\]{}|\\])")
+# ``{ } [ ] ?`` are also literal in OSRegex; escaping them yields an invalid
+# sequence (e.g. ``\{``) that Wazuh rejects with error 5107 (CRITICAL, aborts
+# the whole rule file). Only ``^ $ * + ( ) |`` and ``\`` are real metachars.
+_OSREGEX_META = re.compile(r"([\^$*+()|\\])")
 
 # System fields always retained in a minimized sample event.
 _SAMPLE_SYSTEM_FIELDS = (

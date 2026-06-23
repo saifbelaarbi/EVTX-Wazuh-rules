@@ -187,7 +187,7 @@
   </rule>
   <rule id="107245" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/TN "\{|/TN '\{|/TN \{</field>
+    <field name="win.eventdata.commandLine">/TN "{|/TN '{|/TN {</field>
     <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Suspicious Scheduled Task Name As GUID</description>
     <mitre>

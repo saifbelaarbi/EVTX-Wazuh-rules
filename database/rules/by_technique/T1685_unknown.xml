@@ -199,7 +199,7 @@
   </rule>
   <rule id="100279" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[Ref\].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
+    <field name="win.eventdata.scriptBlockText">[Ref].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
     <description>Sigma: AMSI Bypass Pattern Assembly GetType</description>
     <mitre>
       <id>T1685</id>
@@ -208,7 +208,7 @@
   </rule>
   <rule id="100280" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">if\(0\)\{\{\{0\}\}\}' -f \$\(0 -as \[char\]\) \+|#&lt;NULL&gt;</field>
+    <field name="win.eventdata.scriptBlockText">if\(0\){{{0}}}' -f \$\(0 -as [char]\) \+|#&lt;NULL&gt;</field>
     <description>Sigma: Potential AMSI Bypass Script Using NULL Bits</description>
     <mitre>
       <id>T1685</id>
@@ -426,7 +426,7 @@
   </rule>
   <rule id="100680" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\[Ref\].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
+    <field name="win.eventdata.commandLine">[Ref].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
     <description>Sigma: Potential AMSI Bypass Via .NET Reflection</description>
     <mitre>
       <id>T1685</id>
@@ -435,7 +435,7 @@
   </rule>
   <rule id="100681" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">if\(0\)\{\{\{0\}\}\}' -f \$\(0 -as \[char\]\) \+|#&lt;NULL&gt;</field>
+    <field name="win.eventdata.commandLine">if\(0\){{{0}}}' -f \$\(0 -as [char]\) \+|#&lt;NULL&gt;</field>
     <description>Sigma: Potential AMSI Bypass Using NULL Bits</description>
     <mitre>
       <id>T1685</id>
@@ -841,7 +841,7 @@
   </rule>
   <rule id="101086" level="9">
     <if_sid>61614</if_sid>
-    <field name="win.eventdata.targetObject">\{2781761E-28E0-4109-99FE-B9D127C57AFE\}$|\{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9\}$</field>
+    <field name="win.eventdata.targetObject">{2781761E-28E0-4109-99FE-B9D127C57AFE}$|{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9}$</field>
     <description>Sigma: Removal Of AMSI Provider Registry Keys</description>
     <mitre>
       <id>T1685</id>
@@ -888,7 +888,7 @@
   </rule>
   <rule id="101095" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\CLSID\\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec\}\\InProcServer32\\\(Default\)$</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\\InProcServer32\\\(Default\)$</field>
     <description>Sigma: Potential AMSI COM Server Hijacking</description>
     <mitre>
       <id>T1685</id>

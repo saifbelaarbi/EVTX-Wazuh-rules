@@ -90,7 +90,12 @@ TACTIC_FROM_TAG = {
     "attack.impact": "impact",
 }
 
-OS_REGEX_SPECIAL = r"+?()[]{}|^$"
+# OSRegex special chars that need backslash-escaping to match literally.
+# NOTE: ``{ } [ ] ?`` are LITERAL in Wazuh OSRegex — escaping them produces an
+# invalid sequence (e.g. ``\{``) that Wazuh rejects with error 5107 ("Syntax
+# error on tag"), which is CRITICAL and aborts loading the whole rule file.
+# Only ``( ) | ^ $ + *`` are genuine OSRegex metacharacters.
+OS_REGEX_SPECIAL = r"+*()|^$"
 
 
 def _escape_osregex(value: str) -> str:

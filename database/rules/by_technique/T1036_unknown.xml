@@ -81,7 +81,7 @@
   </rule>
   <rule id="100462" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/factory,\{75dff2b7-6936-4c06-a8bb-676a7b00b24b\}</field>
+    <field name="win.eventdata.commandLine">/factory,{75dff2b7-6936-4c06-a8bb-676a7b00b24b}</field>
     <description>Sigma: Explorer Process Tree Break</description>
     <mitre>
       <id>T1036</id>

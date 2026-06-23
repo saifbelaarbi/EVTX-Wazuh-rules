@@ -183,7 +183,7 @@
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5136</field>
     <field name="win.eventdata.objectClass">groupPolicyContainer</field>
-    <field name="win.eventdata.objectDN">^CN=\{31B2F340-016D-11D2-945F-00C04FB984F9\},CN=POLICIES,CN=SYSTEM|^CN=\{6AC1786C-016F-11D2-945F-00C04FB984F9\},CN=POLICIES,CN=SYSTEM</field>
+    <field name="win.eventdata.objectDN">^CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM|^CN={6AC1786C-016F-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM</field>
     <description>Sigma: Windows Default Domain GPO Modification</description>
     <mitre>
       <id>T1484.001</id>
@@ -562,7 +562,7 @@
   </rule>
   <rule id="107057" level="11">
     <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\Microsoft\\Windows\\Start Menu\\Programs\\Startup|.lnk.\{0AFACED1-E828-11D1-9187-B532F1E9575D\}</field>
+    <field name="win.eventdata.targetFilename">\\Microsoft\\Windows\\Start Menu\\Programs\\Startup|.lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}</field>
     <field name="win.eventdata.image">\\explorer.exe$</field>
     <description>Sigma: Potential RipZip Attack on Startup Folder</description>
     <mitre>
@@ -2219,7 +2219,7 @@
   </rule>
   <rule id="107235" level="11">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">-sta |-localserver |\{|\}</field>
+    <field name="win.eventdata.commandLine">-sta |-localserver |{|}</field>
     <field name="win.eventdata.image">\\rundll32.exe$</field>
     <description>Sigma: Rundll32 Registered COM Objects</description>
     <mitre>
@@ -2323,7 +2323,7 @@
   </rule>
   <rule id="107245" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">/TN "\{|/TN '\{|/TN \{</field>
+    <field name="win.eventdata.commandLine">/TN "{|/TN '{|/TN {</field>
     <field name="win.eventdata.image">\\schtasks.exe$</field>
     <description>Sigma: Suspicious Scheduled Task Name As GUID</description>
     <mitre>
@@ -2740,7 +2740,7 @@
   <rule id="107287" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\dllhost.exe$</field>
-    <field name="win.eventdata.parentCommandLine">/Processid:\{3E5FC7F9-9A51-4367-9063-A120244FBEC7\}|/Processid:\{D2E7041B-2927-42FB-8E9F-7CE93B6DC937\}</field>
+    <field name="win.eventdata.parentCommandLine">/Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}|/Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}</field>
     <description>Sigma: UAC Bypass via ICMLuaUtil</description>
     <mitre>
       <id>T1548.002</id>
@@ -2783,7 +2783,7 @@
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">"C:\\Windows\\system32\\dism.exe" /online /quiet /norestart /add-package /packagepath:"C:\\Windows\\system32\\pe386" /ignorecheck</field>
     <field name="win.eventdata.integrityLevel">High|System</field>
-    <field name="win.eventdata.commandLine">C:\\Users\\|\\AppData\\Local\\Temp\\|\\dismhost.exe \{</field>
+    <field name="win.eventdata.commandLine">C:\\Users\\|\\AppData\\Local\\Temp\\|\\dismhost.exe {</field>
     <field name="win.eventdata.image">\\DismHost.exe$</field>
     <description>Sigma: UAC Bypass Using NTFS Reparse Point - Process</description>
     <mitre>
@@ -3015,7 +3015,7 @@
   <rule id="107315" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">RenameKey</field>
-    <field name="win.eventdata.newName">\\CLSID\\\{645FF040-5081-101B-9F08-00AA002F954E\}\\shell\\open</field>
+    <field name="win.eventdata.newName">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open</field>
     <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
     <mitre>
       <id>T1547</id>
@@ -3025,7 +3025,7 @@
   <rule id="107316" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">SetValue</field>
-    <field name="win.eventdata.targetObject">\\CLSID\\\{645FF040-5081-101B-9F08-00AA002F954E\}\\shell\\open\\command\\\(Default\)</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open\\command\\\(Default\)</field>
     <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
     <mitre>
       <id>T1547</id>
@@ -3100,7 +3100,7 @@
   </rule>
   <rule id="107324" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\Shellex\\ColumnHandlers|\\Filter|\\Exefile\\Shell\\Open\\Command\\\(Default\)|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\\Instance|\\CLSID\\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\\Instance|\\CLSID\\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\\Instance|\\CLSID\\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\\Instance|\\Classes\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\.exe|\\.cmd|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\Shellex\\ColumnHandlers|\\Filter|\\Exefile\\Shell\\Open\\Command\\\(Default\)|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\Classes\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\.exe|\\.cmd|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
     <description>Sigma: Classes Autorun Keys Modification</description>
     <mitre>
       <id>T1547.001</id>
@@ -3109,7 +3109,7 @@
   </rule>
   <rule id="107325" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows CE Services\\AutoStart|\\Software\\Wow6432Node\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Wow6432Node\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnDisconnect|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnConnect|\\SYSTEM\\Setup\\CmdLine|\\Software\\Microsoft\\Ctf\\LangBarAddin|\\Software\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Classes\\Protocols\\Handler|\\SOFTWARE\\Classes\\Protocols\\Filter|\\SOFTWARE\\Classes\\Htmlfile\\Shell\\Open\\Command\\\(Default\)|\\Environment\\UserInitMprLogonScript|\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\\Scrnsave.exe|\\Software\\Microsoft\\Internet Explorer\\UrlSearchHooks|\\SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\Components|\\Software\\Classes\\Clsid\\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5\}\\Inprocserver32|\\Control Panel\\Desktop\\Scrnsave.exe</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows CE Services\\AutoStart|\\Software\\Wow6432Node\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Wow6432Node\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnDisconnect|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnConnect|\\SYSTEM\\Setup\\CmdLine|\\Software\\Microsoft\\Ctf\\LangBarAddin|\\Software\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Classes\\Protocols\\Handler|\\SOFTWARE\\Classes\\Protocols\\Filter|\\SOFTWARE\\Classes\\Htmlfile\\Shell\\Open\\Command\\\(Default\)|\\Environment\\UserInitMprLogonScript|\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\\Scrnsave.exe|\\Software\\Microsoft\\Internet Explorer\\UrlSearchHooks|\\SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\Components|\\Software\\Classes\\Clsid\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\\Inprocserver32|\\Control Panel\\Desktop\\Scrnsave.exe</field>
     <description>Sigma: Common Autorun Keys Modification</description>
     <mitre>
       <id>T1547.001</id>
@@ -3200,7 +3200,7 @@
   </rule>
   <rule id="107335" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\ShellEx\\ColumnHandlers|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\\{AC757296-3522-4E11-9862-C17BE5A1767E\}\\Instance|\\CLSID\\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E\}\\Instance|\\CLSID\\\{7ED96837-96F0-4812-B211-F13C24117ED3\}\\Instance|\\CLSID\\\{083863F1-70DE-11d0-BD40-00A0C911CE86\}\\Instance|\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\ShellEx\\ColumnHandlers|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
     <description>Sigma: Wow6432Node Classes Autorun Keys Modification</description>
     <mitre>
       <id>T1547.001</id>
@@ -3404,7 +3404,7 @@
   </rule>
   <rule id="107356" level="11">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\CLSID\\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6\}\\InProcServer32\\\(Default\)$</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}\\InProcServer32\\\(Default\)$</field>
     <description>Sigma: Potential PSFactoryBuffer COM Hijacking</description>
     <mitre>
       <id>T1546.015</id>

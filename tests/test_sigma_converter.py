@@ -7,6 +7,7 @@ import pytest
 from generator.sigma_converter import (
     SigmaConvertError,
     _apply_modifiers,
+    _escape_osregex,
     _escape_osregex_with_globs,
     _extract_tags,
     _source_category_from_mapping,
@@ -55,6 +56,18 @@ def test_extract_tags_no_tags_defaults_execution():
 
 
 # ── Glob translation ──
+
+
+def test_escape_braces_and_brackets_are_literal():
+    # In Wazuh OSRegex ``{ } [ ] ?`` are literal. Escaping them produces an
+    # invalid sequence (e.g. ``\{``) that Wazuh rejects with error 5107
+    # (CRITICAL — aborts the whole rule file). They must pass through unescaped.
+    guid = "{054AAE20-4BEA-4347-8A35-64A533254A9D}"
+    assert _escape_osregex(guid) == guid
+    assert _escape_osregex("a[b]c?") == "a[b]c?"
+    # Backslashes are still doubled (literal backslash); parens still escaped.
+    assert _escape_osregex("a\\b") == "a\\\\b"
+    assert _escape_osregex("(x)") == "\\(x\\)"
 
 
 def test_escape_glob_star():

@@ -5182,7 +5182,7 @@
     <if_sid>60003</if_sid>
     <field name="win.eventdata.provider_Name">MSSQL</field>
     <field name="win.system.eventID">33205</field>
-    <field name="win.eventdata.data">object_name:sysadmin|statement:alter server role \[sysadmin\] add member </field>
+    <field name="win.eventdata.data">object_name:sysadmin|statement:alter server role [sysadmin] add member </field>
     <description>Sigma: MSSQL Add Account To Sysadmin Role</description>
     <group>persistence,sigma_converted,</group>
   </rule>
@@ -5478,7 +5478,7 @@
   <rule id="104549" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657</field>
-    <field name="win.eventdata.objectName">WINEVT\\Publishers\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9\}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
     <field name="win.eventdata.objectValueName">Enabled</field>
     <field name="win.eventdata.newValue">0</field>
     <description>Sigma: Sysmon Channel Reference Deletion</description>
@@ -5490,7 +5490,7 @@
   <rule id="104550" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4663</field>
-    <field name="win.eventdata.objectName">WINEVT\\Publishers\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9\}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
     <field name="win.eventdata.accessMask">0x10000</field>
     <description>Sigma: Sysmon Channel Reference Deletion</description>
     <mitre>
@@ -7254,7 +7254,7 @@
   </rule>
   <rule id="104736" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo \[E\]|&amp;echo \[S\]</field>
+    <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo [E]|&amp;echo [S]</field>
     <field name="win.eventdata.image">\\w3wp.exe$</field>
     <description>Sigma: Chopper Webshell Process Pattern</description>
     <mitre>
@@ -7570,7 +7570,7 @@
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">SetValue</field>
     <field name="win.eventdata.targetObject">Classes\\ms-settings\\shell\\open\\command\\\(Default\)$|Classes\\exefile\\shell\\open\\command\\\(Default\)$</field>
-    <field name="win.eventdata.details">\\Software\\Classes\\\{</field>
+    <field name="win.eventdata.details">\\Software\\Classes\\{</field>
     <description>Sigma: Shell Open Registry Keys Manipulation</description>
     <mitre>
       <id>T1548.002</id>
@@ -7874,7 +7874,7 @@
   </rule>
   <rule id="104798" level="10">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\CLSID\\\{52A2AAAE-085D-4187-97EA-8C30DB990436\}\\InprocServer32\\\(Default\)</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{52A2AAAE-085D-4187-97EA-8C30DB990436}\\InprocServer32\\\(Default\)</field>
     <description>Sigma: Persistence Via Hhctrl.ocx</description>
     <group>persistence,sigma_converted,</group>
   </rule>
@@ -8032,7 +8032,7 @@
   </rule>
   <rule id="104816" level="9">
     <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">\\SOFTWARE\\Classes\\CLSID|\\PersistentAddinsRegistered\\\{89BCB740-6119-101A-BCB7-00DD010655AF\}</field>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Classes\\CLSID|\\PersistentAddinsRegistered\\{89BCB740-6119-101A-BCB7-00DD010655AF}</field>
     <description>Sigma: Register New IFiltre For Persistence</description>
     <group>persistence,sigma_converted,</group>
   </rule>
