@@ -213,6 +213,10 @@ echo ">> Generating reports..."
 python generate_report.py 2>/dev/null || true
 
 echo ""
+echo ">> Generating coverage dashboard..."
+python generate_dashboard.py --out site 2>/dev/null || true
+
+echo ""
 echo "=== Pipeline complete ==="
 echo ">> Finished: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 echo "Results in ./database/"
