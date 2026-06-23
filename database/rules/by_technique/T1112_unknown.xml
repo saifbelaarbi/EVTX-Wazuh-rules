@@ -28,7 +28,7 @@
   <rule id="104549" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4657</field>
-    <field name="win.eventdata.objectName">WINEVT\\Publishers\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9\}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
     <field name="win.eventdata.objectValueName">Enabled</field>
     <field name="win.eventdata.newValue">0</field>
     <description>Sigma: Sysmon Channel Reference Deletion</description>
@@ -40,7 +40,7 @@
   <rule id="104550" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4663</field>
-    <field name="win.eventdata.objectName">WINEVT\\Publishers\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9\}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
     <field name="win.eventdata.accessMask">0x10000</field>
     <description>Sigma: Sysmon Channel Reference Deletion</description>
     <mitre>

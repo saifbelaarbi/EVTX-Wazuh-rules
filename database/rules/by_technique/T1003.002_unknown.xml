@@ -144,7 +144,7 @@
   </rule>
   <rule id="108726" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">Copy-Item|cp \$_.|cpi \$_.|copy \$_.|.File\]::Copy\(|System32\\config\\sam</field>
+    <field name="win.eventdata.commandLine">Copy-Item|cp \$_.|cpi \$_.|copy \$_.|.File]::Copy\(|System32\\config\\sam</field>
     <description>Sigma: PowerShell SAM Copy</description>
     <mitre>
       <id>T1003.002</id>

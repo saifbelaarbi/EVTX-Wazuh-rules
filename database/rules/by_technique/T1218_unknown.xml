@@ -90,7 +90,7 @@
   </rule>
   <rule id="100245" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.data">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
+    <field name="win.eventdata.data">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {</field>
     <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse</description>
     <mitre>
       <id>T1218</id>
@@ -99,7 +99,7 @@
   </rule>
   <rule id="100267" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.payload">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
+    <field name="win.eventdata.payload">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {</field>
     <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module</description>
     <mitre>
       <id>T1218</id>
@@ -117,7 +117,7 @@
   </rule>
   <rule id="100314" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">^function Get-VMRemoteFXPhysicalVideoAdapter \{</field>
+    <field name="win.eventdata.scriptBlockText">^function Get-VMRemoteFXPhysicalVideoAdapter {</field>
     <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock</description>
     <mitre>
       <id>T1218</id>
@@ -972,7 +972,7 @@
   </rule>
   <rule id="101082" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\}</field>
+    <field name="win.eventdata.commandLine">{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}}</field>
     <description>Sigma: COM Object Execution via Xwizard.EXE</description>
     <mitre>
       <id>T1218</id>

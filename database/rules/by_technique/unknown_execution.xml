@@ -140,7 +140,7 @@
   </rule>
   <rule id="100124" level="8">
     <if_sid>61617</if_sid>
-    <field name="win.eventdata.contents">^\[ZoneTransfer\]  ZoneId=3</field>
+    <field name="win.eventdata.contents">^[ZoneTransfer]  ZoneId=3</field>
     <field name="win.eventdata.targetFilename">.exe|.scr|.bat|.cmd|.docx|.hta|.jse|.lnk|.pptx|.ps|.reg|.sct|.vb|.wsc|.wsf|.xlsx</field>
     <description>Sigma: Creation Of a Suspicious ADS File Outside a Browser Download</description>
     <group>execution,sigma_converted,</group>
@@ -563,7 +563,7 @@
   </rule>
   <rule id="100725" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">-nop| -w |hidden| -c |\[Convert\]::FromBase64String</field>
+    <field name="win.eventdata.commandLine">-nop| -w |hidden| -c |[Convert]::FromBase64String</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
     <group>execution,sigma_converted,</group>
   </rule>

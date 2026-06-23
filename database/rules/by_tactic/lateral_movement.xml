@@ -490,7 +490,7 @@
   <rule id="112547" level="11">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.contextInfo">:\\Windows\\System32\\wsmprovhost.exe|:\\Windows\\SysWOW64\\wsmprovhost.exe</field>
-    <field name="win.eventdata.payload">value="\(get-location\).path|value="\(get-item\.*\).length|Invoke-Binary |Donut-Loader -process_id\.*-donutfile|Bypass-4MSI|IEX \(\[System.Text.Encoding\]::ASCII.GetString\(\[System.Convert\]::FromBase64String\(\$a\)\)\).replace\('\.\.\.',''\)</field>
+    <field name="win.eventdata.payload">value="\(get-location\).path|value="\(get-item\.*\).length|Invoke-Binary |Donut-Loader -process_id\.*-donutfile|Bypass-4MSI|IEX \([System.Text.Encoding]::ASCII.GetString\([System.Convert]::FromBase64String\(\$a\)\)\).replace\('\.\.\.',''\)</field>
     <description>Sigma: HackTool - Evil-WinRm Execution - PowerShell Module</description>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
@@ -749,7 +749,7 @@
   <rule id="112574" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\\winrs.exe$</field>
-    <field name="win.eventdata.commandLine">/r:localhost|/r:127.0.0.1|/r:\[::1\]|/remote:localhost|/remote:127.0.0.1|/remote:\[::1\]</field>
+    <field name="win.eventdata.commandLine">/r:localhost|/r:127.0.0.1|/r:[::1]|/remote:localhost|/remote:127.0.0.1|/remote:[::1]</field>
     <description>Sigma: Winrs Local Command Execution</description>
     <mitre>
       <id>T1021.006</id>

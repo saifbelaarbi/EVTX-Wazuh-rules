@@ -11,7 +11,7 @@
   </rule>
   <rule id="110069" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[System.Net.HttpWebRequest\]|System.Net.Sockets.TcpListener|AcceptTcpClient</field>
+    <field name="win.eventdata.scriptBlockText">[System.Net.HttpWebRequest]|System.Net.Sockets.TcpListener|AcceptTcpClient</field>
     <description>Sigma: Suspicious TCP Tunnel Via PowerShell Script</description>
     <mitre>
       <id>T1090</id>

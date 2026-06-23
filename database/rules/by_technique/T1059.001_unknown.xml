@@ -196,7 +196,7 @@
   </rule>
   <rule id="100242" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.data">-q=txt http|-querytype=txt http|-type=txt http|nslookup|\[1\]</field>
+    <field name="win.eventdata.data">-q=txt http|-querytype=txt http|-type=txt http|nslookup|[1]</field>
     <description>Sigma: Nslookup PowerShell Download Cradle</description>
     <mitre>
       <id>T1059.001</id>
@@ -297,7 +297,7 @@
   </rule>
   <rule id="100270" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.contextInfo">-nop| -w |hidden| -c |\[Convert\]::FromBase64String</field>
+    <field name="win.eventdata.contextInfo">-nop| -w |hidden| -c |[Convert]::FromBase64String</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific - PowerShell Module</description>
     <mitre>
       <id>T1059.001</id>
@@ -351,7 +351,7 @@
   </rule>
   <rule id="100281" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command \| nslookup 2&gt;&amp;1 \| Out-String|New-RandomDNSField|\[Convert\]::ToString\(\$SYNOptions, 16\)|\$Session.Dead = \$True|\$Session\["Driver"\] -eq</field>
+    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command \| nslookup 2&gt;&amp;1 \| Out-String|New-RandomDNSField|[Convert]::ToString\(\$SYNOptions, 16\)|\$Session.Dead = \$True|\$Session["Driver"] -eq</field>
     <description>Sigma: Silence.EDA Detection</description>
     <mitre>
       <id>T1059.001</id>
@@ -489,7 +489,7 @@
   </rule>
   <rule id="100330" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">-nop| -w |hidden| -c |\[Convert\]::FromBase64String</field>
+    <field name="win.eventdata.scriptBlockText">-nop| -w |hidden| -c |[Convert]::FromBase64String</field>
     <description>Sigma: Suspicious PowerShell Invocations - Specific</description>
     <mitre>
       <id>T1059.001</id>
@@ -543,7 +543,7 @@
   </rule>
   <rule id="100337" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">System.Reflection.Assembly.Load\(\$|\[System.Reflection.Assembly\]::Load\(\$|\[Reflection.Assembly\]::Load\(\$|System.Reflection.AssemblyName|Reflection.Emit.AssemblyBuilderAccess|Reflection.Emit.CustomAttributeBuilder|Runtime.InteropServices.UnmanagedType|Runtime.InteropServices.DllImportAttribute|SuspendThread|rundll32</field>
+    <field name="win.eventdata.scriptBlockText">System.Reflection.Assembly.Load\(\$|[System.Reflection.Assembly]::Load\(\$|[Reflection.Assembly]::Load\(\$|System.Reflection.AssemblyName|Reflection.Emit.AssemblyBuilderAccess|Reflection.Emit.CustomAttributeBuilder|Runtime.InteropServices.UnmanagedType|Runtime.InteropServices.DllImportAttribute|SuspendThread|rundll32</field>
     <description>Sigma: Potential Suspicious PowerShell Keywords</description>
     <mitre>
       <id>T1059.001</id>
@@ -552,7 +552,7 @@
   </rule>
   <rule id="100347" level="8">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[System.Net.WebRequest\]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
+    <field name="win.eventdata.scriptBlockText">[System.Net.WebRequest]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
     <description>Sigma: Usage Of Web Request Commands And Cmdlets - ScriptBlock</description>
     <mitre>
       <id>T1059.001</id>
@@ -679,7 +679,7 @@
   </rule>
   <rule id="100500" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">join\.*split|\( \$ShellId\[1\]\+\$ShellId\[13\]\+'x'\)|\( \$PSHome\[\.*\]\+\$PSHOME\[\.*\]\+|\( \$env:Public\[13\]\+\$env:Public\[5\]\+'x'\)|\( \$env:ComSpec\[4,\.*,25\]-Join''\)|\[1,3\]\+'x'-Join''\)</field>
+    <field name="win.eventdata.commandLine">join\.*split|\( \$ShellId[1]\+\$ShellId[13]\+'x'\)|\( \$PSHome[\.*]\+\$PSHOME[\.*]\+|\( \$env:Public[13]\+\$env:Public[5]\+'x'\)|\( \$env:ComSpec[4,\.*,25]-Join''\)|[1,3]\+'x'-Join''\)</field>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
     <description>Sigma: HackTool - CrackMapExec PowerShell Obfuscation</description>
     <mitre>
@@ -854,7 +854,7 @@
   <rule id="100713" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\\powershell.exe$</field>
-    <field name="win.eventdata.commandLine">http://127.0.0.1|%\{\(IRM \$_\)\}|Invoke</field>
+    <field name="win.eventdata.commandLine">http://127.0.0.1|%{\(IRM \$_\)}|Invoke</field>
     <description>Sigma: Obfuscated PowerShell OneLiner Execution</description>
     <mitre>
       <id>T1059.001</id>
@@ -903,7 +903,7 @@
   <rule id="100722" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
-    <field name="win.eventdata.commandLine">::FromBase64String|.GetString\(\[System.Convert\]::</field>
+    <field name="win.eventdata.commandLine">::FromBase64String|.GetString\([System.Convert]::</field>
     <description>Sigma: Suspicious PowerShell IEX Execution Patterns</description>
     <mitre>
       <id>T1059.001</id>
@@ -921,7 +921,7 @@
   </rule>
   <rule id="100732" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\[char\]0x|\(WCHAR\)0x</field>
+    <field name="win.eventdata.commandLine">[char]0x|\(WCHAR\)0x</field>
     <description>Sigma: Potential PowerShell Obfuscation Via WCHAR/CHAR</description>
     <mitre>
       <id>T1059.001</id>
@@ -1072,7 +1072,7 @@
   </rule>
   <rule id="100985" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\[System.Net.WebRequest\]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
+    <field name="win.eventdata.commandLine">[System.Net.WebRequest]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
     <description>Sigma: Usage Of Web Request Commands And Cmdlets</description>
     <mitre>
       <id>T1059.001</id>

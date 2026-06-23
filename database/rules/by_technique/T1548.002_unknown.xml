@@ -12,7 +12,7 @@
   <rule id="101012" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\DllHost.exe$</field>
-    <field name="win.eventdata.parentCommandLine"> /Processid:\{3E5FC7F9-9A51-4367-9063-A120244FBEC7\}| /Processid:\{3E000D72-A845-4CD9-BD83-80C07C3B881F\}| /Processid:\{BD54C901-076B-434E-B6C7-17C531F4AB41\}| /Processid:\{D2E7041B-2927-42FB-8E9F-7CE93B6DC937\}| /Processid:\{E9495B87-D950-4AB5-87A5-FF6D70BF3E90\}</field>
+    <field name="win.eventdata.parentCommandLine"> /Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}| /Processid:{3E000D72-A845-4CD9-BD83-80C07C3B881F}| /Processid:{BD54C901-076B-434E-B6C7-17C531F4AB41}| /Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}| /Processid:{E9495B87-D950-4AB5-87A5-FF6D70BF3E90}</field>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
     <description>Sigma: CMSTP UAC Bypass via COM Object Access</description>
     <mitre>
@@ -24,7 +24,7 @@
   <rule id="101013" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\DllHost.exe$</field>
-    <field name="win.eventdata.parentCommandLine"> /Processid:\{12C21EA7-2EB8-4B55-9249-AC243DA8C666\}</field>
+    <field name="win.eventdata.parentCommandLine"> /Processid:{12C21EA7-2EB8-4B55-9249-AC243DA8C666}</field>
     <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
     <description>Sigma: UAC Bypass Using IDiagnostic Profile</description>
     <mitre>
@@ -47,7 +47,7 @@
     <if_sid>61615</if_sid>
     <field name="win.eventdata.eventType">SetValue</field>
     <field name="win.eventdata.targetObject">Classes\\ms-settings\\shell\\open\\command\\\(Default\)$|Classes\\exefile\\shell\\open\\command\\\(Default\)$</field>
-    <field name="win.eventdata.details">\\Software\\Classes\\\{</field>
+    <field name="win.eventdata.details">\\Software\\Classes\\{</field>
     <description>Sigma: Shell Open Registry Keys Manipulation</description>
     <mitre>
       <id>T1548.002</id>
@@ -376,7 +376,7 @@
   <rule id="107287" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\dllhost.exe$</field>
-    <field name="win.eventdata.parentCommandLine">/Processid:\{3E5FC7F9-9A51-4367-9063-A120244FBEC7\}|/Processid:\{D2E7041B-2927-42FB-8E9F-7CE93B6DC937\}</field>
+    <field name="win.eventdata.parentCommandLine">/Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}|/Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}</field>
     <description>Sigma: UAC Bypass via ICMLuaUtil</description>
     <mitre>
       <id>T1548.002</id>
@@ -419,7 +419,7 @@
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentCommandLine">"C:\\Windows\\system32\\dism.exe" /online /quiet /norestart /add-package /packagepath:"C:\\Windows\\system32\\pe386" /ignorecheck</field>
     <field name="win.eventdata.integrityLevel">High|System</field>
-    <field name="win.eventdata.commandLine">C:\\Users\\|\\AppData\\Local\\Temp\\|\\dismhost.exe \{</field>
+    <field name="win.eventdata.commandLine">C:\\Users\\|\\AppData\\Local\\Temp\\|\\dismhost.exe {</field>
     <field name="win.eventdata.image">\\DismHost.exe$</field>
     <description>Sigma: UAC Bypass Using NTFS Reparse Point - Process</description>
     <mitre>

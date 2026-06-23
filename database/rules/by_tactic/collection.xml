@@ -59,7 +59,7 @@
     <field name="win.system.eventID">10001</field>
     <field name="win.eventdata.param1">C:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe</field>
     <field name="win.eventdata.param2">2147943140</field>
-    <field name="win.eventdata.param3">\{054AAE20-4BEA-4347-8A35-64A533254A9D\}</field>
+    <field name="win.eventdata.param3">{054AAE20-4BEA-4347-8A35-64A533254A9D}</field>
     <description>Sigma: Local Privilege Escalation Indicator TabTip</description>
     <mitre>
       <id>T1557.001</id>
@@ -152,7 +152,7 @@
   </rule>
   <rule id="113515" level="7">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">\[Windows.Input.Keyboard\]::IsKeyDown\(\[System.Windows.Input.Key\]::</field>
+    <field name="win.eventdata.scriptBlockText">[Windows.Input.Keyboard]::IsKeyDown\([System.Windows.Input.Key]::</field>
     <description>Sigma: Potential Keylogger Activity</description>
     <mitre>
       <id>T1056.001</id>
@@ -256,7 +256,7 @@
   </rule>
   <rule id="113526" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\}" -z$</field>
+    <field name="win.eventdata.commandLine">}" -z$</field>
     <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
     <mitre>
       <id>T1557.001</id>
@@ -397,7 +397,7 @@
   </rule>
   <rule id="113541" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">SELECT|TOP|\[VeeamBackup\].\[dbo\].\[Credentials\]</field>
+    <field name="win.eventdata.commandLine">SELECT|TOP|[VeeamBackup].[dbo].[Credentials]</field>
     <field name="win.eventdata.image">\\sqlcmd.exe$</field>
     <description>Sigma: VeeamBackup Database Credentials Dump Via Sqlcmd.EXE</description>
     <mitre>

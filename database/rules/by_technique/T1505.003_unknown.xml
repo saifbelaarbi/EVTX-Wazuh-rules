@@ -70,7 +70,7 @@
   </rule>
   <rule id="104736" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo \[E\]|&amp;echo \[S\]</field>
+    <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo [E]|&amp;echo [S]</field>
     <field name="win.eventdata.image">\\w3wp.exe$</field>
     <description>Sigma: Chopper Webshell Process Pattern</description>
     <mitre>

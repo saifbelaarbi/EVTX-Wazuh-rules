@@ -23,6 +23,34 @@ WAZUH_API="${WAZUH_API_URL:-https://wazuh-manager:55000}"
 WAZUH_USER="${WAZUH_API_USER:-wazuh-wui}"
 WAZUH_PASS="${WAZUH_API_PASSWORD:-MyS3cr37P450r.*-}"
 
+# Dump recent rule-loading errors/warnings straight from the Wazuh manager via
+# the API, so CI output shows the manager's own diagnostics (5107 syntax errors,
+# 1220 critical load failures, 7611/7613 overwrite warnings, etc.) instead of
+# only the pipeline's stdout. Usage: dump_manager_errors "<token>" "<label>"
+dump_manager_errors() {
+    _tok="$1"
+    _label="$2"
+    [ -n "$_tok" ] || return 0
+    echo ">> ── Manager log (errors/warnings) ${_label} ──"
+    for _lvl in error warning critical; do
+        curl -sk -X GET "${WAZUH_API}/manager/logs?level=${_lvl}&limit=25&sort=-timestamp" \
+            -H "Authorization: Bearer ${_tok}" 2>/dev/null | python -c "
+import sys, json
+lvl = '${_lvl}'
+try:
+    items = json.load(sys.stdin).get('data', {}).get('affected_items', [])
+except Exception:
+    items = []
+rule_re = [i for i in items if any(k in (i.get('description','')) for k in (
+    'rule', 'Rule', 'decoder', 'XML', 'category', 'overwrite', 'Syntax', 'loading'))]
+shown = rule_re or items
+for i in shown[:15]:
+    print(f\"   [{lvl}] {i.get('timestamp','')}: {i.get('description','').strip()[:240]}\")
+" 2>/dev/null || true
+    done
+    echo ">> ── end manager log ──"
+}
+
 # ── 1. Download sources ──
 echo ""
 echo ">> Downloading EVTX samples..."
@@ -132,6 +160,9 @@ except Exception:
 ")
     echo ">> Wazuh reports ${LOADED} custom rules loaded (id>100000)"
 
+    # Always surface manager diagnostics after the rule-load restart.
+    dump_manager_errors "$TOKEN" "(after rule-load restart)"
+
     if [ "$LOADED" = "0" ]; then
         echo ">> [WARN] No custom rules loaded — check Wazuh manager logs:"
         echo ">>   docker compose exec wazuh-manager cat /var/ossec/logs/ossec.log | tail -50"
@@ -193,6 +224,10 @@ try:
 except Exception:
     print('')
 ")
+
+    # Surface the manager's own rule-loading diagnostics before logtest so we
+    # can see whether the bridge rule applied and the parent chain loaded.
+    dump_manager_errors "$TOKEN" "(after bridge-rule restart)"
 
     echo ">> Running live API logtest against Wazuh manager..."
     python -m generator logtest --mode live --save
