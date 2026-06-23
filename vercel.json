@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pip install -e . && python generate_dashboard.py --out site",
+  "outputDirectory": "site",
+  "framework": null,
+  "installCommand": "echo 'skip'"
+}
