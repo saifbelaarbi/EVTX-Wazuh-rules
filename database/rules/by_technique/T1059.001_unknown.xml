@@ -350,7 +350,7 @@
   </rule>
   <rule id="100281" level="9">
     <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command \| nslookup 2&gt;&amp;1 \| Out-String|New-RandomDNSField|[Convert]::ToString\(\$SYNOptions, 16\)|\$Session.Dead = \$True|\$Session["Driver"] -eq</field>
+    <field name="win.eventdata.scriptBlockText">set type=\$LookupType`nserver|\$Command | nslookup 2&gt;&amp;1 | Out-String|New-RandomDNSField|[Convert]::ToString\(\$SYNOptions, 16\)|\$Session.Dead = \$True|\$Session["Driver"] -eq</field>
     <description>Sigma: Silence.EDA Detection</description>
     <mitre>
       <id>T1059.001</id>

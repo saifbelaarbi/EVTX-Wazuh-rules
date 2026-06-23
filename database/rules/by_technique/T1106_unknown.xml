@@ -1,7 +1,7 @@
 <group name="windows,T1106_unknown,">
   <rule id="100361" level="13">
     <if_sid>61612</if_sid>
-    <field name="win.eventdata.callTrace">^C:\\Windows\\SYSTEM32\\ntdll\.dll+[a-z0-9]{4,6}\|C:\\Windows\\System32\\KERNELBASE\.dll+[a-z0-9]{4,6}\|UNKNOWN\([A-Z0-9]{16}\)$</field>
+    <field name="win.eventdata.callTrace">^C:\\Windows\\SYSTEM32\\ntdll\.dll+[a-z0-9]{4,6}|C:\\Windows\\System32\\KERNELBASE\.dll+[a-z0-9]{4,6}|UNKNOWN\([A-Z0-9]{16}\)$</field>
     <field name="win.eventdata.grantedAccess">0x1028|0x1fffff</field>
     <description>Sigma: HackTool - CobaltStrike BOF Injection Pattern</description>
     <mitre>

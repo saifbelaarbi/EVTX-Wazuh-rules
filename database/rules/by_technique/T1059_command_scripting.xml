@@ -97,7 +97,7 @@
   </rule>
   <rule id="100408" level="8">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\^\^|\^\|\^|,;,|;;;;|;; ;;|\(,\(,|%COMSPEC:~| c\^m\^d|\^c\^m\^d| c\^md| cm\^d|\^cm\^d| s\^et | s\^e\^t | se\^t </field>
+    <field name="win.eventdata.commandLine">^^|^|^|,;,|;;;;|;; ;;|\(,\(,|%COMSPEC:~| c^m^d|^c^m^d| c^md| cm^d|^cm^d| s^et | s^e^t | se^t </field>
     <description>Sigma: Potential Dosfuscation Activity</description>
     <mitre>
       <id>T1059</id>
@@ -346,7 +346,7 @@
   </rule>
   <rule id="100714" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">;iex \$|\| IEX|\|IEX |I`E`X|I`EX|IE`X|iex |IEX \(|IEX\(|Invoke-Expression</field>
+    <field name="win.eventdata.commandLine">;iex \$|| IEX||IEX |I`E`X|I`EX|IE`X|iex |IEX \(|IEX\(|Invoke-Expression</field>
     <description>Sigma: PowerShell Download and Execution Cradles</description>
     <mitre>
       <id>T1059</id>

@@ -21,7 +21,7 @@ MITRE_PATTERN = re.compile(r"^T\d{4}(\.\d{3})?$")
 # Anything else (e.g. \+ \{ \" \- \?) is an invalid sequence Wazuh rejects with
 # error 5107 (CRITICAL, aborts the whole rule file). lxml/PCRE accept these, so
 # this is a Wazuh-specific check the generic XML parse won't catch.
-_BAD_OSREGEX_ESCAPE = re.compile(r"(?<!\\)(?:\\\\)*\\([^wWdDsStpbnrA.()$|^\\])")
+_BAD_OSREGEX_ESCAPE = re.compile(r"(?<!\\)(?:\\\\)*\\([^wWdDsStpbnrA.()$\\])")
 
 # An odd-count trailing backslash in element text. OS_XML treats ``\`` as an
 # escape char, so ``\</tag>`` escapes the ``<`` and Wazuh reports the element as
