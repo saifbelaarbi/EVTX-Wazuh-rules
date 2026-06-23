@@ -8846,7 +8846,7 @@
   <rule id="104011" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">winlogon\\</field>
-    <description>Registry modification in persistence key: winlogon\</description>
+    <description>Registry modification in persistence key: winlogon</description>
     <mitre>
       <id>T1547.004</id>
     </mitre>
@@ -16735,7 +16735,7 @@
   <rule id="110000" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\downloads\\</field>
-    <description>Executable file created in suspicious path: \downloads\</description>
+    <description>Executable file created in suspicious path: \downloads</description>
     <mitre>
       <id>T1105</id>
     </mitre>
@@ -16744,7 +16744,7 @@
   <rule id="110001" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\appdata\\</field>
-    <description>Executable file created in suspicious path: \appdata\</description>
+    <description>Executable file created in suspicious path: \appdata</description>
     <mitre>
       <id>T1105</id>
     </mitre>
@@ -16753,7 +16753,7 @@
   <rule id="110002" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\temp\\</field>
-    <description>Executable file created in suspicious path: \temp\</description>
+    <description>Executable file created in suspicious path: \temp</description>
     <mitre>
       <id>T1105</id>
     </mitre>
@@ -16762,7 +16762,7 @@
   <rule id="110003" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\programdata\\</field>
-    <description>Executable file created in suspicious path: \programdata\</description>
+    <description>Executable file created in suspicious path: \programdata</description>
     <mitre>
       <id>T1105</id>
     </mitre>
@@ -16771,7 +16771,7 @@
   <rule id="110004" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\public\\</field>
-    <description>Executable file created in suspicious path: \public\</description>
+    <description>Executable file created in suspicious path: \public</description>
     <mitre>
       <id>T1105</id>
     </mitre>
@@ -19493,7 +19493,7 @@
   <rule id="112000" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\\appdata\\</field>
-    <description>DLL loaded from suspicious path: \appdata\</description>
+    <description>DLL loaded from suspicious path: \appdata</description>
     <mitre>
       <id>T1574.002</id>
     </mitre>
@@ -19520,7 +19520,7 @@
   <rule id="112003" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\\public\\</field>
-    <description>DLL loaded from suspicious path: \public\</description>
+    <description>DLL loaded from suspicious path: \public</description>
     <mitre>
       <id>T1574.002</id>
     </mitre>
@@ -19732,7 +19732,7 @@
   <rule id="112026" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\\downloads\\</field>
-    <description>DLL loaded from suspicious path: \downloads\</description>
+    <description>DLL loaded from suspicious path: \downloads</description>
     <mitre>
       <id>T1574.002</id>
     </mitre>
@@ -19751,7 +19751,7 @@
   <rule id="112028" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\\programdata\\</field>
-    <description>DLL loaded from suspicious path: \programdata\</description>
+    <description>DLL loaded from suspicious path: \programdata</description>
     <mitre>
       <id>T1574.002</id>
     </mitre>
@@ -19827,7 +19827,7 @@
   <rule id="112036" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\\temp\\</field>
-    <description>DLL loaded from suspicious path: \temp\</description>
+    <description>DLL loaded from suspicious path: \temp</description>
     <mitre>
       <id>T1574.002</id>
     </mitre>
