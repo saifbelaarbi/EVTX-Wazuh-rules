@@ -620,7 +620,7 @@
   </rule>
   <rule id="100519" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">cmd.{0,5}(?:/c|/r).+powershell.+(?:\${?input}?|noexit).+\"</field>
+    <field name="win.eventdata.commandLine">cmd.{0,5}(?:/c|/r).+powershell.+(?:\${?input}?|noexit).+"</field>
     <description>Sigma: Invoke-Obfuscation STDIN+ Launcher</description>
     <mitre>
       <id>T1027</id>
@@ -630,7 +630,7 @@
   </rule>
   <rule id="100520" level="9">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">cmd.{0,5}(?:/c|/r)(?:\s|)\"set\s[a-zA-Z]{3,6}.*(?:{\d}){1,}\\\"\s+?\-f(?:.*\)){1,}.*\"</field>
+    <field name="win.eventdata.commandLine">cmd.{0,5}(?:/c|/r)(?:\s|)"set\s[a-zA-Z]{3,6}.*(?:{\d}){1,}\\"\s+?-f(?:.*\)){1,}.*"</field>
     <description>Sigma: Invoke-Obfuscation VAR+ Launcher</description>
     <mitre>
       <id>T1027</id>

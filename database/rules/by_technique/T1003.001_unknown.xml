@@ -820,7 +820,7 @@
   </rule>
   <rule id="108710" level="12">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">(?i)\.exe[\"\']?\s+[^\"]{0,64}werfaultsecure\.exe[\"\']?\s+\d{2,10}</field>
+    <field name="win.eventdata.commandLine">(?i)\.exe["']?\s+[^"]{0,64}werfaultsecure\.exe["']?\s+\d{2,10}</field>
     <description>Sigma: HackTool - WSASS Execution</description>
     <mitre>
       <id>T1003.001</id>
