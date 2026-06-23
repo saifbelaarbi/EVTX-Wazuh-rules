@@ -827,8 +827,8 @@ def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> lis
             continue
         work_items.append((rule_id_str, meta))
 
-    if mode == "live" and len(work_items) > LIVE_CAP:
-        console.print(f"[yellow]Live mode capped to {LIVE_CAP} rules (of {len(work_items)})[/]")
+    if len(work_items) > LIVE_CAP:
+        console.print(f"[yellow]Capped to {LIVE_CAP} rules (of {len(work_items)})[/]")
         work_items = work_items[:LIVE_CAP]
 
     total = len(work_items)
