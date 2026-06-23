@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,composite,">
   <rule id="115000" level="12" frequency="2" timeframe="300">
     <if_sid>112501</if_sid>

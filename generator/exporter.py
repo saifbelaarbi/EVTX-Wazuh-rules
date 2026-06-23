@@ -117,9 +117,8 @@ def _build_xml_group(rules: list[dict], group_name: str) -> str:
 
     # Pretty print
     etree.indent(root, space="  ")
-    xml_decl = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml_str = etree.tostring(root, pretty_print=True, encoding="unicode")
-    return xml_decl + xml_str
+    return xml_str
 
 
 def _load_existing_rule_elements(out_file: Path) -> dict[str, etree._Element]:
@@ -160,10 +159,9 @@ def _write_group_merged(out_file: Path, new_rules: list[dict], group_name: str):
         root.append(merged[rid])
 
     etree.indent(root, space="  ")
-    xml_decl = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml_str = etree.tostring(root, pretty_print=True, encoding="unicode")
     with open(out_file, "w") as f:
-        f.write(xml_decl + xml_str)
+        f.write(xml_str)
     return len(merged)
 
 

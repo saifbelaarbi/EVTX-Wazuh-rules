@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,powershell,">
   <rule id="100010" level="8">
     <if_sid>91801</if_sid>

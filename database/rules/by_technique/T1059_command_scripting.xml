@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1059_command_scripting,">
   <rule id="100113" level="9">
     <if_sid>60005</if_sid>

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1115_unknown,">
   <rule id="113511" level="7">
     <if_sid>91801</if_sid>

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <group name="windows,T1110_brute_force,">
   <rule id="108504" level="9">
     <if_sid>60100</if_sid>
