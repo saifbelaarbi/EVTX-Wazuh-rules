@@ -31,6 +31,20 @@ def _to_osregex(value: str) -> str:
     return _OSREGEX_META.sub(r"\\\1", value)
 
 
+def _safe_text(value: str) -> str:
+    """Make element text safe for Wazuh's OS_XML parser.
+
+    OS_XML treats ``\\`` as an escape char in element content, so a trailing
+    backslash escapes the ``<`` of the closing tag — Wazuh then reports the
+    element as "not closed" (error 1226, CRITICAL). Descriptions built from
+    path indicators often end in ``\\`` (e.g. ``...path: \\downloads\\``), so
+    strip any trailing backslashes. They are cosmetic in human-readable text.
+    """
+    if not value:
+        return value
+    return value.rstrip("\\")
+
+
 def _minimize_event(event: dict, field_matches: dict) -> dict:
     """Keep system fields + only the eventdata keys referenced by a rule.
 
@@ -175,7 +189,7 @@ def build_rule(pattern: DetectionPattern) -> dict:
 
     # Description
     desc = etree.SubElement(rule_elem, "description")
-    desc.text = pattern.description
+    desc.text = _safe_text(pattern.description)
 
     # MITRE ATT&CK mapping — semantic, never a tactic default
     mitre_ids = pattern.mitre_ids

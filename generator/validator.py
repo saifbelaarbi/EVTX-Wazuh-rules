@@ -21,6 +21,11 @@ MITRE_PATTERN = re.compile(r"^T\d{4}(\.\d{3})?$")
 # so this is a Wazuh-specific check the generic XML parse won't catch.
 _BAD_OSREGEX_ESCAPE = re.compile(r"(?<!\\)(?:\\\\)*\\([{}\[\]?])")
 
+# An odd-count trailing backslash in element text. OS_XML treats ``\`` as an
+# escape char, so ``\</tag>`` escapes the ``<`` and Wazuh reports the element as
+# "not closed" (error 1226, CRITICAL). ``\\`` (even) is a safe literal backslash.
+_TRAILING_BACKSLASH = re.compile(r"(?<!\\)(?:\\\\)*\\$")
+
 
 def validate_xml_wellformed(rule: dict) -> list[str]:
     """Check XML well-formedness."""
@@ -177,6 +182,11 @@ def validate_database(rules_dir: Path) -> list[str]:
                 desc = rule_elem.find("description")
                 if desc is None or not desc.text:
                     errors.append(f"{xml_file.name}: Rule {rule_id} missing description")
+                elif _TRAILING_BACKSLASH.search(desc.text):
+                    errors.append(
+                        f"{xml_file.name}: Rule {rule_id} description ends with a lone backslash "
+                        "— Wazuh OS_XML reads it as 'element not closed' (error 1226)"
+                    )
 
                 for field_elem in rule_elem.findall("field"):
                     if field_elem.text is None or not field_elem.text.strip():
