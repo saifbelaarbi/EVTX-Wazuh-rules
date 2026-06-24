@@ -10,19 +10,7 @@
       <id>T1059.007</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100675" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\\ping.exe$</field>
-    <field name="win.eventdata.commandLine">0x[a-fA-F0-9]{8}</field>
-    <description>Sigma: Ping Hex IP</description>
-    <mitre>
-      <id>T1140</id>
-      <id>T1027</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100685" level="9">
+  </rule>  <rule id="100685" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">OjpGcm9tQmFzZTY0U3RyaW5n|o6RnJvbUJhc2U2NFN0cmluZw|6OkZyb21CYXNlNjRTdHJpbmc</field>
     <description>Sigma: PowerShell Base64 Encoded FromBase64String Cmdlet</description>

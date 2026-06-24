@@ -84,18 +84,7 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100090" level="9">
-    <if_sid>60106</if_sid>
-    <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">\$PSHome[\s*\d{1,3}\s*]\s*+\s*\$PSHome[</field>
-    <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation - System</description>
-    <mitre>
-      <id>T1027</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100091" level="9">
+  </rule>  <rule id="100091" level="9">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5433,20 +5422,7 @@
     <field name="win.eventdata.imagePath">\\rutserv.exe|-service</field>
     <description>Sigma: Remote Utilities Host Service Install</description>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104562" level="10">
-    <if_sid>60106</if_sid>
-    <field name="win.eventdata.provider_Name">Service Control Manager</field>
-    <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">^[a-zA-Z]:\\windows\\temp\\[a-zA-Z0-9]{10}\.exe</field>
-    <description>Sigma: Sliver C2 Default Service Installation</description>
-    <mitre>
-      <id>T1543.003</id>
-      <id>T1569.002</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104563" level="10">
+  </rule>  <rule id="104563" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5496,19 +5472,7 @@
       <id>T1543.003</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104568" level="10">
-    <if_sid>60106</if_sid>
-    <field name="win.eventdata.provider_Name">Service Control Manager</field>
-    <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">^[Cc]:\\[Pp]rogram[Dd]ata\\.{1,9}\.exe</field>
-    <description>Sigma: Service Installation with Suspicious Folder Pattern</description>
-    <mitre>
-      <id>T1543.003</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104569" level="10">
+  </rule>  <rule id="104569" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.imagePath"> -c | -r | -k </field>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>

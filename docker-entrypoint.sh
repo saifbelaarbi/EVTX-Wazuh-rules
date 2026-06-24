@@ -182,10 +182,13 @@ except Exception:
      logtest engine, so events arrive as decoded_as=json instead.
      This override makes the entire parent chain (60000→60004→61600→
      61603→custom rules) fire for JSON-decoded Windows events.
-     category=ossec is required — Wazuh rejects overwrite without it. -->
+     NOTE: <category>ossec</category> is OMITTED — Wazuh rejects it in
+     custom rules (etc/rules/) with error 7611 "Category was not found",
+     which causes the rule to be ignored. Without <category>, the rule
+     loads via the 7613 "still loaded" fallback and matches on
+     decoded_as + field instead. -->
 <group name="windows,">
   <rule id="60000" level="0" overwrite="yes">
-    <category>ossec</category>
     <decoded_as>json</decoded_as>
     <field name="win.system.providerName">\.+</field>
     <options>no_full_log</options>

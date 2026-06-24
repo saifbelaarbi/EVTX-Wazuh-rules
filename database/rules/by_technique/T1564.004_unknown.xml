@@ -45,18 +45,7 @@
       <id>T1564.004</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100129" level="9">
-    <if_sid>61617</if_sid>
-    <field name="win.eventdata.contents">http[s]?://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
-    <field name="win.eventdata.targetFilename">.ps1:Zone|.bat:Zone|.exe:Zone|.vbe:Zone|.vbs:Zone|.dll:Zone|.one:Zone|.cmd:Zone|.hta:Zone|.xll:Zone|.lnk:Zone</field>
-    <description>Sigma: Unusual File Download from Direct IP Address</description>
-    <mitre>
-      <id>T1564.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100182" level="8">
+  </rule>  <rule id="100182" level="8">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">::\$index_allocation</field>
     <description>Sigma: Potential Hidden Directory Creation Via NTFS INDEX_ALLOCATION Stream</description>
@@ -83,26 +72,7 @@
       <id>T1564.004</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100571" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">:[^\\]|.cab</field>
-    <description>Sigma: Suspicious Diantz Alternate Data Stream Execution</description>
-    <mitre>
-      <id>T1564.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100572" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">:[^\\]|.cab</field>
-    <description>Sigma: Suspicious Extrac32 Alternate Data Stream Execution</description>
-    <mitre>
-      <id>T1564.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100737" level="9">
+  </rule>  <rule id="100737" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\powershell.exe$|\\pwsh.exe$</field>
     <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
@@ -112,18 +82,7 @@
       <id>T1564.004</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100864" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">[Rr][Uu][Nn][Dd][Ll][Ll]32(?:\.[Ee][Xx][Ee])? \S+?\w:\S+?:</field>
-    <field name="win.eventdata.image">\\rundll32.exe$</field>
-    <description>Sigma: Potential Rundll32 Execution With DLL Stored In ADS</description>
-    <mitre>
-      <id>T1564.004</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100902" level="8">
+  </rule>  <rule id="100902" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">esentutl | /y | /d | /o </field>
     <description>Sigma: Execute From Alternate Data Streams</description>

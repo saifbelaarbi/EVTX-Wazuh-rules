@@ -111,9 +111,10 @@ def test_contains_unanchored():
     assert "malware" in result
 
 
-def test_re_passthrough():
-    result = _apply_modifiers("^foo.*bar$", ["re"])
-    assert result == "^foo.*bar$"
+def test_re_modifier_rejected():
+    """Sigma |re patterns are raw PCRE, incompatible with Wazuh OSRegex."""
+    with pytest.raises(ValueError, match="unsupported_re_modifier"):
+        _apply_modifiers("^foo.*bar$", ["re"])
 
 
 def test_windash():
@@ -198,6 +199,23 @@ def test_aggregation_condition_raises():
     with pytest.raises(SigmaConvertError) as exc_info:
         convert_sigma_rule(rule)
     assert exc_info.value.category == "unsupported_condition"
+
+
+def test_re_modifier_sigma_rule_raises():
+    """Sigma rules with |re modifier should raise unsupported_re_modifier."""
+    rule = {
+        "title": "Test re modifier",
+        "level": "high",
+        "logsource": {"category": "process_creation"},
+        "detection": {
+            "condition": "selection",
+            "selection": {"CommandLine|re": r"cmd.{0,5}(?:/c|/r).+clip"},
+        },
+        "tags": ["attack.execution"],
+    }
+    with pytest.raises(SigmaConvertError) as exc_info:
+        convert_sigma_rule(rule)
+    assert exc_info.value.category == "unsupported_re_modifier"
 
 
 # ── Aggregation (count) ──

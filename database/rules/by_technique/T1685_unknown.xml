@@ -744,28 +744,7 @@
       <id>T1685</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101001" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">[-/–—]c</field>
-    <field name="win.eventdata.image">\\Sysmon64.exe$|\\Sysmon.exe$</field>
-    <description>Sigma: Sysmon Configuration Update</description>
-    <mitre>
-      <id>T1685</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101002" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">[-/–—]u</field>
-    <field name="win.eventdata.image">\\Sysmon64.exe$|\\Sysmon.exe$</field>
-    <description>Sigma: Uninstall Sysinternals Sysmon</description>
-    <mitre>
-      <id>T1685</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101008" level="9">
+  </rule>  <rule id="101008" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">taskkill| /F | /IM |ccSvcHst.exe</field>
     <description>Sigma: Taskkill Symantec Endpoint Protection</description>

@@ -5610,20 +5610,7 @@
     <field name="win.eventdata.imagePath">\\rutserv.exe|-service</field>
     <description>Sigma: Remote Utilities Host Service Install</description>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104562" level="10">
-    <if_sid>60106</if_sid>
-    <field name="win.eventdata.provider_Name">Service Control Manager</field>
-    <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">^[a-zA-Z]:\\windows\\temp\\[a-zA-Z0-9]{10}\.exe</field>
-    <description>Sigma: Sliver C2 Default Service Installation</description>
-    <mitre>
-      <id>T1543.003</id>
-      <id>T1569.002</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104563" level="10">
+  </rule>  <rule id="104563" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5673,19 +5660,7 @@
       <id>T1543.003</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104568" level="10">
-    <if_sid>60106</if_sid>
-    <field name="win.eventdata.provider_Name">Service Control Manager</field>
-    <field name="win.system.eventID">7045</field>
-    <field name="win.eventdata.imagePath">^[Cc]:\\[Pp]rogram[Dd]ata\\.{1,9}\.exe</field>
-    <description>Sigma: Service Installation with Suspicious Folder Pattern</description>
-    <mitre>
-      <id>T1543.003</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104569" level="10">
+  </rule>  <rule id="104569" level="10">
     <if_sid>60106</if_sid>
     <field name="win.eventdata.imagePath"> -c | -r | -k </field>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
@@ -6516,17 +6491,7 @@
       <id>T1571</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104661" level="10">
-    <if_sid>91801</if_sid>
-    <field name="win.eventdata.scriptBlockText">(Copy-Item|cpi) .{2,128} -Destination .{1,32}\\Windows\\(System32|SysWOW64)</field>
-    <description>Sigma: Powershell Install a DLL in System Directory</description>
-    <mitre>
-      <id>T1556.002</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104662" level="9">
+  </rule>  <rule id="104662" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">System.DirectoryServices.AccountManagement</field>
     <description>Sigma: Manipulation of User Computer or Group Security Principals Across AD</description>
@@ -6810,18 +6775,7 @@
       <id>T1574.005</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104691" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">[-/–—]name:|module</field>
-    <field name="win.eventdata.image">\\appcmd.exe$</field>
-    <description>Sigma: IIS Native-Code Module Command Line Installation</description>
-    <mitre>
-      <id>T1505.003</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104692" level="10">
+  </rule>  <rule id="104692" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\w3wp.exe$</field>
     <field name="win.eventdata.commandLine">appcmd.exe add module</field>
@@ -7042,28 +6996,7 @@
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104714" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">:[^ \\]</field>
-    <field name="win.eventdata.image">\\regedit.exe$</field>
-    <description>Sigma: Imports Registry Key From an ADS</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104715" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\\regini.exe$</field>
-    <field name="win.eventdata.commandLine">:[^ \\]</field>
-    <description>Sigma: Suspicious Registry Modification From ADS Via Regini.EXE</description>
-    <mitre>
-      <id>T1112</id>
-    </mitre>
-    <group>persistence,sigma_converted,</group>
-  </rule>
-  <rule id="104716" level="10">
+  </rule>  <rule id="104716" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">sethc.exe|utilman.exe|osk.exe|magnify.exe|narrator.exe|displayswitch.exe|atbroker.exe|HelpPane.exe</field>
     <description>Sigma: Suspicious Debugger Registration Cmdline</description>

@@ -221,45 +221,7 @@
       <id>T1021.002</id>
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112522" level="11">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4625|4624</field>
-    <field name="win.eventdata.logonType">3</field>
-    <field name="win.eventdata.authenticationPackageName">NTLM</field>
-    <field name="win.eventdata.workstationName">^[A-Za-z0-9]{16}$</field>
-    <description>Sigma: Metasploit SMB Authentication</description>
-    <mitre>
-      <id>T1021.002</id>
-    </mitre>
-    <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112523" level="11">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4776</field>
-    <field name="win.eventdata.workstation">^[A-Za-z0-9]{16}$</field>
-    <description>Sigma: Metasploit SMB Authentication</description>
-    <mitre>
-      <id>T1021.002</id>
-    </mitre>
-    <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112524" level="11">
-    <if_sid>60100</if_sid>
-    <field name="win.system.eventID">4697</field>
-    <field name="win.eventdata.serviceFileName">^%systemroot%\\[a-zA-Z]{8}\.exe$</field>
-    <field name="win.eventdata.serviceName">(^[a-zA-Z]{4}$)|(^[a-zA-Z]{8}$)|(^[a-zA-Z]{16}$)</field>
-    <field name="win.eventdata.serviceStartType">3</field>
-    <field name="win.eventdata.serviceType">0x10</field>
-    <description>Sigma: Metasploit Or Impacket Service Installation Via SMB PsExec</description>
-    <mitre>
-      <id>T1021.002</id>
-      <id>T1570</id>
-      <id>T1569.002</id>
-    </mitre>
-    <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112525" level="10">
+  </rule>  <rule id="112525" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4825</field>
     <description>Sigma: Denied Access To Remote Desktop</description>
@@ -397,35 +359,7 @@
       <id>T1570</id>
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112538" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\Windows\\__1\d{9}\.\d{1,7}$</field>
-    <description>Sigma: Wmiexec Default Output File</description>
-    <mitre>
-      <id>T1047</id>
-    </mitre>
-    <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112539" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">C:\\__1\d{9}\.\d{1,7}$</field>
-    <description>Sigma: Wmiexec Default Output File</description>
-    <mitre>
-      <id>T1047</id>
-    </mitre>
-    <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112540" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">D:\\__1\d{9}\.\d{1,7}$</field>
-    <description>Sigma: Wmiexec Default Output File</description>
-    <mitre>
-      <id>T1047</id>
-    </mitre>
-    <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112541" level="11">
+  </rule>  <rule id="112541" level="11">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\\Internet Explorer\\iexplore.exe$</field>
     <field name="win.eventdata.imageLoaded">\\Internet Explorer\\iertutil.dll$</field>

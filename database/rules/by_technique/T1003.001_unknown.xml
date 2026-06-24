@@ -293,17 +293,7 @@
       <id>T1003.003</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108572" level="12">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.txt$</field>
-    <description>Sigma: HackTool - CrackMapExec File Indicators</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108573" level="12">
+  </rule>  <rule id="108573" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">dumpert.dmp$</field>
     <description>Sigma: HackTool - Dumpert Process Dumper Default File</description>
@@ -320,17 +310,7 @@
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108581" level="12">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\sessionresume_[a-zA-Z]{8}$</field>
-    <description>Sigma: HackTool - Impacket File Indicators</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108582" level="12">
+  </rule>  <rule id="108582" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\Andrew.dmp$|\\Coredump.dmp$|\\lsass.dmp$|\\lsass.rar$|\\lsass.zip$|\\NotLSASS.zip$|\\PPLBlade.dmp$|\\rustive.dmp$</field>
     <description>Sigma: LSASS Process Memory Dump Files</description>
@@ -817,17 +797,7 @@
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108710" level="12">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">(?i)\.exe["']?\s+[^"]{0,64}werfaultsecure\.exe["']?\s+\d{2,10}</field>
-    <description>Sigma: HackTool - WSASS Execution</description>
-    <mitre>
-      <id>T1003.001</id>
-    </mitre>
-    <group>credential_access,sigma_converted,</group>
-  </rule>
-  <rule id="108711" level="12">
+  </rule>  <rule id="108711" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=32F5095C9BBDCACF28FD4060EB4DFC42</field>
     <description>Sigma: HackTool - WSASS Execution</description>
