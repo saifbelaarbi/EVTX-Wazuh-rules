@@ -340,7 +340,7 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107035" level="11">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.system.eventID">1033</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
     <description>Sigma: DHCP Server Loaded the CallOut DLL</description>
@@ -350,7 +350,7 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107036" level="11">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.system.eventID">1031|1032|1034</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
     <description>Sigma: DHCP Server Error Failed Loading the CallOut DLL</description>
@@ -360,14 +360,14 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107037" level="10">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Kerberos-Key-Distribution-Center|Microsoft-Windows-Kerberos-Key-Distribution-Center</field>
     <field name="win.system.eventID">39|41</field>
     <description>Sigma: Certificate Use With No Strong Mapping</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107038" level="11">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">NetLogon</field>
     <field name="win.system.eventID">5829</field>
     <description>Sigma: Vulnerable Netlogon Secure Channel Connection Allowed</description>
@@ -377,7 +377,7 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107039" level="14">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">cmd|%COMSPEC%|echo|\\pipe\\</field>
@@ -389,7 +389,7 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107040" level="10">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045|7036</field>
     <field name="win.eventdata.serviceName">AmmyyAdmin|Atera|BASupportExpressSrvcUpdater|BASupportExpressStandaloneService|chromoting|GoToAssist|GoToMyPC|jumpcloud|LMIGuardianSvc|LogMeIn|monblanking|Parsec|RManService|RPCPerformanceService|RPCService|SplashtopRemoteService|SSUService|TeamViewer|TightVNC|vncserver|Zoho</field>
@@ -1008,179 +1008,7 @@
       <id>T1055</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107106" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\mojo\.5688\.8052\.(?:183894939787088877|35780273329370473)[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107107" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\wkssvc_?[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107108" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\ntsvcs[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107109" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\DserNamePipe[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107110" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\SearchTextHarvester[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107111" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\mypipe-(?:f|h)[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107112" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\windows\.update\.manager[0-9a-f]{2,3}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107113" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\ntsvcs_[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107114" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\scerpc_?[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107115" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\PGMessagePipe[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107116" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\MsFteWds[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107117" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\f4c3[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107118" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\fullduplex_[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107119" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\msrpc_[0-9a-f]{4}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107120" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\win\\msrpc_[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107121" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\f53f[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107122" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\rpc_[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107123" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\spoolss_[0-9a-f]{2}</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107124" level="13">
-    <if_sid>61619</if_sid>
-    <field name="win.eventdata.pipeName">\\Winsock2\\CatalogChangeListener-[0-9a-f]{3}-0,</field>
-    <description>Sigma: CobaltStrike Named Pipe Pattern Regex</description>
-    <mitre>
-      <id>T1055</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107125" level="13">
+  </rule>  <rule id="107125" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">-0,$</field>
     <description>Sigma: CobaltStrike Named Pipe Patterns</description>
@@ -3560,18 +3388,7 @@
       <id>T1548.002</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107373" level="11">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">Software\\Classes\\Folder\\shell\\open\\command\\SymbolicLinkValue$</field>
-    <field name="win.eventdata.details">-1[0-9]{3}\\Software\\Classes\\</field>
-    <description>Sigma: UAC Bypass via Sdclt</description>
-    <mitre>
-      <id>T1548.002</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107374" level="11">
+  </rule>  <rule id="107374" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\\LowerCaseLongPath$</field>
     <field name="win.eventdata.details">\\appdata\\local\\temp\\system32\\winsat.exe$</field>

@@ -562,18 +562,7 @@
       <id>T1548.002</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107373" level="11">
-    <if_sid>61615</if_sid>
-    <field name="win.eventdata.targetObject">Software\\Classes\\Folder\\shell\\open\\command\\SymbolicLinkValue$</field>
-    <field name="win.eventdata.details">-1[0-9]{3}\\Software\\Classes\\</field>
-    <description>Sigma: UAC Bypass via Sdclt</description>
-    <mitre>
-      <id>T1548.002</id>
-    </mitre>
-    <group>privilege_escalation,sigma_converted,</group>
-  </rule>
-  <rule id="107374" level="11">
+  </rule>  <rule id="107374" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\\LowerCaseLongPath$</field>
     <field name="win.eventdata.details">\\appdata\\local\\temp\\system32\\winsat.exe$</field>

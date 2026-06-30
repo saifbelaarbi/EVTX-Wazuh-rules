@@ -455,20 +455,7 @@
       <id>T1047</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101065" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">[-/–—]format:</field>
-    <field name="win.eventdata.image">\\wmic.exe$</field>
-    <description>Sigma: XSL Script Execution Via WMIC.EXE</description>
-    <mitre>
-      <id>T1047</id>
-      <id>T1220</id>
-      <id>T1059.005</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101066" level="8">
+  </rule>  <rule id="101066" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\WmiPrvSe.exe$</field>
     <description>Sigma: WmiPrvSE Spawned A Process</description>
@@ -553,32 +540,4 @@
       <id>T1047</id>
     </mitre>
     <group>discovery,sigma_converted,</group>
-  </rule>
-  <rule id="112538" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">\\Windows\\__1\d{9}\.\d{1,7}$</field>
-    <description>Sigma: Wmiexec Default Output File</description>
-    <mitre>
-      <id>T1047</id>
-    </mitre>
-    <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112539" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">C:\\__1\d{9}\.\d{1,7}$</field>
-    <description>Sigma: Wmiexec Default Output File</description>
-    <mitre>
-      <id>T1047</id>
-    </mitre>
-    <group>lateral_movement,sigma_converted,</group>
-  </rule>
-  <rule id="112540" level="11">
-    <if_sid>61613</if_sid>
-    <field name="win.eventdata.targetFilename">D:\\__1\d{9}\.\d{1,7}$</field>
-    <description>Sigma: Wmiexec Default Output File</description>
-    <mitre>
-      <id>T1047</id>
-    </mitre>
-    <group>lateral_movement,sigma_converted,</group>
-  </rule>
-</group>
+  </rule></group>

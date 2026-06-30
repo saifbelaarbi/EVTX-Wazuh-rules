@@ -123,7 +123,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100106" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7023</field>
     <field name="win.eventdata.param1"> Antivirus| Firewall|Application Guard|BitLocker Drive Encryption Service|Encrypting File System|Microsoft Defender|Threat Protection|Windows Event Log</field>
@@ -131,7 +131,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100107" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7034</field>
     <field name="win.eventdata.param1">Message Queuing</field>
@@ -333,22 +333,7 @@
     <field name="win.eventdata.commandLine">User-Agent:</field>
     <description>Sigma: Curl Web Request With Potential Custom User-Agent</description>
     <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100436" level="8">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
-    <field name="win.eventdata.image">\\curl.exe$</field>
-    <description>Sigma: File Download From IP URL Via Curl.EXE</description>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100437" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
-    <field name="win.eventdata.image">\\curl.exe$</field>
-    <description>Sigma: Suspicious File Download From IP Via Curl.EXE</description>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="100438" level="9">
+  </rule>  <rule id="100438" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">.githubusercontent.com|anonfiles.com|cdn.discordapp.com|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev</field>
     <field name="win.eventdata.image">\\curl.exe$</field>
@@ -915,15 +900,7 @@
     <field name="win.eventdata.image">\\wermgr.exe$</field>
     <description>Sigma: Suspicious Execution Location Of Wermgr.EXE</description>
     <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101030" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
-    <field name="win.eventdata.image">\\wget.exe$</field>
-    <description>Sigma: Suspicious File Download From IP Via Wget.EXE</description>
-    <group>execution,sigma_converted,</group>
-  </rule>
-  <rule id="101031" level="9">
+  </rule>  <rule id="101031" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">.githubusercontent.com|anonfiles.com|cdn.discordapp.com|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev</field>
     <field name="win.eventdata.image">\\wget.exe$</field>

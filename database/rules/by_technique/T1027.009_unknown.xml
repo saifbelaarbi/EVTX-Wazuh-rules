@@ -1,11 +1,1 @@
-<group name="windows,T1027.009_unknown,">
-  <rule id="100750" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">\w+`(?:\w+|-|.)`[\w+|\s]</field>
-    <description>Sigma: Powershell Token Obfuscation - Process Creation</description>
-    <mitre>
-      <id>T1027.009</id>
-    </mitre>
-    <group>execution,sigma_converted,</group>
-  </rule>
-</group>
+<group name="windows,T1027.009_unknown,"></group>

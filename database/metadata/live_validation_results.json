@@ -719,18 +719,6 @@
     "error": "",
     "inconclusive": false
   },
-  "100060": {
-    "passed": false,
-    "mode": "live_api",
-    "details": [
-      "API matched rule:  ()",
-      "Expected: 100060",
-      "Decoder: N/A",
-      "Level: N/A"
-    ],
-    "error": "",
-    "inconclusive": false
-  },
   "100061": {
     "passed": false,
     "mode": "live_api",
@@ -1073,18 +1061,6 @@
     "details": [
       "API matched rule:  ()",
       "Expected: 100089",
-      "Decoder: N/A",
-      "Level: N/A"
-    ],
-    "error": "",
-    "inconclusive": false
-  },
-  "100090": {
-    "passed": false,
-    "mode": "live_api",
-    "details": [
-      "API matched rule:  ()",
-      "Expected: 100090",
       "Decoder: N/A",
       "Level: N/A"
     ],

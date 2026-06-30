@@ -188,18 +188,7 @@
       <id>T1105</id>
     </mitre>
     <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="110077" level="10">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.commandLine">://[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</field>
-    <field name="win.eventdata.image">\\certoc.exe$</field>
-    <description>Sigma: File Download From IP Based URL Via CertOC.EXE</description>
-    <mitre>
-      <id>T1105</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="110078" level="10">
+  </rule>  <rule id="110078" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">http</field>
     <field name="win.eventdata.image">\\certreq.exe$</field>
@@ -333,18 +322,7 @@
       <id>T1564.004</id>
     </mitre>
     <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="110108" level="9">
-    <if_sid>61603</if_sid>
-    <field name="win.eventdata.image">\\replace.exe$</field>
-    <field name="win.eventdata.commandLine">[-/–—]a</field>
-    <description>Sigma: Replace.exe Usage</description>
-    <mitre>
-      <id>T1105</id>
-    </mitre>
-    <group>command_and_control,sigma_converted,</group>
-  </rule>
-  <rule id="110115" level="9">
+  </rule>  <rule id="110115" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">0002DF01-0000-0000-C000-000000000046|F6D90F16-9C73-11D3-B32E-00C04F990BB4|F5078F35-C551-11D3-89B9-0000F81FE221|88d96a0a-f192-11d4-a65f-0040963251e5|AFBA6B42-5692-48EA-8141-DC517DCF0EF1|AFB40FFD-B609-40A3-9828-F88BBE11E4E3|88d96a0b-f192-11d4-a65f-0040963251e5|2087c2f4-2cef-4953-a8ab-66779b670495|000209FF-0000-0000-C000-000000000046|00024500-0000-0000-C000-000000000046</field>
     <description>Sigma: Potential COM Objects Download Cradles Usage - Process Creation</description>

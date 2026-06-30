@@ -243,9 +243,11 @@ def _apply_modifiers(value: str, modifiers: list[str]) -> str:
     windash, base64/base64offset (+wide/utf16le), and numeric lt/lte/gt/gte
     (best-effort, since Wazuh <field> regex cannot express true inequalities).
     """
-    # `re` values are raw regex; pass through untouched.
+    # `re` values are raw PCRE — incompatible with Wazuh OSRegex (different
+    # metacharacter semantics for . + * ? [] {} etc.) and may trigger error 5107.
+    # Signal the caller to skip this rule.
     if "re" in modifiers:
-        return value
+        raise ValueError("unsupported_re_modifier")
 
     if "cidr" in modifiers:
         return _cidr_to_regex(value)
@@ -603,7 +605,12 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
     if count_spec:
         # Re-parse only the base (pre-pipe) condition for the detection rule.
         condition = base_condition_str
-    rule_specs = _resolve_condition(condition, selections)
+    try:
+        rule_specs = _resolve_condition(condition, selections)
+    except ValueError as exc:
+        if "unsupported_re_modifier" in str(exc):
+            raise SigmaConvertError("unsupported_re_modifier", condition_str) from exc
+        raise
 
     if not rule_specs:
         raise SigmaConvertError("empty_rule_spec", condition_str)
@@ -791,8 +798,9 @@ def convert_all(
     """Convert all Sigma rules from a directory to Wazuh rules.
 
     Conversion failures are categorized (unmapped_logsource, no_detection,
-    unsupported_condition, empty_rule_spec, parse_error, unexpected) and
-    summarized so the skipped rules are explainable rather than opaque.
+    unsupported_condition, unsupported_re_modifier, empty_rule_spec,
+    parse_error, unexpected) and summarized so the skipped rules are
+    explainable rather than opaque.
     """
     yml_files = sorted(rules_dir.rglob("*.yml")) + sorted(rules_dir.rglob("*.yaml"))
     yml_files += sorted(rules_dir.rglob("*.json"))
