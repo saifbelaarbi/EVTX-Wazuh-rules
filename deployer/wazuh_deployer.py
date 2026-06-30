@@ -105,6 +105,16 @@ def deploy_rules(src_dir: Path, deploy_path: Path, view: str = "by_tactic") -> i
     for xml_file in sorted(src_dir.glob("*.xml")):
         shutil.copy2(xml_file, deploy_path / xml_file.name)
         copied += 1
+
+    # Project-defined parent rules (e.g. the PowerShell channel parent SID
+    # 91801) live in the rules root, outside the per-view subdirectories.
+    # They must accompany any view so detection rules that chain off them
+    # have a valid parent. Deploy them regardless of the selected view.
+    parent_rules = src_dir.parent / "parent_rules.xml"
+    if parent_rules.is_file():
+        shutil.copy2(parent_rules, deploy_path / parent_rules.name)
+        copied += 1
+
     return copied
 
 

@@ -62,6 +62,17 @@ def test_deploy_rules_accepts_parent_dir(tmp_path):
     assert count == 2
 
 
+def test_deploy_rules_includes_parent_rules(tmp_path):
+    """parent_rules.xml in the rules root deploys alongside any view."""
+    src = _make_view(tmp_path, view="by_tactic")
+    # parent_rules.xml lives in the rules root, beside the per-view dirs.
+    (tmp_path / "rules" / "parent_rules.xml").write_text("<group>powershell-parent</group>")
+    dest = tmp_path / "ossec_rules"
+    count = deploy_rules(src, dest, view="by_tactic")
+    assert count == 3  # 2 view files + parent_rules.xml
+    assert (dest / "parent_rules.xml").read_text() == "<group>powershell-parent</group>"
+
+
 def test_restore_backup(tmp_path):
     backup = tmp_path / "backup"
     backup.mkdir()

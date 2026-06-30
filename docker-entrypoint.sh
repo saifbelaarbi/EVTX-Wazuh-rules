@@ -100,6 +100,13 @@ for RULE_FILE in database/rules/by_tactic/*.xml; do
     cp "$RULE_FILE" /rules-deploy/
     DEPLOYED=$((DEPLOYED + 1))
 done
+# Project-defined parent rules (e.g. the PowerShell channel parent SID 91801,
+# which the Wazuh default ruleset does not provide). Without this, every
+# PowerShell detection rule chains off a non-existent parent and never fires.
+if [ -f database/rules/parent_rules.xml ]; then
+    cp database/rules/parent_rules.xml /rules-deploy/
+    DEPLOYED=$((DEPLOYED + 1))
+fi
 echo ">> Copied ${DEPLOYED} rule files to shared volume (/var/ossec/etc/rules/)"
 
 TOKEN=$(curl -sk -X POST "${WAZUH_API}/security/user/authenticate" \

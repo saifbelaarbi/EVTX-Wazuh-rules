@@ -119,8 +119,10 @@ ASA worked example lives in the agents' `examples/` folders. See `agents/README.
 ## Important Conventions
 
 - Rule IDs use Wazuh's custom range 100000-119999, partitioned per tactic in `config.yaml` under `tactic_id_ranges`
-- Parent SIDs (e.g., `60009` for Sysmon, `60100` for Security) must match Wazuh's built-in rule IDs — defined in `config.yaml` under `wazuh.parent_sids`
-- Generated rules must reference a valid `if_sid` parent that exists in Wazuh defaults
+- Parent SIDs (e.g., `60009` for Sysmon, `60100` for Security, `60002` for System) must match Wazuh's built-in rule IDs — defined in `config.yaml` under `wazuh.parent_sids`
+- Generated rules must reference a valid `if_sid` parent that exists in Wazuh defaults. **A dangling `if_sid` (parent rule absent from the deployed ruleset) makes the entire child rule silently fail to load — it never fires in live logtest or in production, even though the offline simulator still passes it (the simulator checks only the rule's own `field_matches`, never the parent chain).** Audit parents against the downloaded ruleset + `rule_index.json` after analyzer changes. Two parents are NOT in the stock Wazuh v4.12 ruleset and need care:
+  - **System channel** = `60002` (60000 → channel `^System$`). Do NOT use `60106` — that is "Windows Logon Success" (Security channel, requires eventID 4624/4769 + AUDIT_SUCCESS), a different chain entirely.
+  - **PowerShell channel** has NO built-in classifier (the base chain stops at Sysmon/Defender/Firewall). The project ships its own parent rule `91801` in `database/rules/parent_rules.xml` (chains off 60000 + channel match). It is deployed by `docker-entrypoint.sh` and `deployer.deploy_rules`; it is NOT a detection rule and is absent from `rule_index.json`.
 - All CLI commands use Click groups: `python -m collector <cmd>` and `python -m generator <cmd>`
 - The `data/` directory is gitignored — never commit downloaded EVTX files
 - **Wazuh OSRegex inverts PCRE dot semantics**: `.` is a literal dot, `\.` is any character, and quantifiers (`*`/`+`) only apply to backslash-expressions. All escaping lives in `rule_builder._to_osregex`, `sigma_converter._escape_osregex*`, and `logtest_validator._osregex_to_python` — keep them in sync.
