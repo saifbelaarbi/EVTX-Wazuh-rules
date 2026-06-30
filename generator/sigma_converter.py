@@ -26,6 +26,12 @@ class SigmaConvertError(Exception):
         super().__init__(f"{category}: {message}" if message else category)
 
 
+# Max length of a single <field> pattern (see validator.MAX_FIELD_PATTERN_LEN).
+# Sigma rules that alternate over thousands of hashes/driver names overflow
+# Wazuh's OS_XML buffer and abort the whole rule file, so such specs are skipped.
+MAX_FIELD_PATTERN_LEN = 8192
+
+
 def _source_category_from_mapping(mapping: dict) -> str:
     """Derive a by_source view category from a Sigma logsource mapping."""
     channel = mapping.get("channel", "")
@@ -618,6 +624,7 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
     negation_groups = _extract_negation(condition, selections) if with_negation else []
 
     rules = []
+    skipped_too_long = False
     for spec_group in rule_specs:
         combined_fields = {}
         for field_dict in spec_group:
@@ -633,6 +640,14 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
 
         clean_fields = {k: v for k, v in clean_fields.items() if k != "_raw"}
         if not clean_fields:
+            continue
+
+        # Drop specs whose pattern would overflow Wazuh's OS_XML buffer. Some
+        # Sigma rules alternate over thousands of file hashes / driver names,
+        # producing a single 40 KB+ <field> value that triggers "String
+        # overflow" (error 1226 → 1220 CRITICAL) and drops the whole rule file.
+        if any(len(v) > MAX_FIELD_PATTERN_LEN for v in clean_fields.values()):
+            skipped_too_long = True
             continue
 
         rule_id = allocate_id(tactic)
@@ -774,6 +789,8 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
             )
 
     if not rules:
+        if skipped_too_long:
+            raise SigmaConvertError("pattern_too_long", "field pattern exceeds Wazuh OS_XML buffer")
         raise SigmaConvertError("empty_rule_spec", "no fields after cleaning")
 
     return rules
@@ -798,9 +815,9 @@ def convert_all(
     """Convert all Sigma rules from a directory to Wazuh rules.
 
     Conversion failures are categorized (unmapped_logsource, no_detection,
-    unsupported_condition, unsupported_re_modifier, empty_rule_spec,
-    parse_error, unexpected) and summarized so the skipped rules are
-    explainable rather than opaque.
+    unsupported_condition, unsupported_re_modifier, pattern_too_long,
+    empty_rule_spec, parse_error, unexpected) and summarized so the skipped
+    rules are explainable rather than opaque.
     """
     yml_files = sorted(rules_dir.rglob("*.yml")) + sorted(rules_dir.rglob("*.yaml"))
     yml_files += sorted(rules_dir.rglob("*.json"))

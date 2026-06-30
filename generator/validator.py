@@ -28,6 +28,15 @@ _BAD_OSREGEX_ESCAPE = re.compile(r"(?<!\\)(?:\\\\)*\\([^wWdDsStpbnrA.()$\\])")
 # "not closed" (error 1226, CRITICAL). ``\\`` (even) is a safe literal backslash.
 _TRAILING_BACKSLASH = re.compile(r"(?<!\\)(?:\\\\)*\\$")
 
+# Maximum length of a single ``<field>`` pattern. OS_XML reads element content
+# into a fixed buffer; a very long single-line value (e.g. a Sigma rule that
+# alternates over thousands of file hashes) overflows it and Wazuh aborts the
+# WHOLE file with "XMLERR: String overflow" (error 1226 → 1220 CRITICAL),
+# dropping every rule in that file. Patterns up to ~6.9 KB load fine in
+# practice; the observed failures were 40 KB+. Cap conservatively above the
+# known-good size so legitimate long alternations still pass.
+MAX_FIELD_PATTERN_LEN = 8192
+
 
 def validate_xml_wellformed(rule: dict) -> list[str]:
     """Check XML well-formedness."""
@@ -201,6 +210,13 @@ def validate_database(rules_dir: Path) -> list[str]:
                         errors.append(
                             f"{xml_file.name}: Rule {rule_id} field '{fname}' has an invalid OSRegex "
                             f"escape '\\{_m.group(1)}' — Wazuh error 5107 aborts the file"
+                        )
+                    elif field_elem.text and len(field_elem.text) > MAX_FIELD_PATTERN_LEN:
+                        fname = field_elem.get("name", "?")
+                        errors.append(
+                            f"{xml_file.name}: Rule {rule_id} field '{fname}' pattern is "
+                            f"{len(field_elem.text)} chars (> {MAX_FIELD_PATTERN_LEN}) — Wazuh "
+                            "OS_XML 'String overflow' (error 1226) aborts the whole file"
                         )
 
         except etree.XMLSyntaxError as e:

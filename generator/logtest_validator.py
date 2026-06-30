@@ -816,7 +816,10 @@ def _resolve_sample_event(rule_id, rule_meta: dict) -> tuple[dict | None, str]:
     return None, ""
 
 
-LIVE_CAP = 100
+# Cap on how many rules logtest validates per run (simulate + live), to keep
+# the focused live-test iteration cheap. The small-DB pipeline generates ~200
+# rules, so this tests them all.
+LIVE_CAP = 200
 
 
 def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> list[ValidationResult]:
