@@ -340,7 +340,7 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107035" level="11">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.system.eventID">1033</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
     <description>Sigma: DHCP Server Loaded the CallOut DLL</description>
@@ -350,7 +350,7 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107036" level="11">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.system.eventID">1031|1032|1034</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DHCP-Server</field>
     <description>Sigma: DHCP Server Error Failed Loading the CallOut DLL</description>
@@ -360,14 +360,14 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107037" level="10">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Kerberos-Key-Distribution-Center|Microsoft-Windows-Kerberos-Key-Distribution-Center</field>
     <field name="win.system.eventID">39|41</field>
     <description>Sigma: Certificate Use With No Strong Mapping</description>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107038" level="11">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">NetLogon</field>
     <field name="win.system.eventID">5829</field>
     <description>Sigma: Vulnerable Netlogon Secure Channel Connection Allowed</description>
@@ -377,7 +377,7 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107039" level="14">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">cmd|%COMSPEC%|echo|\\pipe\\</field>
@@ -389,7 +389,7 @@
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
   <rule id="107040" level="10">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045|7036</field>
     <field name="win.eventdata.serviceName">AmmyyAdmin|Atera|BASupportExpressSrvcUpdater|BASupportExpressStandaloneService|chromoting|GoToAssist|GoToMyPC|jumpcloud|LMIGuardianSvc|LogMeIn|monblanking|Parsec|RManService|RPCPerformanceService|RPCService|SplashtopRemoteService|SSUService|TeamViewer|TightVNC|vncserver|Zoho</field>

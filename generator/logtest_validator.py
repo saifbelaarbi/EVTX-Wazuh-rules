@@ -762,7 +762,7 @@ def _provider_for_parent(parent_sid) -> tuple[str, str]:
         return ("Microsoft-Windows-PowerShell/Operational", "Microsoft-Windows-PowerShell")
     if sid == 60100:
         return ("Security", "Microsoft-Windows-Security-Auditing")
-    if sid == 60106:
+    if sid == 60002 or sid == 60106:
         return ("System", "Service Control Manager")
     return ("", "")
 

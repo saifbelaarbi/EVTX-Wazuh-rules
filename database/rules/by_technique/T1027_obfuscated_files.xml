@@ -119,7 +119,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100089" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">cmd|&amp;&amp;|clipboard]::</field>
@@ -130,7 +130,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>  <rule id="100091" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">noexit|powershell</field>
@@ -142,7 +142,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100092" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">/c|/r|"set|-f</field>
@@ -154,7 +154,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100093" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">:system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend</field>
@@ -166,7 +166,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100094" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">rundll32.exe|shell32.dll|shellexec_rundll|powershell</field>
@@ -178,7 +178,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100095" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">environment|invoke|input|&amp;&amp;</field>
@@ -190,7 +190,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100096" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">\(Clipboard|i</field>
@@ -202,7 +202,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100097" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">mshta|vbscript:createobject</field>
@@ -214,7 +214,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100098" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">value|invoke|comspec|iex|rundll32|shell32.dll|shellexec_rundll</field>
@@ -226,7 +226,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100099" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f</field>

@@ -798,7 +798,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100085" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Application Popup</field>
     <field name="win.system.eventID">26</field>
     <field name="win.eventdata.caption">sysmon64.exe - Application Error|sysmon.exe - Application Error</field>
@@ -809,7 +809,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100086" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.system.eventID">104</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
     <description>Sigma: Eventlog Cleared</description>
@@ -819,7 +819,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100087" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.system.eventID">104</field>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-Eventlog</field>
     <field name="win.eventdata.channel">Microsoft-Windows-PowerShell/Operational|Microsoft-Windows-Sysmon/Operational|PowerShellCore/Operational|Security|System|Windows PowerShell</field>
@@ -830,7 +830,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100088" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.system.eventID">7036</field>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.eventdata.param1">Windows Defender Antivirus Service|Service antivirus Microsoft Defender</field>
@@ -842,7 +842,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100089" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">cmd|&amp;&amp;|clipboard]::</field>
@@ -853,7 +853,7 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>  <rule id="100091" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">noexit|powershell</field>
@@ -865,7 +865,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100092" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">/c|/r|"set|-f</field>
@@ -877,7 +877,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100093" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">:system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend</field>
@@ -889,7 +889,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100094" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">rundll32.exe|shell32.dll|shellexec_rundll|powershell</field>
@@ -901,7 +901,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100095" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">environment|invoke|input|&amp;&amp;</field>
@@ -913,7 +913,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100096" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">\(Clipboard|i</field>
@@ -925,7 +925,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100097" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">mshta|vbscript:createobject</field>
@@ -937,7 +937,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100098" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">value|invoke|comspec|iex|rundll32|shell32.dll|shellexec_rundll</field>
@@ -949,7 +949,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100099" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f</field>
@@ -961,7 +961,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100100" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">powershell|pwsh</field>
@@ -972,7 +972,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100101" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.serviceName">csexecsvc</field>
@@ -983,7 +983,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100102" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045|7036</field>
     <field name="win.eventdata.imagePath">bypass</field>
@@ -994,7 +994,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100103" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.serviceName">^PAExec-</field>
@@ -1005,7 +1005,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100104" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.serviceName">RemComSvc</field>
@@ -1016,7 +1016,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100105" level="8">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.serviceName">PSEXESVC</field>
@@ -1027,7 +1027,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100106" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7023</field>
     <field name="win.eventdata.param1"> Antivirus| Firewall|Application Guard|BitLocker Drive Encryption Service|Encrypting File System|Microsoft Defender|Threat Protection|Windows Event Log</field>
@@ -1035,7 +1035,7 @@
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="100107" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7034</field>
     <field name="win.eventdata.param1">Message Queuing</field>

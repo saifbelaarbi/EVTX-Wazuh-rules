@@ -105,7 +105,7 @@ PARENT_SID_MAP = {
 # Generic parent SIDs for non-Sysmon events
 CHANNEL_PARENT_SID = {
     "Security": 60100,
-    "System": 60106,
+    "System": 60002,
     "Microsoft-Windows-PowerShell/Operational": 91801,
     "Windows PowerShell": 91801,
 }

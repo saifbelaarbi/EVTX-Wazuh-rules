@@ -982,5 +982,27 @@
     ],
     "error": "",
     "inconclusive": false
+  },
+  "100100": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
+      "  PASS: win.system.eventID = '7045' vs '7045'",
+      "  PASS: win.eventdata.imagePath = 'powershell|pwsh' vs 'powershell'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "100101": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
+      "  PASS: win.system.eventID = '7045' vs '7045'",
+      "  PASS: win.eventdata.serviceName = 'csexecsvc' vs 'csexecsvc'"
+    ],
+    "error": "",
+    "inconclusive": false
   }
 }

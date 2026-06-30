@@ -48,7 +48,7 @@ SIGMA_LOGSOURCE_TO_WAZUH = {
     "powershell-classic": {"channel": "powershell", "parent_sid": 91801},
     # Core Windows channels
     "security": {"channel": "security", "parent_sid": 60100},
-    "system": {"channel": "system", "parent_sid": 60106},
+    "system": {"channel": "system", "parent_sid": 60002},
     "application": {"channel": "application", "parent_sid": 60003},
     # Windows Defender (parent 60005 in Wazuh defaults)
     "windefend": {"channel": "windefend", "parent_sid": 60005},

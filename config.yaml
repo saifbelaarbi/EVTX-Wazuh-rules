@@ -38,7 +38,7 @@ wazuh:
     sysmon_dns_query: 61625
     sysmon_process_access: 61616
     windows_security: 60100
-    windows_system: 60106
+    windows_system: 60002
     windows_powershell: 91801
 
 tactic_id_ranges:

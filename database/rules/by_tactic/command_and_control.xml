@@ -127,7 +127,7 @@
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110013" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">MeshAgent.exe</field>
@@ -138,7 +138,7 @@
     <group>command_and_control,sigma_converted,</group>
   </rule>
   <rule id="110014" level="9">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">tacticalrmm.exe</field>

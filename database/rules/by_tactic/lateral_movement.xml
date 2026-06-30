@@ -102,7 +102,7 @@
     <group>lateral_movement,evtx_generated,</group>
   </rule>
   <rule id="112511" level="11">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.serviceName">PSEXESVC</field>
     <field name="win.eventdata.imagePath">psexesvc</field>
     <description>Suspicious service 'PSEXESVC' installed</description>
@@ -307,7 +307,7 @@
     <group>lateral_movement,sigma_converted,</group>
   </rule>
   <rule id="112533" level="10">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">LsaSrv</field>
     <field name="win.system.eventID">6038|6039</field>
     <description>Sigma: NTLMv1 Logon Between Client and Server</description>
@@ -317,7 +317,7 @@
     <group>lateral_movement,sigma_converted,</group>
   </rule>
   <rule id="112534" level="11">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.system.eventID">5805|5723</field>
     <field name="full_log">kali</field>
     <description>Sigma: Zerologon Exploitation Using Well-known Tools</description>
@@ -327,7 +327,7 @@
     <group>lateral_movement,sigma_converted,</group>
   </rule>
   <rule id="112535" level="11">
-    <if_sid>60106</if_sid>
+    <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
     <field name="win.eventdata.imagePath">.bat &amp; del |__output 2^&gt;^&amp;1 &gt;</field>
