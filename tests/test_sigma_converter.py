@@ -201,6 +201,20 @@ def test_aggregation_condition_raises():
     assert exc_info.value.category == "unsupported_condition"
 
 
+def test_pattern_too_long_raises():
+    """A selection alternating over thousands of values overflows Wazuh's
+    OS_XML buffer; the converter must skip it rather than emit a rule that
+    aborts the whole file at load time."""
+    huge = [f"value_{i:05d}" for i in range(2000)]  # joined → ~24 KB pattern
+    rule = {
+        "logsource": {"category": "process_creation"},
+        "detection": {"condition": "selection", "selection": {"Image": huge}},
+    }
+    with pytest.raises(SigmaConvertError) as exc_info:
+        convert_sigma_rule(rule)
+    assert exc_info.value.category == "pattern_too_long"
+
+
 def test_re_modifier_sigma_rule_raises():
     """Sigma rules with |re modifier should raise unsupported_re_modifier."""
     rule = {

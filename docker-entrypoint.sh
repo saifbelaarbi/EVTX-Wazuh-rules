@@ -65,17 +65,25 @@ echo ">> Downloading Wazuh defaults..."
 python -m collector download-defaults
 
 # ── 2. Generate rules ──
-echo ""
-echo ">> Generating rules from EVTX samples..."
-python -m generator generate --auto-approve
+# Capped to a small set (~200 rules total) while we get live logtest working
+# end-to-end. Override via GEN_MAX_RULES / SIGMA_MAX_RULES env vars; set to 0
+# (or unset and edit) to lift the cap once live testing is solid.
+GEN_MAX_RULES="${GEN_MAX_RULES:-100}"
+SIGMA_MAX_RULES="${SIGMA_MAX_RULES:-100}"
 
 echo ""
-echo ">> Converting Sigma rules..."
-python -m generator convert-sigma --auto-approve --min-level medium
+echo ">> Generating rules from EVTX samples (cap ${GEN_MAX_RULES})..."
+python -m generator generate --auto-approve --max-rules "${GEN_MAX_RULES}"
 
 echo ""
-echo ">> Building composite correlation rules..."
-python -m generator build-composites --auto-approve
+echo ">> Converting Sigma rules (cap ${SIGMA_MAX_RULES})..."
+python -m generator convert-sigma --auto-approve --min-level high --max-rules "${SIGMA_MAX_RULES}"
+
+# NOTE: composite rules are skipped in the capped run — their templates
+# reference concrete SIDs (e.g. 112501) that may not exist in a 200-rule DB,
+# producing harmless 7620 "if_matched_sid not found" warnings. Re-enable once
+# the cap is lifted:
+#   python -m generator build-composites --auto-approve
 
 # ── 3. Validate (structural) ──
 echo ""
@@ -94,6 +102,12 @@ echo ">> Deploying rules to Wazuh manager..."
 # Primary method: copy rule files into the shared volume.
 # The volume is mounted at /var/ossec/etc/rules/ on the manager,
 # so Wazuh's <rule_dir>etc/rules</rule_dir> auto-loads them.
+# Clear any rules left in the shared volume by a previous run. The volume is
+# persistent (docker-compose named volume), so stale files would otherwise
+# accumulate and Wazuh reports duplicate rule IDs (error 7612) — and a stale
+# bridge/parent file could shadow the current one.
+rm -f /rules-deploy/*.xml 2>/dev/null || true
+
 DEPLOYED=0
 for RULE_FILE in database/rules/by_tactic/*.xml; do
     [ -f "$RULE_FILE" ] || continue
@@ -189,13 +203,14 @@ except Exception:
      logtest engine, so events arrive as decoded_as=json instead.
      This override makes the entire parent chain (60000→60004→61600→
      61603→custom rules) fire for JSON-decoded Windows events.
-     NOTE: <category>ossec</category> is OMITTED — Wazuh rejects it in
-     custom rules (etc/rules/) with error 7611 "Category was not found",
-     which causes the rule to be ignored. Without <category>, the rule
-     loads via the 7613 "still loaded" fallback and matches on
-     decoded_as + field instead. -->
+     <category>ossec</category> is KEPT, matching the built-in rule 60000:
+     a top-level rule that uses <decoded_as> needs a category to anchor in
+     the rule tree, otherwise Wazuh ignores it (error 7611). overwrite="yes"
+     replaces the built-in 60000 (decoded_as=windows_eventchannel) when it is
+     already loaded; if it is not, the rule still loads as a fresh definition. -->
 <group name="windows,">
   <rule id="60000" level="0" overwrite="yes">
+    <category>ossec</category>
     <decoded_as>json</decoded_as>
     <field name="win.system.providerName">\.+</field>
     <options>no_full_log</options>

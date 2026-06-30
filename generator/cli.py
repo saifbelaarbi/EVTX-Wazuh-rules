@@ -102,7 +102,8 @@ def analyze(source):
 @click.option("--source", default=None, help="Generate from specific EVTX source")
 @click.option("--auto-approve", is_flag=True, help="Skip review for high-confidence rules")
 @click.option("--diff-only", is_flag=True, help="Report what would change without writing")
-def generate(source, auto_approve, diff_only):
+@click.option("--max-rules", default=None, type=int, help="Cap the number of rules generated (after dedup)")
+def generate(source, auto_approve, diff_only, max_rules):
     """Generate Wazuh rules from EVTX samples (creates drafts by default)."""
     config = load_config()
     data_dir = PROJECT_ROOT / config["paths"]["evtx_data"]
@@ -156,6 +157,10 @@ def generate(source, auto_approve, diff_only):
             kept_rules.append(rule)
 
         console.print(f"  Kept: {len(kept_rules)}, Skipped (duplicates): {skipped}")
+
+        if max_rules is not None and len(kept_rules) > max_rules:
+            console.print(f"  [yellow]Capping to {max_rules} rules (of {len(kept_rules)})[/]")
+            kept_rules = kept_rules[:max_rules]
 
         # Step 5: Apply alert levels
         console.print("\n[bold]Step 5/6: Assigning alert levels...[/]")
