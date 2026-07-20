@@ -182,9 +182,7 @@ def validate_database(rules_dir: Path) -> list[str]:
             errors.append(f"{xml_file.name}: unreadable - {e}")
             continue
         if raw.lstrip()[:5] == b"<?xml":
-            errors.append(
-                f"{xml_file.name}: starts with an <?xml declaration (Wazuh OS_XML rejects this — remove it)"
-            )
+            errors.append(f"{xml_file.name}: starts with an <?xml declaration (Wazuh OS_XML rejects this — remove it)")
 
         try:
             root = etree.fromstring(raw)
