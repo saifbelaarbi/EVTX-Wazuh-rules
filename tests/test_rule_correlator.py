@@ -73,3 +73,56 @@ def test_correlate_exact_dup_skips():
     index = {"100001": {"field_matches": fm, "tactic": "credential_access"}}
     report = correlate(rule, existing_index=index, default_rules={})
     assert report["recommendation"] == "skip"
+
+
+def test_index_memo_invalidated_on_growth():
+    """Adding a rule to the index between calls must be picked up (memo keys on length)."""
+    fm = {"win.eventdata.image": "late_addition"}
+    index = {}
+    rule = _make_rule(fm, "credential_access")
+    assert check_duplicate(rule, index) is None
+
+    index["100055"] = {"field_matches": fm, "tactic": "credential_access"}
+    dup = check_duplicate(rule, index)
+    assert dup is not None
+    assert dup["rule_id"] == "100055"
+
+
+def test_overlap_not_reported_when_existing_superset():
+    """If an existing rule contains ALL the new rule's fields, it's not a partial overlap."""
+    rule = _make_rule({"win.eventdata.image": "mimikatz"})
+    index = {
+        "100001": {
+            "field_matches": {
+                "win.eventdata.image": "mimikatz",
+                "win.eventdata.commandLine": "sekurlsa",
+            },
+            "tactic": "credential_access",
+        }
+    }
+    overlaps = check_overlap(rule, index)
+    assert overlaps == []
+
+
+def test_default_coverage_first_default_rule_wins():
+    from generator.rule_correlator import check_default_coverage
+
+    rule = _make_rule({"win.eventdata.image": "mimikatz"})
+    defaults = {
+        "92000": {
+            "level": 12,
+            "description": "First matching default",
+            "fields": {"win.eventdata.image": "\\.*mimikatz\\.*"},
+            "source_file": "a.xml",
+        },
+        "92001": {
+            "level": 10,
+            "description": "Second matching default",
+            "fields": {"win.eventdata.image": "mimikatz.exe or mimikatz"},
+            "source_file": "b.xml",
+        },
+    }
+    cov = check_default_coverage(rule, defaults)
+    assert cov is not None
+    assert cov["default_rule_id"] == "92000"
+    assert cov["type"] == "covered_by_default"

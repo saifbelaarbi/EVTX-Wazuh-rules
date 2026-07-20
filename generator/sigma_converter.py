@@ -1,5 +1,6 @@
 """Convert SigmaHQ Sigma rules to Wazuh XML rule format."""
 
+import base64
 import json
 import re
 from pathlib import Path
@@ -223,8 +224,6 @@ def _cidr_to_regex(cidr: str) -> str:
 
 def _base64_variants(value: str, utf16: bool = False) -> list[str]:
     """Return the 3 base64offset encodings of a value (optionally UTF-16LE)."""
-    import base64
-
     raw = value.encode("utf-16-le") if utf16 else value.encode()
     variants = []
     for off in range(3):
@@ -394,7 +393,6 @@ def _resolve_condition(condition: str, selections: dict) -> list[list[dict]]:
     """
     condition = condition.strip()
 
-    [k for k in selections if k.startswith("filter")]
     positive_names = [k for k in selections if not k.startswith("filter")]
 
     if condition == "selection" and "selection" in selections:

@@ -202,3 +202,29 @@ def test_format_event_json():
     assert parsed["win"]["system"]["eventID"] == "1"
     assert parsed["win"]["eventdata"]["image"] == "cmd.exe"
     assert parsed["win"]["eventdata"]["commandLine"] == "cmd /c whoami"
+
+
+# ── validation cap: live-only ──
+
+
+def test_simulate_mode_is_never_capped():
+    from generator.logtest_validator import _cap_for_mode
+
+    assert _cap_for_mode("simulate") == 0
+
+
+def test_live_mode_capped_by_default():
+    from generator.logtest_validator import LIVE_CAP, _cap_for_mode
+
+    assert _cap_for_mode("live") == LIVE_CAP
+
+
+def test_live_cap_env_override(monkeypatch):
+    from generator.logtest_validator import _cap_for_mode
+
+    monkeypatch.setenv("EVTX_LOGTEST_LIVE_CAP", "0")
+    assert _cap_for_mode("live") == 0
+    monkeypatch.setenv("EVTX_LOGTEST_LIVE_CAP", "500")
+    assert _cap_for_mode("live") == 500
+    monkeypatch.setenv("EVTX_LOGTEST_LIVE_CAP", "not-a-number")
+    assert _cap_for_mode("live") == 100

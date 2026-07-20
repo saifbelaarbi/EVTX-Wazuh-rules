@@ -54,3 +54,26 @@ def test_unknown_tactic_uses_composite():
         assert 115000 <= rule_id <= 119999
 
     tmp_path.unlink()
+
+
+def test_external_write_invalidates_cache():
+    """The CLI dry-run snapshot restores id_allocations.json externally; the
+    in-memory cache must notice and re-read instead of serving stale state."""
+    with tempfile.NamedTemporaryFile(suffix=".json", mode="w", delete=False) as f:
+        json.dump({}, f)
+        tmp_path = Path(f.name)
+
+    with mock.patch.object(id_manager, "ALLOCATIONS_FILE", tmp_path):
+        first = id_manager.allocate_id("impact")
+        assert first == 114000
+        snapshot = tmp_path.read_text()
+
+        id_manager.allocate_id("impact")
+        id_manager.allocate_id("impact")
+
+        # Simulate the CLI restoring the snapshot (external write).
+        tmp_path.write_text(snapshot)
+        rewound = id_manager.allocate_id("impact")
+        assert rewound == 114001  # continues from restored state, not cache
+
+    tmp_path.unlink()

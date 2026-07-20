@@ -1,17 +1,17 @@
 # Wazuh Rule Database Report
 
-> Generated: 2026-06-10 23:00 UTC
+> Generated: 2026-07-20 06:28 UTC
 > Pipeline version: 1.0.0
 
 ## Overview
 
 | Metric | Value |
 |--------|-------|
-| Total rules generated | **3303** |
+| Total rules generated | **3215** |
 | EVTX files processed | 2294 |
 | EVTX sources used | 1 |
 | MITRE tactics covered | 12 / 12 |
-| MITRE techniques covered | 271 |
+| MITRE techniques covered | 270 |
 | Rule ID range | 100000 - 119999 |
 
 ## Alert Level Distribution
@@ -19,21 +19,21 @@
 | Level | Wazuh Severity | Count | Percentage |
 |-------|----------------|-------|------------|
 | 6 | Low relevance | 88 | 2.7% █ |
-| 7 | Bad word matching | 76 | 2.3% █ |
-| 8 | First time seen | 556 | 16.8% ████████ |
-| 9 | Error from invalid source | 1404 | 42.5% █████████████████████ |
-| 10 | Multiple user-generated errors | 453 | 13.7% ██████ |
-| 11 | Integrity checking warning | 351 | 10.6% █████ |
-| 12 | High importance event | 236 | 7.1% ███ |
-| 13 | Unusual error (high importance) | 107 | 3.2% █ |
+| 7 | Bad word matching | 76 | 2.4% █ |
+| 8 | First time seen | 542 | 16.9% ████████ |
+| 9 | Error from invalid source | 1369 | 42.6% █████████████████████ |
+| 10 | Multiple user-generated errors | 447 | 13.9% ██████ |
+| 11 | Integrity checking warning | 343 | 10.7% █████ |
+| 12 | High importance event | 232 | 7.2% ███ |
+| 13 | Unusual error (high importance) | 86 | 2.7% █ |
 | 14 | High importance security event | 32 | 1.0%  |
 
 ## Detection Confidence Distribution
 
 | Confidence | Count | Description |
 |------------|-------|-------------|
-| high | 1596 | Exact tool/process name match |
-| medium | 1699 | Command-line pattern or behavioral indicator |
+| high | 1525 | Exact tool/process name match |
+| medium | 1682 | Command-line pattern or behavioral indicator |
 | low | 8 | Heuristic / generic event |
 
 ## Rules by MITRE ATT&CK Tactic
@@ -75,7 +75,7 @@
 | `113030` | 8 | `T1566.001` T1566.001 | Windows Registry Trust Record Modification | medium | 61615 |
 | `113031` | 9 | `T1133` T1133 | Running Chrome VPN Extensions via the Registry 2 VPN Extension | high | 61615 |
 
-### Execution (TA0002) — 1166 rules
+### Execution (TA0002) — 1118 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -139,7 +139,6 @@
 | `100057` | 9 | `T1685.001` T1685.001 | Important Windows Event Auditing Disabled | high | 60100 |
 | `100058` | 9 | `T1685` T1685 | HackTool - EDRSilencer Execution - Filter Added | high | 60100 |
 | `100059` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - Security | high | 60100 |
-| `100060` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - Security | high | 60100 |
 | `100061` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - Security | high | 60100 |
 | `100062` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - Security | high | 60100 |
 | `100063` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - Security | medium | 60100 |
@@ -164,29 +163,28 @@
 | `100082` | 9 | `T1047` T1047 | T1047 Wmiprvse Wbemcomn DLL Hijack | high | 60100 |
 | `100083` | 8 | - | Suspicious Application Installed | medium | 60000 |
 | `100084` | 8 | - | Suspicious Application Installed | medium | 60000 |
-| `100085` | 9 | `T1685` T1685 | Sysmon Application Crashed | high | 60106 |
-| `100086` | 8 | `T1685.005` T1685.005 | Eventlog Cleared | medium | 60106 |
-| `100087` | 9 | `T1685.005` T1685.005 | Important Windows Eventlog Cleared | high | 60106 |
-| `100088` | 8 | `T1685` T1685 | Windows Defender Threat Detection Service Disabled | medium | 60106 |
-| `100089` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - System | high | 60106 |
-| `100090` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - System | high | 60106 |
-| `100091` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - System | high | 60106 |
-| `100092` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - System | high | 60106 |
-| `100093` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - System | medium | 60106 |
-| `100094` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - System | medium | 60106 |
-| `100095` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - System | high | 60106 |
-| `100096` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - System | high | 60106 |
-| `100097` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - System | high | 60106 |
-| `100098` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - System | high | 60106 |
-| `100099` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System | high | 60106 |
-| `100100` | 9 | `T1569.002` T1569.002 | PowerShell Scripts Installed as Services | high | 60106 |
-| `100101` | 8 | `T1569.002` T1569.002 | CSExec Service Installation | medium | 60106 |
-| `100102` | 9 | `T1569.002` T1569.002 | HackTool Service Registration or Execution | high | 60106 |
-| `100103` | 8 | `T1569.002` T1569.002 | PAExec Service Installation | medium | 60106 |
-| `100104` | 8 | `T1569.002` T1569.002 | RemCom Service Installation | medium | 60106 |
-| `100105` | 8 | `T1569.002` T1569.002 | PsExec Service Installation | medium | 60106 |
-| `100106` | 9 | - | Important Windows Service Terminated With Error | high | 60106 |
-| `100107` | 9 | - | Important Windows Service Terminated Unexpectedly | high | 60106 |
+| `100085` | 9 | `T1685` T1685 | Sysmon Application Crashed | high | 60002 |
+| `100086` | 8 | `T1685.005` T1685.005 | Eventlog Cleared | medium | 60002 |
+| `100087` | 9 | `T1685.005` T1685.005 | Important Windows Eventlog Cleared | high | 60002 |
+| `100088` | 8 | `T1685` T1685 | Windows Defender Threat Detection Service Disabled | medium | 60002 |
+| `100089` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - System | high | 60002 |
+| `100091` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - System | high | 60002 |
+| `100092` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - System | high | 60002 |
+| `100093` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - System | medium | 60002 |
+| `100094` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - System | medium | 60002 |
+| `100095` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - System | high | 60002 |
+| `100096` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - System | high | 60002 |
+| `100097` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - System | high | 60002 |
+| `100098` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - System | high | 60002 |
+| `100099` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System | high | 60002 |
+| `100100` | 9 | `T1569.002` T1569.002 | PowerShell Scripts Installed as Services | high | 60002 |
+| `100101` | 8 | `T1569.002` T1569.002 | CSExec Service Installation | medium | 60002 |
+| `100102` | 9 | `T1569.002` T1569.002 | HackTool Service Registration or Execution | high | 60002 |
+| `100103` | 8 | `T1569.002` T1569.002 | PAExec Service Installation | medium | 60002 |
+| `100104` | 8 | `T1569.002` T1569.002 | RemCom Service Installation | medium | 60002 |
+| `100105` | 8 | `T1569.002` T1569.002 | PsExec Service Installation | medium | 60002 |
+| `100106` | 9 | - | Important Windows Service Terminated With Error | high | 60002 |
+| `100107` | 9 | - | Important Windows Service Terminated Unexpectedly | high | 60002 |
 | `100108` | 9 | `T1685` T1685 | Windows Defender Grace Period Expired | high | 60005 |
 | `100109` | 9 | `T1047` T1047 | PSExec and WMI Process Creations Block | high | 60005 |
 | `100110` | 8 | `T1685` T1685 | Windows Defender Exclusions Added | medium | 60005 |
@@ -208,7 +206,6 @@
 | `100126` | 8 | `T1564.004` T1564.004 | Unusual File Download From File Sharing Websites - File Stream | medium | 61617 |
 | `100127` | 9 | `T1564.004` T1564.004 | HackTool Named File Stream Created | high | 61617 |
 | `100128` | 9 | `T1564.004` T1564.004 | Exports Registry Key To an Alternate Data Stream | high | 61617 |
-| `100129` | 9 | `T1564.004` T1564.004 | Unusual File Download from Direct IP Address | high | 61617 |
 | `100130` | 9 | - | Potentially Suspicious File Download From ZIP TLD | high | 61617 |
 | `100131` | 8 | `T1559.001` T1559.001 | DNS Query Request By Regsvr32.EXE | medium | 61624 |
 | `100132` | 8 | `T1590` T1590 | Suspicious DNS Query for IP Lookup Service APIs | medium | 61624 |
@@ -333,17 +330,10 @@
 | `100251` | 8 | `T1070.003` T1070.003 | Clear PowerShell History - PowerShell Module | medium | 91801 |
 | `100252` | 13 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - PoshModule | high | 91801 |
 | `100253` | 9 | `T1059.001` T1059.001 | Malicious PowerShell Scripts - PoshModule | high | 91801 |
-| `100254` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - PowerShell Module | high | 91801 |
-| `100255` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell Module | high | 91801 |
-| `100256` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - PowerShell Module | high | 91801 |
-| `100257` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - PowerShell Module | high | 91801 |
 | `100258` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell Module | medium | 91801 |
 | `100259` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - PowerShell Module | medium | 91801 |
-| `100260` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - PowerShell Module | high | 91801 |
-| `100261` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - PowerShell Module | high | 91801 |
 | `100262` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - PowerShell Module | high | 91801 |
 | `100263` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - PowerShell Module | high | 91801 |
-| `100264` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - PowerShell Module | high | 91801 |
 | `100265` | 13 | `T1482` T1482 | Malicious PowerShell Commandlets - PoshModule | high | 91801 |
 | `100266` | 9 | `T1059.001` T1059.001 | Remote PowerShell Session (PS Module) | high | 91801 |
 | `100267` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module | high | 91801 |
@@ -373,17 +363,10 @@
 | `100291` | 9 | `T1070` Indicator Removal | Disable of ETW Trace - Powershell | high | 91801 |
 | `100292` | 9 | `T1070` Indicator Removal | Disable of ETW Trace - Powershell | high | 91801 |
 | `100293` | 8 | `T1059.001` T1059.001 | Import PowerShell Modules From Suspicious Directories | medium | 91801 |
-| `100294` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - PowerShell | high | 91801 |
-| `100295` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation - PowerShell | high | 91801 |
-| `100296` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher - Powershell | high | 91801 |
-| `100297` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher - PowerShell | high | 91801 |
 | `100298` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell | medium | 91801 |
 | `100299` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation RUNDLL LAUNCHER - PowerShell | medium | 91801 |
-| `100300` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - Powershell | high | 91801 |
-| `100301` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - Powershell | high | 91801 |
 | `100302` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA - PowerShell | high | 91801 |
 | `100303` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Rundll32 - PowerShell | high | 91801 |
-| `100304` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - PowerShell | high | 91801 |
 | `100305` | 13 | `T1482` T1482 | Malicious PowerShell Commandlets - ScriptBlock | high | 91801 |
 | `100306` | 13 | `T1059.001` T1059.001 | Malicious PowerShell Keywords | medium | 91801 |
 | `100307` | 8 | `T1059.001` T1059.001 | Powershell MsXml COM Object | medium | 91801 |
@@ -440,7 +423,6 @@
 | `100358` | 8 | `T1553.004` T1553.004 | Suspicious X509Enrollment - Ps Script | medium | 91801 |
 | `100359` | 8 | `T1059.001` T1059.001 | Powershell XML Execute Command | medium | 91801 |
 | `100360` | 9 | `T1218.003` T1218.003 | CMSTP Execution Process Access | high | 61612 |
-| `100361` | 13 | `T1106` T1106 | HackTool - CobaltStrike BOF Injection Pattern | high | 61612 |
 | `100362` | 12 | `T1106` T1106 | HackTool - HandleKatz Duplicating LSASS Handle | high | 61612 |
 | `100363` | 9 | `T1204.002` T1204.002 | HackTool - LittleCorporal Generated Maldoc Injection | high | 61612 |
 | `100364` | 9 | `T1685.001` T1685.001 | HackTool - SysmonEnte Execution | high | 61612 |
@@ -479,11 +461,8 @@
 | `100397` | 8 | `T1218` T1218 | DLL Loaded via CertOC.EXE | medium | 61603 |
 | `100398` | 9 | `T1218` T1218 | Suspicious DLL Loaded via CertOC.EXE | high | 61603 |
 | `100399` | 8 | `T1553.004` T1553.004 | New Root Certificate Installed Via Certutil.EXE | medium | 61603 |
-| `100400` | 9 | `T1027` Obfuscated Files or Information | File Decoded From Base64/Hex Via Certutil.EXE | high | 61603 |
-| `100401` | 8 | `T1027` Obfuscated Files or Information | File Encoded To Base64 Via Certutil.EXE | medium | 61603 |
 | `100402` | 9 | `T1027` Obfuscated Files or Information | Suspicious File Encoded To Base64 Via Certutil.EXE | high | 61603 |
 | `100403` | 9 | `T1027` Obfuscated Files or Information | File In Suspicious Location Encoded To Base64 Via Certutil.EXE | high | 61603 |
-| `100404` | 8 | `T1027` Obfuscated Files or Information | Certificate Exported Via Certutil.EXE | medium | 61603 |
 | `100405` | 9 | `T1218` T1218 | Potential NTLM Coercion Via Certutil.EXE | high | 61603 |
 | `100406` | 8 | `T1036` T1036 | Suspicious CodePage Switch Via CHCP | medium | 61603 |
 | `100407` | 8 | `T1070.004` T1070.004 | Greedy File Deletion Using Del | medium | 61603 |
@@ -515,8 +494,6 @@
 | `100433` | 9 | `T1127` T1127 | Suspicious Use of CSharp Interactive Console | high | 61603 |
 | `100434` | 8 | - | Potential Cookies Session Hijacking | medium | 61603 |
 | `100435` | 8 | - | Curl Web Request With Potential Custom User-Agent | medium | 61603 |
-| `100436` | 8 | - | File Download From IP URL Via Curl.EXE | medium | 61603 |
-| `100437` | 9 | - | Suspicious File Download From IP Via Curl.EXE | high | 61603 |
 | `100438` | 9 | - | Suspicious File Download From File Sharing Domain Via Curl.EXE | high | 61603 |
 | `100439` | 8 | - | Insecure Transfer Via Curl.EXE | medium | 61603 |
 | `100440` | 8 | - | Insecure Proxy/DOH Transfer Via Curl.EXE | medium | 61603 |
@@ -529,7 +506,6 @@
 | `100447` | 8 | `T1218` T1218 | Arbitrary MSI Download Via Devinit.EXE | medium | 61603 |
 | `100448` | 8 | - | Potentially Suspicious Child Process Of ClickOnce Application | medium | 61603 |
 | `100449` | 8 | `T1218` T1218 | Potentially Suspicious Child Process Of DiskShadow.EXE | medium | 61603 |
-| `100450` | 8 | `T1218` T1218 | Diskshadow Script Mode - Uncommon Script Extension Execution | medium | 61603 |
 | `100451` | 8 | `T1218` T1218 | Diskshadow Script Mode - Execution From Potential Suspicious Location | medium | 61603 |
 | `100452` | 8 | `T1685` T1685 | Dism Remove Online Package | medium | 61603 |
 | `100453` | 8 | `T1685` T1685 | Dism Remove Online Package | medium | 61603 |
@@ -552,7 +528,6 @@
 | `100470` | 8 | `T1059` Command and Scripting Interpreter | Use of FSharp Interpreters | medium | 61603 |
 | `100471` | 8 | `T1059` Command and Scripting Interpreter | Use of FSharp Interpreters | medium | 61603 |
 | `100472` | 8 | `T1059` Command and Scripting Interpreter | Potentially Suspicious NTFS Symlink Behavior Modification | medium | 61603 |
-| `100473` | 8 | `T1059` Command and Scripting Interpreter | Potential Arbitrary Command Execution Via FTP.EXE | medium | 61603 |
 | `100474` | 8 | `T1593.003` T1593.003 | Suspicious Git Clone | medium | 61603 |
 | `100475` | 9 | - | Potentially Suspicious GoogleUpdate Child Process | high | 61603 |
 | `100476` | 8 | - | File Decryption Using Gpg4win | medium | 61603 |
@@ -591,18 +566,10 @@
 | `100509` | 9 | `T1047` T1047 | HackTool - Potential Impacket Lateral Movement Activity | high | 61603 |
 | `100510` | 9 | `T1047` T1047 | HackTool - Potential Impacket Lateral Movement Activity | high | 61603 |
 | `100511` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher | high | 61603 |
-| `100512` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
-| `100513` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
-| `100514` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
-| `100515` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
 | `100516` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
 | `100517` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
 | `100518` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Obfuscated IEX Invocation | high | 61603 |
-| `100519` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation STDIN+ Launcher | high | 61603 |
-| `100520` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR+ Launcher | high | 61603 |
 | `100521` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION | medium | 61603 |
-| `100522` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin | high | 61603 |
-| `100523` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip | high | 61603 |
 | `100524` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use MSHTA | high | 61603 |
 | `100525` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION | high | 61603 |
 | `100526` | 8 | `T1059.003` T1059.003 | HackTool - Jlaive In-Memory Assembly Execution | medium | 61603 |
@@ -650,8 +617,6 @@
 | `100568` | 8 | - | Rebuild Performance Counter Values Via Lodctr.EXE | medium | 61603 |
 | `100569` | 9 | `T1685` T1685 | Suspicious Windows Trace ETW Session Tamper Via Logman.EXE | high | 61603 |
 | `100570` | 9 | `T1218` T1218 | Devtoolslauncher.exe Executes Specified Binary | high | 61603 |
-| `100571` | 8 | `T1564.004` T1564.004 | Suspicious Diantz Alternate Data Stream Execution | medium | 61603 |
-| `100572` | 8 | `T1564.004` T1564.004 | Suspicious Extrac32 Alternate Data Stream Execution | medium | 61603 |
 | `100573` | 8 | `T1218` T1218 | Gpscript Execution | medium | 61603 |
 | `100574` | 8 | `T1218` T1218 | Ie4uinit Lolbin Use From Invalid Path | medium | 61603 |
 | `100575` | 8 | `T1216.001` T1216.001 | Launch-VsDevShell.PS1 Proxy Execution | medium | 61603 |
@@ -710,7 +675,6 @@
 | `100628` | 8 | `T1218.007` T1218.007 | DllUnregisterServer Function Call Via Msiexec.EXE | medium | 61603 |
 | `100629` | 8 | `T1218.007` T1218.007 | Suspicious MsiExec Embedding Parent | medium | 61603 |
 | `100630` | 8 | `T1218.007` T1218.007 | Suspicious Msiexec Execute Arbitrary DLL | medium | 61603 |
-| `100631` | 8 | `T1218.007` T1218.007 | Msiexec Quiet Installation | medium | 61603 |
 | `100632` | 8 | `T1218.007` T1218.007 | Suspicious Msiexec Quiet Install From Remote Location | medium | 61603 |
 | `100633` | 9 | `T1036.005` T1036.005 | Potential MsiExec Masquerading | high | 61603 |
 | `100634` | 8 | `T1218` T1218 | Arbitrary File Download Via MSOHTMED.EXE | medium | 61603 |
@@ -754,7 +718,6 @@
 | `100672` | 8 | - | Potentially Suspicious Execution Of PDQDeployRunner | medium | 61603 |
 | `100673` | 8 | `T1059` Command and Scripting Interpreter | Perl Inline Command Execution | medium | 61603 |
 | `100674` | 8 | `T1059` Command and Scripting Interpreter | Php Inline Command Execution | medium | 61603 |
-| `100675` | 9 | `T1140` T1140 | Ping Hex IP | high | 61603 |
 | `100676` | 8 | - | Suspicious Powercfg Execution To Change Lock Screen Timeout | medium | 61603 |
 | `100677` | 9 | - | AADInternals PowerShell Cmdlets Execution - ProccessCreation | high | 61603 |
 | `100678` | 8 | - | Add Windows Capability Via PowerShell Cmdlet | medium | 61603 |
@@ -780,7 +743,6 @@
 | `100698` | 8 | `T1216` T1216 | Potential Script Proxy Execution Via CL_Mutexverifiers.ps1 | medium | 61603 |
 | `100699` | 8 | `T1027` Obfuscated Files or Information | ConvertTo-SecureString Cmdlet Usage Via CommandLine | medium | 61603 |
 | `100700` | 9 | `T1027` Obfuscated Files or Information | Potential PowerShell Obfuscation Via Reversed Commands | high | 61603 |
-| `100701` | 9 | `T1027` Obfuscated Files or Information | Potential PowerShell Command Line Obfuscation | high | 61603 |
 | `100702` | 9 | `T1027.010` T1027.010 | Obfuscated PowerShell MSI Install via WindowsInstaller COM | high | 61603 |
 | `100703` | 8 | `T1059.001` T1059.001 | PowerShell MSI Install via WindowsInstaller COM From Remote Location | medium | 61603 |
 | `100704` | 9 | - | PowerShell Execution With Potential Decryption Capabilities | high | 61603 |
@@ -829,7 +791,6 @@
 | `100747` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Parameter Substring | high | 61603 |
 | `100748` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Parent Process | high | 61603 |
 | `100749` | 8 | `T1059.001` T1059.001 | PowerShell Script Run in AppData | medium | 61603 |
-| `100750` | 9 | `T1027.009` T1027.009 | Powershell Token Obfuscation - Process Creation | high | 61603 |
 | `100751` | 9 | `T1685` T1685 | Suspicious Uninstall of Windows Defender Feature via PowerShell | high | 61603 |
 | `100752` | 9 | `T1059.001` T1059.001 | Net WebClient Casing Anomalies | high | 61603 |
 | `100753` | 8 | `T1553.004` T1553.004 | Suspicious X509Enrollment - Process Creation | medium | 61603 |
@@ -943,7 +904,6 @@
 | `100861` | 9 | `T1036.003` T1036.003 | Renamed ProcDump Execution | high | 61603 |
 | `100862` | 9 | - | Renamed PsExec Service Execution | high | 61603 |
 | `100863` | 8 | `T1059` Command and Scripting Interpreter | Ruby Inline Command Execution | medium | 61603 |
-| `100864` | 9 | `T1564.004` T1564.004 | Potential Rundll32 Execution With DLL Stored In ADS | high | 61603 |
 | `100865` | 9 | - | Suspicious Advpack Call Via Rundll32.EXE | high | 61603 |
 | `100866` | 8 | `T1218.011` T1218.011 | Rundll32 InstallScreenSaver Execution | medium | 61603 |
 | `100867` | 9 | - | Mshtml.DLL RunHTMLApplication Suspicious Usage | high | 61603 |
@@ -1080,8 +1040,6 @@
 | `100998` | 9 | - | PsExec Service Child Process Execution as LOCAL SYSTEM | high | 61603 |
 | `100999` | 9 | `T1685` T1685 | Sysinternals PsSuspend Suspicious Execution | high | 61603 |
 | `101000` | 9 | `T1587.001` T1587.001 | Potential Privilege Escalation To LOCAL SYSTEM | high | 61603 |
-| `101001` | 8 | `T1685` T1685 | Sysmon Configuration Update | medium | 61603 |
-| `101002` | 9 | `T1685` T1685 | Uninstall Sysinternals Sysmon | high | 61603 |
 | `101003` | 8 | `T1218` T1218 | Potential Binary Impersonating Sysinternals Tools | medium | 61603 |
 | `101004` | 8 | `T1218` T1218 | Potential Binary Impersonating Sysinternals Tools | medium | 61603 |
 | `101005` | 8 | `T1059` Command and Scripting Interpreter | Sysprep on AppData Folder | medium | 61603 |
@@ -1109,20 +1067,17 @@
 | `101027` | 8 | `T1059.001` T1059.001 | Potentially Suspicious WebDAV LNK Execution | medium | 61603 |
 | `101028` | 8 | `T1036` T1036 | Potential ReflectDebugger Content Execution Via WerFault.EXE | medium | 61603 |
 | `101029` | 9 | - | Suspicious Execution Location Of Wermgr.EXE | high | 61603 |
-| `101030` | 9 | - | Suspicious File Download From IP Via Wget.EXE | high | 61603 |
 | `101031` | 9 | - | Suspicious File Download From File Sharing Domain Via Wget.EXE | high | 61603 |
 | `101032` | 9 | - | Suspicious File Download From IP Via Wget.EXE - Paths | high | 61603 |
 | `101033` | 8 | - | Suspicious WindowsTerminal Child Processes | medium | 61603 |
 | `101034` | 8 | `T1059` Command and Scripting Interpreter | Add New Download Source To Winget | medium | 61603 |
 | `101035` | 9 | `T1059` Command and Scripting Interpreter | Add Insecure Download Source To Winget | high | 61603 |
-| `101036` | 8 | `T1059` Command and Scripting Interpreter | Add Potential Suspicious New Download Source To Winget | medium | 61603 |
 | `101037` | 8 | `T1059` Command and Scripting Interpreter | Install New Package Via Winget Local Manifest | medium | 61603 |
 | `101038` | 8 | `T1203` T1203 | Potentially Suspicious Child Process Of WinRAR.EXE | medium | 61603 |
 | `101039` | 8 | `T1216` T1216 | AWL Bypass with Winrm.vbs and Malicious WsmPty.xsl/WsmTxt.xsl | medium | 61603 |
 | `101040` | 8 | `T1216` T1216 | Remote Code Execute via Winrm.vbs | medium | 61603 |
 | `101041` | 8 | `T1059.001` T1059.001 | Remote PowerShell Session Host Process (WinRM) | medium | 61603 |
 | `101042` | 8 | `T1059.001` T1059.001 | Remote PowerShell Session Host Process (WinRM) | medium | 61603 |
-| `101043` | 8 | `T1218` T1218 | Wlrmdr.EXE Uncommon Argument Or Child Process | medium | 61603 |
 | `101044` | 9 | `T1047` T1047 | Potential Windows Defender Tampering Via Wmic.EXE | high | 61603 |
 | `101045` | 8 | `T1047` T1047 | New Process Created Via Wmic.EXE | medium | 61603 |
 | `101046` | 8 | `T1047` T1047 | Hardware Model Reconnaissance Via Wmic.EXE | medium | 61603 |
@@ -1144,7 +1099,6 @@
 | `101062` | 9 | `T1685` T1685 | Potential Tampering With Security Products Via WMIC | high | 61603 |
 | `101063` | 9 | `T1685` T1685 | Potential Tampering With Security Products Via WMIC | high | 61603 |
 | `101064` | 9 | `T1685` T1685 | Potential Tampering With Security Products Via WMIC | high | 61603 |
-| `101065` | 8 | `T1047` T1047 | XSL Script Execution Via WMIC.EXE | medium | 61603 |
 | `101066` | 8 | `T1047` T1047 | WmiPrvSE Spawned A Process | medium | 61603 |
 | `101067` | 8 | `T1047` T1047 | Potential WMI Lateral Movement WmiPrvSE Spawned PowerShell | medium | 61603 |
 | `101068` | 9 | `T1047` T1047 | Suspicious WmiPrvSE Child Process | high | 61603 |
@@ -1156,12 +1110,10 @@
 | `101074` | 9 | `T1202` T1202 | WSL Kali-Linux Usage | high | 61603 |
 | `101075` | 9 | `T1202` T1202 | WSL Kali-Linux Usage | high | 61603 |
 | `101076` | 9 | `T1202` T1202 | WSL Kali-Linux Usage | high | 61603 |
-| `101077` | 8 | `T1202` T1202 | Windows Binary Executed From WSL | medium | 61603 |
 | `101078` | 9 | `T1218` T1218 | Proxy Execution Via Wuauclt.EXE | high | 61603 |
 | `101079` | 9 | `T1036` T1036 | Suspicious Windows Update Agent Empty Cmdline | high | 61603 |
 | `101080` | 9 | - | Cab File Extraction Via Wusa.EXE From Potentially Suspicious Paths | high | 61603 |
 | `101081` | 9 | - | Wusa.EXE Executed By Parent Process Located In Suspicious Location | high | 61603 |
-| `101082` | 8 | `T1218` T1218 | COM Object Execution via Xwizard.EXE | medium | 61603 |
 | `101083` | 8 | - | Delete Defender Scan ShellEx Context Menu Registry Key | medium | 61614 |
 | `101084` | 9 | `T1685` T1685 | Windows Credential Guard Related Registry Value Deleted - Registry | high | 61614 |
 | `101085` | 9 | `T1685` T1685 | Folder Removed From Exploit Guard ProtectedFolders List - Registry | high | 61614 |
@@ -1246,7 +1198,7 @@
 | `101164` | 8 | - | Sysmon File Executable Creation Detected | medium | 60004 |
 | `101165` | 9 | `T1059.005` T1059.005 | Suspicious Scripting in a WMI Consumer | high | 61621 |
 
-### Persistence (TA0003) — 845 rules
+### Persistence (TA0003) — 839 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1267,509 +1219,509 @@
 | `104014` | 9 | `T1546.003` T1546.003 | WMI event subscription (EventID 19) | medium | 61621 |
 | `104015` | 9 | `T1546.003` T1546.003 | WMI event subscription (EventID 20) | medium | 61622 |
 | `104016` | 9 | `T1546.003` T1546.003 | WMI event subscription (EventID 21) | medium | 61623 |
-| `104017` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104018` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104019` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104020` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104021` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104022` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104023` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104024` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104025` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104026` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104027` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104028` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104029` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104030` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104031` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104032` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104033` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104034` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104035` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104036` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104037` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104038` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104039` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104040` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104041` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104042` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104043` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104044` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104045` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104046` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104047` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104048` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104049` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104050` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104051` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104052` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104053` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104054` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104055` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104056` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104057` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104058` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104059` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104060` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104061` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104062` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104063` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104064` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104065` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104066` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104067` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104068` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104069` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104070` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104071` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104072` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104073` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104074` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104075` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104076` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104077` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104078` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104079` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104080` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104081` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104082` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104083` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104084` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104085` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104086` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104087` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104088` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104089` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104090` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104091` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104092` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104093` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104094` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104095` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104096` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104097` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104098` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104099` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104100` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104101` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104102` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104103` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104104` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104105` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104106` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104107` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104108` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104109` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104110` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104111` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104112` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104113` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104114` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104115` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104116` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104117` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104118` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104119` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104120` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104121` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104122` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104123` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104124` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104125` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104126` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104127` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104128` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104129` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104130` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104131` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104132` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104133` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104134` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104135` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104136` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104137` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104138` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104139` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104140` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104141` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104142` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104143` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104144` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104145` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104146` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104147` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104148` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104149` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104150` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104151` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104152` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104153` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104154` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104155` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104156` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104157` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104158` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104159` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104160` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104161` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104162` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104163` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104164` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104165` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104166` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104167` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104168` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104169` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104170` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104171` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104172` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104173` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104174` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104175` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104176` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104177` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104178` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104179` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104180` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104181` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104182` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104183` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104184` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104185` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104186` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104187` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104188` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104189` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104190` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104191` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104192` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104193` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104194` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104195` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104196` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104197` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104198` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104199` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104200` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104201` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104202` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104203` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104204` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104205` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104206` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104207` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104208` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104209` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104210` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104211` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104212` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104213` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104214` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104215` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104216` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104217` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104218` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104219` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104220` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104221` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104222` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104223` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104224` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104225` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104226` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104227` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104228` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104229` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104230` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104231` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104232` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104233` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104234` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104235` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104236` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104237` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104238` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104239` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104240` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104241` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104242` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104243` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104244` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104245` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104246` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104247` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104248` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104249` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104250` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104251` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104252` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104253` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104254` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104255` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104256` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104257` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104258` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104259` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104260` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104261` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104262` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104263` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104264` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104265` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104266` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104267` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104268` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104269` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104270` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104271` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104272` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104273` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104274` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104275` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104276` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104277` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104278` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104279` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104280` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104281` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104282` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104283` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104284` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104285` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104286` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104287` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104288` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104289` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104290` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104291` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104292` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104293` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104294` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104295` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104296` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104297` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104298` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104299` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104300` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104301` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104302` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104303` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104304` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104305` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104306` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104307` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104308` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104309` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104310` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104311` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104312` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104313` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104314` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104315` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104316` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104317` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104318` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104319` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104320` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104321` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104322` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104323` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104324` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104325` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104326` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104327` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104328` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104329` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104330` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104331` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104332` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104333` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104334` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104335` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104336` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104337` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104338` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104339` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104340` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104341` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104342` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104343` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104344` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104345` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104346` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104347` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104348` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104349` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104350` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104351` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104352` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104353` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104354` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104355` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104356` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104357` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104358` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104359` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104360` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104361` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104362` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104363` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104364` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104365` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104366` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104367` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104368` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104369` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104370` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104371` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104372` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104373` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104374` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104375` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104376` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104377` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104378` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104379` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104380` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104381` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104382` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104383` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104384` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104385` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104386` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104387` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104388` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104389` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104390` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104391` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104392` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104393` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104394` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104395` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104396` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104397` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104398` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104399` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104400` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104401` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104402` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104403` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104404` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104405` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104406` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104407` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104408` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104409` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104410` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104411` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104412` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104413` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104414` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104415` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104416` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104417` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104418` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104419` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104420` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104421` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104422` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104423` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104424` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104425` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104426` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104427` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104428` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104429` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104430` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104431` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104432` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104433` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104434` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104435` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104436` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104437` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104438` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104439` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104440` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104441` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104442` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104443` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104444` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104445` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104446` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104447` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104448` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104449` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104450` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104451` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104452` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104453` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104454` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104455` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104456` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104457` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104458` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104459` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104460` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104461` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104462` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104463` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104464` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104465` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104466` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104467` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104468` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104469` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104470` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104471` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104472` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104473` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104474` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104475` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104476` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104477` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104478` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104479` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104480` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104481` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104482` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104483` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104484` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104485` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104486` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104487` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104488` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104489` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104490` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104491` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104492` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104493` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104494` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104495` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104496` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104497` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104498` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104499` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104500` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104501` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104502` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104503` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104504` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
+| `104017` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104018` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104019` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104020` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104021` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104022` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104023` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104024` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104025` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104026` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104027` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104028` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104029` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104030` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104031` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104032` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104033` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104034` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104035` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104036` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104037` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104038` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104039` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104040` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104041` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104042` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104043` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104044` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104045` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104046` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104047` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104048` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104049` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104050` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104051` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104052` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104053` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104054` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104055` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104056` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104057` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104058` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104059` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104060` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104061` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104062` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104063` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104064` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104065` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104066` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104067` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104068` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104069` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104070` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104071` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104072` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104073` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104074` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104075` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104076` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104077` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104078` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104079` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104080` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104081` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104082` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104083` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104084` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104085` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104086` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104087` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104088` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104089` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104090` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104091` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104092` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104093` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104094` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104095` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104096` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104097` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104098` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104099` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104100` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104101` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104102` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104103` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104104` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104105` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104106` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104107` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104108` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104109` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104110` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104111` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104112` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104113` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104114` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104115` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104116` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104117` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104118` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104119` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104120` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104121` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104122` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104123` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104124` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104125` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104126` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104127` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104128` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104129` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104130` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104131` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104132` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104133` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104134` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104135` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104136` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104137` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104138` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104139` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104140` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104141` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104142` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104143` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104144` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104145` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104146` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104147` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104148` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104149` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104150` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104151` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104152` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104153` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104154` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104155` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104156` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104157` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104158` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104159` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104160` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104161` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104162` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104163` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104164` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104165` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104166` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104167` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104168` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104169` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104170` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104171` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104172` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104173` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104174` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104175` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104176` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104177` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104178` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104179` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104180` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104181` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104182` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104183` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104184` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104185` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104186` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104187` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104188` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104189` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104190` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104191` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104192` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104193` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104194` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104195` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104196` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104197` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104198` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104199` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104200` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104201` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104202` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104203` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104204` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104205` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104206` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104207` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104208` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104209` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104210` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104211` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104212` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104213` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104214` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104215` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104216` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104217` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104218` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104219` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104220` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104221` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104222` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104223` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104224` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104225` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104226` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104227` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104228` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104229` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104230` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104231` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104232` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104233` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104234` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104235` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104236` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104237` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104238` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104239` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104240` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104241` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104242` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104243` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104244` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104245` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104246` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104247` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104248` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104249` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104250` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104251` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104252` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104253` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104254` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104255` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104256` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104257` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104258` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104259` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104260` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104261` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104262` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104263` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104264` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104265` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104266` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104267` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104268` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104269` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104270` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104271` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104272` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104273` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104274` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104275` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104276` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104277` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104278` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104279` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104280` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104281` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104282` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104283` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104284` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104285` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104286` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104287` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104288` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104289` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104290` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104291` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104292` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104293` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104294` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104295` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104296` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104297` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104298` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104299` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104300` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104301` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104302` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104303` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104304` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104305` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104306` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104307` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104308` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104309` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104310` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104311` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104312` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104313` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104314` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104315` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104316` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104317` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104318` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104319` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104320` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104321` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104322` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104323` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104324` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104325` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104326` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104327` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104328` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104329` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104330` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104331` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104332` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104333` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104334` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104335` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104336` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104337` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104338` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104339` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104340` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104341` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104342` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104343` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104344` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104345` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104346` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104347` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104348` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104349` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104350` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104351` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104352` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104353` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104354` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104355` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104356` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104357` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104358` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104359` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104360` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104361` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104362` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104363` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104364` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104365` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104366` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104367` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104368` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104369` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104370` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104371` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104372` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104373` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104374` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104375` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104376` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104377` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104378` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104379` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104380` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104381` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104382` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104383` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104384` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104385` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104386` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104387` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104388` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104389` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104390` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104391` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104392` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104393` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104394` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104395` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104396` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104397` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104398` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104399` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104400` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104401` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104402` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104403` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104404` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104405` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104406` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104407` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104408` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104409` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104410` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104411` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104412` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104413` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104414` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104415` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104416` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104417` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104418` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104419` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104420` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104421` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104422` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104423` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104424` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104425` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104426` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104427` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104428` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104429` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104430` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104431` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104432` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104433` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104434` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104435` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104436` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104437` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104438` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104439` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104440` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104441` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104442` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104443` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104444` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104445` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104446` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104447` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104448` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104449` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104450` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104451` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104452` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104453` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104454` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104455` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104456` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104457` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104458` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104459` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104460` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104461` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104462` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104463` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104464` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104465` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104466` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104467` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104468` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104469` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104470` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104471` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104472` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104473` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104474` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104475` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104476` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104477` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104478` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104479` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104480` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104481` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104482` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104483` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104484` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104485` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104486` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104487` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104488` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104489` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104490` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104491` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104492` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104493` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104494` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104495` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104496` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104497` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104498` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104499` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104500` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104501` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104502` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104503` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104504` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
 | `104505` | 9 | `T1546.003` T1546.003 | WMI event subscription (EventID 20) | medium | 61622 |
 | `104506` | 9 | `T1546.003` T1546.003 | WMI event subscription (EventID 19) | medium | 61621 |
 | `104507` | 7 | `T1098` T1098 | Security group created | low | 60100 |
 | `104508` | 7 | `T1098` T1098 | Security group changed | low | 60100 |
-| `104509` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104510` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104511` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104512` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104513` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104514` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104515` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104516` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104517` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
-| `104518` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60106 |
-| `104519` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60106 |
+| `104509` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104510` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104511` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104512` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104513` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104514` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104515` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104516` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104517` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104518` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `104519` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
 | `104520` | 10 | - | MSSQL Add Account To Sysadmin Role | high | 60003 |
 | `104521` | 10 | - | MSSQL SPProcoption Set | high | 60003 |
 | `104522` | 9 | `T1197` T1197 | BITS Transfer Job Downloading File Potential Suspicious Extension | medium | 60000 |
@@ -1803,23 +1755,21 @@
 | `104550` | 10 | `T1112` T1112 | Sysmon Channel Reference Deletion | high | 60100 |
 | `104551` | 9 | `T1546.003` T1546.003 | WMI Persistence - Security | medium | 60100 |
 | `104552` | 10 | `T1554` T1554 | HybridConnectionManager Service Running | high | 60000 |
-| `104553` | 13 | `T1021.002` T1021.002 | CobaltStrike Service Installations - System | high | 60106 |
-| `104554` | 10 | `T1543` Create or Modify System Process | KrbRelayUp Service Installation | high | 60106 |
-| `104555` | 10 | `T1543.003` T1543.003 | Moriya Rootkit - System | high | 60106 |
-| `104556` | 9 | - | Anydesk Remote Access Software Service Installation | medium | 60106 |
-| `104557` | 9 | - | NetSupport Manager Service Install | medium | 60106 |
-| `104558` | 9 | `T1543.003` T1543.003 | New PDQDeploy Service - Server Side | medium | 60106 |
-| `104559` | 9 | `T1543.003` T1543.003 | New PDQDeploy Service - Client Side | medium | 60106 |
-| `104560` | 10 | `T1543.003` T1543.003 | ProcessHacker Privilege Elevation | high | 60106 |
-| `104561` | 9 | - | Remote Utilities Host Service Install | medium | 60106 |
-| `104562` | 10 | `T1543.003` T1543.003 | Sliver C2 Default Service Installation | high | 60106 |
-| `104563` | 10 | `T1543` Create or Modify System Process | Service Installed By Unusual Client - System | high | 60106 |
-| `104564` | 10 | `T1543.003` T1543.003 | Suspicious Service Installation | high | 60106 |
-| `104565` | 9 | `T1543.003` T1543.003 | Uncommon Service Installation Image Path | medium | 60106 |
-| `104566` | 10 | - | RTCore Suspicious Service Installation | high | 60106 |
-| `104567` | 9 | `T1543.003` T1543.003 | Service Installation in Suspicious Folder | medium | 60106 |
-| `104568` | 10 | `T1543.003` T1543.003 | Service Installation with Suspicious Folder Pattern | high | 60106 |
-| `104569` | 10 | `T1543.003` T1543.003 | Suspicious Service Installation Script | high | 60106 |
+| `104553` | 13 | `T1021.002` T1021.002 | CobaltStrike Service Installations - System | high | 60002 |
+| `104554` | 10 | `T1543` Create or Modify System Process | KrbRelayUp Service Installation | high | 60002 |
+| `104555` | 10 | `T1543.003` T1543.003 | Moriya Rootkit - System | high | 60002 |
+| `104556` | 9 | - | Anydesk Remote Access Software Service Installation | medium | 60002 |
+| `104557` | 9 | - | NetSupport Manager Service Install | medium | 60002 |
+| `104558` | 9 | `T1543.003` T1543.003 | New PDQDeploy Service - Server Side | medium | 60002 |
+| `104559` | 9 | `T1543.003` T1543.003 | New PDQDeploy Service - Client Side | medium | 60002 |
+| `104560` | 10 | `T1543.003` T1543.003 | ProcessHacker Privilege Elevation | high | 60002 |
+| `104561` | 9 | - | Remote Utilities Host Service Install | medium | 60002 |
+| `104563` | 10 | `T1543` Create or Modify System Process | Service Installed By Unusual Client - System | high | 60002 |
+| `104564` | 10 | `T1543.003` T1543.003 | Suspicious Service Installation | high | 60002 |
+| `104565` | 9 | `T1543.003` T1543.003 | Uncommon Service Installation Image Path | medium | 60002 |
+| `104566` | 10 | - | RTCore Suspicious Service Installation | high | 60002 |
+| `104567` | 9 | `T1543.003` T1543.003 | Service Installation in Suspicious Folder | medium | 60002 |
+| `104569` | 10 | `T1543.003` T1543.003 | Suspicious Service Installation Script | high | 60002 |
 | `104570` | 9 | `T1546.003` T1546.003 | WMI Persistence | medium | 61621 |
 | `104571` | 10 | - | Potential Suspicious Winget Package Installation | high | 61617 |
 | `104572` | 10 | `T1554` T1554 | DNS HybridConnectionManager Service Bus | high | 61624 |
@@ -1911,7 +1861,6 @@
 | `104658` | 9 | `T1219.002` T1219.002 | Remote Access Tool - AnyDesk Incoming Connection | medium | 61605 |
 | `104659` | 10 | `T1571` T1571 | Potentially Suspicious Malware Callback Communication | high | 61605 |
 | `104660` | 9 | `T1571` T1571 | Communication To Uncommon Destination Ports | medium | 61605 |
-| `104661` | 10 | `T1556.002` T1556.002 | Powershell Install a DLL in System Directory | high | 91801 |
 | `104662` | 9 | `T1136.002` T1136.002 | Manipulation of User Computer or Group Security Principals Across AD | medium | 91801 |
 | `104663` | 9 | - | Unsigned AppX Installation Attempt Using Add-AppxPackage - PsScript | medium | 91801 |
 | `104664` | 10 | `T1137.006` T1137.006 | Code Executed Via Office Add-in XLL File | high | 91801 |
@@ -1941,7 +1890,6 @@
 | `104688` | 10 | `T1615` T1615 | HackTool - SharpUp PrivEsc Tool Execution | high | 61603 |
 | `104689` | 10 | `T1615` T1615 | HackTool - SharpUp PrivEsc Tool Execution | high | 61603 |
 | `104690` | 10 | `T1615` T1615 | HackTool - SharpUp PrivEsc Tool Execution | high | 61603 |
-| `104691` | 9 | `T1505.003` T1505.003 | IIS Native-Code Module Command Line Installation | medium | 61603 |
 | `104692` | 10 | `T1505.004` T1505.004 | Suspicious IIS Module Registration | high | 61603 |
 | `104693` | 9 | `T1203` T1203 | Potentially Suspicious Child Process of KeyScrambler.exe | medium | 61603 |
 | `104694` | 9 | `T1136.001` T1136.001 | New User Created Via Net.EXE | medium | 61603 |
@@ -1964,8 +1912,6 @@
 | `104711` | 9 | `T1546.002` T1546.002 | Suspicious ScreenSave Change by Reg.exe | medium | 61603 |
 | `104712` | 10 | `T1112` T1112 | Reg Add Suspicious Paths | high | 61603 |
 | `104713` | 9 | `T1112` T1112 | Imports Registry Key From a File | medium | 61603 |
-| `104714` | 10 | `T1112` T1112 | Imports Registry Key From an ADS | high | 61603 |
-| `104715` | 10 | `T1112` T1112 | Suspicious Registry Modification From ADS Via Regini.EXE | high | 61603 |
 | `104716` | 10 | `T1546.008` T1546.008 | Suspicious Debugger Registration Cmdline | high | 61603 |
 | `104717` | 10 | `T1574.011` T1574.011 | Potential Privilege Escalation via Service Permissions Weakness | high | 61603 |
 | `104718` | 9 | - | Persistence Via TypedPaths - CommandLine | medium | 61603 |
@@ -2096,7 +2042,7 @@
 | `104843` | 9 | `T1112` T1112 | Winlogon AllowMultipleTSSessions Enable | medium | 61615 |
 | `115003` | 12 | `T1543` Create or Modify System Process | service_install_then_network | high | 110061 |
 
-### Privilege Escalation (TA0004) — 383 rules
+### Privilege Escalation (TA0004) — 363 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -2135,12 +2081,12 @@
 | `107032` | 10 | `T1078` Valid Accounts | Suspicious Remote Logon with Explicit Credentials | medium | 60100 |
 | `107033` | 11 | `T1574.001` T1574.001 | Microsoft Defender Blocked from Loading Unsigned DLL | high | 60000 |
 | `107034` | 11 | `T1574.001` T1574.001 | Unsigned Binary Loaded From Suspicious Location | high | 60000 |
-| `107035` | 11 | `T1574.001` T1574.001 | DHCP Server Loaded the CallOut DLL | high | 60106 |
-| `107036` | 11 | `T1574.001` T1574.001 | DHCP Server Error Failed Loading the CallOut DLL | high | 60106 |
-| `107037` | 10 | - | Certificate Use With No Strong Mapping | medium | 60106 |
-| `107038` | 11 | `T1548` Abuse Elevation Control Mechanism | Vulnerable Netlogon Secure Channel Connection Allowed | high | 60106 |
-| `107039` | 14 | `T1134.001` T1134.001 | Meterpreter or Cobalt Strike Getsystem Service Installation - System | high | 60106 |
-| `107040` | 10 | `T1543.003` T1543.003 | Remote Access Tool Services Have Been Installed - System | medium | 60106 |
+| `107035` | 11 | `T1574.001` T1574.001 | DHCP Server Loaded the CallOut DLL | high | 60002 |
+| `107036` | 11 | `T1574.001` T1574.001 | DHCP Server Error Failed Loading the CallOut DLL | high | 60002 |
+| `107037` | 10 | - | Certificate Use With No Strong Mapping | medium | 60002 |
+| `107038` | 11 | `T1548` Abuse Elevation Control Mechanism | Vulnerable Netlogon Secure Channel Connection Allowed | high | 60002 |
+| `107039` | 14 | `T1134.001` T1134.001 | Meterpreter or Cobalt Strike Getsystem Service Installation - System | high | 60002 |
+| `107040` | 10 | `T1543.003` T1543.003 | Remote Access Tool Services Have Been Installed - System | medium | 60002 |
 | `107041` | 10 | `T1053.005` T1053.005 | Scheduled Task Executed From A Suspicious Location | medium | 60000 |
 | `107042` | 10 | `T1053.005` T1053.005 | Scheduled Task Executed Uncommon LOLBIN | medium | 60000 |
 | `107043` | 11 | `T1055.012` T1055.012 | HackTool - CACTUSTORCH Remote Thread Creation | high | 61610 |
@@ -2206,25 +2152,6 @@
 | `107103` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe | high | 61619 |
 | `107104` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe | high | 61619 |
 | `107105` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe | high | 61619 |
-| `107106` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107107` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107108` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107109` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107110` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107111` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107112` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107113` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107114` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107115` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107116` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107117` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107118` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107119` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107120` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107121` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107122` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107123` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
-| `107124` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Pattern Regex | high | 61619 |
 | `107125` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Patterns | high | 61619 |
 | `107126` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Patterns | high | 61619 |
 | `107127` | 13 | `T1055` Process Injection | CobaltStrike Named Pipe Patterns | high | 61619 |
@@ -2473,7 +2400,6 @@
 | `107370` | 10 | `T1546.015` T1546.015 | COM Hijacking via TreatAs | medium | 61615 |
 | `107371` | 11 | `T1548.002` T1548.002 | UAC Bypass via Event Viewer | high | 61615 |
 | `107372` | 11 | `T1548.002` T1548.002 | UAC Bypass via Sdclt | high | 61615 |
-| `107373` | 11 | `T1548.002` T1548.002 | UAC Bypass via Sdclt | high | 61615 |
 | `107374` | 11 | `T1548.002` T1548.002 | UAC Bypass Abusing Winsat Path Parsing - Registry | high | 61615 |
 | `107375` | 11 | `T1548.002` T1548.002 | UAC Bypass Using Windows Media Player - Registry | high | 61615 |
 | `107376` | 10 | `T1548.002` T1548.002 | UAC Disabled | medium | 61615 |
@@ -2531,7 +2457,7 @@
 | `112040` | 9 | `T1027` Obfuscated Files or Information | Suspicious PowerShell: invoke-obfuscation | medium | 91801 |
 | `112041` | 10 | `T1218.004` T1218.004 | DLL sideloading by installutil | high | 61609 |
 
-### Credential Access (TA0006) — 295 rules
+### Credential Access (TA0006) — 290 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -2552,7 +2478,7 @@
 | `108514` | 11 | `T1003.001` T1003.001 | Suspicious command: minidump | medium | 61603 |
 | `108515` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
 | `108516` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
-| `108517` | 13 | `T1003` OS Credential Dumping | Suspicious service: mimikatz driver (mimidrv) | high | 60106 |
+| `108517` | 13 | `T1003` OS Credential Dumping | Suspicious service: mimikatz driver (mimidrv) | high | 60002 |
 | `108518` | 13 | `T1003` OS Credential Dumping | PowerShell module: invoke-mimikatz | medium | 91801 |
 | `108519` | 13 | `T1003.001` T1003.001 | PowerShell module: sekurlsa:: | medium | 91801 |
 | `108520` | 13 | `T1003` OS Credential Dumping | Suspicious process: mimikatz | high | 61603 |
@@ -2589,9 +2515,9 @@
 | `108551` | 12 | `T1003.002` T1003.002 | Transferring Files with Credential Data via Network Shares | medium | 60100 |
 | `108552` | 12 | `T1558.003` T1558.003 | User Couldn't Call a Privileged Service 'LsaRegisterLogonProcess' | high | 60100 |
 | `108553` | 11 | `T1110.001` T1110.001 | Suspicious Rejected SMB Guest Logon From IP | medium | 60000 |
-| `108554` | 12 | `T1003.002` T1003.002 | Critical Hive In Suspicious Location Access Bits Cleared | high | 60106 |
-| `108555` | 11 | `T1003.002` T1003.002 | Crash Dump Created By Operating System | medium | 60106 |
-| `108556` | 12 | `T1003.001` T1003.001 | Credential Dumping Tools Service Execution - System | high | 60106 |
+| `108554` | 12 | `T1003.002` T1003.002 | Critical Hive In Suspicious Location Access Bits Cleared | high | 60002 |
+| `108555` | 11 | `T1003.002` T1003.002 | Crash Dump Created By Operating System | medium | 60002 |
+| `108556` | 12 | `T1003.001` T1003.001 | Credential Dumping Tools Service Execution - System | high | 60002 |
 | `108557` | 12 | `T1003.001` T1003.001 | LSASS Access Detected via Attack Surface Reduction | high | 60005 |
 | `108558` | 12 | `T1555.005` T1555.005 | Remote Thread Created In KeePass.EXE | high | 61610 |
 | `108559` | 12 | - | Remote Thread Creation In Mstsc.Exe From Suspicious Location | high | 61610 |
@@ -2607,16 +2533,13 @@
 | `108569` | 11 | `T1528` T1528 | Microsoft Teams Sensitive File Access By Uncommon Applications | medium | 61613 |
 | `108570` | 12 | `T1003.001` T1003.001 | Cred Dump Tools Dropped Files | high | 61613 |
 | `108571` | 12 | `T1003.001` T1003.001 | Cred Dump Tools Dropped Files | high | 61613 |
-| `108572` | 12 | `T1003.001` T1003.001 | HackTool - CrackMapExec File Indicators | high | 61613 |
 | `108573` | 12 | `T1003.001` T1003.001 | HackTool - Dumpert Process Dumper Default File | high | 61613 |
 | `108574` | 12 | `T1552.001` T1552.001 | HackTool - Typical HiveNightmare SAM File Export | high | 61613 |
 | `108575` | 12 | `T1552.001` T1552.001 | HackTool - Typical HiveNightmare SAM File Export | high | 61613 |
 | `108576` | 13 | `T1558` Steal or Forge Kerberos Tickets | HackTool - Mimikatz Kirbi File Creation | high | 61613 |
 | `108577` | 12 | - | HackTool - NPPSpy Hacktool Usage | high | 61613 |
 | `108578` | 12 | `T1003.002` T1003.002 | HackTool - QuarksPwDump Dump File | high | 61613 |
-| `108579` | 12 | `T1003` OS Credential Dumping | HackTool - Potential Remote Credential Dumping Activity Via CrackMa... | high | 61613 |
 | `108580` | 12 | `T1003.001` T1003.001 | HackTool - SafetyKatz Dump Indicator | high | 61613 |
-| `108581` | 12 | `T1003.001` T1003.001 | HackTool - Impacket File Indicators | high | 61613 |
 | `108582` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Files | high | 61613 |
 | `108583` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Files | high | 61613 |
 | `108584` | 12 | `T1003.001` T1003.001 | LSASS Process Memory Dump Files | high | 61613 |
@@ -2745,7 +2668,6 @@
 | `108707` | 12 | `T1003.001` T1003.001 | HackTool - Windows Credential Editor (WCE) Execution | high | 61603 |
 | `108708` | 12 | `T1003.001` T1003.001 | HackTool - Windows Credential Editor (WCE) Execution | high | 61603 |
 | `108709` | 12 | `T1046` T1046 | HackTool - WinPwn Execution | high | 61603 |
-| `108710` | 12 | `T1003.001` T1003.001 | HackTool - WSASS Execution | high | 61603 |
 | `108711` | 12 | `T1003.001` T1003.001 | HackTool - WSASS Execution | high | 61603 |
 | `108712` | 12 | `T1003.001` T1003.001 | HackTool - WSASS Execution | high | 61603 |
 | `108713` | 12 | `T1036` T1036 | HackTool - XORDump Execution | high | 61603 |
@@ -2781,7 +2703,6 @@
 | `108743` | 12 | `T1036` T1036 | Renamed CreateDump Utility Execution | high | 61603 |
 | `108744` | 12 | `T1036` T1036 | Renamed CreateDump Utility Execution | high | 61603 |
 | `108745` | 12 | `T1036` T1036 | Renamed CreateDump Utility Execution | high | 61603 |
-| `108746` | 11 | `T1003` OS Credential Dumping | Capture Credentials with Rpcping.exe | medium | 61603 |
 | `108747` | 12 | `T1555.004` T1555.004 | Suspicious Key Manager Access | high | 61603 |
 | `108748` | 12 | `T1036` T1036 | Process Memory Dump Via Comsvcs.DLL | high | 61603 |
 | `108749` | 12 | `T1555` T1555 | Suspicious Serv-U Process Pattern | high | 61603 |
@@ -2973,7 +2894,7 @@
 | `111135` | 6 | `T1047` T1047 | Computer System Reconnaissance Via Wmic.EXE | medium | 61603 |
 | `111136` | 6 | `T1082` System Information Discovery | Uncommon System Information Discovery Via Wmic.EXE | medium | 61603 |
 
-### Lateral Movement (TA0008) — 78 rules
+### Lateral Movement (TA0008) — 72 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -2988,7 +2909,7 @@
 | `112508` | 11 | `T1021.002` T1021.002 | Suspicious named pipe: \psexe | high | 61620 |
 | `112509` | 10 | `T1021.002` T1021.002 | File created by psexec | medium | 61613 |
 | `112510` | 10 | `T1021.002` T1021.002 | DNS query by psexec | medium | 61624 |
-| `112511` | 11 | `T1021.002` T1021.002 | Suspicious service: PSEXESVC | high | 60106 |
+| `112511` | 11 | `T1021.002` T1021.002 | Suspicious service: PSEXESVC | high | 60002 |
 | `112512` | 11 | `T1072` T1072 | Restricted Software Access By SRP | high | 60003 |
 | `112513` | 10 | `T1021.004` T1021.004 | OpenSSH Server Listening On Socket | medium | 60000 |
 | `112514` | 11 | `T1550.002` T1550.002 | Successful Overpass the Hash Attempt | high | 60100 |
@@ -2999,9 +2920,6 @@
 | `112519` | 11 | `T1021.002` T1021.002 | DCOM InternetExplorer.Application Iertutil DLL Hijack - Security | high | 60100 |
 | `112520` | 11 | `T1021.002` T1021.002 | Impacket PsExec Execution | high | 60100 |
 | `112521` | 11 | `T1021.002` T1021.002 | First Time Seen Remote Named Pipe | high | 60100 |
-| `112522` | 11 | `T1021.002` T1021.002 | Metasploit SMB Authentication | high | 60100 |
-| `112523` | 11 | `T1021.002` T1021.002 | Metasploit SMB Authentication | high | 60100 |
-| `112524` | 11 | `T1021.002` T1021.002 | Metasploit Or Impacket Service Installation Via SMB PsExec | high | 60100 |
 | `112525` | 10 | `T1021.001` T1021.001 | Denied Access To Remote Desktop | medium | 60100 |
 | `112526` | 11 | `T1021.002` T1021.002 | Protected Storage Service Access | high | 60100 |
 | `112527` | 11 | `T1558.003` T1558.003 | Register new Logon Process by Rubeus | high | 60100 |
@@ -3010,14 +2928,11 @@
 | `112530` | 11 | `T1021.002` T1021.002 | Suspicious PsExec Execution | high | 60100 |
 | `112531` | 10 | `T1021.002` T1021.002 | Remote Service Activity via SVCCTL Named Pipe | medium | 60100 |
 | `112532` | 10 | `T1021.002` T1021.002 | Unsigned or Unencrypted SMB Connection to Share Established | medium | 60000 |
-| `112533` | 10 | `T1550.002` T1550.002 | NTLMv1 Logon Between Client and Server | medium | 60106 |
-| `112534` | 11 | `T1210` T1210 | Zerologon Exploitation Using Well-known Tools | high | 60106 |
-| `112535` | 11 | `T1021.002` T1021.002 | smbexec.py Service Installation | high | 60106 |
+| `112533` | 10 | `T1550.002` T1550.002 | NTLMv1 Logon Between Client and Server | medium | 60002 |
+| `112534` | 11 | `T1210` T1210 | Zerologon Exploitation Using Well-known Tools | high | 60002 |
+| `112535` | 11 | `T1021.002` T1021.002 | smbexec.py Service Installation | high | 60002 |
 | `112536` | 11 | `T1021.002` T1021.002 | Potential DCOM InternetExplorer.Application DLL Hijack | high | 61613 |
 | `112537` | 11 | `T1136.002` T1136.002 | PSEXEC Remote Execution File Artefact | high | 61613 |
-| `112538` | 11 | `T1047` T1047 | Wmiexec Default Output File | high | 61613 |
-| `112539` | 11 | `T1047` T1047 | Wmiexec Default Output File | high | 61613 |
-| `112540` | 11 | `T1047` T1047 | Wmiexec Default Output File | high | 61613 |
 | `112541` | 11 | `T1021.002` T1021.002 | Potential DCOM InternetExplorer.Application DLL Hijack - Image Load | high | 61609 |
 | `112542` | 10 | `T1546.003` T1546.003 | WMI ActiveScriptEventConsumers Activity Via Scrcons.EXE DLL Load | medium | 61609 |
 | `112543` | 11 | `T1218` T1218 | BaaUpdate.exe Suspicious DLL Load | high | 61609 |
@@ -3065,7 +2980,7 @@
 | `113502` | 8 | `T1557.003` T1557.003 | Potential Kerberos Coercion by Spoofing SPNs via DNS Manipulation | high | 60100 |
 | `113503` | 8 | `T1557.003` T1557.003 | Potential Kerberos Coercion by Spoofing SPNs via DNS Manipulation | high | 60100 |
 | `113504` | 7 | `T1039` T1039 | Suspicious Access to Sensitive File Extensions | medium | 60100 |
-| `113505` | 8 | `T1557.001` T1557.001 | Local Privilege Escalation Indicator TabTip | high | 60106 |
+| `113505` | 8 | `T1557.001` T1557.001 | Local Privilege Escalation Indicator TabTip | high | 60002 |
 | `113506` | 7 | `T1195.002` T1195.002 | Notepad++ Updater DNS Query to Uncommon Domains | medium | 61624 |
 | `113507` | 8 | `T1557.001` T1557.001 | Suspicious DNS Query Indicating Kerberos Coercion via DNS Object SP... | high | 61624 |
 | `113508` | 8 | `T1195.002` T1195.002 | Uncommon File Created by Notepad++ Updater Gup.EXE | high | 61613 |
@@ -3112,7 +3027,7 @@
 | `113549` | 7 | `T1113` T1113 | Periodic Backup For System Registry Hives Enabled | medium | 61615 |
 | `113550` | 7 | `T1113` T1113 | Windows Recall Feature Enabled - Registry | medium | 61615 |
 
-### Command and Control (TA0011) — 193 rules
+### Command and Control (TA0011) — 191 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -3129,8 +3044,8 @@
 | `110010` | 10 | `T1090.001` T1090.001 | RDP over Reverse SSH Tunnel WFP | high | 60100 |
 | `110011` | 10 | `T1001.003` T1001.003 | Suspicious LDAP-Attributes Used | high | 60100 |
 | `110012` | 10 | `T1027` Obfuscated Files or Information | Password Protected ZIP File Opened (Suspicious Filenames) | high | 60100 |
-| `110013` | 9 | `T1219.002` T1219.002 | Mesh Agent Service Installation | medium | 60106 |
-| `110014` | 9 | `T1219.002` T1219.002 | TacticalRMM Service Installation | medium | 60106 |
+| `110013` | 9 | `T1219.002` T1219.002 | Mesh Agent Service Installation | medium | 60002 |
+| `110014` | 9 | `T1219.002` T1219.002 | TacticalRMM Service Installation | medium | 60002 |
 | `110015` | 10 | `T1090` T1090 | Ngrok Usage with Remote Desktop Service | high | 60000 |
 | `110016` | 9 | `T1105` Ingress Tool Transfer | AppX Package Installation Attempts Via AppInstaller.EXE | medium | 61624 |
 | `110017` | 9 | `T1071.001` T1071.001 | Cloudflared Tunnels Related DNS Requests | medium | 61624 |
@@ -3193,7 +3108,6 @@
 | `110074` | 10 | `T1090.003` T1090.003 | Tor Client/Browser Execution | high | 61603 |
 | `110075` | 10 | `T1090.003` T1090.003 | Tor Client/Browser Execution | high | 61603 |
 | `110076` | 9 | `T1105` Ingress Tool Transfer | File Download via CertOC.EXE | medium | 61603 |
-| `110077` | 10 | `T1105` Ingress Tool Transfer | File Download From IP Based URL Via CertOC.EXE | high | 61603 |
 | `110078` | 10 | `T1105` Ingress Tool Transfer | Suspicious CertReq Command to Download | high | 61603 |
 | `110079` | 9 | `T1027` Obfuscated Files or Information | Suspicious Download Via Certutil.EXE | medium | 61603 |
 | `110080` | 10 | `T1027` Obfuscated Files or Information | Suspicious File Downloaded From Direct IP Via Certutil.EXE | high | 61603 |
@@ -3224,7 +3138,6 @@
 | `110105` | 9 | `T1105` Ingress Tool Transfer | Suspicious Diantz Download and Compress Into a CAB File | medium | 61603 |
 | `110106` | 9 | `T1105` Ingress Tool Transfer | Suspicious Extrac32 Execution | medium | 61603 |
 | `110107` | 10 | `T1105` Ingress Tool Transfer | PrintBrm ZIP Creation of Extraction | high | 61603 |
-| `110108` | 9 | `T1105` Ingress Tool Transfer | Replace.exe Usage | medium | 61603 |
 | `110109` | 10 | `T1218` T1218 | File Download Via Windows Defender MpCmpRun.EXE | high | 61603 |
 | `110110` | 9 | `T1218.007` T1218.007 | MsiExec Web Install | medium | 61603 |
 | `110111` | 10 | `T1219.002` T1219.002 | Suspicious Mstsc.EXE Execution With Local RDP File | high | 61603 |
@@ -3310,14 +3223,14 @@
 | `110191` | 9 | `T1071.001` T1071.001 | Visual Studio Code Tunnel Service Installation | medium | 61603 |
 | `110192` | 10 | `T1105` Ingress Tool Transfer | Lolbas OneDriveStandaloneUpdater.exe Proxy Download | high | 61615 |
 
-### Exfiltration (TA0010) — 37 rules
+### Exfiltration (TA0010) — 36 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
 | `114500` | 12 | `T1485` Data Destruction | MSSQL Destructive Query | medium | 60003 |
 | `114501` | 13 | `T1567.002` T1567.002 | DNS Query for Anonfiles.com Domain - DNS Client | high | 60000 |
 | `114502` | 12 | `T1567.002` T1567.002 | DNS Query To MEGA Hosting Website - DNS Client | medium | 60000 |
-| `114503` | 12 | `T1048` T1048 | Tap Driver Installation | medium | 60106 |
+| `114503` | 12 | `T1048` T1048 | Tap Driver Installation | medium | 60002 |
 | `114504` | 13 | `T1567.002` T1567.002 | DNS Query for Anonfiles.com Domain - Sysmon | high | 61624 |
 | `114505` | 12 | `T1567.002` T1567.002 | DNS Query To MEGA Hosting Website | medium | 61624 |
 | `114506` | 12 | `T1567.002` T1567.002 | Rclone Config File Creation | medium | 61613 |
@@ -3347,7 +3260,6 @@
 | `114530` | 13 | `T1048` T1048 | PUA - Restic Backup Tool Execution | high | 61603 |
 | `114531` | 13 | `T1012` T1012 | Exports Critical Registry Keys To a File | high | 61603 |
 | `114532` | 12 | `T1048.003` T1048.003 | WebDav Client Execution Via Rundll32.EXE | medium | 61603 |
-| `114533` | 13 | `T1048.003` T1048.003 | Suspicious WebDav Client Execution Via Rundll32.EXE | high | 61603 |
 | `114534` | 13 | `T1048` T1048 | Suspicious Redirection to Local Admin Share | high | 61603 |
 | `114535` | 12 | `T1048` T1048 | Tap Installer Execution | medium | 61603 |
 | `115001` | 13 | `T1003` OS Credential Dumping | credential_access_then_exfil | high | 110061 |
@@ -3359,8 +3271,8 @@
 | `114000` | 13 | `T1490` T1490 | Suspicious command: shadow copy | medium | 61603 |
 | `114001` | 13 | `T1489` Service Stop | Suspicious PowerShell: stop-service | medium | 91801 |
 | `114002` | 13 | `T1070.004` T1070.004 | Potential Secure Deletion with SDelete | medium | 60100 |
-| `114003` | 13 | `T1557` T1557 | ISATAP Router Address Was Set | medium | 60106 |
-| `114004` | 14 | `T1499.001` T1499.001 | NTFS Vulnerability Exploitation | high | 60106 |
+| `114003` | 13 | `T1557` T1557 | ISATAP Router Address Was Set | medium | 60002 |
+| `114004` | 14 | `T1499.001` T1499.001 | NTFS Vulnerability Exploitation | high | 60002 |
 | `114005` | 14 | `T1489` Service Stop | Important Scheduled Task Deleted or Disabled | high | 60000 |
 | `114006` | 13 | `T1490` T1490 | Backup Files Deleted | medium | 61625 |
 | `114007` | 13 | `T1486` Data Encrypted for Impact | Suspicious Appended Extension | medium | 61613 |
@@ -3411,17 +3323,17 @@ _One XML file per MITRE ATT&CK tactic. Best for broad deployment._
 | File | Rules |
 |------|-------|
 | `collection.xml` | 51 |
-| `command_and_control.xml` | 193 |
-| `credential_access.xml` | 295 |
+| `command_and_control.xml` | 191 |
+| `credential_access.xml` | 290 |
 | `defense_evasion.xml` | 42 |
 | `discovery.xml` | 137 |
-| `execution.xml` | 1166 |
-| `exfiltration.xml` | 37 |
+| `execution.xml` | 1118 |
+| `exfiltration.xml` | 36 |
 | `impact.xml` | 44 |
 | `initial_access.xml` | 32 |
-| `lateral_movement.xml` | 78 |
-| `persistence.xml` | 845 |
-| `privilege_escalation.xml` | 383 |
+| `lateral_movement.xml` | 72 |
+| `persistence.xml` | 839 |
+| `privilege_escalation.xml` | 363 |
 
 ### `database/rules/by_technique/`
 _One XML file per MITRE technique. Best for selective/granular deployment._
@@ -3429,13 +3341,13 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | File | Rules |
 |------|-------|
 | `T1001.003_unknown.xml` | 2 |
-| `T1003.001_unknown.xml` | 96 |
+| `T1003.001_unknown.xml` | 93 |
 | `T1003.002_unknown.xml` | 17 |
 | `T1003.003_unknown.xml` | 20 |
 | `T1003.004_unknown.xml` | 2 |
 | `T1003.005_unknown.xml` | 2 |
 | `T1003.006_unknown.xml` | 3 |
-| `T1003_credential_dumping.xml` | 31 |
+| `T1003_credential_dumping.xml` | 29 |
 | `T1005_data_from_local_system.xml` | 4 |
 | `T1010_unknown.xml` | 1 |
 | `T1012_unknown.xml` | 6 |
@@ -3443,7 +3355,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1018_unknown.xml` | 7 |
 | `T1020_unknown.xml` | 1 |
 | `T1021.001_unknown.xml` | 8 |
-| `T1021.002_unknown.xml` | 38 |
+| `T1021.002_unknown.xml` | 35 |
 | `T1021.003_unknown.xml` | 4 |
 | `T1021.004_unknown.xml` | 1 |
 | `T1021.005_unknown.xml` | 1 |
@@ -3451,9 +3363,9 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1021_remote_services.xml` | 3 |
 | `T1027.004_unknown.xml` | 2 |
 | `T1027.005_unknown.xml` | 2 |
-| `T1027.009_unknown.xml` | 1 |
+| `T1027.009_unknown.xml` | 0 |
 | `T1027.010_unknown.xml` | 2 |
-| `T1027_obfuscated_files.xml` | 80 |
+| `T1027_obfuscated_files.xml` | 52 |
 | `T1033_unknown.xml` | 17 |
 | `T1036.002_unknown.xml` | 2 |
 | `T1036.003_unknown.xml` | 19 |
@@ -3465,9 +3377,9 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1040_unknown.xml` | 8 |
 | `T1041_exfil_over_c2.xml` | 1 |
 | `T1046_unknown.xml` | 19 |
-| `T1047_unknown.xml` | 56 |
+| `T1047_unknown.xml` | 52 |
 | `T1048.001_unknown.xml` | 2 |
-| `T1048.003_unknown.xml` | 4 |
+| `T1048.003_unknown.xml` | 3 |
 | `T1048_exfil_over_alt_protocol.xml` | 8 |
 | `T1049_unknown.xml` | 3 |
 | `T1053.002_unknown.xml` | 2 |
@@ -3476,7 +3388,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1055.001_unknown.xml` | 5 |
 | `T1055.003_unknown.xml` | 1 |
 | `T1055.012_unknown.xml` | 3 |
-| `T1055_process_injection.xml` | 54 |
+| `T1055_process_injection.xml` | 35 |
 | `T1056.001_unknown.xml` | 3 |
 | `T1056.002_unknown.xml` | 4 |
 | `T1057_unknown.xml` | 1 |
@@ -3485,7 +3397,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1059.005_unknown.xml` | 11 |
 | `T1059.006_unknown.xml` | 2 |
 | `T1059.007_unknown.xml` | 1 |
-| `T1059_command_scripting.xml` | 70 |
+| `T1059_command_scripting.xml` | 68 |
 | `T1068_exploitation_for_privesc.xml` | 8 |
 | `T1069.001_unknown.xml` | 1 |
 | `T1069.002_unknown.xml` | 1 |
@@ -3513,12 +3425,12 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1098_unknown.xml` | 11 |
 | `T1102.002_unknown.xml` | 1 |
 | `T1102_unknown.xml` | 7 |
-| `T1105_ingress_tool_transfer.xml` | 42 |
-| `T1106_unknown.xml` | 7 |
+| `T1105_ingress_tool_transfer.xml` | 40 |
+| `T1106_unknown.xml` | 6 |
 | `T1110.001_unknown.xml` | 1 |
 | `T1110.002_unknown.xml` | 2 |
 | `T1110_brute_force.xml` | 5 |
-| `T1112_unknown.xml` | 64 |
+| `T1112_unknown.xml` | 62 |
 | `T1113_unknown.xml` | 6 |
 | `T1114.001_unknown.xml` | 1 |
 | `T1115_unknown.xml` | 2 |
@@ -3543,7 +3455,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1137.003_unknown.xml` | 1 |
 | `T1137.006_unknown.xml` | 7 |
 | `T1137_unknown.xml` | 9 |
-| `T1140_unknown.xml` | 12 |
+| `T1140_unknown.xml` | 11 |
 | `T1176.001_unknown.xml` | 2 |
 | `T1185_unknown.xml` | 3 |
 | `T1187_unknown.xml` | 2 |
@@ -3553,7 +3465,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1197_unknown.xml` | 13 |
 | `T1200_unknown.xml` | 1 |
 | `T1201_unknown.xml` | 1 |
-| `T1202_unknown.xml` | 22 |
+| `T1202_unknown.xml` | 21 |
 | `T1203_unknown.xml` | 7 |
 | `T1204.001_unknown.xml` | 2 |
 | `T1204.002_unknown.xml` | 19 |
@@ -3570,12 +3482,12 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1218.003_unknown.xml` | 7 |
 | `T1218.004_unknown.xml` | 3 |
 | `T1218.005_unknown.xml` | 11 |
-| `T1218.007_unknown.xml` | 8 |
+| `T1218.007_unknown.xml` | 7 |
 | `T1218.008_unknown.xml` | 8 |
 | `T1218.009_unknown.xml` | 3 |
 | `T1218.010_unknown.xml` | 14 |
 | `T1218.011_unknown.xml` | 34 |
-| `T1218_unknown.xml` | 113 |
+| `T1218_unknown.xml` | 110 |
 | `T1219.002_unknown.xml` | 54 |
 | `T1219_unknown.xml` | 2 |
 | `T1220_unknown.xml` | 3 |
@@ -3592,7 +3504,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1497.001_unknown.xml` | 1 |
 | `T1499.001_unknown.xml` | 1 |
 | `T1505.002_unknown.xml` | 3 |
-| `T1505.003_unknown.xml` | 21 |
+| `T1505.003_unknown.xml` | 20 |
 | `T1505.004_unknown.xml` | 1 |
 | `T1518.001_unknown.xml` | 3 |
 | `T1518_unknown.xml` | 2 |
@@ -3602,7 +3514,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1531_unknown.xml` | 1 |
 | `T1539_unknown.xml` | 2 |
 | `T1542.001_unknown.xml` | 2 |
-| `T1543.003_unknown.xml` | 534 |
+| `T1543.003_unknown.xml` | 532 |
 | `T1543_create_modify_service.xml` | 10 |
 | `T1546.001_unknown.xml` | 1 |
 | `T1546.002_unknown.xml` | 4 |
@@ -3625,7 +3537,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1547.010_unknown.xml` | 3 |
 | `T1547.015_unknown.xml` | 1 |
 | `T1547_boot_autostart.xml` | 6 |
-| `T1548.002_unknown.xml` | 63 |
+| `T1548.002_unknown.xml` | 62 |
 | `T1548_abuse_elevation.xml` | 7 |
 | `T1550.002_unknown.xml` | 4 |
 | `T1552.001_unknown.xml` | 4 |
@@ -3642,7 +3554,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1555.004_unknown.xml` | 4 |
 | `T1555.005_unknown.xml` | 1 |
 | `T1555_unknown.xml` | 9 |
-| `T1556.002_unknown.xml` | 2 |
+| `T1556.002_unknown.xml` | 1 |
 | `T1556_unknown.xml` | 2 |
 | `T1557.001_unknown.xml` | 10 |
 | `T1557.003_unknown.xml` | 2 |
@@ -3657,7 +3569,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1564.001_unknown.xml` | 6 |
 | `T1564.002_unknown.xml` | 2 |
 | `T1564.003_unknown.xml` | 5 |
-| `T1564.004_unknown.xml` | 18 |
+| `T1564.004_unknown.xml` | 14 |
 | `T1564.006_unknown.xml` | 1 |
 | `T1564_unknown.xml` | 7 |
 | `T1565_unknown.xml` | 1 |
@@ -3696,14 +3608,14 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1649_unknown.xml` | 4 |
 | `T1685.001_unknown.xml` | 25 |
 | `T1685.005_unknown.xml` | 8 |
-| `T1685_unknown.xml` | 122 |
+| `T1685_unknown.xml` | 120 |
 | `T1686.003_unknown.xml` | 14 |
 | `T1689_unknown.xml` | 1 |
 | `unknown_collection.xml` | 1 |
 | `unknown_command_and_control.xml` | 5 |
 | `unknown_credential_access.xml` | 7 |
 | `unknown_discovery.xml` | 14 |
-| `unknown_execution.xml` | 160 |
+| `unknown_execution.xml` | 157 |
 | `unknown_exfiltration.xml` | 5 |
 | `unknown_initial_access.xml` | 4 |
 | `unknown_lateral_movement.xml` | 3 |
@@ -3717,10 +3629,10 @@ _Grouped by Windows event source (Sysmon, Security, PowerShell, System). Aligns 
 |------|-------|
 | `application.xml` | 60 |
 | `composite.xml` | 4 |
-| `powershell.xml` | 226 |
-| `security.xml` | 156 |
-| `sysmon.xml` | 2266 |
-| `system.xml` | 591 |
+| `powershell.xml` | 211 |
+| `security.xml` | 152 |
+| `sysmon.xml` | 2200 |
+| `system.xml` | 588 |
 
 ## Deployment to Wazuh
 

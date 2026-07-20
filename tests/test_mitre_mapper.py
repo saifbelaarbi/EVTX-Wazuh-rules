@@ -146,3 +146,53 @@ def test_classify_for_pattern():
     m = classify_for_pattern(pattern)
     assert m.technique_id == "T1003.001"
     assert m.tactic == "credential_access"
+
+
+# ── Expanded indicator coverage ──
+
+
+def test_schtasks_create_maps_to_scheduled_task():
+    m = classify(event_id=1, provider="Microsoft-Windows-Sysmon", indicators=["schtasks /create /tn evil /tr cmd.exe"])
+    assert m.technique_id == "T1053.005"
+    assert m.tactic == "persistence"
+
+
+def test_wmic_shadowcopy_delete_beats_generic_wmic():
+    """The longer 'wmic shadowcopy delete' indicator must win over bare 'wmic'."""
+    m = classify(event_id=1, provider="Microsoft-Windows-Sysmon", indicators=["wmic shadowcopy delete"])
+    assert m.technique_id == "T1490"
+    assert m.tactic == "impact"
+
+
+def test_bare_wmic_still_maps_to_wmi():
+    m = classify(event_id=1, provider="Microsoft-Windows-Sysmon", indicators=["wmic process list"])
+    assert m.technique_id == "T1047"
+    assert m.tactic == "execution"
+
+
+def test_nltest_domain_trusts_maps_to_trust_discovery():
+    m = classify(event_id=1, provider="Microsoft-Windows-Sysmon", indicators=["nltest /domain_trusts /all_trusts"])
+    assert m.technique_id == "T1482"
+    assert m.tactic == "discovery"
+
+
+def test_adfind_maps_to_domain_account_discovery():
+    m = classify(event_id=1, provider="Microsoft-Windows-Sysmon", indicators=["adfind.exe -f objectcategory=user"])
+    assert m.technique_id == "T1087.002"
+    assert m.tactic == "discovery"
+
+
+def test_netsh_firewall_disable_maps_to_defense_evasion():
+    m = classify(
+        event_id=1,
+        provider="Microsoft-Windows-Sysmon",
+        indicators=["netsh advfirewall set allprofiles state off"],
+    )
+    assert m.technique_id == "T1562.004"
+    assert m.tactic == "defense_evasion"
+
+
+def test_fsutil_deletejournal_maps_to_indicator_removal():
+    m = classify(event_id=1, provider="Microsoft-Windows-Sysmon", indicators=["fsutil usn deletejournal /d c:"])
+    assert m.technique_id == "T1070"
+    assert m.tactic == "defense_evasion"

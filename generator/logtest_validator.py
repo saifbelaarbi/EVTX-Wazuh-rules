@@ -8,6 +8,7 @@ import re
 import subprocess
 import time
 from dataclasses import dataclass, field
+from functools import lru_cache
 from pathlib import Path
 
 import yaml
@@ -167,6 +168,21 @@ def _osregex_to_python(pattern: str) -> str:
     return "".join(out)
 
 
+@lru_cache(maxsize=65536)
+def _compile_alternative(alt: str) -> re.Pattern | None:
+    """Convert one OSRegex alternative to a compiled Python regex (cached).
+
+    The simulator evaluates thousands of rule patterns per run and the same
+    pattern strings recur across rules; converting + compiling each time was
+    the simulator's hot spot. Returns None when the converted pattern is not
+    valid Python regex (caller falls back to substring matching).
+    """
+    try:
+        return re.compile(_osregex_to_python(alt), re.IGNORECASE | re.DOTALL)
+    except re.error:
+        return None
+
+
 def _match_field(pattern: str, value: str) -> bool:
     """Simulate Wazuh field matching.
 
@@ -180,18 +196,15 @@ def _match_field(pattern: str, value: str) -> bool:
     if not pattern:
         return True
 
-    alternatives = pattern.split("|")
-
-    for alt in alternatives:
+    for alt in pattern.split("|"):
         if not alt:
             continue
-        try:
-            py_pattern = _osregex_to_python(alt)
-            if re.search(py_pattern, value, re.IGNORECASE | re.DOTALL):
+        compiled = _compile_alternative(alt)
+        if compiled is not None:
+            if compiled.search(value):
                 return True
-        except re.error:
-            if alt.lower() in value.lower():
-                return True
+        elif alt.lower() in value.lower():
+            return True
 
     return False
 
@@ -816,7 +829,21 @@ def _resolve_sample_event(rule_id, rule_meta: dict) -> tuple[dict | None, str]:
     return None, ""
 
 
+# Live logtest hits a real Wazuh manager (API/SSH), so cap those runs to keep
+# iteration fast; override with EVTX_LOGTEST_LIVE_CAP=0 for a full live run.
+# Offline simulation is cheap and MUST cover the whole database — CI and the
+# published pass-rate metrics depend on complete validation_results.json.
 LIVE_CAP = 100
+
+
+def _cap_for_mode(mode: str) -> int:
+    """Return the max rules to validate for a mode (0 = unlimited)."""
+    if mode != "live":
+        return 0
+    try:
+        return int(os.environ.get("EVTX_LOGTEST_LIVE_CAP", LIVE_CAP))
+    except ValueError:
+        return LIVE_CAP
 
 
 def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> list[ValidationResult]:
@@ -831,9 +858,10 @@ def validate_all_rules(mode: str = "simulate", source_filter: str = None) -> lis
             continue
         work_items.append((rule_id_str, meta))
 
-    if len(work_items) > LIVE_CAP:
-        console.print(f"[yellow]Capped to {LIVE_CAP} rules (of {len(work_items)})[/]")
-        work_items = work_items[:LIVE_CAP]
+    cap = _cap_for_mode(mode)
+    if cap and len(work_items) > cap:
+        console.print(f"[yellow]Capped to {cap} rules (of {len(work_items)})[/]")
+        work_items = work_items[:cap]
 
     total = len(work_items)
     console.print(f"\n[bold]Validating {total} rules (mode={mode})[/]")

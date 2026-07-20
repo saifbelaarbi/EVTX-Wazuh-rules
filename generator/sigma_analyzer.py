@@ -9,6 +9,11 @@ from rich.table import Table
 
 console = Console()
 
+# Prefer libyaml's C loader when the wheel ships with it — parsing thousands
+# of SigmaHQ YAML files is the dominant cost of convert-sigma, and the C
+# loader is typically 5-10x faster than the pure-Python SafeLoader.
+_YAML_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
+
 
 SIGMA_STATUS_PRIORITY = {"stable": 3, "test": 2, "experimental": 1, "deprecated": 0}
 
@@ -142,7 +147,7 @@ def parse_sigma_rule(file_path: Path) -> dict | None:
 
             rule = json.loads(content)
         else:
-            docs = list(yaml.safe_load_all(content))
+            docs = list(yaml.load_all(content, Loader=_YAML_LOADER))
             if not docs:
                 return None
             rule = docs[0]

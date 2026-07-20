@@ -83,6 +83,10 @@ SUSPICIOUS_PROCESSES = {
     "winpeas",
     "linpeas",
     "seatbelt",
+    "adfind",
+    "powerview",
+    "gsecdump",
+    "certipy",
     "certutil",
     "bitsadmin",
     "mshta",
@@ -134,6 +138,7 @@ SUSPICIOUS_CMD_PATTERNS = [
     "invoke-wmimethod",
     "new-scheduledtask",
     "register-scheduledjob",
+    "schtasks /create",
     "wevtutil cl",
     "wevtutil sl",
     "stop-service",
@@ -141,6 +146,12 @@ SUSPICIOUS_CMD_PATTERNS = [
     "sc config",
     "disable-windowsoptionalfeature",
     "set-executionpolicy unrestricted",
+    "nltest /domain_trusts",
+    "nltest /dclist",
+    "wmic shadowcopy delete",
+    "fsutil usn deletejournal",
+    "netsh advfirewall set",
+    "netsh firewall set",
 ]
 
 # Suspicious service names/paths for 7045 detection
@@ -216,7 +227,6 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
     if event_id == 1 and "Microsoft-Windows-Sysmon" in provider:
         image = event_data.get("Image", "").lower()
         cmdline = event_data.get("CommandLine", "").lower()
-        event_data.get("ParentImage", "").lower()
 
         # Check for known suspicious processes — match on the field the
         # indicator actually appeared in, or the rule never fires.
@@ -286,7 +296,6 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
 
     # === Sysmon CreateRemoteThread (Event ID 8) ===
     elif event_id == 8 and "Sysmon" in provider:
-        event_data.get("SourceImage", "").lower()
         target_image = event_data.get("TargetImage", "").lower()
         if "lsass" in target_image:
             patterns.append(
@@ -405,7 +414,6 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
     elif event_id == 7 and "Sysmon" in provider:
         image_loaded = event_data.get("ImageLoaded", "").lower()
         image = event_data.get("Image", "").lower()
-        event_data.get("Signed", "").lower()
         for susp in SUSPICIOUS_IMAGE_LOAD_PATTERNS:
             if susp in image_loaded:
                 patterns.append(
@@ -759,7 +767,6 @@ def analyze_event(event: dict, source_path: str = "") -> list[DetectionPattern]:
     # === Windows Security - Scheduled Task Created (4698) ===
     elif event_id == 4698 and "Security" in channel:
         task_name = event_data.get("TaskName", "")
-        event_data.get("TaskContent", "").lower()
         patterns.append(
             DetectionPattern(
                 event_id=event_id,

@@ -40,14 +40,16 @@ HIGH_SEVERITY_INDICATORS = {
 }
 
 
-def calculate_level(rule: dict) -> int:
+def calculate_level(rule: dict, fp_penalties: dict[str, int] | None = None) -> int:
     """Calculate the alert level for a rule.
 
     Considers:
     1. MITRE tactic base severity
     2. Detection confidence
     3. Specific indicator overrides
-    4. Existing rules in the same tactic (consistency)
+    4. False-positive feedback (``fp_penalties``: rule_id -> negative delta;
+       pass a precomputed map when leveling in bulk so the FP journal is read
+       once instead of once per rule)
     """
     metadata = rule["metadata"]
     tactic = metadata.get("tactic", "composite")
@@ -76,12 +78,15 @@ def calculate_level(rule: dict) -> int:
     # Feedback loop: rules with repeated reported false positives are demoted.
     rule_id = metadata.get("rule_id")
     if rule_id is not None:
-        try:
-            from . import fp_tracker
+        if fp_penalties is not None:
+            level += fp_penalties.get(str(rule_id), 0)
+        else:
+            try:
+                from . import fp_tracker
 
-            level += fp_tracker.level_penalty(str(rule_id))
-        except Exception:
-            pass
+                level += fp_tracker.level_penalty(str(rule_id))
+            except Exception:
+                pass
 
     # Clamp to valid Wazuh range (0-15)
     level = max(1, min(15, level))
@@ -89,10 +94,21 @@ def calculate_level(rule: dict) -> int:
     return level
 
 
+def _load_fp_penalties() -> dict[str, int]:
+    """Read the FP journal once and return rule_id -> level delta."""
+    try:
+        from . import fp_tracker
+
+        return fp_tracker.suggest_level_adjustments()
+    except Exception:
+        return {}
+
+
 def apply_levels(rules: list[dict]) -> list[dict]:
     """Apply alert levels to a list of rules."""
+    fp_penalties = _load_fp_penalties()
     for rule in rules:
-        level = calculate_level(rule)
+        level = calculate_level(rule, fp_penalties=fp_penalties)
         rule["level"] = level
         rule["xml_element"].set("level", str(level))
         rule["metadata"]["level"] = level
