@@ -315,7 +315,8 @@
       <id>T1048.003</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
-  </rule>  <rule id="114534" level="13">
+  </rule>
+  <rule id="114534" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">\\\\\\\\127.0.0.1\\\\admin\$\\\\|\\\\\\\\localhost\\\\admin\$\\\\</field>
     <description>Sigma: Suspicious Redirection to Local Admin Share</description>
@@ -332,16 +333,5 @@
       <id>T1048</id>
     </mitre>
     <group>exfiltration,sigma_converted,</group>
-  </rule>
-  <rule id="115001" level="13" frequency="2" timeframe="300">
-    <if_sid>110061</if_sid>
-    <if_matched_sid>108501</if_matched_sid>
-    <same_field>win.system.computer</same_field>
-    <description>LSASS credential dumping followed by an outbound connection from a suspicious path on the same host within 5 minutes</description>
-    <mitre>
-      <id>T1003</id>
-      <id>T1041</id>
-    </mitre>
-    <group>composite,chained,</group>
   </rule>
 </group>

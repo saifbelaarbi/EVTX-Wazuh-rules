@@ -1,4 +1,4 @@
-<group name="windows,composite,">
+<group name="windows,composites,">
   <rule id="115000" level="12" frequency="2" timeframe="300">
     <if_sid>112501</if_sid>
     <if_matched_sid>111071</if_matched_sid>

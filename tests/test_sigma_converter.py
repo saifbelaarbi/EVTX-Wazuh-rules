@@ -431,3 +431,43 @@ def test_basic_conversion_produces_rule():
     xml_str = etree.tostring(r["xml_element"], encoding="unicode")
     assert "mimikatz" in xml_str
     assert "$" in xml_str  # endswith anchor
+
+
+# ── Oversized pattern splitting (Wazuh OS_XML buffer) ──
+
+
+def test_oversized_alternation_split_into_sibling_rules():
+    from generator.sigma_converter import MAX_FIELD_PATTERN_LEN, convert_sigma_rule
+
+    hashes = [f"MD5={i:032x}" for i in range(400)]  # ~15k chars combined
+    sigma_rule = {
+        "title": "Huge hash blocklist",
+        "id": "aaaa-bbbb",
+        "level": "high",
+        "logsource": {"category": "driver_load", "product": "windows"},
+        "tags": ["attack.persistence", "attack.t1543.003"],
+        "detection": {
+            "selection": {"Hashes|contains": hashes},
+            "condition": "selection",
+        },
+    }
+    rules = convert_sigma_rule(sigma_rule)
+    assert len(rules) > 1
+    for r in rules:
+        for pattern in r["metadata"]["field_matches"].values():
+            assert len(pattern) <= MAX_FIELD_PATTERN_LEN
+    # OR semantics preserved: every hash appears in exactly one sibling
+    combined = "|".join(r["metadata"]["field_matches"]["win.eventdata.hashes"] for r in rules)
+    assert combined.count("MD5=") == 400
+    # description marks the parts
+    descs = [r["xml_element"].find("description").text for r in rules]
+    assert any("[1/" in d for d in descs)
+
+
+def test_chunk_alternation_respects_cap():
+    from generator.sigma_converter import _chunk_alternation
+
+    pattern = "|".join(f"value{i}" for i in range(1000))
+    chunks = _chunk_alternation(pattern, max_len=200)
+    assert all(len(c) <= 200 for c in chunks)
+    assert "|".join(chunks) == pattern

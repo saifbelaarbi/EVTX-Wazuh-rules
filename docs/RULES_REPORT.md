@@ -1,13 +1,13 @@
 # Wazuh Rule Database Report
 
-> Generated: 2026-07-20 06:28 UTC
+> Generated: 2026-07-20 10:10 UTC
 > Pipeline version: 1.0.0
 
 ## Overview
 
 | Metric | Value |
 |--------|-------|
-| Total rules generated | **3215** |
+| Total rules generated | **3260** |
 | EVTX files processed | 2294 |
 | EVTX sources used | 1 |
 | MITRE tactics covered | 12 / 12 |
@@ -19,21 +19,21 @@
 | Level | Wazuh Severity | Count | Percentage |
 |-------|----------------|-------|------------|
 | 6 | Low relevance | 88 | 2.7% █ |
-| 7 | Bad word matching | 76 | 2.4% █ |
-| 8 | First time seen | 542 | 16.9% ████████ |
-| 9 | Error from invalid source | 1369 | 42.6% █████████████████████ |
-| 10 | Multiple user-generated errors | 447 | 13.9% ██████ |
-| 11 | Integrity checking warning | 343 | 10.7% █████ |
-| 12 | High importance event | 232 | 7.2% ███ |
-| 13 | Unusual error (high importance) | 86 | 2.7% █ |
+| 7 | Bad word matching | 76 | 2.3% █ |
+| 8 | First time seen | 543 | 16.7% ████████ |
+| 9 | Error from invalid source | 1369 | 42.0% ████████████████████ |
+| 10 | Multiple user-generated errors | 491 | 15.1% ███████ |
+| 11 | Integrity checking warning | 343 | 10.5% █████ |
+| 12 | High importance event | 232 | 7.1% ███ |
+| 13 | Unusual error (high importance) | 86 | 2.6% █ |
 | 14 | High importance security event | 32 | 1.0%  |
 
 ## Detection Confidence Distribution
 
 | Confidence | Count | Description |
 |------------|-------|-------------|
-| high | 1525 | Exact tool/process name match |
-| medium | 1682 | Command-line pattern or behavioral indicator |
+| high | 1569 | Exact tool/process name match |
+| medium | 1683 | Command-line pattern or behavioral indicator |
 | low | 8 | Heuristic / generic event |
 
 ## Rules by MITRE ATT&CK Tactic
@@ -75,7 +75,7 @@
 | `113030` | 8 | `T1566.001` T1566.001 | Windows Registry Trust Record Modification | medium | 61615 |
 | `113031` | 9 | `T1133` T1133 | Running Chrome VPN Extensions via the Registry 2 VPN Extension | high | 61615 |
 
-### Execution (TA0002) — 1118 rules
+### Execution (TA0002) — 1119 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -818,7 +818,6 @@
 | `100775` | 8 | `T1569.002` T1569.002 | PUA - NirCmd Execution | medium | 61603 |
 | `100776` | 9 | `T1569.002` T1569.002 | PUA - NirCmd Execution As LOCAL SYSTEM | high | 61603 |
 | `100777` | 9 | `T1569.002` T1569.002 | PUA - NSudo Execution | high | 61603 |
-| `100778` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
 | `100779` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
 | `100780` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
 | `100781` | 8 | `T1595` T1595 | PUA - PingCastle Execution | medium | 61603 |
@@ -1197,8 +1196,10 @@
 | `101163` | 9 | - | Sysmon Blocked File Shredding | high | 60004 |
 | `101164` | 8 | - | Sysmon File Executable Creation Detected | medium | 60004 |
 | `101165` | 9 | `T1059.005` T1059.005 | Suspicious Scripting in a WMI Consumer | high | 61621 |
+| `101166` | 8 | `T1595` T1595 | PUA - PingCastle Execution [1/2] | medium | 61603 |
+| `101167` | 8 | `T1595` T1595 | PUA - PingCastle Execution [2/2] | medium | 61603 |
 
-### Persistence (TA0003) — 839 rules
+### Persistence (TA0003) — 883 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1773,14 +1774,12 @@
 | `104570` | 9 | `T1546.003` T1546.003 | WMI Persistence | medium | 61621 |
 | `104571` | 10 | - | Potential Suspicious Winget Package Installation | high | 61617 |
 | `104572` | 10 | `T1554` T1554 | DNS HybridConnectionManager Service Bus | high | 61624 |
-| `104573` | 10 | `T1543.003` T1543.003 | Malicious Driver Load | high | 61608 |
 | `104574` | 13 | `T1543.003` T1543.003 | Malicious Driver Load By Name | medium | 61608 |
 | `104575` | 10 | `T1543` Create or Modify System Process | PUA - Process Hacker Driver Load | high | 61608 |
 | `104576` | 10 | `T1543` Create or Modify System Process | PUA - Process Hacker Driver Load | high | 61608 |
 | `104577` | 9 | `T1543` Create or Modify System Process | PUA - System Informer Driver Load | medium | 61608 |
 | `104578` | 9 | `T1543` Create or Modify System Process | PUA - System Informer Driver Load | medium | 61608 |
 | `104579` | 10 | `T1543.003` T1543.003 | Driver Load From A Temporary Directory | high | 61608 |
-| `104580` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load | high | 61608 |
 | `104581` | 10 | `T1543.003` T1543.003 | Vulnerable HackSys Extreme Vulnerable Driver Load | high | 61608 |
 | `104582` | 10 | `T1543.003` T1543.003 | Vulnerable HackSys Extreme Vulnerable Driver Load | high | 61608 |
 | `104583` | 10 | `T1543.003` T1543.003 | Vulnerable WinRing0 Driver Load | high | 61608 |
@@ -1827,7 +1826,6 @@
 | `104624` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Of DBGHELP.DLL | medium | 61609 |
 | `104625` | 10 | `T1574.001` T1574.001 | Potential EACore.DLL Sideloading | high | 61609 |
 | `104626` | 10 | `T1574.001` T1574.001 | Potential Edputil.DLL Sideloading | high | 61609 |
-| `104627` | 10 | `T1574.001` T1574.001 | Potential System DLL Sideloading From Non System Locations | high | 61609 |
 | `104628` | 9 | `T1574.001` T1574.001 | Potential Goopdate.DLL Sideloading | medium | 61609 |
 | `104629` | 9 | `T1574.001` T1574.001 | Potential DLL Sideloading Of Libcurl.DLL Via GUP.EXE | medium | 61609 |
 | `104630` | 10 | `T1574.001` T1574.001 | Potential Iviewers.DLL Sideloading | high | 61609 |
@@ -2040,6 +2038,53 @@
 | `104841` | 10 | `T1112` T1112 | Wdigest Enable UseLogonCredential | high | 61615 |
 | `104842` | 9 | - | Enable Local Manifest Installation With Winget | medium | 61615 |
 | `104843` | 9 | `T1112` T1112 | Winlogon AllowMultipleTSSessions Enable | medium | 61615 |
+| `104844` | 10 | `T1543.003` T1543.003 | Malicious Driver Load [1/7] | high | 61608 |
+| `104845` | 10 | `T1543.003` T1543.003 | Malicious Driver Load [2/7] | high | 61608 |
+| `104846` | 10 | `T1543.003` T1543.003 | Malicious Driver Load [3/7] | high | 61608 |
+| `104847` | 10 | `T1543.003` T1543.003 | Malicious Driver Load [4/7] | high | 61608 |
+| `104848` | 10 | `T1543.003` T1543.003 | Malicious Driver Load [5/7] | high | 61608 |
+| `104849` | 10 | `T1543.003` T1543.003 | Malicious Driver Load [6/7] | high | 61608 |
+| `104850` | 10 | `T1543.003` T1543.003 | Malicious Driver Load [7/7] | high | 61608 |
+| `104851` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [1/38] | high | 61608 |
+| `104852` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [2/38] | high | 61608 |
+| `104853` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [3/38] | high | 61608 |
+| `104854` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [4/38] | high | 61608 |
+| `104855` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [5/38] | high | 61608 |
+| `104856` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [6/38] | high | 61608 |
+| `104857` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [7/38] | high | 61608 |
+| `104858` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [8/38] | high | 61608 |
+| `104859` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [9/38] | high | 61608 |
+| `104860` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [10/38] | high | 61608 |
+| `104861` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [11/38] | high | 61608 |
+| `104862` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [12/38] | high | 61608 |
+| `104863` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [13/38] | high | 61608 |
+| `104864` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [14/38] | high | 61608 |
+| `104865` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [15/38] | high | 61608 |
+| `104866` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [16/38] | high | 61608 |
+| `104867` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [17/38] | high | 61608 |
+| `104868` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [18/38] | high | 61608 |
+| `104869` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [19/38] | high | 61608 |
+| `104870` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [20/38] | high | 61608 |
+| `104871` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [21/38] | high | 61608 |
+| `104872` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [22/38] | high | 61608 |
+| `104873` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [23/38] | high | 61608 |
+| `104874` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [24/38] | high | 61608 |
+| `104875` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [25/38] | high | 61608 |
+| `104876` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [26/38] | high | 61608 |
+| `104877` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [27/38] | high | 61608 |
+| `104878` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [28/38] | high | 61608 |
+| `104879` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [29/38] | high | 61608 |
+| `104880` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [30/38] | high | 61608 |
+| `104881` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [31/38] | high | 61608 |
+| `104882` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [32/38] | high | 61608 |
+| `104883` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [33/38] | high | 61608 |
+| `104884` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [34/38] | high | 61608 |
+| `104885` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [35/38] | high | 61608 |
+| `104886` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [36/38] | high | 61608 |
+| `104887` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [37/38] | high | 61608 |
+| `104888` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [38/38] | high | 61608 |
+| `104889` | 10 | `T1574.001` T1574.001 | Potential System DLL Sideloading From Non System Locations [1/2] | high | 61609 |
+| `104890` | 10 | `T1574.001` T1574.001 | Potential System DLL Sideloading From Non System Locations [2/2] | high | 61609 |
 | `115003` | 12 | `T1543` Create or Modify System Process | service_install_then_network | high | 110061 |
 
 ### Privilege Escalation (TA0004) — 363 rules
@@ -3324,16 +3369,17 @@ _One XML file per MITRE ATT&CK tactic. Best for broad deployment._
 |------|-------|
 | `collection.xml` | 51 |
 | `command_and_control.xml` | 191 |
-| `credential_access.xml` | 290 |
+| `credential_access.xml` | 289 |
 | `defense_evasion.xml` | 42 |
 | `discovery.xml` | 137 |
-| `execution.xml` | 1118 |
-| `exfiltration.xml` | 36 |
+| `execution.xml` | 1119 |
+| `exfiltration.xml` | 35 |
 | `impact.xml` | 44 |
 | `initial_access.xml` | 32 |
-| `lateral_movement.xml` | 72 |
-| `persistence.xml` | 839 |
+| `lateral_movement.xml` | 71 |
+| `persistence.xml` | 882 |
 | `privilege_escalation.xml` | 363 |
+| `zz_composites.xml` | 4 |
 
 ### `database/rules/by_technique/`
 _One XML file per MITRE technique. Best for selective/granular deployment._
@@ -3347,7 +3393,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1003.004_unknown.xml` | 2 |
 | `T1003.005_unknown.xml` | 2 |
 | `T1003.006_unknown.xml` | 3 |
-| `T1003_credential_dumping.xml` | 29 |
+| `T1003_credential_dumping.xml` | 28 |
 | `T1005_data_from_local_system.xml` | 4 |
 | `T1010_unknown.xml` | 1 |
 | `T1012_unknown.xml` | 6 |
@@ -3360,7 +3406,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1021.004_unknown.xml` | 1 |
 | `T1021.005_unknown.xml` | 1 |
 | `T1021.006_unknown.xml` | 5 |
-| `T1021_remote_services.xml` | 3 |
+| `T1021_remote_services.xml` | 2 |
 | `T1027.004_unknown.xml` | 2 |
 | `T1027.005_unknown.xml` | 2 |
 | `T1027.009_unknown.xml` | 0 |
@@ -3429,7 +3475,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1106_unknown.xml` | 6 |
 | `T1110.001_unknown.xml` | 1 |
 | `T1110.002_unknown.xml` | 2 |
-| `T1110_brute_force.xml` | 5 |
+| `T1110_brute_force.xml` | 4 |
 | `T1112_unknown.xml` | 62 |
 | `T1113_unknown.xml` | 6 |
 | `T1114.001_unknown.xml` | 1 |
@@ -3514,8 +3560,8 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1531_unknown.xml` | 1 |
 | `T1539_unknown.xml` | 2 |
 | `T1542.001_unknown.xml` | 2 |
-| `T1543.003_unknown.xml` | 532 |
-| `T1543_create_modify_service.xml` | 10 |
+| `T1543.003_unknown.xml` | 575 |
+| `T1543_create_modify_service.xml` | 9 |
 | `T1546.001_unknown.xml` | 1 |
 | `T1546.002_unknown.xml` | 4 |
 | `T1546.003_unknown.xml` | 20 |
@@ -3582,7 +3628,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1569_system_services.xml` | 2 |
 | `T1571_unknown.xml` | 3 |
 | `T1572_unknown.xml` | 14 |
-| `T1574.001_unknown.xml` | 72 |
+| `T1574.001_unknown.xml` | 73 |
 | `T1574.002_unknown.xml` | 5 |
 | `T1574.005_unknown.xml` | 1 |
 | `T1574.007_unknown.xml` | 1 |
@@ -3598,7 +3644,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1590.002_unknown.xml` | 1 |
 | `T1590_unknown.xml` | 1 |
 | `T1593.003_unknown.xml` | 1 |
-| `T1595_unknown.xml` | 13 |
+| `T1595_unknown.xml` | 14 |
 | `T1599.001_unknown.xml` | 2 |
 | `T1608_unknown.xml` | 1 |
 | `T1614.001_unknown.xml` | 2 |
@@ -3621,6 +3667,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `unknown_lateral_movement.xml` | 3 |
 | `unknown_persistence.xml` | 38 |
 | `unknown_privilege_escalation.xml` | 22 |
+| `zz_composites.xml` | 4 |
 
 ### `database/rules/by_source/`
 _Grouped by Windows event source (Sysmon, Security, PowerShell, System). Aligns with Wazuh decoder structure._
@@ -3628,11 +3675,11 @@ _Grouped by Windows event source (Sysmon, Security, PowerShell, System). Aligns 
 | File | Rules |
 |------|-------|
 | `application.xml` | 60 |
-| `composite.xml` | 4 |
 | `powershell.xml` | 211 |
 | `security.xml` | 152 |
-| `sysmon.xml` | 2200 |
+| `sysmon.xml` | 2245 |
 | `system.xml` | 588 |
+| `zz_composites.xml` | 4 |
 
 ## Deployment to Wazuh
 

@@ -144,9 +144,12 @@ def test_provider_powershell():
     assert "PowerShell" in ch
 
 
-def test_provider_unknown():
+def test_provider_unknown_never_empty():
+    """Both chain roots require a non-empty providerName, so even unknown
+    parents must get a synthetic provider or live logtest is guaranteed to fail."""
     ch, prov = _provider_for_parent(99999)
-    assert ch == ""
+    assert prov != ""
+    assert ch != ""
 
 
 # ── _resolve_sample_event ──

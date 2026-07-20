@@ -38,14 +38,4 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
-  <rule id="115002" level="12" frequency="5" timeframe="300">
-    <if_sid>112501</if_sid>
-    <if_matched_sid>108504</if_matched_sid>
-    <same_field>win.eventdata.targetUserName</same_field>
-    <description>Repeated failed logons followed by a successful remote logon for the same account within 5 minutes</description>
-    <mitre>
-      <id>T1110</id>
-    </mitre>
-    <group>composite,chained,</group>
-  </rule>
 </group>

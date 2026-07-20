@@ -18,15 +18,4 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
-  <rule id="115000" level="12" frequency="2" timeframe="300">
-    <if_sid>112501</if_sid>
-    <if_matched_sid>111071</if_matched_sid>
-    <same_field>win.system.computer</same_field>
-    <description>Account/group reconnaissance followed by a remote logon to the same host within 5 minutes</description>
-    <mitre>
-      <id>T1021</id>
-      <id>T1087</id>
-    </mitre>
-    <group>composite,chained,</group>
-  </rule>
 </group>

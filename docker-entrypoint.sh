@@ -179,31 +179,100 @@ except Exception:
     # The Wazuh logtest API does NOT use the native windows_eventchannel
     # decoder — it routes events through the JSON decoder instead.
     # Rule 60000 requires decoded_as=windows_eventchannel, so the entire
-    # parent chain never fires. We patch rule 60000 via the API to also
-    # accept decoded_as=json during logtest.
+    # parent chain never fires for JSON-decoded events.
+    #
+    # Rule 60000 itself CANNOT be redefined from etc/rules: it is a
+    # <category> root rule, and Wazuh rejects the override (7613 "does not
+    # exist but overwrite" followed by 7611 "Category was not found" —
+    # verified on 4.12, live pass rate was 0%). Instead we:
+    #   1. add a NEW JSON root rule (reserved id 119999, decoded_as=json),
+    #   2. overwrite the plain first-level channel classifiers
+    #      (60001/60002/60003/60004/60005/60016/60018, and 91801 for
+    #      PowerShell) so they chain from BOTH 60000 and 119999,
+    #   3. rewrite deployed custom rules that chain directly off 60000 to
+    #      also accept 119999 (sed below).
+    # Production behavior is unchanged: the classifiers keep 60000 as
+    # parent, and the bridge file is only ever deployed here.
     echo ""
-    echo ">> Patching rule 60000 for logtest compatibility..."
-    cat > /rules-deploy/0000-logtest-bridge.xml << 'RULEXML'
-<!-- Override rule 60000 to accept JSON-decoded events in logtest.
-     The native windows_eventchannel decoder is not available in the
-     logtest engine, so events arrive as decoded_as=json instead.
-     This override makes the entire parent chain (60000→60004→61600→
-     61603→custom rules) fire for JSON-decoded Windows events.
-     NOTE: <category>ossec</category> is OMITTED — Wazuh rejects it in
-     custom rules (etc/rules/) with error 7611 "Category was not found",
-     which causes the rule to be ignored. Without <category>, the rule
-     loads via the 7613 "still loaded" fallback and matches on
-     decoded_as + field instead. -->
+    echo ">> Deploying logtest bridge (JSON root + classifier overwrites)..."
+    cat > /rules-deploy/zzz-logtest-bridge.xml << 'RULEXML'
+<!-- Logtest bridge: lets JSON-decoded Windows events (as produced by the
+     wazuh-logtest engine) enter the same rule chain that production
+     windows_eventchannel events use. Named zzz-* so it loads after every
+     other file in etc/rules and the overwrite targets already exist. -->
 <group name="windows,">
-  <rule id="60000" level="0" overwrite="yes">
+  <rule id="119999" level="0">
     <decoded_as>json</decoded_as>
     <field name="win.system.providerName">\.+</field>
     <options>no_full_log</options>
-    <description>Group of windows rules</description>
+    <description>Logtest bridge: JSON-decoded Windows events root</description>
+  </rule>
+
+  <rule id="60001" level="0" overwrite="yes">
+    <if_sid>60000,119999</if_sid>
+    <field name="win.system.channel">^Security$</field>
+    <options>no_full_log</options>
+    <description>Group of Windows rules for the security channel.</description>
+  </rule>
+
+  <rule id="60002" level="0" overwrite="yes">
+    <if_sid>60000,119999</if_sid>
+    <field name="win.system.channel">^System$</field>
+    <options>no_full_log</options>
+    <description>Group of Windows rules for the system channel.</description>
+  </rule>
+
+  <rule id="60003" level="0" overwrite="yes">
+    <if_sid>60000,119999</if_sid>
+    <field name="win.system.channel">^Application$</field>
+    <options>no_full_log</options>
+    <description>Group of Windows rules for the application channel.</description>
+  </rule>
+
+  <rule id="60004" level="0" overwrite="yes">
+    <if_sid>60000,119999</if_sid>
+    <field name="win.system.channel">^Microsoft-Windows-Sysmon/Operational$</field>
+    <options>no_full_log</options>
+    <description>Group of Windows rules for the sysmon channel.</description>
+  </rule>
+
+  <rule id="60005" level="0" overwrite="yes">
+    <if_sid>60000,119999</if_sid>
+    <field name="win.system.channel">^Microsoft-Windows-Windows Defender/Operational$</field>
+    <options>no_full_log</options>
+    <description>Group of Windows rules for the Defender channel.</description>
+  </rule>
+
+  <rule id="60016" level="0" overwrite="yes">
+    <if_sid>60000,119999</if_sid>
+    <field name="win.system.channel">^Microsoft-Windows-Windows Firewall With Advanced Security/Firewall$</field>
+    <options>no_full_log</options>
+    <description>Group of Microsoft Windows firewall with advanced security rules.</description>
+  </rule>
+
+  <rule id="60018" level="0" overwrite="yes">
+    <if_sid>60000,119999</if_sid>
+    <field name="win.system.providerName">^Microsoft-Windows-WMI-Activity$</field>
+    <options>no_full_log</options>
+    <description>Group of Microsoft Windows Management Instrumentation (WMI) rules.</description>
+  </rule>
+
+  <rule id="91801" level="0" overwrite="yes">
+    <if_sid>60000,60010,119999</if_sid>
+    <field name="win.system.channel">^Microsoft-Windows-PowerShell/Operational$|^Windows PowerShell$|^PowerShellCore/Operational$</field>
+    <options>no_full_log</options>
+    <description>Group of Windows PowerShell rules</description>
   </rule>
 </group>
 RULEXML
-    echo ">> Wrote logtest bridge rule (overrides 60000) to shared volume"
+    # Custom rules that chain DIRECTLY off 60000 (generic eventchannel
+    # parent) can only fire in logtest if they also accept the JSON root.
+    # This rewrite is deploy-local; the database on disk is untouched.
+    for f in /rules-deploy/*.xml; do
+        [ "$f" = "/rules-deploy/zzz-logtest-bridge.xml" ] && continue
+        sed -i 's|<if_sid>60000</if_sid>|<if_sid>60000,119999</if_sid>|g' "$f"
+    done
+    echo ">> Wrote logtest bridge (JSON root 119999 + classifier overwrites) to shared volume"
 
     # Restart again so the bridge rule is loaded
     curl -sk -X PUT "${WAZUH_API}/manager/restart" \

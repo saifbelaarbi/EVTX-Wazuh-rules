@@ -2873,9 +2873,16 @@
   },
   "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/driver_load/driver_load_win_mal_drivers.yml": {
     "rules_generated": [
-      104573
+      104573,
+      104844,
+      104845,
+      104846,
+      104847,
+      104848,
+      104849,
+      104850
     ],
-    "last_processed": "2026-06-10T23:00:37.020811+00:00"
+    "last_processed": "2026-07-20T10:09:47.551657+00:00"
   },
   "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/driver_load/driver_load_win_mal_drivers_names.yml": {
     "rules_generated": [
@@ -2905,9 +2912,47 @@
   },
   "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/driver_load/driver_load_win_vuln_drivers.yml": {
     "rules_generated": [
-      104580
+      104580,
+      104851,
+      104852,
+      104853,
+      104854,
+      104855,
+      104856,
+      104857,
+      104858,
+      104859,
+      104860,
+      104861,
+      104862,
+      104863,
+      104864,
+      104865,
+      104866,
+      104867,
+      104868,
+      104869,
+      104870,
+      104871,
+      104872,
+      104873,
+      104874,
+      104875,
+      104876,
+      104877,
+      104878,
+      104879,
+      104880,
+      104881,
+      104882,
+      104883,
+      104884,
+      104885,
+      104886,
+      104887,
+      104888
     ],
-    "last_processed": "2026-06-10T23:00:37.020831+00:00"
+    "last_processed": "2026-07-20T10:09:47.551761+00:00"
   },
   "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/driver_load/driver_load_win_vuln_hevd_driver.yml": {
     "rules_generated": [
@@ -4281,9 +4326,11 @@
   },
   "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/image_load/image_load_side_load_from_non_system_location.yml": {
     "rules_generated": [
-      104627
+      104627,
+      104889,
+      104890
     ],
-    "last_processed": "2026-06-10T23:00:37.021715+00:00"
+    "last_processed": "2026-07-20T10:09:47.551767+00:00"
   },
   "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/image_load/image_load_side_load_goopdate.yml": {
     "rules_generated": [
@@ -10097,9 +10144,11 @@
       100782,
       100783,
       100784,
-      100785
+      100785,
+      101166,
+      101167
     ],
-    "last_processed": "2026-06-10T23:00:37.025560+00:00"
+    "last_processed": "2026-07-20T10:09:47.551773+00:00"
   },
   "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_pua_pingcastle_script_parent.yml": {
     "rules_generated": [

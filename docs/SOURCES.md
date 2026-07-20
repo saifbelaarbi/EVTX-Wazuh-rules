@@ -11,8 +11,8 @@ This document describes the EVTX sample sources used to generate the Wazuh rule 
 | 3 | [Security-Datasets](https://github.com/OTRF/Security-Datasets) | `Security-Datasets` | 1 | 1 |
 | 4 | [danderspritz-evtx](https://github.com/fox-it/danderspritz-evtx) | `danderspritz-evtx` | 1 | 2 |
 | 5 | [hayabusa-sample-evtx](https://github.com/Yamato-Security/hayabusa-sample-evtx) | `hayabusa-sample-evtx` | 5 | 15 |
-| 6 | unknown | `unknown` | 2232 | 2673 |
-| | **Total** | | **2294** | **3299** |
+| 6 | unknown | `unknown` | 2232 | 2722 |
+| | **Total** | | **2294** | **3348** |
 
 ## EVTX-ATTACK-SAMPLES
 **Repository:** https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES
@@ -67,7 +67,7 @@ This document describes the EVTX sample sources used to generate the Wazuh rule 
 
 | Directory | EVTX Files | Rules Generated | Sample Files |
 |-----------|------------|-----------------|--------------|
-| (root) | 2232 | 2673 | `win_av_relevant_match.yml`, `win_application_error_lsass_crash.yml`, `win_application_error_msmpeng_crash.yml` +2229 more |
+| (root) | 2232 | 2722 | `win_av_relevant_match.yml`, `win_application_error_lsass_crash.yml`, `win_application_error_msmpeng_crash.yml` +2229 more |
 
 ## Credits
 

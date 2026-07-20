@@ -136,3 +136,96 @@ def test_database_if_matched_sid_checked(tmp_path):
     )
     errors = validate_database(tmp_path)
     assert any("118888" in e for e in errors)
+
+
+def test_database_oversized_field_flagged(tmp_path):
+    from generator.validator import validate_database
+
+    huge = "|".join(f"MD5={i:032x}" for i in range(700))  # > 20k chars
+    _write_db(
+        tmp_path,
+        f"""<group name="test,">
+  <rule id="100005" level="10">
+    <if_sid>61608</if_sid>
+    <field name="win.eventdata.hashes">{huge}</field>
+    <description>Oversized hash blocklist</description>
+  </rule>
+</group>
+""",
+    )
+    errors = validate_database(tmp_path)
+    assert any("String overflow" in e or "OS_XML buffer" in e for e in errors)
+
+
+def test_database_load_order_violation_flagged(tmp_path):
+    from generator.validator import validate_database
+
+    (tmp_path / "aaa.xml").write_text(
+        """<group name="test,">
+  <rule id="115000" level="12" frequency="3" timeframe="300">
+    <if_matched_sid>112501</if_matched_sid>
+    <description>Composite loaded before its parent</description>
+  </rule>
+</group>
+"""
+    )
+    (tmp_path / "bbb.xml").write_text(
+        """<group name="test,">
+  <rule id="112501" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <description>Parent defined in later-sorting file</description>
+  </rule>
+</group>
+"""
+    )
+    errors = validate_database(tmp_path)
+    assert any("loads later alphabetically" in e for e in errors)
+
+
+def test_database_load_order_ok_when_parent_earlier(tmp_path):
+    from generator.validator import validate_database
+
+    (tmp_path / "aaa.xml").write_text(
+        """<group name="test,">
+  <rule id="112501" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <description>Parent in earlier-sorting file</description>
+  </rule>
+</group>
+"""
+    )
+    (tmp_path / "zz_composites.xml").write_text(
+        """<group name="windows,composites,">
+  <rule id="115000" level="12" frequency="3" timeframe="300">
+    <if_matched_sid>112501</if_matched_sid>
+    <description>Composite loads last</description>
+  </rule>
+</group>
+"""
+    )
+    errors = validate_database(tmp_path)
+    assert errors == []
+
+
+def test_database_same_file_forward_reference_flagged(tmp_path):
+    from generator.validator import validate_database
+
+    _write_db(
+        tmp_path,
+        """<group name="test,">
+  <rule id="100001" level="5">
+    <if_sid>100099</if_sid>
+    <description>Child defined above its parent</description>
+  </rule>
+  <rule id="100099" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">psexec</field>
+    <description>Parent defined below the child</description>
+  </rule>
+</group>
+""",
+    )
+    errors = validate_database(tmp_path)
+    assert any("further down" in e for e in errors)
