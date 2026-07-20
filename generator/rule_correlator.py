@@ -1,4 +1,12 @@
-"""Cross-reference new rules with existing rules and Wazuh defaults."""
+"""Cross-reference new rules with existing rules and Wazuh defaults.
+
+The public check_* functions preserve their original per-rule semantics but
+are backed by indexes built once per (existing_index, default_rules) object
+and memoized, so correlating N new rules against an M-rule database costs
+O(N + M) instead of O(N x M). The caches key on object identity + length;
+callers pass the same loaded index for a whole correlation loop (see cli.py),
+which is the pattern the memoization is built for.
+"""
 
 import json
 from pathlib import Path
@@ -57,26 +65,114 @@ def load_wazuh_default_rules(defaults_dir: Path) -> dict:
     return default_rules
 
 
+# ── Index caches ─────────────────────────────────────────────────────────────
+# One-slot memo per source object. Keyed on (id(obj), len(obj)) — the strong
+# reference kept alongside prevents id() reuse, and a length change (rules
+# added/removed mid-loop) invalidates the memo.
+
+_index_memo: tuple | None = None  # (source_obj, len, caches)
+_defaults_memo: tuple | None = None
+
+
+def _fields_key(field_matches: dict):
+    """Hashable identity of a field-match dict, or None if unhashable."""
+    try:
+        return frozenset(field_matches.items())
+    except TypeError:
+        return None
+
+
+def _index_caches(existing_index: dict) -> dict:
+    """Build (or reuse) lookup structures over the existing rule index."""
+    global _index_memo
+    if _index_memo is not None and _index_memo[0] is existing_index and _index_memo[1] == len(existing_index):
+        return _index_memo[2]
+
+    by_signature: dict = {}  # (fields_key, tactic) -> (rule_id, meta), first wins
+    entries: list = []  # (position, rule_id, meta, fields_set)
+    by_item: dict = {}  # (field, value) -> [entry positions]
+    chain_by_tactic: dict = {}  # tactic -> [candidate dicts] (shared, read-only)
+
+    for pos, (rule_id, meta) in enumerate(existing_index.items()):
+        fields = meta.get("field_matches", {})
+        key = _fields_key(fields)
+        if key is not None:
+            by_signature.setdefault((key, meta.get("tactic", "")), (rule_id, meta))
+            entries.append((pos, rule_id, meta, key))
+            for item in key:
+                by_item.setdefault(item, []).append(len(entries) - 1)
+        tactic = meta.get("tactic")
+        if tactic:
+            chain_by_tactic.setdefault(tactic, []).append(
+                {
+                    "rule_id": rule_id,
+                    "type": "same_tactic",
+                    "relationship": "sibling",
+                    "existing": meta,
+                }
+            )
+
+    caches = {
+        "by_signature": by_signature,
+        "entries": entries,
+        "by_item": by_item,
+        "chain_by_tactic": chain_by_tactic,
+    }
+    _index_memo = (existing_index, len(existing_index), caches)
+    return caches
+
+
+def _defaults_caches(default_rules: dict) -> dict:
+    """Build (or reuse) a per-field lookup over Wazuh default rules."""
+    global _defaults_memo
+    if _defaults_memo is not None and _defaults_memo[0] is default_rules and _defaults_memo[1] == len(default_rules):
+        return _defaults_memo[2]
+
+    by_field: dict = {}  # field name -> [(position, rule_id, value_lower, default)]
+    for pos, (rule_id, default) in enumerate(default_rules.items()):
+        for df_name, df_value in default.get("fields", {}).items():
+            by_field.setdefault(df_name, []).append((pos, rule_id, df_value.lower(), default))
+
+    caches = {"by_field": by_field}
+    _defaults_memo = (default_rules, len(default_rules), caches)
+    return caches
+
+
+# ── Correlation checks ───────────────────────────────────────────────────────
+
+
 def check_duplicate(new_rule: dict, existing_index: dict) -> dict | None:
     """Check if a rule with the same detection logic already exists."""
     new_fields = new_rule["metadata"].get("field_matches", {})
     new_tactic = new_rule["metadata"].get("tactic", "")
 
-    for rule_id, meta in existing_index.items():
-        existing_fields = meta.get("field_matches", {})
-        if new_fields == existing_fields and new_tactic == meta.get("tactic", ""):
-            return {"rule_id": rule_id, "type": "exact_duplicate", "existing": meta}
-
-    return None
+    key = _fields_key(new_fields)
+    if key is None:
+        return None
+    hit = _index_caches(existing_index)["by_signature"].get((key, new_tactic))
+    if hit is None:
+        return None
+    rule_id, meta = hit
+    return {"rule_id": rule_id, "type": "exact_duplicate", "existing": meta}
 
 
 def check_overlap(new_rule: dict, existing_index: dict) -> list[dict]:
     """Find rules that partially overlap with the new rule."""
-    overlaps = []
     new_fields = set(new_rule["metadata"].get("field_matches", {}).items())
+    if not new_fields:
+        return []
 
-    for rule_id, meta in existing_index.items():
-        existing_fields = set(meta.get("field_matches", {}).items())
+    caches = _index_caches(existing_index)
+    entries = caches["entries"]
+    by_item = caches["by_item"]
+
+    candidate_idx: set[int] = set()
+    for item in new_fields:
+        candidate_idx.update(by_item.get(item, ()))
+
+    overlaps = []
+    for idx in sorted(candidate_idx):
+        _, rule_id, meta, existing_fields = entries[idx]
         common = new_fields & existing_fields
         if common and common != new_fields:
             overlaps.append(
@@ -93,44 +189,42 @@ def check_overlap(new_rule: dict, existing_index: dict) -> list[dict]:
 
 def check_default_coverage(new_rule: dict, default_rules: dict) -> dict | None:
     """Check if Wazuh defaults already cover this detection."""
-    new_rule["metadata"].get("technique_name", "").lower()
     new_fields = new_rule["metadata"].get("field_matches", {})
+    if not new_fields or not default_rules:
+        return None
 
-    for rule_id, default in default_rules.items():
-        # Check field match overlap
-        default_fields = default.get("fields", {})
-        for field_name, value in new_fields.items():
-            for df_name, df_value in default_fields.items():
-                if field_name == df_name and value.lower() in df_value.lower():
-                    return {
-                        "default_rule_id": rule_id,
-                        "type": "covered_by_default",
-                        "default_description": default["description"],
-                        "default_level": default["level"],
-                    }
+    by_field = _defaults_caches(default_rules)["by_field"]
 
-    return None
+    best = None  # (position, rule_id, default) with the lowest position
+    for field_name, value in new_fields.items():
+        value_lower = value.lower()
+        for pos, rule_id, df_value_lower, default in by_field.get(field_name, ()):
+            if value_lower in df_value_lower and (best is None or pos < best[0]):
+                best = (pos, rule_id, default)
+
+    if best is None:
+        return None
+    _, rule_id, default = best
+    return {
+        "default_rule_id": rule_id,
+        "type": "covered_by_default",
+        "default_description": default["description"],
+        "default_level": default["level"],
+    }
 
 
 def find_chain_candidates(new_rule: dict, existing_index: dict) -> list[dict]:
-    """Find rules that could form if_sid chains with the new rule."""
-    candidates = []
+    """Find rules that could form if_sid chains with the new rule.
+
+    The candidate dicts are shared across calls for the same index (they are
+    report annotations, treated as read-only by all callers).
+    """
     new_tactic = new_rule["metadata"].get("tactic", "")
-    new_rule["pattern"].event_id if hasattr(new_rule.get("pattern", {}), "event_id") else 0
+    if not new_tactic:
+        return []
 
-    for rule_id, meta in existing_index.items():
-        # Same tactic, could be a refinement
-        if meta.get("tactic") == new_tactic and meta.get("tactic"):
-            candidates.append(
-                {
-                    "rule_id": rule_id,
-                    "type": "same_tactic",
-                    "relationship": "sibling",
-                    "existing": meta,
-                }
-            )
-
-    return candidates
+    siblings = _index_caches(existing_index)["chain_by_tactic"].get(new_tactic)
+    return list(siblings) if siblings else []
 
 
 def correlate(new_rule: dict, existing_index: dict = None, default_rules: dict = None) -> dict:

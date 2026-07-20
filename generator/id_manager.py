@@ -7,18 +7,41 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 ALLOCATIONS_FILE = PROJECT_ROOT / "database" / "metadata" / "id_allocations.json"
 RULE_INDEX_FILE = PROJECT_ROOT / "database" / "metadata" / "rule_index.json"
 
+# In-memory allocations cache, validated against the file's (mtime_ns, size)
+# stat signature. allocate_id() is called once per generated rule — thousands
+# of times per pipeline run — so re-parsing the JSON on every call is pure
+# waste. External writes (e.g. the CLI's dry-run snapshot/restore) change the
+# stat signature and transparently invalidate the cache.
+_cache: dict = {"path": None, "stat": None, "data": None}
+
+
+def _file_stat(path: Path):
+    try:
+        st = path.stat()
+        return (st.st_mtime_ns, st.st_size)
+    except OSError:
+        return None
+
 
 def _load_allocations() -> dict:
-    if ALLOCATIONS_FILE.exists():
+    stat = _file_stat(ALLOCATIONS_FILE)
+    if _cache["path"] == ALLOCATIONS_FILE and _cache["stat"] == stat and _cache["data"] is not None:
+        return _cache["data"]
+
+    if stat is not None:
         with open(ALLOCATIONS_FILE) as f:
-            return json.load(f)
-    return {}
+            data = json.load(f)
+    else:
+        data = {}
+    _cache.update(path=ALLOCATIONS_FILE, stat=stat, data=data)
+    return data
 
 
 def _save_allocations(allocations: dict):
     ALLOCATIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(ALLOCATIONS_FILE, "w") as f:
         json.dump(allocations, f, indent=2)
+    _cache.update(path=ALLOCATIONS_FILE, stat=_file_stat(ALLOCATIONS_FILE), data=allocations)
 
 
 # Tactic ID ranges within Wazuh's custom range (100000-119999).

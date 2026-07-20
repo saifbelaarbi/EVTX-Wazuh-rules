@@ -40,3 +40,20 @@ def test_level_clamped_to_range():
     }
     level = calculate_level(rule)
     assert 1 <= level <= 15
+
+
+def test_fp_penalties_map_applied():
+    from generator.alert_leveler import calculate_level
+
+    rule = {
+        "metadata": {
+            "rule_id": 108500,
+            "tactic": "credential_access",
+            "confidence": "medium",
+            "technique_name": "some detection",
+            "field_matches": {"win.eventdata.image": "some_tool"},
+        }
+    }
+    base = calculate_level(rule, fp_penalties={})
+    demoted = calculate_level(rule, fp_penalties={"108500": -2})
+    assert demoted == base - 2

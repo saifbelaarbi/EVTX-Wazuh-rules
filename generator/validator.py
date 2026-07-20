@@ -144,26 +144,48 @@ def validate_rules(rules: list[dict]) -> list[str]:
     return all_errors
 
 
-def validate_database(rules_dir: Path) -> list[str]:
-    """Validate all XML rule files in the database."""
-    errors = []
+# Wazuh custom rule ID range: parent references inside this range must point
+# at a rule that actually exists in the database, or the child never fires.
+CUSTOM_RANGE = (100000, 119999)
 
-    for xml_file in rules_dir.rglob("*.xml"):
+
+def _iter_parent_refs(rule_elem) -> list[str]:
+    """All rule-id references in if_sid / if_matched_sid (comma-separated)."""
+    refs = []
+    for tag in ("if_sid", "if_matched_sid"):
+        for elem in rule_elem.findall(tag):
+            if elem.text:
+                refs.extend(part.strip() for part in elem.text.split(",") if part.strip())
+    return refs
+
+
+def validate_database(rules_dir: Path) -> list[str]:
+    """Validate all XML rule files in the database.
+
+    Structural checks per rule plus cross-file checks: duplicate IDs within a
+    file and dangling custom-range parent SIDs across the whole database
+    (an if_sid pointing at a deleted/never-exported rule silently disables
+    the child rule in Wazuh).
+    """
+    errors = []
+    # rule id -> defined anywhere in the database; refs collected for pass 2.
+    defined_ids: set[str] = set()
+    parent_refs: list[tuple[str, str, str]] = []  # (file, rule_id, referenced_sid)
+
+    for xml_file in sorted(rules_dir.rglob("*.xml")):
         # Wazuh's OS_XML parser cannot handle an <?xml ...?> declaration and
         # rejects the entire file (error 1226/1220). lxml accepts it, so check
-        # the raw first line before parsing.
+        # the raw content before parsing (read once, reused for the parse).
         try:
-            first_line = xml_file.read_text().lstrip()[:64]
-            if first_line.startswith("<?xml"):
-                errors.append(
-                    f"{xml_file.name}: starts with an <?xml declaration (Wazuh OS_XML rejects this — remove it)"
-                )
-        except OSError:
-            pass
+            raw = xml_file.read_bytes()
+        except OSError as e:
+            errors.append(f"{xml_file.name}: unreadable - {e}")
+            continue
+        if raw.lstrip()[:5] == b"<?xml":
+            errors.append(f"{xml_file.name}: starts with an <?xml declaration (Wazuh OS_XML rejects this — remove it)")
 
         try:
-            tree = etree.parse(str(xml_file))
-            root = tree.getroot()
+            root = etree.fromstring(raw)
 
             seen_ids = set()
             for rule_elem in root.iter("rule"):
@@ -177,6 +199,9 @@ def validate_database(rules_dir: Path) -> list[str]:
                 if rule_id in seen_ids:
                     errors.append(f"{xml_file.name}: Duplicate ID {rule_id}")
                 seen_ids.add(rule_id)
+                defined_ids.add(rule_id)
+                for ref in _iter_parent_refs(rule_elem):
+                    parent_refs.append((xml_file.name, rule_id, ref))
 
                 if not level:
                     errors.append(f"{xml_file.name}: Rule {rule_id} missing 'level'")
@@ -205,5 +230,16 @@ def validate_database(rules_dir: Path) -> list[str]:
 
         except etree.XMLSyntaxError as e:
             errors.append(f"{xml_file.name}: XML syntax error - {e}")
+
+    # Pass 2: dangling custom-range parent references. IDs below the custom
+    # range are Wazuh built-ins and are assumed present on the manager.
+    for file_name, rule_id, ref in parent_refs:
+        if not ref.isdigit():
+            continue
+        if CUSTOM_RANGE[0] <= int(ref) <= CUSTOM_RANGE[1] and ref not in defined_ids:
+            errors.append(
+                f"{file_name}: Rule {rule_id} references parent SID {ref} "
+                "which does not exist in the database (child rule will never fire)"
+            )
 
     return errors
