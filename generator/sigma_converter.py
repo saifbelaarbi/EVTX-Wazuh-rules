@@ -279,6 +279,57 @@ def _apply_modifiers(value: str, modifiers: list[str]) -> str:
     return escaped
 
 
+# Wazuh's OS_XML parser reads element content into a fixed ~20 KB buffer;
+# longer strings abort the WHOLE rule file with "XMLERR: String overflow"
+# (error 1226 → critical 1220). Big Sigma value lists (e.g. driver-hash
+# blocklists with thousands of entries) blow well past it, so alternation
+# patterns are split across multiple sibling rules (OR semantics preserved).
+# The cap is far below the buffer to leave room for indentation and to keep
+# individual regexes manageable for OSRegex.
+MAX_FIELD_PATTERN_LEN = 6000
+
+
+def _chunk_alternation(pattern: str, max_len: int = MAX_FIELD_PATTERN_LEN) -> list[str]:
+    """Split an OSRegex alternation into chunks no longer than ``max_len``."""
+    chunks: list[str] = []
+    current = ""
+    for alt in pattern.split("|"):
+        if current and len(current) + 1 + len(alt) > max_len:
+            chunks.append(current)
+            current = alt
+        else:
+            current = alt if not current else f"{current}|{alt}"
+    if current:
+        chunks.append(current)
+    return chunks
+
+
+def _split_oversized_fields(clean_fields: dict) -> list[tuple[dict, str]]:
+    """Return [(field_dict, description_suffix)] rule variants.
+
+    A single oversized field is chunked into multiple rules. More than one
+    oversized field cannot be expressed without a cross product, and a single
+    alternative longer than the cap cannot be split at all — both raise.
+    """
+    oversized = [k for k, v in clean_fields.items() if len(v) > MAX_FIELD_PATTERN_LEN]
+    if not oversized:
+        return [(clean_fields, "")]
+    if len(oversized) > 1:
+        raise SigmaConvertError("pattern_too_large", f"{len(oversized)} oversized fields")
+
+    fname = oversized[0]
+    chunks = _chunk_alternation(clean_fields[fname])
+    if any(len(c) > MAX_FIELD_PATTERN_LEN for c in chunks):
+        raise SigmaConvertError("pattern_too_large", f"single alternative in '{fname}' exceeds cap")
+
+    variants = []
+    for i, chunk in enumerate(chunks, 1):
+        fields = dict(clean_fields)
+        fields[fname] = chunk
+        variants.append((fields, f" [{i}/{len(chunks)}]"))
+    return variants
+
+
 def _parse_field_key(key: str) -> tuple[str, list[str]]:
     """Parse 'FieldName|modifier1|modifier2' into (field, [modifiers])."""
     parts = key.split("|")
@@ -633,44 +684,181 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
         if not clean_fields:
             continue
 
-        rule_id = allocate_id(tactic)
+        # Oversized alternations (huge Sigma value lists) are split across
+        # sibling rules so no <field> exceeds Wazuh's OS_XML buffer.
+        variants = _split_oversized_fields(clean_fields)
+        for clean_fields, part_suffix in variants:
+            _emit_rule_variant(
+                rules,
+                clean_fields=clean_fields,
+                part_suffix=part_suffix,
+                tactic=tactic,
+                wazuh_level=wazuh_level,
+                parent_sid=parent_sid,
+                title=title,
+                mitre_ids=mitre_ids,
+                sigma_rule=sigma_rule,
+                sigma_id=sigma_id,
+                sigma_level=sigma_level,
+                source_category=source_category,
+                negation_groups=negation_groups,
+                count_spec=count_spec,
+            )
 
-        rule_elem = etree.Element("rule", id=str(rule_id), level=str(wazuh_level))
+    if not rules:
+        raise SigmaConvertError("empty_rule_spec", "no fields after cleaning")
 
-        if_sid = etree.SubElement(rule_elem, "if_sid")
-        if_sid.text = str(parent_sid)
+    return rules
 
-        for field_name, pattern in clean_fields.items():
-            if not pattern or not pattern.strip():
-                continue
-            field_elem = etree.SubElement(rule_elem, "field", name=field_name)
-            field_elem.text = pattern
 
-        desc = etree.SubElement(rule_elem, "description")
-        desc.text = f"Sigma: {title}"
+def _emit_rule_variant(
+    rules: list,
+    *,
+    clean_fields: dict,
+    part_suffix: str,
+    tactic: str,
+    wazuh_level: int,
+    parent_sid: int,
+    title: str,
+    mitre_ids: list,
+    sigma_rule: dict,
+    sigma_id: str,
+    sigma_level: str,
+    source_category: str,
+    negation_groups: list,
+    count_spec: dict | None,
+):
+    """Emit one detection rule (plus its suppression/frequency children)."""
+    title = f"{title}{part_suffix}"
 
-        if mitre_ids:
-            mitre_elem = etree.SubElement(rule_elem, "mitre")
-            for mid in mitre_ids[:3]:
-                id_elem = etree.SubElement(mitre_elem, "id")
-                id_elem.text = mid
+    rule_id = allocate_id(tactic)
 
-        group = etree.SubElement(rule_elem, "group")
-        group.text = f"{tactic},sigma_converted,"
+    rule_elem = etree.Element("rule", id=str(rule_id), level=str(wazuh_level))
 
+    if_sid = etree.SubElement(rule_elem, "if_sid")
+    if_sid.text = str(parent_sid)
+
+    for field_name, pattern in clean_fields.items():
+        if not pattern or not pattern.strip():
+            continue
+        field_elem = etree.SubElement(rule_elem, "field", name=field_name)
+        field_elem.text = pattern
+
+    desc = etree.SubElement(rule_elem, "description")
+    desc.text = f"Sigma: {title}"
+
+    if mitre_ids:
+        mitre_elem = etree.SubElement(rule_elem, "mitre")
+        for mid in mitre_ids[:3]:
+            id_elem = etree.SubElement(mitre_elem, "id")
+            id_elem.text = mid
+
+    group = etree.SubElement(rule_elem, "group")
+    group.text = f"{tactic},sigma_converted,"
+
+    rules.append(
+        {
+            "id": rule_id,
+            "level": wazuh_level,
+            "xml_element": rule_elem,
+            "metadata": {
+                "rule_id": rule_id,
+                "tactic": tactic,
+                "technique_name": title,
+                "source_evtx": sigma_rule.get("_file_path", ""),
+                "source_category": source_category,
+                "parent_sid": parent_sid,
+                "confidence": "high" if sigma_level in ("critical", "high") else "medium",
+                "created": "",
+                "field_matches": clean_fields,
+                "mitre_ids": mitre_ids[:3],
+                "sigma_id": sigma_id,
+                "sigma_level": sigma_level,
+            },
+            "pattern": None,
+        }
+    )
+
+    # Negation -> one Wazuh level-0 suppression child rule per filter.
+    for neg_fields in negation_groups:
+        sup_id = allocate_id(tactic)
+        sup_elem = etree.Element("rule", id=str(sup_id), level="0")
+        sup_if = etree.SubElement(sup_elem, "if_sid")
+        sup_if.text = str(rule_id)
+        for fname, fpat in neg_fields.items():
+            fe = etree.SubElement(sup_elem, "field", name=fname)
+            fe.text = fpat
+        sup_desc = etree.SubElement(sup_elem, "description")
+        sup_desc.text = f"Sigma: {title} (excluded by filter)"
+        sup_group = etree.SubElement(sup_elem, "group")
+        sup_group.text = f"{tactic},sigma_negation,"
         rules.append(
             {
-                "id": rule_id,
-                "level": wazuh_level,
-                "xml_element": rule_elem,
+                "id": sup_id,
+                "level": 0,
+                "xml_element": sup_elem,
                 "metadata": {
-                    "rule_id": rule_id,
+                    "rule_id": sup_id,
                     "tactic": tactic,
-                    "technique_name": title,
+                    "technique_name": f"{title} (suppression)",
                     "source_evtx": sigma_rule.get("_file_path", ""),
                     "source_category": source_category,
-                    "parent_sid": parent_sid,
-                    "confidence": "high" if sigma_level in ("critical", "high") else "medium",
+                    "parent_sid": rule_id,
+                    "confidence": "medium",
+                    "created": "",
+                    "field_matches": neg_fields,
+                    "mitre_ids": mitre_ids[:3],
+                    "sigma_id": sigma_id,
+                    "sigma_level": sigma_level,
+                },
+                "pattern": None,
+            }
+        )
+
+    # count() aggregation -> Wazuh frequency correlation rule.
+    if count_spec and count_spec["threshold"] > 0:
+        freq_id = allocate_id(tactic)
+        # Wazuh <frequency> fires on the Nth event. Adjust for strict >:
+        # count() > 5 needs frequency=6; count() >= 5 needs frequency=5.
+        freq_threshold = count_spec["threshold"]
+        if count_spec["op"] in (">",):
+            freq_threshold += 1
+        freq_elem = etree.Element(
+            "rule",
+            id=str(freq_id),
+            level=str(min(wazuh_level + 2, 15)),
+            frequency=str(freq_threshold),
+            timeframe=str(DEFAULT_FREQ_TIMEFRAME),
+        )
+        freq_if = etree.SubElement(freq_elem, "if_matched_sid")
+        freq_if.text = str(rule_id)
+        if count_spec["group_field"]:
+            gf = _resolve_field(count_spec["group_field"])
+            if gf:
+                sf_elem = etree.SubElement(freq_elem, "same_field")
+                sf_elem.text = gf
+        freq_desc = etree.SubElement(freq_elem, "description")
+        freq_desc.text = f"Sigma: {title} (>= {freq_threshold} in {DEFAULT_FREQ_TIMEFRAME}s)"
+        if mitre_ids:
+            fm = etree.SubElement(freq_elem, "mitre")
+            for mid in mitre_ids[:3]:
+                ie = etree.SubElement(fm, "id")
+                ie.text = mid
+        freq_group = etree.SubElement(freq_elem, "group")
+        freq_group.text = f"{tactic},sigma_correlation,"
+        rules.append(
+            {
+                "id": freq_id,
+                "level": min(wazuh_level + 2, 15),
+                "xml_element": freq_elem,
+                "metadata": {
+                    "rule_id": freq_id,
+                    "tactic": tactic,
+                    "technique_name": f"{title} (frequency)",
+                    "source_evtx": sigma_rule.get("_file_path", ""),
+                    "source_category": source_category,
+                    "parent_sid": rule_id,
+                    "confidence": "high",
                     "created": "",
                     "field_matches": clean_fields,
                     "mitre_ids": mitre_ids[:3],
@@ -680,101 +868,6 @@ def convert_sigma_rule(sigma_rule: dict, with_negation: bool = False) -> list[di
                 "pattern": None,
             }
         )
-
-        # Negation -> one Wazuh level-0 suppression child rule per filter.
-        for neg_fields in negation_groups:
-            sup_id = allocate_id(tactic)
-            sup_elem = etree.Element("rule", id=str(sup_id), level="0")
-            sup_if = etree.SubElement(sup_elem, "if_sid")
-            sup_if.text = str(rule_id)
-            for fname, fpat in neg_fields.items():
-                fe = etree.SubElement(sup_elem, "field", name=fname)
-                fe.text = fpat
-            sup_desc = etree.SubElement(sup_elem, "description")
-            sup_desc.text = f"Sigma: {title} (excluded by filter)"
-            sup_group = etree.SubElement(sup_elem, "group")
-            sup_group.text = f"{tactic},sigma_negation,"
-            rules.append(
-                {
-                    "id": sup_id,
-                    "level": 0,
-                    "xml_element": sup_elem,
-                    "metadata": {
-                        "rule_id": sup_id,
-                        "tactic": tactic,
-                        "technique_name": f"{title} (suppression)",
-                        "source_evtx": sigma_rule.get("_file_path", ""),
-                        "source_category": source_category,
-                        "parent_sid": rule_id,
-                        "confidence": "medium",
-                        "created": "",
-                        "field_matches": neg_fields,
-                        "mitre_ids": mitre_ids[:3],
-                        "sigma_id": sigma_id,
-                        "sigma_level": sigma_level,
-                    },
-                    "pattern": None,
-                }
-            )
-
-        # count() aggregation -> Wazuh frequency correlation rule.
-        if count_spec and count_spec["threshold"] > 0:
-            freq_id = allocate_id(tactic)
-            # Wazuh <frequency> fires on the Nth event. Adjust for strict >:
-            # count() > 5 needs frequency=6; count() >= 5 needs frequency=5.
-            freq_threshold = count_spec["threshold"]
-            if count_spec["op"] in (">",):
-                freq_threshold += 1
-            freq_elem = etree.Element(
-                "rule",
-                id=str(freq_id),
-                level=str(min(wazuh_level + 2, 15)),
-                frequency=str(freq_threshold),
-                timeframe=str(DEFAULT_FREQ_TIMEFRAME),
-            )
-            freq_if = etree.SubElement(freq_elem, "if_matched_sid")
-            freq_if.text = str(rule_id)
-            if count_spec["group_field"]:
-                gf = _resolve_field(count_spec["group_field"])
-                if gf:
-                    sf_elem = etree.SubElement(freq_elem, "same_field")
-                    sf_elem.text = gf
-            freq_desc = etree.SubElement(freq_elem, "description")
-            freq_desc.text = f"Sigma: {title} (>= {freq_threshold} in {DEFAULT_FREQ_TIMEFRAME}s)"
-            if mitre_ids:
-                fm = etree.SubElement(freq_elem, "mitre")
-                for mid in mitre_ids[:3]:
-                    ie = etree.SubElement(fm, "id")
-                    ie.text = mid
-            freq_group = etree.SubElement(freq_elem, "group")
-            freq_group.text = f"{tactic},sigma_correlation,"
-            rules.append(
-                {
-                    "id": freq_id,
-                    "level": min(wazuh_level + 2, 15),
-                    "xml_element": freq_elem,
-                    "metadata": {
-                        "rule_id": freq_id,
-                        "tactic": tactic,
-                        "technique_name": f"{title} (frequency)",
-                        "source_evtx": sigma_rule.get("_file_path", ""),
-                        "source_category": source_category,
-                        "parent_sid": rule_id,
-                        "confidence": "high",
-                        "created": "",
-                        "field_matches": clean_fields,
-                        "mitre_ids": mitre_ids[:3],
-                        "sigma_id": sigma_id,
-                        "sigma_level": sigma_level,
-                    },
-                    "pattern": None,
-                }
-            )
-
-    if not rules:
-        raise SigmaConvertError("empty_rule_spec", "no fields after cleaning")
-
-    return rules
 
 
 SIGMA_LEVEL_ORDER = ["informational", "low", "medium", "high", "critical"]

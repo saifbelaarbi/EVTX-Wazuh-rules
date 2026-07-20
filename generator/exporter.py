@@ -59,6 +59,19 @@ TECHNIQUE_NAMES = {
     "T1567": "exfil_over_web_service",
 }
 
+# Composite/correlation rules (ids in this range) reference parents across
+# tactics via if_sid/if_matched_sid. Wazuh loads etc/rules alphabetically and
+# a reference to a not-yet-loaded rule is dropped (warning 7620), so these
+# rules must live in a file that sorts AFTER every tactic/technique/source
+# file in the same view.
+COMPOSITE_ID_RANGE = (115000, 119989)
+COMPOSITE_FILE = "zz_composites"
+
+
+def _is_composite(rule: dict) -> bool:
+    return COMPOSITE_ID_RANGE[0] <= rule["id"] <= COMPOSITE_ID_RANGE[1]
+
+
 # Map Sysmon provider to source category
 SOURCE_CATEGORIES = {
     "Microsoft-Windows-Sysmon": "sysmon",
@@ -211,8 +224,8 @@ def export_by_tactic(rules: list[dict]):
 
     by_tactic = defaultdict(list)
     for rule in rules:
-        tactic = rule["metadata"].get("tactic", "other")
-        by_tactic[tactic].append(rule)
+        key = COMPOSITE_FILE if _is_composite(rule) else rule["metadata"].get("tactic", "other")
+        by_tactic[key].append(rule)
 
     for tactic, tactic_rules in by_tactic.items():
         out_file = out_dir / f"{tactic}.xml"
@@ -227,7 +240,7 @@ def export_by_technique(rules: list[dict]):
 
     by_technique = defaultdict(list)
     for rule in rules:
-        slug = _get_technique_slug(rule)
+        slug = COMPOSITE_FILE if _is_composite(rule) else _get_technique_slug(rule)
         by_technique[slug].append(rule)
 
     for slug, tech_rules in by_technique.items():
@@ -243,7 +256,7 @@ def export_by_source(rules: list[dict]):
 
     by_source = defaultdict(list)
     for rule in rules:
-        source = _get_source_category(rule)
+        source = COMPOSITE_FILE if _is_composite(rule) else _get_source_category(rule)
         by_source[source].append(rule)
 
     for source, source_rules in by_source.items():

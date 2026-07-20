@@ -46,6 +46,9 @@ def _save_allocations(allocations: dict):
 
 # Tactic ID ranges within Wazuh's custom range (100000-119999).
 # Sized proportionally: execution/persistence get more room, smaller tactics get 500.
+# 119990-119999 are reserved for deployment infrastructure (e.g. the logtest
+# bridge root rule 119999 written by docker-entrypoint.sh) and are never
+# allocated to detection rules.
 TACTIC_RANGES = {
     "execution": (100000, 103999),
     "persistence": (104000, 106999),
@@ -59,7 +62,7 @@ TACTIC_RANGES = {
     "collection": (113500, 113999),
     "impact": (114000, 114499),
     "exfiltration": (114500, 114999),
-    "composite": (115000, 119999),
+    "composite": (115000, 119989),
 }
 
 

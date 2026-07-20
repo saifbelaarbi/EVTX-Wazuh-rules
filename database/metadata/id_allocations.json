@@ -14,8 +14,8 @@
   "persistence": {
     "range_start": 104000,
     "range_end": 106999,
-    "next_id": 104844,
-    "allocated_count": 844
+    "next_id": 104897,
+    "allocated_count": 897
   },
   "credential_access": {
     "range_start": 108500,
@@ -26,8 +26,8 @@
   "execution": {
     "range_start": 100000,
     "range_end": 103999,
-    "next_id": 101166,
-    "allocated_count": 1166
+    "next_id": 101168,
+    "allocated_count": 1168
   },
   "lateral_movement": {
     "range_start": 112500,

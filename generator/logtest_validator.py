@@ -767,17 +767,33 @@ def synthesize_event(field_matches: dict, event_id, channel: str, provider: str)
 
 
 def _provider_for_parent(parent_sid) -> tuple[str, str]:
-    """Best-effort (channel, provider) for a parent SID, for synthetic events."""
+    """Best-effort (channel, provider) for a parent SID, for synthetic events.
+
+    The provider must never be empty: both the production root (60000) and the
+    logtest bridge root (119999) require ``win.system.providerName`` to be
+    non-empty, so an empty provider guarantees a live-logtest failure.
+    """
     sid = int(parent_sid) if str(parent_sid).isdigit() else 0
     if 61600 <= sid <= 61699:
         return ("Microsoft-Windows-Sysmon/Operational", "Microsoft-Windows-Sysmon")
     if sid == 91801:
         return ("Microsoft-Windows-PowerShell/Operational", "Microsoft-Windows-PowerShell")
-    if sid == 60100:
+    if sid == 60100 or sid == 60001:
         return ("Security", "Microsoft-Windows-Security-Auditing")
     if sid == 60002 or sid == 60106:
         return ("System", "Service Control Manager")
-    return ("", "")
+    if sid == 60003:
+        return ("Application", "Application")
+    if sid == 60005:
+        return ("Microsoft-Windows-Windows Defender/Operational", "Microsoft-Windows-Windows Defender")
+    if sid == 60016:
+        return (
+            "Microsoft-Windows-Windows Firewall With Advanced Security/Firewall",
+            "Microsoft-Windows-Windows Firewall With Advanced Security",
+        )
+    if sid == 60018:
+        return ("Microsoft-Windows-WMI-Activity/Operational", "Microsoft-Windows-WMI-Activity")
+    return ("Application", "EVTX-Logtest-Synthetic")
 
 
 def _resolve_sample_event(rule_id, rule_meta: dict) -> tuple[dict | None, str]:

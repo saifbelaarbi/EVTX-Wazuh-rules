@@ -148,6 +148,12 @@ def validate_rules(rules: list[dict]) -> list[str]:
 # at a rule that actually exists in the database, or the child never fires.
 CUSTOM_RANGE = (100000, 119999)
 
+# Wazuh's OS_XML parser reads element content into a fixed ~20 KB buffer.
+# Longer strings abort the ENTIRE rule file: "XMLERR: String overflow"
+# (error 1226) followed by critical 1220. Observed live with a 220 KB
+# Sigma hash-list pattern that silently disabled all of persistence.xml.
+OS_XML_MAX_TEXT = 20000
+
 
 def _iter_parent_refs(rule_elem) -> list[str]:
     """All rule-id references in if_sid / if_matched_sid (comma-separated)."""
@@ -163,14 +169,16 @@ def validate_database(rules_dir: Path) -> list[str]:
     """Validate all XML rule files in the database.
 
     Structural checks per rule plus cross-file checks: duplicate IDs within a
-    file and dangling custom-range parent SIDs across the whole database
-    (an if_sid pointing at a deleted/never-exported rule silently disables
-    the child rule in Wazuh).
+    file, dangling custom-range parent SIDs, oversized element text (Wazuh
+    OS_XML buffer), and load-order violations — Wazuh loads a rule directory
+    alphabetically and drops references to rules it has not seen yet
+    (warning 7620), so a parent must be defined in the same file above the
+    child or in a file that sorts earlier.
     """
     errors = []
-    # rule id -> defined anywhere in the database; refs collected for pass 2.
-    defined_ids: set[str] = set()
-    parent_refs: list[tuple[str, str, str]] = []  # (file, rule_id, referenced_sid)
+    # (dir, id) -> defining file; refs collected for pass 2.
+    defined_in: dict[tuple[str, str], str] = {}
+    parent_refs: list[tuple[str, str, str, str]] = []  # (dir, file, rule_id, ref)
 
     for xml_file in sorted(rules_dir.rglob("*.xml")):
         # Wazuh's OS_XML parser cannot handle an <?xml ...?> declaration and
@@ -199,9 +207,10 @@ def validate_database(rules_dir: Path) -> list[str]:
                 if rule_id in seen_ids:
                     errors.append(f"{xml_file.name}: Duplicate ID {rule_id}")
                 seen_ids.add(rule_id)
-                defined_ids.add(rule_id)
+                dir_key = str(xml_file.parent)
+                defined_in.setdefault((dir_key, rule_id), xml_file.name)
                 for ref in _iter_parent_refs(rule_elem):
-                    parent_refs.append((xml_file.name, rule_id, ref))
+                    parent_refs.append((dir_key, xml_file.name, rule_id, ref))
 
                 if not level:
                     errors.append(f"{xml_file.name}: Rule {rule_id} missing 'level'")
@@ -221,6 +230,12 @@ def validate_database(rules_dir: Path) -> list[str]:
                         errors.append(
                             f'{xml_file.name}: Rule {rule_id} has empty <field name="{fname}"> (Wazuh rejects this)'
                         )
+                    elif len(field_elem.text) > OS_XML_MAX_TEXT:
+                        fname = field_elem.get("name", "?")
+                        errors.append(
+                            f"{xml_file.name}: Rule {rule_id} field '{fname}' is {len(field_elem.text)} chars "
+                            f"— exceeds Wazuh's OS_XML buffer (~20 KB); 'XMLERR: String overflow' aborts the file"
+                        )
                     elif field_elem.text and (_m := _BAD_OSREGEX_ESCAPE.search(field_elem.text)):
                         fname = field_elem.get("name", "?")
                         errors.append(
@@ -231,15 +246,34 @@ def validate_database(rules_dir: Path) -> list[str]:
         except etree.XMLSyntaxError as e:
             errors.append(f"{xml_file.name}: XML syntax error - {e}")
 
-    # Pass 2: dangling custom-range parent references. IDs below the custom
-    # range are Wazuh built-ins and are assumed present on the manager.
-    for file_name, rule_id, ref in parent_refs:
-        if not ref.isdigit():
+    # Pass 2: custom-range parent references. IDs below the custom range are
+    # Wazuh built-ins and are assumed present on the manager. Each view
+    # directory is deployed on its own, so references are resolved within the
+    # referencing file's directory — and must respect Wazuh's alphabetical
+    # load order (target file <= referencing file; same file: lower id first,
+    # since exported files are sorted by id).
+    all_defined = {rid for (_d, rid) in defined_in}
+    for dir_key, file_name, rule_id, ref in parent_refs:
+        if not ref.isdigit() or not (CUSTOM_RANGE[0] <= int(ref) <= CUSTOM_RANGE[1]):
             continue
-        if CUSTOM_RANGE[0] <= int(ref) <= CUSTOM_RANGE[1] and ref not in defined_ids:
+        target_file = defined_in.get((dir_key, ref))
+        if target_file is None:
+            where = "in the database" if ref not in all_defined else f"in this view ({Path(dir_key).name})"
             errors.append(
                 f"{file_name}: Rule {rule_id} references parent SID {ref} "
-                "which does not exist in the database (child rule will never fire)"
+                f"which does not exist {where} (child rule will never fire)"
+            )
+            continue
+        if target_file > file_name:
+            errors.append(
+                f"{file_name}: Rule {rule_id} references parent SID {ref} defined in '{target_file}', "
+                "which loads later alphabetically — Wazuh drops the reference (warning 7620) "
+                "and the child rule never fires"
+            )
+        elif target_file == file_name and rule_id.isdigit() and int(ref) > int(rule_id):
+            errors.append(
+                f"{file_name}: Rule {rule_id} references parent SID {ref} defined further down "
+                "the same file — Wazuh loads top-down and drops the reference (warning 7620)"
             )
 
     return errors

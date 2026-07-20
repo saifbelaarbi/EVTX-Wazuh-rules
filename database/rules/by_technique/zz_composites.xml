@@ -1,0 +1,45 @@
+<group name="windows,composites,">
+  <rule id="115000" level="12" frequency="2" timeframe="300">
+    <if_sid>112501</if_sid>
+    <if_matched_sid>111071</if_matched_sid>
+    <same_field>win.system.computer</same_field>
+    <description>Account/group reconnaissance followed by a remote logon to the same host within 5 minutes</description>
+    <mitre>
+      <id>T1021</id>
+      <id>T1087</id>
+    </mitre>
+    <group>composite,chained,</group>
+  </rule>
+  <rule id="115001" level="13" frequency="2" timeframe="300">
+    <if_sid>110061</if_sid>
+    <if_matched_sid>108501</if_matched_sid>
+    <same_field>win.system.computer</same_field>
+    <description>LSASS credential dumping followed by an outbound connection from a suspicious path on the same host within 5 minutes</description>
+    <mitre>
+      <id>T1003</id>
+      <id>T1041</id>
+    </mitre>
+    <group>composite,chained,</group>
+  </rule>
+  <rule id="115002" level="12" frequency="5" timeframe="300">
+    <if_sid>112501</if_sid>
+    <if_matched_sid>108504</if_matched_sid>
+    <same_field>win.eventdata.targetUserName</same_field>
+    <description>Repeated failed logons followed by a successful remote logon for the same account within 5 minutes</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+    <group>composite,chained,</group>
+  </rule>
+  <rule id="115003" level="12" frequency="2" timeframe="300">
+    <if_sid>110061</if_sid>
+    <if_matched_sid>104564</if_matched_sid>
+    <same_field>win.system.computer</same_field>
+    <description>Suspicious service installation followed by an outbound network connection from the same host within 5 minutes</description>
+    <mitre>
+      <id>T1543</id>
+      <id>T1071</id>
+    </mitre>
+    <group>composite,chained,</group>
+  </rule>
+</group>

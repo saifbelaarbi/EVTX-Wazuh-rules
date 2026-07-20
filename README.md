@@ -15,10 +15,10 @@ attack samples and SigmaHQ — then onboard *any* new log source with two Claude
 
 ### 📊 [**Live coverage dashboard →**](https://saifbelaarbi.github.io/EVTX-Wazuh-rules/) · auto-rebuilt on every pipeline run
 
-![Rules](https://img.shields.io/badge/rules-3%2C215-2ea44f.svg)
+![Rules](https://img.shields.io/badge/rules-3%2C260-2ea44f.svg)
 ![Techniques](https://img.shields.io/badge/MITRE%20techniques-288-e8553e.svg)
 ![Tactics](https://img.shields.io/badge/ATT%26CK%20tactics-12%2F12-8957e5.svg)
-![Tests](https://img.shields.io/badge/tests-202%20passing-2ea44f.svg)
+![Tests](https://img.shields.io/badge/tests-208%20passing-2ea44f.svg)
 ![Wazuh](https://img.shields.io/badge/Wazuh-4.x-005792.svg)
 
 [Quick start](#-quick-start) · [How it works](#-how-it-works) · [Asset onboarding agents](#-asset-onboarding-agents-part-two) · [CLI](#-cli-reference) · [Docker](#-docker)
@@ -33,7 +33,7 @@ attack samples and SigmaHQ — then onboard *any* new log source with two Claude
 <tr>
 <td width="33%" valign="top">
 
-### 📦 3,215 rules
+### 📦 3,260 rules
 EVTX-derived + SigmaHQ-converted, every rule mapped to MITRE ATT&CK, leveled, and deduped
 against Wazuh defaults.
 
@@ -41,7 +41,7 @@ against Wazuh defaults.
 <td width="33%" valign="top">
 
 ### 🧪 Validated
-202 unit tests, 0 structural errors, **100% offline-simulation** pass rate across the
+208 unit tests, 0 structural errors, **100% offline-simulation** pass rate across the
 whole database, and a full Docker-Compose integration test against a live Wazuh manager in CI.
 
 </td>
@@ -59,19 +59,19 @@ Point the **decoder-agent** at any log folder → it writes a Wazuh decoder + fi
 
 | Metric | Value | | Metric | Value |
 |--------|------:|---|--------|------:|
-| Total rules | **3,215** | | MITRE tactics | **12 / 12** |
+| Total rules | **3,260** | | MITRE tactics | **12 / 12** |
 | EVTX-generated | 626 | | MITRE techniques | **288** |
-| Sigma-converted | 2,585 | | Unit tests | 202 |
+| Sigma-converted | 2,630 | | Unit tests | 208 |
 | Composite/correlation | 4 | | Validation errors | 0 |
-| Offline sim pass rate | **100%** (3,210/3,210) | | Inconclusive (need live) | 5 |
+| Offline sim pass rate | **100%** (3,255/3,255) | | Inconclusive (need live) | 5 |
 
 <details>
 <summary><b>Tactic & source distribution</b></summary>
 
 | Tactic | Rules | | Source | Rules |
 |--------|------:|---|--------|------:|
-| Execution | 1,118 | | Sysmon | 2,200 |
-| Persistence | 839 | | System | 588 |
+| Execution | 1,119 | | Sysmon | 2,245 |
+| Persistence | 883 | | System | 588 |
 | Privilege Escalation | 363 | | PowerShell | 211 |
 | Credential Access | 290 | | Security | 152 |
 | Command & Control | 191 | | Application | 60 |
@@ -197,6 +197,10 @@ database/rules/
 ├── by_technique/   # one XML per technique        → surgical tuning
 └── by_source/      # by Windows log source        → Wazuh-native layout
 ```
+
+Each view also contains `zz_composites.xml` with the cross-tactic correlation rules — named to
+sort last because Wazuh loads rule files alphabetically and drops references to rules it has not
+loaded yet.
 
 ## 🧰 CLI reference
 

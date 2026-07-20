@@ -84,15 +84,4 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
-  <rule id="115003" level="12" frequency="2" timeframe="300">
-    <if_sid>110061</if_sid>
-    <if_matched_sid>104564</if_matched_sid>
-    <same_field>win.system.computer</same_field>
-    <description>Suspicious service installation followed by an outbound network connection from the same host within 5 minutes</description>
-    <mitre>
-      <id>T1543</id>
-      <id>T1071</id>
-    </mitre>
-    <group>composite,chained,</group>
-  </rule>
 </group>
