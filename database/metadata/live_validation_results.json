@@ -3,10 +3,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100000",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -15,10 +15,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100001",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -27,10 +27,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100002",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -39,10 +39,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100003",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -51,10 +51,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100004",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -63,10 +63,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100005",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -75,10 +75,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100006",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -87,10 +87,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100007",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -99,10 +99,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100008",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -111,10 +111,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100009",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -123,10 +123,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100010",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -135,10 +135,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100011",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -147,10 +147,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100012",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -159,10 +159,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100013",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -171,10 +171,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100014",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -183,10 +183,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100015",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -195,10 +195,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100016",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -207,10 +207,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100017",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -219,10 +219,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100018",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -231,10 +231,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100019",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -243,10 +243,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100020",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -255,10 +255,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100021",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -267,10 +267,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100022",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -279,10 +279,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100023",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -291,10 +291,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100024",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -303,10 +303,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100025",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -315,10 +315,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100026",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -327,10 +327,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100027",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -339,10 +339,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100028",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -351,10 +351,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100029",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -363,10 +363,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100030",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -375,10 +375,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100031",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -387,10 +387,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100032",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -399,10 +399,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100033",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -411,10 +411,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100034",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -423,10 +423,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100035",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -435,10 +435,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100036",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -447,10 +447,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100037",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -459,10 +459,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100038",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -471,10 +471,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100039",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -483,10 +483,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100040",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -495,10 +495,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100041",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -507,10 +507,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100042",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -519,10 +519,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100043",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -531,10 +531,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100044",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -543,10 +543,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100045",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -555,10 +555,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100046",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -567,10 +567,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100047",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -579,10 +579,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100048",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -591,10 +591,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100049",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -603,10 +603,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100050",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -615,10 +615,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100051",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -627,10 +627,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100052",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -639,10 +639,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100053",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -651,10 +651,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100054",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -663,10 +663,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100055",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -675,10 +675,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100056",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -687,10 +687,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100057",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -699,10 +699,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100058",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -711,10 +711,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100059",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -723,10 +723,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100061",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -735,10 +735,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100062",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -747,10 +747,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100063",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -759,10 +759,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100064",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -771,10 +771,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100065",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -783,10 +783,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100066",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -795,10 +795,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100067",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -807,10 +807,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100068",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -819,10 +819,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100069",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -831,10 +831,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100070",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -843,10 +843,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100071",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -855,10 +855,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100072",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -867,10 +867,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100073",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -879,10 +879,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100074",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -891,10 +891,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100075",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -903,10 +903,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100076",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -915,10 +915,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100077",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -927,10 +927,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100078",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -939,10 +939,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100079",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -951,10 +951,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100080",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -963,10 +963,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100081",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -975,10 +975,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100082",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -987,10 +987,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100083",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -999,10 +999,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100084",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1011,10 +1011,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100085",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1023,10 +1023,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100086",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1035,10 +1035,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100087",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1047,10 +1047,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100088",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1059,10 +1059,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100089",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1071,10 +1071,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100091",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1083,10 +1083,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100092",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1095,10 +1095,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100093",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1107,10 +1107,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100094",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1119,10 +1119,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100095",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1131,10 +1131,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100096",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1143,10 +1143,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100097",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1155,10 +1155,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100098",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1167,10 +1167,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100099",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1179,10 +1179,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100100",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
@@ -1191,10 +1191,10 @@
     "passed": false,
     "mode": "live_api",
     "details": [
-      "API matched rule:  ()",
+      "API matched rule: 119999 (Logtest bridge: JSON-decoded Windows events root)",
       "Expected: 100101",
-      "Decoder: N/A",
-      "Level: N/A"
+      "Decoder: json",
+      "Level: 0"
     ],
     "error": "",
     "inconclusive": false
