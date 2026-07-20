@@ -171,8 +171,12 @@ jobs:
           fi
           echo ">> Integration test passed"
 
+      # Diagnostics only — must not fail the job (e.g. artifact storage quota
+      # exhaustion turned otherwise-green integration runs red). The test
+      # verdict comes from "Verify results" above.
       - name: Upload logs
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: integration-logs-${{ github.run_number }}
@@ -182,7 +186,7 @@ jobs:
             database/metadata/validation_results.json
             database/metadata/live_validation_results.json
             database/metadata/rule_index.json
-          retention-days: 30
+          retention-days: 7
 
       # Commit the fresh validation results (incl. live logtest) back to main
       # so the GitHub Pages dashboard reflects this run. The [dashboard] tag in
