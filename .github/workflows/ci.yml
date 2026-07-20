@@ -188,8 +188,10 @@ jobs:
       # so the GitHub Pages dashboard reflects this run. The [dashboard] tag in
       # the message skips the integration test on the resulting push, while the
       # pages.yml path filter still redeploys the dashboard.
+      # Main-only: HEAD:main would otherwise push a dispatched feature branch's
+      # entire history to main, bypassing review.
       - name: Publish validation results to dashboard
-        if: success()
+        if: success() && github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
