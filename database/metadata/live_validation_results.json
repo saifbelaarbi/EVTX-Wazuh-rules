@@ -1174,5 +1174,29 @@
     ],
     "error": "",
     "inconclusive": false
+  },
+  "100100": {
+    "passed": false,
+    "mode": "live_api",
+    "details": [
+      "API matched rule:  ()",
+      "Expected: 100100",
+      "Decoder: N/A",
+      "Level: N/A"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "100101": {
+    "passed": false,
+    "mode": "live_api",
+    "details": [
+      "API matched rule:  ()",
+      "Expected: 100101",
+      "Decoder: N/A",
+      "Level: N/A"
+    ],
+    "error": "",
+    "inconclusive": false
   }
 }

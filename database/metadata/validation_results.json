@@ -10693,6 +10693,808 @@
     "error": "",
     "inconclusive": false
   },
+  "101198": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '8003|8006|8021|8024' vs '8003'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101200": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '854' vs '854'",
+      "  PASS: win.eventdata.path = '.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at' vs '.githubusercontent.com'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101223": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4719' vs '4719'",
+      "  FAIL: win.eventdata.subcategoryGuid = '{0CCE9210-69AE-11D9-BED3-505054503030}|{0CCE9211-69AE-11D9-BED3-505054503030}|{0CCE9212-69AE-11D9-BED3-505054503030}|{0CCE9215-69AE-11D9-BED3-505054503030}|{0CCE921B-69AE-11D9-BED3-505054503030}|{0CCE922B-69AE-11D9-BED3-505054503030}|{0CCE922F-69AE-11D9-BED3-505054503030}|{0CCE9230-69AE-11D9-BED3-505054503030}|{0CCE9235-69AE-11D9-BED3-505054503030}|{0CCE9236-69AE-11D9-BED3-505054503030}|{0CCE9237-69AE-11D9-BED3-505054503030}|{0CCE923F-69AE-11D9-BED3-505054503030}|{0CCE9240-69AE-11D9-BED3-505054503030}|{0CCE9242-69AE-11D9-BED3-505054503030}' vs ''",
+      "  PASS: win.eventdata.auditPolicyChanges = '%%8448|%%8450' vs '%%8448'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101224": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4719' vs '4719'",
+      "  FAIL: win.eventdata.subcategoryGuid = '{0CCE9217-69AE-11D9-BED3-505054503030}' vs ''",
+      "  PASS: win.eventdata.auditPolicyChanges = '%%8448' vs '%%8448'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101226": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4697' vs '4697'",
+      "  PASS: win.eventdata.serviceFileName = 'cmd|&&|clipboard]::' vs 'cmd'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101229": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4697' vs '4697'",
+      "  PASS: win.eventdata.serviceFileName = 'system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend' vs 'system.io.compression.deflatestream'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101231": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4697' vs '4697'",
+      "  PASS: win.eventdata.serviceFileName = 'environment|invoke|\\${input\\)|&&' vs 'environment'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101232": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4697' vs '4697'",
+      "  PASS: win.eventdata.serviceFileName = '\\(Clipboard|i' vs '(Clipboard|i'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101235": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4697' vs '4697'",
+      "  FAIL: win.eventdata.serviceFileName = '{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f' vs ''"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101255": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
+      "  PASS: win.system.eventID = '7045' vs '7045'",
+      "  PASS: win.eventdata.imagePath = 'cmd|&&|clipboard]::' vs 'cmd'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101258": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
+      "  PASS: win.system.eventID = '7045' vs '7045'",
+      "  PASS: win.eventdata.imagePath = ':system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend' vs ':system.io.compression.deflatestream'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101261": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
+      "  PASS: win.system.eventID = '7045' vs '7045'",
+      "  PASS: win.eventdata.imagePath = '\\(Clipboard|i' vs '(Clipboard|i'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101264": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
+      "  PASS: win.system.eventID = '7045' vs '7045'",
+      "  FAIL: win.eventdata.imagePath = '{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f' vs ''"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101286": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '5858' vs '5858'",
+      "  PASS: win.eventdata.operation = 'Win32_NTEventlogFile|cleareventlog' vs 'Win32_NTEventlogFile'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101290": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.contents = '^[ZoneTransfer]  ZoneId=3' vs 'Z  ZoneId=3'",
+      "  PASS: win.eventdata.targetFilename = '.exe|.scr|.bat|.cmd|.docx|.hta|.jse|.lnk|.pptx|.ps|.reg|.sct|.vb|.wsc|.wsf|.xlsx' vs '.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101291": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.contents = '.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at' vs '.githubusercontent.com'",
+      "  PASS: win.eventdata.targetFilename = '.cpl:Zone|.dll:Zone|.exe:Zone|.hta:Zone|.lnk:Zone|.one:Zone|.vbe:Zone|.vbs:Zone|.xll:Zone' vs '.cpl:Zone'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101292": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.contents = '.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at' vs '.githubusercontent.com'",
+      "  PASS: win.eventdata.targetFilename = '.bat:Zone|.cmd:Zone|.ps1:Zone' vs '.bat:Zone'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101351": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\eqnedt32.exe$|\\\\wordpad.exe$|\\\\wordview.exe$|\\\\certutil.exe$|\\\\certoc.exe$|\\\\CertReq.exe$|\\\\Desktopimgdownldr.exe$|\\\\esentutl.exe$|\\\\mshta.exe$|\\\\AcroRd32.exe$|\\\\RdrCEF.exe$|\\\\hh.exe$|\\\\finger.exe$' vs '\\eqnedt32.exe'",
+      "  PASS: win.eventdata.targetFilename = '.com$|.dll$|.exe$|.jar$|.ocx$|.pyc$' vs '.com'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101352": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\eqnedt32.exe$|\\\\wordpad.exe$|\\\\wordview.exe$|\\\\certutil.exe$|\\\\certoc.exe$|\\\\CertReq.exe$|\\\\Desktopimgdownldr.exe$|\\\\esentutl.exe$|\\\\mshta.exe$|\\\\AcroRd32.exe$|\\\\RdrCEF.exe$|\\\\hh.exe$|\\\\finger.exe$' vs '\\eqnedt32.exe'",
+      "  PASS: win.eventdata.targetFilename = '.bat$|.chm$|.csproj$|.hta$|.js$|.jse$|.proj$|.ps1$|.py$|.scf$|.vbe$|.vbs$|.wsf$|.wsh$' vs '.bat'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101356": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetFilename = '\\\\u202e|[U+202E]|\u202e' vs '\\u202e'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101389": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '' vs 'x'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101407": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.data = '-q=txt http|-querytype=txt http|-type=txt http|nslookup|[1]' vs '-q=txt http'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101410": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.data = 'ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {' vs 'ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101419": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.payload = 'readtoend$|text.encoding]::ascii' vs 'readtoend'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101425": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.payload = 'ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {' vs 'ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101428": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.contextInfo = '-nop| -w |hidden| -c |[Convert]::FromBase64String' vs '-nop'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101437": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.scriptBlockText = '[Ref].Assembly.GetType|SetValue\\(\\$null,\\$true\\)|NonPublic,Static' vs 'R.Assembly.GetType'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101438": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.scriptBlockText = 'if\\(0\\){{{0}}}' -f \\$\\(0 -as [char]\\) +|#<NULL>' vs 'if(0)}}' -f $(0 -as c) +'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101439": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = 'set type=\\$LookupType`nserver|\\$Command | nslookup 2>&1 | Out-String|New-RandomDNSField|[Convert]::ToString\\(\\$SYNOptions, 16\\)|\\$Session.Dead = \\$True|\\$Session[\"Driver\"] -eq' vs 'set type=$LookupType`nserver'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101446": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.scriptBlockText = '[Reflection.Assembly]::load' vs 'R::load'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101452": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = 'readtoend$|text.encoding]::ascii' vs 'readtoend'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101465": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = '^function Get-VMRemoteFXPhysicalVideoAdapter {' vs 'function Get-VMRemoteFXPhysicalVideoAdapter {'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101481": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = '-nop| -w |hidden| -c |[Convert]::FromBase64String' vs '-nop'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101488": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = 'System.Reflection.Assembly.Load\\(\\$|[System.Reflection.Assembly]::Load\\(\\$|[Reflection.Assembly]::Load\\(\\$|System.Reflection.AssemblyName|Reflection.Emit.AssemblyBuilderAccess|Reflection.Emit.CustomAttributeBuilder|Runtime.InteropServices.UnmanagedType|Runtime.InteropServices.DllImportAttribute|SuspendThread|rundll32' vs 'System.Reflection.Assembly.Load($|S::Load($|R::Load($|System.Reflection.Assembly'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101490": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = '-PassThru |-FilePath ' vs '-PassThru '"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101497": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = '.CreationTime =|.LastWriteTime =|.LastAccessTime =|[IO.File]::SetCreationTime|[IO.File]::SetLastAccessTime|[IO.File]::SetLastWriteTime' vs '.CreationTime ='"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101498": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.scriptBlockText = '[System.Net.WebRequest]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest' vs 'S::create'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101503": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = 'VirtualAlloc|GetDelegateForFunctionPointer|Marshal.Copy' vs 'VirtualAlloc'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101515": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetImage = ':\\\\Windows\\\\Sysmon.exe|:\\\\Windows\\\\Sysmon64.exe|:\\\\Windows\\\\Sysmon64a.exe' vs ':\\Windows\\Sysmon.exe'",
+      "  PASS: win.eventdata.grantedAccess = '0x1400' vs '0x1400'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101534": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = ' +h ' vs ' +h '",
+      "  PASS: win.eventdata.image = '\\\\attrib.exe$' vs '\\attrib.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101551": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]decode |[-/\u2013\u2014]decodehex ' vs '/decode '",
+      "  PASS: win.eventdata.image = '\\\\certutil.exe$' vs '\\certutil.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101552": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]encode' vs '/encode'",
+      "  PASS: win.eventdata.image = '\\\\certutil.exe$' vs '\\certutil.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101555": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]exportPFX ' vs '/exportPFX '",
+      "  PASS: win.eventdata.image = '\\\\certutil.exe$' vs '\\certutil.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101559": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '^^|^|^|,;,|;;;;|;; ;;|\\(,\\(,|%COMSPEC:~| c^m^d|^c^m^d| c^md| cm^d|^cm^d| s^et | s^e^t | se^t ' vs ''"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101583": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at' vs '.githubusercontent.com'",
+      "  PASS: win.eventdata.image = '\\\\curl.exe$' vs '\\curl.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101594": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]s ' vs '/s '",
+      "  PASS: win.eventdata.originalFileName = 'diskshadow.exe' vs 'diskshadow.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101606": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '/factory,{75dff2b7-6936-4c06-a8bb-676a7b00b24b}' vs '/factory,'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101617": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.parentImage = '\\\\ftp.exe$' vs '\\ftp.exe'",
+      "  PASS: win.eventdata.image = '\\\\ftp.exe$' vs '\\ftp.exe'",
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]s:' vs '/s:'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101644": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'join\\.*split|\\( \\$ShellId[1]+\\$ShellId[13]+'x'\\)|\\( \\$PSHome[\\.*]+\\$PSHOME[\\.*]+|\\( \\$env:Public[13]+\\$env:Public[5]+'x'\\)|\\( \\$env:ComSpec[4,\\.*,25]-Join''\\)|[1,3]+'x'-Join''\\)' vs 'joinxsplit'",
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101655": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '/c|/r|&&|clipboard]::|-f' vs '/c'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101656": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'system.io.compression.deflatestream|system.io.streamreader|readtoend\\(|text.encoding]::ascii' vs 'system.io.compression.deflatestream'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101658": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f' vs ''"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101676": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '-NoExit -Command [Console]::OutputEncoding=[Text.UTF8Encoding]::UTF8' vs '-NoExit -Command C::OutputEncoding=T::UTF8'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101762": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]q' vs '/q'",
+      "  PASS: win.eventdata.image = '\\\\msiexec.exe$' vs '\\msiexec.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101780": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'npx-cli.js|skills | add ' vs 'npx-cli.js'",
+      "  PASS: win.eventdata.image = '\\\\node.exe$' vs '\\node.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101811": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[Ref].Assembly.GetType|SetValue\\(\\$null,\\$true\\)|NonPublic,Static' vs 'R.Assembly.GetType'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101812": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = 'if\\(0\\){{{0}}}' -f \\$\\(0 -as [char]\\) +|#<NULL>' vs 'if(0)}}' -f $(0 -as c) +'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101834": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = ' ^| |\\\\\\.*.lnk|-Recurse|-Skip ' vs ' ^'",
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'",
+      "  PASS: win.eventdata.originalFileName = 'PowerShell.EXE|pwsh.dll' vs 'PowerShell.EXE'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101843": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$' vs '\\powershell.exe'",
+      "  PASS: win.eventdata.commandLine = 'http://127.0.0.1|%{\\(IRM \\$_\\)}|Invoke' vs 'http://127.0.0.1'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101844": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = ';iex \\$|| IEX||IEX |I`E`X|I`EX|IE`X|iex |IEX \\(|IEX\\(|Invoke-Expression' vs ';iex $'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101846": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at' vs '0x0.st'",
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101852": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'",
+      "  PASS: win.eventdata.commandLine = '::FromBase64String|.GetString\\([System.Convert]::' vs '::FromBase64String'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101855": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '-nop| -w |hidden| -c |[Convert]::FromBase64String' vs '-nop'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101862": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[char]0x|\\(WCHAR\\)0x' vs 'c0x'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101970": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.originalFileName = 'Cmd.Exe|CONHOST.EXE|7z.exe|7za.exe|7zr.exe|WinRAR.exe|wevtutil.exe|net.exe|net1.exe|netsh.exe|InstallUtil.exe' vs 'Cmd.Exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101992": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '#+|12' vs '#+'",
+      "  PASS: win.eventdata.image = '\\\\rundll32.exe$' vs '\\rundll32.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101996": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '#+|#-|#0|#655|#656' vs '#+'",
+      "  PASS: win.eventdata.image = '\\\\rundll32.exe$' vs '\\rundll32.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102038": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = 'h^t^t^p|h\"t\"t\"p' vs 'h^t^t^p'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102101": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '\\\\u202e|[U+202E]|\u202e' vs '\\u202e'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102107": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\atbroker.exe$|\\\\audiodg.exe$|\\\\bcdedit.exe$|\\\\bitsadmin.exe$|\\\\certreq.exe$|\\\\certutil.exe$|\\\\cmstp.exe$|\\\\conhost.exe$|\\\\consent.exe$|\\\\cscript.exe$|\\\\csrss.exe$|\\\\dashost.exe$|\\\\defrag.exe$|\\\\dfrgui.exe$|\\\\dism.exe$|\\\\dllhost.exe$|\\\\dllhst3g.exe$|\\\\dwm.exe$|\\\\eventvwr.exe$|\\\\fsquirt.exe$|\\\\finger.exe$|\\\\logonui.exe$|\\\\LsaIso.exe$|\\\\lsass.exe$|\\\\lsm.exe$|\\\\msiexec.exe$|\\\\ntoskrnl.exe$|\\\\powershell_ise.exe$|\\\\powershell.exe$|\\\\pwsh.exe$|\\\\regsvr32.exe$|\\\\rundll32.exe$|\\\\runonce.exe$|\\\\RuntimeBroker.exe$|\\\\schtasks.exe$|\\\\services.exe$|\\\\sihost.exe$|\\\\smartscreen.exe$|\\\\smss.exe$|\\\\spoolsv.exe$|\\\\svchost.exe$|\\\\taskhost.exe$|\\\\taskhostw.exe$|\\\\Taskmgr.exe$|\\\\userinit.exe$|\\\\werfault.exe$|\\\\werfaultsecure.exe$|\\\\wininit.exe$|\\\\winlogon.exe$|\\\\winver.exe$|\\\\wlanext.exe$|\\\\wmic.exe$|\\\\wscript.exe$|\\\\wsl.exe$|\\\\wsmprovhost.exe$' vs '\\atbroker.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102110": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[System.Net.WebRequest]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest' vs 'S::create'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102126": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]c' vs '/c'",
+      "  PASS: win.eventdata.image = '\\\\Sysmon64.exe$|\\\\Sysmon64a.exe$|\\\\Sysmon.exe$' vs '\\Sysmon64.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102127": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]u' vs '/u'",
+      "  PASS: win.eventdata.image = '\\\\Sysmon64.exe$|\\\\Sysmon64a.exe$|\\\\Sysmon.exe$' vs '\\Sysmon64.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102131": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'defender' vs 'defender'",
+      "  PASS: win.eventdata.image = '\\\\SystemSettingsAdminFlows.exe$' vs '\\SystemSettingsAdminFlows.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102138": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.parentImage = '\\\\DllHost.exe$' vs '\\DllHost.exe'",
+      "  FAIL: win.eventdata.parentCommandLine = ' /Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}| /Processid:{3E000D72-A845-4CD9-BD83-80C07C3B881F}| /Processid:{BD54C901-076B-434E-B6C7-17C531F4AB41}| /Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}| /Processid:{E9495B87-D950-4AB5-87A5-FF6D70BF3E90}' vs ' /Processid:'",
+      "  PASS: win.eventdata.integrityLevel = 'High|System|S-1-16-16384|S-1-16-12288' vs 'High'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102139": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.parentImage = '\\\\DllHost.exe$' vs '\\DllHost.exe'",
+      "  FAIL: win.eventdata.parentCommandLine = ' /Processid:{12C21EA7-2EB8-4B55-9249-AC243DA8C666}' vs ' /Processid:'",
+      "  PASS: win.eventdata.integrityLevel = 'High|System|S-1-16-16384|S-1-16-12288' vs 'High'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102165": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.parentImage = '\\\\wlrmdr.exe$' vs '\\wlrmdr.exe'",
+      "  PASS: win.eventdata.image = '\\\\wlrmdr.exe$' vs '\\wlrmdr.exe'",
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]u ' vs '/u '"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102180": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'CheckAccess|EnumKey|EnumValues|GetBinaryValue|GetDWORDValue|GetExpandedStringValue|GetMultiStringValue|GetQWORDValue|GetSecurityDescriptor|GetStringValue|call' vs 'CheckAccess'",
+      "  PASS: win.eventdata.image = '\\\\wmic.exe$' vs '\\wmic.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102181": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'CreateKey|DeleteKey|DeleteValue|SetBinaryValue|SetDWORDValue|SetExpandedStringValue|SetMultiStringValue|SetQWORDValue|SetSecurityDescriptor|SetStringValue|call' vs 'CreateKey'",
+      "  PASS: win.eventdata.image = '\\\\wmic.exe$' vs '\\wmic.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102186": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '/nointeractive|product |uninstall' vs '/nointeractive'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102189": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]format:' vs '/format:'",
+      "  PASS: win.eventdata.image = '\\\\wmic.exe$' vs '\\wmic.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102208": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.targetObject = '{2781761E-28E0-4109-99FE-B9D127C57AFE}$|{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9}$' vs ''"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102217": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.targetObject = '\\\\CLSID\\\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\\\\InProcServer32\\\\\\(Default\\)$' vs '\\CLSID\\\\InProcServer32\\(Default)'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "104000": {
     "passed": true,
     "mode": "simulate_stored",
@@ -18918,6 +19720,237 @@
     "error": "",
     "inconclusive": false
   },
+  "104845": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'schtasks /create' vs '\"C:\\Windows\\System32\\cmd.exe\"  /C schtasks /Create /f /XML C:\\Users\\IEUser\\AppDa'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "104890": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG' vs 'dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVy'",
+      "  PASS: win.eventdata.imagePath = 'cmd.exe /c' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg15\" | select'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "104891": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG' vs 'dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVy'",
+      "  PASS: win.eventdata.imagePath = 'powershell' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg15\" | select'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105032": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg' vs 'xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcm'",
+      "  PASS: win.eventdata.imagePath = 'cmd.exe /c' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg86\" | select'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105033": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg' vs 'xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcm'",
+      "  PASS: win.eventdata.imagePath = 'powershell' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg86\" | select'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105144": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm' vs 'ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxv'",
+      "  PASS: win.eventdata.imagePath = 'cmd.exe /c' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg143\" | selec'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105145": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm' vs 'ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxv'",
+      "  PASS: win.eventdata.imagePath = 'powershell' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg143\" | selec'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105210": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg' vs 'oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0'",
+      "  PASS: win.eventdata.imagePath = 'cmd.exe /c' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg176\" | selec'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105211": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg' vs 'oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0'",
+      "  PASS: win.eventdata.imagePath = 'powershell' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg176\" | selec'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105302": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl' vs 'MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZX'",
+      "  PASS: win.eventdata.imagePath = 'cmd.exe /c' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg222\" | selec'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105303": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl' vs 'MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZX'",
+      "  PASS: win.eventdata.imagePath = 'powershell' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg222\" | selec'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105304": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy' vs 'IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdl'",
+      "  PASS: win.eventdata.imagePath = 'cmd.exe /c' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg223\" | selec'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105305": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.serviceName = 'IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy' vs 'IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdl'",
+      "  PASS: win.eventdata.imagePath = 'powershell' vs 'c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg223\" | selec'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105365": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.provider_Name = 'MSSQL' vs 'MSSQL'",
+      "  PASS: win.system.eventID = '33205' vs '33205'",
+      "  PASS: win.eventdata.data = 'object_name:sysadmin|statement:alter server role [sysadmin] add member ' vs 'object_name:sysadmin'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105368": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '16403' vs '16403'",
+      "  PASS: win.eventdata.remoteName = '.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at' vs '.githubusercontent.com'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105394": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4657' vs '4657'",
+      "  FAIL: win.eventdata.objectName = 'WINEVT\\\\Publishers\\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\\\Channels\\\\Microsoft-Windows-Sysmon/Operational' vs 'WINEVT\\Publishers\\'",
+      "  PASS: win.eventdata.objectValueName = 'Enabled' vs 'Enabled'",
+      "  PASS: win.eventdata.newValue = '0' vs '0'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105395": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4663' vs '4663'",
+      "  FAIL: win.eventdata.objectName = 'WINEVT\\\\Publishers\\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\\\Channels\\\\Microsoft-Windows-Sysmon/Operational' vs 'WINEVT\\Publishers\\'",
+      "  PASS: win.eventdata.accessMask = '0x10000' vs '0x10000'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105470": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.imageLoaded = '\\\\aclui.dll$|\\\\activeds.dll$|\\\\adsldpc.dll$|\\\\aepic.dll$|\\\\apphelp.dll$|\\\\applicationframe.dll$|\\\\appvpolicy.dll$|\\\\appxalluserstore.dll$|\\\\appxdeploymentclient.dll$|\\\\archiveint.dll$|\\\\atl.dll$|\\\\audioses.dll$|\\\\auditpolcore.dll$|\\\\authfwcfg.dll$|\\\\authz.dll$|\\\\avrt.dll$|\\\\batmeter.dll$|\\\\bcd.dll$|\\\\bcp47langs.dll$|\\\\bcp47mrm.dll$|\\\\bcrypt.dll$|\\\\bderepair.dll$|\\\\bootmenuux.dll$|\\\\bootux.dll$|\\\\cabinet.dll$|\\\\cabview.dll$|\\\\certcli.dll$|\\\\certenroll.dll$|\\\\cfgmgr32.dll$|\\\\cldapi.dll$|\\\\clipc.dll$|\\\\clusapi.dll$|\\\\cmpbk32.dll$|\\\\cmutil.dll$|\\\\coloradapterclient.dll$|\\\\colorui.dll$|\\\\comdlg32.dll$|\\\\configmanager2.dll$|\\\\connect.dll$|\\\\coredplus.dll$|\\\\coremessaging.dll$|\\\\coreuicomponents.dll$|\\\\credui.dll$|\\\\cryptbase.dll$|\\\\cryptdll.dll$|\\\\cryptsp.dll$|\\\\cryptui.dll$|\\\\cryptxml.dll$|\\\\cscapi.dll$|\\\\cscobj.dll$|\\\\cscui.dll$|\\\\d2d1.dll$|\\\\d3d10_1.dll$|\\\\d3d10_1core.dll$|\\\\d3d10.dll$|\\\\d3d10core.dll$|\\\\d3d10warp.dll$|\\\\d3d11.dll$|\\\\d3d12.dll$|\\\\d3d9.dll$|\\\\d3dx9_43.dll$|\\\\dataexchange.dll$|\\\\davclnt.dll$|\\\\dcntel.dll$|\\\\dcomp.dll$|\\\\defragproxy.dll$|\\\\desktopshellext.dll$|\\\\deviceassociation.dll$|\\\\devicecredential.dll$|\\\\devicepairing.dll$|\\\\devobj.dll$|\\\\devrtl.dll$|\\\\dhcpcmonitor.dll$|\\\\dhcpcsvc.dll$|\\\\dhcpcsvc6.dll$|\\\\directmanipulation.dll$|\\\\dismapi.dll$|\\\\dismcore.dll$|\\\\dmcfgutils.dll$|\\\\dmcmnutils.dll$|\\\\dmcommandlineutils.dll$|\\\\dmenrollengine.dll$|\\\\dmenterprisediagnostics.dll$|\\\\dmiso8601utils.dll$|\\\\dmoleaututils.dll$|\\\\dmprocessxmlfiltered.dll$|\\\\dmpushproxy.dll$|\\\\dmxmlhelputils.dll$|\\\\dnsapi.dll$|\\\\dot3api.dll$|\\\\dot3cfg.dll$|\\\\dpx.dll$|\\\\drprov.dll$|\\\\drvstore.dll$|\\\\dsclient.dll$|\\\\dsparse.dll$|\\\\dsprop.dll$|\\\\dsreg.dll$|\\\\dsrole.dll$|\\\\dui70.dll$|\\\\duser.dll$|\\\\dusmapi.dll$|\\\\dwmapi.dll$|\\\\dwmcore.dll$|\\\\dwrite.dll$|\\\\dxcore.dll$|\\\\dxgi.dll$|\\\\dxva2.dll$|\\\\dynamoapi.dll$|\\\\eappcfg.dll$|\\\\eappprxy.dll$|\\\\edgeiso.dll$|\\\\edputil.dll$|\\\\efsadu.dll$|\\\\efsutil.dll$|\\\\esent.dll$|\\\\execmodelproxy.dll$|\\\\explorerframe.dll$|\\\\fastprox.dll$|\\\\faultrep.dll$|\\\\fddevquery.dll$|\\\\feclient.dll$|\\\\fhcfg.dll$|\\\\fhsvcctl.dll$|\\\\firewallapi.dll$|\\\\flightsettings.dll$|\\\\fltlib.dll$|\\\\framedynos.dll$|\\\\fveapi.dll$|\\\\fveskybackup.dll$|\\\\fvewiz.dll$|\\\\fwbase.dll$|\\\\fwcfg.dll$|\\\\fwpolicyiomgr.dll$|\\\\fwpuclnt.dll$|\\\\fxsapi.dll$|\\\\fxsst.dll$|\\\\fxstiff.dll$|\\\\getuname.dll$|\\\\gpapi.dll$|\\\\hid.dll$|\\\\hnetmon.dll$|\\\\httpapi.dll$|\\\\icmp.dll$|\\\\idstore.dll$|\\\\ieadvpack.dll$|\\\\iedkcs32.dll$|\\\\iernonce.dll$|\\\\iertutil.dll$|\\\\ifmon.dll$|\\\\ifsutil.dll$|\\\\inproclogger.dll$|\\\\iphlpapi.dll$|\\\\iri.dll$|\\\\iscsidsc.dll$|\\\\iscsium.dll$|\\\\isv.exe_rsaenh.dll$|\\\\iumbase.dll$|\\\\iumsdk.dll$|\\\\joinutil.dll$|\\\\kdstub.dll$|\\\\ksuser.dll$|\\\\ktmw32.dll$|\\\\licensemanagerapi.dll$|\\\\licensingdiagspp.dll$|\\\\linkinfo.dll$|\\\\loadperf.dll$|\\\\lockhostingframework.dll$|\\\\logoncli.dll$|\\\\logoncontroller.dll$|\\\\lpksetupproxyserv.dll$|\\\\lrwizdll.dll$|\\\\magnification.dll$|\\\\maintenanceui.dll$|\\\\mapistub.dll$|\\\\mbaexmlparser.dll$|\\\\mdmdiagnostics.dll$|\\\\mfc42u.dll$|\\\\mfcore.dll$|\\\\mfplat.dll$|\\\\mi.dll$|\\\\midimap.dll$|\\\\mintdh.dll$|\\\\miutils.dll$|\\\\mlang.dll$|\\\\mmdevapi.dll$|\\\\mobilenetworking.dll$|\\\\mpr.dll$|\\\\mprapi.dll$|\\\\mrmcorer.dll$|\\\\msacm32.dll$|\\\\mscms.dll$|\\\\mscoree.dll$|\\\\msctf.dll$|\\\\msctfmonitor.dll$|\\\\msdrm.dll$|\\\\msdtctm.dll$|\\\\msftedit.dll$|\\\\msi.dll$|\\\\msiso.dll$|\\\\msutb.dll$|\\\\msvcp110_win.dll$|\\\\mswb7.dll$|\\\\mswsock.dll$|\\\\msxml3.dll$|\\\\mtxclu.dll$|\\\\napinsp.dll$|\\\\ncrypt.dll$|\\\\ndfapi.dll$|\\\\netapi32.dll$|\\\\netid.dll$|\\\\netiohlp.dll$|\\\\netjoin.dll$|\\\\netplwiz.dll$|\\\\netprofm.dll$|\\\\netprovfw.dll$|\\\\netsetupapi.dll$|\\\\netshell.dll$|\\\\nettrace.dll$|\\\\netutils.dll$|\\\\networkexplorer.dll$|\\\\newdev.dll$|\\\\ninput.dll$|\\\\nlaapi.dll$|\\\\nlansp_c.dll$|\\\\npmproxy.dll$|\\\\nshhttp.dll$|\\\\nshipsec.dll$|\\\\nshwfp.dll$|\\\\ntdsapi.dll$|\\\\ntlanman.dll$|\\\\ntlmshared.dll$|\\\\ntmarta.dll$|\\\\ntshrui.dll$|\\\\oleacc.dll$|\\\\omadmapi.dll$|\\\\onex.dll$|\\\\opcservices.dll$|\\\\osbaseln.dll$|\\\\osksupport.dll$|\\\\osuninst.dll$|\\\\p2p.dll$|\\\\p2pnetsh.dll$|\\\\p9np.dll$|\\\\pcaui.dll$|\\\\pdh.dll$|\\\\peerdistsh.dll$|\\\\pkeyhelper.dll$|\\\\pla.dll$|\\\\playsndsrv.dll$|\\\\pnrpnsp.dll$|\\\\policymanager.dll$|\\\\polstore.dll$|\\\\powrprof.dll$|\\\\printui.dll$|\\\\prntvpt.dll$|\\\\profapi.dll$|\\\\propsys.dll$|\\\\proximitycommon.dll$|\\\\proximityservicepal.dll$|\\\\prvdmofcomp.dll$|\\\\puiapi.dll$|\\\\radcui.dll$|\\\\rasapi32.dll$|\\\\rasdlg.dll$|\\\\rasgcw.dll$|\\\\rasman.dll$|\\\\rasmontr.dll$|\\\\reagent.dll$|\\\\regapi.dll$|\\\\reseteng.dll$|\\\\resetengine.dll$|\\\\resutils.dll$|\\\\rmclient.dll$|\\\\rpcnsh.dll$|\\\\rsaenh.dll$|\\\\rtutils.dll$|\\\\rtworkq.dll$|\\\\samcli.dll$|\\\\samlib.dll$|\\\\sapi_onecore.dll$|\\\\sas.dll$|\\\\scansetting.dll$|\\\\scecli.dll$|\\\\schedcli.dll$|\\\\secur32.dll$|\\\\security.dll$|\\\\sensapi.dll$|\\\\shell32.dll$|\\\\shfolder.dll$|\\\\slc.dll$|\\\\snmpapi.dll$|\\\\spectrumsyncclient.dll$|\\\\spp.dll$|\\\\sppc.dll$|\\\\sppcext.dll$|\\\\srclient.dll$|\\\\srcore.dll$|\\\\srmtrace.dll$|\\\\srpapi.dll$|\\\\srvcli.dll$|\\\\ssp_isv.exe_rsaenh.dll$|\\\\ssp.exe_rsaenh.dll$|\\\\sspicli.dll$|\\\\ssshim.dll$|\\\\staterepository.core.dll$|\\\\structuredquery.dll$|\\\\sxshared.dll$|\\\\systemsettings.dll$|\\\\systemsettingsthresholdadminflowui.dll$|\\\\tapi32.dll$|\\\\tbs.dll$|\\\\tdh.dll$|\\\\textshaping.dll$|\\\\timesync.dll$|\\\\tpmcoreprovisioning.dll$|\\\\tquery.dll$|\\\\tsworkspace.dll$|\\\\ttdrecord.dll$|\\\\twext.dll$|\\\\twinapi.dll$|\\\\twinui.appcore.dll$|\\\\uianimation.dll$|\\\\uiautomationcore.dll$|\\\\uireng.dll$|\\\\uiribbon.dll$|\\\\umpdc.dll$|\\\\unattend.dll$|\\\\updatepolicy.dll$|\\\\upshared.dll$|\\\\urlmon.dll$|\\\\userenv.dll$|\\\\utildll.dll$|\\\\uxinit.dll$|\\\\uxtheme.dll$|\\\\vaultcli.dll$|\\\\vdsutil.dll$|\\\\version.dll$|\\\\virtdisk.dll$|\\\\vssapi.dll$|\\\\vsstrace.dll$|\\\\wbemprox.dll$|\\\\wbemsvc.dll$|\\\\wcmapi.dll$|\\\\wcnnetsh.dll$|\\\\wdi.dll$|\\\\wdscore.dll$|\\\\webservices.dll$|\\\\wecapi.dll$|\\\\wer.dll$|\\\\wevtapi.dll$|\\\\whhelper.dll$|\\\\wimgapi.dll$|\\\\winbio.dll$|\\\\winbrand.dll$|\\\\windows.storage.dll$|\\\\windows.storage.search.dll$|\\\\windows.ui.immersive.dll$|\\\\windowscodecs.dll$|\\\\windowscodecsext.dll$|\\\\windowsudk.shellcommon.dll$|\\\\winhttp.dll$|\\\\wininet.dll$|\\\\winipsec.dll$|\\\\winmde.dll$|\\\\winmm.dll$|\\\\winnsi.dll$|\\\\winrnr.dll$|\\\\winscard.dll$|\\\\winsqlite3.dll$|\\\\winsta.dll$|\\\\winsync.dll$|\\\\wkscli.dll$|\\\\wlanapi.dll$|\\\\wlancfg.dll$|\\\\wldp.dll$|\\\\wlidprov.dll$|\\\\wmiclnt.dll$|\\\\wmidcom.dll$|\\\\wmiutils.dll$|\\\\wmpdui.dll$|\\\\wmsgapi.dll$|\\\\wofutil.dll$|\\\\wpdshext.dll$|\\\\wscapi.dll$|\\\\wsdapi.dll$|\\\\wshbth.dll$|\\\\wshelper.dll$|\\\\wsmsvc.dll$|\\\\wtsapi32.dll$|\\\\wwancfg.dll$|\\\\wwapi.dll$|\\\\xmllite.dll$|\\\\xolehlp.dll$|\\\\xpsservices.dll$|\\\\xwizards.dll$|\\\\xwtpw32.dll$|\\\\amsi.dll$|\\\\appraiser.dll$|\\\\COMRES.DLL$|\\\\cryptnet.dll$|\\\\DispBroker.dll$|\\\\dsound.dll$|\\\\dxilconv.dll$|\\\\FxsCompose.dll$|\\\\FXSRESM.DLL$|\\\\msdtcVSp1res.dll$|\\\\PrintIsolationProxy.dll$|\\\\rdpendp.dll$|\\\\rpchttp.dll$|\\\\storageusage.dll$|\\\\utcutil.dll$|\\\\WfsR.dll$|\\\\igd10iumd64.dll$|\\\\igd12umd64.dll$|\\\\igdumdim64.dll$|\\\\igdusc64.dll$|\\\\TSMSISrv.dll$|\\\\TSVIPSrv.dll$|\\\\wbemcomn.dll$|\\\\WLBSCTRL.dll$|\\\\wow64log.dll$|\\\\WptsExtensions.dll$' vs '\\aclui.dll'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105533": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]name:|module' vs '/name:'",
+      "  PASS: win.eventdata.image = '\\\\appcmd.exe$' vs '\\appcmd.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105576": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '&ipconfig&echo|&quser&echo|&whoami&echo|&c:&echo|&cd&echo|&dir&echo|&echo [E]|&echo [S]' vs '&ipconfig&echo'",
+      "  PASS: win.eventdata.image = '\\\\w3wp.exe$' vs '\\w3wp.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105606": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.eventType = 'SetValue' vs 'SetValue'",
+      "  PASS: win.eventdata.targetObject = 'Classes\\\\ms-settings\\\\shell\\\\open\\\\command\\\\\\(Default\\)$|Classes\\\\exefile\\\\shell\\\\open\\\\command\\\\\\(Default\\)$' vs 'Classes\\ms-settings\\shell\\open\\command\\(Default)'",
+      "  PASS: win.eventdata.details = '\\\\Software\\\\Classes\\\\{' vs '\\Software\\Classes\\{'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105637": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.targetObject = '\\\\CLSID\\\\{52A2AAAE-085D-4187-97EA-8C30DB990436}\\\\InprocServer32\\\\\\(Default\\)' vs '\\CLSID\\\\InprocServer32\\(Default)'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105655": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetObject = '\\\\SOFTWARE\\\\Classes\\\\CLSID|\\\\PersistentAddinsRegistered\\\\{89BCB740-6119-101A-BCB7-00DD010655AF}' vs '\\SOFTWARE\\Classes\\CLSID'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "107000": {
     "passed": true,
     "mode": "simulate_stored",
@@ -22376,6 +23409,175 @@
     "error": "",
     "inconclusive": false
   },
+  "107403": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '5136' vs '5136'",
+      "  PASS: win.eventdata.objectClass = 'groupPolicyContainer' vs 'groupPolicyContainer'",
+      "  FAIL: win.eventdata.objectDN = '^CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM|^CN={6AC1786C-016F-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM' vs 'CN=,CN=POLICIES,CN=SYSTEM'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107426": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.sourceImage = '\\\\System32\\\\cscript.exe$|\\\\System32\\\\wscript.exe$|\\\\System32\\\\mshta.exe$|\\\\winword.exe$|\\\\excel.exe$' vs '\\System32\\cscript.exe'",
+      "  PASS: win.eventdata.targetImage = '\\\\SysWOW64\\\\' vs '\\SysWOW64\\'",
+      "  PASS: win.eventdata.startModule = '' vs 'x'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107440": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetFilename = '\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup|.lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}' vs '\\Microsoft\\Windows\\Start Menu\\Programs\\Startup'",
+      "  PASS: win.eventdata.image = '\\\\explorer.exe$' vs '\\explorer.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107510": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.sourceImage = ':\\\\Windows\\\\SysWOW64\\\\' vs ':\\Windows\\SysWOW64\\'",
+      "  PASS: win.eventdata.grantedAccess = '0x1fffff' vs '0x1fffff'",
+      "  PASS: win.eventdata.callTrace = '^UNKNOWN\\(0000000000000000\\)|UNKNOWN\\(0000000000000000\\)|' vs 'UNKNOWN(0000000000000000)'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107599": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '-sta |-localserver |{|}' vs '-sta '",
+      "  PASS: win.eventdata.image = '\\\\rundll32.exe$' vs '\\rundll32.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107609": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '/TN \"{|/TN '{|/TN {' vs '/TN \"{'",
+      "  PASS: win.eventdata.image = '\\\\schtasks.exe$' vs '\\schtasks.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107639": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\PsService.exe$|\\\\PsService64.exe$|\\\\PsService64a.exe$' vs '\\PsService.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107641": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\pssuspend.exe$|\\\\pssuspend64.exe$|\\\\pssuspend64a.exe$' vs '\\pssuspend.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107651": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.parentImage = '\\\\dllhost.exe$' vs '\\dllhost.exe'",
+      "  FAIL: win.eventdata.parentCommandLine = '/Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}|/Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}' vs '/Processid:'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107655": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.parentCommandLine = '\"C:\\\\Windows\\\\system32\\\\dism.exe\" /online /quiet /norestart /add-package /packagepath:\"C:\\\\Windows\\\\system32\\\\pe386\" /ignorecheck' vs '\"C:\\Windows\\system32\\dism.exe\" /online /quiet /norestart /add-package /packagepa'",
+      "  PASS: win.eventdata.integrityLevel = 'High|System' vs 'High'",
+      "  PASS: win.eventdata.commandLine = 'C:\\\\Users\\\\|\\\\AppData\\\\Local\\\\Temp\\\\|\\\\dismhost.exe {' vs 'C:\\Users\\'",
+      "  PASS: win.eventdata.image = '\\\\DismHost.exe$' vs '\\DismHost.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107670": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'ActiveScriptEventConsumer| CREATE ' vs 'ActiveScriptEventConsumer'",
+      "  PASS: win.eventdata.originalFileName = 'wmic.exe' vs 'wmic.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107679": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.eventType = 'RenameKey' vs 'RenameKey'",
+      "  FAIL: win.eventdata.newName = '\\\\CLSID\\\\{645FF040-5081-101B-9F08-00AA002F954E}\\\\shell\\\\open' vs '\\CLSID\\\\shell\\open'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107680": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.eventType = 'SetValue' vs 'SetValue'",
+      "  FAIL: win.eventdata.targetObject = '\\\\CLSID\\\\{645FF040-5081-101B-9F08-00AA002F954E}\\\\shell\\\\open\\\\command\\\\\\(Default\\)' vs '\\CLSID\\\\shell\\open\\command\\(Default)'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107688": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetObject = '\\\\Folder\\\\ShellEx\\\\ExtShellFolderViews|\\\\Folder\\\\ShellEx\\\\DragDropHandlers|\\\\Folder\\\\Shellex\\\\ColumnHandlers|\\\\Filter|\\\\Exefile\\\\Shell\\\\Open\\\\Command\\\\\\(Default\\)|\\\\Directory\\\\Shellex\\\\DragDropHandlers|\\\\Directory\\\\Shellex\\\\CopyHookHandlers|\\\\CLSID\\\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\\\Instance|\\\\CLSID\\\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\\\Instance|\\\\CLSID\\\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\\\Instance|\\\\CLSID\\\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\\\Instance|\\\\Classes\\\\AllFileSystemObjects\\\\ShellEx\\\\DragDropHandlers|\\\\.exe|\\\\.cmd|\\\\ShellEx\\\\PropertySheetHandlers|\\\\ShellEx\\\\ContextMenuHandlers' vs '\\Folder\\ShellEx\\ExtShellFolderViews'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107689": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetObject = '\\\\SOFTWARE\\\\Wow6432Node\\\\Microsoft\\\\Windows CE Services\\\\AutoStart|\\\\Software\\\\Wow6432Node\\\\Microsoft\\\\Command Processor\\\\Autorun|\\\\SOFTWARE\\\\Wow6432Node\\\\Microsoft\\\\Active Setup\\\\Installed Components|\\\\SOFTWARE\\\\Microsoft\\\\Windows CE Services\\\\AutoStartOnDisconnect|\\\\SOFTWARE\\\\Microsoft\\\\Windows CE Services\\\\AutoStartOnConnect|\\\\SYSTEM\\\\Setup\\\\CmdLine|\\\\Software\\\\Microsoft\\\\Ctf\\\\LangBarAddin|\\\\Software\\\\Microsoft\\\\Command Processor\\\\Autorun|\\\\SOFTWARE\\\\Microsoft\\\\Active Setup\\\\Installed Components|\\\\SOFTWARE\\\\Classes\\\\Protocols\\\\Handler|\\\\SOFTWARE\\\\Classes\\\\Protocols\\\\Filter|\\\\SOFTWARE\\\\Classes\\\\Htmlfile\\\\Shell\\\\Open\\\\Command\\\\\\(Default\\)|\\\\Environment\\\\UserInitMprLogonScript|\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows\\\\Control Panel\\\\Desktop\\\\Scrnsave.exe|\\\\Software\\\\Microsoft\\\\Internet Explorer\\\\UrlSearchHooks|\\\\SOFTWARE\\\\Microsoft\\\\Internet Explorer\\\\Desktop\\\\Components|\\\\Software\\\\Classes\\\\Clsid\\\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\\\\Inprocserver32|\\\\Control Panel\\\\Desktop\\\\Scrnsave.exe' vs '\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows CE Services\\AutoStart'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107699": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetObject = '\\\\Folder\\\\ShellEx\\\\ExtShellFolderViews|\\\\Folder\\\\ShellEx\\\\DragDropHandlers|\\\\Folder\\\\ShellEx\\\\ColumnHandlers|\\\\Directory\\\\Shellex\\\\DragDropHandlers|\\\\Directory\\\\Shellex\\\\CopyHookHandlers|\\\\CLSID\\\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\\\Instance|\\\\CLSID\\\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\\\Instance|\\\\CLSID\\\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\\\Instance|\\\\CLSID\\\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\\\Instance|\\\\AllFileSystemObjects\\\\ShellEx\\\\DragDropHandlers|\\\\ShellEx\\\\PropertySheetHandlers|\\\\ShellEx\\\\ContextMenuHandlers' vs '\\Folder\\ShellEx\\ExtShellFolderViews'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107720": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.targetObject = '\\\\CLSID\\\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}\\\\InProcServer32\\\\\\(Default\\)$' vs '\\CLSID\\\\InProcServer32\\(Default)'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "108500": {
     "passed": true,
     "mode": "simulate_stored",
@@ -25121,6 +26323,192 @@
     "error": "",
     "inconclusive": false
   },
+  "108795": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.targetImage = 'lsass' vs 'C:\\Windows\\system32\\lsass.exe'",
+      "  PASS: win.eventdata.grantedAccess = '0x00001010' vs '0x00001010'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108796": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'gsecdump' vs '\"C:\\Windows\\system32\\cmd.exe\" /c \"gsecdump -a\"'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108801": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.targetImage = 'lsass' vs 'C:\\Windows\\system32\\lsass.exe'",
+      "  PASS: win.eventdata.grantedAccess = '0x001f1fff' vs '0x001f1fff'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108803": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.targetImage = 'lsass' vs 'C:\\Windows\\system32\\lsass.exe'",
+      "  PASS: win.eventdata.grantedAccess = '0x00001000' vs '0x00001000'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108804": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.targetImage = 'lsass' vs 'C:\\Windows\\system32\\lsass.exe'",
+      "  PASS: win.eventdata.grantedAccess = '0x00001410' vs '0x00001410'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108805": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.targetImage = 'lsass' vs 'C:\\Windows\\system32\\lsass.exe'",
+      "  PASS: win.eventdata.grantedAccess = '0x001fffff' vs '0x001fffff'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108810": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.targetImage = 'lsass' vs 'C:\\Windows\\system32\\lsass.exe'",
+      "  PASS: win.eventdata.grantedAccess = '0x0000143a' vs '0x0000143a'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108811": {
+    "passed": true,
+    "mode": "simulate_stored",
+    "details": [
+      "  PASS: win.eventdata.targetImage = 'lsass' vs 'C:\\Windows\\system32\\lsass.exe'",
+      "  PASS: win.eventdata.grantedAccess = '0x00101ffb' vs '0x00101ffb'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108823": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '300' vs '300'",
+      "  PASS: win.eventdata.targetUserSid = '^S-1-5-21-' vs 'S-1-5-21-'",
+      "  PASS: win.eventdata.sidList = 'S-1-5-32-544|-500}|-518}|-519}' vs 'S-1-5-32-544'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108848": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '31017' vs '31017'",
+      "  PASS: win.eventdata.userName = '' vs 'x'",
+      "  PASS: win.eventdata.serverName = '^\\\\1' vs '\\1'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108856": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetImage = '\\\\lsass.exe$' vs '\\lsass.exe'",
+      "  PASS: win.eventdata.startModule = '' vs 'x'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108901": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = 'New-Object|Microsoft.CSharp.CSharpCodeProvider|[System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory\\(\\)\\)|Collections.ArrayList|System.CodeDom.Compiler.CompilerParameters' vs 'New-Object'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108918": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.scriptBlockText = '[Credentials]|[Veeam.Backup.Common.ProtectedStorage]::GetLocalString|Invoke-Sqlcmd|Veeam Backup and Replication' vs 'C'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108924": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetImage = '\\\\lsass.exe$' vs '\\lsass.exe'",
+      "  PASS: win.eventdata.callTrace = 'python27.dll+|python3\\.*.dll+|:\\\\Windows\\\\System32\\\\KERNELBASE.dll+|:\\\\Windows\\\\SYSTEM32\\\\ntdll.dll+' vs 'python27.dll+'",
+      "  PASS: win.eventdata.grantedAccess = '0x1FFFFF' vs '0x1FFFFF'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108965": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '^USER^|^PASS^|-p ' vs 'USER^'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "109015": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'Copy-Item|cp \\$_.|cpi \\$_.|copy \\$_.|.File]::Copy\\(|System32\\\\config\\\\sam' vs 'Copy-Item'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "109035": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]s' vs '/s'",
+      "  PASS: win.eventdata.image = '\\\\RpcPing.exe$' vs '\\RpcPing.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "109043": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '-InstanceId 462\\.|.eventid -eq 462\\.|.ID -eq 462\\.|EventCode=\\.462\\.|EventIdentifier=\\.462\\.|System[EventID=462\\.]|-InstanceId 4778|.eventid -eq 4778|.ID -eq 4778|EventCode=\\.4778\\.|EventIdentifier=\\.4778\\.|System[EventID=4778]|-InstanceId 25|.eventid -eq 25|.ID -eq 25|EventCode=\\.25\\.|EventIdentifier=\\.25\\.|System[EventID=25]|-InstanceId 1149|.eventid -eq 1149|.ID -eq 1149|EventCode=\\.1149\\.|EventIdentifier=\\.1149\\.|System[EventID=1149]|-InstanceId 21|.eventid -eq 21|.ID -eq 21|EventCode=\\.21\\.|EventIdentifier=\\.21\\.|System[EventID=21]|-InstanceId 22|.eventid -eq 22|.ID -eq 22|EventCode=\\.22\\.|EventIdentifier=\\.22\\.|System[EventID=22]' vs '-InstanceId 462x'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "109063": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\procdump.exe$|\\\\procdump64.exe$|\\\\procdump64a.exe$' vs '\\procdump.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "110000": {
     "passed": true,
     "mode": "simulate_stored",
@@ -26923,6 +28311,76 @@
     "error": "",
     "inconclusive": false
   },
+  "110242": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.initiated = 'true' vs 'true'",
+      "  PASS: win.eventdata.destinationHostname = '.t.me$|0x0.st$|4shared.com$|abuse.ch$|anonfiles.com$|bashupload.com$|cdn.discordapp.com$|chunk.io$|cloudflare.com$|ddns.net$|discord.com$|docs.google.com$|drive.google.com$|dropbox.com$|dropmefiles.com$|facebook.com$|feeds.rapidfeeds.com$|fotolog.com$|ghostbin.co/$|githubusercontent.com$|gofile.io$|hastebin.com$|imgur.com$|livejournal.com$|mediafire.com$|mega.co.nz$|mega.nz$|onedrive.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|reddit.com$|send.exploit.in$|sendspace.com$|steamcommunity.com$|storage.googleapis.com$|technet.microsoft.com$|temp.sh$|transfer.sh$|trycloudflare.com$|twitter.com$|ufile.io$|vimeo.com$|w3spaces.com$|wetransfer.com$|workers.dev$|x0.at$|youtube.com$' vs '.t.me'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "110253": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.initiated = 'true' vs 'true'",
+      "  PASS: win.eventdata.destinationHostname = '.githubusercontent.com$|0x0.st$|anonfiles.com$|bashupload.com$|cdn.discordapp.com$|chunk.io$|ddns.net$|dl.dropboxusercontent.com$|ghostbin.co$|github.com$|glitch.me$|gofile.io$|hastebin.com$|mediafire.com$|mega.co.nz$|mega.nz$|onrender.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|send.exploit.in$|sendspace.com$|storage.googleapis.com$|storjshare.io$|supabase.co$|temp.sh$|transfer.sh$|trycloudflare.com$|ufile.io$|w3spaces.com$|workers.dev$|x0.at$' vs '.githubusercontent.com'",
+      "  PASS: win.eventdata.image = ':\\\\\\$Recycle.bin|:\\\\Perflogs\\\\|:\\\\Temp\\\\|:\\\\Users\\\\Default\\\\|:\\\\Users\\\\Public\\\\|:\\\\Windows\\\\Fonts\\\\|:\\\\Windows\\\\IME\\\\|:\\\\Windows\\\\System32\\\\Tasks\\\\|:\\\\Windows\\\\Tasks\\\\|:\\\\Windows\\\\Temp\\\\|\\\\AppData\\\\Temp\\\\|\\\\config\\\\systemprofile\\\\|\\\\Windows\\\\addins\\\\' vs ':\\$Recycle.bin'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "110262": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.scriptBlockText = '[System.Net.HttpWebRequest]|System.Net.Sockets.TcpListener|AcceptTcpClient' vs 'S'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "110273": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at' vs '.githubusercontent.com'",
+      "  PASS: win.eventdata.image = '\\\\certutil.exe$' vs '\\certutil.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "110300": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\replace.exe$' vs '\\replace.exe'",
+      "  FAIL: win.eventdata.commandLine = '[-/\u2013\u2014]a' vs '/a'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "110378": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.originalFileName = '' vs 'x'",
+      "  PASS: win.eventdata.commandLine = '.exe tunnel$' vs '.exe tunnel'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "110382": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.originalFileName = '' vs 'x'",
+      "  PASS: win.eventdata.commandLine = '.exe tunnel$' vs '.exe tunnel'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "111000": {
     "passed": true,
     "mode": "simulate_stored",
@@ -28221,6 +29679,53 @@
     "error": "",
     "inconclusive": false
   },
+  "111162": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = ' | Select |Out-File|Set-Content|Add-Content| -Filter \\\\\\.*' vs ' '"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "111171": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = ' > | | Select |Out-File|Set-Content|Add-Content| -Filter \\\\\\.*' vs ' > '"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "111180": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'ipconfig\\.*|\\.*find|net\\.*|\\.*find|netstat\\.*|\\.*find|ping\\.*|\\.*find|systeminfo\\.*|\\.*find|tasklist\\.*|\\.*find|whoami\\.*|\\.*find' vs 'ipconfigx'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "111216": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = ' > | | Select |Out-File|Set-Content|Add-Content| -Filter \\\\\\.*' vs ' > '",
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "111218": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = ' > | | Select |Out-File|Set-Content|Add-Content| -Filter \\\\\\.*' vs ' > '",
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "112000": {
     "passed": true,
     "mode": "simulate_stored",
@@ -29311,6 +30816,37 @@
     "error": "",
     "inconclusive": false
   },
+  "112609": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.provider_Name = 'Service Control Manager' vs 'Service Control Manager'",
+      "  PASS: win.system.eventID = '7045' vs '7045'",
+      "  PASS: win.eventdata.imagePath = '.bat & del |__output 2^>^&1 >' vs '.bat & del '"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "112618": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.contextInfo = ':\\\\Windows\\\\System32\\\\wsmprovhost.exe|:\\\\Windows\\\\SysWOW64\\\\wsmprovhost.exe' vs ':\\Windows\\System32\\wsmprovhost.exe'",
+      "  PASS: win.eventdata.payload = 'value=\"\\(get-location\\).path|value=\"\\(get-item\\.*\\).length|Invoke-Binary |Donut-Loader -process_id\\.*-donutfile|Bypass-4MSI|IEX \\([System.Text.Encoding]::ASCII.GetString\\([System.Convert]::FromBase64String\\(\\$a\\)\\)\\).replace\\('\\.\\.\\.',''\\)' vs 'value=\"(get-location).path'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "112645": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\winrs.exe$' vs '\\winrs.exe'",
+      "  PASS: win.eventdata.commandLine = '/r:localhost|/r:127.0.0.1|/r:[::1]|/remote:localhost|/remote:127.0.0.1|/remote:[::1]' vs '/r:localhost'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "113000": {
     "passed": true,
     "mode": "simulate_synthetic",
@@ -30111,6 +31647,47 @@
     "error": "",
     "inconclusive": false
   },
+  "113556": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.provider_Name = 'Microsoft-Windows-DistributedCOM' vs 'Microsoft-Windows-DistributedCOM'",
+      "  PASS: win.system.eventID = '10001' vs '10001'",
+      "  PASS: win.eventdata.param1 = 'C:\\\\Program Files\\\\Common Files\\\\microsoft shared\\\\ink\\\\TabTip.exe' vs 'C:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe'",
+      "  PASS: win.eventdata.param2 = '2147943140' vs '2147943140'",
+      "  FAIL: win.eventdata.param3 = '{054AAE20-4BEA-4347-8A35-64A533254A9D}' vs ''"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "113566": {
+    "passed": false,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  FAIL: win.eventdata.scriptBlockText = '[Windows.Input.Keyboard]::IsKeyDown\\([System.Windows.Input.Key]::' vs 'W::IsKeyDown(S::'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "113577": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '}\" -z$' vs '}\" -z'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "113592": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'SELECT|TOP|[VeeamBackup].[dbo].[Credentials]' vs 'SELECT'",
+      "  PASS: win.eventdata.image = '\\\\sqlcmd.exe$' vs '\\sqlcmd.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "114000": {
     "passed": true,
     "mode": "simulate_stored",
@@ -30534,6 +32111,15 @@
     "error": "",
     "inconclusive": false
   },
+  "114077": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = ' --cpu-priority=|--donate-level=0| -o pool.| --nicehash| --algo=rx/0 |stratum+tcp://|stratum+udp://|LS1kb25hdGUtbGV2ZWw9|0tZG9uYXRlLWxldmVsP|tLWRvbmF0ZS1sZXZlbD|c3RyYXR1bSt0Y3A6Ly|N0cmF0dW0rdGNwOi8v|zdHJhdHVtK3RjcDovL|c3RyYXR1bSt1ZHA6Ly|N0cmF0dW0rdWRwOi8v|zdHJhdHVtK3VkcDovL' vs ' --cpu-priority='"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "114500": {
     "passed": true,
     "mode": "simulate_synthetic",
@@ -30869,6 +32455,15 @@
     "error": "",
     "inconclusive": false
   },
+  "114554": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = 'Get-content |foreach|[System.Net.Dns]::GetHostEntry|Out-File' vs 'Get-content '"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "115000": {
     "passed": false,
     "mode": "simulate",
@@ -30891,6 +32486,34 @@
     "inconclusive": true
   },
   "115003": {
+    "passed": false,
+    "mode": "simulate",
+    "details": [],
+    "error": "No sample event could be resolved",
+    "inconclusive": true
+  },
+  "115004": {
+    "passed": false,
+    "mode": "simulate",
+    "details": [],
+    "error": "No sample event could be resolved",
+    "inconclusive": true
+  },
+  "115005": {
+    "passed": false,
+    "mode": "simulate",
+    "details": [],
+    "error": "No sample event could be resolved",
+    "inconclusive": true
+  },
+  "115006": {
+    "passed": false,
+    "mode": "simulate",
+    "details": [],
+    "error": "No sample event could be resolved",
+    "inconclusive": true
+  },
+  "115007": {
     "passed": false,
     "mode": "simulate",
     "details": [],
