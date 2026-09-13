@@ -165,6 +165,38 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101225" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4719</field>
+    <field name="win.eventdata.subcategoryGuid">{0CCE9210-69AE-11D9-BED3-505054503030}|{0CCE9211-69AE-11D9-BED3-505054503030}|{0CCE9212-69AE-11D9-BED3-505054503030}|{0CCE9215-69AE-11D9-BED3-505054503030}|{0CCE921B-69AE-11D9-BED3-505054503030}|{0CCE922B-69AE-11D9-BED3-505054503030}|{0CCE922F-69AE-11D9-BED3-505054503030}|{0CCE9230-69AE-11D9-BED3-505054503030}|{0CCE9235-69AE-11D9-BED3-505054503030}|{0CCE9236-69AE-11D9-BED3-505054503030}|{0CCE9237-69AE-11D9-BED3-505054503030}|{0CCE923F-69AE-11D9-BED3-505054503030}|{0CCE9240-69AE-11D9-BED3-505054503030}|{0CCE9242-69AE-11D9-BED3-505054503030}</field>
+    <field name="win.eventdata.auditPolicyChanges">%%8448|%%8450</field>
+    <description>Sigma: Important Windows Event Auditing Disabled</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101226" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4719</field>
+    <field name="win.eventdata.subcategoryGuid">{0CCE9217-69AE-11D9-BED3-505054503030}</field>
+    <field name="win.eventdata.auditPolicyChanges">%%8448</field>
+    <description>Sigma: Important Windows Event Auditing Disabled</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101517" level="9">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">:\\Windows\\Sysmon.exe|:\\Windows\\Sysmon64.exe|:\\Windows\\Sysmon64a.exe</field>
+    <field name="win.eventdata.grantedAccess">0x1400</field>
+    <description>Sigma: HackTool - SysmonEnte Execution</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="104529" level="9">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">29</field>

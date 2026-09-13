@@ -8465,6 +8465,534 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101288" level="8">
+    <if_sid>61621</if_sid>
+    <field name="win.system.eventID">5858</field>
+    <field name="win.eventdata.operation">Win32_NTEventlogFile|cleareventlog</field>
+    <description>Sigma: Failed Event Log Clear Via WMI NTEventLogFile ClearEventLog</description>
+    <mitre>
+      <id>T1685.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101292" level="8">
+    <if_sid>61617</if_sid>
+    <field name="win.eventdata.contents">^[ZoneTransfer]  ZoneId=3</field>
+    <field name="win.eventdata.targetFilename">.exe|.scr|.bat|.cmd|.docx|.hta|.jse|.lnk|.pptx|.ps|.reg|.sct|.vb|.wsc|.wsf|.xlsx</field>
+    <description>Sigma: Creation Of a Suspicious ADS File Outside a Browser Download</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101293" level="9">
+    <if_sid>61617</if_sid>
+    <field name="win.eventdata.contents">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <field name="win.eventdata.targetFilename">.cpl:Zone|.dll:Zone|.exe:Zone|.hta:Zone|.lnk:Zone|.one:Zone|.vbe:Zone|.vbs:Zone|.xll:Zone</field>
+    <description>Sigma: Suspicious File Download From File Sharing Websites -  File Stream</description>
+    <mitre>
+      <id>T1564.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101294" level="8">
+    <if_sid>61617</if_sid>
+    <field name="win.eventdata.contents">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <field name="win.eventdata.targetFilename">.bat:Zone|.cmd:Zone|.ps1:Zone</field>
+    <description>Sigma: Unusual File Download From File Sharing Websites - File Stream</description>
+    <mitre>
+      <id>T1564.004</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101353" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\\eqnedt32.exe$|\\wordpad.exe$|\\wordview.exe$|\\certutil.exe$|\\certoc.exe$|\\CertReq.exe$|\\Desktopimgdownldr.exe$|\\esentutl.exe$|\\mshta.exe$|\\AcroRd32.exe$|\\RdrCEF.exe$|\\hh.exe$|\\finger.exe$</field>
+    <field name="win.eventdata.targetFilename">.com$|.dll$|.exe$|.jar$|.ocx$|.pyc$</field>
+    <description>Sigma: Legitimate Application Dropped Executable</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101354" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\\eqnedt32.exe$|\\wordpad.exe$|\\wordview.exe$|\\certutil.exe$|\\certoc.exe$|\\CertReq.exe$|\\Desktopimgdownldr.exe$|\\esentutl.exe$|\\mshta.exe$|\\AcroRd32.exe$|\\RdrCEF.exe$|\\hh.exe$|\\finger.exe$</field>
+    <field name="win.eventdata.targetFilename">.bat$|.chm$|.csproj$|.hta$|.js$|.jse$|.proj$|.ps1$|.py$|.scf$|.vbe$|.vbs$|.wsf$|.wsh$</field>
+    <description>Sigma: Legitimate Application Dropped Script</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101358" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\\u202e|[U+202E]|‮</field>
+    <description>Sigma: Potential File Extension Spoofing Using Right-to-Left Override</description>
+    <mitre>
+      <id>T1036.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101391" level="8">
+    <if_sid>61609</if_sid>
+    <description>Sigma: Suspicious WSMAN Provider Image Loads</description>
+    <mitre>
+      <id>T1059.001</id>
+      <id>T1021.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101517" level="9">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">:\\Windows\\Sysmon.exe|:\\Windows\\Sysmon64.exe|:\\Windows\\Sysmon64a.exe</field>
+    <field name="win.eventdata.grantedAccess">0x1400</field>
+    <description>Sigma: HackTool - SysmonEnte Execution</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101536" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> +h </field>
+    <field name="win.eventdata.image">\\attrib.exe$</field>
+    <description>Sigma: Hiding Files with Attrib.exe</description>
+    <mitre>
+      <id>T1564.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101553" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]decode |[-/–—]decodehex </field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
+    <description>Sigma: File Decoded From Base64/Hex Via Certutil.EXE</description>
+    <mitre>
+      <id>T1027</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101554" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]encode</field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
+    <description>Sigma: File Encoded To Base64 Via Certutil.EXE</description>
+    <mitre>
+      <id>T1027</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101557" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]exportPFX </field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
+    <description>Sigma: Certificate Exported Via Certutil.EXE</description>
+    <mitre>
+      <id>T1027</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101561" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">^^|^|^|,;,|;;;;|;; ;;|\(,\(,|%COMSPEC:~| c^m^d|^c^m^d| c^md| cm^d|^cm^d| s^et | s^e^t | se^t </field>
+    <description>Sigma: Potential Dosfuscation Activity</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101585" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <field name="win.eventdata.image">\\curl.exe$</field>
+    <description>Sigma: Suspicious File Download From File Sharing Domain Via Curl.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101596" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]s </field>
+    <field name="win.eventdata.originalFileName">diskshadow.exe</field>
+    <description>Sigma: Diskshadow Script Mode - Uncommon Script Extension Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101608" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/factory,{75dff2b7-6936-4c06-a8bb-676a7b00b24b}</field>
+    <description>Sigma: Explorer Process Tree Break</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101619" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\\ftp.exe$</field>
+    <field name="win.eventdata.image">\\ftp.exe$</field>
+    <field name="win.eventdata.commandLine">[-/–—]s:</field>
+    <description>Sigma: Potential Arbitrary Command Execution Via FTP.EXE</description>
+    <mitre>
+      <id>T1059</id>
+      <id>T1202</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101646" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">join\.*split|\( \$ShellId[1]+\$ShellId[13]+'x'\)|\( \$PSHome[\.*]+\$PSHOME[\.*]+|\( \$env:Public[13]+\$env:Public[5]+'x'\)|\( \$env:ComSpec[4,\.*,25]-Join''\)|[1,3]+'x'-Join''\)</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: HackTool - CrackMapExec PowerShell Obfuscation</description>
+    <mitre>
+      <id>T1059.001</id>
+      <id>T1027.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101657" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/c|/r|&amp;&amp;|clipboard]::|-f</field>
+    <description>Sigma: Invoke-Obfuscation CLIP+ Launcher</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101658" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">system.io.compression.deflatestream|system.io.streamreader|readtoend\(|text.encoding]::ascii</field>
+    <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101660" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f</field>
+    <description>Sigma: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101678" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-NoExit -Command [Console]::OutputEncoding=[Text.UTF8Encoding]::UTF8</field>
+    <description>Sigma: HackTool - Sliver C2 Implant Activity Pattern</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101764" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]q</field>
+    <field name="win.eventdata.image">\\msiexec.exe$</field>
+    <description>Sigma: Msiexec Quiet Installation</description>
+    <mitre>
+      <id>T1218.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101782" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">npx-cli.js|skills | add </field>
+    <field name="win.eventdata.image">\\node.exe$</field>
+    <description>Sigma: New Agent Skills Installation Attempt Via Node.EXE</description>
+    <mitre>
+      <id>T1059.007</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101813" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[Ref].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
+    <description>Sigma: Potential AMSI Bypass Via .NET Reflection</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101814" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">if\(0\){{{0}}}' -f \$\(0 -as [char]\) +|#&lt;NULL&gt;</field>
+    <description>Sigma: Potential AMSI Bypass Using NULL Bits</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101836" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> ^| |\\\.*.lnk|-Recurse|-Skip </field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.originalFileName">PowerShell.EXE|pwsh.dll</field>
+    <description>Sigma: PowerShell Execution With Potential Decryption Capabilities</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101845" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\powershell.exe$</field>
+    <field name="win.eventdata.commandLine">http://127.0.0.1|%{\(IRM \$_\)}|Invoke</field>
+    <description>Sigma: Obfuscated PowerShell OneLiner Execution</description>
+    <mitre>
+      <id>T1059.001</id>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101846" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">;iex \$|| IEX||IEX |I`E`X|I`EX|IE`X|iex |IEX \(|IEX\(|Invoke-Expression</field>
+    <description>Sigma: PowerShell Download and Execution Cradles</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101848" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: Potentially Suspicious File Download From File Sharing Domain Via PowerShell.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101854" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.commandLine">::FromBase64String|.GetString\([System.Convert]::</field>
+    <description>Sigma: Suspicious PowerShell IEX Execution Patterns</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101857" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-nop| -w |hidden| -c |[Convert]::FromBase64String</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101864" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[char]0x|\(WCHAR\)0x</field>
+    <description>Sigma: Potential PowerShell Obfuscation Via WCHAR/CHAR</description>
+    <mitre>
+      <id>T1059.001</id>
+      <id>T1027</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101973" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">Cmd.Exe|CONHOST.EXE|7z.exe|7za.exe|7zr.exe|WinRAR.exe|wevtutil.exe|net.exe|net1.exe|netsh.exe|InstallUtil.exe</field>
+    <description>Sigma: Potential Defense Evasion Via Binary Rename</description>
+    <mitre>
+      <id>T1036.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101995" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">#+|12</field>
+    <field name="win.eventdata.image">\\rundll32.exe$</field>
+    <description>Sigma: Suspicious Advpack Call Via Rundll32.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101999" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">#+|#-|#0|#655|#656</field>
+    <field name="win.eventdata.image">\\rundll32.exe$</field>
+    <description>Sigma: Potential Obfuscated Ordinal Call Via Rundll32</description>
+    <mitre>
+      <id>T1027.010</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102014" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> \\\\\\\\| '\\\\\\\\| "\\\\\\\\</field>
+    <field name="win.eventdata.image">\\rundll32.exe$</field>
+    <description>Sigma: Rundll32 UNC Path Execution</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1218.011</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102041" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">h^t^t^p|h"t"t"p</field>
+    <description>Sigma: Potential Commandline Obfuscation Using Escape Characters</description>
+    <mitre>
+      <id>T1140</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102104" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">\\u202e|[U+202E]|‮</field>
+    <description>Sigma: Potential Defense Evasion Via Right-to-Left Override</description>
+    <mitre>
+      <id>T1036.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102110" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\atbroker.exe$|\\audiodg.exe$|\\bcdedit.exe$|\\bitsadmin.exe$|\\certreq.exe$|\\certutil.exe$|\\cmstp.exe$|\\conhost.exe$|\\consent.exe$|\\cscript.exe$|\\csrss.exe$|\\dashost.exe$|\\defrag.exe$|\\dfrgui.exe$|\\dism.exe$|\\dllhost.exe$|\\dllhst3g.exe$|\\dwm.exe$|\\eventvwr.exe$|\\fsquirt.exe$|\\finger.exe$|\\logonui.exe$|\\LsaIso.exe$|\\lsass.exe$|\\lsm.exe$|\\msiexec.exe$|\\ntoskrnl.exe$|\\powershell_ise.exe$|\\powershell.exe$|\\pwsh.exe$|\\regsvr32.exe$|\\rundll32.exe$|\\runonce.exe$|\\RuntimeBroker.exe$|\\schtasks.exe$|\\services.exe$|\\sihost.exe$|\\smartscreen.exe$|\\smss.exe$|\\spoolsv.exe$|\\svchost.exe$|\\taskhost.exe$|\\taskhostw.exe$|\\Taskmgr.exe$|\\userinit.exe$|\\werfault.exe$|\\werfaultsecure.exe$|\\wininit.exe$|\\winlogon.exe$|\\winver.exe$|\\wlanext.exe$|\\wmic.exe$|\\wscript.exe$|\\wsl.exe$|\\wsmprovhost.exe$</field>
+    <description>Sigma: System File Execution Location Anomaly</description>
+    <mitre>
+      <id>T1036</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102113" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[System.Net.WebRequest]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest</field>
+    <description>Sigma: Usage Of Web Request Commands And Cmdlets</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102129" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]c</field>
+    <field name="win.eventdata.image">\\Sysmon64.exe$|\\Sysmon64a.exe$|\\Sysmon.exe$</field>
+    <description>Sigma: Sysmon Configuration Update</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102130" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]u</field>
+    <field name="win.eventdata.image">\\Sysmon64.exe$|\\Sysmon64a.exe$|\\Sysmon.exe$</field>
+    <description>Sigma: Uninstall Sysinternals Sysmon</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102134" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">defender</field>
+    <field name="win.eventdata.image">\\SystemSettingsAdminFlows.exe$</field>
+    <description>Sigma: Windows Defender Disabled Via SystemSettingsAdminFlows.EXE</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102141" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\\DllHost.exe$</field>
+    <field name="win.eventdata.parentCommandLine"> /Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}| /Processid:{3E000D72-A845-4CD9-BD83-80C07C3B881F}| /Processid:{BD54C901-076B-434E-B6C7-17C531F4AB41}| /Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}| /Processid:{E9495B87-D950-4AB5-87A5-FF6D70BF3E90}</field>
+    <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
+    <description>Sigma: CMSTP UAC Bypass via COM Object Access</description>
+    <mitre>
+      <id>T1548.002</id>
+      <id>T1218.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102142" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\\DllHost.exe$</field>
+    <field name="win.eventdata.parentCommandLine"> /Processid:{12C21EA7-2EB8-4B55-9249-AC243DA8C666}</field>
+    <field name="win.eventdata.integrityLevel">High|System|S-1-16-16384|S-1-16-12288</field>
+    <description>Sigma: UAC Bypass Using IDiagnostic Profile</description>
+    <mitre>
+      <id>T1548.002</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102168" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\\wlrmdr.exe$</field>
+    <field name="win.eventdata.image">\\wlrmdr.exe$</field>
+    <field name="win.eventdata.commandLine">[-/–—]u </field>
+    <description>Sigma: Wlrmdr.EXE Uncommon Argument Or Child Process</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102183" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">CheckAccess|EnumKey|EnumValues|GetBinaryValue|GetDWORDValue|GetExpandedStringValue|GetMultiStringValue|GetQWORDValue|GetSecurityDescriptor|GetStringValue|call</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: Registry Enumeration via WMI Stdregprov</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1012</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102184" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">CreateKey|DeleteKey|DeleteValue|SetBinaryValue|SetDWORDValue|SetExpandedStringValue|SetMultiStringValue|SetQWORDValue|SetSecurityDescriptor|SetStringValue|call</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: Registry Manipulation via WMI Stdregprov</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1112</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102189" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/nointeractive|product |uninstall</field>
+    <description>Sigma: Potential Tampering With Security Products Via WMIC</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102192" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]format:</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: XSL Script Execution Via WMIC.EXE</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1220</id>
+      <id>T1059.005</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102211" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">{2781761E-28E0-4109-99FE-B9D127C57AFE}$|{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9}$</field>
+    <description>Sigma: Removal Of AMSI Provider Registry Keys</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102215" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\cmmgr32.exe\\</field>
+    <description>Sigma: CMSTP App Paths Registry Key Modification</description>
+    <mitre>
+      <id>T1218.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102220" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\CLSID\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\\InProcServer32\\\(Default\)$</field>
+    <description>Sigma: Potential AMSI COM Server Hijacking</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="104000" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">currentversion\\run</field>
@@ -11477,6 +12005,120 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
+  <rule id="104898" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">schtasks /create</field>
+    <description>Suspicious command-line pattern 'schtasks /create' detected</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105566" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\aclui.dll$|\\activeds.dll$|\\adsldpc.dll$|\\aepic.dll$|\\apphelp.dll$|\\applicationframe.dll$|\\appvpolicy.dll$|\\appxalluserstore.dll$|\\appxdeploymentclient.dll$|\\archiveint.dll$|\\atl.dll$|\\audioses.dll$|\\auditpolcore.dll$|\\authfwcfg.dll$|\\authz.dll$|\\avrt.dll$|\\batmeter.dll$|\\bcd.dll$|\\bcp47langs.dll$|\\bcp47mrm.dll$|\\bcrypt.dll$|\\bderepair.dll$|\\bootmenuux.dll$|\\bootux.dll$|\\cabinet.dll$|\\cabview.dll$|\\certcli.dll$|\\certenroll.dll$|\\cfgmgr32.dll$|\\cldapi.dll$|\\clipc.dll$|\\clusapi.dll$|\\cmpbk32.dll$|\\cmutil.dll$|\\coloradapterclient.dll$|\\colorui.dll$|\\comdlg32.dll$|\\configmanager2.dll$|\\connect.dll$|\\coredplus.dll$|\\coremessaging.dll$|\\coreuicomponents.dll$|\\credui.dll$|\\cryptbase.dll$|\\cryptdll.dll$|\\cryptsp.dll$|\\cryptui.dll$|\\cryptxml.dll$|\\cscapi.dll$|\\cscobj.dll$|\\cscui.dll$|\\d2d1.dll$|\\d3d10_1.dll$|\\d3d10_1core.dll$|\\d3d10.dll$|\\d3d10core.dll$|\\d3d10warp.dll$|\\d3d11.dll$|\\d3d12.dll$|\\d3d9.dll$|\\d3dx9_43.dll$|\\dataexchange.dll$|\\davclnt.dll$|\\dcntel.dll$|\\dcomp.dll$|\\defragproxy.dll$|\\desktopshellext.dll$|\\deviceassociation.dll$|\\devicecredential.dll$|\\devicepairing.dll$|\\devobj.dll$|\\devrtl.dll$|\\dhcpcmonitor.dll$|\\dhcpcsvc.dll$|\\dhcpcsvc6.dll$|\\directmanipulation.dll$|\\dismapi.dll$|\\dismcore.dll$|\\dmcfgutils.dll$|\\dmcmnutils.dll$|\\dmcommandlineutils.dll$|\\dmenrollengine.dll$|\\dmenterprisediagnostics.dll$|\\dmiso8601utils.dll$|\\dmoleaututils.dll$|\\dmprocessxmlfiltered.dll$|\\dmpushproxy.dll$|\\dmxmlhelputils.dll$|\\dnsapi.dll$|\\dot3api.dll$|\\dot3cfg.dll$|\\dpx.dll$|\\drprov.dll$|\\drvstore.dll$|\\dsclient.dll$|\\dsparse.dll$|\\dsprop.dll$|\\dsreg.dll$|\\dsrole.dll$|\\dui70.dll$|\\duser.dll$|\\dusmapi.dll$|\\dwmapi.dll$|\\dwmcore.dll$|\\dwrite.dll$|\\dxcore.dll$|\\dxgi.dll$|\\dxva2.dll$|\\dynamoapi.dll$|\\eappcfg.dll$|\\eappprxy.dll$|\\edgeiso.dll$|\\edputil.dll$|\\efsadu.dll$|\\efsutil.dll$|\\esent.dll$|\\execmodelproxy.dll$|\\explorerframe.dll$|\\fastprox.dll$|\\faultrep.dll$|\\fddevquery.dll$|\\feclient.dll$|\\fhcfg.dll$|\\fhsvcctl.dll$|\\firewallapi.dll$|\\flightsettings.dll$|\\fltlib.dll$|\\framedynos.dll$|\\fveapi.dll$|\\fveskybackup.dll$|\\fvewiz.dll$|\\fwbase.dll$|\\fwcfg.dll$|\\fwpolicyiomgr.dll$|\\fwpuclnt.dll$|\\fxsapi.dll$|\\fxsst.dll$|\\fxstiff.dll$|\\getuname.dll$|\\gpapi.dll$|\\hid.dll$|\\hnetmon.dll$|\\httpapi.dll$|\\icmp.dll$|\\idstore.dll$|\\ieadvpack.dll$|\\iedkcs32.dll$|\\iernonce.dll$|\\iertutil.dll$|\\ifmon.dll$|\\ifsutil.dll$|\\inproclogger.dll$|\\iphlpapi.dll$|\\iri.dll$|\\iscsidsc.dll$|\\iscsium.dll$|\\isv.exe_rsaenh.dll$|\\iumbase.dll$|\\iumsdk.dll$|\\joinutil.dll$|\\kdstub.dll$|\\ksuser.dll$|\\ktmw32.dll$|\\licensemanagerapi.dll$|\\licensingdiagspp.dll$|\\linkinfo.dll$|\\loadperf.dll$|\\lockhostingframework.dll$|\\logoncli.dll$|\\logoncontroller.dll$|\\lpksetupproxyserv.dll$|\\lrwizdll.dll$|\\magnification.dll$|\\maintenanceui.dll$|\\mapistub.dll$|\\mbaexmlparser.dll$|\\mdmdiagnostics.dll$|\\mfc42u.dll$|\\mfcore.dll$|\\mfplat.dll$|\\mi.dll$|\\midimap.dll$|\\mintdh.dll$|\\miutils.dll$|\\mlang.dll$|\\mmdevapi.dll$|\\mobilenetworking.dll$|\\mpr.dll$|\\mprapi.dll$|\\mrmcorer.dll$|\\msacm32.dll$|\\mscms.dll$|\\mscoree.dll$|\\msctf.dll$|\\msctfmonitor.dll$|\\msdrm.dll$|\\msdtctm.dll$|\\msftedit.dll$|\\msi.dll$|\\msiso.dll$|\\msutb.dll$|\\msvcp110_win.dll$|\\mswb7.dll$|\\mswsock.dll$|\\msxml3.dll$|\\mtxclu.dll$|\\napinsp.dll$|\\ncrypt.dll$|\\ndfapi.dll$|\\netapi32.dll$|\\netid.dll$|\\netiohlp.dll$|\\netjoin.dll$|\\netplwiz.dll$|\\netprofm.dll$|\\netprovfw.dll$|\\netsetupapi.dll$|\\netshell.dll$|\\nettrace.dll$|\\netutils.dll$|\\networkexplorer.dll$|\\newdev.dll$|\\ninput.dll$|\\nlaapi.dll$|\\nlansp_c.dll$|\\npmproxy.dll$|\\nshhttp.dll$|\\nshipsec.dll$|\\nshwfp.dll$|\\ntdsapi.dll$|\\ntlanman.dll$|\\ntlmshared.dll$|\\ntmarta.dll$|\\ntshrui.dll$|\\oleacc.dll$|\\omadmapi.dll$|\\onex.dll$|\\opcservices.dll$|\\osbaseln.dll$|\\osksupport.dll$|\\osuninst.dll$|\\p2p.dll$|\\p2pnetsh.dll$|\\p9np.dll$|\\pcaui.dll$|\\pdh.dll$|\\peerdistsh.dll$|\\pkeyhelper.dll$|\\pla.dll$|\\playsndsrv.dll$|\\pnrpnsp.dll$|\\policymanager.dll$|\\polstore.dll$|\\powrprof.dll$|\\printui.dll$|\\prntvpt.dll$|\\profapi.dll$|\\propsys.dll$|\\proximitycommon.dll$|\\proximityservicepal.dll$|\\prvdmofcomp.dll$|\\puiapi.dll$|\\radcui.dll$|\\rasapi32.dll$|\\rasdlg.dll$|\\rasgcw.dll$|\\rasman.dll$|\\rasmontr.dll$|\\reagent.dll$|\\regapi.dll$|\\reseteng.dll$|\\resetengine.dll$|\\resutils.dll$|\\rmclient.dll$|\\rpcnsh.dll$|\\rsaenh.dll$|\\rtutils.dll$|\\rtworkq.dll$|\\samcli.dll$|\\samlib.dll$|\\sapi_onecore.dll$|\\sas.dll$|\\scansetting.dll$|\\scecli.dll$|\\schedcli.dll$|\\secur32.dll$|\\security.dll$|\\sensapi.dll$|\\shell32.dll$|\\shfolder.dll$|\\slc.dll$|\\snmpapi.dll$|\\spectrumsyncclient.dll$|\\spp.dll$|\\sppc.dll$|\\sppcext.dll$|\\srclient.dll$|\\srcore.dll$|\\srmtrace.dll$|\\srpapi.dll$|\\srvcli.dll$|\\ssp_isv.exe_rsaenh.dll$|\\ssp.exe_rsaenh.dll$|\\sspicli.dll$|\\ssshim.dll$|\\staterepository.core.dll$|\\structuredquery.dll$|\\sxshared.dll$|\\systemsettings.dll$|\\systemsettingsthresholdadminflowui.dll$|\\tapi32.dll$|\\tbs.dll$|\\tdh.dll$|\\textshaping.dll$|\\timesync.dll$|\\tpmcoreprovisioning.dll$|\\tquery.dll$|\\tsworkspace.dll$|\\ttdrecord.dll$|\\twext.dll$|\\twinapi.dll$|\\twinui.appcore.dll$|\\uianimation.dll$|\\uiautomationcore.dll$|\\uireng.dll$|\\uiribbon.dll$|\\umpdc.dll$|\\unattend.dll$|\\updatepolicy.dll$|\\upshared.dll$|\\urlmon.dll$|\\userenv.dll$|\\utildll.dll$|\\uxinit.dll$|\\uxtheme.dll$|\\vaultcli.dll$|\\vdsutil.dll$|\\version.dll$|\\virtdisk.dll$|\\vssapi.dll$|\\vsstrace.dll$|\\wbemprox.dll$|\\wbemsvc.dll$|\\wcmapi.dll$|\\wcnnetsh.dll$|\\wdi.dll$|\\wdscore.dll$|\\webservices.dll$|\\wecapi.dll$|\\wer.dll$|\\wevtapi.dll$|\\whhelper.dll$|\\wimgapi.dll$|\\winbio.dll$|\\winbrand.dll$|\\windows.storage.dll$|\\windows.storage.search.dll$|\\windows.ui.immersive.dll$|\\windowscodecs.dll$|\\windowscodecsext.dll$|\\windowsudk.shellcommon.dll$|\\winhttp.dll$|\\wininet.dll$|\\winipsec.dll$|\\winmde.dll$</field>
+    <description>Sigma: Potential System DLL Sideloading From Non System Locations [1/2]</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105567" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\winmm.dll$|\\winnsi.dll$|\\winrnr.dll$|\\winscard.dll$|\\winsqlite3.dll$|\\winsta.dll$|\\winsync.dll$|\\wkscli.dll$|\\wlanapi.dll$|\\wlancfg.dll$|\\wldp.dll$|\\wlidprov.dll$|\\wmiclnt.dll$|\\wmidcom.dll$|\\wmiutils.dll$|\\wmpdui.dll$|\\wmsgapi.dll$|\\wofutil.dll$|\\wpdshext.dll$|\\wscapi.dll$|\\wsdapi.dll$|\\wshbth.dll$|\\wshelper.dll$|\\wsmsvc.dll$|\\wtsapi32.dll$|\\wwancfg.dll$|\\wwapi.dll$|\\xmllite.dll$|\\xolehlp.dll$|\\xpsservices.dll$|\\xwizards.dll$|\\xwtpw32.dll$|\\amsi.dll$|\\appraiser.dll$|\\COMRES.DLL$|\\cryptnet.dll$|\\DispBroker.dll$|\\dsound.dll$|\\dxilconv.dll$|\\FxsCompose.dll$|\\FXSRESM.DLL$|\\msdtcVSp1res.dll$|\\PrintIsolationProxy.dll$|\\rdpendp.dll$|\\rpchttp.dll$|\\storageusage.dll$|\\utcutil.dll$|\\WfsR.dll$|\\igd10iumd64.dll$|\\igd12umd64.dll$|\\igdumdim64.dll$|\\igdusc64.dll$|\\TSMSISrv.dll$|\\TSVIPSrv.dll$|\\wbemcomn.dll$|\\WLBSCTRL.dll$|\\wow64log.dll$|\\WptsExtensions.dll$</field>
+    <description>Sigma: Potential System DLL Sideloading From Non System Locations [2/2]</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105596" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\offreg.dll$</field>
+    <description>Sigma: Potentially Suspicious Image Load of Offreg.dll</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105632" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]name:|module</field>
+    <field name="win.eventdata.image">\\appcmd.exe$</field>
+    <description>Sigma: IIS Native-Code Module Command Line Installation</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105637" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.Create\("user|.Create\('user</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: New User Account Creation Attempt Via ADSI in CommandLine</description>
+    <mitre>
+      <id>T1136.001</id>
+      <id>T1136.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105676" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo [E]|&amp;echo [S]</field>
+    <field name="win.eventdata.image">\\w3wp.exe$</field>
+    <description>Sigma: Chopper Webshell Process Pattern</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1018</id>
+      <id>T1033</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105706" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">SetValue</field>
+    <field name="win.eventdata.targetObject">Classes\\ms-settings\\shell\\open\\command\\SymbolicLinkValue$</field>
+    <field name="win.eventdata.details">\\Software\\Classes\\{</field>
+    <description>Sigma: Shell Open Registry Keys Manipulation</description>
+    <mitre>
+      <id>T1548.002</id>
+      <id>T1546.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105707" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">Classes\\ms-settings\\shell\\open\\command\\DelegateExecute$</field>
+    <description>Sigma: Shell Open Registry Keys Manipulation</description>
+    <mitre>
+      <id>T1548.002</id>
+      <id>T1546.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105708" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">SetValue</field>
+    <field name="win.eventdata.targetObject">Classes\\ms-settings\\shell\\open\\command\\\(Default\)$|Classes\\exefile\\shell\\open\\command\\\(Default\)$</field>
+    <description>Sigma: Shell Open Registry Keys Manipulation</description>
+    <mitre>
+      <id>T1548.002</id>
+      <id>T1546.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105739" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\CLSID\\{52A2AAAE-085D-4187-97EA-8C30DB990436}\\InprocServer32\\\(Default\)</field>
+    <description>Sigma: Persistence Via Hhctrl.ocx</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105757" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Classes\\CLSID|\\PersistentAddinsRegistered\\{89BCB740-6119-101A-BCB7-00DD010655AF}</field>
+    <description>Sigma: Register New IFiltre For Persistence</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
   <rule id="107043" level="11">
     <if_sid>61610</if_sid>
     <field name="win.eventdata.sourceImage">\\System32\\cscript.exe$|\\System32\\wscript.exe$|\\System32\\mshta.exe$|\\winword.exe$|\\excel.exe$</field>
@@ -14435,6 +15077,185 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
+  <rule id="107427" level="11">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.sourceImage">\\System32\\cscript.exe$|\\System32\\wscript.exe$|\\System32\\mshta.exe$|\\winword.exe$|\\excel.exe$</field>
+    <field name="win.eventdata.targetImage">\\SysWOW64\\</field>
+    <description>Sigma: HackTool - CACTUSTORCH Remote Thread Creation</description>
+    <mitre>
+      <id>T1055.012</id>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107441" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\\Microsoft\\Windows\\Start Menu\\Programs\\Startup|.lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}</field>
+    <field name="win.eventdata.image">\\explorer.exe$</field>
+    <description>Sigma: Potential RipZip Attack on Startup Folder</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107445" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\\UsrClass.dat$|\\NTUSER.DAT$</field>
+    <description>Sigma: Registry Hive File Staged Outside Standard User Profile Path</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107512" level="11">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.sourceImage">:\\Windows\\SysWOW64\\</field>
+    <field name="win.eventdata.grantedAccess">0x1fffff</field>
+    <field name="win.eventdata.callTrace">^UNKNOWN\(0000000000000000\)|UNKNOWN\(0000000000000000\)|</field>
+    <description>Sigma: UAC Bypass Using WOW64 Logger DLL Hijack</description>
+    <mitre>
+      <id>T1548.002</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107601" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-sta |-localserver |{|}</field>
+    <field name="win.eventdata.image">\\rundll32.exe$</field>
+    <description>Sigma: Rundll32 Registered COM Objects</description>
+    <mitre>
+      <id>T1546.015</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107611" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/TN "{|/TN '{|/TN {</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <description>Sigma: Suspicious Scheduled Task Name As GUID</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107631" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\notepad.exe$|\\calc.exe$|\\mspaint.exe$|\\wordpad.exe$|\\write.exe$</field>
+    <description>Sigma: Suspicious Cross-User Process Spawn</description>
+    <mitre>
+      <id>T1055</id>
+      <id>T1134</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107642" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\PsService.exe$|\\PsService64.exe$|\\PsService64a.exe$</field>
+    <description>Sigma: Sysinternals PsService Execution</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107644" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\pssuspend.exe$|\\pssuspend64.exe$|\\pssuspend64a.exe$</field>
+    <description>Sigma: Sysinternals PsSuspend Execution</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107654" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\\dllhost.exe$</field>
+    <field name="win.eventdata.parentCommandLine">/Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}|/Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}</field>
+    <description>Sigma: UAC Bypass via ICMLuaUtil</description>
+    <mitre>
+      <id>T1548.002</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107658" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentCommandLine">"C:\\Windows\\system32\\dism.exe" /online /quiet /norestart /add-package /packagepath:"C:\\Windows\\system32\\pe386" /ignorecheck</field>
+    <field name="win.eventdata.integrityLevel">High|System</field>
+    <field name="win.eventdata.commandLine">C:\\Users\\|\\AppData\\Local\\Temp\\|\\dismhost.exe {</field>
+    <field name="win.eventdata.image">\\DismHost.exe$</field>
+    <description>Sigma: UAC Bypass Using NTFS Reparse Point - Process</description>
+    <mitre>
+      <id>T1548.002</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107673" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ActiveScriptEventConsumer| CREATE </field>
+    <field name="win.eventdata.originalFileName">wmic.exe</field>
+    <description>Sigma: NewActiveScriptEventConsumer Creation Attempt via Wmic.EXE</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107682" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">RenameKey</field>
+    <field name="win.eventdata.newName">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open</field>
+    <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107683" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">SetValue</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open\\command\\\(Default\)</field>
+    <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107691" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\Shellex\\ColumnHandlers|\\Filter|\\Exefile\\Shell\\Open\\Command\\\(Default\)|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\Classes\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\.exe|\\.cmd|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <description>Sigma: Classes Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107692" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows CE Services\\AutoStart|\\Software\\Wow6432Node\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Wow6432Node\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnDisconnect|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnConnect|\\SYSTEM\\Setup\\CmdLine|\\Software\\Microsoft\\Ctf\\LangBarAddin|\\Software\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Classes\\Protocols\\Handler|\\SOFTWARE\\Classes\\Protocols\\Filter|\\SOFTWARE\\Classes\\Htmlfile\\Shell\\Open\\Command\\\(Default\)|\\Environment\\UserInitMprLogonScript|\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\\Scrnsave.exe|\\Software\\Microsoft\\Internet Explorer\\UrlSearchHooks|\\SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\Components|\\Software\\Classes\\Clsid\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\\Inprocserver32|\\Control Panel\\Desktop\\Scrnsave.exe</field>
+    <description>Sigma: Common Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107702" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\ShellEx\\ColumnHandlers|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <description>Sigma: Wow6432Node Classes Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107723" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\CLSID\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}\\InProcServer32\\\(Default\)$</field>
+    <description>Sigma: Potential PSFactoryBuffer COM Hijacking</description>
+    <mitre>
+      <id>T1546.015</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
   <rule id="108500" level="11">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">reg save</field>
@@ -16607,6 +17428,154 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108795" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x00001010</field>
+    <description>Process accessed LSASS with access mask 0x00001010</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108796" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">gsecdump</field>
+    <description>Suspicious process 'gsecdump' execution detected</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108801" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x001f1fff</field>
+    <description>Process accessed LSASS with access mask 0x001f1fff</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108803" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x00001000</field>
+    <description>Process accessed LSASS with access mask 0x00001000</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108804" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x00001410</field>
+    <description>Process accessed LSASS with access mask 0x00001410</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108805" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x001fffff</field>
+    <description>Process accessed LSASS with access mask 0x001fffff</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108810" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x0000143a</field>
+    <description>Process accessed LSASS with access mask 0x0000143a</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108811" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x00101ffb</field>
+    <description>Process accessed LSASS with access mask 0x00101ffb</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108856" level="12">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <description>Sigma: Password Dumper Remote Thread in LSASS</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108924" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <field name="win.eventdata.callTrace">python27.dll+|python3\.*.dll+|:\\Windows\\System32\\KERNELBASE.dll+|:\\Windows\\SYSTEM32\\ntdll.dll+</field>
+    <field name="win.eventdata.grantedAccess">0x1FFFFF</field>
+    <description>Sigma: Credential Dumping Activity By Python Based Tool</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108965" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">^USER^|^PASS^|-p </field>
+    <description>Sigma: HackTool - Hydra Password Bruteforce Execution</description>
+    <mitre>
+      <id>T1110</id>
+      <id>T1110.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="109015" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">Copy-Item|cp \$_.|cpi \$_.|copy \$_.|.File]::Copy\(|System32\\config\\sam</field>
+    <description>Sigma: PowerShell SAM Copy</description>
+    <mitre>
+      <id>T1003.002</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="109035" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]s</field>
+    <field name="win.eventdata.image">\\RpcPing.exe$</field>
+    <description>Sigma: Capture Credentials with Rpcping.exe</description>
+    <mitre>
+      <id>T1003</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="109043" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-InstanceId 462\.|.eventid -eq 462\.|.ID -eq 462\.|EventCode=\.462\.|EventIdentifier=\.462\.|System[EventID=462\.]|-InstanceId 4778|.eventid -eq 4778|.ID -eq 4778|EventCode=\.4778\.|EventIdentifier=\.4778\.|System[EventID=4778]|-InstanceId 25|.eventid -eq 25|.ID -eq 25|EventCode=\.25\.|EventIdentifier=\.25\.|System[EventID=25]|-InstanceId 1149|.eventid -eq 1149|.ID -eq 1149|EventCode=\.1149\.|EventIdentifier=\.1149\.|System[EventID=1149]|-InstanceId 21|.eventid -eq 21|.ID -eq 21|EventCode=\.21\.|EventIdentifier=\.21\.|System[EventID=21]|-InstanceId 22|.eventid -eq 22|.ID -eq 22|EventCode=\.22\.|EventIdentifier=\.22\.|System[EventID=22]</field>
+    <description>Sigma: Potentially Suspicious EventLog Recon Activity Using Log Query Utilities</description>
+    <mitre>
+      <id>T1552</id>
+      <id>T1087</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="109063" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\procdump.exe$|\\procdump64.exe$|\\procdump64a.exe$</field>
+    <description>Sigma: Procdump Execution</description>
+    <mitre>
+      <id>T1036</id>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
   <rule id="110000" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\downloads\\</field>
@@ -18275,6 +19244,69 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
+  <rule id="110242" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">.t.me$|0x0.st$|4shared.com$|abuse.ch$|anonfiles.com$|bashupload.com$|cdn.discordapp.com$|chunk.io$|cloudflare.com$|ddns.net$|discord.com$|docs.google.com$|drive.google.com$|dropbox.com$|dropmefiles.com$|facebook.com$|feeds.rapidfeeds.com$|fotolog.com$|ghostbin.co/$|githubusercontent.com$|gofile.io$|hastebin.com$|imgur.com$|livejournal.com$|mediafire.com$|mega.co.nz$|mega.nz$|onedrive.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|reddit.com$|send.exploit.in$|sendspace.com$|steamcommunity.com$|storage.googleapis.com$|technet.microsoft.com$|temp.sh$|transfer.sh$|trycloudflare.com$|twitter.com$|ufile.io$|vimeo.com$|w3spaces.com$|wetransfer.com$|workers.dev$|x0.at$|youtube.com$</field>
+    <description>Sigma: New Connection Initiated To Potential Dead Drop Resolver Domain</description>
+    <mitre>
+      <id>T1102</id>
+      <id>T1102.001</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110253" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">.githubusercontent.com$|0x0.st$|anonfiles.com$|bashupload.com$|cdn.discordapp.com$|chunk.io$|ddns.net$|dl.dropboxusercontent.com$|ghostbin.co$|github.com$|glitch.me$|gofile.io$|hastebin.com$|mediafire.com$|mega.co.nz$|mega.nz$|onrender.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|send.exploit.in$|sendspace.com$|storage.googleapis.com$|storjshare.io$|supabase.co$|temp.sh$|transfer.sh$|trycloudflare.com$|ufile.io$|w3spaces.com$|workers.dev$|x0.at$</field>
+    <field name="win.eventdata.image">:\\\$Recycle.bin|:\\Perflogs\\|:\\Temp\\|:\\Users\\Default\\|:\\Users\\Public\\|:\\Windows\\Fonts\\|:\\Windows\\IME\\|:\\Windows\\System32\\Tasks\\|:\\Windows\\Tasks\\|:\\Windows\\Temp\\|\\AppData\\Temp\\|\\config\\systemprofile\\|\\Windows\\addins\\</field>
+    <description>Sigma: Network Communication Initiated To File Sharing Domains From Process Located In Suspicious Folder</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110273" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
+    <description>Sigma: Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110300" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\replace.exe$</field>
+    <field name="win.eventdata.commandLine">[-/–—]a</field>
+    <description>Sigma: Replace.exe Usage</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110378" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
+    <description>Sigma: Visual Studio Code Tunnel Execution</description>
+    <mitre>
+      <id>T1071.001</id>
+      <id>T1219</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110382" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
+    <description>Sigma: Renamed Visual Studio Code Tunnel Execution</description>
+    <mitre>
+      <id>T1071.001</id>
+      <id>T1219</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
   <rule id="111000" level="6">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">net user</field>
@@ -19345,6 +20377,35 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
+  <rule id="111180" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ipconfig\.*|\.*find|net\.*|\.*find|netstat\.*|\.*find|ping\.*|\.*find|systeminfo\.*|\.*find|tasklist\.*|\.*find|whoami\.*|\.*find</field>
+    <description>Sigma: Recon Command Output Piped To Findstr.EXE</description>
+    <mitre>
+      <id>T1057</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111216" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> &gt; | | Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: Computer Discovery And Export Via Get-ADComputer Cmdlet</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111218" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> &gt; | | Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: User Discovery And Export Via Get-ADUser Cmdlet</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
   <rule id="112000" level="9">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.imageLoaded">\\appdata\\</field>
@@ -20117,6 +21178,17 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
+  <rule id="112645" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\winrs.exe$</field>
+    <field name="win.eventdata.commandLine">/r:localhost|/r:127.0.0.1|/r:[::1]|/remote:localhost|/remote:127.0.0.1|/remote:[::1]</field>
+    <description>Sigma: Winrs Local Command Execution</description>
+    <mitre>
+      <id>T1021.006</id>
+      <id>T1218</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
   <rule id="113006" level="9">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">.iso$|.zip\\</field>
@@ -20715,6 +21787,25 @@
     </mitre>
     <group>collection,sigma_converted,</group>
   </rule>
+  <rule id="113577" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">}" -z$</field>
+    <description>Sigma: Potential SMB Relay Attack Tool Execution</description>
+    <mitre>
+      <id>T1557.001</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="113592" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">SELECT|TOP|[VeeamBackup].[dbo].[Credentials]</field>
+    <field name="win.eventdata.image">\\sqlcmd.exe$</field>
+    <description>Sigma: VeeamBackup Database Credentials Dump Via Sqlcmd.EXE</description>
+    <mitre>
+      <id>T1005</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
   <rule id="114000" level="13">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">shadow copy</field>
@@ -21052,6 +22143,24 @@
     <description>Sigma: Potential Ransomware Activity Using LegalNotice Message</description>
     <mitre>
       <id>T1491.001</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+  <rule id="114056" level="14">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.destinationHostname">aeon-pool.com|alimabi.cn|ap.luckpool.net|api.fastpool.xyz|auto.c3pool.org|awgoaigartnj-xmr.com|backup.fastpool.xyz|bcn.pool.minergate.com|bcn.vip.pool.minergate.com|bizxmr.cc|bmpool.org|bohemianpool.com|byw.dscloud.me|c3.wptask.cyou|c3pool.org|ca-aipg.miningocean.org|ca-dynex.miningocean.org|ca-neurai.miningocean.org|ca-qrl.miningocean.org|ca-upx.miningocean.org|ca-zephyr.miningocean.org|ca.minexmr.com|ca.monero.herominers.com|cbd.monerpool.org|cbdv2.monerpool.org|community-pools.mysrv.cloud|covid19crypto.com|cryptmonero.com|crypto-pool.fr|crypto-pool.info|cryptominded.com|cryptonight-hub.miningpoolhub.com|d1pool.ddns.net|d5pool.us|daili01.monerpool.org|de-aipg.miningocean.org|de-dynex.miningocean.org|de-zephyr.miningocean.org|de.minexmr.com|de.moneroocean.stream|de.salvium.herominers.com|de.zephyr.herominers.com|dl.nbminer.com|donate.graef.in|donate.ssl.xmrig.com|donate.v2.xmrig.com|donate.xmrig.com|donate2.graef.in|drill.moneroworld.com|dwarfpool.com|emercoin.com|emercoin.net|emergate.net|ethereumpool.co|eu.luckpool.net|eu.minerpool.pw|f2pool.com|fastpool.xyz|fcn-xmr.pool.minergate.com|fee.xmrig.com|fi.moneroocean.stream|fr-aipg.miningocean.org|fr-dynex.miningocean.org|fr-neurai.miningocean.org|fr-qrl.miningocean.org|fr-tarirx.luckypool.io|fr-upx.miningocean.org|fr-zephyr.miningocean.org|fr.minexmr.com|fr.moneroocean.stream|friendspool.club|ftp.fastpool.xyz|gandalph3000.com|googleminer.com|grin.2miners.com|gulf.moneroocean.stream|hellominer.com|herominers.com|hk-aipg.miningocean.org|hk-dynex.miningocean.org|hk-neurai.miningocean.org|hk-qrl.miningocean.org|hk-upx.miningocean.org|hk-zephyr.miningocean.org|hns.f2pool.com|huadong1-aeon.ppxxmr.com|imap.fastpool.xyz|iwanttoearn.money|joulecoin.org|jp.moneroocean.stream|jw-js1.ppxxmr.com|koto-pool.work|kronecoin.org|kryptex.network|kubo.ultra-pool.com|lhr.nbminer.com|lhr3.nbminer.com|linux.monerpool.org|litecoinpool.org|lokiturtle.herominers.com|luckpool.net|luckypool.io|mail.fastpool.xyz|masari.miner.rocks|mine.aeon-pool.com|mine.bmpool.org|mine.c3pool.com|mine.fastpool.xyz|mine.lesliejust.is|mine.moneropool.com|mine.ppxxmr.com|mine.zpool.ca|mine1.ppxxmr.com|minemonero.gq|miner.ppxxmr.com|miner.rocks|minercircle.com|minergate.com|minerpool.pw|minerrocks.com|miners.pro|minerxmr.ru|minexmr.cn|minexmr.com|mining-help.ru|mining.bittubeapp.com|miningocean.org|miningpoolhub.com|miningrigrentals.com|mixpools.org|moner.monerpool.org|moner1min.monerpool.org|monero-master.crypto-pool.fr|monero.crypto-pool.fr|monero.hashvault.pro|monero.herominers.com|monero.lindon-pool.win|monero.miners.pro|monero.riefly.id|monero.us.to|monerocean.stream|monerogb.com|monerohash.com|moneroocean.stream|monerooceans.stream|moneropool.com|moneropool.nl|monerorx.com|monerpool.org|moriaxmr.com|mro.pool.minergate.com|multipool.us|myxmr.pw|na.luckpool.net|nanopool.org|nbminer.com|node.btx.tools|node3.luckpool.net|noobxmr.com|p06.2miners.com|pangolinminer.com|pool-de.supportxmr.com|pool-fr.supportxmr.com|pool-nyc.supportxmr.com|pool-phx.supportxmr.com|pool.4i7i.com|pool.armornetwork.org|pool.awgoaigartnj-xmr.com|pool.cortins.tk|pool.gntl.co.uk|pool.hashvault.pro|pool.minergate.com|pool.minexmr.com|pool.minexmr.uk|pool.monero.hashvault.pro|pool.ppxxmr.com|pool.somec.cc|pool.support|pool.supportxmr.com|pool.usa-138.com|pool.xmr.pt|pool.xmrfast.com|pool2.armornetwork.org|poolchange.ppxxmr.com|pooldd.com|poolmining.org|poolto.be|pop.fastpool.xyz|ppxvip1.ppxxmr.com|ppxxmr.com|prohash.net|r.twotouchauthentication.online|randomx.xmrig.com|ratchetmining.com|rx.unmineable.com|salvium.herominers.com|seed.emercoin.com|seed.emercoin.net|seed.emergate.net|seed.kronecoin.org|seed.titcoinpool.com|seed.titcoins.info|seed1.joulecoin.org|seed2.joulecoin.org|seed3.joulecoin.org|seed4.joulecoin.org|seed5.joulecoin.org|seed6.joulecoin.org|seed7.joulecoin.org|seed8.joulecoin.org|sg-aipg.miningocean.org|sg-dynex.miningocean.org|sg-neurai.miningocean.org|sg-qrl.miningocean.org|sg-upx.miningocean.org|sg-zephyr.miningocean.org|sg.minexmr.com|sheepman.mine.bz|siamining.com|smtp.fastpool.xyz|solarray.club|solo-grin.2miners.com|solo-grin.2miners.ru|solo-xmr.2miners.com|solo-xmr.2miners.ru|soloxmr2min.dyndns.org|sparechange.io|ssl.fastpool.xyz|sumokoin.minerrocks.com|supportxmr.com|suprnova.cc|system-check.services|system-update.info|teracycle.net|titcoinpool.com|titcoins.info|tpool.yiluzhuanqian.com|trtl.cnpool.cc|trtl.pool.mine2gether.com|turtle.miner.rocks|ultra-pool.com|unmineable.com|us-aipg.miningocean.org|us-dynex.miningocean.org|us-grin.2miners.com|us-neurai.miningocean.org|us-west.minexmr.com|us-zephyr.miningocean.org|usxmrpool.com|viaxmr.com|web.xmrpool.eu|webservicepag.webhop.net|winxmr.club|x109.node.btx.tools|xcn1.yiluzhuanqian.com|xiazai.monerpool.org|xiazai1.monerpool.org|xmc.pool.minergate.com|xmo.pool.minergate.com|xmr-asia1.nanopool.org|xmr-au1.nanopool.org|xmr-eu1.nanopool.org|xmr-eu2.nanopool.org|xmr-jp1.nanopool.org|xmr-us-east1.nanopool.org|xmr-us-west1.nanopool.org|xmr-us.suprnova.cc|xmr-usa.dwarfpool.com|xmr.2miners.com|xmr.5b6b7b.ru|xmr.748pz.net|xmr.alimabi.cn|xmr.bepooh.com|xmr.bohemianpool.com|xmr.crypto-pool.fr|xmr.crypto-pool.info|xmr.f2pool.com|xmr.hashcity.org|xmr.hex7e4.ru|xmr.ip28.net|xmr.kryptex.network|xmr.monerpool.org|xmr.mypool.online|xmr.nanopool.org|xmr.pool.gntl.co.uk|xmr.pool.minergate.com|xmr.poolto.be|xmr.ppxxmr.com|xmr.prohash.net|xmr.simka.pw|xmr.somec.cc|xmr.suprnova.cc|xmr.usa-138.com|xmr.vip.pool.minergate.com|xmr.yiluzhuanqian.com|xmr1min.monerpool.org|xmrf.520fjh.org|xmrf.fjhan.club|xmrfast.com|xmrigcc.graef.in|xmrminer.cc|xmrpool.de|xmrpool.eu|xmrpool.me|xmrpool.net|xmrpool.xyz|xx11m.monerpool.org|xx11mv2.monerpool.org|xxx.hex7e4.ru|yes.fastpool.xyz|zarabotaibitok.ru|zeph-eu2.nanopool.org|zeph.2miners.com|zephyr.herominers.com|zer0day.ru</field>
+    <description>Sigma: Network Communication With Crypto Mining Pool</description>
+    <mitre>
+      <id>T1496</id>
+    </mitre>
+    <group>impact,sigma_converted,</group>
+  </rule>
+  <rule id="114077" level="14">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> --cpu-priority=|--donate-level=0| -o pool.| --nicehash| --algo=rx/0 |stratum+tcp://|stratum+udp://|LS1kb25hdGUtbGV2ZWw9|0tZG9uYXRlLWxldmVsP|tLWRvbmF0ZS1sZXZlbD|c3RyYXR1bSt0Y3A6Ly|N0cmF0dW0rdGNwOi8v|zdHJhdHVtK3RjcDovL|c3RyYXR1bSt1ZHA6Ly|N0cmF0dW0rdWRwOi8v|zdHJhdHVtK3VkcDovL</field>
+    <description>Sigma: Potential Crypto Mining Activity</description>
+    <mitre>
+      <id>T1496</id>
     </mitre>
     <group>impact,sigma_converted,</group>
   </rule>

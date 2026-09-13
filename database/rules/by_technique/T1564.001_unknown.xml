@@ -49,6 +49,16 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101536" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> +h </field>
+    <field name="win.eventdata.image">\\attrib.exe$</field>
+    <description>Sigma: Hiding Files with Attrib.exe</description>
+    <mitre>
+      <id>T1564.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="104828" level="10">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\\ModuleLogging\\EnableModuleLogging$|\\ScriptBlockLogging\\EnableScriptBlockLogging$|\\ScriptBlockLogging\\EnableScriptBlockInvocationLogging$|\\Transcription\\EnableTranscripting$|\\Transcription\\EnableInvocationHeader$|\\EnableScripts$</field>

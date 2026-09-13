@@ -1331,4 +1331,51 @@
     </mitre>
     <group>discovery,sigma_converted,</group>
   </rule>
+  <rule id="111162" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText"> | Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <description>Sigma: Computer Discovery And Export Via Get-ADComputer Cmdlet - PowerShell</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111171" level="6">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText"> &gt; | | Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <description>Sigma: User Discovery And Export Via Get-ADUser Cmdlet - PowerShell</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111180" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ipconfig\.*|\.*find|net\.*|\.*find|netstat\.*|\.*find|ping\.*|\.*find|systeminfo\.*|\.*find|tasklist\.*|\.*find|whoami\.*|\.*find</field>
+    <description>Sigma: Recon Command Output Piped To Findstr.EXE</description>
+    <mitre>
+      <id>T1057</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111216" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> &gt; | | Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: Computer Discovery And Export Via Get-ADComputer Cmdlet</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
+  <rule id="111218" level="6">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> &gt; | | Select |Out-File|Set-Content|Add-Content| -Filter \\\.*</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: User Discovery And Export Via Get-ADUser Cmdlet</description>
+    <mitre>
+      <id>T1033</id>
+    </mitre>
+    <group>discovery,sigma_converted,</group>
+  </rule>
 </group>

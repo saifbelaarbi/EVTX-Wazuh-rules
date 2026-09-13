@@ -744,7 +744,8 @@
       <id>T1685</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="101008" level="9">
+  </rule>
+  <rule id="101008" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">taskkill| /F | /IM |ccSvcHst.exe</field>
     <description>Sigma: Taskkill Symantec Endpoint Protection</description>
@@ -1114,6 +1115,99 @@
     <field name="win.eventdata.targetObject">\\DisallowExploitProtectionOverride$|\\Features\\TamperProtection$|\\MpEngine\\MpEnablePus$|\\PUAProtection$|\\Signature Update\\ForceUpdateFromMU$|\\SpyNet\\SpynetReporting$|\\SpyNet\\SubmitSamplesConsent$|\\Windows Defender Exploit Guard\\Controlled Folder Access\\EnableControlledFolderAccess$</field>
     <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
     <description>Sigma: Disable Windows Defender Functionalities Via Registry Keys</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101439" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">[Ref].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
+    <description>Sigma: AMSI Bypass Pattern Assembly GetType</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101440" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">if\(0\){{{0}}}' -f \$\(0 -as [char]\) +|#&lt;NULL&gt;</field>
+    <description>Sigma: Potential AMSI Bypass Script Using NULL Bits</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101813" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[Ref].Assembly.GetType|SetValue\(\$null,\$true\)|NonPublic,Static</field>
+    <description>Sigma: Potential AMSI Bypass Via .NET Reflection</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101814" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">if\(0\){{{0}}}' -f \$\(0 -as [char]\) +|#&lt;NULL&gt;</field>
+    <description>Sigma: Potential AMSI Bypass Using NULL Bits</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102129" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]c</field>
+    <field name="win.eventdata.image">\\Sysmon64.exe$|\\Sysmon64a.exe$|\\Sysmon.exe$</field>
+    <description>Sigma: Sysmon Configuration Update</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102130" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]u</field>
+    <field name="win.eventdata.image">\\Sysmon64.exe$|\\Sysmon64a.exe$|\\Sysmon.exe$</field>
+    <description>Sigma: Uninstall Sysinternals Sysmon</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102134" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">defender</field>
+    <field name="win.eventdata.image">\\SystemSettingsAdminFlows.exe$</field>
+    <description>Sigma: Windows Defender Disabled Via SystemSettingsAdminFlows.EXE</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102189" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/nointeractive|product |uninstall</field>
+    <description>Sigma: Potential Tampering With Security Products Via WMIC</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102211" level="9">
+    <if_sid>61614</if_sid>
+    <field name="win.eventdata.targetObject">{2781761E-28E0-4109-99FE-B9D127C57AFE}$|{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9}$</field>
+    <description>Sigma: Removal Of AMSI Provider Registry Keys</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102220" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\CLSID\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\\InProcServer32\\\(Default\)$</field>
+    <description>Sigma: Potential AMSI COM Server Hijacking</description>
     <mitre>
       <id>T1685</id>
     </mitre>

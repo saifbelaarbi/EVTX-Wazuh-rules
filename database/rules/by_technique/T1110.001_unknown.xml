@@ -9,4 +9,14 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108848" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">31017</field>
+    <field name="win.eventdata.serverName">^\\1</field>
+    <description>Sigma: Suspicious Rejected SMB Guest Logon From IP</description>
+    <mitre>
+      <id>T1110.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
 </group>

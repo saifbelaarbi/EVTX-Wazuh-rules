@@ -117,7 +117,8 @@
       <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>  <rule id="104720" level="10">
+  </rule>
+  <rule id="104720" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">BaseFlushAppcompatCache|#46|apphelp.dll</field>
     <description>Sigma: ShimCache Flush</description>
@@ -581,6 +582,38 @@
     <field name="win.eventdata.targetObject">\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\AllowMultipleTSSessions$</field>
     <field name="win.eventdata.details">DWORD \(0x00000001\)$</field>
     <description>Sigma: Winlogon AllowMultipleTSSessions Enable</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105447" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4657</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.objectValueName">Enabled</field>
+    <field name="win.eventdata.newValue">0</field>
+    <description>Sigma: Sysmon Channel Reference Deletion</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105448" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4663</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.accessMask">0x10000</field>
+    <description>Sigma: Sysmon Channel Reference Deletion</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105596" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\offreg.dll$</field>
+    <description>Sigma: Potentially Suspicious Image Load of Offreg.dll</description>
     <mitre>
       <id>T1112</id>
     </mitre>

@@ -6,7 +6,7 @@
     "layer": "4.5"
   },
   "domain": "enterprise-attack",
-  "description": "Auto-generated from 3303 Wazuh detection rules. 289 techniques covered.",
+  "description": "Auto-generated from 3437 Wazuh detection rules. 288 techniques covered.",
   "filters": {
     "platforms": [
       "Windows"
@@ -23,12 +23,12 @@
   "techniques": [
     {
       "techniqueID": "T1105",
-      "score": 62,
+      "score": 63,
       "color": "#00441b",
-      "comment": "62 rules: 110000, 110001, 110002, 110003, 110004, 110012, 110016, 110032, 110033, 110039",
+      "comment": "63 rules: 110000, 110001, 110002, 110003, 110004, 110012, 110016, 110032, 110033, 110039",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1574.002",
@@ -41,48 +41,48 @@
     },
     {
       "techniqueID": "T1547.001",
-      "score": 37,
+      "score": 40,
       "color": "#006d2c",
-      "comment": "[T1547.001] 37 rules: 104000, 104001, 104002, 104003, 107053, 107056, 107058, 107061, 107077, 107147",
+      "comment": "[T1547.001] 40 rules: 104000, 104001, 104002, 104003, 107053, 107056, 107058, 107061, 107077, 107147",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "collection"
     },
     {
       "techniqueID": "T1218.011",
-      "score": 36,
+      "score": 37,
       "color": "#006d2c",
-      "comment": "[T1218.011] 36 rules: 112001, 112002, 112021, 112022, 112023, 112027, 112032, 100121, 100156, 100220",
+      "comment": "[T1218.011] 37 rules: 112001, 112002, 112021, 112022, 112023, 112027, 112032, 100121, 100156, 100220",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1197",
-      "score": 13,
+      "score": 14,
       "color": "#238b45",
-      "comment": "13 rules: 112004, 112005, 104522, 104523, 104524, 104525, 104526, 104676, 104677, 104678",
+      "comment": "14 rules: 112004, 112005, 104522, 104523, 104524, 104525, 104526, 104676, 104677, 104678",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "persistence"
     },
     {
       "techniqueID": "T1003.002",
-      "score": 27,
+      "score": 28,
       "color": "#006d2c",
-      "comment": "[T1003.002] 27 rules: 108500, 108534, 108537, 108551, 108554, 108555, 108556, 108570, 108571, 108578",
+      "comment": "[T1003.002] 28 rules: 108500, 108534, 108537, 108551, 108554, 108555, 108556, 108570, 108571, 108578",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "credential-access"
     },
     {
       "techniqueID": "T1047",
-      "score": 59,
+      "score": 58,
       "color": "#00441b",
-      "comment": "59 rules: 100000, 100001, 100003, 100004, 100006, 100007, 100016, 100082, 100109, 112538",
+      "comment": "58 rules: 100000, 100001, 100003, 100004, 100006, 100007, 100016, 100082, 100109, 100199",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "lateral-movement"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1218.010",
@@ -100,31 +100,31 @@
       "comment": "[T1547.004] 4 rules: 104004, 104011, 107143, 107380",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1546.003",
-      "score": 21,
+      "score": 22,
       "color": "#238b45",
-      "comment": "[T1546.003] 21 rules: 104005, 104006, 104007, 104012, 104013, 104014, 104015, 104016, 104505, 104506",
+      "comment": "[T1546.003] 22 rules: 104005, 104006, 104007, 104012, 104013, 104014, 104015, 104016, 104505, 104506",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "lateral-movement"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1140",
       "score": 14,
       "color": "#238b45",
-      "comment": "14 rules: 112010, 112011, 112012, 112024, 100626, 100675, 100685, 100686, 100721, 100754",
+      "comment": "14 rules: 112010, 112011, 112012, 112024, 100626, 100685, 100686, 100721, 100754, 100911",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1003.001",
-      "score": 118,
+      "score": 125,
       "color": "#00441b",
-      "comment": "[T1003.001] 118 rules: 108501, 108502, 108505, 108506, 108507, 108508, 108509, 108510, 108511, 108512",
+      "comment": "[T1003.001] 125 rules: 108501, 108502, 108505, 108506, 108507, 108508, 108509, 108510, 108511, 108512",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -158,18 +158,18 @@
     },
     {
       "techniqueID": "T1059.001",
-      "score": 205,
+      "score": 210,
       "color": "#00441b",
-      "comment": "[T1059.001] 205 rules: 100002, 100005, 100008, 100009, 100010, 100011, 100012, 100013, 100014, 100015",
+      "comment": "[T1059.001] 210 rules: 100002, 100005, 100008, 100009, 100010, 100011, 100012, 100013, 100014, 100015",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1218.003",
-      "score": 9,
-      "color": "#41ab5d",
-      "comment": "[T1218.003] 9 rules: 112020, 112025, 100202, 100226, 100360, 100423, 107280, 101012, 101090",
+      "score": 11,
+      "color": "#238b45",
+      "comment": "[T1218.003] 11 rules: 112020, 112025, 100202, 100226, 100360, 100423, 107280, 101012, 101090, 102141",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -181,7 +181,7 @@
       "comment": "12 rules: 112500, 107000, 107011, 107012, 107013, 113002, 113003, 104545, 107032, 113005",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1021.001",
@@ -190,40 +190,40 @@
       "comment": "[T1021.001] 15 rules: 112501, 112502, 112517, 112525, 110010, 112544, 110058, 110059, 112559, 110112",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "command-and-control"
+      "tactic": "initial-access"
     },
     {
       "techniqueID": "T1110",
-      "score": 7,
+      "score": 8,
       "color": "#41ab5d",
-      "comment": "7 rules: 108504, 108525, 108529, 107011, 107012, 108673, 115002",
+      "comment": "8 rules: 108504, 108525, 108529, 107011, 107012, 108673, 115002, 108965",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1136.001",
-      "score": 8,
+      "score": 10,
       "color": "#41ab5d",
-      "comment": "[T1136.001] 8 rules: 104008, 104540, 104547, 100285, 104694, 104695, 113024, 104756",
+      "comment": "[T1136.001] 10 rules: 104008, 104540, 104547, 100285, 104694, 104695, 113024, 104756, 105602, 105637",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1112",
-      "score": 86,
+      "score": 88,
       "color": "#00441b",
-      "comment": "86 rules: 112029, 112030, 112039, 104538, 104539, 104542, 104549, 104550, 104672, 107158",
+      "comment": "88 rules: 112029, 112030, 112039, 104538, 104539, 104542, 104549, 104550, 104672, 107158",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1021.002",
-      "score": 42,
+      "score": 41,
       "color": "#006d2c",
-      "comment": "[T1021.002] 42 rules: 112503, 112504, 112505, 112506, 112507, 112508, 112509, 112510, 112511, 104537",
+      "comment": "[T1021.002] 41 rules: 112503, 112504, 112505, 112506, 112507, 112508, 112509, 112510, 112511, 104537",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -232,10 +232,10 @@
       "techniqueID": "T1218.007",
       "score": 10,
       "color": "#41ab5d",
-      "comment": "[T1218.007] 10 rules: 112031, 100026, 100349, 100628, 100629, 100630, 100631, 100632, 110110, 100702",
+      "comment": "[T1218.007] 10 rules: 112031, 100026, 100349, 100628, 100629, 100630, 100632, 110110, 100702, 101764",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1490",
@@ -248,9 +248,9 @@
     },
     {
       "techniqueID": "T1053.005",
-      "score": 33,
+      "score": 35,
       "color": "#006d2c",
-      "comment": "[T1053.005] 33 rules: 104009, 107021, 107022, 100076, 100077, 100078, 107041, 107042, 107134, 107135",
+      "comment": "[T1053.005] 35 rules: 104009, 107021, 107022, 100076, 100077, 100078, 107041, 107042, 107134, 107135",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -271,34 +271,34 @@
       "comment": "15 rules: 104010, 104507, 104508, 107015, 107017, 107018, 107029, 107030, 113005, 107137",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1036",
-      "score": 48,
-      "color": "#006d2c",
-      "comment": "48 rules: 112037, 100071, 100072, 110012, 100174, 100175, 100183, 100184, 100394, 100406",
+      "score": 51,
+      "color": "#00441b",
+      "comment": "51 rules: 112037, 100071, 100072, 110012, 100174, 100175, 100183, 100184, 100394, 100406",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1543.003",
-      "score": 538,
+      "score": 593,
       "color": "#00441b",
-      "comment": "[T1543.003] 538 rules: 104017, 104018, 104019, 104020, 104021, 104022, 104023, 104024, 104025, 104026",
+      "comment": "[T1543.003] 593 rules: 104017, 104018, 104019, 104020, 104021, 104022, 104023, 104024, 104025, 104026",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "lateral-movement"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1003",
-      "score": 34,
+      "score": 35,
       "color": "#006d2c",
-      "comment": "34 rules: 108517, 108518, 108520, 108522, 108538, 108544, 108564, 108566, 108579, 108601",
+      "comment": "35 rules: 108517, 108518, 108520, 108522, 108538, 108544, 108564, 108566, 108601, 108613",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "exfiltration"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1562.001",
@@ -320,12 +320,12 @@
     },
     {
       "techniqueID": "T1027",
-      "score": 89,
+      "score": 79,
       "color": "#00441b",
-      "comment": "89 rules: 112040, 100059, 100060, 100061, 100062, 100063, 100064, 100065, 100066, 100067",
+      "comment": "79 rules: 112040, 100059, 100061, 100062, 100063, 100064, 100065, 100066, 100067, 100068",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1588",
@@ -347,12 +347,12 @@
     },
     {
       "techniqueID": "T1685",
-      "score": 153,
+      "score": 161,
       "color": "#00441b",
-      "comment": "153 rules: 100021, 100030, 100051, 100053, 104538, 104539, 100058, 104542, 100079, 100080",
+      "comment": "161 rules: 100021, 100030, 100051, 100053, 104538, 104539, 100058, 104542, 100079, 100080",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1203",
@@ -361,13 +361,13 @@
       "comment": "9 rules: 100023, 100228, 100229, 100378, 113014, 100563, 104693, 100896, 101038",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1068",
-      "score": 13,
-      "color": "#238b45",
-      "comment": "13 rules: 100023, 104573, 104574, 104580, 104609, 104610, 107191, 107192, 107193, 107194",
+      "score": 56,
+      "color": "#00441b",
+      "comment": "56 rules: 100023, 104574, 104609, 104610, 107191, 107192, 107193, 107194, 107195, 107196",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
@@ -392,12 +392,12 @@
     },
     {
       "techniqueID": "T1218",
-      "score": 128,
+      "score": 133,
       "color": "#00441b",
-      "comment": "128 rules: 100026, 100154, 100171, 107059, 100185, 100186, 110040, 100187, 100200, 108599",
+      "comment": "133 rules: 100026, 100154, 100171, 107059, 100185, 100186, 110040, 100187, 100200, 108599",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1219.002",
@@ -415,25 +415,25 @@
       "comment": "6 rules: 114500, 114002, 114018, 114020, 114027, 114037",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "exfiltration"
+      "tactic": "impact"
     },
     {
       "techniqueID": "T1204.002",
-      "score": 21,
+      "score": 22,
       "color": "#238b45",
-      "comment": "[T1204.002] 21 rules: 100031, 100039, 100040, 100160, 107061, 100209, 100210, 100211, 100212, 100213",
+      "comment": "[T1204.002] 22 rules: 100031, 100039, 100040, 100160, 107061, 100209, 100210, 100211, 100212, 100213",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1059.003",
-      "score": 31,
+      "score": 32,
       "color": "#006d2c",
-      "comment": "[T1059.003] 31 rules: 100031, 110021, 110055, 100326, 100409, 100416, 100420, 100424, 100425, 100426",
+      "comment": "[T1059.003] 32 rules: 100031, 110021, 110055, 100326, 100409, 100416, 100420, 100424, 100425, 100426",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1553.005",
@@ -451,7 +451,7 @@
       "comment": "4 rules: 108526, 108527, 111054, 111055",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "discovery"
     },
     {
       "techniqueID": "T1543",
@@ -460,7 +460,7 @@
       "comment": "21 rules: 104527, 104528, 104543, 104554, 104563, 104575, 104576, 104577, 104578, 111107",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "discovery"
     },
     {
       "techniqueID": "T1567.002",
@@ -473,12 +473,12 @@
     },
     {
       "techniqueID": "T1071.004",
-      "score": 9,
+      "score": 10,
       "color": "#41ab5d",
-      "comment": "[T1071.004] 9 rules: 110006, 110018, 110021, 110022, 110023, 110055, 100281, 114521, 114522",
+      "comment": "[T1071.004] 10 rules: 110006, 110018, 110021, 110022, 110023, 110055, 100281, 114521, 114522, 101441",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "exfiltration"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1090.003",
@@ -500,9 +500,9 @@
     },
     {
       "techniqueID": "T1574.001",
-      "score": 76,
+      "score": 79,
       "color": "#00441b",
-      "comment": "[T1574.001] 76 rules: 107008, 107033, 107034, 107035, 107036, 104587, 104588, 104592, 104593, 107076",
+      "comment": "[T1574.001] 79 rules: 107008, 107033, 107034, 107035, 107036, 104587, 104588, 104592, 104593, 107076",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -518,9 +518,9 @@
     },
     {
       "techniqueID": "T1685.001",
-      "score": 28,
+      "score": 31,
       "color": "#006d2c",
-      "comment": "[T1685.001] 28 rules: 104529, 104530, 104531, 100056, 100057, 100143, 100208, 100364, 100366, 100385",
+      "comment": "[T1685.001] 31 rules: 104529, 104530, 104531, 100056, 100057, 100143, 100208, 100364, 100366, 100385",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -550,7 +550,7 @@
       "comment": "[T1087.002] 28 rules: 111001, 111004, 111005, 111011, 111014, 111016, 114520, 111047, 111048, 111049",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "exfiltration"
+      "tactic": "discovery"
     },
     {
       "techniqueID": "T1482",
@@ -572,12 +572,12 @@
     },
     {
       "techniqueID": "T1505.003",
-      "score": 24,
+      "score": 25,
       "color": "#238b45",
-      "comment": "[T1505.003] 24 rules: 104532, 104533, 104534, 104590, 104591, 113012, 104604, 113013, 104612, 104691",
+      "comment": "[T1505.003] 25 rules: 104532, 104533, 104534, 104590, 104591, 113012, 104604, 113013, 104612, 113018",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "initial-access"
     },
     {
       "techniqueID": "T1070",
@@ -604,7 +604,7 @@
       "comment": "[T1021.004] 3 rules: 112513, 100424, 110176",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1134.001",
@@ -631,7 +631,7 @@
       "comment": "10 rules: 107011, 107012, 107013, 104585, 104586, 110032, 104686, 104719, 113024, 113031",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "command-and-control"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1190",
@@ -640,34 +640,34 @@
       "comment": "12 rules: 107013, 104591, 113012, 104604, 113013, 113018, 113023, 113028, 104743, 104744",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1548",
-      "score": 8,
+      "score": 9,
       "color": "#41ab5d",
-      "comment": "8 rules: 107014, 107027, 107038, 107144, 107226, 107259, 107286, 104777",
+      "comment": "9 rules: 107014, 107027, 107038, 107144, 107226, 107259, 107286, 104777, 107445",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1557.001",
-      "score": 12,
+      "score": 14,
       "color": "#238b45",
-      "comment": "[T1557.001] 12 rules: 113500, 113505, 113507, 108562, 108563, 113523, 113524, 113525, 113526, 113527",
+      "comment": "[T1557.001] 14 rules: 113500, 113505, 113507, 108562, 108563, 113523, 113524, 113525, 113526, 113527",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "credential-access"
+      "tactic": "collection"
     },
     {
       "techniqueID": "T1012",
-      "score": 11,
+      "score": 12,
       "color": "#238b45",
-      "comment": "11 rules: 111002, 111003, 111009, 111012, 100528, 100529, 100530, 100531, 111115, 114531",
+      "comment": "12 rules: 111002, 111003, 111009, 111012, 100528, 100529, 100530, 100531, 111115, 114531",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "exfiltration"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1222.001",
@@ -680,21 +680,21 @@
     },
     {
       "techniqueID": "T1003.006",
-      "score": 3,
+      "score": 5,
       "color": "#74c476",
-      "comment": "[T1003.006] 3 rules: 108530, 108531, 108612",
+      "comment": "[T1003.006] 5 rules: 108530, 108531, 108612, 108825, 108826",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "credential-access"
     },
     {
       "techniqueID": "T1087",
-      "score": 18,
+      "score": 19,
       "color": "#238b45",
-      "comment": "18 rules: 111006, 111017, 100265, 100305, 111067, 107203, 107204, 107205, 107206, 107207",
+      "comment": "19 rules: 111006, 111017, 100265, 100305, 111067, 107203, 107204, 107205, 107206, 107207",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "lateral-movement"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1114",
@@ -707,9 +707,9 @@
     },
     {
       "techniqueID": "T1059",
-      "score": 74,
+      "score": 76,
       "color": "#00441b",
-      "comment": "74 rules: 111006, 100113, 100119, 100162, 100163, 100172, 100173, 100201, 100204, 100217",
+      "comment": "76 rules: 111006, 100113, 100119, 100162, 100163, 100172, 100173, 100201, 100204, 100217",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
@@ -721,13 +721,13 @@
       "comment": "[T1053.002] 2 rules: 107019, 104674",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1685.005",
-      "score": 9,
+      "score": 10,
       "color": "#41ab5d",
-      "comment": "[T1685.005] 9 rules: 100054, 100055, 100086, 100087, 100322, 100323, 100324, 100569, 100950",
+      "comment": "[T1685.005] 10 rules: 100054, 100055, 100086, 100087, 100322, 100323, 100324, 100569, 100950, 101288",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -743,30 +743,30 @@
     },
     {
       "techniqueID": "T1569.002",
-      "score": 37,
+      "score": 36,
       "color": "#006d2c",
-      "comment": "[T1569.002] 37 rules: 104537, 112524, 100073, 107028, 104553, 112535, 100100, 100101, 100102, 100103",
+      "comment": "[T1569.002] 36 rules: 104537, 100073, 107028, 104553, 112535, 100100, 100101, 100102, 100103, 104560",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1021.003",
-      "score": 13,
+      "score": 14,
       "color": "#238b45",
-      "comment": "[T1021.003] 13 rules: 112519, 112536, 112541, 112543, 100224, 100247, 112551, 100509, 100510, 100610",
+      "comment": "[T1021.003] 14 rules: 112519, 112536, 112541, 112543, 100224, 100247, 112551, 100509, 100510, 100610",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1484.001",
-      "score": 6,
+      "score": 7,
       "color": "#41ab5d",
-      "comment": "[T1484.001] 6 rules: 107020, 107031, 104546, 107140, 107216, 107224",
+      "comment": "[T1484.001] 7 rules: 107020, 107031, 104546, 107140, 107216, 107224, 107403",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1200",
@@ -788,12 +788,12 @@
     },
     {
       "techniqueID": "T1134",
-      "score": 3,
+      "score": 5,
       "color": "#74c476",
-      "comment": "3 rules: 107023, 107024, 108773",
+      "comment": "5 rules: 107023, 107024, 108773, 107404, 107631",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1554",
@@ -820,7 +820,7 @@
       "comment": "[T1558.003] 24 rules: 108535, 112527, 112529, 108549, 108552, 108613, 108623, 108678, 108679, 108680",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "lateral-movement"
+      "tactic": "credential-access"
     },
     {
       "techniqueID": "T1557.003",
@@ -830,15 +830,6 @@
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "collection"
-    },
-    {
-      "techniqueID": "T1570",
-      "score": 4,
-      "color": "#74c476",
-      "comment": "4 rules: 112524, 110033, 112537, 112567",
-      "enabled": true,
-      "showSubtechniques": false,
-      "tactic": "command-and-control"
     },
     {
       "techniqueID": "T1134.002",
@@ -874,7 +865,7 @@
       "comment": "8 rules: 111008, 108618, 111072, 111073, 111076, 111077, 108761, 108762",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "discovery"
     },
     {
       "techniqueID": "T1187",
@@ -883,7 +874,7 @@
       "comment": "4 rules: 108539, 108540, 113507, 113529",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "collection"
     },
     {
       "techniqueID": "T1207",
@@ -919,7 +910,7 @@
       "comment": "4 rules: 108543, 108576, 108602, 111030",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "discovery"
     },
     {
       "techniqueID": "T1552.002",
@@ -928,7 +919,7 @@
       "comment": "[T1552.002] 4 rules: 111009, 108738, 108739, 108740",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "credential-access"
+      "tactic": "discovery"
     },
     {
       "techniqueID": "T1010",
@@ -941,9 +932,9 @@
     },
     {
       "techniqueID": "T1027.005",
-      "score": 5,
-      "color": "#74c476",
-      "comment": "[T1027.005] 5 rules: 114002, 100500, 100771, 100772, 100794",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "[T1027.005] 6 rules: 114002, 100500, 100771, 100772, 100794, 101646",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -959,12 +950,12 @@
     },
     {
       "techniqueID": "T1547",
-      "score": 8,
-      "color": "#41ab5d",
-      "comment": "8 rules: 104546, 107057, 107213, 107214, 107315, 107316, 107317, 107320",
+      "score": 11,
+      "color": "#238b45",
+      "comment": "11 rules: 104546, 107057, 107213, 107214, 107315, 107316, 107317, 107320, 107441, 107682",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1212",
@@ -973,7 +964,7 @@
       "comment": "2 rules: 108545, 107234",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1001.003",
@@ -986,12 +977,12 @@
     },
     {
       "techniqueID": "T1136.002",
-      "score": 3,
+      "score": 5,
       "color": "#74c476",
-      "comment": "[T1136.002] 3 rules: 104547, 112537, 104662",
+      "comment": "[T1136.002] 5 rules: 104547, 112537, 104662, 105602, 105637",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "lateral-movement"
+      "tactic": "persistence"
     },
     {
       "techniqueID": "T1556",
@@ -1009,7 +1000,7 @@
       "comment": "2 rules: 113504, 112569",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "lateral-movement"
+      "tactic": "collection"
     },
     {
       "techniqueID": "T1528",
@@ -1018,13 +1009,13 @@
       "comment": "6 rules: 108550, 108569, 107131, 108742, 108756, 108781",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1110.001",
-      "score": 2,
+      "score": 4,
       "color": "#74c476",
-      "comment": "[T1110.001] 2 rules: 108553, 108673",
+      "comment": "[T1110.001] 4 rules: 108553, 108673, 108848, 108965",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "credential-access"
@@ -1036,7 +1027,7 @@
       "comment": "4 rules: 114003, 113506, 113508, 113522",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "impact"
+      "tactic": "collection"
     },
     {
       "techniqueID": "T1565.002",
@@ -1049,12 +1040,12 @@
     },
     {
       "techniqueID": "T1005",
-      "score": 8,
+      "score": 9,
       "color": "#41ab5d",
-      "comment": "8 rules: 108555, 113509, 113521, 113540, 113541, 108751, 108752, 108771",
+      "comment": "9 rules: 108555, 113509, 113521, 113540, 113541, 108751, 108752, 108771, 113592",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "collection"
     },
     {
       "techniqueID": "T1210",
@@ -1085,36 +1076,36 @@
     },
     {
       "techniqueID": "T1090",
-      "score": 21,
+      "score": 22,
       "color": "#238b45",
-      "comment": "21 rules: 110015, 110052, 110069, 110084, 110085, 110097, 110098, 112563, 112564, 110124",
+      "comment": "22 rules: 110015, 110052, 110069, 110084, 110085, 110097, 110098, 112563, 112564, 110124",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "command-and-control"
     },
     {
       "techniqueID": "T1055.012",
-      "score": 4,
+      "score": 5,
       "color": "#74c476",
-      "comment": "[T1055.012] 4 rules: 107043, 107168, 107273, 107308",
+      "comment": "[T1055.012] 5 rules: 107043, 107168, 107273, 107308, 107427",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1059.005",
-      "score": 22,
+      "score": 23,
       "color": "#238b45",
-      "comment": "[T1059.005] 22 rules: 107043, 100146, 100149, 100150, 100151, 100152, 100221, 104672, 100391, 100392",
+      "comment": "[T1059.005] 23 rules: 107043, 100146, 100149, 100150, 100151, 100152, 100221, 104672, 100391, 100392",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1059.007",
-      "score": 12,
+      "score": 14,
       "color": "#238b45",
-      "comment": "[T1059.007] 12 rules: 107043, 100146, 100151, 100152, 100432, 100527, 100626, 100648, 100960, 108771",
+      "comment": "[T1059.007] 14 rules: 107043, 100146, 100151, 100152, 100432, 100527, 100626, 100648, 100960, 108771",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -1139,9 +1130,9 @@
     },
     {
       "techniqueID": "T1055",
-      "score": 56,
-      "color": "#00441b",
-      "comment": "56 rules: 107045, 107046, 107059, 107081, 100219, 107093, 107094, 107095, 107096, 107097",
+      "score": 38,
+      "color": "#006d2c",
+      "comment": "38 rules: 107045, 107046, 107059, 107081, 100219, 107093, 107094, 107095, 107096, 107097",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
@@ -1162,34 +1153,34 @@
       "comment": "21 rules: 100122, 110032, 100379, 100380, 100381, 100395, 100433, 100556, 100564, 100589",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1564.004",
-      "score": 20,
+      "score": 18,
       "color": "#238b45",
-      "comment": "[T1564.004] 20 rules: 100123, 100125, 100126, 100127, 100128, 100129, 100182, 100309, 100321, 108653",
+      "comment": "[T1564.004] 18 rules: 100123, 100125, 100126, 100127, 100128, 100182, 100309, 100321, 108653, 110107",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1071.001",
-      "score": 11,
+      "score": 13,
       "color": "#238b45",
-      "comment": "[T1071.001] 11 rules: 110017, 110019, 110028, 100227, 110068, 110186, 110187, 110188, 110189, 110190",
+      "comment": "[T1071.001] 13 rules: 110017, 110019, 110028, 100227, 110068, 110186, 110187, 110188, 110189, 110190",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1572",
-      "score": 26,
+      "score": 27,
       "color": "#006d2c",
-      "comment": "26 rules: 110017, 110019, 114507, 114508, 114509, 110052, 114510, 114511, 114512, 110058",
+      "comment": "27 rules: 110017, 110019, 114507, 114508, 114509, 110052, 114510, 114511, 114512, 110058",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1195.002",
@@ -1252,16 +1243,25 @@
       "comment": "25 rules: 111013, 111019, 108614, 107203, 107204, 107205, 107206, 107207, 107208, 108709",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "credential-access"
+      "tactic": "discovery"
     },
     {
-      "techniqueID": "T1219",
-      "score": 8,
-      "color": "#41ab5d",
-      "comment": "8 rules: 110033, 100424, 110168, 110180, 110186, 110187, 110188, 110190",
+      "techniqueID": "T1570",
+      "score": 3,
+      "color": "#74c476",
+      "comment": "3 rules: 110033, 112537, 112567",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "command-and-control"
+    },
+    {
+      "techniqueID": "T1219",
+      "score": 10,
+      "color": "#41ab5d",
+      "comment": "10 rules: 110033, 100424, 110168, 110180, 110186, 110187, 110188, 110190, 110378, 110382",
+      "enabled": true,
+      "showSubtechniques": false,
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1546.002",
@@ -1270,7 +1270,7 @@
       "comment": "[T1546.002] 4 rules: 107049, 107079, 104711, 104762",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1036.005",
@@ -1288,7 +1288,7 @@
       "comment": "[T1552.001] 8 rules: 108574, 108575, 108624, 108653, 108722, 111114, 113542, 108756",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "credential-access"
+      "tactic": "collection"
     },
     {
       "techniqueID": "T1566",
@@ -1297,7 +1297,7 @@
       "comment": "3 rules: 107052, 113021, 113025",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "initial-access"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1574",
@@ -1306,7 +1306,7 @@
       "comment": "5 rules: 107052, 107227, 107229, 107341, 104834",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1195",
@@ -1342,7 +1342,7 @@
       "comment": "9 rules: 107054, 107055, 104600, 104774, 104799, 104800, 107348, 107349, 104807",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1008",
@@ -1360,7 +1360,7 @@
       "comment": "7 rules: 107054, 107055, 107060, 107151, 104777, 107348, 107349",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1137.003",
@@ -1391,9 +1391,9 @@
     },
     {
       "techniqueID": "T1555",
-      "score": 9,
+      "score": 10,
       "color": "#41ab5d",
-      "comment": "9 rules: 108594, 108607, 108608, 108609, 108610, 108704, 108705, 108706, 108749",
+      "comment": "10 rules: 108594, 108607, 108608, 108609, 108610, 108704, 108705, 108706, 108749, 108901",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "credential-access"
@@ -1409,12 +1409,12 @@
     },
     {
       "techniqueID": "T1036.003",
-      "score": 30,
+      "score": 32,
       "color": "#006d2c",
-      "comment": "[T1036.003] 30 rules: 100183, 100184, 100339, 104676, 104677, 104678, 104679, 104680, 100794, 110162",
+      "comment": "[T1036.003] 32 rules: 100183, 100184, 100339, 104676, 104677, 104678, 104679, 104680, 100794, 110162",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1546.013",
@@ -1436,9 +1436,9 @@
     },
     {
       "techniqueID": "T1036.002",
-      "score": 3,
+      "score": 5,
       "color": "#74c476",
-      "comment": "[T1036.002] 3 rules: 100191, 100611, 100976",
+      "comment": "[T1036.002] 5 rules: 100191, 100611, 100976, 101358, 102104",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -1463,9 +1463,9 @@
     },
     {
       "techniqueID": "T1548.002",
-      "score": 64,
+      "score": 71,
       "color": "#00441b",
-      "comment": "[T1548.002] 64 rules: 107067, 107068, 100196, 107070, 107071, 107072, 107073, 107074, 107075, 107091",
+      "comment": "[T1548.002] 71 rules: 107067, 107068, 100196, 107070, 107071, 107072, 107073, 107074, 107075, 107091",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -1508,9 +1508,9 @@
     },
     {
       "techniqueID": "T1202",
-      "score": 41,
+      "score": 40,
       "color": "#006d2c",
-      "comment": "41 rules: 100205, 100327, 100388, 100389, 100391, 100392, 100422, 100427, 100428, 100464",
+      "comment": "40 rules: 100205, 100327, 100388, 100389, 100391, 100392, 100422, 100427, 100428, 100464",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
@@ -1531,7 +1531,7 @@
       "comment": "5 rules: 110046, 110095, 110101, 100883, 115003",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1218.014",
@@ -1555,25 +1555,25 @@
       "techniqueID": "T1220",
       "score": 5,
       "color": "#74c476",
-      "comment": "5 rules: 100222, 100638, 100639, 101057, 101065",
+      "comment": "5 rules: 100222, 100638, 100639, 101057, 102192",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1102",
-      "score": 9,
+      "score": 10,
       "color": "#41ab5d",
-      "comment": "9 rules: 110048, 110049, 110051, 110052, 114510, 110054, 110084, 110085, 110103",
+      "comment": "10 rules: 110048, 110049, 110051, 110052, 114510, 110054, 110084, 110085, 110103, 110242",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "command-and-control"
     },
     {
       "techniqueID": "T1102.001",
-      "score": 2,
+      "score": 3,
       "color": "#74c476",
-      "comment": "[T1102.001] 2 rules: 110048, 110049",
+      "comment": "[T1102.001] 3 rules: 110048, 110049, 110242",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "command-and-control"
@@ -1589,9 +1589,9 @@
     },
     {
       "techniqueID": "T1496",
-      "score": 2,
+      "score": 4,
       "color": "#74c476",
-      "comment": "2 rules: 114012, 114033",
+      "comment": "4 rules: 114012, 114033, 114056, 114077",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "impact"
@@ -1670,21 +1670,21 @@
     },
     {
       "techniqueID": "T1048.003",
-      "score": 4,
+      "score": 3,
       "color": "#74c476",
-      "comment": "[T1048.003] 4 rules: 114513, 114515, 114532, 114533",
+      "comment": "[T1048.003] 3 rules: 114513, 114515, 114532",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "exfiltration"
     },
     {
       "techniqueID": "T1021.006",
-      "score": 10,
-      "color": "#41ab5d",
-      "comment": "[T1021.006] 10 rules: 100235, 100266, 112548, 112549, 108633, 112553, 101041, 101042, 112574, 112575",
+      "score": 11,
+      "color": "#238b45",
+      "comment": "[T1021.006] 11 rules: 100235, 100266, 112548, 112549, 108633, 112553, 101041, 101042, 112574, 112575",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "lateral-movement"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1095",
@@ -1742,12 +1742,12 @@
     },
     {
       "techniqueID": "T1033",
-      "score": 24,
-      "color": "#238b45",
-      "comment": "24 rules: 111024, 111025, 111034, 111060, 111061, 111062, 111063, 111079, 111081, 111121",
+      "score": 29,
+      "color": "#006d2c",
+      "comment": "29 rules: 111024, 111025, 111034, 111060, 111061, 111062, 111063, 111079, 111081, 111121",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "discovery"
     },
     {
       "techniqueID": "T1119",
@@ -1768,22 +1768,13 @@
       "tactic": "collection"
     },
     {
-      "techniqueID": "T1556.002",
-      "score": 2,
-      "color": "#74c476",
-      "comment": "[T1556.002] 2 rules: 104661, 104705",
-      "enabled": true,
-      "showSubtechniques": true,
-      "tactic": "persistence"
-    },
-    {
       "techniqueID": "T1574.012",
       "score": 3,
       "color": "#74c476",
       "comment": "[T1574.012] 3 rules: 107136, 104793, 104794",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1078.002",
@@ -1805,18 +1796,18 @@
     },
     {
       "techniqueID": "T1018",
-      "score": 15,
+      "score": 16,
       "color": "#238b45",
-      "comment": "15 rules: 111027, 111030, 111056, 111088, 111118, 111119, 111120, 100964, 104736, 104737",
+      "comment": "16 rules: 111027, 111030, 111056, 111088, 111118, 111119, 111120, 100964, 104736, 104737",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1620",
-      "score": 2,
+      "score": 4,
       "color": "#74c476",
-      "comment": "2 rules: 100288, 100693",
+      "comment": "4 rules: 100288, 100693, 101448, 101505",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
@@ -1837,7 +1828,7 @@
       "comment": "[T1574.011] 10 rules: 107138, 104669, 104671, 104696, 107225, 104717, 104721, 104723, 104724, 107238",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1518.001",
@@ -1855,25 +1846,25 @@
       "comment": "23 rules: 108614, 111040, 111041, 100528, 100529, 100530, 100531, 107203, 107204, 107205",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1106",
       "score": 13,
       "color": "#238b45",
-      "comment": "13 rules: 108614, 100350, 100351, 100352, 100353, 100361, 100362, 100365, 100395, 100538",
+      "comment": "13 rules: 108614, 100350, 100351, 100352, 100353, 100362, 100365, 100395, 100538, 108709",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
     },
     {
       "techniqueID": "T1056.001",
-      "score": 3,
+      "score": 4,
       "color": "#74c476",
-      "comment": "[T1056.001] 3 rules: 108615, 108616, 113515",
+      "comment": "[T1056.001] 4 rules: 108615, 108616, 113515, 113566",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "credential-access"
+      "tactic": "collection"
     },
     {
       "techniqueID": "T1589.002",
@@ -1886,9 +1877,9 @@
     },
     {
       "techniqueID": "T1020",
-      "score": 1,
-      "color": "#a1d99b",
-      "comment": "1 rules: 114518",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "2 rules: 114518, 114554",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "exfiltration"
@@ -1931,9 +1922,9 @@
     },
     {
       "techniqueID": "T1546.015",
-      "score": 9,
-      "color": "#41ab5d",
-      "comment": "[T1546.015] 9 rules: 107142, 107235, 107352, 107353, 107354, 107355, 107356, 107360, 107370",
+      "score": 11,
+      "color": "#238b45",
+      "comment": "[T1546.015] 11 rules: 107142, 107235, 107352, 107353, 107354, 107355, 107356, 107360, 107370, 107601",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "privilege-escalation"
@@ -1981,13 +1972,13 @@
       "comment": "[T1564.003] 10 rules: 100341, 108639, 110071, 100410, 100425, 100491, 100492, 100762, 100763, 100764",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1070.006",
-      "score": 1,
-      "color": "#a1d99b",
-      "comment": "[T1070.006] 1 rules: 100346",
+      "score": 2,
+      "color": "#74c476",
+      "comment": "[T1070.006] 2 rules: 100346, 101499",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -2003,9 +1994,9 @@
     },
     {
       "techniqueID": "T1564.001",
-      "score": 6,
+      "score": 7,
       "color": "#41ab5d",
-      "comment": "[T1564.001] 6 rules: 100383, 100384, 100551, 101094, 101122, 104828",
+      "comment": "[T1564.001] 7 rules: 100383, 100384, 100551, 101094, 101122, 104828, 101536",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -2048,12 +2039,12 @@
     },
     {
       "techniqueID": "T1546.001",
-      "score": 4,
-      "color": "#74c476",
-      "comment": "[T1546.001] 4 rules: 107148, 107268, 104767, 107367",
+      "score": 7,
+      "color": "#41ab5d",
+      "comment": "[T1546.001] 7 rules: 107148, 107268, 104767, 107367, 105706, 105707, 105708",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1546.008",
@@ -2062,7 +2053,7 @@
       "comment": "[T1546.008] 5 rules: 107149, 107150, 104684, 104716, 107319",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1003.005",
@@ -2120,9 +2111,9 @@
     },
     {
       "techniqueID": "T1057",
-      "score": 5,
-      "color": "#74c476",
-      "comment": "5 rules: 111043, 100528, 100529, 100530, 100531",
+      "score": 6,
+      "color": "#41ab5d",
+      "comment": "6 rules: 111043, 100528, 100529, 100530, 100531, 111180",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
@@ -2152,7 +2143,7 @@
       "comment": "6 rules: 111046, 104688, 104689, 104690, 111070, 111122",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "persistence"
+      "tactic": "discovery"
     },
     {
       "techniqueID": "T1218.001",
@@ -2183,9 +2174,9 @@
     },
     {
       "techniqueID": "T1134.003",
-      "score": 7,
+      "score": 8,
       "color": "#41ab5d",
-      "comment": "[T1134.003] 7 rules: 107169, 107179, 107180, 107181, 107182, 107183, 107184",
+      "comment": "[T1134.003] 8 rules: 107169, 107179, 107180, 107181, 107182, 107183, 107184, 107404",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "privilege-escalation"
@@ -2224,7 +2215,7 @@
       "comment": "[T1574.005] 4 rules: 104688, 104689, 104690, 107258",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1049",
@@ -2300,18 +2291,9 @@
     },
     {
       "techniqueID": "T1027.010",
-      "score": 8,
+      "score": 9,
       "color": "#41ab5d",
-      "comment": "[T1027.010] 8 rules: 100702, 100801, 100869, 100914, 100915, 100916, 101149, 101151",
-      "enabled": true,
-      "showSubtechniques": true,
-      "tactic": "execution"
-    },
-    {
-      "techniqueID": "T1027.009",
-      "score": 1,
-      "color": "#a1d99b",
-      "comment": "[T1027.009] 1 rules: 100750",
+      "comment": "[T1027.010] 9 rules: 100702, 100801, 100869, 100914, 100915, 100916, 101149, 101151, 101999",
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
@@ -2327,9 +2309,9 @@
     },
     {
       "techniqueID": "T1595",
-      "score": 13,
+      "score": 14,
       "color": "#238b45",
-      "comment": "13 rules: 100778, 100779, 100780, 100781, 100782, 100783, 100784, 100785, 100786, 100787",
+      "comment": "14 rules: 100779, 100780, 100781, 100782, 100783, 100784, 100785, 100786, 100787, 100788",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "execution"
@@ -2360,6 +2342,15 @@
       "enabled": true,
       "showSubtechniques": true,
       "tactic": "execution"
+    },
+    {
+      "techniqueID": "T1556.002",
+      "score": 1,
+      "color": "#a1d99b",
+      "comment": "[T1556.002] 1 rules: 104705",
+      "enabled": true,
+      "showSubtechniques": true,
+      "tactic": "persistence"
     },
     {
       "techniqueID": "T1491.001",
@@ -2422,7 +2413,7 @@
       "comment": "[T1546.011] 6 rules: 104726, 104727, 107350, 107361, 107362, 107363",
       "enabled": true,
       "showSubtechniques": true,
-      "tactic": "persistence"
+      "tactic": "privilege-escalation"
     },
     {
       "techniqueID": "T1505.005",
@@ -2476,13 +2467,13 @@
       "comment": "2 rules: 110179, 101092",
       "enabled": true,
       "showSubtechniques": false,
-      "tactic": "command-and-control"
+      "tactic": "execution"
     },
     {
       "techniqueID": "T1552",
-      "score": 3,
+      "score": 4,
       "color": "#74c476",
-      "comment": "3 rules: 108754, 108755, 108771",
+      "comment": "4 rules: 108754, 108755, 108771, 109043",
       "enabled": true,
       "showSubtechniques": false,
       "tactic": "credential-access"
@@ -2629,20 +2620,20 @@
       "#00441b"
     ],
     "minValue": 0,
-    "maxValue": 538
+    "maxValue": 593
   },
   "metadata": [
     {
       "name": "generated",
-      "value": "2026-06-10 23:00 UTC"
+      "value": "2026-09-13 03:47 UTC"
     },
     {
       "name": "total_rules",
-      "value": "3303"
+      "value": "3437"
     },
     {
       "name": "techniques_covered",
-      "value": "289"
+      "value": "288"
     }
   ]
 }

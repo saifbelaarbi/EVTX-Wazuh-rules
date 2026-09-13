@@ -47,6 +47,15 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="102215" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\cmmgr32.exe\\</field>
+    <description>Sigma: CMSTP App Paths Registry Key Modification</description>
+    <mitre>
+      <id>T1218.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="112020" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">cmstp</field>

@@ -155,7 +155,8 @@
       <id>T1055</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
-  </rule>  <rule id="107125" level="13">
+  </rule>
+  <rule id="107125" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">-0,$</field>
     <description>Sigma: CobaltStrike Named Pipe Patterns</description>
@@ -321,6 +322,16 @@
     <mitre>
       <id>T1055</id>
       <id>T1036</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107631" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\notepad.exe$|\\calc.exe$|\\mspaint.exe$|\\wordpad.exe$|\\write.exe$</field>
+    <description>Sigma: Suspicious Cross-User Process Spawn</description>
+    <mitre>
+      <id>T1055</id>
+      <id>T1134</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>

@@ -293,7 +293,8 @@
       <id>T1003.003</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
-  </rule>  <rule id="108573" level="12">
+  </rule>
+  <rule id="108573" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">dumpert.dmp$</field>
     <description>Sigma: HackTool - Dumpert Process Dumper Default File</description>
@@ -310,7 +311,8 @@
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
-  </rule>  <rule id="108582" level="12">
+  </rule>
+  <rule id="108582" level="12">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">\\Andrew.dmp$|\\Coredump.dmp$|\\lsass.dmp$|\\lsass.rar$|\\lsass.zip$|\\NotLSASS.zip$|\\PPLBlade.dmp$|\\rustive.dmp$</field>
     <description>Sigma: LSASS Process Memory Dump Files</description>
@@ -797,7 +799,8 @@
       <id>T1003.001</id>
     </mitre>
     <group>credential_access,sigma_converted,</group>
-  </rule>  <rule id="108711" level="12">
+  </rule>
+  <rule id="108711" level="12">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.hashes">IMPHASH=32F5095C9BBDCACF28FD4060EB4DFC42</field>
     <description>Sigma: HackTool - WSASS Execution</description>
@@ -906,6 +909,96 @@
     <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps\\DumpType|\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps\\lsass.exe\\DumpType</field>
     <field name="win.eventdata.details">DWORD \(0x00000002\)</field>
     <description>Sigma: Lsass Full Dump Request Via DumpType Registry Settings</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108795" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x00001010</field>
+    <description>Process accessed LSASS with access mask 0x00001010</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108801" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x001f1fff</field>
+    <description>Process accessed LSASS with access mask 0x001f1fff</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108803" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x00001000</field>
+    <description>Process accessed LSASS with access mask 0x00001000</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108804" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x00001410</field>
+    <description>Process accessed LSASS with access mask 0x00001410</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108805" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x001fffff</field>
+    <description>Process accessed LSASS with access mask 0x001fffff</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108810" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x0000143a</field>
+    <description>Process accessed LSASS with access mask 0x0000143a</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108811" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">lsass</field>
+    <field name="win.eventdata.grantedAccess">0x00101ffb</field>
+    <description>Process accessed LSASS with access mask 0x00101ffb</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,evtx_generated,</group>
+  </rule>
+  <rule id="108856" level="12">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <description>Sigma: Password Dumper Remote Thread in LSASS</description>
+    <mitre>
+      <id>T1003.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108924" level="12">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.targetImage">\\lsass.exe$</field>
+    <field name="win.eventdata.callTrace">python27.dll+|python3\.*.dll+|:\\Windows\\System32\\KERNELBASE.dll+|:\\Windows\\SYSTEM32\\ntdll.dll+</field>
+    <field name="win.eventdata.grantedAccess">0x1FFFFF</field>
+    <description>Sigma: Credential Dumping Activity By Python Based Tool</description>
     <mitre>
       <id>T1003.001</id>
     </mitre>

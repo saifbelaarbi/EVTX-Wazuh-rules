@@ -1,13 +1,417 @@
 {
   "summary": {
-    "unmapped_logsource": 1
+    "unsupported_re_modifier": 66,
+    "unmapped_logsource": 1,
+    "empty_rule_spec": 1
   },
   "records": [
     {
-      "file": "/home/user/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/win_alert_mimikatz_keywords.yml",
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_obfuscated_iex_services_security.yml",
+      "sigma_id": "fd0f5778-d3cb-4c9a-9695-66759d04702a",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_metasploit_authentication.yml",
+      "sigma_id": "72124974-a68b-4366-b990-d30e0b2a190d",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: 1 of selection*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_metasploit_or_impacket_smb_psexec_service_install.yml",
+      "sigma_id": "6fb63b40-e02a-403e-9ffd-3bcc1d749442",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection and not filter"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_obfuscated_iex_services.yml",
+      "sigma_id": "51aa9387-1c53-4153-91cc-d73c59ae1ca9",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_service_install_sliver.yml",
+      "sigma_id": "31c51af6-e7aa-4da7-84d4-8f32cc580af2",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_eid and 1 of selection_service_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_susp_service_installation_folder_pattern.yml",
+      "sigma_id": "1b2ae822-6fe1-43ba-aa7c-d1a3b3d1d5f2",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/win_alert_mimikatz_keywords.yml",
       "sigma_id": "06d71506-7beb-4f22-8888-e2e5e2ca7fd8",
       "category": "unmapped_logsource",
       "message": "unmapped_logsource: (none)"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_stream_hash/create_stream_hash_susp_ip_domains.yml",
+      "sigma_id": "025bd229-fd1f-4fdb-97ab-20006e1a5368",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_hktl_crackmapexec_indicators.yml",
+      "sigma_id": "736ffa74-5f6f-44ca-94ef-1c0df4f51d2a",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_path and 1 of selection_names_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_hktl_remote_cred_dump.yml",
+      "sigma_id": "6e2a900a-ced9-4e4a-a9c2-13e706f9518a",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_impacket_file_indicators.yml",
+      "sigma_id": "03f4ca17-de95-428d-a75a-4ee78b047256",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_names_re"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_wmiexec_default_filename.yml",
+      "sigma_id": "8d5aca11-22b3-4f22-b7ba-90e60533e1fb",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/pipe_created/pipe_created_hktl_cobaltstrike_re.yml",
+      "sigma_id": "0e7163d4-9e19-4fa7-9be6-000c61aad77a",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_clip.yml",
+      "sigma_id": "a136cde0-61ad-4a61-9b82-8dc490e60dd2",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4103"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_obfuscated_iex.yml",
+      "sigma_id": "2f211361-7dce-442d-b78a-c04039677378",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_payload"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_stdin.yml",
+      "sigma_id": "9ac8b09b-45de-4a07-9da1-0de8c09304a3",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4103"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_var.yml",
+      "sigma_id": "6bfb8fa7-b2e7-4f6c-8d9d-824e5d06ea9e",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4103"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_via_stdin.yml",
+      "sigma_id": "c72aca44-8d52-45ad-8f81-f96c4d3c755e",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4103"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_via_use_clip.yml",
+      "sigma_id": "ebdf49d8-b89c-46c9-8fdf-2c308406f6bd",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4103"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_via_var.yml",
+      "sigma_id": "f3c89218-8c3d-4ba9-9974-f1d8e6a1b4a6",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4103"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_copy_item_system_directory.yml",
+      "sigma_id": "63bf8794-9917-45bc-88dd-e1b5abc0ecfd",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_invoke_obfuscation_clip.yml",
+      "sigma_id": "73e67340-0d25-11eb-adc1-0242ac120002",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4104"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_invoke_obfuscation_obfuscated_iex.yml",
+      "sigma_id": "1b9dc62e-6e9e-42a3-8990-94d7a10007f7",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_iex"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_invoke_obfuscation_stdin.yml",
+      "sigma_id": "779c8c12-0eb1-11eb-adc1-0242ac120002",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4104"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_invoke_obfuscation_var.yml",
+      "sigma_id": "0adfbc14-0ed1-11eb-adc1-0242ac120002",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4104"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_invoke_obfuscation_via_stdin.yml",
+      "sigma_id": "86b896ba-ffa1-4fea-83e3-ee28a4c915c7",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4104"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_invoke_obfuscation_via_use_clip.yml",
+      "sigma_id": "db92dd33-a3ad-49cf-8c2c-608c3e30ace0",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4104"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_invoke_obfuscation_via_var.yml",
+      "sigma_id": "e54f5149-6ba3-49cf-b153-070d24679126",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_4104"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_access/proc_access_win_hktl_cobaltstrike_bof_injection_pattern.yml",
+      "sigma_id": "09706624-b7f6-455d-9d02-adee024cee1d",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_certoc_download_direct_ip.yml",
+      "sigma_id": "b86f6dea-0b2f-41f5-bdcc-a057bd19cd6a",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_csc_susp_dynamic_compilation.yml",
+      "sigma_id": "dcaa3f04-70c3-427a-80b4-b870d73c94c4",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_img and 1 of selection_susp_location_* and not 1 of filter_main_* and not 1 of filter_optional_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_csc_susp_parent.yml",
+      "sigma_id": "b730a276-6b63-41b8-bcf8-55930c8fc6ee",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_img and 1 of selection_parent_* and not 1 of filter_main_* and not 1 of filter_optional_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_curl_cookie_hijacking.yml",
+      "sigma_id": "5a6e1e16-07de-48d8-8aae-faa766c05e88",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_curl_custom_user_agent.yml",
+      "sigma_id": "85de1f22-d189-44e4-8239-dc276b45379b",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_img and 1 of selection_header_* and selection_user_agent"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_exec.yml",
+      "sigma_id": "9cc85849-3b02-4cb5-b371-3a1ff54f2218",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_* and not 1 of filter_main_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_curl_download_direct_ip_susp_extensions.yml",
+      "sigma_id": "5cb299fc-5fb1-4d07-b989-0644c68b6043",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_curl_insecure_connection.yml",
+      "sigma_id": "cb9cc1d1-e84e-4bdc-b7ad-c31b1b7908ec",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_curl_ntlm_hash_leak_attempt.yml",
+      "sigma_id": "916eb839-895e-47f8-99ee-3008bf377a3e",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_curl_upload_file_sharing_websites.yml",
+      "sigma_id": "e328cc73-f92a-42fb-b3fa-7c2cffda981a",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_obfuscated_iex_commandline.yml",
+      "sigma_id": "4bf943c6-5146-4273-98dd-e958fd1e3abf",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_stdin.yml",
+      "sigma_id": "6c96fc76-0eb1-11eb-adc1-0242ac120002",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_var.yml",
+      "sigma_id": "27aec9c9-dbb0-4939-8422-1742242471d0",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_stdin.yml",
+      "sigma_id": "9c14c9fa-1a63-4a64-8e57-d19280559490",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_use_clip.yml",
+      "sigma_id": "e1561947-b4e3-4a74-9bdd-83baed21bdb5",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_wsass.yml",
+      "sigma_id": "589ac73f-8e12-409c-964e-31a2f5775ae2",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: 1 of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_lolbin_diantz_ads.yml",
+      "sigma_id": "6b369ced-4b1d-48f1-b427-fdc0de0790bd",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_lolbin_extrac32_ads.yml",
+      "sigma_id": "4b13db67-0c45-40f1-aba8-66a1a7198a1e",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_ping_hex_ip.yml",
+      "sigma_id": "1a0d4aba-7668-4365-9ce4-6d79ab088dfd",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_cmdline_special_characters.yml",
+      "sigma_id": "d7bcd677-645d-4691-a8d4-7a5602b780d1",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_* and not 1 of filter_optional_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_run_script_from_input_stream.yml",
+      "sigma_id": "c83bf4b5-cdf0-437c-90fa-43d734f7c476",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_token_obfuscation.yml",
+      "sigma_id": "deb9b646-a508-44ee-b7c9-d8965921c6b6",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection and not 1 of filter_main_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_regedit_import_keys_ads.yml",
+      "sigma_id": "0b80ade5-6997-4b1d-99a1-71701778ea61",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_* and not filter"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_regini_ads.yml",
+      "sigma_id": "77946e79-97f1-45a2-84b4-f37b5c0d8682",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_ads_stored_dll_execution.yml",
+      "sigma_id": "9248c7e1-2bf3-4661-a22c-600a8040b446",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_webdav_client_susp_execution.yml",
+      "sigma_id": "982e9f2d-1a85-4d5b-aea4-31f5e97c6555",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection and not 1 of filter_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_data_exfiltration_via_cli.yml",
+      "sigma_id": "7d1aaf3d-4304-425c-b7c3-162055e0b3ab",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: (selection_iwr or all of selection_curl* or selection_wget) and payloads"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_image_missing.yml",
+      "sigma_id": "71158e3f-df67-472b-930e-7d287acaa3e1",
+      "category": "empty_rule_spec",
+      "message": "empty_rule_spec: not 1 of filter_main_* and not 1 of filter_optional_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_lnk_exec_hidden_cmd.yml",
+      "sigma_id": "dd8756e7-a3a0-4768-b47e-8f545d1a751c",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_obfuscated_ip_download.yml",
+      "sigma_id": "cb5a2333-56cf-4562-8fcb-22ba1bca728d",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_command and 1 of selection_ip_* and not 1 of filter_main_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_obfuscated_ip_via_cli.yml",
+      "sigma_id": "56d19cb4-6414-4769-9644-1ed35ffbb148",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection_img and 1 of selection_ip_* and not 1 of filter_main_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_system_user_anomaly.yml",
+      "sigma_id": "2617e7ed-adb7-40ba-b0f3-8f9945fe6c09",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection* and not 1 of filter_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wget_download_direct_ip.yml",
+      "sigma_id": "17f0c0a8-8bd5-4ee0-8c5f-a342c0199f35",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wget_download_susp_file_sharing_domains.yml",
+      "sigma_id": "a0d7e4d2-bede-4141-8896-bc6e237e977c",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wget_download_susp_locations.yml",
+      "sigma_id": "40aa399c-7b02-4715-8e5f-73572b493f33",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_winget_add_susp_custom_source.yml",
+      "sigma_id": "c15a46a0-07d4-4c87-b4b6-89207835a83b",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: all of selection_*"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wsl_windows_binaries_execution.yml",
+      "sigma_id": "ed825c86-c009-4014-b413-b76003e33d35",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_xwizard_runwizard_com_object_exec.yml",
+      "sigma_id": "53d4bb30-3f36-4e8a-b078-69d36c4a79ff",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: selection"
+    },
+    {
+      "file": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_uac_bypass_sdclt.yml",
+      "sigma_id": "5b872a46-3b90-45c1-8419-f675db8053aa",
+      "category": "unsupported_re_modifier",
+      "message": "unsupported_re_modifier: 1 of selection*"
     }
   ]
 }

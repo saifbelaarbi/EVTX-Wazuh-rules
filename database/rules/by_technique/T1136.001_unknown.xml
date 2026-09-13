@@ -59,4 +59,25 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
+  <rule id="105602" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">.create\("user|.create\('user</field>
+    <description>Sigma: New User Account Creation Attempt Via ADSI</description>
+    <mitre>
+      <id>T1136.001</id>
+      <id>T1136.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105637" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.Create\("user|.Create\('user</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: New User Account Creation Attempt Via ADSI in CommandLine</description>
+    <mitre>
+      <id>T1136.001</id>
+      <id>T1136.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
 </group>

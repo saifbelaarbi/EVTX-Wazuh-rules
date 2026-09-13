@@ -188,7 +188,8 @@
       <id>T1105</id>
     </mitre>
     <group>command_and_control,sigma_converted,</group>
-  </rule>  <rule id="110078" level="10">
+  </rule>
+  <rule id="110078" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">http</field>
     <field name="win.eventdata.image">\\certreq.exe$</field>
@@ -322,7 +323,8 @@
       <id>T1564.004</id>
     </mitre>
     <group>command_and_control,sigma_converted,</group>
-  </rule>  <rule id="110115" level="9">
+  </rule>
+  <rule id="110115" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">0002DF01-0000-0000-C000-000000000046|F6D90F16-9C73-11D3-B32E-00C04F990BB4|F5078F35-C551-11D3-89B9-0000F81FE221|88d96a0a-f192-11d4-a65f-0040963251e5|AFBA6B42-5692-48EA-8141-DC517DCF0EF1|AFB40FFD-B609-40A3-9828-F88BBE11E4E3|88d96a0b-f192-11d4-a65f-0040963251e5|2087c2f4-2cef-4953-a8ab-66779b670495|000209FF-0000-0000-C000-000000000046|00024500-0000-0000-C000-000000000046</field>
     <description>Sigma: Potential COM Objects Download Cradles Usage - Process Creation</description>
@@ -384,6 +386,27 @@
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\OneDrive\\UpdateOfficeConfig\\UpdateRingSettingURLFromOC</field>
     <description>Sigma: Lolbas OneDriveStandaloneUpdater.exe Proxy Download</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110253" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">.githubusercontent.com$|0x0.st$|anonfiles.com$|bashupload.com$|cdn.discordapp.com$|chunk.io$|ddns.net$|dl.dropboxusercontent.com$|ghostbin.co$|github.com$|glitch.me$|gofile.io$|hastebin.com$|mediafire.com$|mega.co.nz$|mega.nz$|onrender.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|send.exploit.in$|sendspace.com$|storage.googleapis.com$|storjshare.io$|supabase.co$|temp.sh$|transfer.sh$|trycloudflare.com$|ufile.io$|w3spaces.com$|workers.dev$|x0.at$</field>
+    <field name="win.eventdata.image">:\\\$Recycle.bin|:\\Perflogs\\|:\\Temp\\|:\\Users\\Default\\|:\\Users\\Public\\|:\\Windows\\Fonts\\|:\\Windows\\IME\\|:\\Windows\\System32\\Tasks\\|:\\Windows\\Tasks\\|:\\Windows\\Temp\\|\\AppData\\Temp\\|\\config\\systemprofile\\|\\Windows\\addins\\</field>
+    <description>Sigma: Network Communication Initiated To File Sharing Domains From Process Located In Suspicious Folder</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110300" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\replace.exe$</field>
+    <field name="win.eventdata.commandLine">[-/–—]a</field>
+    <description>Sigma: Replace.exe Usage</description>
     <mitre>
       <id>T1105</id>
     </mitre>

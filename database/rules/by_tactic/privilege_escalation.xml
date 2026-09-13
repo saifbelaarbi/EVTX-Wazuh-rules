@@ -1008,7 +1008,8 @@
       <id>T1055</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
-  </rule>  <rule id="107125" level="13">
+  </rule>
+  <rule id="107125" level="13">
     <if_sid>61619</if_sid>
     <field name="win.eventdata.pipeName">-0,$</field>
     <description>Sigma: CobaltStrike Named Pipe Patterns</description>
@@ -3388,7 +3389,8 @@
       <id>T1548.002</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
-  </rule>  <rule id="107374" level="11">
+  </rule>
+  <rule id="107374" level="11">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\\LowerCaseLongPath$</field>
     <field name="win.eventdata.details">\\appdata\\local\\temp\\system32\\winsat.exe$</field>
@@ -3474,6 +3476,207 @@
     <mitre>
       <id>T1047</id>
       <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107403" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5136</field>
+    <field name="win.eventdata.objectClass">groupPolicyContainer</field>
+    <field name="win.eventdata.objectDN">^CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM|^CN={6AC1786C-016F-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM</field>
+    <description>Sigma: Windows Default Domain GPO Modification</description>
+    <mitre>
+      <id>T1484.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107404" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <field name="win.eventdata.targetServerName">localhost</field>
+    <description>Sigma: Potentially Suspicious Explicit Credential Local Logon</description>
+    <mitre>
+      <id>T1134</id>
+      <id>T1134.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107427" level="11">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.sourceImage">\\System32\\cscript.exe$|\\System32\\wscript.exe$|\\System32\\mshta.exe$|\\winword.exe$|\\excel.exe$</field>
+    <field name="win.eventdata.targetImage">\\SysWOW64\\</field>
+    <description>Sigma: HackTool - CACTUSTORCH Remote Thread Creation</description>
+    <mitre>
+      <id>T1055.012</id>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107441" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\\Microsoft\\Windows\\Start Menu\\Programs\\Startup|.lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}</field>
+    <field name="win.eventdata.image">\\explorer.exe$</field>
+    <description>Sigma: Potential RipZip Attack on Startup Folder</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107445" level="11">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">\\UsrClass.dat$|\\NTUSER.DAT$</field>
+    <description>Sigma: Registry Hive File Staged Outside Standard User Profile Path</description>
+    <mitre>
+      <id>T1548</id>
+      <id>T1003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107512" level="11">
+    <if_sid>61612</if_sid>
+    <field name="win.eventdata.sourceImage">:\\Windows\\SysWOW64\\</field>
+    <field name="win.eventdata.grantedAccess">0x1fffff</field>
+    <field name="win.eventdata.callTrace">^UNKNOWN\(0000000000000000\)|UNKNOWN\(0000000000000000\)|</field>
+    <description>Sigma: UAC Bypass Using WOW64 Logger DLL Hijack</description>
+    <mitre>
+      <id>T1548.002</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107601" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-sta |-localserver |{|}</field>
+    <field name="win.eventdata.image">\\rundll32.exe$</field>
+    <description>Sigma: Rundll32 Registered COM Objects</description>
+    <mitre>
+      <id>T1546.015</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107611" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/TN "{|/TN '{|/TN {</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <description>Sigma: Suspicious Scheduled Task Name As GUID</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107631" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\notepad.exe$|\\calc.exe$|\\mspaint.exe$|\\wordpad.exe$|\\write.exe$</field>
+    <description>Sigma: Suspicious Cross-User Process Spawn</description>
+    <mitre>
+      <id>T1055</id>
+      <id>T1134</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107642" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\PsService.exe$|\\PsService64.exe$|\\PsService64a.exe$</field>
+    <description>Sigma: Sysinternals PsService Execution</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107644" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\pssuspend.exe$|\\pssuspend64.exe$|\\pssuspend64a.exe$</field>
+    <description>Sigma: Sysinternals PsSuspend Execution</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107654" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\\dllhost.exe$</field>
+    <field name="win.eventdata.parentCommandLine">/Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}|/Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}</field>
+    <description>Sigma: UAC Bypass via ICMLuaUtil</description>
+    <mitre>
+      <id>T1548.002</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107658" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentCommandLine">"C:\\Windows\\system32\\dism.exe" /online /quiet /norestart /add-package /packagepath:"C:\\Windows\\system32\\pe386" /ignorecheck</field>
+    <field name="win.eventdata.integrityLevel">High|System</field>
+    <field name="win.eventdata.commandLine">C:\\Users\\|\\AppData\\Local\\Temp\\|\\dismhost.exe {</field>
+    <field name="win.eventdata.image">\\DismHost.exe$</field>
+    <description>Sigma: UAC Bypass Using NTFS Reparse Point - Process</description>
+    <mitre>
+      <id>T1548.002</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107673" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ActiveScriptEventConsumer| CREATE </field>
+    <field name="win.eventdata.originalFileName">wmic.exe</field>
+    <description>Sigma: NewActiveScriptEventConsumer Creation Attempt via Wmic.EXE</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107682" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">RenameKey</field>
+    <field name="win.eventdata.newName">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open</field>
+    <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107683" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">SetValue</field>
+    <field name="win.eventdata.targetObject">\\CLSID\\{645FF040-5081-101B-9F08-00AA002F954E}\\shell\\open\\command\\\(Default\)</field>
+    <description>Sigma: Registry Persistence Mechanisms in Recycle Bin</description>
+    <mitre>
+      <id>T1547</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107691" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\Shellex\\ColumnHandlers|\\Filter|\\Exefile\\Shell\\Open\\Command\\\(Default\)|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\Classes\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\.exe|\\.cmd|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <description>Sigma: Classes Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107692" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows CE Services\\AutoStart|\\Software\\Wow6432Node\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Wow6432Node\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnDisconnect|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnConnect|\\SYSTEM\\Setup\\CmdLine|\\Software\\Microsoft\\Ctf\\LangBarAddin|\\Software\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Classes\\Protocols\\Handler|\\SOFTWARE\\Classes\\Protocols\\Filter|\\SOFTWARE\\Classes\\Htmlfile\\Shell\\Open\\Command\\\(Default\)|\\Environment\\UserInitMprLogonScript|\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\\Scrnsave.exe|\\Software\\Microsoft\\Internet Explorer\\UrlSearchHooks|\\SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\Components|\\Software\\Classes\\Clsid\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\\Inprocserver32|\\Control Panel\\Desktop\\Scrnsave.exe</field>
+    <description>Sigma: Common Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107702" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\ShellEx\\ColumnHandlers|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <description>Sigma: Wow6432Node Classes Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107723" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\CLSID\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}\\InProcServer32\\\(Default\)$</field>
+    <description>Sigma: Potential PSFactoryBuffer COM Hijacking</description>
+    <mitre>
+      <id>T1546.015</id>
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>

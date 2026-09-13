@@ -104,7 +104,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100061" level="9">
+  </rule>
+  <rule id="100061" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceFileName"> /c | /r |powershell</field>
@@ -336,6 +337,94 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101200" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">8003|8006|8021|8024</field>
+    <description>Sigma: AppLocker Application Would Have Been Blocked</description>
+    <mitre>
+      <id>T1204.002</id>
+      <id>T1059.001</id>
+      <id>T1059.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101225" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4719</field>
+    <field name="win.eventdata.subcategoryGuid">{0CCE9210-69AE-11D9-BED3-505054503030}|{0CCE9211-69AE-11D9-BED3-505054503030}|{0CCE9212-69AE-11D9-BED3-505054503030}|{0CCE9215-69AE-11D9-BED3-505054503030}|{0CCE921B-69AE-11D9-BED3-505054503030}|{0CCE922B-69AE-11D9-BED3-505054503030}|{0CCE922F-69AE-11D9-BED3-505054503030}|{0CCE9230-69AE-11D9-BED3-505054503030}|{0CCE9235-69AE-11D9-BED3-505054503030}|{0CCE9236-69AE-11D9-BED3-505054503030}|{0CCE9237-69AE-11D9-BED3-505054503030}|{0CCE923F-69AE-11D9-BED3-505054503030}|{0CCE9240-69AE-11D9-BED3-505054503030}|{0CCE9242-69AE-11D9-BED3-505054503030}</field>
+    <field name="win.eventdata.auditPolicyChanges">%%8448|%%8450</field>
+    <description>Sigma: Important Windows Event Auditing Disabled</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101226" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4719</field>
+    <field name="win.eventdata.subcategoryGuid">{0CCE9217-69AE-11D9-BED3-505054503030}</field>
+    <field name="win.eventdata.auditPolicyChanges">%%8448</field>
+    <description>Sigma: Important Windows Event Auditing Disabled</description>
+    <mitre>
+      <id>T1685.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101228" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">cmd|&amp;&amp;|clipboard]::</field>
+    <description>Sigma: Invoke-Obfuscation CLIP+ Launcher - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101231" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend</field>
+    <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101233" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">environment|invoke|\${input\)|&amp;&amp;</field>
+    <description>Sigma: Invoke-Obfuscation Via Stdin - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101234" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">\(Clipboard|i</field>
+    <description>Sigma: Invoke-Obfuscation Via Use Clip - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101237" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f</field>
+    <description>Sigma: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="104008" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4720</field>
@@ -544,6 +633,29 @@
     <description>Sigma: WMI Persistence - Security</description>
     <mitre>
       <id>T1546.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105447" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4657</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.objectValueName">Enabled</field>
+    <field name="win.eventdata.newValue">0</field>
+    <description>Sigma: Sysmon Channel Reference Deletion</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105448" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4663</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.accessMask">0x10000</field>
+    <description>Sigma: Sysmon Channel Reference Deletion</description>
+    <mitre>
+      <id>T1112</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
@@ -836,6 +948,28 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
+  <rule id="107403" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">5136</field>
+    <field name="win.eventdata.objectClass">groupPolicyContainer</field>
+    <field name="win.eventdata.objectDN">^CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM|^CN={6AC1786C-016F-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM</field>
+    <description>Sigma: Windows Default Domain GPO Modification</description>
+    <mitre>
+      <id>T1484.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107404" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4648</field>
+    <field name="win.eventdata.targetServerName">localhost</field>
+    <description>Sigma: Potentially Suspicious Explicit Credential Local Logon</description>
+    <mitre>
+      <id>T1134</id>
+      <id>T1134.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
   <rule id="108504" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4625</field>
@@ -1117,6 +1251,45 @@
     <group>credential_access,sigma_converted,</group>
   </rule>
   <rule id="108553" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">31017</field>
+    <field name="win.eventdata.serverName">^\\1</field>
+    <description>Sigma: Suspicious Rejected SMB Guest Logon From IP</description>
+    <mitre>
+      <id>T1110.001</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108823" level="11">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">300</field>
+    <field name="win.eventdata.targetUserSid">^S-1-5-21-</field>
+    <field name="win.eventdata.sidList">S-1-5-32-544|-500}|-518}|-519}</field>
+    <description>Sigma: Standard User In High Privileged Group</description>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108825" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4662</field>
+    <field name="win.eventdata.properties">1131f6ad-9c07-11d1-f79f-00c04fc2dcd2|1131f6aa-9c07-11d1-f79f-00c04fc2dcd2|9923a32a-3607-11d2-b9be-0000f87a36b2|89e95b76-444d-4c62-991a-0facbeda640c</field>
+    <field name="win.eventdata.subjectUserName">\$$</field>
+    <description>Sigma: Suspicious Machine Account Replication - DcSync Indicator</description>
+    <mitre>
+      <id>T1003.006</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108826" level="11">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4662</field>
+    <field name="win.eventdata.properties">1131f6ad-9c07-11d1-f79f-00c04fc2dcd2|1131f6aa-9c07-11d1-f79f-00c04fc2dcd2|9923a32a-3607-11d2-b9be-0000f87a36b2|89e95b76-444d-4c62-991a-0facbeda640c</field>
+    <description>Sigma: Active Directory Replication from Non Machine Account - DcSync Indicator</description>
+    <mitre>
+      <id>T1003.006</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
+  <rule id="108848" level="11">
     <if_sid>60000</if_sid>
     <field name="win.system.eventID">31017</field>
     <field name="win.eventdata.serverName">^\\1</field>
@@ -1422,7 +1595,8 @@
       <id>T1021.002</id>
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
-  </rule>  <rule id="112525" level="10">
+  </rule>
+  <rule id="112525" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4825</field>
     <description>Sigma: Denied Access To Remote Desktop</description>

@@ -296,7 +296,8 @@
       <id>T1218</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100451" level="8">
+  </rule>
+  <rule id="100451" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">:\\Temp\\|:\\Windows\\Temp\\|\\AppData\\Local\\|\\AppData\\Roaming\\|\\ProgramData\\|\\Users\\Public\\</field>
     <field name="win.eventdata.originalFileName">diskshadow.exe</field>
@@ -926,7 +927,8 @@
       <id>T1218</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="101072" level="8">
+  </rule>
+  <rule id="101072" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\wsl.exe$|\\wslhost.exe$</field>
     <field name="win.eventdata.image">\\calc.exe$|\\cmd.exe$|\\cscript.exe$|\\mshta.exe$|\\powershell.exe$|\\pwsh.exe$|\\regsvr32.exe$|\\rundll32.exe$|\\wscript.exe$</field>
@@ -946,7 +948,8 @@
       <id>T1218</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="101139" level="9">
+  </rule>
+  <rule id="101139" level="9">
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\\SOFTWARE\\Microsoft\\Provisioning\\Commands\\</field>
     <description>Sigma: Potential Provisioning Registry Key Abuse For Binary Proxy Execution - REG</description>
@@ -959,6 +962,74 @@
     <if_sid>61615</if_sid>
     <field name="win.eventdata.targetObject">\\Software\\Microsoft\\WAB\\DLLPath$</field>
     <description>Sigma: Execution DLL of Choice Using WAB.EXE</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101353" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\\eqnedt32.exe$|\\wordpad.exe$|\\wordview.exe$|\\certutil.exe$|\\certoc.exe$|\\CertReq.exe$|\\Desktopimgdownldr.exe$|\\esentutl.exe$|\\mshta.exe$|\\AcroRd32.exe$|\\RdrCEF.exe$|\\hh.exe$|\\finger.exe$</field>
+    <field name="win.eventdata.targetFilename">.com$|.dll$|.exe$|.jar$|.ocx$|.pyc$</field>
+    <description>Sigma: Legitimate Application Dropped Executable</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101354" level="9">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.image">\\eqnedt32.exe$|\\wordpad.exe$|\\wordview.exe$|\\certutil.exe$|\\certoc.exe$|\\CertReq.exe$|\\Desktopimgdownldr.exe$|\\esentutl.exe$|\\mshta.exe$|\\AcroRd32.exe$|\\RdrCEF.exe$|\\hh.exe$|\\finger.exe$</field>
+    <field name="win.eventdata.targetFilename">.bat$|.chm$|.csproj$|.hta$|.js$|.jse$|.proj$|.ps1$|.py$|.scf$|.vbe$|.vbs$|.wsf$|.wsh$</field>
+    <description>Sigma: Legitimate Application Dropped Script</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101412" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.data">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {</field>
+    <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101427" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {</field>
+    <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101467" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">^function Get-VMRemoteFXPhysicalVideoAdapter {</field>
+    <description>Sigma: Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101596" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]s </field>
+    <field name="win.eventdata.originalFileName">diskshadow.exe</field>
+    <description>Sigma: Diskshadow Script Mode - Uncommon Script Extension Execution</description>
+    <mitre>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102168" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\\wlrmdr.exe$</field>
+    <field name="win.eventdata.image">\\wlrmdr.exe$</field>
+    <field name="win.eventdata.commandLine">[-/–—]u </field>
+    <description>Sigma: Wlrmdr.EXE Uncommon Argument Or Child Process</description>
     <mitre>
       <id>T1218</id>
     </mitre>

@@ -8644,4 +8644,289 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
+  <rule id="104898" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">schtasks /create</field>
+    <description>Suspicious command-line pattern 'schtasks /create' detected</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104943" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104944" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105085" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105086" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105197" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105198" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105263" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105264" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105355" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105356" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105357" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105358" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105418" level="10">
+    <if_sid>60003</if_sid>
+    <field name="win.eventdata.provider_Name">MSSQL</field>
+    <field name="win.system.eventID">33205</field>
+    <field name="win.eventdata.data">object_name:sysadmin|statement:alter server role [sysadmin] add member </field>
+    <description>Sigma: MSSQL Add Account To Sysadmin Role</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105421" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">16403</field>
+    <field name="win.eventdata.remoteName">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <description>Sigma: BITS Transfer Job Download From File Sharing Domains</description>
+    <mitre>
+      <id>T1197</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105447" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4657</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.objectValueName">Enabled</field>
+    <field name="win.eventdata.newValue">0</field>
+    <description>Sigma: Sysmon Channel Reference Deletion</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105448" level="10">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4663</field>
+    <field name="win.eventdata.objectName">WINEVT\\Publishers\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\Channels\\Microsoft-Windows-Sysmon/Operational</field>
+    <field name="win.eventdata.accessMask">0x10000</field>
+    <description>Sigma: Sysmon Channel Reference Deletion</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105566" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\aclui.dll$|\\activeds.dll$|\\adsldpc.dll$|\\aepic.dll$|\\apphelp.dll$|\\applicationframe.dll$|\\appvpolicy.dll$|\\appxalluserstore.dll$|\\appxdeploymentclient.dll$|\\archiveint.dll$|\\atl.dll$|\\audioses.dll$|\\auditpolcore.dll$|\\authfwcfg.dll$|\\authz.dll$|\\avrt.dll$|\\batmeter.dll$|\\bcd.dll$|\\bcp47langs.dll$|\\bcp47mrm.dll$|\\bcrypt.dll$|\\bderepair.dll$|\\bootmenuux.dll$|\\bootux.dll$|\\cabinet.dll$|\\cabview.dll$|\\certcli.dll$|\\certenroll.dll$|\\cfgmgr32.dll$|\\cldapi.dll$|\\clipc.dll$|\\clusapi.dll$|\\cmpbk32.dll$|\\cmutil.dll$|\\coloradapterclient.dll$|\\colorui.dll$|\\comdlg32.dll$|\\configmanager2.dll$|\\connect.dll$|\\coredplus.dll$|\\coremessaging.dll$|\\coreuicomponents.dll$|\\credui.dll$|\\cryptbase.dll$|\\cryptdll.dll$|\\cryptsp.dll$|\\cryptui.dll$|\\cryptxml.dll$|\\cscapi.dll$|\\cscobj.dll$|\\cscui.dll$|\\d2d1.dll$|\\d3d10_1.dll$|\\d3d10_1core.dll$|\\d3d10.dll$|\\d3d10core.dll$|\\d3d10warp.dll$|\\d3d11.dll$|\\d3d12.dll$|\\d3d9.dll$|\\d3dx9_43.dll$|\\dataexchange.dll$|\\davclnt.dll$|\\dcntel.dll$|\\dcomp.dll$|\\defragproxy.dll$|\\desktopshellext.dll$|\\deviceassociation.dll$|\\devicecredential.dll$|\\devicepairing.dll$|\\devobj.dll$|\\devrtl.dll$|\\dhcpcmonitor.dll$|\\dhcpcsvc.dll$|\\dhcpcsvc6.dll$|\\directmanipulation.dll$|\\dismapi.dll$|\\dismcore.dll$|\\dmcfgutils.dll$|\\dmcmnutils.dll$|\\dmcommandlineutils.dll$|\\dmenrollengine.dll$|\\dmenterprisediagnostics.dll$|\\dmiso8601utils.dll$|\\dmoleaututils.dll$|\\dmprocessxmlfiltered.dll$|\\dmpushproxy.dll$|\\dmxmlhelputils.dll$|\\dnsapi.dll$|\\dot3api.dll$|\\dot3cfg.dll$|\\dpx.dll$|\\drprov.dll$|\\drvstore.dll$|\\dsclient.dll$|\\dsparse.dll$|\\dsprop.dll$|\\dsreg.dll$|\\dsrole.dll$|\\dui70.dll$|\\duser.dll$|\\dusmapi.dll$|\\dwmapi.dll$|\\dwmcore.dll$|\\dwrite.dll$|\\dxcore.dll$|\\dxgi.dll$|\\dxva2.dll$|\\dynamoapi.dll$|\\eappcfg.dll$|\\eappprxy.dll$|\\edgeiso.dll$|\\edputil.dll$|\\efsadu.dll$|\\efsutil.dll$|\\esent.dll$|\\execmodelproxy.dll$|\\explorerframe.dll$|\\fastprox.dll$|\\faultrep.dll$|\\fddevquery.dll$|\\feclient.dll$|\\fhcfg.dll$|\\fhsvcctl.dll$|\\firewallapi.dll$|\\flightsettings.dll$|\\fltlib.dll$|\\framedynos.dll$|\\fveapi.dll$|\\fveskybackup.dll$|\\fvewiz.dll$|\\fwbase.dll$|\\fwcfg.dll$|\\fwpolicyiomgr.dll$|\\fwpuclnt.dll$|\\fxsapi.dll$|\\fxsst.dll$|\\fxstiff.dll$|\\getuname.dll$|\\gpapi.dll$|\\hid.dll$|\\hnetmon.dll$|\\httpapi.dll$|\\icmp.dll$|\\idstore.dll$|\\ieadvpack.dll$|\\iedkcs32.dll$|\\iernonce.dll$|\\iertutil.dll$|\\ifmon.dll$|\\ifsutil.dll$|\\inproclogger.dll$|\\iphlpapi.dll$|\\iri.dll$|\\iscsidsc.dll$|\\iscsium.dll$|\\isv.exe_rsaenh.dll$|\\iumbase.dll$|\\iumsdk.dll$|\\joinutil.dll$|\\kdstub.dll$|\\ksuser.dll$|\\ktmw32.dll$|\\licensemanagerapi.dll$|\\licensingdiagspp.dll$|\\linkinfo.dll$|\\loadperf.dll$|\\lockhostingframework.dll$|\\logoncli.dll$|\\logoncontroller.dll$|\\lpksetupproxyserv.dll$|\\lrwizdll.dll$|\\magnification.dll$|\\maintenanceui.dll$|\\mapistub.dll$|\\mbaexmlparser.dll$|\\mdmdiagnostics.dll$|\\mfc42u.dll$|\\mfcore.dll$|\\mfplat.dll$|\\mi.dll$|\\midimap.dll$|\\mintdh.dll$|\\miutils.dll$|\\mlang.dll$|\\mmdevapi.dll$|\\mobilenetworking.dll$|\\mpr.dll$|\\mprapi.dll$|\\mrmcorer.dll$|\\msacm32.dll$|\\mscms.dll$|\\mscoree.dll$|\\msctf.dll$|\\msctfmonitor.dll$|\\msdrm.dll$|\\msdtctm.dll$|\\msftedit.dll$|\\msi.dll$|\\msiso.dll$|\\msutb.dll$|\\msvcp110_win.dll$|\\mswb7.dll$|\\mswsock.dll$|\\msxml3.dll$|\\mtxclu.dll$|\\napinsp.dll$|\\ncrypt.dll$|\\ndfapi.dll$|\\netapi32.dll$|\\netid.dll$|\\netiohlp.dll$|\\netjoin.dll$|\\netplwiz.dll$|\\netprofm.dll$|\\netprovfw.dll$|\\netsetupapi.dll$|\\netshell.dll$|\\nettrace.dll$|\\netutils.dll$|\\networkexplorer.dll$|\\newdev.dll$|\\ninput.dll$|\\nlaapi.dll$|\\nlansp_c.dll$|\\npmproxy.dll$|\\nshhttp.dll$|\\nshipsec.dll$|\\nshwfp.dll$|\\ntdsapi.dll$|\\ntlanman.dll$|\\ntlmshared.dll$|\\ntmarta.dll$|\\ntshrui.dll$|\\oleacc.dll$|\\omadmapi.dll$|\\onex.dll$|\\opcservices.dll$|\\osbaseln.dll$|\\osksupport.dll$|\\osuninst.dll$|\\p2p.dll$|\\p2pnetsh.dll$|\\p9np.dll$|\\pcaui.dll$|\\pdh.dll$|\\peerdistsh.dll$|\\pkeyhelper.dll$|\\pla.dll$|\\playsndsrv.dll$|\\pnrpnsp.dll$|\\policymanager.dll$|\\polstore.dll$|\\powrprof.dll$|\\printui.dll$|\\prntvpt.dll$|\\profapi.dll$|\\propsys.dll$|\\proximitycommon.dll$|\\proximityservicepal.dll$|\\prvdmofcomp.dll$|\\puiapi.dll$|\\radcui.dll$|\\rasapi32.dll$|\\rasdlg.dll$|\\rasgcw.dll$|\\rasman.dll$|\\rasmontr.dll$|\\reagent.dll$|\\regapi.dll$|\\reseteng.dll$|\\resetengine.dll$|\\resutils.dll$|\\rmclient.dll$|\\rpcnsh.dll$|\\rsaenh.dll$|\\rtutils.dll$|\\rtworkq.dll$|\\samcli.dll$|\\samlib.dll$|\\sapi_onecore.dll$|\\sas.dll$|\\scansetting.dll$|\\scecli.dll$|\\schedcli.dll$|\\secur32.dll$|\\security.dll$|\\sensapi.dll$|\\shell32.dll$|\\shfolder.dll$|\\slc.dll$|\\snmpapi.dll$|\\spectrumsyncclient.dll$|\\spp.dll$|\\sppc.dll$|\\sppcext.dll$|\\srclient.dll$|\\srcore.dll$|\\srmtrace.dll$|\\srpapi.dll$|\\srvcli.dll$|\\ssp_isv.exe_rsaenh.dll$|\\ssp.exe_rsaenh.dll$|\\sspicli.dll$|\\ssshim.dll$|\\staterepository.core.dll$|\\structuredquery.dll$|\\sxshared.dll$|\\systemsettings.dll$|\\systemsettingsthresholdadminflowui.dll$|\\tapi32.dll$|\\tbs.dll$|\\tdh.dll$|\\textshaping.dll$|\\timesync.dll$|\\tpmcoreprovisioning.dll$|\\tquery.dll$|\\tsworkspace.dll$|\\ttdrecord.dll$|\\twext.dll$|\\twinapi.dll$|\\twinui.appcore.dll$|\\uianimation.dll$|\\uiautomationcore.dll$|\\uireng.dll$|\\uiribbon.dll$|\\umpdc.dll$|\\unattend.dll$|\\updatepolicy.dll$|\\upshared.dll$|\\urlmon.dll$|\\userenv.dll$|\\utildll.dll$|\\uxinit.dll$|\\uxtheme.dll$|\\vaultcli.dll$|\\vdsutil.dll$|\\version.dll$|\\virtdisk.dll$|\\vssapi.dll$|\\vsstrace.dll$|\\wbemprox.dll$|\\wbemsvc.dll$|\\wcmapi.dll$|\\wcnnetsh.dll$|\\wdi.dll$|\\wdscore.dll$|\\webservices.dll$|\\wecapi.dll$|\\wer.dll$|\\wevtapi.dll$|\\whhelper.dll$|\\wimgapi.dll$|\\winbio.dll$|\\winbrand.dll$|\\windows.storage.dll$|\\windows.storage.search.dll$|\\windows.ui.immersive.dll$|\\windowscodecs.dll$|\\windowscodecsext.dll$|\\windowsudk.shellcommon.dll$|\\winhttp.dll$|\\wininet.dll$|\\winipsec.dll$|\\winmde.dll$</field>
+    <description>Sigma: Potential System DLL Sideloading From Non System Locations [1/2]</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105567" level="10">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\winmm.dll$|\\winnsi.dll$|\\winrnr.dll$|\\winscard.dll$|\\winsqlite3.dll$|\\winsta.dll$|\\winsync.dll$|\\wkscli.dll$|\\wlanapi.dll$|\\wlancfg.dll$|\\wldp.dll$|\\wlidprov.dll$|\\wmiclnt.dll$|\\wmidcom.dll$|\\wmiutils.dll$|\\wmpdui.dll$|\\wmsgapi.dll$|\\wofutil.dll$|\\wpdshext.dll$|\\wscapi.dll$|\\wsdapi.dll$|\\wshbth.dll$|\\wshelper.dll$|\\wsmsvc.dll$|\\wtsapi32.dll$|\\wwancfg.dll$|\\wwapi.dll$|\\xmllite.dll$|\\xolehlp.dll$|\\xpsservices.dll$|\\xwizards.dll$|\\xwtpw32.dll$|\\amsi.dll$|\\appraiser.dll$|\\COMRES.DLL$|\\cryptnet.dll$|\\DispBroker.dll$|\\dsound.dll$|\\dxilconv.dll$|\\FxsCompose.dll$|\\FXSRESM.DLL$|\\msdtcVSp1res.dll$|\\PrintIsolationProxy.dll$|\\rdpendp.dll$|\\rpchttp.dll$|\\storageusage.dll$|\\utcutil.dll$|\\WfsR.dll$|\\igd10iumd64.dll$|\\igd12umd64.dll$|\\igdumdim64.dll$|\\igdusc64.dll$|\\TSMSISrv.dll$|\\TSVIPSrv.dll$|\\wbemcomn.dll$|\\WLBSCTRL.dll$|\\wow64log.dll$|\\WptsExtensions.dll$</field>
+    <description>Sigma: Potential System DLL Sideloading From Non System Locations [2/2]</description>
+    <mitre>
+      <id>T1574.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105596" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\offreg.dll$</field>
+    <description>Sigma: Potentially Suspicious Image Load of Offreg.dll</description>
+    <mitre>
+      <id>T1112</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105602" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">.create\("user|.create\('user</field>
+    <description>Sigma: New User Account Creation Attempt Via ADSI</description>
+    <mitre>
+      <id>T1136.001</id>
+      <id>T1136.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105632" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]name:|module</field>
+    <field name="win.eventdata.image">\\appcmd.exe$</field>
+    <description>Sigma: IIS Native-Code Module Command Line Installation</description>
+    <mitre>
+      <id>T1505.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105637" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.Create\("user|.Create\('user</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: New User Account Creation Attempt Via ADSI in CommandLine</description>
+    <mitre>
+      <id>T1136.001</id>
+      <id>T1136.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105676" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">&amp;ipconfig&amp;echo|&amp;quser&amp;echo|&amp;whoami&amp;echo|&amp;c:&amp;echo|&amp;cd&amp;echo|&amp;dir&amp;echo|&amp;echo [E]|&amp;echo [S]</field>
+    <field name="win.eventdata.image">\\w3wp.exe$</field>
+    <description>Sigma: Chopper Webshell Process Pattern</description>
+    <mitre>
+      <id>T1505.003</id>
+      <id>T1018</id>
+      <id>T1033</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105706" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">SetValue</field>
+    <field name="win.eventdata.targetObject">Classes\\ms-settings\\shell\\open\\command\\SymbolicLinkValue$</field>
+    <field name="win.eventdata.details">\\Software\\Classes\\{</field>
+    <description>Sigma: Shell Open Registry Keys Manipulation</description>
+    <mitre>
+      <id>T1548.002</id>
+      <id>T1546.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105707" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">Classes\\ms-settings\\shell\\open\\command\\DelegateExecute$</field>
+    <description>Sigma: Shell Open Registry Keys Manipulation</description>
+    <mitre>
+      <id>T1548.002</id>
+      <id>T1546.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105708" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.eventType">SetValue</field>
+    <field name="win.eventdata.targetObject">Classes\\ms-settings\\shell\\open\\command\\\(Default\)$|Classes\\exefile\\shell\\open\\command\\\(Default\)$</field>
+    <description>Sigma: Shell Open Registry Keys Manipulation</description>
+    <mitre>
+      <id>T1548.002</id>
+      <id>T1546.001</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105739" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\CLSID\\{52A2AAAE-085D-4187-97EA-8C30DB990436}\\InprocServer32\\\(Default\)</field>
+    <description>Sigma: Persistence Via Hhctrl.ocx</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="105757" level="9">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Classes\\CLSID|\\PersistentAddinsRegistered\\{89BCB740-6119-101A-BCB7-00DD010655AF}</field>
+    <description>Sigma: Register New IFiltre For Persistence</description>
+    <group>persistence,sigma_converted,</group>
+  </rule>
 </group>

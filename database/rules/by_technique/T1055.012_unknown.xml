@@ -29,4 +29,16 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
+  <rule id="107427" level="11">
+    <if_sid>61610</if_sid>
+    <field name="win.eventdata.sourceImage">\\System32\\cscript.exe$|\\System32\\wscript.exe$|\\System32\\mshta.exe$|\\winword.exe$|\\excel.exe$</field>
+    <field name="win.eventdata.targetImage">\\SysWOW64\\</field>
+    <description>Sigma: HackTool - CACTUSTORCH Remote Thread Creation</description>
+    <mitre>
+      <id>T1055.012</id>
+      <id>T1059.005</id>
+      <id>T1059.007</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
 </group>

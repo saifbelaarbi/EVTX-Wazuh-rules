@@ -9,7 +9,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100061" level="9">
+  </rule>
+  <rule id="100061" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
     <field name="win.eventdata.serviceFileName"> /c | /r |powershell</field>
@@ -129,7 +130,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100091" level="9">
+  </rule>
+  <rule id="100091" level="9">
     <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -245,7 +247,8 @@
       <id>T1027</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100258" level="8">
+  </rule>
+  <rule id="100258" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">readtoend$|text.encoding]::ascii</field>
     <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell Module</description>
@@ -264,7 +267,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100262" level="9">
+  </rule>
+  <rule id="100262" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.payload">set|&amp;&amp;|mshta|vbscript:createobject|.run|\(window.close\)</field>
     <description>Sigma: Invoke-Obfuscation Via Use MSHTA - PowerShell Module</description>
@@ -283,7 +287,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100298" level="8">
+  </rule>
+  <rule id="100298" level="8">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">readtoend$|text.encoding]::ascii</field>
     <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell</description>
@@ -302,7 +307,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100302" level="9">
+  </rule>
+  <rule id="100302" level="9">
     <if_sid>91801</if_sid>
     <field name="win.eventdata.scriptBlockText">set|&amp;&amp;|mshta|vbscript:createobject|.run|\(window.close\)</field>
     <description>Sigma: Invoke-Obfuscation Via Use MSHTA - PowerShell</description>
@@ -321,7 +327,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100402" level="9">
+  </rule>
+  <rule id="100402" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">.acl|.bat|.doc|.gif|.jpeg|.jpg|.mp3|.pdf|.png|.ppt|.tmp|.xls|.xml</field>
     <field name="win.eventdata.image">\\certutil.exe$</field>
@@ -340,7 +347,8 @@
       <id>T1027</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100511" level="9">
+  </rule>
+  <rule id="100511" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/c|/r|&amp;&amp;|clipboard]::|-f</field>
     <description>Sigma: Invoke-Obfuscation CLIP+ Launcher</description>
@@ -349,7 +357,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100516" level="9">
+  </rule>
+  <rule id="100516" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">*mdr*\W\s*\)\.Name</field>
     <description>Sigma: Invoke-Obfuscation Obfuscated IEX Invocation</description>
@@ -378,7 +387,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100521" level="8">
+  </rule>
+  <rule id="100521" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">system.io.compression.deflatestream|system.io.streamreader|readtoend\(|text.encoding]::ascii</field>
     <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION</description>
@@ -387,7 +397,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100524" level="9">
+  </rule>
+  <rule id="100524" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">set|&amp;&amp;|mshta|vbscript:createobject|.run|\(window.close\)</field>
     <description>Sigma: Invoke-Obfuscation Via Use MSHTA</description>
@@ -428,7 +439,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100721" level="9">
+  </rule>
+  <rule id="100721" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">::FromBase64String\(</field>
     <description>Sigma: Base64 Encoded PowerShell Command Detected</description>
@@ -477,6 +489,189 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101228" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">cmd|&amp;&amp;|clipboard]::</field>
+    <description>Sigma: Invoke-Obfuscation CLIP+ Launcher - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101231" level="8">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend</field>
+    <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101233" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">environment|invoke|\${input\)|&amp;&amp;</field>
+    <description>Sigma: Invoke-Obfuscation Via Stdin - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101234" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">\(Clipboard|i</field>
+    <description>Sigma: Invoke-Obfuscation Via Use Clip - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101237" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4697</field>
+    <field name="win.eventdata.serviceFileName">{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f</field>
+    <description>Sigma: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - Security</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101257" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">cmd|&amp;&amp;|clipboard]::</field>
+    <description>Sigma: Invoke-Obfuscation CLIP+ Launcher - System</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101260" level="8">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">:system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend</field>
+    <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - System</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101263" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">\(Clipboard|i</field>
+    <description>Sigma: Invoke-Obfuscation Via Use Clip - System</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101266" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f</field>
+    <description>Sigma: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101421" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.payload">readtoend$|text.encoding]::ascii</field>
+    <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell Module</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101454" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">readtoend$|text.encoding]::ascii</field>
+    <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101553" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]decode |[-/–—]decodehex </field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
+    <description>Sigma: File Decoded From Base64/Hex Via Certutil.EXE</description>
+    <mitre>
+      <id>T1027</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101554" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]encode</field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
+    <description>Sigma: File Encoded To Base64 Via Certutil.EXE</description>
+    <mitre>
+      <id>T1027</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101557" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]exportPFX </field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
+    <description>Sigma: Certificate Exported Via Certutil.EXE</description>
+    <mitre>
+      <id>T1027</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101657" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/c|/r|&amp;&amp;|clipboard]::|-f</field>
+    <description>Sigma: Invoke-Obfuscation CLIP+ Launcher</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101658" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">system.io.compression.deflatestream|system.io.streamreader|readtoend\(|text.encoding]::ascii</field>
+    <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101660" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f</field>
+    <description>Sigma: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="110012" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">5379</field>
@@ -514,6 +709,17 @@
   <rule id="110081" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">.githubusercontent.com|anonfiles.com|cdn.discordapp.com|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev</field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
+    <description>Sigma: Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110273" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
     <field name="win.eventdata.image">\\certutil.exe$</field>
     <description>Sigma: Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE</description>
     <mitre>

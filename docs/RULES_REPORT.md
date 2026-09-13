@@ -1,14 +1,14 @@
 # Wazuh Rule Database Report
 
-> Generated: 2026-07-20 10:10 UTC
+> Generated: 2026-09-13 03:47 UTC
 > Pipeline version: 1.0.0
 
 ## Overview
 
 | Metric | Value |
 |--------|-------|
-| Total rules generated | **3260** |
-| EVTX files processed | 2294 |
+| Total rules generated | **3437** |
+| EVTX files processed | 2451 |
 | EVTX sources used | 1 |
 | MITRE tactics covered | 12 / 12 |
 | MITRE techniques covered | 270 |
@@ -18,22 +18,22 @@
 
 | Level | Wazuh Severity | Count | Percentage |
 |-------|----------------|-------|------------|
-| 6 | Low relevance | 88 | 2.7% █ |
-| 7 | Bad word matching | 76 | 2.3% █ |
-| 8 | First time seen | 543 | 16.7% ████████ |
-| 9 | Error from invalid source | 1369 | 42.0% ████████████████████ |
-| 10 | Multiple user-generated errors | 491 | 15.1% ███████ |
-| 11 | Integrity checking warning | 343 | 10.5% █████ |
-| 12 | High importance event | 232 | 7.1% ███ |
-| 13 | Unusual error (high importance) | 86 | 2.6% █ |
-| 14 | High importance security event | 32 | 1.0%  |
+| 6 | Low relevance | 93 | 2.7% █ |
+| 7 | Bad word matching | 77 | 2.2% █ |
+| 8 | First time seen | 583 | 17.0% ████████ |
+| 9 | Error from invalid source | 1437 | 41.8% ████████████████████ |
+| 10 | Multiple user-generated errors | 515 | 15.0% ███████ |
+| 11 | Integrity checking warning | 365 | 10.6% █████ |
+| 12 | High importance event | 247 | 7.2% ███ |
+| 13 | Unusual error (high importance) | 86 | 2.5% █ |
+| 14 | High importance security event | 34 | 1.0%  |
 
 ## Detection Confidence Distribution
 
 | Confidence | Count | Description |
 |------------|-------|-------------|
-| high | 1569 | Exact tool/process name match |
-| medium | 1683 | Command-line pattern or behavioral indicator |
+| high | 1664 | Exact tool/process name match |
+| medium | 1765 | Command-line pattern or behavioral indicator |
 | low | 8 | Heuristic / generic event |
 
 ## Rules by MITRE ATT&CK Tactic
@@ -75,7 +75,7 @@
 | `113030` | 8 | `T1566.001` T1566.001 | Windows Registry Trust Record Modification | medium | 61615 |
 | `113031` | 9 | `T1133` T1133 | Running Chrome VPN Extensions via the Registry 2 VPN Extension | high | 61615 |
 
-### Execution (TA0002) — 1119 rules
+### Execution (TA0002) — 1204 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -1198,8 +1198,93 @@
 | `101165` | 9 | `T1059.005` T1059.005 | Suspicious Scripting in a WMI Consumer | high | 61621 |
 | `101166` | 8 | `T1595` T1595 | PUA - PingCastle Execution [1/2] | medium | 61603 |
 | `101167` | 8 | `T1595` T1595 | PUA - PingCastle Execution [2/2] | medium | 61603 |
+| `101200` | 8 | `T1204.002` T1204.002 | AppLocker Application Would Have Been Blocked | medium | 60000 |
+| `101202` | 9 | - | Remote AppX Package Downloaded from File Sharing or CDN Domain | high | 60000 |
+| `101225` | 9 | `T1685.001` T1685.001 | Important Windows Event Auditing Disabled | high | 60100 |
+| `101226` | 9 | `T1685.001` T1685.001 | Important Windows Event Auditing Disabled | high | 60100 |
+| `101228` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - Security | high | 60100 |
+| `101231` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - Security | medium | 60100 |
+| `101233` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Stdin - Security | high | 60100 |
+| `101234` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - Security | high | 60100 |
+| `101237` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - Security | high | 60100 |
+| `101257` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher - System | high | 60002 |
+| `101260` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - System | medium | 60002 |
+| `101263` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation Via Use Clip - System | high | 60002 |
+| `101266` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System | high | 60002 |
+| `101288` | 8 | `T1685.005` T1685.005 | Failed Event Log Clear Via WMI NTEventLogFile ClearEventLog | medium | 61621 |
+| `101292` | 8 | - | Creation Of a Suspicious ADS File Outside a Browser Download | medium | 61617 |
+| `101293` | 9 | `T1564.004` T1564.004 | Suspicious File Download From File Sharing Websites -  File Stream | high | 61617 |
+| `101294` | 8 | `T1564.004` T1564.004 | Unusual File Download From File Sharing Websites - File Stream | medium | 61617 |
+| `101353` | 9 | `T1218` T1218 | Legitimate Application Dropped Executable | high | 61613 |
+| `101354` | 9 | `T1218` T1218 | Legitimate Application Dropped Script | high | 61613 |
+| `101358` | 9 | `T1036.002` T1036.002 | Potential File Extension Spoofing Using Right-to-Left Override | high | 61613 |
+| `101391` | 8 | `T1059.001` T1059.001 | Suspicious WSMAN Provider Image Loads | medium | 61609 |
+| `101409` | 8 | `T1059.001` T1059.001 | Nslookup PowerShell Download Cradle | medium | 91801 |
+| `101412` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse | high | 91801 |
+| `101421` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell Module | medium | 91801 |
+| `101427` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module | high | 91801 |
+| `101430` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific - PowerShell Module | high | 91801 |
+| `101439` | 9 | `T1685` T1685 | AMSI Bypass Pattern Assembly GetType | high | 91801 |
+| `101440` | 8 | `T1685` T1685 | Potential AMSI Bypass Script Using NULL Bits | medium | 91801 |
+| `101441` | 9 | `T1059.001` T1059.001 | Silence.EDA Detection | high | 91801 |
+| `101448` | 8 | `T1620` T1620 | Potential In-Memory Execution Using Reflection.Assembly | medium | 91801 |
+| `101454` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell | medium | 91801 |
+| `101467` | 9 | `T1218` T1218 | Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock | high | 91801 |
+| `101483` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell Invocations - Specific | high | 91801 |
+| `101490` | 8 | `T1059.001` T1059.001 | Potential Suspicious PowerShell Keywords | medium | 91801 |
+| `101492` | 8 | `T1036.003` T1036.003 | Suspicious Start-Process PassThru | medium | 91801 |
+| `101499` | 8 | `T1070.006` T1070.006 | Powershell Timestomp | medium | 91801 |
+| `101500` | 8 | `T1059.001` T1059.001 | Usage Of Web Request Commands And Cmdlets - ScriptBlock | medium | 91801 |
+| `101505` | 9 | `T1059.001` T1059.001 | Potential WinAPI Calls Via PowerShell Scripts | high | 91801 |
+| `101517` | 9 | `T1685.001` T1685.001 | HackTool - SysmonEnte Execution | high | 61612 |
+| `101536` | 8 | `T1564.001` T1564.001 | Hiding Files with Attrib.exe | medium | 61603 |
+| `101553` | 9 | `T1027` Obfuscated Files or Information | File Decoded From Base64/Hex Via Certutil.EXE | high | 61603 |
+| `101554` | 8 | `T1027` Obfuscated Files or Information | File Encoded To Base64 Via Certutil.EXE | medium | 61603 |
+| `101557` | 8 | `T1027` Obfuscated Files or Information | Certificate Exported Via Certutil.EXE | medium | 61603 |
+| `101561` | 8 | `T1059` Command and Scripting Interpreter | Potential Dosfuscation Activity | medium | 61603 |
+| `101585` | 9 | - | Suspicious File Download From File Sharing Domain Via Curl.EXE | high | 61603 |
+| `101596` | 8 | `T1218` T1218 | Diskshadow Script Mode - Uncommon Script Extension Execution | medium | 61603 |
+| `101608` | 8 | `T1036` T1036 | Explorer Process Tree Break | medium | 61603 |
+| `101619` | 8 | `T1059` Command and Scripting Interpreter | Potential Arbitrary Command Execution Via FTP.EXE | medium | 61603 |
+| `101646` | 9 | `T1059.001` T1059.001 | HackTool - CrackMapExec PowerShell Obfuscation | high | 61603 |
+| `101657` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation CLIP+ Launcher | high | 61603 |
+| `101658` | 8 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation COMPRESS OBFUSCATION | medium | 61603 |
+| `101660` | 9 | `T1027` Obfuscated Files or Information | Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION | high | 61603 |
+| `101678` | 9 | `T1059` Command and Scripting Interpreter | HackTool - Sliver C2 Implant Activity Pattern | high | 61603 |
+| `101764` | 8 | `T1218.007` T1218.007 | Msiexec Quiet Installation | medium | 61603 |
+| `101782` | 8 | `T1059.007` T1059.007 | New Agent Skills Installation Attempt Via Node.EXE | medium | 61603 |
+| `101813` | 9 | `T1685` T1685 | Potential AMSI Bypass Via .NET Reflection | high | 61603 |
+| `101814` | 8 | `T1685` T1685 | Potential AMSI Bypass Using NULL Bits | medium | 61603 |
+| `101836` | 9 | - | PowerShell Execution With Potential Decryption Capabilities | high | 61603 |
+| `101845` | 9 | `T1059.001` T1059.001 | Obfuscated PowerShell OneLiner Execution | high | 61603 |
+| `101846` | 9 | `T1059` Command and Scripting Interpreter | PowerShell Download and Execution Cradles | high | 61603 |
+| `101848` | 9 | - | Potentially Suspicious File Download From File Sharing Domain Via P... | high | 61603 |
+| `101854` | 9 | `T1059.001` T1059.001 | Suspicious PowerShell IEX Execution Patterns | high | 61603 |
+| `101857` | 8 | - | Suspicious PowerShell Invocations - Specific - ProcessCreation | medium | 61603 |
+| `101864` | 9 | `T1059.001` T1059.001 | Potential PowerShell Obfuscation Via WCHAR/CHAR | high | 61603 |
+| `101973` | 8 | `T1036.003` T1036.003 | Potential Defense Evasion Via Binary Rename | medium | 61603 |
+| `101995` | 9 | - | Suspicious Advpack Call Via Rundll32.EXE | high | 61603 |
+| `101999` | 8 | `T1027.010` T1027.010 | Potential Obfuscated Ordinal Call Via Rundll32 | medium | 61603 |
+| `102014` | 9 | `T1021.002` T1021.002 | Rundll32 UNC Path Execution | high | 61603 |
+| `102041` | 8 | `T1140` T1140 | Potential Commandline Obfuscation Using Escape Characters | medium | 61603 |
+| `102104` | 9 | `T1036.002` T1036.002 | Potential Defense Evasion Via Right-to-Left Override | high | 61603 |
+| `102110` | 12 | `T1036` T1036 | System File Execution Location Anomaly | high | 61603 |
+| `102113` | 8 | `T1059.001` T1059.001 | Usage Of Web Request Commands And Cmdlets | medium | 61603 |
+| `102129` | 8 | `T1685` T1685 | Sysmon Configuration Update | medium | 61603 |
+| `102130` | 9 | `T1685` T1685 | Uninstall Sysinternals Sysmon | high | 61603 |
+| `102134` | 9 | `T1685` T1685 | Windows Defender Disabled Via SystemSettingsAdminFlows.EXE | high | 61603 |
+| `102141` | 9 | `T1548.002` T1548.002 | CMSTP UAC Bypass via COM Object Access | high | 61603 |
+| `102142` | 9 | `T1548.002` T1548.002 | UAC Bypass Using IDiagnostic Profile | high | 61603 |
+| `102168` | 8 | `T1218` T1218 | Wlrmdr.EXE Uncommon Argument Or Child Process | medium | 61603 |
+| `102183` | 8 | `T1047` T1047 | Registry Enumeration via WMI Stdregprov | medium | 61603 |
+| `102184` | 8 | `T1047` T1047 | Registry Manipulation via WMI Stdregprov | medium | 61603 |
+| `102189` | 9 | `T1685` T1685 | Potential Tampering With Security Products Via WMIC | high | 61603 |
+| `102192` | 8 | `T1047` T1047 | XSL Script Execution Via WMIC.EXE | medium | 61603 |
+| `102211` | 9 | `T1685` T1685 | Removal Of AMSI Provider Registry Keys | high | 61614 |
+| `102215` | 9 | `T1218.003` T1218.003 | CMSTP App Paths Registry Key Modification | high | 61615 |
+| `102220` | 9 | `T1685` T1685 | Potential AMSI COM Server Hijacking | high | 61615 |
 
-### Persistence (TA0003) — 883 rules
+### Persistence (TA0003) — 912 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -2085,9 +2170,38 @@
 | `104888` | 10 | `T1543.003` T1543.003 | Vulnerable Driver Load [38/38] | high | 61608 |
 | `104889` | 10 | `T1574.001` T1574.001 | Potential System DLL Sideloading From Non System Locations [1/2] | high | 61609 |
 | `104890` | 10 | `T1574.001` T1574.001 | Potential System DLL Sideloading From Non System Locations [2/2] | high | 61609 |
+| `104898` | 9 | `T1053.005` T1053.005 | Suspicious command: schtasks /create | medium | 61603 |
+| `104943` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `104944` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `105085` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `105086` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `105197` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `105198` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `105263` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `105264` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `105355` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `105356` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `105357` | 9 | `T1543.003` T1543.003 | Suspicious service path: cmd.exe /c | medium | 60002 |
+| `105358` | 9 | `T1543.003` T1543.003 | Suspicious service path: powershell | medium | 60002 |
+| `105418` | 10 | - | MSSQL Add Account To Sysadmin Role | high | 60003 |
+| `105421` | 10 | `T1197` T1197 | BITS Transfer Job Download From File Sharing Domains | high | 60000 |
+| `105447` | 10 | `T1112` T1112 | Sysmon Channel Reference Deletion | high | 60100 |
+| `105448` | 10 | `T1112` T1112 | Sysmon Channel Reference Deletion | high | 60100 |
+| `105566` | 10 | `T1574.001` T1574.001 | Potential System DLL Sideloading From Non System Locations [1/2] | high | 61609 |
+| `105567` | 10 | `T1574.001` T1574.001 | Potential System DLL Sideloading From Non System Locations [2/2] | high | 61609 |
+| `105596` | 9 | `T1112` T1112 | Potentially Suspicious Image Load of Offreg.dll | medium | 61609 |
+| `105602` | 9 | `T1136.001` T1136.001 | New User Account Creation Attempt Via ADSI | medium | 91801 |
+| `105632` | 9 | `T1505.003` T1505.003 | IIS Native-Code Module Command Line Installation | medium | 61603 |
+| `105637` | 9 | `T1136.001` T1136.001 | New User Account Creation Attempt Via ADSI in CommandLine | medium | 61603 |
+| `105676` | 10 | `T1505.003` T1505.003 | Chopper Webshell Process Pattern | high | 61603 |
+| `105706` | 10 | `T1548.002` T1548.002 | Shell Open Registry Keys Manipulation | high | 61615 |
+| `105707` | 10 | `T1548.002` T1548.002 | Shell Open Registry Keys Manipulation | high | 61615 |
+| `105708` | 10 | `T1548.002` T1548.002 | Shell Open Registry Keys Manipulation | high | 61615 |
+| `105739` | 10 | - | Persistence Via Hhctrl.ocx | high | 61615 |
+| `105757` | 9 | - | Register New IFiltre For Persistence | medium | 61615 |
 | `115003` | 12 | `T1543` Create or Modify System Process | service_install_then_network | high | 110061 |
 
-### Privilege Escalation (TA0004) — 363 rules
+### Privilege Escalation (TA0004) — 383 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -2454,6 +2568,26 @@
 | `107380` | 11 | `T1547.004` T1547.004 | Winlogon Notify Key Logon Persistence | high | 61615 |
 | `107381` | 10 | `T1546.003` T1546.003 | WMI Event Subscription | medium | 61621 |
 | `107382` | 11 | `T1047` T1047 | Suspicious Encoded Scripts in a WMI Consumer | high | 61621 |
+| `107403` | 10 | `T1484.001` T1484.001 | Windows Default Domain GPO Modification | medium | 60100 |
+| `107404` | 10 | `T1134` Access Token Manipulation | Potentially Suspicious Explicit Credential Local Logon | medium | 60100 |
+| `107427` | 11 | `T1055.012` T1055.012 | HackTool - CACTUSTORCH Remote Thread Creation | high | 61610 |
+| `107441` | 11 | `T1547` Boot or Logon Autostart Execution | Potential RipZip Attack on Startup Folder | high | 61613 |
+| `107445` | 11 | `T1548` Abuse Elevation Control Mechanism | Registry Hive File Staged Outside Standard User Profile Path | high | 61613 |
+| `107512` | 11 | `T1548.002` T1548.002 | UAC Bypass Using WOW64 Logger DLL Hijack | high | 61612 |
+| `107601` | 11 | `T1546.015` T1546.015 | Rundll32 Registered COM Objects | high | 61603 |
+| `107611` | 10 | `T1053.005` T1053.005 | Suspicious Scheduled Task Name As GUID | medium | 61603 |
+| `107631` | 10 | `T1055` Process Injection | Suspicious Cross-User Process Spawn | medium | 61603 |
+| `107642` | 10 | `T1543.003` T1543.003 | Sysinternals PsService Execution | medium | 61603 |
+| `107644` | 10 | `T1543.003` T1543.003 | Sysinternals PsSuspend Execution | medium | 61603 |
+| `107654` | 11 | `T1548.002` T1548.002 | UAC Bypass via ICMLuaUtil | high | 61603 |
+| `107658` | 11 | `T1548.002` T1548.002 | UAC Bypass Using NTFS Reparse Point - Process | high | 61603 |
+| `107673` | 11 | `T1546.003` T1546.003 | NewActiveScriptEventConsumer Creation Attempt via Wmic.EXE | high | 61603 |
+| `107682` | 11 | `T1547` Boot or Logon Autostart Execution | Registry Persistence Mechanisms in Recycle Bin | high | 61615 |
+| `107683` | 11 | `T1547` Boot or Logon Autostart Execution | Registry Persistence Mechanisms in Recycle Bin | high | 61615 |
+| `107691` | 10 | `T1547.001` T1547.001 | Classes Autorun Keys Modification | medium | 61615 |
+| `107692` | 10 | `T1547.001` T1547.001 | Common Autorun Keys Modification | medium | 61615 |
+| `107702` | 10 | `T1547.001` T1547.001 | Wow6432Node Classes Autorun Keys Modification | medium | 61615 |
+| `107723` | 11 | `T1546.015` T1546.015 | Potential PSFactoryBuffer COM Hijacking | high | 61615 |
 
 ### Defense Evasion (TA0005) — 42 rules
 
@@ -2502,7 +2636,7 @@
 | `112040` | 9 | `T1027` Obfuscated Files or Information | Suspicious PowerShell: invoke-obfuscation | medium | 91801 |
 | `112041` | 10 | `T1218.004` T1218.004 | DLL sideloading by installutil | high | 61609 |
 
-### Credential Access (TA0006) — 290 rules
+### Credential Access (TA0006) — 311 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -2795,9 +2929,30 @@
 | `108791` | 12 | `T1003.001` T1003.001 | Lsass Full Dump Request Via DumpType Registry Settings | high | 61615 |
 | `108792` | 11 | `T1003` OS Credential Dumping | Potential Credential Dumping Attempt Using New NetworkProvider - REG | medium | 61615 |
 | `108793` | 12 | `T1003` OS Credential Dumping | Potentially Suspicious ODBC Driver Registered | high | 61615 |
+| `108795` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
+| `108796` | 12 | `T1003` OS Credential Dumping | Suspicious process: gsecdump | high | 61603 |
+| `108801` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
+| `108803` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
+| `108804` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
+| `108805` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
+| `108810` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
+| `108811` | 12 | `T1003.001` T1003.001 | LSASS memory access | high | 61612 |
+| `108823` | 11 | - | Standard User In High Privileged Group | medium | 60000 |
+| `108825` | 11 | `T1003.006` T1003.006 | Suspicious Machine Account Replication - DcSync Indicator | medium | 60100 |
+| `108826` | 11 | `T1003.006` T1003.006 | Active Directory Replication from Non Machine Account - DcSync Indi... | medium | 60100 |
+| `108848` | 11 | `T1110.001` T1110.001 | Suspicious Rejected SMB Guest Logon From IP | medium | 60000 |
+| `108856` | 12 | `T1003.001` T1003.001 | Password Dumper Remote Thread in LSASS | high | 61610 |
+| `108901` | 11 | `T1555` T1555 | Dump Credentials from Windows Credential Manager With PowerShell | medium | 91801 |
+| `108918` | 12 | - | Veeam Backup Servers Credential Dumping Script Execution | high | 91801 |
+| `108924` | 12 | `T1003.001` T1003.001 | Credential Dumping Activity By Python Based Tool | high | 61612 |
+| `108965` | 12 | `T1110` Brute Force | HackTool - Hydra Password Bruteforce Execution | high | 61603 |
+| `109015` | 12 | `T1003.002` T1003.002 | PowerShell SAM Copy | high | 61603 |
+| `109035` | 11 | `T1003` OS Credential Dumping | Capture Credentials with Rpcping.exe | medium | 61603 |
+| `109043` | 11 | `T1552` T1552 | Potentially Suspicious EventLog Recon Activity Using Log Query Util... | medium | 61603 |
+| `109063` | 11 | `T1036` T1036 | Procdump Execution | medium | 61603 |
 | `115002` | 12 | `T1110` Brute Force | brute_force_then_logon | high | 112501 |
 
-### Discovery (TA0007) — 137 rules
+### Discovery (TA0007) — 142 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -2938,8 +3093,13 @@
 | `111134` | 6 | `T1033` T1033 | Whoami.EXE Execution Anomaly | medium | 61603 |
 | `111135` | 6 | `T1047` T1047 | Computer System Reconnaissance Via Wmic.EXE | medium | 61603 |
 | `111136` | 6 | `T1082` System Information Discovery | Uncommon System Information Discovery Via Wmic.EXE | medium | 61603 |
+| `111162` | 6 | `T1033` T1033 | Computer Discovery And Export Via Get-ADComputer Cmdlet - PowerShell | medium | 91801 |
+| `111171` | 6 | `T1033` T1033 | User Discovery And Export Via Get-ADUser Cmdlet - PowerShell | medium | 91801 |
+| `111180` | 6 | `T1057` T1057 | Recon Command Output Piped To Findstr.EXE | medium | 61603 |
+| `111216` | 6 | `T1033` T1033 | Computer Discovery And Export Via Get-ADComputer Cmdlet | medium | 61603 |
+| `111218` | 6 | `T1033` T1033 | User Discovery And Export Via Get-ADUser Cmdlet | medium | 61603 |
 
-### Lateral Movement (TA0008) — 72 rules
+### Lateral Movement (TA0008) — 75 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -3014,9 +3174,12 @@
 | `112574` | 11 | `T1021.006` T1021.006 | Winrs Local Command Execution | high | 61603 |
 | `112575` | 10 | `T1021.006` T1021.006 | Potential Lateral Movement via Windows Remote Shell | medium | 61603 |
 | `112576` | 10 | `T1090` T1090 | New PortProxy Registry Entry Added | medium | 61615 |
+| `112609` | 11 | `T1021.002` T1021.002 | smbexec.py Service Installation | high | 60002 |
+| `112618` | 11 | - | HackTool - Evil-WinRm Execution - PowerShell Module | high | 91801 |
+| `112645` | 11 | `T1021.006` T1021.006 | Winrs Local Command Execution | high | 61603 |
 | `115000` | 12 | `T1021` Remote Services | discovery_then_lateral_movement | high | 112501 |
 
-### Collection (TA0009) — 51 rules
+### Collection (TA0009) — 55 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -3071,8 +3234,12 @@
 | `113548` | 8 | `T1125` T1125 | Suspicious Camera and Microphone Access | high | 61615 |
 | `113549` | 7 | `T1113` T1113 | Periodic Backup For System Registry Hives Enabled | medium | 61615 |
 | `113550` | 7 | `T1113` T1113 | Windows Recall Feature Enabled - Registry | medium | 61615 |
+| `113556` | 8 | `T1557.001` T1557.001 | Local Privilege Escalation Indicator TabTip | high | 60002 |
+| `113566` | 7 | `T1056.001` T1056.001 | Potential Keylogger Activity | medium | 91801 |
+| `113577` | 8 | `T1557.001` T1557.001 | Potential SMB Relay Attack Tool Execution | high | 61603 |
+| `113592` | 8 | `T1005` T1005 | VeeamBackup Database Credentials Dump Via Sqlcmd.EXE | high | 61603 |
 
-### Command and Control (TA0011) — 191 rules
+### Command and Control (TA0011) — 198 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -3267,8 +3434,15 @@
 | `110190` | 10 | `T1071.001` T1071.001 | Renamed Visual Studio Code Tunnel Execution | high | 61603 |
 | `110191` | 9 | `T1071.001` T1071.001 | Visual Studio Code Tunnel Service Installation | medium | 61603 |
 | `110192` | 10 | `T1105` Ingress Tool Transfer | Lolbas OneDriveStandaloneUpdater.exe Proxy Download | high | 61615 |
+| `110242` | 10 | `T1102` T1102 | New Connection Initiated To Potential Dead Drop Resolver Domain | high | 61605 |
+| `110253` | 10 | `T1105` Ingress Tool Transfer | Network Communication Initiated To File Sharing Domains From Proces... | high | 61605 |
+| `110262` | 9 | `T1090` T1090 | Suspicious TCP Tunnel Via PowerShell Script | medium | 91801 |
+| `110273` | 10 | `T1027` Obfuscated Files or Information | Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE | high | 61603 |
+| `110300` | 9 | `T1105` Ingress Tool Transfer | Replace.exe Usage | medium | 61603 |
+| `110378` | 9 | `T1071.001` T1071.001 | Visual Studio Code Tunnel Execution | medium | 61603 |
+| `110382` | 10 | `T1071.001` T1071.001 | Renamed Visual Studio Code Tunnel Execution | high | 61603 |
 
-### Exfiltration (TA0010) — 36 rules
+### Exfiltration (TA0010) — 37 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -3307,9 +3481,10 @@
 | `114532` | 12 | `T1048.003` T1048.003 | WebDav Client Execution Via Rundll32.EXE | medium | 61603 |
 | `114534` | 13 | `T1048` T1048 | Suspicious Redirection to Local Admin Share | high | 61603 |
 | `114535` | 12 | `T1048` T1048 | Tap Installer Execution | medium | 61603 |
+| `114554` | 12 | `T1020` T1020 | PowerShell Script With File Hostname Resolving Capabilities | medium | 91801 |
 | `115001` | 13 | `T1003` OS Credential Dumping | credential_access_then_exfil | high | 110061 |
 
-### Impact (TA0040) — 44 rules
+### Impact (TA0040) — 46 rules
 
 | Rule ID | Level | Technique | Description | Confidence | Parent SID |
 |---------|-------|-----------|-------------|------------|------------|
@@ -3357,6 +3532,8 @@
 | `114041` | 14 | `T1490` T1490 | Registry Disable System Restore | high | 61615 |
 | `114042` | 13 | `T1490` T1490 | New Root or CA or AuthRoot Certificate to Store | medium | 61615 |
 | `114043` | 14 | `T1491.001` T1491.001 | Potential Ransomware Activity Using LegalNotice Message | high | 61615 |
+| `114056` | 14 | `T1496` T1496 | Network Communication With Crypto Mining Pool | high | 61605 |
+| `114077` | 14 | `T1496` T1496 | Potential Crypto Mining Activity | high | 61603 |
 
 ## Exported Rule Files
 
@@ -3367,18 +3544,18 @@ _One XML file per MITRE ATT&CK tactic. Best for broad deployment._
 
 | File | Rules |
 |------|-------|
-| `collection.xml` | 51 |
-| `command_and_control.xml` | 191 |
-| `credential_access.xml` | 289 |
+| `collection.xml` | 55 |
+| `command_and_control.xml` | 198 |
+| `credential_access.xml` | 310 |
 | `defense_evasion.xml` | 42 |
-| `discovery.xml` | 137 |
-| `execution.xml` | 1119 |
-| `exfiltration.xml` | 35 |
-| `impact.xml` | 44 |
+| `discovery.xml` | 142 |
+| `execution.xml` | 1204 |
+| `exfiltration.xml` | 36 |
+| `impact.xml` | 46 |
 | `initial_access.xml` | 32 |
-| `lateral_movement.xml` | 71 |
-| `persistence.xml` | 882 |
-| `privilege_escalation.xml` | 363 |
+| `lateral_movement.xml` | 74 |
+| `persistence.xml` | 911 |
+| `privilege_escalation.xml` | 383 |
 | `zz_composites.xml` | 4 |
 
 ### `database/rules/by_technique/`
@@ -3387,72 +3564,72 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | File | Rules |
 |------|-------|
 | `T1001.003_unknown.xml` | 2 |
-| `T1003.001_unknown.xml` | 93 |
-| `T1003.002_unknown.xml` | 17 |
+| `T1003.001_unknown.xml` | 102 |
+| `T1003.002_unknown.xml` | 18 |
 | `T1003.003_unknown.xml` | 20 |
 | `T1003.004_unknown.xml` | 2 |
 | `T1003.005_unknown.xml` | 2 |
-| `T1003.006_unknown.xml` | 3 |
-| `T1003_credential_dumping.xml` | 28 |
-| `T1005_data_from_local_system.xml` | 4 |
+| `T1003.006_unknown.xml` | 5 |
+| `T1003_credential_dumping.xml` | 30 |
+| `T1005_data_from_local_system.xml` | 5 |
 | `T1010_unknown.xml` | 1 |
 | `T1012_unknown.xml` | 6 |
 | `T1016_unknown.xml` | 2 |
 | `T1018_unknown.xml` | 7 |
-| `T1020_unknown.xml` | 1 |
+| `T1020_unknown.xml` | 2 |
 | `T1021.001_unknown.xml` | 8 |
-| `T1021.002_unknown.xml` | 35 |
+| `T1021.002_unknown.xml` | 37 |
 | `T1021.003_unknown.xml` | 4 |
 | `T1021.004_unknown.xml` | 1 |
 | `T1021.005_unknown.xml` | 1 |
-| `T1021.006_unknown.xml` | 5 |
+| `T1021.006_unknown.xml` | 6 |
 | `T1021_remote_services.xml` | 2 |
 | `T1027.004_unknown.xml` | 2 |
 | `T1027.005_unknown.xml` | 2 |
 | `T1027.009_unknown.xml` | 0 |
-| `T1027.010_unknown.xml` | 2 |
-| `T1027_obfuscated_files.xml` | 52 |
-| `T1033_unknown.xml` | 17 |
-| `T1036.002_unknown.xml` | 2 |
-| `T1036.003_unknown.xml` | 19 |
+| `T1027.010_unknown.xml` | 3 |
+| `T1027_obfuscated_files.xml` | 70 |
+| `T1033_unknown.xml` | 21 |
+| `T1036.002_unknown.xml` | 4 |
+| `T1036.003_unknown.xml` | 21 |
 | `T1036.005_unknown.xml` | 8 |
 | `T1036.007_unknown.xml` | 5 |
-| `T1036_unknown.xml` | 45 |
+| `T1036_unknown.xml` | 48 |
 | `T1037.001_unknown.xml` | 3 |
 | `T1039_data_from_network_shared.xml` | 2 |
 | `T1040_unknown.xml` | 8 |
 | `T1041_exfil_over_c2.xml` | 1 |
 | `T1046_unknown.xml` | 19 |
-| `T1047_unknown.xml` | 52 |
+| `T1047_unknown.xml` | 55 |
 | `T1048.001_unknown.xml` | 2 |
 | `T1048.003_unknown.xml` | 3 |
 | `T1048_exfil_over_alt_protocol.xml` | 8 |
 | `T1049_unknown.xml` | 3 |
 | `T1053.002_unknown.xml` | 2 |
-| `T1053.005_unknown.xml` | 30 |
+| `T1053.005_unknown.xml` | 32 |
 | `T1053_scheduled_task.xml` | 8 |
 | `T1055.001_unknown.xml` | 5 |
 | `T1055.003_unknown.xml` | 1 |
-| `T1055.012_unknown.xml` | 3 |
-| `T1055_process_injection.xml` | 35 |
-| `T1056.001_unknown.xml` | 3 |
+| `T1055.012_unknown.xml` | 4 |
+| `T1055_process_injection.xml` | 36 |
+| `T1056.001_unknown.xml` | 4 |
 | `T1056.002_unknown.xml` | 4 |
-| `T1057_unknown.xml` | 1 |
-| `T1059.001_unknown.xml` | 123 |
+| `T1057_unknown.xml` | 2 |
+| `T1059.001_unknown.xml` | 136 |
 | `T1059.003_unknown.xml` | 12 |
 | `T1059.005_unknown.xml` | 11 |
 | `T1059.006_unknown.xml` | 2 |
-| `T1059.007_unknown.xml` | 1 |
-| `T1059_command_scripting.xml` | 68 |
+| `T1059.007_unknown.xml` | 2 |
+| `T1059_command_scripting.xml` | 72 |
 | `T1068_exploitation_for_privesc.xml` | 8 |
 | `T1069.001_unknown.xml` | 1 |
 | `T1069.002_unknown.xml` | 1 |
 | `T1070.003_unknown.xml` | 8 |
 | `T1070.004_unknown.xml` | 8 |
 | `T1070.005_unknown.xml` | 2 |
-| `T1070.006_unknown.xml` | 1 |
+| `T1070.006_unknown.xml` | 2 |
 | `T1070_indicator_removal.xml` | 25 |
-| `T1071.001_unknown.xml` | 11 |
+| `T1071.001_unknown.xml` | 13 |
 | `T1071.004_unknown.xml` | 6 |
 | `T1071_application_layer_protocol.xml` | 2 |
 | `T1072_unknown.xml` | 9 |
@@ -3466,17 +3643,17 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1087_account_discovery.xml` | 5 |
 | `T1090.001_unknown.xml` | 10 |
 | `T1090.003_unknown.xml` | 5 |
-| `T1090_unknown.xml` | 18 |
+| `T1090_unknown.xml` | 19 |
 | `T1095_unknown.xml` | 3 |
 | `T1098_unknown.xml` | 11 |
 | `T1102.002_unknown.xml` | 1 |
-| `T1102_unknown.xml` | 7 |
-| `T1105_ingress_tool_transfer.xml` | 40 |
+| `T1102_unknown.xml` | 8 |
+| `T1105_ingress_tool_transfer.xml` | 42 |
 | `T1106_unknown.xml` | 6 |
-| `T1110.001_unknown.xml` | 1 |
+| `T1110.001_unknown.xml` | 2 |
 | `T1110.002_unknown.xml` | 2 |
-| `T1110_brute_force.xml` | 4 |
-| `T1112_unknown.xml` | 62 |
+| `T1110_brute_force.xml` | 5 |
+| `T1112_unknown.xml` | 65 |
 | `T1113_unknown.xml` | 6 |
 | `T1114.001_unknown.xml` | 1 |
 | `T1115_unknown.xml` | 2 |
@@ -3493,28 +3670,28 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1134.002_unknown.xml` | 2 |
 | `T1134.004_unknown.xml` | 5 |
 | `T1134.005_unknown.xml` | 1 |
-| `T1134_access_token_manipulation.xml` | 3 |
+| `T1134_access_token_manipulation.xml` | 4 |
 | `T1135_unknown.xml` | 1 |
-| `T1136.001_unknown.xml` | 6 |
+| `T1136.001_unknown.xml` | 8 |
 | `T1136.002_unknown.xml` | 2 |
 | `T1137.002_unknown.xml` | 1 |
 | `T1137.003_unknown.xml` | 1 |
 | `T1137.006_unknown.xml` | 7 |
 | `T1137_unknown.xml` | 9 |
-| `T1140_unknown.xml` | 11 |
+| `T1140_unknown.xml` | 12 |
 | `T1176.001_unknown.xml` | 2 |
 | `T1185_unknown.xml` | 3 |
 | `T1187_unknown.xml` | 2 |
 | `T1190_exploit_public_app.xml` | 6 |
 | `T1195.002_unknown.xml` | 3 |
 | `T1195_unknown.xml` | 1 |
-| `T1197_unknown.xml` | 13 |
+| `T1197_unknown.xml` | 14 |
 | `T1200_unknown.xml` | 1 |
 | `T1201_unknown.xml` | 1 |
 | `T1202_unknown.xml` | 21 |
 | `T1203_unknown.xml` | 7 |
 | `T1204.001_unknown.xml` | 2 |
-| `T1204.002_unknown.xml` | 19 |
+| `T1204.002_unknown.xml` | 20 |
 | `T1204.004_unknown.xml` | 5 |
 | `T1204_user_execution.xml` | 2 |
 | `T1207_unknown.xml` | 2 |
@@ -3525,32 +3702,32 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1216_unknown.xml` | 10 |
 | `T1218.001_unknown.xml` | 2 |
 | `T1218.002_unknown.xml` | 1 |
-| `T1218.003_unknown.xml` | 7 |
+| `T1218.003_unknown.xml` | 8 |
 | `T1218.004_unknown.xml` | 3 |
 | `T1218.005_unknown.xml` | 11 |
-| `T1218.007_unknown.xml` | 7 |
+| `T1218.007_unknown.xml` | 8 |
 | `T1218.008_unknown.xml` | 8 |
 | `T1218.009_unknown.xml` | 3 |
 | `T1218.010_unknown.xml` | 14 |
 | `T1218.011_unknown.xml` | 34 |
-| `T1218_unknown.xml` | 110 |
+| `T1218_unknown.xml` | 117 |
 | `T1219.002_unknown.xml` | 54 |
 | `T1219_unknown.xml` | 2 |
 | `T1220_unknown.xml` | 3 |
 | `T1222.001_unknown.xml` | 2 |
 | `T1222_unknown.xml` | 1 |
 | `T1482_unknown.xml` | 6 |
-| `T1484.001_unknown.xml` | 6 |
+| `T1484.001_unknown.xml` | 7 |
 | `T1485_data_destruction.xml` | 4 |
 | `T1486_data_encrypted_for_impact.xml` | 5 |
 | `T1489_service_stop.xml` | 6 |
 | `T1490_unknown.xml` | 18 |
 | `T1491.001_unknown.xml` | 1 |
-| `T1496_unknown.xml` | 2 |
+| `T1496_unknown.xml` | 4 |
 | `T1497.001_unknown.xml` | 1 |
 | `T1499.001_unknown.xml` | 1 |
 | `T1505.002_unknown.xml` | 3 |
-| `T1505.003_unknown.xml` | 20 |
+| `T1505.003_unknown.xml` | 22 |
 | `T1505.004_unknown.xml` | 1 |
 | `T1518.001_unknown.xml` | 3 |
 | `T1518_unknown.xml` | 2 |
@@ -3560,11 +3737,11 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1531_unknown.xml` | 1 |
 | `T1539_unknown.xml` | 2 |
 | `T1542.001_unknown.xml` | 2 |
-| `T1543.003_unknown.xml` | 575 |
+| `T1543.003_unknown.xml` | 589 |
 | `T1543_create_modify_service.xml` | 9 |
 | `T1546.001_unknown.xml` | 1 |
 | `T1546.002_unknown.xml` | 4 |
-| `T1546.003_unknown.xml` | 20 |
+| `T1546.003_unknown.xml` | 21 |
 | `T1546.007_unknown.xml` | 3 |
 | `T1546.008_unknown.xml` | 5 |
 | `T1546.009_unknown.xml` | 2 |
@@ -3572,9 +3749,9 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1546.011_unknown.xml` | 6 |
 | `T1546.012_unknown.xml` | 3 |
 | `T1546.013_unknown.xml` | 3 |
-| `T1546.015_unknown.xml` | 9 |
+| `T1546.015_unknown.xml` | 11 |
 | `T1546_unknown.xml` | 2 |
-| `T1547.001_unknown.xml` | 35 |
+| `T1547.001_unknown.xml` | 38 |
 | `T1547.003_unknown.xml` | 1 |
 | `T1547.004_unknown.xml` | 4 |
 | `T1547.005_unknown.xml` | 1 |
@@ -3582,15 +3759,15 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1547.009_unknown.xml` | 4 |
 | `T1547.010_unknown.xml` | 3 |
 | `T1547.015_unknown.xml` | 1 |
-| `T1547_boot_autostart.xml` | 6 |
-| `T1548.002_unknown.xml` | 62 |
-| `T1548_abuse_elevation.xml` | 7 |
+| `T1547_boot_autostart.xml` | 9 |
+| `T1548.002_unknown.xml` | 70 |
+| `T1548_abuse_elevation.xml` | 8 |
 | `T1550.002_unknown.xml` | 4 |
 | `T1552.001_unknown.xml` | 4 |
 | `T1552.002_unknown.xml` | 3 |
 | `T1552.004_unknown.xml` | 4 |
 | `T1552.006_unknown.xml` | 5 |
-| `T1552_unknown.xml` | 3 |
+| `T1552_unknown.xml` | 4 |
 | `T1553.003_unknown.xml` | 1 |
 | `T1553.004_unknown.xml` | 7 |
 | `T1553.005_unknown.xml` | 2 |
@@ -3599,10 +3776,10 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1555.003_unknown.xml` | 4 |
 | `T1555.004_unknown.xml` | 4 |
 | `T1555.005_unknown.xml` | 1 |
-| `T1555_unknown.xml` | 9 |
+| `T1555_unknown.xml` | 10 |
 | `T1556.002_unknown.xml` | 1 |
 | `T1556_unknown.xml` | 2 |
-| `T1557.001_unknown.xml` | 10 |
+| `T1557.001_unknown.xml` | 12 |
 | `T1557.003_unknown.xml` | 2 |
 | `T1557_unknown.xml` | 1 |
 | `T1558.003_unknown.xml` | 19 |
@@ -3612,10 +3789,10 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1560.001_unknown.xml` | 7 |
 | `T1562.001_unknown.xml` | 1 |
 | `T1563.002_unknown.xml` | 2 |
-| `T1564.001_unknown.xml` | 6 |
+| `T1564.001_unknown.xml` | 7 |
 | `T1564.002_unknown.xml` | 2 |
 | `T1564.003_unknown.xml` | 5 |
-| `T1564.004_unknown.xml` | 14 |
+| `T1564.004_unknown.xml` | 16 |
 | `T1564.006_unknown.xml` | 1 |
 | `T1564_unknown.xml` | 7 |
 | `T1565_unknown.xml` | 1 |
@@ -3628,7 +3805,7 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1569_system_services.xml` | 2 |
 | `T1571_unknown.xml` | 3 |
 | `T1572_unknown.xml` | 14 |
-| `T1574.001_unknown.xml` | 73 |
+| `T1574.001_unknown.xml` | 75 |
 | `T1574.002_unknown.xml` | 5 |
 | `T1574.005_unknown.xml` | 1 |
 | `T1574.007_unknown.xml` | 1 |
@@ -3649,23 +3826,23 @@ _One XML file per MITRE technique. Best for selective/granular deployment._
 | `T1608_unknown.xml` | 1 |
 | `T1614.001_unknown.xml` | 2 |
 | `T1615_unknown.xml` | 6 |
-| `T1620_unknown.xml` | 1 |
+| `T1620_unknown.xml` | 2 |
 | `T1622_unknown.xml` | 6 |
 | `T1649_unknown.xml` | 4 |
-| `T1685.001_unknown.xml` | 25 |
-| `T1685.005_unknown.xml` | 8 |
-| `T1685_unknown.xml` | 120 |
+| `T1685.001_unknown.xml` | 28 |
+| `T1685.005_unknown.xml` | 9 |
+| `T1685_unknown.xml` | 130 |
 | `T1686.003_unknown.xml` | 14 |
 | `T1689_unknown.xml` | 1 |
 | `unknown_collection.xml` | 1 |
 | `unknown_command_and_control.xml` | 5 |
-| `unknown_credential_access.xml` | 7 |
+| `unknown_credential_access.xml` | 9 |
 | `unknown_discovery.xml` | 14 |
-| `unknown_execution.xml` | 157 |
+| `unknown_execution.xml` | 164 |
 | `unknown_exfiltration.xml` | 5 |
 | `unknown_initial_access.xml` | 4 |
-| `unknown_lateral_movement.xml` | 3 |
-| `unknown_persistence.xml` | 38 |
+| `unknown_lateral_movement.xml` | 4 |
+| `unknown_persistence.xml` | 41 |
 | `unknown_privilege_escalation.xml` | 22 |
 | `zz_composites.xml` | 4 |
 
@@ -3674,11 +3851,11 @@ _Grouped by Windows event source (Sysmon, Security, PowerShell, System). Aligns 
 
 | File | Rules |
 |------|-------|
-| `application.xml` | 60 |
-| `powershell.xml` | 211 |
-| `security.xml` | 152 |
-| `sysmon.xml` | 2245 |
-| `system.xml` | 588 |
+| `application.xml` | 62 |
+| `powershell.xml` | 237 |
+| `security.xml` | 168 |
+| `sysmon.xml` | 2359 |
+| `system.xml` | 607 |
 | `zz_composites.xml` | 4 |
 
 ## Deployment to Wazuh

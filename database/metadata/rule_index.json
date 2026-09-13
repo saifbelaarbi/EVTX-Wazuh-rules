@@ -70683,5 +70683,3883 @@
     "sigma_id": "b1cb4ab6-ac31-43f4-adf1-d9d08957419c",
     "version": 1,
     "last_modified": "2026-07-20T10:09:47.410485+00:00"
+  },
+  "104898": {
+    "description": "Suspicious command: schtasks /create",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1053.005",
+    "mitre_ids": [
+      "T1053.005"
+    ],
+    "technique_name": "Suspicious command: schtasks /create",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/rundll32_cmd_schtask.evtx",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.commandLine": "schtasks /create"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "108795": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.001",
+    "mitre_ids": [
+      "T1003.001"
+    ],
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x00001010"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "108796": {
+    "description": "Suspicious process: gsecdump",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "mitre_ids": [
+      "T1003"
+    ],
+    "technique_name": "Suspicious process: gsecdump",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.commandLine": "gsecdump"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "108801": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.001",
+    "mitre_ids": [
+      "T1003.001"
+    ],
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x001f1fff"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "108803": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.001",
+    "mitre_ids": [
+      "T1003.001"
+    ],
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x00001000"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "108804": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.001",
+    "mitre_ids": [
+      "T1003.001"
+    ],
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x00001410"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "108805": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.001",
+    "mitre_ids": [
+      "T1003.001"
+    ],
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x001fffff"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "108810": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.001",
+    "mitre_ids": [
+      "T1003.001"
+    ],
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_3_10_Invoke-Mimikatz_hosted_Github.evtx",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x0000143a"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "108811": {
+    "description": "LSASS memory access",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.001",
+    "mitre_ids": [
+      "T1003.001"
+    ],
+    "technique_name": "LSASS memory access",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_from_admin_to_system_handle_inheritance.evtx",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.targetImage": "lsass",
+      "win.eventdata.grantedAccess": "0x00101ffb"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "104943": {
+    "description": "Suspicious service path: cmd.exe /c",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: cmd.exe /c",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG",
+      "win.eventdata.imagePath": "cmd.exe /c"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "104944": {
+    "description": "Suspicious service path: powershell",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: powershell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG",
+      "win.eventdata.imagePath": "powershell"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105085": {
+    "description": "Suspicious service path: cmd.exe /c",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: cmd.exe /c",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg",
+      "win.eventdata.imagePath": "cmd.exe /c"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105086": {
+    "description": "Suspicious service path: powershell",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: powershell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg",
+      "win.eventdata.imagePath": "powershell"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105197": {
+    "description": "Suspicious service path: cmd.exe /c",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: cmd.exe /c",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm",
+      "win.eventdata.imagePath": "cmd.exe /c"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105198": {
+    "description": "Suspicious service path: powershell",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: powershell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm",
+      "win.eventdata.imagePath": "powershell"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105263": {
+    "description": "Suspicious service path: cmd.exe /c",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: cmd.exe /c",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg",
+      "win.eventdata.imagePath": "cmd.exe /c"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105264": {
+    "description": "Suspicious service path: powershell",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: powershell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg",
+      "win.eventdata.imagePath": "powershell"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105355": {
+    "description": "Suspicious service path: cmd.exe /c",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: cmd.exe /c",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl",
+      "win.eventdata.imagePath": "cmd.exe /c"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105356": {
+    "description": "Suspicious service path: powershell",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: powershell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl",
+      "win.eventdata.imagePath": "powershell"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105357": {
+    "description": "Suspicious service path: cmd.exe /c",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: cmd.exe /c",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy",
+      "win.eventdata.imagePath": "cmd.exe /c"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105358": {
+    "description": "Suspicious service path: powershell",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Suspicious service path: powershell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "2026-09-13",
+    "field_matches": {
+      "win.eventdata.serviceName": "IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy",
+      "win.eventdata.imagePath": "powershell"
+    },
+    "sigma_id": "",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:33.723352+00:00"
+  },
+  "105418": {
+    "description": "MSSQL Add Account To Sysadmin Role",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "MSSQL Add Account To Sysadmin Role",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/mssqlserver/win_mssql_add_sysadmin_account.yml",
+    "source_category": "application",
+    "parent_sid": 60003,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.provider_Name": "MSSQL",
+      "win.system.eventID": "33205",
+      "win.eventdata.data": "object_name:sysadmin|statement:alter server role [sysadmin] add member "
+    },
+    "sigma_id": "08200f85-2678-463e-9c32-88dce2f073d1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101200": {
+    "description": "AppLocker Application Would Have Been Blocked",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1204.002",
+    "mitre_ids": [
+      "T1204.002",
+      "T1059.001",
+      "T1059.003"
+    ],
+    "technique_name": "AppLocker Application Would Have Been Blocked",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/applocker/win_applocker_application_would_have_been_blocked.yml",
+    "source_category": "security",
+    "parent_sid": 60000,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "8003|8006|8021|8024"
+    },
+    "sigma_id": "557e3bd3-7f21-495d-8d50-7c8bdfb8041c",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101202": {
+    "description": "Remote AppX Package Downloaded from File Sharing or CDN Domain",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Remote AppX Package Downloaded from File Sharing or CDN Domain",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_appx_downloaded_from_file_sharing_domains.yml",
+    "source_category": "application",
+    "parent_sid": 60000,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "854",
+      "win.eventdata.path": ".githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at"
+    },
+    "sigma_id": "8b48ad89-10d8-4382-a546-50588c410f0d",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105421": {
+    "description": "BITS Transfer Job Download From File Sharing Domains",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1197",
+    "mitre_ids": [
+      "T1197"
+    ],
+    "technique_name": "BITS Transfer Job Download From File Sharing Domains",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/bits_client/win_bits_client_new_transfer_via_file_sharing_domains.yml",
+    "source_category": "system",
+    "parent_sid": 60000,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "16403",
+      "win.eventdata.remoteName": ".githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at"
+    },
+    "sigma_id": "d635249d-86b5-4dad-a8c7-d7272b788586",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "108823": {
+    "description": "Standard User In High Privileged Group",
+    "level": 11,
+    "tactic": "credential_access",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Standard User In High Privileged Group",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/lsa_server/win_lsa_server_normal_user_admin.yml",
+    "source_category": "security",
+    "parent_sid": 60000,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "300",
+      "win.eventdata.targetUserSid": "^S-1-5-21-",
+      "win.eventdata.sidList": "S-1-5-32-544|-500}|-518}|-519}"
+    },
+    "sigma_id": "7ac407cc-0f48-4328-aede-de1d2e6fef41",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "108825": {
+    "description": "Suspicious Machine Account Replication - DcSync Indicator",
+    "level": 11,
+    "tactic": "credential_access",
+    "technique_id": "T1003.006",
+    "mitre_ids": [
+      "T1003.006"
+    ],
+    "technique_name": "Suspicious Machine Account Replication - DcSync Indicator",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_ad_replication_machine_account.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4662",
+      "win.eventdata.properties": "1131f6ad-9c07-11d1-f79f-00c04fc2dcd2|1131f6aa-9c07-11d1-f79f-00c04fc2dcd2|9923a32a-3607-11d2-b9be-0000f87a36b2|89e95b76-444d-4c62-991a-0facbeda640c",
+      "win.eventdata.subjectUserName": "\\$$"
+    },
+    "sigma_id": "611eab06-a145-4dfa-a295-3ccc5c20f59a",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "108826": {
+    "description": "Active Directory Replication from Non Machine Account - DcSync Indicator",
+    "level": 11,
+    "tactic": "credential_access",
+    "technique_id": "T1003.006",
+    "mitre_ids": [
+      "T1003.006"
+    ],
+    "technique_name": "Active Directory Replication from Non Machine Account - DcSync Indicator",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_ad_replication_non_machine_account.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4662",
+      "win.eventdata.properties": "1131f6ad-9c07-11d1-f79f-00c04fc2dcd2|1131f6aa-9c07-11d1-f79f-00c04fc2dcd2|9923a32a-3607-11d2-b9be-0000f87a36b2|89e95b76-444d-4c62-991a-0facbeda640c"
+    },
+    "sigma_id": "17d619c1-e020-4347-957e-1d1207455c93",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107403": {
+    "description": "Windows Default Domain GPO Modification",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1484.001",
+    "mitre_ids": [
+      "T1484.001"
+    ],
+    "technique_name": "Windows Default Domain GPO Modification",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_default_domain_gpo_modification.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "5136",
+      "win.eventdata.objectClass": "groupPolicyContainer",
+      "win.eventdata.objectDN": "^CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM|^CN={6AC1786C-016F-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM"
+    },
+    "sigma_id": "e5ac86dd-2da1-454b-be74-05d26c769d7d",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101225": {
+    "description": "Important Windows Event Auditing Disabled",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685.001",
+    "mitre_ids": [
+      "T1685.001"
+    ],
+    "technique_name": "Important Windows Event Auditing Disabled",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_disable_event_auditing_critical.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4719",
+      "win.eventdata.subcategoryGuid": "{0CCE9210-69AE-11D9-BED3-505054503030}|{0CCE9211-69AE-11D9-BED3-505054503030}|{0CCE9212-69AE-11D9-BED3-505054503030}|{0CCE9215-69AE-11D9-BED3-505054503030}|{0CCE921B-69AE-11D9-BED3-505054503030}|{0CCE922B-69AE-11D9-BED3-505054503030}|{0CCE922F-69AE-11D9-BED3-505054503030}|{0CCE9230-69AE-11D9-BED3-505054503030}|{0CCE9235-69AE-11D9-BED3-505054503030}|{0CCE9236-69AE-11D9-BED3-505054503030}|{0CCE9237-69AE-11D9-BED3-505054503030}|{0CCE923F-69AE-11D9-BED3-505054503030}|{0CCE9240-69AE-11D9-BED3-505054503030}|{0CCE9242-69AE-11D9-BED3-505054503030}",
+      "win.eventdata.auditPolicyChanges": "%%8448|%%8450"
+    },
+    "sigma_id": "ab4561b1-6c7e-48a7-ad08-087cfb9ce8f1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101226": {
+    "description": "Important Windows Event Auditing Disabled",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685.001",
+    "mitre_ids": [
+      "T1685.001"
+    ],
+    "technique_name": "Important Windows Event Auditing Disabled",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_disable_event_auditing_critical.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4719",
+      "win.eventdata.subcategoryGuid": "{0CCE9217-69AE-11D9-BED3-505054503030}",
+      "win.eventdata.auditPolicyChanges": "%%8448"
+    },
+    "sigma_id": "ab4561b1-6c7e-48a7-ad08-087cfb9ce8f1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107404": {
+    "description": "Potentially Suspicious Explicit Credential Local Logon",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1134",
+    "mitre_ids": [
+      "T1134",
+      "T1134.003"
+    ],
+    "technique_name": "Potentially Suspicious Explicit Credential Local Logon",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_explicit_credential_local_logon.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4648",
+      "win.eventdata.targetServerName": "localhost"
+    },
+    "sigma_id": "e3c6d245-7b8f-4e2a-c17f-a9d0e5b38f62",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101228": {
+    "description": "Invoke-Obfuscation CLIP+ Launcher - Security",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation CLIP+ Launcher - Security",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_clip_services_security.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4697",
+      "win.eventdata.serviceFileName": "cmd|&&|clipboard]::"
+    },
+    "sigma_id": "4edf51e1-cb83-4e1a-bc39-800e396068e3",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101231": {
+    "description": "Invoke-Obfuscation COMPRESS OBFUSCATION - Security",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation COMPRESS OBFUSCATION - Security",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_via_compress_services_security.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4697",
+      "win.eventdata.serviceFileName": "system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend"
+    },
+    "sigma_id": "7a922f1b-2635-4d6c-91ef-af228b198ad3",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101233": {
+    "description": "Invoke-Obfuscation Via Stdin - Security",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation Via Stdin - Security",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_via_stdin_services_security.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4697",
+      "win.eventdata.serviceFileName": "environment|invoke|\\${input\\)|&&"
+    },
+    "sigma_id": "80b708f3-d034-40e4-a6c8-d23b7a7db3d1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101234": {
+    "description": "Invoke-Obfuscation Via Use Clip - Security",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation Via Use Clip - Security",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_via_use_clip_services_security.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4697",
+      "win.eventdata.serviceFileName": "\\(Clipboard|i"
+    },
+    "sigma_id": "1a0a2ff1-611b-4dac-8216-8a7b47c618a6",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101237": {
+    "description": "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - Security",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - Security",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_via_var_services_security.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4697",
+      "win.eventdata.serviceFileName": "{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f"
+    },
+    "sigma_id": "4c54ba8f-73d2-4d40-8890-d9cf1dca3d30",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105447": {
+    "description": "Sysmon Channel Reference Deletion",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1112",
+    "mitre_ids": [
+      "T1112"
+    ],
+    "technique_name": "Sysmon Channel Reference Deletion",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_sysmon_channel_reference_deletion.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4657",
+      "win.eventdata.objectName": "WINEVT\\\\Publishers\\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\\\Channels\\\\Microsoft-Windows-Sysmon/Operational",
+      "win.eventdata.objectValueName": "Enabled",
+      "win.eventdata.newValue": "0"
+    },
+    "sigma_id": "18beca67-ab3e-4ee3-ba7a-a46ca8d7d0cc",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105448": {
+    "description": "Sysmon Channel Reference Deletion",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1112",
+    "mitre_ids": [
+      "T1112"
+    ],
+    "technique_name": "Sysmon Channel Reference Deletion",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_sysmon_channel_reference_deletion.yml",
+    "source_category": "security",
+    "parent_sid": 60100,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "4663",
+      "win.eventdata.objectName": "WINEVT\\\\Publishers\\\\{5770385f-c22a-43e0-bf4c-06f5698ffbd9}|WINEVT\\\\Channels\\\\Microsoft-Windows-Sysmon/Operational",
+      "win.eventdata.accessMask": "0x10000"
+    },
+    "sigma_id": "18beca67-ab3e-4ee3-ba7a-a46ca8d7d0cc",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "108848": {
+    "description": "Suspicious Rejected SMB Guest Logon From IP",
+    "level": 11,
+    "tactic": "credential_access",
+    "technique_id": "T1110.001",
+    "mitre_ids": [
+      "T1110.001"
+    ],
+    "technique_name": "Suspicious Rejected SMB Guest Logon From IP",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/smbclient/security/win_smbclient_security_susp_failed_guest_logon.yml",
+    "source_category": "security",
+    "parent_sid": 60000,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "31017",
+      "win.eventdata.userName": "",
+      "win.eventdata.serverName": "^\\\\1"
+    },
+    "sigma_id": "71886b70-d7b4-4dbf-acce-87d2ca135262",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "113556": {
+    "description": "Local Privilege Escalation Indicator TabTip",
+    "level": 8,
+    "tactic": "collection",
+    "technique_id": "T1557.001",
+    "mitre_ids": [
+      "T1557.001"
+    ],
+    "technique_name": "Local Privilege Escalation Indicator TabTip",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/microsoft_windows_distributed_com/win_system_lpe_indicators_tabtip.yml",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.provider_Name": "Microsoft-Windows-DistributedCOM",
+      "win.system.eventID": "10001",
+      "win.eventdata.param1": "C:\\\\Program Files\\\\Common Files\\\\microsoft shared\\\\ink\\\\TabTip.exe",
+      "win.eventdata.param2": "2147943140",
+      "win.eventdata.param3": "{054AAE20-4BEA-4347-8A35-64A533254A9D}"
+    },
+    "sigma_id": "bc2e25ed-b92b-4daa-b074-b502bdd1982b",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "112609": {
+    "description": "smbexec.py Service Installation",
+    "level": 11,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021.002",
+    "mitre_ids": [
+      "T1021.002",
+      "T1569.002"
+    ],
+    "technique_name": "smbexec.py Service Installation",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_hack_smbexec.yml",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.provider_Name": "Service Control Manager",
+      "win.system.eventID": "7045",
+      "win.eventdata.imagePath": ".bat & del |__output 2^>^&1 >"
+    },
+    "sigma_id": "52a85084-6989-40c3-8f32-091e12e13f09",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101257": {
+    "description": "Invoke-Obfuscation CLIP+ Launcher - System",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation CLIP+ Launcher - System",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_clip_services.yml",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.provider_Name": "Service Control Manager",
+      "win.system.eventID": "7045",
+      "win.eventdata.imagePath": "cmd|&&|clipboard]::"
+    },
+    "sigma_id": "f7385ee2-0e0c-11eb-adc1-0242ac120002",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101260": {
+    "description": "Invoke-Obfuscation COMPRESS OBFUSCATION - System",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation COMPRESS OBFUSCATION - System",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_via_compress_services.yml",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.provider_Name": "Service Control Manager",
+      "win.system.eventID": "7045",
+      "win.eventdata.imagePath": ":system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend"
+    },
+    "sigma_id": "175997c5-803c-4b08-8bb0-70b099f47595",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101263": {
+    "description": "Invoke-Obfuscation Via Use Clip - System",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation Via Use Clip - System",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_via_use_clip_services.yml",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.provider_Name": "Service Control Manager",
+      "win.system.eventID": "7045",
+      "win.eventdata.imagePath": "\\(Clipboard|i"
+    },
+    "sigma_id": "63e3365d-4824-42d8-8b82-e56810fefa0c",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101266": {
+    "description": "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_via_var_services.yml",
+    "source_category": "system",
+    "parent_sid": 60002,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.provider_Name": "Service Control Manager",
+      "win.system.eventID": "7045",
+      "win.eventdata.imagePath": "{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f"
+    },
+    "sigma_id": "14bcba49-a428-42d9-b943-e2ce0f0f7ae6",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101288": {
+    "description": "Failed Event Log Clear Via WMI NTEventLogFile ClearEventLog",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1685.005",
+    "mitre_ids": [
+      "T1685.005"
+    ],
+    "technique_name": "Failed Event Log Clear Via WMI NTEventLogFile ClearEventLog",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/wmi/win_wmi_activity_nteventlogfile_cleareventlog.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61621,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.system.eventID": "5858",
+      "win.eventdata.operation": "Win32_NTEventlogFile|cleareventlog"
+    },
+    "sigma_id": "d4f1a2b3-7c8e-4d5f-b6a9-1e0c2d3f4e5b",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107427": {
+    "description": "HackTool - CACTUSTORCH Remote Thread Creation",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1055.012",
+    "mitre_ids": [
+      "T1055.012",
+      "T1059.005",
+      "T1059.007"
+    ],
+    "technique_name": "HackTool - CACTUSTORCH Remote Thread Creation",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_remote_thread/create_remote_thread_win_hktl_cactustorch.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61610,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.sourceImage": "\\\\System32\\\\cscript.exe$|\\\\System32\\\\wscript.exe$|\\\\System32\\\\mshta.exe$|\\\\winword.exe$|\\\\excel.exe$",
+      "win.eventdata.targetImage": "\\\\SysWOW64\\\\",
+      "win.eventdata.startModule": ""
+    },
+    "sigma_id": "2e4e488a-6164-4811-9ea1-f960c7359c40",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "108856": {
+    "description": "Password Dumper Remote Thread in LSASS",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.001",
+    "mitre_ids": [
+      "T1003.001"
+    ],
+    "technique_name": "Password Dumper Remote Thread in LSASS",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_remote_thread/create_remote_thread_win_susp_password_dumper_lsass.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61610,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetImage": "\\\\lsass.exe$",
+      "win.eventdata.startModule": ""
+    },
+    "sigma_id": "f239b326-2f41-4d6b-9dfa-c846a60ef505",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101292": {
+    "description": "Creation Of a Suspicious ADS File Outside a Browser Download",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Creation Of a Suspicious ADS File Outside a Browser Download",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_stream_hash/create_stream_hash_creation_internet_file.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61617,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.contents": "^[ZoneTransfer]  ZoneId=3",
+      "win.eventdata.targetFilename": ".exe|.scr|.bat|.cmd|.docx|.hta|.jse|.lnk|.pptx|.ps|.reg|.sct|.vb|.wsc|.wsf|.xlsx"
+    },
+    "sigma_id": "573df571-a223-43bc-846e-3f98da481eca",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101293": {
+    "description": "Suspicious File Download From File Sharing Websites -  File Stream",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1564.004",
+    "mitre_ids": [
+      "T1564.004"
+    ],
+    "technique_name": "Suspicious File Download From File Sharing Websites -  File Stream",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_stream_hash/create_stream_hash_file_sharing_domains_download_susp_extension.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61617,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.contents": ".githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at",
+      "win.eventdata.targetFilename": ".cpl:Zone|.dll:Zone|.exe:Zone|.hta:Zone|.lnk:Zone|.one:Zone|.vbe:Zone|.vbs:Zone|.xll:Zone"
+    },
+    "sigma_id": "52182dfb-afb7-41db-b4bc-5336cb29b464",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101294": {
+    "description": "Unusual File Download From File Sharing Websites - File Stream",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1564.004",
+    "mitre_ids": [
+      "T1564.004"
+    ],
+    "technique_name": "Unusual File Download From File Sharing Websites - File Stream",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_stream_hash/create_stream_hash_file_sharing_domains_download_unusual_extension.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61617,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.contents": ".githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at",
+      "win.eventdata.targetFilename": ".bat:Zone|.cmd:Zone|.ps1:Zone"
+    },
+    "sigma_id": "ae02ed70-11aa-4a22-b397-c0d0e8f6ea99",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107441": {
+    "description": "Potential RipZip Attack on Startup Folder",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1547",
+    "mitre_ids": [
+      "T1547"
+    ],
+    "technique_name": "Potential RipZip Attack on Startup Folder",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_ripzip_attack.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61613,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetFilename": "\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\Startup|.lnk.{0AFACED1-E828-11D1-9187-B532F1E9575D}",
+      "win.eventdata.image": "\\\\explorer.exe$"
+    },
+    "sigma_id": "a6976974-ea6f-4e97-818e-ea08625c52cb",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101353": {
+    "description": "Legitimate Application Dropped Executable",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1218",
+    "mitre_ids": [
+      "T1218"
+    ],
+    "technique_name": "Legitimate Application Dropped Executable",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_exe.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61613,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\eqnedt32.exe$|\\\\wordpad.exe$|\\\\wordview.exe$|\\\\certutil.exe$|\\\\certoc.exe$|\\\\CertReq.exe$|\\\\Desktopimgdownldr.exe$|\\\\esentutl.exe$|\\\\mshta.exe$|\\\\AcroRd32.exe$|\\\\RdrCEF.exe$|\\\\hh.exe$|\\\\finger.exe$",
+      "win.eventdata.targetFilename": ".com$|.dll$|.exe$|.jar$|.ocx$|.pyc$"
+    },
+    "sigma_id": "f0540f7e-2db3-4432-b9e0-3965486744bc",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101354": {
+    "description": "Legitimate Application Dropped Script",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1218",
+    "mitre_ids": [
+      "T1218"
+    ],
+    "technique_name": "Legitimate Application Dropped Script",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_script.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61613,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\eqnedt32.exe$|\\\\wordpad.exe$|\\\\wordview.exe$|\\\\certutil.exe$|\\\\certoc.exe$|\\\\CertReq.exe$|\\\\Desktopimgdownldr.exe$|\\\\esentutl.exe$|\\\\mshta.exe$|\\\\AcroRd32.exe$|\\\\RdrCEF.exe$|\\\\hh.exe$|\\\\finger.exe$",
+      "win.eventdata.targetFilename": ".bat$|.chm$|.csproj$|.hta$|.js$|.jse$|.proj$|.ps1$|.py$|.scf$|.vbe$|.vbs$|.wsf$|.wsh$"
+    },
+    "sigma_id": "7d604714-e071-49ff-8726-edeb95a70679",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107445": {
+    "description": "Registry Hive File Staged Outside Standard User Profile Path",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1548",
+    "mitre_ids": [
+      "T1548",
+      "T1003"
+    ],
+    "technique_name": "Registry Hive File Staged Outside Standard User Profile Path",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_susp_registry_hive_file_creation.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61613,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetFilename": "\\\\UsrClass.dat$|\\\\NTUSER.DAT$"
+    },
+    "sigma_id": "a7f3c891-2e4d-4b6a-9f8c-d5e2a1b04c73",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101358": {
+    "description": "Potential File Extension Spoofing Using Right-to-Left Override",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1036.002",
+    "mitre_ids": [
+      "T1036.002"
+    ],
+    "technique_name": "Potential File Extension Spoofing Using Right-to-Left Override",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_susp_right_to_left_override_extension_spoofing.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61613,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetFilename": "\\\\u202e|[U+202E]|\u202e"
+    },
+    "sigma_id": "979baf41-ca44-4540-9d0c-4fcef3b5a3a4",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105566": {
+    "description": "Potential System DLL Sideloading From Non System Locations [1/2]",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1574.001",
+    "mitre_ids": [
+      "T1574.001"
+    ],
+    "technique_name": "Potential System DLL Sideloading From Non System Locations [1/2]",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/image_load/image_load_side_load_from_non_system_location.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61609,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.imageLoaded": "\\\\aclui.dll$|\\\\activeds.dll$|\\\\adsldpc.dll$|\\\\aepic.dll$|\\\\apphelp.dll$|\\\\applicationframe.dll$|\\\\appvpolicy.dll$|\\\\appxalluserstore.dll$|\\\\appxdeploymentclient.dll$|\\\\archiveint.dll$|\\\\atl.dll$|\\\\audioses.dll$|\\\\auditpolcore.dll$|\\\\authfwcfg.dll$|\\\\authz.dll$|\\\\avrt.dll$|\\\\batmeter.dll$|\\\\bcd.dll$|\\\\bcp47langs.dll$|\\\\bcp47mrm.dll$|\\\\bcrypt.dll$|\\\\bderepair.dll$|\\\\bootmenuux.dll$|\\\\bootux.dll$|\\\\cabinet.dll$|\\\\cabview.dll$|\\\\certcli.dll$|\\\\certenroll.dll$|\\\\cfgmgr32.dll$|\\\\cldapi.dll$|\\\\clipc.dll$|\\\\clusapi.dll$|\\\\cmpbk32.dll$|\\\\cmutil.dll$|\\\\coloradapterclient.dll$|\\\\colorui.dll$|\\\\comdlg32.dll$|\\\\configmanager2.dll$|\\\\connect.dll$|\\\\coredplus.dll$|\\\\coremessaging.dll$|\\\\coreuicomponents.dll$|\\\\credui.dll$|\\\\cryptbase.dll$|\\\\cryptdll.dll$|\\\\cryptsp.dll$|\\\\cryptui.dll$|\\\\cryptxml.dll$|\\\\cscapi.dll$|\\\\cscobj.dll$|\\\\cscui.dll$|\\\\d2d1.dll$|\\\\d3d10_1.dll$|\\\\d3d10_1core.dll$|\\\\d3d10.dll$|\\\\d3d10core.dll$|\\\\d3d10warp.dll$|\\\\d3d11.dll$|\\\\d3d12.dll$|\\\\d3d9.dll$|\\\\d3dx9_43.dll$|\\\\dataexchange.dll$|\\\\davclnt.dll$|\\\\dcntel.dll$|\\\\dcomp.dll$|\\\\defragproxy.dll$|\\\\desktopshellext.dll$|\\\\deviceassociation.dll$|\\\\devicecredential.dll$|\\\\devicepairing.dll$|\\\\devobj.dll$|\\\\devrtl.dll$|\\\\dhcpcmonitor.dll$|\\\\dhcpcsvc.dll$|\\\\dhcpcsvc6.dll$|\\\\directmanipulation.dll$|\\\\dismapi.dll$|\\\\dismcore.dll$|\\\\dmcfgutils.dll$|\\\\dmcmnutils.dll$|\\\\dmcommandlineutils.dll$|\\\\dmenrollengine.dll$|\\\\dmenterprisediagnostics.dll$|\\\\dmiso8601utils.dll$|\\\\dmoleaututils.dll$|\\\\dmprocessxmlfiltered.dll$|\\\\dmpushproxy.dll$|\\\\dmxmlhelputils.dll$|\\\\dnsapi.dll$|\\\\dot3api.dll$|\\\\dot3cfg.dll$|\\\\dpx.dll$|\\\\drprov.dll$|\\\\drvstore.dll$|\\\\dsclient.dll$|\\\\dsparse.dll$|\\\\dsprop.dll$|\\\\dsreg.dll$|\\\\dsrole.dll$|\\\\dui70.dll$|\\\\duser.dll$|\\\\dusmapi.dll$|\\\\dwmapi.dll$|\\\\dwmcore.dll$|\\\\dwrite.dll$|\\\\dxcore.dll$|\\\\dxgi.dll$|\\\\dxva2.dll$|\\\\dynamoapi.dll$|\\\\eappcfg.dll$|\\\\eappprxy.dll$|\\\\edgeiso.dll$|\\\\edputil.dll$|\\\\efsadu.dll$|\\\\efsutil.dll$|\\\\esent.dll$|\\\\execmodelproxy.dll$|\\\\explorerframe.dll$|\\\\fastprox.dll$|\\\\faultrep.dll$|\\\\fddevquery.dll$|\\\\feclient.dll$|\\\\fhcfg.dll$|\\\\fhsvcctl.dll$|\\\\firewallapi.dll$|\\\\flightsettings.dll$|\\\\fltlib.dll$|\\\\framedynos.dll$|\\\\fveapi.dll$|\\\\fveskybackup.dll$|\\\\fvewiz.dll$|\\\\fwbase.dll$|\\\\fwcfg.dll$|\\\\fwpolicyiomgr.dll$|\\\\fwpuclnt.dll$|\\\\fxsapi.dll$|\\\\fxsst.dll$|\\\\fxstiff.dll$|\\\\getuname.dll$|\\\\gpapi.dll$|\\\\hid.dll$|\\\\hnetmon.dll$|\\\\httpapi.dll$|\\\\icmp.dll$|\\\\idstore.dll$|\\\\ieadvpack.dll$|\\\\iedkcs32.dll$|\\\\iernonce.dll$|\\\\iertutil.dll$|\\\\ifmon.dll$|\\\\ifsutil.dll$|\\\\inproclogger.dll$|\\\\iphlpapi.dll$|\\\\iri.dll$|\\\\iscsidsc.dll$|\\\\iscsium.dll$|\\\\isv.exe_rsaenh.dll$|\\\\iumbase.dll$|\\\\iumsdk.dll$|\\\\joinutil.dll$|\\\\kdstub.dll$|\\\\ksuser.dll$|\\\\ktmw32.dll$|\\\\licensemanagerapi.dll$|\\\\licensingdiagspp.dll$|\\\\linkinfo.dll$|\\\\loadperf.dll$|\\\\lockhostingframework.dll$|\\\\logoncli.dll$|\\\\logoncontroller.dll$|\\\\lpksetupproxyserv.dll$|\\\\lrwizdll.dll$|\\\\magnification.dll$|\\\\maintenanceui.dll$|\\\\mapistub.dll$|\\\\mbaexmlparser.dll$|\\\\mdmdiagnostics.dll$|\\\\mfc42u.dll$|\\\\mfcore.dll$|\\\\mfplat.dll$|\\\\mi.dll$|\\\\midimap.dll$|\\\\mintdh.dll$|\\\\miutils.dll$|\\\\mlang.dll$|\\\\mmdevapi.dll$|\\\\mobilenetworking.dll$|\\\\mpr.dll$|\\\\mprapi.dll$|\\\\mrmcorer.dll$|\\\\msacm32.dll$|\\\\mscms.dll$|\\\\mscoree.dll$|\\\\msctf.dll$|\\\\msctfmonitor.dll$|\\\\msdrm.dll$|\\\\msdtctm.dll$|\\\\msftedit.dll$|\\\\msi.dll$|\\\\msiso.dll$|\\\\msutb.dll$|\\\\msvcp110_win.dll$|\\\\mswb7.dll$|\\\\mswsock.dll$|\\\\msxml3.dll$|\\\\mtxclu.dll$|\\\\napinsp.dll$|\\\\ncrypt.dll$|\\\\ndfapi.dll$|\\\\netapi32.dll$|\\\\netid.dll$|\\\\netiohlp.dll$|\\\\netjoin.dll$|\\\\netplwiz.dll$|\\\\netprofm.dll$|\\\\netprovfw.dll$|\\\\netsetupapi.dll$|\\\\netshell.dll$|\\\\nettrace.dll$|\\\\netutils.dll$|\\\\networkexplorer.dll$|\\\\newdev.dll$|\\\\ninput.dll$|\\\\nlaapi.dll$|\\\\nlansp_c.dll$|\\\\npmproxy.dll$|\\\\nshhttp.dll$|\\\\nshipsec.dll$|\\\\nshwfp.dll$|\\\\ntdsapi.dll$|\\\\ntlanman.dll$|\\\\ntlmshared.dll$|\\\\ntmarta.dll$|\\\\ntshrui.dll$|\\\\oleacc.dll$|\\\\omadmapi.dll$|\\\\onex.dll$|\\\\opcservices.dll$|\\\\osbaseln.dll$|\\\\osksupport.dll$|\\\\osuninst.dll$|\\\\p2p.dll$|\\\\p2pnetsh.dll$|\\\\p9np.dll$|\\\\pcaui.dll$|\\\\pdh.dll$|\\\\peerdistsh.dll$|\\\\pkeyhelper.dll$|\\\\pla.dll$|\\\\playsndsrv.dll$|\\\\pnrpnsp.dll$|\\\\policymanager.dll$|\\\\polstore.dll$|\\\\powrprof.dll$|\\\\printui.dll$|\\\\prntvpt.dll$|\\\\profapi.dll$|\\\\propsys.dll$|\\\\proximitycommon.dll$|\\\\proximityservicepal.dll$|\\\\prvdmofcomp.dll$|\\\\puiapi.dll$|\\\\radcui.dll$|\\\\rasapi32.dll$|\\\\rasdlg.dll$|\\\\rasgcw.dll$|\\\\rasman.dll$|\\\\rasmontr.dll$|\\\\reagent.dll$|\\\\regapi.dll$|\\\\reseteng.dll$|\\\\resetengine.dll$|\\\\resutils.dll$|\\\\rmclient.dll$|\\\\rpcnsh.dll$|\\\\rsaenh.dll$|\\\\rtutils.dll$|\\\\rtworkq.dll$|\\\\samcli.dll$|\\\\samlib.dll$|\\\\sapi_onecore.dll$|\\\\sas.dll$|\\\\scansetting.dll$|\\\\scecli.dll$|\\\\schedcli.dll$|\\\\secur32.dll$|\\\\security.dll$|\\\\sensapi.dll$|\\\\shell32.dll$|\\\\shfolder.dll$|\\\\slc.dll$|\\\\snmpapi.dll$|\\\\spectrumsyncclient.dll$|\\\\spp.dll$|\\\\sppc.dll$|\\\\sppcext.dll$|\\\\srclient.dll$|\\\\srcore.dll$|\\\\srmtrace.dll$|\\\\srpapi.dll$|\\\\srvcli.dll$|\\\\ssp_isv.exe_rsaenh.dll$|\\\\ssp.exe_rsaenh.dll$|\\\\sspicli.dll$|\\\\ssshim.dll$|\\\\staterepository.core.dll$|\\\\structuredquery.dll$|\\\\sxshared.dll$|\\\\systemsettings.dll$|\\\\systemsettingsthresholdadminflowui.dll$|\\\\tapi32.dll$|\\\\tbs.dll$|\\\\tdh.dll$|\\\\textshaping.dll$|\\\\timesync.dll$|\\\\tpmcoreprovisioning.dll$|\\\\tquery.dll$|\\\\tsworkspace.dll$|\\\\ttdrecord.dll$|\\\\twext.dll$|\\\\twinapi.dll$|\\\\twinui.appcore.dll$|\\\\uianimation.dll$|\\\\uiautomationcore.dll$|\\\\uireng.dll$|\\\\uiribbon.dll$|\\\\umpdc.dll$|\\\\unattend.dll$|\\\\updatepolicy.dll$|\\\\upshared.dll$|\\\\urlmon.dll$|\\\\userenv.dll$|\\\\utildll.dll$|\\\\uxinit.dll$|\\\\uxtheme.dll$|\\\\vaultcli.dll$|\\\\vdsutil.dll$|\\\\version.dll$|\\\\virtdisk.dll$|\\\\vssapi.dll$|\\\\vsstrace.dll$|\\\\wbemprox.dll$|\\\\wbemsvc.dll$|\\\\wcmapi.dll$|\\\\wcnnetsh.dll$|\\\\wdi.dll$|\\\\wdscore.dll$|\\\\webservices.dll$|\\\\wecapi.dll$|\\\\wer.dll$|\\\\wevtapi.dll$|\\\\whhelper.dll$|\\\\wimgapi.dll$|\\\\winbio.dll$|\\\\winbrand.dll$|\\\\windows.storage.dll$|\\\\windows.storage.search.dll$|\\\\windows.ui.immersive.dll$|\\\\windowscodecs.dll$|\\\\windowscodecsext.dll$|\\\\windowsudk.shellcommon.dll$|\\\\winhttp.dll$|\\\\wininet.dll$|\\\\winipsec.dll$|\\\\winmde.dll$"
+    },
+    "sigma_id": "4fc0deee-0057-4998-ab31-d24e46e0aba4",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105567": {
+    "description": "Potential System DLL Sideloading From Non System Locations [2/2]",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1574.001",
+    "mitre_ids": [
+      "T1574.001"
+    ],
+    "technique_name": "Potential System DLL Sideloading From Non System Locations [2/2]",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/image_load/image_load_side_load_from_non_system_location.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61609,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.imageLoaded": "\\\\winmm.dll$|\\\\winnsi.dll$|\\\\winrnr.dll$|\\\\winscard.dll$|\\\\winsqlite3.dll$|\\\\winsta.dll$|\\\\winsync.dll$|\\\\wkscli.dll$|\\\\wlanapi.dll$|\\\\wlancfg.dll$|\\\\wldp.dll$|\\\\wlidprov.dll$|\\\\wmiclnt.dll$|\\\\wmidcom.dll$|\\\\wmiutils.dll$|\\\\wmpdui.dll$|\\\\wmsgapi.dll$|\\\\wofutil.dll$|\\\\wpdshext.dll$|\\\\wscapi.dll$|\\\\wsdapi.dll$|\\\\wshbth.dll$|\\\\wshelper.dll$|\\\\wsmsvc.dll$|\\\\wtsapi32.dll$|\\\\wwancfg.dll$|\\\\wwapi.dll$|\\\\xmllite.dll$|\\\\xolehlp.dll$|\\\\xpsservices.dll$|\\\\xwizards.dll$|\\\\xwtpw32.dll$|\\\\amsi.dll$|\\\\appraiser.dll$|\\\\COMRES.DLL$|\\\\cryptnet.dll$|\\\\DispBroker.dll$|\\\\dsound.dll$|\\\\dxilconv.dll$|\\\\FxsCompose.dll$|\\\\FXSRESM.DLL$|\\\\msdtcVSp1res.dll$|\\\\PrintIsolationProxy.dll$|\\\\rdpendp.dll$|\\\\rpchttp.dll$|\\\\storageusage.dll$|\\\\utcutil.dll$|\\\\WfsR.dll$|\\\\igd10iumd64.dll$|\\\\igd12umd64.dll$|\\\\igdumdim64.dll$|\\\\igdusc64.dll$|\\\\TSMSISrv.dll$|\\\\TSVIPSrv.dll$|\\\\wbemcomn.dll$|\\\\WLBSCTRL.dll$|\\\\wow64log.dll$|\\\\WptsExtensions.dll$"
+    },
+    "sigma_id": "4fc0deee-0057-4998-ab31-d24e46e0aba4",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105596": {
+    "description": "Potentially Suspicious Image Load of Offreg.dll",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1112",
+    "mitre_ids": [
+      "T1112"
+    ],
+    "technique_name": "Potentially Suspicious Image Load of Offreg.dll",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/image_load/image_load_susp_offreg_dll_load.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61609,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.imageLoaded": "\\\\offreg.dll$"
+    },
+    "sigma_id": "c9e5f013-4a6f-4d8c-9b0e-f7a4c3d26e95",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101391": {
+    "description": "Suspicious WSMAN Provider Image Loads",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001",
+      "T1021.003"
+    ],
+    "technique_name": "Suspicious WSMAN Provider Image Loads",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/image_load/image_load_wsman_provider_image_load.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61609,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": ""
+    },
+    "sigma_id": "ad1f4bb9-8dfb-4765-adb6-2a7cfb6c0f94",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "114056": {
+    "description": "Network Communication With Crypto Mining Pool",
+    "level": 14,
+    "tactic": "impact",
+    "technique_id": "T1496",
+    "mitre_ids": [
+      "T1496"
+    ],
+    "technique_name": "Network Communication With Crypto Mining Pool",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/network_connection/net_connection_win_domain_crypto_mining_pools.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.destinationHostname": "aeon-pool.com|alimabi.cn|ap.luckpool.net|api.fastpool.xyz|auto.c3pool.org|awgoaigartnj-xmr.com|backup.fastpool.xyz|bcn.pool.minergate.com|bcn.vip.pool.minergate.com|bizxmr.cc|bmpool.org|bohemianpool.com|byw.dscloud.me|c3.wptask.cyou|c3pool.org|ca-aipg.miningocean.org|ca-dynex.miningocean.org|ca-neurai.miningocean.org|ca-qrl.miningocean.org|ca-upx.miningocean.org|ca-zephyr.miningocean.org|ca.minexmr.com|ca.monero.herominers.com|cbd.monerpool.org|cbdv2.monerpool.org|community-pools.mysrv.cloud|covid19crypto.com|cryptmonero.com|crypto-pool.fr|crypto-pool.info|cryptominded.com|cryptonight-hub.miningpoolhub.com|d1pool.ddns.net|d5pool.us|daili01.monerpool.org|de-aipg.miningocean.org|de-dynex.miningocean.org|de-zephyr.miningocean.org|de.minexmr.com|de.moneroocean.stream|de.salvium.herominers.com|de.zephyr.herominers.com|dl.nbminer.com|donate.graef.in|donate.ssl.xmrig.com|donate.v2.xmrig.com|donate.xmrig.com|donate2.graef.in|drill.moneroworld.com|dwarfpool.com|emercoin.com|emercoin.net|emergate.net|ethereumpool.co|eu.luckpool.net|eu.minerpool.pw|f2pool.com|fastpool.xyz|fcn-xmr.pool.minergate.com|fee.xmrig.com|fi.moneroocean.stream|fr-aipg.miningocean.org|fr-dynex.miningocean.org|fr-neurai.miningocean.org|fr-qrl.miningocean.org|fr-tarirx.luckypool.io|fr-upx.miningocean.org|fr-zephyr.miningocean.org|fr.minexmr.com|fr.moneroocean.stream|friendspool.club|ftp.fastpool.xyz|gandalph3000.com|googleminer.com|grin.2miners.com|gulf.moneroocean.stream|hellominer.com|herominers.com|hk-aipg.miningocean.org|hk-dynex.miningocean.org|hk-neurai.miningocean.org|hk-qrl.miningocean.org|hk-upx.miningocean.org|hk-zephyr.miningocean.org|hns.f2pool.com|huadong1-aeon.ppxxmr.com|imap.fastpool.xyz|iwanttoearn.money|joulecoin.org|jp.moneroocean.stream|jw-js1.ppxxmr.com|koto-pool.work|kronecoin.org|kryptex.network|kubo.ultra-pool.com|lhr.nbminer.com|lhr3.nbminer.com|linux.monerpool.org|litecoinpool.org|lokiturtle.herominers.com|luckpool.net|luckypool.io|mail.fastpool.xyz|masari.miner.rocks|mine.aeon-pool.com|mine.bmpool.org|mine.c3pool.com|mine.fastpool.xyz|mine.lesliejust.is|mine.moneropool.com|mine.ppxxmr.com|mine.zpool.ca|mine1.ppxxmr.com|minemonero.gq|miner.ppxxmr.com|miner.rocks|minercircle.com|minergate.com|minerpool.pw|minerrocks.com|miners.pro|minerxmr.ru|minexmr.cn|minexmr.com|mining-help.ru|mining.bittubeapp.com|miningocean.org|miningpoolhub.com|miningrigrentals.com|mixpools.org|moner.monerpool.org|moner1min.monerpool.org|monero-master.crypto-pool.fr|monero.crypto-pool.fr|monero.hashvault.pro|monero.herominers.com|monero.lindon-pool.win|monero.miners.pro|monero.riefly.id|monero.us.to|monerocean.stream|monerogb.com|monerohash.com|moneroocean.stream|monerooceans.stream|moneropool.com|moneropool.nl|monerorx.com|monerpool.org|moriaxmr.com|mro.pool.minergate.com|multipool.us|myxmr.pw|na.luckpool.net|nanopool.org|nbminer.com|node.btx.tools|node3.luckpool.net|noobxmr.com|p06.2miners.com|pangolinminer.com|pool-de.supportxmr.com|pool-fr.supportxmr.com|pool-nyc.supportxmr.com|pool-phx.supportxmr.com|pool.4i7i.com|pool.armornetwork.org|pool.awgoaigartnj-xmr.com|pool.cortins.tk|pool.gntl.co.uk|pool.hashvault.pro|pool.minergate.com|pool.minexmr.com|pool.minexmr.uk|pool.monero.hashvault.pro|pool.ppxxmr.com|pool.somec.cc|pool.support|pool.supportxmr.com|pool.usa-138.com|pool.xmr.pt|pool.xmrfast.com|pool2.armornetwork.org|poolchange.ppxxmr.com|pooldd.com|poolmining.org|poolto.be|pop.fastpool.xyz|ppxvip1.ppxxmr.com|ppxxmr.com|prohash.net|r.twotouchauthentication.online|randomx.xmrig.com|ratchetmining.com|rx.unmineable.com|salvium.herominers.com|seed.emercoin.com|seed.emercoin.net|seed.emergate.net|seed.kronecoin.org|seed.titcoinpool.com|seed.titcoins.info|seed1.joulecoin.org|seed2.joulecoin.org|seed3.joulecoin.org|seed4.joulecoin.org|seed5.joulecoin.org|seed6.joulecoin.org|seed7.joulecoin.org|seed8.joulecoin.org|sg-aipg.miningocean.org|sg-dynex.miningocean.org|sg-neurai.miningocean.org|sg-qrl.miningocean.org|sg-upx.miningocean.org|sg-zephyr.miningocean.org|sg.minexmr.com|sheepman.mine.bz|siamining.com|smtp.fastpool.xyz|solarray.club|solo-grin.2miners.com|solo-grin.2miners.ru|solo-xmr.2miners.com|solo-xmr.2miners.ru|soloxmr2min.dyndns.org|sparechange.io|ssl.fastpool.xyz|sumokoin.minerrocks.com|supportxmr.com|suprnova.cc|system-check.services|system-update.info|teracycle.net|titcoinpool.com|titcoins.info|tpool.yiluzhuanqian.com|trtl.cnpool.cc|trtl.pool.mine2gether.com|turtle.miner.rocks|ultra-pool.com|unmineable.com|us-aipg.miningocean.org|us-dynex.miningocean.org|us-grin.2miners.com|us-neurai.miningocean.org|us-west.minexmr.com|us-zephyr.miningocean.org|usxmrpool.com|viaxmr.com|web.xmrpool.eu|webservicepag.webhop.net|winxmr.club|x109.node.btx.tools|xcn1.yiluzhuanqian.com|xiazai.monerpool.org|xiazai1.monerpool.org|xmc.pool.minergate.com|xmo.pool.minergate.com|xmr-asia1.nanopool.org|xmr-au1.nanopool.org|xmr-eu1.nanopool.org|xmr-eu2.nanopool.org|xmr-jp1.nanopool.org|xmr-us-east1.nanopool.org|xmr-us-west1.nanopool.org|xmr-us.suprnova.cc|xmr-usa.dwarfpool.com|xmr.2miners.com|xmr.5b6b7b.ru|xmr.748pz.net|xmr.alimabi.cn|xmr.bepooh.com|xmr.bohemianpool.com|xmr.crypto-pool.fr|xmr.crypto-pool.info|xmr.f2pool.com|xmr.hashcity.org|xmr.hex7e4.ru|xmr.ip28.net|xmr.kryptex.network|xmr.monerpool.org|xmr.mypool.online|xmr.nanopool.org|xmr.pool.gntl.co.uk|xmr.pool.minergate.com|xmr.poolto.be|xmr.ppxxmr.com|xmr.prohash.net|xmr.simka.pw|xmr.somec.cc|xmr.suprnova.cc|xmr.usa-138.com|xmr.vip.pool.minergate.com|xmr.yiluzhuanqian.com|xmr1min.monerpool.org|xmrf.520fjh.org|xmrf.fjhan.club|xmrfast.com|xmrigcc.graef.in|xmrminer.cc|xmrpool.de|xmrpool.eu|xmrpool.me|xmrpool.net|xmrpool.xyz|xx11m.monerpool.org|xx11mv2.monerpool.org|xxx.hex7e4.ru|yes.fastpool.xyz|zarabotaibitok.ru|zeph-eu2.nanopool.org|zeph.2miners.com|zephyr.herominers.com|zer0day.ru"
+    },
+    "sigma_id": "fa5b1358-b040-4403-9868-15f7d9ab6329",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "110242": {
+    "description": "New Connection Initiated To Potential Dead Drop Resolver Domain",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1102",
+    "mitre_ids": [
+      "T1102",
+      "T1102.001"
+    ],
+    "technique_name": "New Connection Initiated To Potential Dead Drop Resolver Domain",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/network_connection/net_connection_win_domain_dead_drop_resolvers.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.initiated": "true",
+      "win.eventdata.destinationHostname": ".t.me$|0x0.st$|4shared.com$|abuse.ch$|anonfiles.com$|bashupload.com$|cdn.discordapp.com$|chunk.io$|cloudflare.com$|ddns.net$|discord.com$|docs.google.com$|drive.google.com$|dropbox.com$|dropmefiles.com$|facebook.com$|feeds.rapidfeeds.com$|fotolog.com$|ghostbin.co/$|githubusercontent.com$|gofile.io$|hastebin.com$|imgur.com$|livejournal.com$|mediafire.com$|mega.co.nz$|mega.nz$|onedrive.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|reddit.com$|send.exploit.in$|sendspace.com$|steamcommunity.com$|storage.googleapis.com$|technet.microsoft.com$|temp.sh$|transfer.sh$|trycloudflare.com$|twitter.com$|ufile.io$|vimeo.com$|w3spaces.com$|wetransfer.com$|workers.dev$|x0.at$|youtube.com$"
+    },
+    "sigma_id": "297ae038-edc2-4b2e-bb3e-7c5fc94dd5c7",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "110253": {
+    "description": "Network Communication Initiated To File Sharing Domains From Process Located In Suspicious Folder",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1105",
+    "mitre_ids": [
+      "T1105"
+    ],
+    "technique_name": "Network Communication Initiated To File Sharing Domains From Process Located In Suspicious Folder",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/network_connection/net_connection_win_susp_file_sharing_domains_susp_folders.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61605,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.initiated": "true",
+      "win.eventdata.destinationHostname": ".githubusercontent.com$|0x0.st$|anonfiles.com$|bashupload.com$|cdn.discordapp.com$|chunk.io$|ddns.net$|dl.dropboxusercontent.com$|ghostbin.co$|github.com$|glitch.me$|gofile.io$|hastebin.com$|mediafire.com$|mega.co.nz$|mega.nz$|onrender.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|send.exploit.in$|sendspace.com$|storage.googleapis.com$|storjshare.io$|supabase.co$|temp.sh$|transfer.sh$|trycloudflare.com$|ufile.io$|w3spaces.com$|workers.dev$|x0.at$",
+      "win.eventdata.image": ":\\\\\\$Recycle.bin|:\\\\Perflogs\\\\|:\\\\Temp\\\\|:\\\\Users\\\\Default\\\\|:\\\\Users\\\\Public\\\\|:\\\\Windows\\\\Fonts\\\\|:\\\\Windows\\\\IME\\\\|:\\\\Windows\\\\System32\\\\Tasks\\\\|:\\\\Windows\\\\Tasks\\\\|:\\\\Windows\\\\Temp\\\\|\\\\AppData\\\\Temp\\\\|\\\\config\\\\systemprofile\\\\|\\\\Windows\\\\addins\\\\"
+    },
+    "sigma_id": "e0f8ab85-0ac9-423b-a73a-81b3c7b1aa97",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101409": {
+    "description": "Nslookup PowerShell Download Cradle",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001"
+    ],
+    "technique_name": "Nslookup PowerShell Download Cradle",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_classic/posh_pc_abuse_nslookup_with_dns_records.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.data": "-q=txt http|-querytype=txt http|-type=txt http|nslookup|[1]"
+    },
+    "sigma_id": "999bff6d-dc15-44c9-9f5c-e1051bfc86e1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101412": {
+    "description": "Potential RemoteFXvGPUDisablement.EXE Abuse",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1218",
+    "mitre_ids": [
+      "T1218"
+    ],
+    "technique_name": "Potential RemoteFXvGPUDisablement.EXE Abuse",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_classic/posh_pc_remotefxvgpudisablement_abuse.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.data": "ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {"
+    },
+    "sigma_id": "f65e22f9-819e-4f96-9c7b-498364ae7a25",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "112618": {
+    "description": "HackTool - Evil-WinRm Execution - PowerShell Module",
+    "level": 11,
+    "tactic": "lateral_movement",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "HackTool - Evil-WinRm Execution - PowerShell Module",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_hktl_evil_winrm_execution.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.contextInfo": ":\\\\Windows\\\\System32\\\\wsmprovhost.exe|:\\\\Windows\\\\SysWOW64\\\\wsmprovhost.exe",
+      "win.eventdata.payload": "value=\"\\(get-location\\).path|value=\"\\(get-item\\.*\\).length|Invoke-Binary |Donut-Loader -process_id\\.*-donutfile|Bypass-4MSI|IEX \\([System.Text.Encoding]::ASCII.GetString\\([System.Convert]::FromBase64String\\(\\$a\\)\\)\\).replace\\('\\.\\.\\.',''\\)"
+    },
+    "sigma_id": "9fe55ea2-4cd6-4491-8a54-dd6871651b51",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101421": {
+    "description": "Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell Module",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell Module",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_via_compress.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.payload": "readtoend$|text.encoding]::ascii"
+    },
+    "sigma_id": "7034cbbb-cc55-4dc2-8dad-36c0b942e8f1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101427": {
+    "description": "Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1218",
+    "mitre_ids": [
+      "T1218"
+    ],
+    "technique_name": "Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell Module",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_remotefxvgpudisablement_abuse.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.payload": "ModuleContents=function Get-VMRemoteFXPhysicalVideoAdapter {"
+    },
+    "sigma_id": "38a7625e-b2cb-485d-b83d-aff137d859f4",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101430": {
+    "description": "Suspicious PowerShell Invocations - Specific - PowerShell Module",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001"
+    ],
+    "technique_name": "Suspicious PowerShell Invocations - Specific - PowerShell Module",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_susp_invocation_specific.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.contextInfo": "-nop| -w |hidden| -c |[Convert]::FromBase64String"
+    },
+    "sigma_id": "8ff28fdd-e2fa-4dfa-aeda-ef3d61c62090",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105602": {
+    "description": "New User Account Creation Attempt Via ADSI",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1136.001",
+    "mitre_ids": [
+      "T1136.001",
+      "T1136.002"
+    ],
+    "technique_name": "New User Account Creation Attempt Via ADSI",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_adsi_create_user.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": ".create\\(\"user|.create\\('user"
+    },
+    "sigma_id": "e50d5d26-0cf6-4045-b82b-13c0a4e316be",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101439": {
+    "description": "AMSI Bypass Pattern Assembly GetType",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "AMSI Bypass Pattern Assembly GetType",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_amsi_bypass_pattern_nov22.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "[Ref].Assembly.GetType|SetValue\\(\\$null,\\$true\\)|NonPublic,Static"
+    },
+    "sigma_id": "e0d6c087-2d1c-47fd-8799-3904103c5a98",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101440": {
+    "description": "Potential AMSI Bypass Script Using NULL Bits",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "Potential AMSI Bypass Script Using NULL Bits",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_amsi_null_bits_bypass.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "if\\(0\\){{{0}}}' -f \\$\\(0 -as [char]\\) +|#<NULL>"
+    },
+    "sigma_id": "fa2559c8-1197-471d-9cdd-05a0273d4522",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101441": {
+    "description": "Silence.EDA Detection",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001",
+      "T1071.004",
+      "T1572"
+    ],
+    "technique_name": "Silence.EDA Detection",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_apt_silence_eda.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "set type=\\$LookupType`nserver|\\$Command | nslookup 2>&1 | Out-String|New-RandomDNSField|[Convert]::ToString\\(\\$SYNOptions, 16\\)|\\$Session.Dead = \\$True|\\$Session[\"Driver\"] -eq"
+    },
+    "sigma_id": "3ceb2083-a27f-449a-be33-14ec1b7cc973",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "111162": {
+    "description": "Computer Discovery And Export Via Get-ADComputer Cmdlet - PowerShell",
+    "level": 6,
+    "tactic": "discovery",
+    "technique_id": "T1033",
+    "mitre_ids": [
+      "T1033"
+    ],
+    "technique_name": "Computer Discovery And Export Via Get-ADComputer Cmdlet - PowerShell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_computer_discovery_get_adcomputer.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": " | Select |Out-File|Set-Content|Add-Content| -Filter \\\\\\.*"
+    },
+    "sigma_id": "db885529-903f-4c5d-9864-28fe199e6370",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101448": {
+    "description": "Potential In-Memory Execution Using Reflection.Assembly",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1620",
+    "mitre_ids": [
+      "T1620"
+    ],
+    "technique_name": "Potential In-Memory Execution Using Reflection.Assembly",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_dotnet_assembly_from_file.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "[Reflection.Assembly]::load"
+    },
+    "sigma_id": "ddcd88cb-7f62-4ce5-86f9-1704190feb0a",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "108901": {
+    "description": "Dump Credentials from Windows Credential Manager With PowerShell",
+    "level": 11,
+    "tactic": "credential_access",
+    "technique_id": "T1555",
+    "mitre_ids": [
+      "T1555"
+    ],
+    "technique_name": "Dump Credentials from Windows Credential Manager With PowerShell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_dump_password_windows_credential_manager.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "New-Object|Microsoft.CSharp.CSharpCodeProvider|[System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory\\(\\)\\)|Collections.ArrayList|System.CodeDom.Compiler.CompilerParameters"
+    },
+    "sigma_id": "99c49d9c-34ea-45f7-84a7-4751ae6b2cbc",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101454": {
+    "description": "Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation COMPRESS OBFUSCATION - PowerShell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_invoke_obfuscation_via_compress.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "readtoend$|text.encoding]::ascii"
+    },
+    "sigma_id": "20e5497e-331c-4cd5-8d36-935f6e2a9a07",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101467": {
+    "description": "Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1218",
+    "mitre_ids": [
+      "T1218"
+    ],
+    "technique_name": "Potential RemoteFXvGPUDisablement.EXE Abuse - PowerShell ScriptBlock",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_remotefxvgpudisablement_abuse.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "^function Get-VMRemoteFXPhysicalVideoAdapter {"
+    },
+    "sigma_id": "cacef8fc-9d3d-41f7-956d-455c6e881bc5",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "114554": {
+    "description": "PowerShell Script With File Hostname Resolving Capabilities",
+    "level": 12,
+    "tactic": "exfiltration",
+    "technique_id": "T1020",
+    "mitre_ids": [
+      "T1020"
+    ],
+    "technique_name": "PowerShell Script With File Hostname Resolving Capabilities",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_resolve_list_of_ip_from_file.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "Get-content |foreach|[System.Net.Dns]::GetHostEntry|Out-File"
+    },
+    "sigma_id": "fbc5e92f-3044-4e73-a5c6-1c4359b539de",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101483": {
+    "description": "Suspicious PowerShell Invocations - Specific",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001"
+    ],
+    "technique_name": "Suspicious PowerShell Invocations - Specific",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_invocation_specific.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "-nop| -w |hidden| -c |[Convert]::FromBase64String"
+    },
+    "sigma_id": "ae7fbf8e-f3cb-49fd-8db4-5f3bed522c71",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "113566": {
+    "description": "Potential Keylogger Activity",
+    "level": 7,
+    "tactic": "collection",
+    "technique_id": "T1056.001",
+    "mitre_ids": [
+      "T1056.001"
+    ],
+    "technique_name": "Potential Keylogger Activity",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_keylogger_activity.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "[Windows.Input.Keyboard]::IsKeyDown\\([System.Windows.Input.Key]::"
+    },
+    "sigma_id": "965e2db9-eddb-4cf6-a986-7a967df651e4",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101490": {
+    "description": "Potential Suspicious PowerShell Keywords",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001"
+    ],
+    "technique_name": "Potential Suspicious PowerShell Keywords",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_keywords.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "System.Reflection.Assembly.Load\\(\\$|[System.Reflection.Assembly]::Load\\(\\$|[Reflection.Assembly]::Load\\(\\$|System.Reflection.AssemblyName|Reflection.Emit.AssemblyBuilderAccess|Reflection.Emit.CustomAttributeBuilder|Runtime.InteropServices.UnmanagedType|Runtime.InteropServices.DllImportAttribute|SuspendThread|rundll32"
+    },
+    "sigma_id": "1f49f2ab-26bc-48b3-96cc-dcffbc93eadf",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "110262": {
+    "description": "Suspicious TCP Tunnel Via PowerShell Script",
+    "level": 9,
+    "tactic": "command_and_control",
+    "technique_id": "T1090",
+    "mitre_ids": [
+      "T1090"
+    ],
+    "technique_name": "Suspicious TCP Tunnel Via PowerShell Script",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_proxy_scripts.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "[System.Net.HttpWebRequest]|System.Net.Sockets.TcpListener|AcceptTcpClient"
+    },
+    "sigma_id": "bd33d2aa-497e-4651-9893-5c5364646595",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101492": {
+    "description": "Suspicious Start-Process PassThru",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1036.003",
+    "mitre_ids": [
+      "T1036.003"
+    ],
+    "technique_name": "Suspicious Start-Process PassThru",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_start_process.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "-PassThru |-FilePath "
+    },
+    "sigma_id": "0718cd72-f316-4aa2-988f-838ea8533277",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101499": {
+    "description": "Powershell Timestomp",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1070.006",
+    "mitre_ids": [
+      "T1070.006"
+    ],
+    "technique_name": "Powershell Timestomp",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_timestomp.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": ".CreationTime =|.LastWriteTime =|.LastAccessTime =|[IO.File]::SetCreationTime|[IO.File]::SetLastAccessTime|[IO.File]::SetLastWriteTime"
+    },
+    "sigma_id": "c6438007-e081-42ce-9483-b067fbef33c3",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "111171": {
+    "description": "User Discovery And Export Via Get-ADUser Cmdlet - PowerShell",
+    "level": 6,
+    "tactic": "discovery",
+    "technique_id": "T1033",
+    "mitre_ids": [
+      "T1033"
+    ],
+    "technique_name": "User Discovery And Export Via Get-ADUser Cmdlet - PowerShell",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_user_discovery_get_aduser.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": " > | | Select |Out-File|Set-Content|Add-Content| -Filter \\\\\\.*"
+    },
+    "sigma_id": "c2993223-6da8-4b1a-88ee-668b8bf315e9",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "108918": {
+    "description": "Veeam Backup Servers Credential Dumping Script Execution",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Veeam Backup Servers Credential Dumping Script Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_veeam_credential_dumping_script.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "[Credentials]|[Veeam.Backup.Common.ProtectedStorage]::GetLocalString|Invoke-Sqlcmd|Veeam Backup and Replication"
+    },
+    "sigma_id": "976d6e6f-a04b-4900-9713-0134a353e38b",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101500": {
+    "description": "Usage Of Web Request Commands And Cmdlets - ScriptBlock",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001"
+    ],
+    "technique_name": "Usage Of Web Request Commands And Cmdlets - ScriptBlock",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_web_request_cmd_and_cmdlets.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "[System.Net.WebRequest]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest"
+    },
+    "sigma_id": "1139d2e2-84b1-4226-b445-354492eba8ba",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101505": {
+    "description": "Potential WinAPI Calls Via PowerShell Scripts",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001",
+      "T1106",
+      "T1620"
+    ],
+    "technique_name": "Potential WinAPI Calls Via PowerShell Scripts",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_win_api_susp_access.yml",
+    "source_category": "powershell",
+    "parent_sid": 91801,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.scriptBlockText": "VirtualAlloc|GetDelegateForFunctionPointer|Marshal.Copy"
+    },
+    "sigma_id": "03d83090-8cba-44a0-b02f-0b756a050306",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101517": {
+    "description": "HackTool - SysmonEnte Execution",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685.001",
+    "mitre_ids": [
+      "T1685.001"
+    ],
+    "technique_name": "HackTool - SysmonEnte Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_access/proc_access_win_hktl_sysmonente.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetImage": ":\\\\Windows\\\\Sysmon.exe|:\\\\Windows\\\\Sysmon64.exe|:\\\\Windows\\\\Sysmon64a.exe",
+      "win.eventdata.grantedAccess": "0x1400"
+    },
+    "sigma_id": "d29ada0f-af45-4f27-8f32-f7b77c3dbc4e",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "108924": {
+    "description": "Credential Dumping Activity By Python Based Tool",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.001",
+    "mitre_ids": [
+      "T1003.001"
+    ],
+    "technique_name": "Credential Dumping Activity By Python Based Tool",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_access/proc_access_win_lsass_python_based_tool.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetImage": "\\\\lsass.exe$",
+      "win.eventdata.callTrace": "python27.dll+|python3\\.*.dll+|:\\\\Windows\\\\System32\\\\KERNELBASE.dll+|:\\\\Windows\\\\SYSTEM32\\\\ntdll.dll+",
+      "win.eventdata.grantedAccess": "0x1FFFFF"
+    },
+    "sigma_id": "f8be3e82-46a3-4e4e-ada5-8e538ae8b9c9",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107512": {
+    "description": "UAC Bypass Using WOW64 Logger DLL Hijack",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1548.002",
+    "mitre_ids": [
+      "T1548.002"
+    ],
+    "technique_name": "UAC Bypass Using WOW64 Logger DLL Hijack",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_access/proc_access_win_uac_bypass_wow64_logger.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61612,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.sourceImage": ":\\\\Windows\\\\SysWOW64\\\\",
+      "win.eventdata.grantedAccess": "0x1fffff",
+      "win.eventdata.callTrace": "^UNKNOWN\\(0000000000000000\\)|UNKNOWN\\(0000000000000000\\)|"
+    },
+    "sigma_id": "4f6c43e2-f989-4ea5-bcd8-843b49a0317c",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101536": {
+    "description": "Hiding Files with Attrib.exe",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1564.001",
+    "mitre_ids": [
+      "T1564.001"
+    ],
+    "technique_name": "Hiding Files with Attrib.exe",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_attrib_hiding_files.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": " +h ",
+      "win.eventdata.image": "\\\\attrib.exe$"
+    },
+    "sigma_id": "4281cb20-2994-4580-aa63-c8b86d019934",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101553": {
+    "description": "File Decoded From Base64/Hex Via Certutil.EXE",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027"
+    ],
+    "technique_name": "File Decoded From Base64/Hex Via Certutil.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_certutil_decode.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]decode |[-/\u2013\u2014]decodehex ",
+      "win.eventdata.image": "\\\\certutil.exe$"
+    },
+    "sigma_id": "cc9cbe82-7bc0-4ef5-bc23-bbfb83947be7",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "110273": {
+    "description": "Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1105"
+    ],
+    "technique_name": "Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_certutil_download_file_sharing_domains.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": ".githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at",
+      "win.eventdata.image": "\\\\certutil.exe$"
+    },
+    "sigma_id": "42a5f1e7-9603-4f6d-97ae-3f37d130d794",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101554": {
+    "description": "File Encoded To Base64 Via Certutil.EXE",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027"
+    ],
+    "technique_name": "File Encoded To Base64 Via Certutil.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_certutil_encode.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]encode",
+      "win.eventdata.image": "\\\\certutil.exe$"
+    },
+    "sigma_id": "e62a9f0c-ca1e-46b2-85d5-a6da77f86d1a",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101557": {
+    "description": "Certificate Exported Via Certutil.EXE",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027"
+    ],
+    "technique_name": "Certificate Exported Via Certutil.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]exportPFX ",
+      "win.eventdata.image": "\\\\certutil.exe$"
+    },
+    "sigma_id": "3ffd6f51-e6c1-47b7-94b4-c1e61d4117c5",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101561": {
+    "description": "Potential Dosfuscation Activity",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "mitre_ids": [
+      "T1059"
+    ],
+    "technique_name": "Potential Dosfuscation Activity",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_cmd_dosfuscation.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "^^|^|^|,;,|;;;;|;; ;;|\\(,\\(,|%COMSPEC:~| c^m^d|^c^m^d| c^md| cm^d|^cm^d| s^et | s^e^t | se^t "
+    },
+    "sigma_id": "a77c1610-fc73-4019-8e29-0f51efc04a51",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101585": {
+    "description": "Suspicious File Download From File Sharing Domain Via Curl.EXE",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Suspicious File Download From File Sharing Domain Via Curl.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_curl_download_susp_file_sharing_domains.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": ".githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at",
+      "win.eventdata.image": "\\\\curl.exe$"
+    },
+    "sigma_id": "56454143-524f-49fb-b1c6-3fb8b1ad41fb",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101596": {
+    "description": "Diskshadow Script Mode - Uncommon Script Extension Execution",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1218",
+    "mitre_ids": [
+      "T1218"
+    ],
+    "technique_name": "Diskshadow Script Mode - Uncommon Script Extension Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_ext.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]s ",
+      "win.eventdata.originalFileName": "diskshadow.exe"
+    },
+    "sigma_id": "1dde5376-a648-492e-9e54-4241dd9b0c7f",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101608": {
+    "description": "Explorer Process Tree Break",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1036",
+    "mitre_ids": [
+      "T1036"
+    ],
+    "technique_name": "Explorer Process Tree Break",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_explorer_break_process_tree.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "/factory,{75dff2b7-6936-4c06-a8bb-676a7b00b24b}"
+    },
+    "sigma_id": "949f1ffb-6e85-4f00-ae1e-c3c5b190d605",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "111180": {
+    "description": "Recon Command Output Piped To Findstr.EXE",
+    "level": 6,
+    "tactic": "discovery",
+    "technique_id": "T1057",
+    "mitre_ids": [
+      "T1057"
+    ],
+    "technique_name": "Recon Command Output Piped To Findstr.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_findstr_recon_pipe_output.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "ipconfig\\.*|\\.*find|net\\.*|\\.*find|netstat\\.*|\\.*find|ping\\.*|\\.*find|systeminfo\\.*|\\.*find|tasklist\\.*|\\.*find|whoami\\.*|\\.*find"
+    },
+    "sigma_id": "ccb5742c-c248-4982-8c5c-5571b9275ad3",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101619": {
+    "description": "Potential Arbitrary Command Execution Via FTP.EXE",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "mitre_ids": [
+      "T1059",
+      "T1202"
+    ],
+    "technique_name": "Potential Arbitrary Command Execution Via FTP.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_ftp_arbitrary_command_execution.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.parentImage": "\\\\ftp.exe$",
+      "win.eventdata.image": "\\\\ftp.exe$",
+      "win.eventdata.commandLine": "[-/\u2013\u2014]s:"
+    },
+    "sigma_id": "06b401f4-107c-4ff9-947f-9ec1e7649f1e",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101646": {
+    "description": "HackTool - CrackMapExec PowerShell Obfuscation",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001",
+      "T1027.005"
+    ],
+    "technique_name": "HackTool - CrackMapExec PowerShell Obfuscation",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_powershell_obfuscation.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "join\\.*split|\\( \\$ShellId[1]+\\$ShellId[13]+'x'\\)|\\( \\$PSHome[\\.*]+\\$PSHOME[\\.*]+|\\( \\$env:Public[13]+\\$env:Public[5]+'x'\\)|\\( \\$env:ComSpec[4,\\.*,25]-Join''\\)|[1,3]+'x'-Join''\\)",
+      "win.eventdata.image": "\\\\powershell.exe$|\\\\pwsh.exe$"
+    },
+    "sigma_id": "6f8b3439-a203-45dc-a88b-abf57ea15ccf",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "108965": {
+    "description": "HackTool - Hydra Password Bruteforce Execution",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1110",
+    "mitre_ids": [
+      "T1110",
+      "T1110.001"
+    ],
+    "technique_name": "HackTool - Hydra Password Bruteforce Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_hydra.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "^USER^|^PASS^|-p "
+    },
+    "sigma_id": "aaafa146-074c-11eb-adc1-0242ac120002",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101657": {
+    "description": "Invoke-Obfuscation CLIP+ Launcher",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation CLIP+ Launcher",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_clip.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "/c|/r|&&|clipboard]::|-f"
+    },
+    "sigma_id": "b222df08-0e07-11eb-adc1-0242ac120002",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101658": {
+    "description": "Invoke-Obfuscation COMPRESS OBFUSCATION",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation COMPRESS OBFUSCATION",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_compress.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "system.io.compression.deflatestream|system.io.streamreader|readtoend\\(|text.encoding]::ascii"
+    },
+    "sigma_id": "7eedcc9d-9fdb-4d94-9c54-474e8affc0c7",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101660": {
+    "description": "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1027",
+    "mitre_ids": [
+      "T1027",
+      "T1059.001"
+    ],
+    "technique_name": "Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_var.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f"
+    },
+    "sigma_id": "e9f55347-2928-4c06-88e5-1a7f8169942e",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "113577": {
+    "description": "Potential SMB Relay Attack Tool Execution",
+    "level": 8,
+    "tactic": "collection",
+    "technique_id": "T1557.001",
+    "mitre_ids": [
+      "T1557.001"
+    ],
+    "technique_name": "Potential SMB Relay Attack Tool Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_relay_attacks_tools.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "}\" -z$"
+    },
+    "sigma_id": "5589ab4f-a767-433c-961d-c91f3f704db1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101678": {
+    "description": "HackTool - Sliver C2 Implant Activity Pattern",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "mitre_ids": [
+      "T1059"
+    ],
+    "technique_name": "HackTool - Sliver C2 Implant Activity Pattern",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_sliver_c2_execution_pattern.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "-NoExit -Command [Console]::OutputEncoding=[Text.UTF8Encoding]::UTF8"
+    },
+    "sigma_id": "42333b2c-b425-441c-b70e-99404a17170f",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105632": {
+    "description": "IIS Native-Code Module Command Line Installation",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1505.003",
+    "mitre_ids": [
+      "T1505.003"
+    ],
+    "technique_name": "IIS Native-Code Module Command Line Installation",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_module_install.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]name:|module",
+      "win.eventdata.image": "\\\\appcmd.exe$"
+    },
+    "sigma_id": "9465ddf4-f9e4-4ebd-8d98-702df3a93239",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "110300": {
+    "description": "Replace.exe Usage",
+    "level": 9,
+    "tactic": "command_and_control",
+    "technique_id": "T1105",
+    "mitre_ids": [
+      "T1105"
+    ],
+    "technique_name": "Replace.exe Usage",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_lolbin_replace.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\replace.exe$",
+      "win.eventdata.commandLine": "[-/\u2013\u2014]a"
+    },
+    "sigma_id": "9292293b-8496-4715-9db6-37028dcda4b3",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101764": {
+    "description": "Msiexec Quiet Installation",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1218.007",
+    "mitre_ids": [
+      "T1218.007"
+    ],
+    "technique_name": "Msiexec Quiet Installation",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_msiexec_install_quiet.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]q",
+      "win.eventdata.image": "\\\\msiexec.exe$"
+    },
+    "sigma_id": "79a87aa6-e4bd-42fc-a5bb-5e6fbdcd62f5",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101782": {
+    "description": "New Agent Skills Installation Attempt Via Node.EXE",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059.007",
+    "mitre_ids": [
+      "T1059.007"
+    ],
+    "technique_name": "New Agent Skills Installation Attempt Via Node.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_node_new_agent_skills_installed.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "npx-cli.js|skills | add ",
+      "win.eventdata.image": "\\\\node.exe$"
+    },
+    "sigma_id": "afa71271-6a97-4e47-810f-83120fb1a4ce",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105637": {
+    "description": "New User Account Creation Attempt Via ADSI in CommandLine",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "T1136.001",
+    "mitre_ids": [
+      "T1136.001",
+      "T1136.002"
+    ],
+    "technique_name": "New User Account Creation Attempt Via ADSI in CommandLine",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_adsi_create_user.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": ".Create\\(\"user|.Create\\('user",
+      "win.eventdata.image": "\\\\powershell.exe$|\\\\pwsh.exe$"
+    },
+    "sigma_id": "7c9fed65-039a-4055-8c23-fa763d94aff6",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101813": {
+    "description": "Potential AMSI Bypass Via .NET Reflection",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "Potential AMSI Bypass Via .NET Reflection",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_amsi_init_failed_bypass.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[Ref].Assembly.GetType|SetValue\\(\\$null,\\$true\\)|NonPublic,Static"
+    },
+    "sigma_id": "30edb182-aa75-42c0-b0a9-e998bb29067c",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101814": {
+    "description": "Potential AMSI Bypass Using NULL Bits",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "Potential AMSI Bypass Using NULL Bits",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_amsi_null_bits_bypass.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "if\\(0\\){{{0}}}' -f \\$\\(0 -as [char]\\) +|#<NULL>"
+    },
+    "sigma_id": "92a974db-ab84-457f-9ec0-55db83d7a825",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "111216": {
+    "description": "Computer Discovery And Export Via Get-ADComputer Cmdlet",
+    "level": 6,
+    "tactic": "discovery",
+    "technique_id": "T1033",
+    "mitre_ids": [
+      "T1033"
+    ],
+    "technique_name": "Computer Discovery And Export Via Get-ADComputer Cmdlet",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_computer_discovery_get_adcomputer.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": " > | | Select |Out-File|Set-Content|Add-Content| -Filter \\\\\\.*",
+      "win.eventdata.image": "\\\\powershell.exe$|\\\\pwsh.exe$"
+    },
+    "sigma_id": "435e10e4-992a-4281-96f3-38b11106adde",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101836": {
+    "description": "PowerShell Execution With Potential Decryption Capabilities",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "PowerShell Execution With Potential Decryption Capabilities",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_decrypt_pattern.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": " ^| |\\\\\\.*.lnk|-Recurse|-Skip ",
+      "win.eventdata.image": "\\\\powershell.exe$|\\\\pwsh.exe$",
+      "win.eventdata.originalFileName": "PowerShell.EXE|pwsh.dll"
+    },
+    "sigma_id": "434c08ba-8406-4d15-8b24-782cb071a691",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101845": {
+    "description": "Obfuscated PowerShell OneLiner Execution",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001",
+      "T1685"
+    ],
+    "technique_name": "Obfuscated PowerShell OneLiner Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_download_cradle_obfuscated.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\powershell.exe$",
+      "win.eventdata.commandLine": "http://127.0.0.1|%{\\(IRM \\$_\\)}|Invoke"
+    },
+    "sigma_id": "44e24481-6202-4c62-9127-5a0ae8e3fe3d",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101846": {
+    "description": "PowerShell Download and Execution Cradles",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059",
+    "mitre_ids": [
+      "T1059"
+    ],
+    "technique_name": "PowerShell Download and Execution Cradles",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_download_iex.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": ";iex \\$|| IEX||IEX |I`E`X|I`EX|IE`X|iex |IEX \\(|IEX\\(|Invoke-Expression"
+    },
+    "sigma_id": "85b0b087-eddf-4a2b-b033-d771fa2b9775",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101848": {
+    "description": "Potentially Suspicious File Download From File Sharing Domain Via PowerShell.EXE",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Potentially Suspicious File Download From File Sharing Domain Via PowerShell.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_download_susp_file_sharing_domains.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at",
+      "win.eventdata.image": "\\\\powershell.exe$|\\\\pwsh.exe$"
+    },
+    "sigma_id": "b6e04788-29e1-4557-bb14-77f761848ab8",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101854": {
+    "description": "Suspicious PowerShell IEX Execution Patterns",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001"
+    ],
+    "technique_name": "Suspicious PowerShell IEX Execution Patterns",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_iex_patterns.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\powershell.exe$|\\\\pwsh.exe$",
+      "win.eventdata.commandLine": "::FromBase64String|.GetString\\([System.Convert]::"
+    },
+    "sigma_id": "09576804-7a05-458e-a817-eb718ca91f54",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101857": {
+    "description": "Suspicious PowerShell Invocations - Specific - ProcessCreation",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Suspicious PowerShell Invocations - Specific - ProcessCreation",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "-nop| -w |hidden| -c |[Convert]::FromBase64String"
+    },
+    "sigma_id": "536e2947-3729-478c-9903-745aaffe60d2",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101864": {
+    "description": "Potential PowerShell Obfuscation Via WCHAR/CHAR",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001",
+      "T1027"
+    ],
+    "technique_name": "Potential PowerShell Obfuscation Via WCHAR/CHAR",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_obfuscation_via_utf8.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[char]0x|\\(WCHAR\\)0x"
+    },
+    "sigma_id": "e312efd0-35a1-407f-8439-b8d434b438a6",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "109015": {
+    "description": "PowerShell SAM Copy",
+    "level": 12,
+    "tactic": "credential_access",
+    "technique_id": "T1003.002",
+    "mitre_ids": [
+      "T1003.002"
+    ],
+    "technique_name": "PowerShell SAM Copy",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_sam_access.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "Copy-Item|cp \\$_.|cpi \\$_.|copy \\$_.|.File]::Copy\\(|System32\\\\config\\\\sam"
+    },
+    "sigma_id": "1af57a4b-460a-4738-9034-db68b880c665",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "111218": {
+    "description": "User Discovery And Export Via Get-ADUser Cmdlet",
+    "level": 6,
+    "tactic": "discovery",
+    "technique_id": "T1033",
+    "mitre_ids": [
+      "T1033"
+    ],
+    "technique_name": "User Discovery And Export Via Get-ADUser Cmdlet",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_user_discovery_get_aduser.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": " > | | Select |Out-File|Set-Content|Add-Content| -Filter \\\\\\.*",
+      "win.eventdata.image": "\\\\powershell.exe$|\\\\pwsh.exe$"
+    },
+    "sigma_id": "1114e048-b69c-4f41-bc20-657245ae6e3f",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101973": {
+    "description": "Potential Defense Evasion Via Binary Rename",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1036.003",
+    "mitre_ids": [
+      "T1036.003"
+    ],
+    "technique_name": "Potential Defense Evasion Via Binary Rename",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_renamed_binary.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.originalFileName": "Cmd.Exe|CONHOST.EXE|7z.exe|7za.exe|7zr.exe|WinRAR.exe|wevtutil.exe|net.exe|net1.exe|netsh.exe|InstallUtil.exe"
+    },
+    "sigma_id": "36480ae1-a1cb-4eaa-a0d6-29801d7e9142",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "109035": {
+    "description": "Capture Credentials with Rpcping.exe",
+    "level": 11,
+    "tactic": "credential_access",
+    "technique_id": "T1003",
+    "mitre_ids": [
+      "T1003"
+    ],
+    "technique_name": "Capture Credentials with Rpcping.exe",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rpcping_credential_capture.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]s",
+      "win.eventdata.image": "\\\\RpcPing.exe$"
+    },
+    "sigma_id": "93671f99-04eb-4ab4-a161-70d446a84003",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101995": {
+    "description": "Suspicious Advpack Call Via Rundll32.EXE",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Suspicious Advpack Call Via Rundll32.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_advpack_obfuscated_ordinal_call.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "#+|12",
+      "win.eventdata.image": "\\\\rundll32.exe$"
+    },
+    "sigma_id": "a1473adb-5338-4a20-b4c3-126763e2d3d3",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "101999": {
+    "description": "Potential Obfuscated Ordinal Call Via Rundll32",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1027.010",
+    "mitre_ids": [
+      "T1027.010"
+    ],
+    "technique_name": "Potential Obfuscated Ordinal Call Via Rundll32",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_obfuscated_ordinal_call.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "#+|#-|#0|#655|#656",
+      "win.eventdata.image": "\\\\rundll32.exe$"
+    },
+    "sigma_id": "43fa5350-db63-4b8f-9a01-789a427074e1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107601": {
+    "description": "Rundll32 Registered COM Objects",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1546.015",
+    "mitre_ids": [
+      "T1546.015"
+    ],
+    "technique_name": "Rundll32 Registered COM Objects",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_registered_com_objects.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "-sta |-localserver |{|}",
+      "win.eventdata.image": "\\\\rundll32.exe$"
+    },
+    "sigma_id": "f1edd233-30b5-4823-9e6a-c4171b24d316",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102014": {
+    "description": "Rundll32 UNC Path Execution",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1021.002",
+    "mitre_ids": [
+      "T1021.002",
+      "T1218.011"
+    ],
+    "technique_name": "Rundll32 UNC Path Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_unc_path.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": " \\\\\\\\\\\\\\\\| '\\\\\\\\\\\\\\\\| \"\\\\\\\\\\\\\\\\",
+      "win.eventdata.image": "\\\\rundll32.exe$"
+    },
+    "sigma_id": "5cdb711b-5740-4fb2-ba88-f7945027afac",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107611": {
+    "description": "Suspicious Scheduled Task Name As GUID",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1053.005",
+    "mitre_ids": [
+      "T1053.005"
+    ],
+    "technique_name": "Suspicious Scheduled Task Name As GUID",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_schtasks_guid_task_name.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "/TN \"{|/TN '{|/TN {",
+      "win.eventdata.image": "\\\\schtasks.exe$"
+    },
+    "sigma_id": "ff2fff64-4cd6-4a2b-ba7d-e28a30bbe66b",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "113592": {
+    "description": "VeeamBackup Database Credentials Dump Via Sqlcmd.EXE",
+    "level": 8,
+    "tactic": "collection",
+    "technique_id": "T1005",
+    "mitre_ids": [
+      "T1005"
+    ],
+    "technique_name": "VeeamBackup Database Credentials Dump Via Sqlcmd.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sqlcmd_veeam_dump.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "SELECT|TOP|[VeeamBackup].[dbo].[Credentials]",
+      "win.eventdata.image": "\\\\sqlcmd.exe$"
+    },
+    "sigma_id": "b57ba453-b384-4ab9-9f40-1038086b4e53",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102041": {
+    "description": "Potential Commandline Obfuscation Using Escape Characters",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1140",
+    "mitre_ids": [
+      "T1140"
+    ],
+    "technique_name": "Potential Commandline Obfuscation Using Escape Characters",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_escape_char.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "h^t^t^p|h\"t\"t\"p"
+    },
+    "sigma_id": "f0cdd048-82dc-4f7a-8a7a-b87a52b6d0fd",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107631": {
+    "description": "Suspicious Cross-User Process Spawn",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1055",
+    "mitre_ids": [
+      "T1055",
+      "T1134"
+    ],
+    "technique_name": "Suspicious Cross-User Process Spawn",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_cross_user_process_spawn.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\notepad.exe$|\\\\calc.exe$|\\\\mspaint.exe$|\\\\wordpad.exe$|\\\\write.exe$"
+    },
+    "sigma_id": "d2b7a134-9c3e-4f8a-b56d-e0c1f8a29b47",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "114077": {
+    "description": "Potential Crypto Mining Activity",
+    "level": 14,
+    "tactic": "impact",
+    "technique_id": "T1496",
+    "mitre_ids": [
+      "T1496"
+    ],
+    "technique_name": "Potential Crypto Mining Activity",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_crypto_mining_monero.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": " --cpu-priority=|--donate-level=0| -o pool.| --nicehash| --algo=rx/0 |stratum+tcp://|stratum+udp://|LS1kb25hdGUtbGV2ZWw9|0tZG9uYXRlLWxldmVsP|tLWRvbmF0ZS1sZXZlbD|c3RyYXR1bSt0Y3A6Ly|N0cmF0dW0rdGNwOi8v|zdHJhdHVtK3RjcDovL|c3RyYXR1bSt1ZHA6Ly|N0cmF0dW0rdWRwOi8v|zdHJhdHVtK3VkcDovL"
+    },
+    "sigma_id": "66c3b204-9f88-4d0a-a7f7-8a57d521ca55",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "109043": {
+    "description": "Potentially Suspicious EventLog Recon Activity Using Log Query Utilities",
+    "level": 11,
+    "tactic": "credential_access",
+    "technique_id": "T1552",
+    "mitre_ids": [
+      "T1552",
+      "T1087"
+    ],
+    "technique_name": "Potentially Suspicious EventLog Recon Activity Using Log Query Utilities",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_eventlog_content_recon.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "-InstanceId 462\\.|.eventid -eq 462\\.|.ID -eq 462\\.|EventCode=\\.462\\.|EventIdentifier=\\.462\\.|System[EventID=462\\.]|-InstanceId 4778|.eventid -eq 4778|.ID -eq 4778|EventCode=\\.4778\\.|EventIdentifier=\\.4778\\.|System[EventID=4778]|-InstanceId 25|.eventid -eq 25|.ID -eq 25|EventCode=\\.25\\.|EventIdentifier=\\.25\\.|System[EventID=25]|-InstanceId 1149|.eventid -eq 1149|.ID -eq 1149|EventCode=\\.1149\\.|EventIdentifier=\\.1149\\.|System[EventID=1149]|-InstanceId 21|.eventid -eq 21|.ID -eq 21|EventCode=\\.21\\.|EventIdentifier=\\.21\\.|System[EventID=21]|-InstanceId 22|.eventid -eq 22|.ID -eq 22|EventCode=\\.22\\.|EventIdentifier=\\.22\\.|System[EventID=22]"
+    },
+    "sigma_id": "beaa66d6-aa1b-4e3c-80f5-e0145369bfaf",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102104": {
+    "description": "Potential Defense Evasion Via Right-to-Left Override",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1036.002",
+    "mitre_ids": [
+      "T1036.002"
+    ],
+    "technique_name": "Potential Defense Evasion Via Right-to-Left Override",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_right_to_left_override.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "\\\\u202e|[U+202E]|\u202e"
+    },
+    "sigma_id": "ad691d92-15f2-4181-9aa4-723c74f9ddc3",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102110": {
+    "description": "System File Execution Location Anomaly",
+    "level": 12,
+    "tactic": "execution",
+    "technique_id": "T1036",
+    "mitre_ids": [
+      "T1036"
+    ],
+    "technique_name": "System File Execution Location Anomaly",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\atbroker.exe$|\\\\audiodg.exe$|\\\\bcdedit.exe$|\\\\bitsadmin.exe$|\\\\certreq.exe$|\\\\certutil.exe$|\\\\cmstp.exe$|\\\\conhost.exe$|\\\\consent.exe$|\\\\cscript.exe$|\\\\csrss.exe$|\\\\dashost.exe$|\\\\defrag.exe$|\\\\dfrgui.exe$|\\\\dism.exe$|\\\\dllhost.exe$|\\\\dllhst3g.exe$|\\\\dwm.exe$|\\\\eventvwr.exe$|\\\\fsquirt.exe$|\\\\finger.exe$|\\\\logonui.exe$|\\\\LsaIso.exe$|\\\\lsass.exe$|\\\\lsm.exe$|\\\\msiexec.exe$|\\\\ntoskrnl.exe$|\\\\powershell_ise.exe$|\\\\powershell.exe$|\\\\pwsh.exe$|\\\\regsvr32.exe$|\\\\rundll32.exe$|\\\\runonce.exe$|\\\\RuntimeBroker.exe$|\\\\schtasks.exe$|\\\\services.exe$|\\\\sihost.exe$|\\\\smartscreen.exe$|\\\\smss.exe$|\\\\spoolsv.exe$|\\\\svchost.exe$|\\\\taskhost.exe$|\\\\taskhostw.exe$|\\\\Taskmgr.exe$|\\\\userinit.exe$|\\\\werfault.exe$|\\\\werfaultsecure.exe$|\\\\wininit.exe$|\\\\winlogon.exe$|\\\\winver.exe$|\\\\wlanext.exe$|\\\\wmic.exe$|\\\\wscript.exe$|\\\\wsl.exe$|\\\\wsmprovhost.exe$"
+    },
+    "sigma_id": "e4a6b256-3e47-40fc-89d2-7a477edd6915",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102113": {
+    "description": "Usage Of Web Request Commands And Cmdlets",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1059.001",
+    "mitre_ids": [
+      "T1059.001"
+    ],
+    "technique_name": "Usage Of Web Request Commands And Cmdlets",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_web_request_cmd_and_cmdlets.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[System.Net.WebRequest]::create|curl |Invoke-RestMethod|Invoke-WebRequest| irm |iwr |Resume-BitsTransfer|Start-BitsTransfer|wget |WinHttp.WinHttpRequest"
+    },
+    "sigma_id": "9fc51a3c-81b3-4fa7-b35f-7c02cf10fd2d",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "109063": {
+    "description": "Procdump Execution",
+    "level": 11,
+    "tactic": "credential_access",
+    "technique_id": "T1036",
+    "mitre_ids": [
+      "T1036",
+      "T1003.001"
+    ],
+    "technique_name": "Procdump Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_procdump.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\procdump.exe$|\\\\procdump64.exe$|\\\\procdump64a.exe$"
+    },
+    "sigma_id": "2e65275c-8288-4ab4-aeb7-6274f58b6b20",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107642": {
+    "description": "Sysinternals PsService Execution",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Sysinternals PsService Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_psservice.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\PsService.exe$|\\\\PsService64.exe$|\\\\PsService64a.exe$"
+    },
+    "sigma_id": "3371f518-5fe3-4cf6-a14b-2a0ae3fd8a4f",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107644": {
+    "description": "Sysinternals PsSuspend Execution",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1543.003",
+    "mitre_ids": [
+      "T1543.003"
+    ],
+    "technique_name": "Sysinternals PsSuspend Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\pssuspend.exe$|\\\\pssuspend64.exe$|\\\\pssuspend64a.exe$"
+    },
+    "sigma_id": "48bbc537-b652-4b4e-bd1d-281172df448f",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102129": {
+    "description": "Sysmon Configuration Update",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "Sysmon Configuration Update",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_config_update.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]c",
+      "win.eventdata.image": "\\\\Sysmon64.exe$|\\\\Sysmon64a.exe$|\\\\Sysmon.exe$"
+    },
+    "sigma_id": "87911521-7098-470b-a459-9a57fc80bdfd",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102130": {
+    "description": "Uninstall Sysinternals Sysmon",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "Uninstall Sysinternals Sysmon",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_uninstall.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]u",
+      "win.eventdata.image": "\\\\Sysmon64.exe$|\\\\Sysmon64a.exe$|\\\\Sysmon.exe$"
+    },
+    "sigma_id": "6a5f68d1-c4b5-46b9-94ee-5324892ea939",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102134": {
+    "description": "Windows Defender Disabled Via SystemSettingsAdminFlows.EXE",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "Windows Defender Disabled Via SystemSettingsAdminFlows.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_systemsettingsadminflows_defender_disable.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "defender",
+      "win.eventdata.image": "\\\\SystemSettingsAdminFlows.exe$"
+    },
+    "sigma_id": "da92713f-ca2d-4fab-8320-098013d3f43a",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102141": {
+    "description": "CMSTP UAC Bypass via COM Object Access",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1548.002",
+    "mitre_ids": [
+      "T1548.002",
+      "T1218.003"
+    ],
+    "technique_name": "CMSTP UAC Bypass via COM Object Access",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_uac_bypass_cmstp_com_object_access.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.parentImage": "\\\\DllHost.exe$",
+      "win.eventdata.parentCommandLine": " /Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}| /Processid:{3E000D72-A845-4CD9-BD83-80C07C3B881F}| /Processid:{BD54C901-076B-434E-B6C7-17C531F4AB41}| /Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}| /Processid:{E9495B87-D950-4AB5-87A5-FF6D70BF3E90}",
+      "win.eventdata.integrityLevel": "High|System|S-1-16-16384|S-1-16-12288"
+    },
+    "sigma_id": "4b60e6f2-bf39-47b4-b4ea-398e33cfe253",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107654": {
+    "description": "UAC Bypass via ICMLuaUtil",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1548.002",
+    "mitre_ids": [
+      "T1548.002"
+    ],
+    "technique_name": "UAC Bypass via ICMLuaUtil",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_uac_bypass_icmluautil.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.parentImage": "\\\\dllhost.exe$",
+      "win.eventdata.parentCommandLine": "/Processid:{3E5FC7F9-9A51-4367-9063-A120244FBEC7}|/Processid:{D2E7041B-2927-42FB-8E9F-7CE93B6DC937}"
+    },
+    "sigma_id": "49f2f17b-b4c8-4172-a68b-d5bf95d05130",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102142": {
+    "description": "UAC Bypass Using IDiagnostic Profile",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1548.002",
+    "mitre_ids": [
+      "T1548.002"
+    ],
+    "technique_name": "UAC Bypass Using IDiagnostic Profile",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.parentImage": "\\\\DllHost.exe$",
+      "win.eventdata.parentCommandLine": " /Processid:{12C21EA7-2EB8-4B55-9249-AC243DA8C666}",
+      "win.eventdata.integrityLevel": "High|System|S-1-16-16384|S-1-16-12288"
+    },
+    "sigma_id": "4cbef972-f347-4170-b62a-8253f6168e6d",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107658": {
+    "description": "UAC Bypass Using NTFS Reparse Point - Process",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1548.002",
+    "mitre_ids": [
+      "T1548.002"
+    ],
+    "technique_name": "UAC Bypass Using NTFS Reparse Point - Process",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_uac_bypass_ntfs_reparse_point.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.parentCommandLine": "\"C:\\\\Windows\\\\system32\\\\dism.exe\" /online /quiet /norestart /add-package /packagepath:\"C:\\\\Windows\\\\system32\\\\pe386\" /ignorecheck",
+      "win.eventdata.integrityLevel": "High|System",
+      "win.eventdata.commandLine": "C:\\\\Users\\\\|\\\\AppData\\\\Local\\\\Temp\\\\|\\\\dismhost.exe {",
+      "win.eventdata.image": "\\\\DismHost.exe$"
+    },
+    "sigma_id": "39ed3c80-e6a1-431b-9df3-911ac53d08a7",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "110378": {
+    "description": "Visual Studio Code Tunnel Execution",
+    "level": 9,
+    "tactic": "command_and_control",
+    "technique_id": "T1071.001",
+    "mitre_ids": [
+      "T1071.001",
+      "T1219"
+    ],
+    "technique_name": "Visual Studio Code Tunnel Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_vscode_tunnel_execution.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.originalFileName": "",
+      "win.eventdata.commandLine": ".exe tunnel$"
+    },
+    "sigma_id": "90d6bd71-dffb-4989-8d86-a827fedd6624",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "110382": {
+    "description": "Renamed Visual Studio Code Tunnel Execution",
+    "level": 10,
+    "tactic": "command_and_control",
+    "technique_id": "T1071.001",
+    "mitre_ids": [
+      "T1071.001",
+      "T1219"
+    ],
+    "technique_name": "Renamed Visual Studio Code Tunnel Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_vscode_tunnel_renamed_execution.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.originalFileName": "",
+      "win.eventdata.commandLine": ".exe tunnel$"
+    },
+    "sigma_id": "2cf29f11-e356-4f61-98c0-1bdb9393d6da",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105676": {
+    "description": "Chopper Webshell Process Pattern",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1505.003",
+    "mitre_ids": [
+      "T1505.003",
+      "T1018",
+      "T1033"
+    ],
+    "technique_name": "Chopper Webshell Process Pattern",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_webshell_chopper.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "&ipconfig&echo|&quser&echo|&whoami&echo|&c:&echo|&cd&echo|&dir&echo|&echo [E]|&echo [S]",
+      "win.eventdata.image": "\\\\w3wp.exe$"
+    },
+    "sigma_id": "fa3c117a-bc0d-416e-a31b-0c0e80653efb",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "112645": {
+    "description": "Winrs Local Command Execution",
+    "level": 11,
+    "tactic": "lateral_movement",
+    "technique_id": "T1021.006",
+    "mitre_ids": [
+      "T1021.006",
+      "T1218"
+    ],
+    "technique_name": "Winrs Local Command Execution",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_winrs_local_command_execution.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.image": "\\\\winrs.exe$",
+      "win.eventdata.commandLine": "/r:localhost|/r:127.0.0.1|/r:[::1]|/remote:localhost|/remote:127.0.0.1|/remote:[::1]"
+    },
+    "sigma_id": "bcfece3d-56fe-4545-9931-3b8e92927db1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102168": {
+    "description": "Wlrmdr.EXE Uncommon Argument Or Child Process",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1218",
+    "mitre_ids": [
+      "T1218"
+    ],
+    "technique_name": "Wlrmdr.EXE Uncommon Argument Or Child Process",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wlrmdr_uncommon_child_process.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.parentImage": "\\\\wlrmdr.exe$",
+      "win.eventdata.image": "\\\\wlrmdr.exe$",
+      "win.eventdata.commandLine": "[-/\u2013\u2014]u "
+    },
+    "sigma_id": "9cfc00b6-bfb7-49ce-9781-ef78503154bb",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107673": {
+    "description": "NewActiveScriptEventConsumer Creation Attempt via Wmic.EXE",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1546.003",
+    "mitre_ids": [
+      "T1546.003"
+    ],
+    "technique_name": "NewActiveScriptEventConsumer Creation Attempt via Wmic.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_eventconsumer_creation.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "ActiveScriptEventConsumer| CREATE ",
+      "win.eventdata.originalFileName": "wmic.exe"
+    },
+    "sigma_id": "ebef4391-1a81-4761-a40a-1db446c0e625",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102183": {
+    "description": "Registry Enumeration via WMI Stdregprov",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1047",
+    "mitre_ids": [
+      "T1047",
+      "T1012"
+    ],
+    "technique_name": "Registry Enumeration via WMI Stdregprov",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_enumeration.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "CheckAccess|EnumKey|EnumValues|GetBinaryValue|GetDWORDValue|GetExpandedStringValue|GetMultiStringValue|GetQWORDValue|GetSecurityDescriptor|GetStringValue|call",
+      "win.eventdata.image": "\\\\wmic.exe$"
+    },
+    "sigma_id": "a0e417e2-2fa1-40da-b6d2-e094cd5e1191",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102184": {
+    "description": "Registry Manipulation via WMI Stdregprov",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1047",
+    "mitre_ids": [
+      "T1047",
+      "T1112"
+    ],
+    "technique_name": "Registry Manipulation via WMI Stdregprov",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_modification.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "CreateKey|DeleteKey|DeleteValue|SetBinaryValue|SetDWORDValue|SetExpandedStringValue|SetMultiStringValue|SetQWORDValue|SetSecurityDescriptor|SetStringValue|call",
+      "win.eventdata.image": "\\\\wmic.exe$"
+    },
+    "sigma_id": "c453ab7a-1f5c-4716-a3b4-dea8135fb43a",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102189": {
+    "description": "Potential Tampering With Security Products Via WMIC",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "Potential Tampering With Security Products Via WMIC",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "/nointeractive|product |uninstall"
+    },
+    "sigma_id": "847d5ff3-8a31-4737-a970-aeae8fe21765",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102192": {
+    "description": "XSL Script Execution Via WMIC.EXE",
+    "level": 8,
+    "tactic": "execution",
+    "technique_id": "T1047",
+    "mitre_ids": [
+      "T1047",
+      "T1220",
+      "T1059.005"
+    ],
+    "technique_name": "XSL Script Execution Via WMIC.EXE",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_xsl_script_processing.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61603,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.commandLine": "[-/\u2013\u2014]format:",
+      "win.eventdata.image": "\\\\wmic.exe$"
+    },
+    "sigma_id": "05c36dd6-79d6-4a9a-97da-3db20298ab2d",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102211": {
+    "description": "Removal Of AMSI Provider Registry Keys",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "Removal Of AMSI Provider Registry Keys",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_delete/registry_delete_removal_amsi_registry_key.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61614,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "{2781761E-28E0-4109-99FE-B9D127C57AFE}$|{A7C452EF-8E9F-42EB-9F2B-245613CA0DC9}$"
+    },
+    "sigma_id": "41d1058a-aea7-4952-9293-29eaaf516465",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102215": {
+    "description": "CMSTP App Paths Registry Key Modification",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1218.003",
+    "mitre_ids": [
+      "T1218.003"
+    ],
+    "technique_name": "CMSTP App Paths Registry Key Modification",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\App Paths\\\\cmmgr32.exe\\\\"
+    },
+    "sigma_id": "b6d235fc-1d38-4b12-adbe-325f06728f37",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107682": {
+    "description": "Registry Persistence Mechanisms in Recycle Bin",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1547",
+    "mitre_ids": [
+      "T1547"
+    ],
+    "technique_name": "Registry Persistence Mechanisms in Recycle Bin",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_persistence_recycle_bin.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.eventType": "RenameKey",
+      "win.eventdata.newName": "\\\\CLSID\\\\{645FF040-5081-101B-9F08-00AA002F954E}\\\\shell\\\\open"
+    },
+    "sigma_id": "277efb8f-60be-4f10-b4d3-037802f37167",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107683": {
+    "description": "Registry Persistence Mechanisms in Recycle Bin",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1547",
+    "mitre_ids": [
+      "T1547"
+    ],
+    "technique_name": "Registry Persistence Mechanisms in Recycle Bin",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_persistence_recycle_bin.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.eventType": "SetValue",
+      "win.eventdata.targetObject": "\\\\CLSID\\\\{645FF040-5081-101B-9F08-00AA002F954E}\\\\shell\\\\open\\\\command\\\\\\(Default\\)"
+    },
+    "sigma_id": "277efb8f-60be-4f10-b4d3-037802f37167",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105706": {
+    "description": "Shell Open Registry Keys Manipulation",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1548.002",
+    "mitre_ids": [
+      "T1548.002",
+      "T1546.001"
+    ],
+    "technique_name": "Shell Open Registry Keys Manipulation",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_shell_open_keys_manipulation.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.eventType": "SetValue",
+      "win.eventdata.targetObject": "Classes\\\\ms-settings\\\\shell\\\\open\\\\command\\\\SymbolicLinkValue$",
+      "win.eventdata.details": "\\\\Software\\\\Classes\\\\{"
+    },
+    "sigma_id": "152f3630-77c1-4284-bcc0-4cc68ab2f6e7",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105707": {
+    "description": "Shell Open Registry Keys Manipulation",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1548.002",
+    "mitre_ids": [
+      "T1548.002",
+      "T1546.001"
+    ],
+    "technique_name": "Shell Open Registry Keys Manipulation",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_shell_open_keys_manipulation.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "Classes\\\\ms-settings\\\\shell\\\\open\\\\command\\\\DelegateExecute$"
+    },
+    "sigma_id": "152f3630-77c1-4284-bcc0-4cc68ab2f6e7",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105708": {
+    "description": "Shell Open Registry Keys Manipulation",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "T1548.002",
+    "mitre_ids": [
+      "T1548.002",
+      "T1546.001"
+    ],
+    "technique_name": "Shell Open Registry Keys Manipulation",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_shell_open_keys_manipulation.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.eventType": "SetValue",
+      "win.eventdata.targetObject": "Classes\\\\ms-settings\\\\shell\\\\open\\\\command\\\\\\(Default\\)$|Classes\\\\exefile\\\\shell\\\\open\\\\command\\\\\\(Default\\)$"
+    },
+    "sigma_id": "152f3630-77c1-4284-bcc0-4cc68ab2f6e7",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "102220": {
+    "description": "Potential AMSI COM Server Hijacking",
+    "level": 9,
+    "tactic": "execution",
+    "technique_id": "T1685",
+    "mitre_ids": [
+      "T1685"
+    ],
+    "technique_name": "Potential AMSI COM Server Hijacking",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_amsi_com_hijack.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "\\\\CLSID\\\\{fdb00e52-a214-4aa1-8fba-4357bb0072ec}\\\\InProcServer32\\\\\\(Default\\)$"
+    },
+    "sigma_id": "160d2780-31f7-4922-8b3a-efce30e63e96",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107691": {
+    "description": "Classes Autorun Keys Modification",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1547.001",
+    "mitre_ids": [
+      "T1547.001"
+    ],
+    "technique_name": "Classes Autorun Keys Modification",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_classes.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "\\\\Folder\\\\ShellEx\\\\ExtShellFolderViews|\\\\Folder\\\\ShellEx\\\\DragDropHandlers|\\\\Folder\\\\Shellex\\\\ColumnHandlers|\\\\Filter|\\\\Exefile\\\\Shell\\\\Open\\\\Command\\\\\\(Default\\)|\\\\Directory\\\\Shellex\\\\DragDropHandlers|\\\\Directory\\\\Shellex\\\\CopyHookHandlers|\\\\CLSID\\\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\\\Instance|\\\\CLSID\\\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\\\Instance|\\\\CLSID\\\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\\\Instance|\\\\CLSID\\\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\\\Instance|\\\\Classes\\\\AllFileSystemObjects\\\\ShellEx\\\\DragDropHandlers|\\\\.exe|\\\\.cmd|\\\\ShellEx\\\\PropertySheetHandlers|\\\\ShellEx\\\\ContextMenuHandlers"
+    },
+    "sigma_id": "9df5f547-c86a-433e-b533-f2794357e242",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107692": {
+    "description": "Common Autorun Keys Modification",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1547.001",
+    "mitre_ids": [
+      "T1547.001"
+    ],
+    "technique_name": "Common Autorun Keys Modification",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_common.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "\\\\SOFTWARE\\\\Wow6432Node\\\\Microsoft\\\\Windows CE Services\\\\AutoStart|\\\\Software\\\\Wow6432Node\\\\Microsoft\\\\Command Processor\\\\Autorun|\\\\SOFTWARE\\\\Wow6432Node\\\\Microsoft\\\\Active Setup\\\\Installed Components|\\\\SOFTWARE\\\\Microsoft\\\\Windows CE Services\\\\AutoStartOnDisconnect|\\\\SOFTWARE\\\\Microsoft\\\\Windows CE Services\\\\AutoStartOnConnect|\\\\SYSTEM\\\\Setup\\\\CmdLine|\\\\Software\\\\Microsoft\\\\Ctf\\\\LangBarAddin|\\\\Software\\\\Microsoft\\\\Command Processor\\\\Autorun|\\\\SOFTWARE\\\\Microsoft\\\\Active Setup\\\\Installed Components|\\\\SOFTWARE\\\\Classes\\\\Protocols\\\\Handler|\\\\SOFTWARE\\\\Classes\\\\Protocols\\\\Filter|\\\\SOFTWARE\\\\Classes\\\\Htmlfile\\\\Shell\\\\Open\\\\Command\\\\\\(Default\\)|\\\\Environment\\\\UserInitMprLogonScript|\\\\SOFTWARE\\\\Policies\\\\Microsoft\\\\Windows\\\\Control Panel\\\\Desktop\\\\Scrnsave.exe|\\\\Software\\\\Microsoft\\\\Internet Explorer\\\\UrlSearchHooks|\\\\SOFTWARE\\\\Microsoft\\\\Internet Explorer\\\\Desktop\\\\Components|\\\\Software\\\\Classes\\\\Clsid\\\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\\\\Inprocserver32|\\\\Control Panel\\\\Desktop\\\\Scrnsave.exe"
+    },
+    "sigma_id": "f59c3faf-50f3-464b-9f4c-1b67ab512d99",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107702": {
+    "description": "Wow6432Node Classes Autorun Keys Modification",
+    "level": 10,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1547.001",
+    "mitre_ids": [
+      "T1547.001"
+    ],
+    "technique_name": "Wow6432Node Classes Autorun Keys Modification",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_wow6432node_classes.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "\\\\Folder\\\\ShellEx\\\\ExtShellFolderViews|\\\\Folder\\\\ShellEx\\\\DragDropHandlers|\\\\Folder\\\\ShellEx\\\\ColumnHandlers|\\\\Directory\\\\Shellex\\\\DragDropHandlers|\\\\Directory\\\\Shellex\\\\CopyHookHandlers|\\\\CLSID\\\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\\\Instance|\\\\CLSID\\\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\\\Instance|\\\\CLSID\\\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\\\Instance|\\\\CLSID\\\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\\\Instance|\\\\AllFileSystemObjects\\\\ShellEx\\\\DragDropHandlers|\\\\ShellEx\\\\PropertySheetHandlers|\\\\ShellEx\\\\ContextMenuHandlers"
+    },
+    "sigma_id": "18f2065c-d36c-464a-a748-bcf909acb2e3",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105739": {
+    "description": "Persistence Via Hhctrl.ocx",
+    "level": 10,
+    "tactic": "persistence",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Persistence Via Hhctrl.ocx",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_hhctrl_persistence.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "\\\\CLSID\\\\{52A2AAAE-085D-4187-97EA-8C30DB990436}\\\\InprocServer32\\\\\\(Default\\)"
+    },
+    "sigma_id": "f10ed525-97fe-4fed-be7c-2feecca941b1",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "107723": {
+    "description": "Potential PSFactoryBuffer COM Hijacking",
+    "level": 11,
+    "tactic": "privilege_escalation",
+    "technique_id": "T1546.015",
+    "mitre_ids": [
+      "T1546.015"
+    ],
+    "technique_name": "Potential PSFactoryBuffer COM Hijacking",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_persistence_comhijack_psfactorybuffer.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "high",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "\\\\CLSID\\\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}\\\\InProcServer32\\\\\\(Default\\)$"
+    },
+    "sigma_id": "243380fa-11eb-4141-af92-e14925e77c1b",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
+  },
+  "105757": {
+    "description": "Register New IFiltre For Persistence",
+    "level": 9,
+    "tactic": "persistence",
+    "technique_id": "",
+    "mitre_ids": [],
+    "technique_name": "Register New IFiltre For Persistence",
+    "source_evtx": "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_persistence_ifilter.yml",
+    "source_category": "sysmon",
+    "parent_sid": 61615,
+    "confidence": "medium",
+    "created": "",
+    "field_matches": {
+      "win.eventdata.targetObject": "\\\\SOFTWARE\\\\Classes\\\\CLSID|\\\\PersistentAddinsRegistered\\\\{89BCB740-6119-101A-BCB7-00DD010655AF}"
+    },
+    "sigma_id": "b23818c7-e575-4d13-8012-332075ec0a2b",
+    "version": 1,
+    "last_modified": "2026-09-13T03:47:35.934630+00:00"
   }
 }

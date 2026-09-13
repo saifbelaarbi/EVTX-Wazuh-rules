@@ -333,7 +333,8 @@
     <field name="win.eventdata.commandLine">User-Agent:</field>
     <description>Sigma: Curl Web Request With Potential Custom User-Agent</description>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100438" level="9">
+  </rule>
+  <rule id="100438" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">.githubusercontent.com|anonfiles.com|cdn.discordapp.com|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev</field>
     <field name="win.eventdata.image">\\curl.exe$</field>
@@ -900,7 +901,8 @@
     <field name="win.eventdata.image">\\wermgr.exe$</field>
     <description>Sigma: Suspicious Execution Location Of Wermgr.EXE</description>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="101031" level="9">
+  </rule>
+  <rule id="101031" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">.githubusercontent.com|anonfiles.com|cdn.discordapp.com|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev</field>
     <field name="win.eventdata.image">\\wget.exe$</field>
@@ -1039,6 +1041,55 @@
     <if_sid>60004</if_sid>
     <field name="win.system.eventID">29</field>
     <description>Sigma: Sysmon File Executable Creation Detected</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101202" level="9">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">854</field>
+    <field name="win.eventdata.path">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <description>Sigma: Remote AppX Package Downloaded from File Sharing or CDN Domain</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101292" level="8">
+    <if_sid>61617</if_sid>
+    <field name="win.eventdata.contents">^[ZoneTransfer]  ZoneId=3</field>
+    <field name="win.eventdata.targetFilename">.exe|.scr|.bat|.cmd|.docx|.hta|.jse|.lnk|.pptx|.ps|.reg|.sct|.vb|.wsc|.wsf|.xlsx</field>
+    <description>Sigma: Creation Of a Suspicious ADS File Outside a Browser Download</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101585" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <field name="win.eventdata.image">\\curl.exe$</field>
+    <description>Sigma: Suspicious File Download From File Sharing Domain Via Curl.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101836" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine"> ^| |\\\.*.lnk|-Recurse|-Skip </field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.originalFileName">PowerShell.EXE|pwsh.dll</field>
+    <description>Sigma: PowerShell Execution With Potential Decryption Capabilities</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101848" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <field name="win.eventdata.image">\\powershell.exe$|\\pwsh.exe$</field>
+    <description>Sigma: Potentially Suspicious File Download From File Sharing Domain Via PowerShell.EXE</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101857" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-nop| -w |hidden| -c |[Convert]::FromBase64String</field>
+    <description>Sigma: Suspicious PowerShell Invocations - Specific - ProcessCreation</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101995" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">#+|12</field>
+    <field name="win.eventdata.image">\\rundll32.exe$</field>
+    <description>Sigma: Suspicious Advpack Call Via Rundll32.EXE</description>
     <group>execution,sigma_converted,</group>
   </rule>
 </group>

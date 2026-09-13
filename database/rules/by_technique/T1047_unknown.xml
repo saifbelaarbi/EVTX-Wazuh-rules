@@ -455,7 +455,8 @@
       <id>T1047</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="101066" level="8">
+  </rule>
+  <rule id="101066" level="8">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.parentImage">\\WmiPrvSe.exe$</field>
     <description>Sigma: WmiPrvSE Spawned A Process</description>
@@ -484,6 +485,40 @@
       <id>T1047</id>
       <id>T1204.002</id>
       <id>T1218.010</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102183" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">CheckAccess|EnumKey|EnumValues|GetBinaryValue|GetDWORDValue|GetExpandedStringValue|GetMultiStringValue|GetQWORDValue|GetSecurityDescriptor|GetStringValue|call</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: Registry Enumeration via WMI Stdregprov</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1012</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102184" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">CreateKey|DeleteKey|DeleteValue|SetBinaryValue|SetDWORDValue|SetExpandedStringValue|SetMultiStringValue|SetQWORDValue|SetSecurityDescriptor|SetStringValue|call</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: Registry Manipulation via WMI Stdregprov</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1112</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102192" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">[-/–—]format:</field>
+    <field name="win.eventdata.image">\\wmic.exe$</field>
+    <description>Sigma: XSL Script Execution Via WMIC.EXE</description>
+    <mitre>
+      <id>T1047</id>
+      <id>T1220</id>
+      <id>T1059.005</id>
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
@@ -540,4 +575,5 @@
       <id>T1047</id>
     </mitre>
     <group>discovery,sigma_converted,</group>
-  </rule></group>
+  </rule>
+</group>

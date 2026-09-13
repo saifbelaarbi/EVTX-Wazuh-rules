@@ -180,4 +180,22 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101492" level="8">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">-PassThru |-FilePath </field>
+    <description>Sigma: Suspicious Start-Process PassThru</description>
+    <mitre>
+      <id>T1036.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101973" level="8">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.originalFileName">Cmd.Exe|CONHOST.EXE|7z.exe|7za.exe|7zr.exe|WinRAR.exe|wevtutil.exe|net.exe|net1.exe|netsh.exe|InstallUtil.exe</field>
+    <description>Sigma: Potential Defense Evasion Via Binary Rename</description>
+    <mitre>
+      <id>T1036.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
 </group>
