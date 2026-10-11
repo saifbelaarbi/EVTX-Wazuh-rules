@@ -82,4 +82,13 @@
     </mitre>
     <group>credential_access,sigma_converted,</group>
   </rule>
+  <rule id="108901" level="11">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">New-Object|Microsoft.CSharp.CSharpCodeProvider|[System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory\(\)\)|Collections.ArrayList|System.CodeDom.Compiler.CompilerParameters</field>
+    <description>Sigma: Dump Credentials from Windows Credential Manager With PowerShell</description>
+    <mitre>
+      <id>T1555</id>
+    </mitre>
+    <group>credential_access,sigma_converted,</group>
+  </rule>
 </group>

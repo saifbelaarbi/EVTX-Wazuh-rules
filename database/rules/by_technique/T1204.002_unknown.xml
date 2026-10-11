@@ -179,6 +179,17 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101200" level="8">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">8003|8006|8021|8024</field>
+    <description>Sigma: AppLocker Application Would Have Been Blocked</description>
+    <mitre>
+      <id>T1204.002</id>
+      <id>T1059.001</id>
+      <id>T1059.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="107061" level="11">
     <if_sid>61613</if_sid>
     <field name="win.eventdata.targetFilename">.bat$|.cmd$|.dll$|.hta$|.jar$|.js$|.jse$|.msi$|.ps1$|.psd1$|.psm1$|.scr$|.url$|.vba$|.vbe$|.vbs$|.wsf$</field>

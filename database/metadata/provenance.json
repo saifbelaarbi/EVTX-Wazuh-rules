@@ -14816,5 +14816,1040 @@
       101165
     ],
     "last_processed": "2026-06-10T23:00:37.028730+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/Malware/rundll32_cmd_schtask.evtx": {
+    "rules_generated": [
+      104898
+    ],
+    "last_processed": "2026-10-11T04:36:47.593816+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx": {
+    "rules_generated": [
+      108795,
+      108796
+    ],
+    "last_processed": "2026-10-11T04:36:47.593822+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx": {
+    "rules_generated": [
+      108801
+    ],
+    "last_processed": "2026-10-11T04:36:47.593825+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx": {
+    "rules_generated": [
+      108803,
+      108804,
+      108805
+    ],
+    "last_processed": "2026-10-11T04:36:47.593831+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Credential Access/sysmon_3_10_Invoke-Mimikatz_hosted_Github.evtx": {
+    "rules_generated": [
+      108810
+    ],
+    "last_processed": "2026-10-11T04:36:47.593836+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-ATTACK-SAMPLES/Privilege Escalation/sysmon_privesc_from_admin_to_system_handle_inheritance.evtx": {
+    "rules_generated": [
+      108811
+    ],
+    "last_processed": "2026-10-11T04:36:47.593840+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/evtx_samples/EVTX-to-MITRE-Attack/TA0002-Execution/T1569.002-Service execution/ID7000,7009,7045-Payload deployed via service - Tchopper.evtx": {
+    "rules_generated": [
+      104943,
+      104944,
+      105085,
+      105086,
+      105197,
+      105198,
+      105263,
+      105264,
+      105355,
+      105356,
+      105357,
+      105358
+    ],
+    "last_processed": "2026-10-11T04:36:47.593856+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/application/mssqlserver/win_mssql_add_sysadmin_account.yml": {
+    "rules_generated": [
+      105418
+    ],
+    "last_processed": "2026-10-11T04:36:49.199698+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/applocker/win_applocker_application_would_have_been_blocked.yml": {
+    "rules_generated": [
+      101200
+    ],
+    "last_processed": "2026-10-11T04:36:49.199702+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/appxdeployment_server/win_appxdeployment_server_appx_downloaded_from_file_sharing_domains.yml": {
+    "rules_generated": [
+      101202
+    ],
+    "last_processed": "2026-10-11T04:36:49.199705+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/bits_client/win_bits_client_new_transfer_via_file_sharing_domains.yml": {
+    "rules_generated": [
+      105421
+    ],
+    "last_processed": "2026-10-11T04:36:49.199707+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/lsa_server/win_lsa_server_normal_user_admin.yml": {
+    "rules_generated": [
+      108823
+    ],
+    "last_processed": "2026-10-11T04:36:49.199710+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_ad_replication_machine_account.yml": {
+    "rules_generated": [
+      108825
+    ],
+    "last_processed": "2026-10-11T04:36:49.199712+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_ad_replication_non_machine_account.yml": {
+    "rules_generated": [
+      108826
+    ],
+    "last_processed": "2026-10-11T04:36:49.199714+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_default_domain_gpo_modification.yml": {
+    "rules_generated": [
+      107403
+    ],
+    "last_processed": "2026-10-11T04:36:49.199719+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_disable_event_auditing_critical.yml": {
+    "rules_generated": [
+      101225,
+      101226
+    ],
+    "last_processed": "2026-10-11T04:36:49.199724+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_explicit_credential_local_logon.yml": {
+    "rules_generated": [
+      107404
+    ],
+    "last_processed": "2026-10-11T04:36:49.199727+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_clip_services_security.yml": {
+    "rules_generated": [
+      101228
+    ],
+    "last_processed": "2026-10-11T04:36:49.199729+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_via_compress_services_security.yml": {
+    "rules_generated": [
+      101231
+    ],
+    "last_processed": "2026-10-11T04:36:49.199731+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_via_stdin_services_security.yml": {
+    "rules_generated": [
+      101233
+    ],
+    "last_processed": "2026-10-11T04:36:49.199733+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_via_use_clip_services_security.yml": {
+    "rules_generated": [
+      101234
+    ],
+    "last_processed": "2026-10-11T04:36:49.199736+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_invoke_obfuscation_via_var_services_security.yml": {
+    "rules_generated": [
+      101237
+    ],
+    "last_processed": "2026-10-11T04:36:49.199738+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/security/win_security_sysmon_channel_reference_deletion.yml": {
+    "rules_generated": [
+      105447,
+      105448
+    ],
+    "last_processed": "2026-10-11T04:36:49.199741+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/smbclient/security/win_smbclient_security_susp_failed_guest_logon.yml": {
+    "rules_generated": [
+      108848
+    ],
+    "last_processed": "2026-10-11T04:36:49.199743+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/microsoft_windows_distributed_com/win_system_lpe_indicators_tabtip.yml": {
+    "rules_generated": [
+      113556
+    ],
+    "last_processed": "2026-10-11T04:36:49.199746+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_hack_smbexec.yml": {
+    "rules_generated": [
+      112609
+    ],
+    "last_processed": "2026-10-11T04:36:49.199749+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_clip_services.yml": {
+    "rules_generated": [
+      101257
+    ],
+    "last_processed": "2026-10-11T04:36:49.199751+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_via_compress_services.yml": {
+    "rules_generated": [
+      101260
+    ],
+    "last_processed": "2026-10-11T04:36:49.199753+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_via_use_clip_services.yml": {
+    "rules_generated": [
+      101263
+    ],
+    "last_processed": "2026-10-11T04:36:49.199755+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/system/service_control_manager/win_system_invoke_obfuscation_via_var_services.yml": {
+    "rules_generated": [
+      101266
+    ],
+    "last_processed": "2026-10-11T04:36:49.199757+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/builtin/wmi/win_wmi_activity_nteventlogfile_cleareventlog.yml": {
+    "rules_generated": [
+      101288
+    ],
+    "last_processed": "2026-10-11T04:36:49.199760+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_remote_thread/create_remote_thread_win_hktl_cactustorch.yml": {
+    "rules_generated": [
+      107427
+    ],
+    "last_processed": "2026-10-11T04:36:49.199762+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_remote_thread/create_remote_thread_win_susp_password_dumper_lsass.yml": {
+    "rules_generated": [
+      108856
+    ],
+    "last_processed": "2026-10-11T04:36:49.199764+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_stream_hash/create_stream_hash_creation_internet_file.yml": {
+    "rules_generated": [
+      101292
+    ],
+    "last_processed": "2026-10-11T04:36:49.199767+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_stream_hash/create_stream_hash_file_sharing_domains_download_susp_extension.yml": {
+    "rules_generated": [
+      101293
+    ],
+    "last_processed": "2026-10-11T04:36:49.199769+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/create_stream_hash/create_stream_hash_file_sharing_domains_download_unusual_extension.yml": {
+    "rules_generated": [
+      101294
+    ],
+    "last_processed": "2026-10-11T04:36:49.199771+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_ripzip_attack.yml": {
+    "rules_generated": [
+      107441
+    ],
+    "last_processed": "2026-10-11T04:36:49.199774+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_exe.yml": {
+    "rules_generated": [
+      101353
+    ],
+    "last_processed": "2026-10-11T04:36:49.199776+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_susp_legitimate_app_dropping_script.yml": {
+    "rules_generated": [
+      101354
+    ],
+    "last_processed": "2026-10-11T04:36:49.199778+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_susp_registry_hive_file_creation.yml": {
+    "rules_generated": [
+      107445
+    ],
+    "last_processed": "2026-10-11T04:36:49.199780+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_susp_right_to_left_override_extension_spoofing.yml": {
+    "rules_generated": [
+      101358
+    ],
+    "last_processed": "2026-10-11T04:36:49.199782+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/file/file_event/file_event_win_wsl_binary_modification.yml": {
+    "rules_generated": [
+      101367
+    ],
+    "last_processed": "2026-10-11T04:36:49.199785+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/image_load/image_load_side_load_from_non_system_location.yml": {
+    "rules_generated": [
+      105566,
+      105567
+    ],
+    "last_processed": "2026-10-11T04:36:49.199788+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/image_load/image_load_susp_offreg_dll_load.yml": {
+    "rules_generated": [
+      105596
+    ],
+    "last_processed": "2026-10-11T04:36:49.199790+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/image_load/image_load_wsman_provider_image_load.yml": {
+    "rules_generated": [
+      101392
+    ],
+    "last_processed": "2026-10-11T04:36:49.199792+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/network_connection/net_connection_win_domain_crypto_mining_pools.yml": {
+    "rules_generated": [
+      114056
+    ],
+    "last_processed": "2026-10-11T04:36:49.199794+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/network_connection/net_connection_win_domain_dead_drop_resolvers.yml": {
+    "rules_generated": [
+      110242
+    ],
+    "last_processed": "2026-10-11T04:36:49.199796+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/network_connection/net_connection_win_susp_file_sharing_domains_susp_folders.yml": {
+    "rules_generated": [
+      110253
+    ],
+    "last_processed": "2026-10-11T04:36:49.199798+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_classic/posh_pc_abuse_nslookup_with_dns_records.yml": {
+    "rules_generated": [
+      101410
+    ],
+    "last_processed": "2026-10-11T04:36:49.199801+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_classic/posh_pc_remotefxvgpudisablement_abuse.yml": {
+    "rules_generated": [
+      101413
+    ],
+    "last_processed": "2026-10-11T04:36:49.199803+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_hktl_evil_winrm_execution.yml": {
+    "rules_generated": [
+      112618
+    ],
+    "last_processed": "2026-10-11T04:36:49.199805+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_invoke_obfuscation_via_compress.yml": {
+    "rules_generated": [
+      101422
+    ],
+    "last_processed": "2026-10-11T04:36:49.199807+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_remotefxvgpudisablement_abuse.yml": {
+    "rules_generated": [
+      101428
+    ],
+    "last_processed": "2026-10-11T04:36:49.199809+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_module/posh_pm_susp_invocation_specific.yml": {
+    "rules_generated": [
+      101431
+    ],
+    "last_processed": "2026-10-11T04:36:49.199811+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_adsi_create_user.yml": {
+    "rules_generated": [
+      105602
+    ],
+    "last_processed": "2026-10-11T04:36:49.199814+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_amsi_bypass_pattern_nov22.yml": {
+    "rules_generated": [
+      101440
+    ],
+    "last_processed": "2026-10-11T04:36:49.199816+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_amsi_null_bits_bypass.yml": {
+    "rules_generated": [
+      101441
+    ],
+    "last_processed": "2026-10-11T04:36:49.199818+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_apt_silence_eda.yml": {
+    "rules_generated": [
+      101442
+    ],
+    "last_processed": "2026-10-11T04:36:49.199820+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_cmdlet_invocation_via_exported_commands_array_index.yml": {
+    "rules_generated": [
+      101446
+    ],
+    "last_processed": "2026-10-11T04:36:49.199822+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_computer_discovery_get_adcomputer.yml": {
+    "rules_generated": [
+      111162
+    ],
+    "last_processed": "2026-10-11T04:36:49.199825+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_dotnet_assembly_from_file.yml": {
+    "rules_generated": [
+      101450
+    ],
+    "last_processed": "2026-10-11T04:36:49.199827+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_dump_password_windows_credential_manager.yml": {
+    "rules_generated": [
+      108901
+    ],
+    "last_processed": "2026-10-11T04:36:49.199829+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_invoke_obfuscation_via_compress.yml": {
+    "rules_generated": [
+      101456
+    ],
+    "last_processed": "2026-10-11T04:36:49.199831+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_remotefxvgpudisablement_abuse.yml": {
+    "rules_generated": [
+      101469
+    ],
+    "last_processed": "2026-10-11T04:36:49.199833+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_request_kerberos_ticket.yml": {
+    "rules_generated": [
+      108915
+    ],
+    "last_processed": "2026-10-11T04:36:49.199835+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_resolve_list_of_ip_from_file.yml": {
+    "rules_generated": [
+      114554
+    ],
+    "last_processed": "2026-10-11T04:36:49.199837+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_invocation_specific.yml": {
+    "rules_generated": [
+      101485
+    ],
+    "last_processed": "2026-10-11T04:36:49.199838+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_keylogger_activity.yml": {
+    "rules_generated": [
+      113566
+    ],
+    "last_processed": "2026-10-11T04:36:49.199840+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_keywords.yml": {
+    "rules_generated": [
+      101492
+    ],
+    "last_processed": "2026-10-11T04:36:49.199842+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_proxy_scripts.yml": {
+    "rules_generated": [
+      110262
+    ],
+    "last_processed": "2026-10-11T04:36:49.199844+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_susp_start_process.yml": {
+    "rules_generated": [
+      101494
+    ],
+    "last_processed": "2026-10-11T04:36:49.199846+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_timestomp.yml": {
+    "rules_generated": [
+      101501
+    ],
+    "last_processed": "2026-10-11T04:36:49.199848+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_user_discovery_get_aduser.yml": {
+    "rules_generated": [
+      111171
+    ],
+    "last_processed": "2026-10-11T04:36:49.199850+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_veeam_credential_dumping_script.yml": {
+    "rules_generated": [
+      108918
+    ],
+    "last_processed": "2026-10-11T04:36:49.199852+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_web_request_cmd_and_cmdlets.yml": {
+    "rules_generated": [
+      101502
+    ],
+    "last_processed": "2026-10-11T04:36:49.199854+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/powershell/powershell_script/posh_ps_win_api_susp_access.yml": {
+    "rules_generated": [
+      101507
+    ],
+    "last_processed": "2026-10-11T04:36:49.199856+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_access/proc_access_win_hktl_sysmonente.yml": {
+    "rules_generated": [
+      101519
+    ],
+    "last_processed": "2026-10-11T04:36:49.199858+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_access/proc_access_win_lsass_python_based_tool.yml": {
+    "rules_generated": [
+      108924
+    ],
+    "last_processed": "2026-10-11T04:36:49.199859+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_access/proc_access_win_uac_bypass_wow64_logger.yml": {
+    "rules_generated": [
+      107512
+    ],
+    "last_processed": "2026-10-11T04:36:49.199862+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_attrib_hiding_files.yml": {
+    "rules_generated": [
+      101538
+    ],
+    "last_processed": "2026-10-11T04:36:49.199864+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_certutil_decode.yml": {
+    "rules_generated": [
+      101555
+    ],
+    "last_processed": "2026-10-11T04:36:49.199866+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_certutil_download_file_sharing_domains.yml": {
+    "rules_generated": [
+      110273
+    ],
+    "last_processed": "2026-10-11T04:36:49.199867+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_certutil_encode.yml": {
+    "rules_generated": [
+      101556
+    ],
+    "last_processed": "2026-10-11T04:36:49.199869+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_certutil_export_pfx.yml": {
+    "rules_generated": [
+      101559
+    ],
+    "last_processed": "2026-10-11T04:36:49.199871+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_cmd_dosfuscation.yml": {
+    "rules_generated": [
+      101563
+    ],
+    "last_processed": "2026-10-11T04:36:49.199873+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_curl_download_susp_file_sharing_domains.yml": {
+    "rules_generated": [
+      101587
+    ],
+    "last_processed": "2026-10-11T04:36:49.199875+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_diskshadow_script_mode_susp_ext.yml": {
+    "rules_generated": [
+      101598
+    ],
+    "last_processed": "2026-10-11T04:36:49.199877+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_explorer_break_process_tree.yml": {
+    "rules_generated": [
+      101610
+    ],
+    "last_processed": "2026-10-11T04:36:49.199879+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_findstr_recon_pipe_output.yml": {
+    "rules_generated": [
+      111180
+    ],
+    "last_processed": "2026-10-11T04:36:49.199881+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_ftp_arbitrary_command_execution.yml": {
+    "rules_generated": [
+      101621
+    ],
+    "last_processed": "2026-10-11T04:36:49.199883+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_crackmapexec_powershell_obfuscation.yml": {
+    "rules_generated": [
+      101648
+    ],
+    "last_processed": "2026-10-11T04:36:49.199885+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_dumpert.yml": {
+    "rules_generated": [
+      108956,
+      108957
+    ],
+    "last_processed": "2026-10-11T04:36:49.199888+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_hydra.yml": {
+    "rules_generated": [
+      108965
+    ],
+    "last_processed": "2026-10-11T04:36:49.199890+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_clip.yml": {
+    "rules_generated": [
+      101659
+    ],
+    "last_processed": "2026-10-11T04:36:49.199892+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_compress.yml": {
+    "rules_generated": [
+      101660
+    ],
+    "last_processed": "2026-10-11T04:36:49.199894+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_invoke_obfuscation_via_var.yml": {
+    "rules_generated": [
+      101662
+    ],
+    "last_processed": "2026-10-11T04:36:49.199896+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_relay_attacks_tools.yml": {
+    "rules_generated": [
+      113577
+    ],
+    "last_processed": "2026-10-11T04:36:49.199898+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_hktl_sliver_c2_execution_pattern.yml": {
+    "rules_generated": [
+      101680
+    ],
+    "last_processed": "2026-10-11T04:36:49.199899+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_iis_appcmd_susp_module_install.yml": {
+    "rules_generated": [
+      105632
+    ],
+    "last_processed": "2026-10-11T04:36:49.199901+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_lolbin_replace.yml": {
+    "rules_generated": [
+      110300
+    ],
+    "last_processed": "2026-10-11T04:36:49.199910+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_msiexec_install_quiet.yml": {
+    "rules_generated": [
+      101766
+    ],
+    "last_processed": "2026-10-11T04:36:49.199912+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_node_new_agent_skills_installed.yml": {
+    "rules_generated": [
+      101784
+    ],
+    "last_processed": "2026-10-11T04:36:49.199914+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_office_arbitrary_cli_download.yml": {
+    "rules_generated": [
+      101794
+    ],
+    "last_processed": "2026-10-11T04:36:49.199916+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_adsi_create_user.yml": {
+    "rules_generated": [
+      105637
+    ],
+    "last_processed": "2026-10-11T04:36:49.199918+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_amsi_init_failed_bypass.yml": {
+    "rules_generated": [
+      101815
+    ],
+    "last_processed": "2026-10-11T04:36:49.199920+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_amsi_null_bits_bypass.yml": {
+    "rules_generated": [
+      101816
+    ],
+    "last_processed": "2026-10-11T04:36:49.199922+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_cmdlet_invocation_via_exported_commands_array_index.yml": {
+    "rules_generated": [
+      101834
+    ],
+    "last_processed": "2026-10-11T04:36:49.199924+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_computer_discovery_get_adcomputer.yml": {
+    "rules_generated": [
+      111216
+    ],
+    "last_processed": "2026-10-11T04:36:49.199926+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_decrypt_pattern.yml": {
+    "rules_generated": [
+      101839
+    ],
+    "last_processed": "2026-10-11T04:36:49.199928+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_download_cradle_obfuscated.yml": {
+    "rules_generated": [
+      101848
+    ],
+    "last_processed": "2026-10-11T04:36:49.199930+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_download_iex.yml": {
+    "rules_generated": [
+      101849
+    ],
+    "last_processed": "2026-10-11T04:36:49.199932+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_download_susp_file_sharing_domains.yml": {
+    "rules_generated": [
+      101851
+    ],
+    "last_processed": "2026-10-11T04:36:49.199934+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_iex_patterns.yml": {
+    "rules_generated": [
+      101857
+    ],
+    "last_processed": "2026-10-11T04:36:49.199936+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_invocation_specific.yml": {
+    "rules_generated": [
+      101860
+    ],
+    "last_processed": "2026-10-11T04:36:49.199938+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_kerberos_kerberos_ticket_request_via_cli.yml": {
+    "rules_generated": [
+      109014
+    ],
+    "last_processed": "2026-10-11T04:36:49.199940+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_obfuscation_via_utf8.yml": {
+    "rules_generated": [
+      101867
+    ],
+    "last_processed": "2026-10-11T04:36:49.199941+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_sam_access.yml": {
+    "rules_generated": [
+      109015
+    ],
+    "last_processed": "2026-10-11T04:36:49.199943+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_powershell_user_discovery_get_aduser.yml": {
+    "rules_generated": [
+      111218
+    ],
+    "last_processed": "2026-10-11T04:36:49.199945+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_renamed_binary.yml": {
+    "rules_generated": [
+      101976
+    ],
+    "last_processed": "2026-10-11T04:36:49.199947+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rpcping_credential_capture.yml": {
+    "rules_generated": [
+      109035
+    ],
+    "last_processed": "2026-10-11T04:36:49.199949+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_advpack_obfuscated_ordinal_call.yml": {
+    "rules_generated": [
+      101998
+    ],
+    "last_processed": "2026-10-11T04:36:49.199951+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_obfuscated_ordinal_call.yml": {
+    "rules_generated": [
+      102002
+    ],
+    "last_processed": "2026-10-11T04:36:49.199953+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_registered_com_objects.yml": {
+    "rules_generated": [
+      107601
+    ],
+    "last_processed": "2026-10-11T04:36:49.199955+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_rundll32_unc_path.yml": {
+    "rules_generated": [
+      102017
+    ],
+    "last_processed": "2026-10-11T04:36:49.199957+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_schtasks_guid_task_name.yml": {
+    "rules_generated": [
+      107611
+    ],
+    "last_processed": "2026-10-11T04:36:49.199959+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sqlcmd_veeam_dump.yml": {
+    "rules_generated": [
+      113592
+    ],
+    "last_processed": "2026-10-11T04:36:49.199961+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_cli_obfuscation_escape_char.yml": {
+    "rules_generated": [
+      102044
+    ],
+    "last_processed": "2026-10-11T04:36:49.199963+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_cross_user_process_spawn.yml": {
+    "rules_generated": [
+      107631
+    ],
+    "last_processed": "2026-10-11T04:36:49.199965+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_crypto_mining_monero.yml": {
+    "rules_generated": [
+      114077
+    ],
+    "last_processed": "2026-10-11T04:36:49.199967+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_eventlog_content_recon.yml": {
+    "rules_generated": [
+      109043
+    ],
+    "last_processed": "2026-10-11T04:36:49.199968+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_right_to_left_override.yml": {
+    "rules_generated": [
+      102107
+    ],
+    "last_processed": "2026-10-11T04:36:49.199970+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_system_exe_anomaly.yml": {
+    "rules_generated": [
+      102113
+    ],
+    "last_processed": "2026-10-11T04:36:49.199972+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_susp_web_request_cmd_and_cmdlets.yml": {
+    "rules_generated": [
+      102116
+    ],
+    "last_processed": "2026-10-11T04:36:49.199974+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_procdump.yml": {
+    "rules_generated": [
+      109063
+    ],
+    "last_processed": "2026-10-11T04:36:49.199976+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_psservice.yml": {
+    "rules_generated": [
+      107642
+    ],
+    "last_processed": "2026-10-11T04:36:49.199978+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_pssuspend_execution.yml": {
+    "rules_generated": [
+      107644
+    ],
+    "last_processed": "2026-10-11T04:36:49.199980+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_config_update.yml": {
+    "rules_generated": [
+      102132
+    ],
+    "last_processed": "2026-10-11T04:36:49.199982+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_sysinternals_sysmon_uninstall.yml": {
+    "rules_generated": [
+      102133
+    ],
+    "last_processed": "2026-10-11T04:36:49.199984+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_systemsettingsadminflows_defender_disable.yml": {
+    "rules_generated": [
+      102137
+    ],
+    "last_processed": "2026-10-11T04:36:49.199986+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_uac_bypass_cmstp_com_object_access.yml": {
+    "rules_generated": [
+      102144
+    ],
+    "last_processed": "2026-10-11T04:36:49.199988+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_uac_bypass_icmluautil.yml": {
+    "rules_generated": [
+      107654
+    ],
+    "last_processed": "2026-10-11T04:36:49.199990+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_uac_bypass_idiagnostic_profile.yml": {
+    "rules_generated": [
+      102145
+    ],
+    "last_processed": "2026-10-11T04:36:49.199992+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_uac_bypass_ntfs_reparse_point.yml": {
+    "rules_generated": [
+      107658
+    ],
+    "last_processed": "2026-10-11T04:36:49.199993+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_vscode_tunnel_execution.yml": {
+    "rules_generated": [
+      110378
+    ],
+    "last_processed": "2026-10-11T04:36:49.199995+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_vscode_tunnel_renamed_execution.yml": {
+    "rules_generated": [
+      110382
+    ],
+    "last_processed": "2026-10-11T04:36:49.199997+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_webshell_chopper.yml": {
+    "rules_generated": [
+      105676
+    ],
+    "last_processed": "2026-10-11T04:36:49.199999+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_winrs_local_command_execution.yml": {
+    "rules_generated": [
+      112645
+    ],
+    "last_processed": "2026-10-11T04:36:49.200001+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wlrmdr_uncommon_child_process.yml": {
+    "rules_generated": [
+      102171
+    ],
+    "last_processed": "2026-10-11T04:36:49.200003+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_eventconsumer_creation.yml": {
+    "rules_generated": [
+      107673
+    ],
+    "last_processed": "2026-10-11T04:36:49.200005+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_enumeration.yml": {
+    "rules_generated": [
+      102186
+    ],
+    "last_processed": "2026-10-11T04:36:49.200007+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_stdregprov_reg_modification.yml": {
+    "rules_generated": [
+      102187
+    ],
+    "last_processed": "2026-10-11T04:36:49.200009+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_uninstall_security_products.yml": {
+    "rules_generated": [
+      102192
+    ],
+    "last_processed": "2026-10-11T04:36:49.200011+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wmic_xsl_script_processing.yml": {
+    "rules_generated": [
+      102195
+    ],
+    "last_processed": "2026-10-11T04:36:49.200013+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wsl_binary_hijack_execution.yml": {
+    "rules_generated": [
+      102202
+    ],
+    "last_processed": "2026-10-11T04:36:49.200014+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wsl_installlocation_modification_via_cmdline.yml": {
+    "rules_generated": [
+      105691
+    ],
+    "last_processed": "2026-10-11T04:36:49.200016+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_wsl_masquerading.yml": {
+    "rules_generated": [
+      102208
+    ],
+    "last_processed": "2026-10-11T04:36:49.200018+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/process_creation/proc_creation_win_xbootmgrsleep_uncommon_child_process.yml": {
+    "rules_generated": [
+      102213
+    ],
+    "last_processed": "2026-10-11T04:36:49.200020+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_delete/registry_delete_removal_amsi_registry_key.yml": {
+    "rules_generated": [
+      102217
+    ],
+    "last_processed": "2026-10-11T04:36:49.200022+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_cmstp_execution_by_registry.yml": {
+    "rules_generated": [
+      102221
+    ],
+    "last_processed": "2026-10-11T04:36:49.200024+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_persistence_recycle_bin.yml": {
+    "rules_generated": [
+      107682,
+      107683
+    ],
+    "last_processed": "2026-10-11T04:36:49.200028+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_event/registry_event_shell_open_keys_manipulation.yml": {
+    "rules_generated": [
+      105707,
+      105708,
+      105709
+    ],
+    "last_processed": "2026-10-11T04:36:49.200032+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_amsi_com_hijack.yml": {
+    "rules_generated": [
+      102226
+    ],
+    "last_processed": "2026-10-11T04:36:49.200034+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_classes.yml": {
+    "rules_generated": [
+      107691
+    ],
+    "last_processed": "2026-10-11T04:36:49.200036+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_common.yml": {
+    "rules_generated": [
+      107692
+    ],
+    "last_processed": "2026-10-11T04:36:49.200038+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_asep_reg_keys_modification_wow6432node_classes.yml": {
+    "rules_generated": [
+      107702
+    ],
+    "last_processed": "2026-10-11T04:36:49.200040+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_hhctrl_persistence.yml": {
+    "rules_generated": [
+      105740
+    ],
+    "last_processed": "2026-10-11T04:36:49.200042+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_persistence_comhijack_psfactorybuffer.yml": {
+    "rules_generated": [
+      107723
+    ],
+    "last_processed": "2026-10-11T04:36:49.200044+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_persistence_ifilter.yml": {
+    "rules_generated": [
+      105758
+    ],
+    "last_processed": "2026-10-11T04:36:49.200046+00:00"
+  },
+  "/home/runner/work/EVTX-Wazuh-rules/EVTX-Wazuh-rules/data/sigma_rules/SigmaHQ/rules/windows/registry/registry_set/registry_set_wsl_installlocation_registry_key_modification.yml": {
+    "rules_generated": [
+      105786
+    ],
+    "last_processed": "2026-10-11T04:36:49.200048+00:00"
   }
 }

@@ -84,7 +84,8 @@
       <id>T1059.001</id>
     </mitre>
     <group>execution,sigma_converted,</group>
-  </rule>  <rule id="100091" level="9">
+  </rule>
+  <rule id="100091" level="9">
     <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -272,6 +273,54 @@
     <field name="win.system.eventID">7034</field>
     <field name="win.eventdata.param1">Message Queuing</field>
     <description>Sigma: Important Windows Service Terminated Unexpectedly</description>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101257" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">cmd|&amp;&amp;|clipboard]::</field>
+    <description>Sigma: Invoke-Obfuscation CLIP+ Launcher - System</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101260" level="8">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">:system.io.compression.deflatestream|system.io.streamreader|text.encoding]::ascii|readtoend</field>
+    <description>Sigma: Invoke-Obfuscation COMPRESS OBFUSCATION - System</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101263" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">\(Clipboard|i</field>
+    <description>Sigma: Invoke-Obfuscation Via Use Clip - System</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101266" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">{0}|{1}|{2}|{3}|{4}|{5}|cmd|/c|-f</field>
+    <description>Sigma: Invoke-Obfuscation VAR++ LAUNCHER OBFUSCATION - System</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1059.001</id>
+    </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
   <rule id="104017" level="9">
@@ -5422,7 +5471,8 @@
     <field name="win.eventdata.imagePath">\\rutserv.exe|-service</field>
     <description>Sigma: Remote Utilities Host Service Install</description>
     <group>persistence,sigma_converted,</group>
-  </rule>  <rule id="104563" level="10">
+  </rule>
+  <rule id="104563" level="10">
     <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
     <field name="win.system.eventID">7045</field>
@@ -5472,7 +5522,8 @@
       <id>T1543.003</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
-  </rule>  <rule id="104569" level="10">
+  </rule>
+  <rule id="104569" level="10">
     <if_sid>60002</if_sid>
     <field name="win.eventdata.imagePath"> -c | -r | -k </field>
     <field name="win.eventdata.provider_Name">Service Control Manager</field>
@@ -5480,6 +5531,136 @@
     <description>Sigma: Suspicious Service Installation Script</description>
     <mitre>
       <id>T1543.003</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
+  </rule>
+  <rule id="104943" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104944" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105085" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105086" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105197" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105198" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105263" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105264" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105355" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105356" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105357" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105358" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105421" level="10">
+    <if_sid>60000</if_sid>
+    <field name="win.system.eventID">16403</field>
+    <field name="win.eventdata.remoteName">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|pixeldrain.com|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <description>Sigma: BITS Transfer Job Download From File Sharing Domains</description>
+    <mitre>
+      <id>T1197</id>
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
@@ -5804,7 +5985,32 @@
     </mitre>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
+  <rule id="112609" level="11">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Service Control Manager</field>
+    <field name="win.system.eventID">7045</field>
+    <field name="win.eventdata.imagePath">.bat &amp; del |__output 2^&gt;^&amp;1 &gt;</field>
+    <description>Sigma: smbexec.py Service Installation</description>
+    <mitre>
+      <id>T1021.002</id>
+      <id>T1569.002</id>
+    </mitre>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
   <rule id="113505" level="8">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.provider_Name">Microsoft-Windows-DistributedCOM</field>
+    <field name="win.system.eventID">10001</field>
+    <field name="win.eventdata.param1">C:\\Program Files\\Common Files\\microsoft shared\\ink\\TabTip.exe</field>
+    <field name="win.eventdata.param2">2147943140</field>
+    <field name="win.eventdata.param3">{054AAE20-4BEA-4347-8A35-64A533254A9D}</field>
+    <description>Sigma: Local Privilege Escalation Indicator TabTip</description>
+    <mitre>
+      <id>T1557.001</id>
+    </mitre>
+    <group>collection,sigma_converted,</group>
+  </rule>
+  <rule id="113556" level="8">
     <if_sid>60002</if_sid>
     <field name="win.eventdata.provider_Name">Microsoft-Windows-DistributedCOM</field>
     <field name="win.system.eventID">10001</field>

@@ -110,4 +110,24 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
+  <rule id="110378" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
+    <description>Sigma: Visual Studio Code Tunnel Execution</description>
+    <mitre>
+      <id>T1071.001</id>
+      <id>T1219</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110382" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
+    <description>Sigma: Renamed Visual Studio Code Tunnel Execution</description>
+    <mitre>
+      <id>T1071.001</id>
+      <id>T1219</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
 </group>

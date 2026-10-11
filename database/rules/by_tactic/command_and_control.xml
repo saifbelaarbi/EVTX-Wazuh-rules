@@ -748,7 +748,8 @@
       <id>T1105</id>
     </mitre>
     <group>command_and_control,sigma_converted,</group>
-  </rule>  <rule id="110078" level="10">
+  </rule>
+  <rule id="110078" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">http</field>
     <field name="win.eventdata.image">\\certreq.exe$</field>
@@ -1042,7 +1043,8 @@
       <id>T1564.004</id>
     </mitre>
     <group>command_and_control,sigma_converted,</group>
-  </rule>  <rule id="110109" level="10">
+  </rule>
+  <rule id="110109" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">DownloadFile|url</field>
     <field name="win.eventdata.originalFileName">MpCmdRun.exe</field>
@@ -1831,6 +1833,78 @@
     <description>Sigma: Lolbas OneDriveStandaloneUpdater.exe Proxy Download</description>
     <mitre>
       <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110242" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">.t.me$|0x0.st$|4shared.com$|abuse.ch$|anonfiles.com$|bashupload.com$|cdn.discordapp.com$|chunk.io$|cloudflare.com$|ddns.net$|discord.com$|docs.google.com$|drive.google.com$|dropbox.com$|dropmefiles.com$|facebook.com$|feeds.rapidfeeds.com$|fotolog.com$|ghostbin.co/$|githubusercontent.com$|gofile.io$|hastebin.com$|imgur.com$|livejournal.com$|mediafire.com$|mega.co.nz$|mega.nz$|onedrive.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|reddit.com$|send.exploit.in$|sendspace.com$|steamcommunity.com$|storage.googleapis.com$|technet.microsoft.com$|temp.sh$|transfer.sh$|trycloudflare.com$|twitter.com$|ufile.io$|vimeo.com$|w3spaces.com$|wetransfer.com$|workers.dev$|x0.at$|youtube.com$</field>
+    <description>Sigma: New Connection Initiated To Potential Dead Drop Resolver Domain</description>
+    <mitre>
+      <id>T1102</id>
+      <id>T1102.001</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110253" level="10">
+    <if_sid>61605</if_sid>
+    <field name="win.eventdata.initiated">true</field>
+    <field name="win.eventdata.destinationHostname">.githubusercontent.com$|0x0.st$|anonfiles.com$|bashupload.com$|cdn.discordapp.com$|chunk.io$|ddns.net$|dl.dropboxusercontent.com$|ghostbin.co$|github.com$|glitch.me$|gofile.io$|hastebin.com$|mediafire.com$|mega.co.nz$|mega.nz$|onrender.com$|pages.dev$|paste.ee$|pastebin.com$|pastebin.pl$|pastetext.net$|pixeldrain.com$|privatlab.com$|privatlab.net$|send.exploit.in$|sendspace.com$|storage.googleapis.com$|storjshare.io$|supabase.co$|temp.sh$|transfer.sh$|trycloudflare.com$|ufile.io$|w3spaces.com$|workers.dev$|x0.at$</field>
+    <field name="win.eventdata.image">:\\\$Recycle.bin|:\\Perflogs\\|:\\Temp\\|:\\Users\\Default\\|:\\Users\\Public\\|:\\Windows\\Fonts\\|:\\Windows\\IME\\|:\\Windows\\System32\\Tasks\\|:\\Windows\\Tasks\\|:\\Windows\\Temp\\|\\AppData\\Temp\\|\\config\\systemprofile\\|\\Windows\\addins\\</field>
+    <description>Sigma: Network Communication Initiated To File Sharing Domains From Process Located In Suspicious Folder</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110262" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">[System.Net.HttpWebRequest]|System.Net.Sockets.TcpListener|AcceptTcpClient</field>
+    <description>Sigma: Suspicious TCP Tunnel Via PowerShell Script</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110273" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.githubusercontent.com|0x0.st|anonfiles.com|bashupload.com|cdn.discordapp.com|chunk.io|ddns.net|dl.dropboxusercontent.com|ghostbin.co|github.com|glitch.me|gofile.io|hastebin.com|mediafire.com|mega.nz|onrender.com|pages.dev|paste.ee|pastebin.com|pastebin.pl|pastetext.net|privatlab.com|privatlab.net|send.exploit.in|sendspace.com|storage.googleapis.com|storjshare.io|supabase.co|temp.sh|transfer.sh|trycloudflare.com|ufile.io|w3spaces.com|workers.dev|x0.at</field>
+    <field name="win.eventdata.image">\\certutil.exe$</field>
+    <description>Sigma: Suspicious File Downloaded From File-Sharing Website Via Certutil.EXE</description>
+    <mitre>
+      <id>T1027</id>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110300" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\replace.exe$</field>
+    <field name="win.eventdata.commandLine">[-/–—]a</field>
+    <description>Sigma: Replace.exe Usage</description>
+    <mitre>
+      <id>T1105</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110378" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
+    <description>Sigma: Visual Studio Code Tunnel Execution</description>
+    <mitre>
+      <id>T1071.001</id>
+      <id>T1219</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110382" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">.exe tunnel$</field>
+    <description>Sigma: Renamed Visual Studio Code Tunnel Execution</description>
+    <mitre>
+      <id>T1071.001</id>
+      <id>T1219</id>
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>

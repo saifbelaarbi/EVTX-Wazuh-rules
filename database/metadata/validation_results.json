@@ -10906,7 +10906,16 @@
     "error": "",
     "inconclusive": false
   },
-  "101391": {
+  "101367": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetFilename = ':\\\\Program files\\\\wsl\\\\|:\\\\Program files\\\\WindowsApps\\\\MicrosoftCorporationII.WindowsSubsystemForLinux_' vs ':\\Program files\\wsl\\'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101392": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -10915,7 +10924,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101409": {
+  "101410": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -10924,7 +10933,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101412": {
+  "101413": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -10933,7 +10942,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101421": {
+  "101422": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -10942,7 +10951,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101427": {
+  "101428": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -10951,7 +10960,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101430": {
+  "101431": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -10960,7 +10969,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101439": {
+  "101440": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -10969,7 +10978,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101440": {
+  "101441": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -10978,7 +10987,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101441": {
+  "101442": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -10987,7 +10996,16 @@
     "error": "",
     "inconclusive": false
   },
-  "101448": {
+  "101446": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = 'Get-Module |gmo |ListAvailable|Microsoft.PowerShell.Utility|ExportedCommands|Values' vs 'Get-Module '"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101450": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -10996,7 +11014,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101454": {
+  "101456": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11005,7 +11023,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101467": {
+  "101469": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11014,7 +11032,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101483": {
+  "101485": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11023,7 +11041,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101490": {
+  "101492": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11032,7 +11050,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101492": {
+  "101494": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11041,7 +11059,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101499": {
+  "101501": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11050,7 +11068,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101500": {
+  "101502": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11059,7 +11077,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101505": {
+  "101507": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11068,7 +11086,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101517": {
+  "101519": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11078,7 +11096,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101536": {
+  "101538": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11088,7 +11106,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101553": {
+  "101555": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11098,7 +11116,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101554": {
+  "101556": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11108,7 +11126,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101557": {
+  "101559": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11118,7 +11136,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101561": {
+  "101563": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11127,7 +11145,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101585": {
+  "101587": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11137,7 +11155,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101596": {
+  "101598": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11147,7 +11165,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101608": {
+  "101610": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11156,7 +11174,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101619": {
+  "101621": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11167,7 +11185,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101646": {
+  "101648": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11177,7 +11195,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101657": {
+  "101659": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11186,7 +11204,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101658": {
+  "101660": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11195,7 +11213,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101660": {
+  "101662": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11204,7 +11222,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101678": {
+  "101680": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11213,7 +11231,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101764": {
+  "101766": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11223,7 +11241,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101782": {
+  "101784": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11233,7 +11251,17 @@
     "error": "",
     "inconclusive": false
   },
-  "101813": {
+  "101794": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'http://|https://' vs 'http://'",
+      "  PASS: win.eventdata.image = '\\\\EXCEL.EXE$|\\\\MSOXMLED.EXE$|\\\\POWERPNT.EXE$|\\\\WINWORD.exe$' vs '\\EXCEL.EXE'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101815": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11242,7 +11270,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101814": {
+  "101816": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11251,7 +11279,17 @@
     "error": "",
     "inconclusive": false
   },
-  "101836": {
+  "101834": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'",
+      "  PASS: win.eventdata.commandLine = 'Get-Module |gmo |ListAvailable|Microsoft.PowerShell.Utility|ExportedCommands|Values' vs 'Get-Module '"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "101839": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11262,7 +11300,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101845": {
+  "101848": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11272,7 +11310,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101846": {
+  "101849": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11281,7 +11319,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101848": {
+  "101851": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11291,7 +11329,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101854": {
+  "101857": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11301,7 +11339,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101857": {
+  "101860": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11310,7 +11348,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101864": {
+  "101867": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11319,7 +11357,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101973": {
+  "101976": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11328,7 +11366,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101995": {
+  "101998": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11338,7 +11376,7 @@
     "error": "",
     "inconclusive": false
   },
-  "101999": {
+  "102002": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11348,7 +11386,17 @@
     "error": "",
     "inconclusive": false
   },
-  "102041": {
+  "102017": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = ' \\\\\\\\\\\\\\\\| '\\\\\\\\\\\\\\\\| \"\\\\\\\\\\\\\\\\' vs ' \\\\\\\\'",
+      "  PASS: win.eventdata.image = '\\\\rundll32.exe$' vs '\\rundll32.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102044": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11357,7 +11405,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102104": {
+  "102107": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11366,7 +11414,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102110": {
+  "102113": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11375,7 +11423,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102113": {
+  "102116": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11384,7 +11432,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102129": {
+  "102132": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11394,7 +11442,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102130": {
+  "102133": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11404,7 +11452,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102134": {
+  "102137": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11414,7 +11462,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102141": {
+  "102144": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11425,7 +11473,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102142": {
+  "102145": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11436,7 +11484,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102168": {
+  "102171": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11447,7 +11495,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102183": {
+  "102186": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11457,7 +11505,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102184": {
+  "102187": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11467,7 +11515,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102189": {
+  "102192": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -11476,7 +11524,7 @@
     "error": "",
     "inconclusive": false
   },
-  "102192": {
+  "102195": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11486,7 +11534,35 @@
     "error": "",
     "inconclusive": false
   },
-  "102211": {
+  "102202": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.parentImage = 'C:\\\\Windows\\\\System32\\\\wsl.exe' vs 'C:\\Windows\\System32\\wsl.exe'",
+      "  PASS: win.eventdata.image = '\\\\wsl.exe$' vs '\\wsl.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102208": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\wsl.exe$' vs '\\wsl.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102213": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.parentImage = '\\\\xbootmgrsleep.exe$' vs '\\xbootmgrsleep.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102217": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -11495,7 +11571,16 @@
     "error": "",
     "inconclusive": false
   },
-  "102220": {
+  "102221": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetObject = 'SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\App Paths\\\\cmmgr32.exe\\\\' vs 'SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\cmmgr32.exe\\'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "102226": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -20316,7 +20401,25 @@
     "error": "",
     "inconclusive": false
   },
-  "105630": {
+  "105596": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.imageLoaded = '\\\\offreg.dll$' vs '\\offreg.dll'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105602": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = '.create\\(\"user|.create\\('user' vs '.create(\"user|.create('user'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105632": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -20326,7 +20429,17 @@
     "error": "",
     "inconclusive": false
   },
-  "105673": {
+  "105637": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = '.Create\\(\"user|.Create\\('user' vs '.Create(\"user|.Create('user'",
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105676": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -20336,18 +20449,47 @@
     "error": "",
     "inconclusive": false
   },
-  "105703": {
+  "105691": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'InstallLocation' vs 'InstallLocation'",
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$|\\\\reg.exe$' vs '\\powershell.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105707": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.eventType = 'SetValue' vs 'SetValue'",
-      "  PASS: win.eventdata.targetObject = 'Classes\\\\ms-settings\\\\shell\\\\open\\\\command\\\\\\(Default\\)$|Classes\\\\exefile\\\\shell\\\\open\\\\command\\\\\\(Default\\)$' vs 'Classes\\ms-settings\\shell\\open\\command\\(Default)'",
+      "  PASS: win.eventdata.targetObject = 'Classes\\\\ms-settings\\\\shell\\\\open\\\\command\\\\SymbolicLinkValue$' vs 'Classes\\ms-settings\\shell\\open\\command\\SymbolicLinkValue'",
       "  PASS: win.eventdata.details = '\\\\Software\\\\Classes\\\\{' vs '\\Software\\Classes\\{'"
     ],
     "error": "",
     "inconclusive": false
   },
-  "105734": {
+  "105708": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetObject = 'Classes\\\\ms-settings\\\\shell\\\\open\\\\command\\\\DelegateExecute$' vs 'Classes\\ms-settings\\shell\\open\\command\\DelegateExecute'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105709": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.eventType = 'SetValue' vs 'SetValue'",
+      "  PASS: win.eventdata.targetObject = 'Classes\\\\ms-settings\\\\shell\\\\open\\\\command\\\\\\(Default\\)$|Classes\\\\exefile\\\\shell\\\\open\\\\command\\\\\\(Default\\)$' vs 'Classes\\ms-settings\\shell\\open\\command\\(Default)'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105740": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -20356,11 +20498,20 @@
     "error": "",
     "inconclusive": false
   },
-  "105752": {
+  "105758": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
       "  PASS: win.eventdata.targetObject = '\\\\SOFTWARE\\\\Classes\\\\CLSID|\\\\PersistentAddinsRegistered\\\\{89BCB740-6119-101A-BCB7-00DD010655AF}' vs '\\SOFTWARE\\Classes\\CLSID'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "105786": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetObject = '\\\\Lxss\\\\MSI\\\\InstallLocation' vs '\\Lxss\\MSI\\InstallLocation'"
     ],
     "error": "",
     "inconclusive": false
@@ -23834,7 +23985,17 @@
     "error": "",
     "inconclusive": false
   },
-  "107426": {
+  "107404": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4648' vs '4648'",
+      "  PASS: win.eventdata.targetServerName = 'localhost' vs 'localhost'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107427": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23845,7 +24006,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107440": {
+  "107441": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23855,7 +24016,16 @@
     "error": "",
     "inconclusive": false
   },
-  "107510": {
+  "107445": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.targetFilename = '\\\\UsrClass.dat$|\\\\NTUSER.DAT$' vs '\\UsrClass.dat'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107512": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23866,7 +24036,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107599": {
+  "107601": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23876,7 +24046,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107609": {
+  "107611": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23886,7 +24056,16 @@
     "error": "",
     "inconclusive": false
   },
-  "107639": {
+  "107631": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.image = '\\\\notepad.exe$|\\\\calc.exe$|\\\\mspaint.exe$|\\\\wordpad.exe$|\\\\write.exe$' vs '\\notepad.exe'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "107642": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23895,7 +24074,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107641": {
+  "107644": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23904,7 +24083,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107651": {
+  "107654": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -23914,7 +24093,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107655": {
+  "107658": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23926,7 +24105,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107670": {
+  "107673": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23936,7 +24115,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107679": {
+  "107682": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -23946,7 +24125,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107680": {
+  "107683": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -23956,7 +24135,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107688": {
+  "107691": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23965,7 +24144,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107689": {
+  "107692": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23974,7 +24153,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107699": {
+  "107702": {
     "passed": true,
     "mode": "simulate_synthetic",
     "details": [
@@ -23983,7 +24162,7 @@
     "error": "",
     "inconclusive": false
   },
-  "107720": {
+  "107723": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
@@ -26827,6 +27006,27 @@
     "error": "",
     "inconclusive": false
   },
+  "108825": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4662' vs '4662'",
+      "  PASS: win.eventdata.properties = '1131f6ad-9c07-11d1-f79f-00c04fc2dcd2|1131f6aa-9c07-11d1-f79f-00c04fc2dcd2|9923a32a-3607-11d2-b9be-0000f87a36b2|89e95b76-444d-4c62-991a-0facbeda640c' vs '1131f6ad-9c07-11d1-f79f-00c04fc2dcd2'",
+      "  PASS: win.eventdata.subjectUserName = '\\$$' vs '$'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108826": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.system.eventID = '4662' vs '4662'",
+      "  PASS: win.eventdata.properties = '1131f6ad-9c07-11d1-f79f-00c04fc2dcd2|1131f6aa-9c07-11d1-f79f-00c04fc2dcd2|9923a32a-3607-11d2-b9be-0000f87a36b2|89e95b76-444d-4c62-991a-0facbeda640c' vs '1131f6ad-9c07-11d1-f79f-00c04fc2dcd2'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "108848": {
     "passed": true,
     "mode": "simulate_synthetic",
@@ -26857,6 +27057,15 @@
     "error": "",
     "inconclusive": false
   },
+  "108915": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.scriptBlockText = 'System.IdentityModel.Tokens.KerberosRequestorSecurityToken' vs 'System.IdentityModel.Tokens.KerberosRequestorSecurityToken'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "108918": {
     "passed": false,
     "mode": "simulate_synthetic",
@@ -26877,11 +27086,39 @@
     "error": "",
     "inconclusive": false
   },
+  "108956": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.hashes = 'IMPHASH=09D278F9DE118EF09163C6140255C690' vs 'IMPHASH=09D278F9DE118EF09163C6140255C690'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "108957": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'Dumpert.dll|Dumpert.exe' vs 'Dumpert.dll'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "108965": {
     "passed": false,
     "mode": "simulate_synthetic",
     "details": [
       "  FAIL: win.eventdata.commandLine = '^USER^|^PASS^|-p ' vs 'USER^'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
+  "109014": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.commandLine = 'System.IdentityModel.Tokens.KerberosRequestorSecurityToken' vs 'System.IdentityModel.Tokens.KerberosRequestorSecurityToken'",
+      "  PASS: win.eventdata.image = '\\\\powershell.exe$|\\\\pwsh.exe$' vs '\\powershell.exe'"
     ],
     "error": "",
     "inconclusive": false
@@ -32525,6 +32762,15 @@
     "error": "",
     "inconclusive": false
   },
+  "114056": {
+    "passed": true,
+    "mode": "simulate_synthetic",
+    "details": [
+      "  PASS: win.eventdata.destinationHostname = 'aeon-pool.com|alimabi.cn|ap.luckpool.net|api.fastpool.xyz|auto.c3pool.org|awgoaigartnj-xmr.com|backup.fastpool.xyz|bcn.pool.minergate.com|bcn.vip.pool.minergate.com|bizxmr.cc|bmpool.org|bohemianpool.com|byw.dscloud.me|c3.wptask.cyou|c3pool.org|ca-aipg.miningocean.org|ca-dynex.miningocean.org|ca-neurai.miningocean.org|ca-qrl.miningocean.org|ca-upx.miningocean.org|ca-zephyr.miningocean.org|ca.minexmr.com|ca.monero.herominers.com|cbd.monerpool.org|cbdv2.monerpool.org|community-pools.mysrv.cloud|covid19crypto.com|cryptmonero.com|crypto-pool.fr|crypto-pool.info|cryptominded.com|cryptonight-hub.miningpoolhub.com|d1pool.ddns.net|d5pool.us|daili01.monerpool.org|de-aipg.miningocean.org|de-dynex.miningocean.org|de-zephyr.miningocean.org|de.minexmr.com|de.moneroocean.stream|de.salvium.herominers.com|de.zephyr.herominers.com|dl.nbminer.com|donate.graef.in|donate.ssl.xmrig.com|donate.v2.xmrig.com|donate.xmrig.com|donate2.graef.in|drill.moneroworld.com|dwarfpool.com|emercoin.com|emercoin.net|emergate.net|ethereumpool.co|eu.luckpool.net|eu.minerpool.pw|f2pool.com|fastpool.xyz|fcn-xmr.pool.minergate.com|fee.xmrig.com|fi.moneroocean.stream|fr-aipg.miningocean.org|fr-dynex.miningocean.org|fr-neurai.miningocean.org|fr-qrl.miningocean.org|fr-tarirx.luckypool.io|fr-upx.miningocean.org|fr-zephyr.miningocean.org|fr.minexmr.com|fr.moneroocean.stream|friendspool.club|ftp.fastpool.xyz|gandalph3000.com|googleminer.com|grin.2miners.com|gulf.moneroocean.stream|hellominer.com|herominers.com|hk-aipg.miningocean.org|hk-dynex.miningocean.org|hk-neurai.miningocean.org|hk-qrl.miningocean.org|hk-upx.miningocean.org|hk-zephyr.miningocean.org|hns.f2pool.com|huadong1-aeon.ppxxmr.com|imap.fastpool.xyz|iwanttoearn.money|joulecoin.org|jp.moneroocean.stream|jw-js1.ppxxmr.com|koto-pool.work|kronecoin.org|kryptex.network|kubo.ultra-pool.com|lhr.nbminer.com|lhr3.nbminer.com|linux.monerpool.org|litecoinpool.org|lokiturtle.herominers.com|luckpool.net|luckypool.io|mail.fastpool.xyz|masari.miner.rocks|mine.aeon-pool.com|mine.bmpool.org|mine.c3pool.com|mine.fastpool.xyz|mine.lesliejust.is|mine.moneropool.com|mine.ppxxmr.com|mine.zpool.ca|mine1.ppxxmr.com|minemonero.gq|miner.ppxxmr.com|miner.rocks|minercircle.com|minergate.com|minerpool.pw|minerrocks.com|miners.pro|minerxmr.ru|minexmr.cn|minexmr.com|mining-help.ru|mining.bittubeapp.com|miningocean.org|miningpoolhub.com|miningrigrentals.com|mixpools.org|moner.monerpool.org|moner1min.monerpool.org|monero-master.crypto-pool.fr|monero.crypto-pool.fr|monero.hashvault.pro|monero.herominers.com|monero.lindon-pool.win|monero.miners.pro|monero.riefly.id|monero.us.to|monerocean.stream|monerogb.com|monerohash.com|moneroocean.stream|monerooceans.stream|moneropool.com|moneropool.nl|monerorx.com|monerpool.org|moriaxmr.com|mro.pool.minergate.com|multipool.us|myxmr.pw|na.luckpool.net|nanopool.org|nbminer.com|node.btx.tools|node3.luckpool.net|noobxmr.com|p06.2miners.com|pangolinminer.com|pool-de.supportxmr.com|pool-fr.supportxmr.com|pool-nyc.supportxmr.com|pool-phx.supportxmr.com|pool.4i7i.com|pool.armornetwork.org|pool.awgoaigartnj-xmr.com|pool.cortins.tk|pool.gntl.co.uk|pool.hashvault.pro|pool.minergate.com|pool.minexmr.com|pool.minexmr.uk|pool.monero.hashvault.pro|pool.ppxxmr.com|pool.somec.cc|pool.support|pool.supportxmr.com|pool.usa-138.com|pool.xmr.pt|pool.xmrfast.com|pool2.armornetwork.org|poolchange.ppxxmr.com|pooldd.com|poolmining.org|poolto.be|pop.fastpool.xyz|ppxvip1.ppxxmr.com|ppxxmr.com|prohash.net|r.twotouchauthentication.online|randomx.xmrig.com|ratchetmining.com|rx.unmineable.com|salvium.herominers.com|seed.emercoin.com|seed.emercoin.net|seed.emergate.net|seed.kronecoin.org|seed.titcoinpool.com|seed.titcoins.info|seed1.joulecoin.org|seed2.joulecoin.org|seed3.joulecoin.org|seed4.joulecoin.org|seed5.joulecoin.org|seed6.joulecoin.org|seed7.joulecoin.org|seed8.joulecoin.org|sg-aipg.miningocean.org|sg-dynex.miningocean.org|sg-neurai.miningocean.org|sg-qrl.miningocean.org|sg-upx.miningocean.org|sg-zephyr.miningocean.org|sg.minexmr.com|sheepman.mine.bz|siamining.com|smtp.fastpool.xyz|solarray.club|solo-grin.2miners.com|solo-grin.2miners.ru|solo-xmr.2miners.com|solo-xmr.2miners.ru|soloxmr2min.dyndns.org|sparechange.io|ssl.fastpool.xyz|sumokoin.minerrocks.com|supportxmr.com|suprnova.cc|system-check.services|system-update.info|teracycle.net|titcoinpool.com|titcoins.info|tpool.yiluzhuanqian.com|trtl.cnpool.cc|trtl.pool.mine2gether.com|turtle.miner.rocks|ultra-pool.com|unmineable.com|us-aipg.miningocean.org|us-dynex.miningocean.org|us-grin.2miners.com|us-neurai.miningocean.org|us-west.minexmr.com|us-zephyr.miningocean.org|usxmrpool.com|viaxmr.com|web.xmrpool.eu|webservicepag.webhop.net|winxmr.club|x109.node.btx.tools|xcn1.yiluzhuanqian.com|xiazai.monerpool.org|xiazai1.monerpool.org|xmc.pool.minergate.com|xmo.pool.minergate.com|xmr-asia1.nanopool.org|xmr-au1.nanopool.org|xmr-eu1.nanopool.org|xmr-eu2.nanopool.org|xmr-jp1.nanopool.org|xmr-us-east1.nanopool.org|xmr-us-west1.nanopool.org|xmr-us.suprnova.cc|xmr-usa.dwarfpool.com|xmr.2miners.com|xmr.5b6b7b.ru|xmr.748pz.net|xmr.alimabi.cn|xmr.bepooh.com|xmr.bohemianpool.com|xmr.crypto-pool.fr|xmr.crypto-pool.info|xmr.f2pool.com|xmr.hashcity.org|xmr.hex7e4.ru|xmr.ip28.net|xmr.kryptex.network|xmr.monerpool.org|xmr.mypool.online|xmr.nanopool.org|xmr.pool.gntl.co.uk|xmr.pool.minergate.com|xmr.poolto.be|xmr.ppxxmr.com|xmr.prohash.net|xmr.simka.pw|xmr.somec.cc|xmr.suprnova.cc|xmr.usa-138.com|xmr.vip.pool.minergate.com|xmr.yiluzhuanqian.com|xmr1min.monerpool.org|xmrf.520fjh.org|xmrf.fjhan.club|xmrfast.com|xmrigcc.graef.in|xmrminer.cc|xmrpool.de|xmrpool.eu|xmrpool.me|xmrpool.net|xmrpool.xyz|xx11m.monerpool.org|xx11mv2.monerpool.org|xxx.hex7e4.ru|yes.fastpool.xyz|zarabotaibitok.ru|zeph-eu2.nanopool.org|zeph.2miners.com|zephyr.herominers.com|zer0day.ru' vs 'aeon-pool.com'"
+    ],
+    "error": "",
+    "inconclusive": false
+  },
   "114077": {
     "passed": true,
     "mode": "simulate_synthetic",
@@ -32900,34 +33146,6 @@
     "inconclusive": true
   },
   "115003": {
-    "passed": false,
-    "mode": "simulate",
-    "details": [],
-    "error": "No sample event could be resolved",
-    "inconclusive": true
-  },
-  "115004": {
-    "passed": false,
-    "mode": "simulate",
-    "details": [],
-    "error": "No sample event could be resolved",
-    "inconclusive": true
-  },
-  "115005": {
-    "passed": false,
-    "mode": "simulate",
-    "details": [],
-    "error": "No sample event could be resolved",
-    "inconclusive": true
-  },
-  "115006": {
-    "passed": false,
-    "mode": "simulate",
-    "details": [],
-    "error": "No sample event could be resolved",
-    "inconclusive": true
-  },
-  "115007": {
     "passed": false,
     "mode": "simulate",
     "details": [],

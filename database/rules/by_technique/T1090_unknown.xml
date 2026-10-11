@@ -136,6 +136,15 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
+  <rule id="110262" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">[System.Net.HttpWebRequest]|System.Net.Sockets.TcpListener|AcceptTcpClient</field>
+    <description>Sigma: Suspicious TCP Tunnel Via PowerShell Script</description>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
   <rule id="112563" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\\netsh.exe$</field>

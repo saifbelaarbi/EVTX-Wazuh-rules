@@ -5652,6 +5652,126 @@
     </mitre>
     <group>persistence,sigma_converted,</group>
   </rule>
+  <rule id="104943" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104944" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105085" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105086" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105197" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105198" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105263" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105264" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105355" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105356" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105357" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
+    <field name="win.eventdata.imagePath">cmd.exe /c</field>
+    <description>Service installed with suspicious path pattern: cmd.exe /c</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105358" level="9">
+    <if_sid>60002</if_sid>
+    <field name="win.eventdata.serviceName">IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy</field>
+    <field name="win.eventdata.imagePath">powershell</field>
+    <description>Service installed with suspicious path pattern: powershell</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
   <rule id="107028" level="10">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4697</field>
@@ -5745,6 +5865,24 @@
   <rule id="107277" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.image">\\pssuspend.exe$|\\pssuspend64.exe$</field>
+    <description>Sigma: Sysinternals PsSuspend Execution</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107642" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\PsService.exe$|\\PsService64.exe$|\\PsService64a.exe$</field>
+    <description>Sigma: Sysinternals PsService Execution</description>
+    <mitre>
+      <id>T1543.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107644" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\pssuspend.exe$|\\pssuspend64.exe$|\\pssuspend64a.exe$</field>
     <description>Sigma: Sysinternals PsSuspend Execution</description>
     <mitre>
       <id>T1543.003</id>

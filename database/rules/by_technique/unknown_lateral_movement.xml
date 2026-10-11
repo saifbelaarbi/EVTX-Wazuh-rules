@@ -19,4 +19,11 @@
     <description>Sigma: Mstsc.EXE Execution From Uncommon Parent</description>
     <group>lateral_movement,sigma_converted,</group>
   </rule>
+  <rule id="112618" level="11">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.contextInfo">:\\Windows\\System32\\wsmprovhost.exe|:\\Windows\\SysWOW64\\wsmprovhost.exe</field>
+    <field name="win.eventdata.payload">value="\(get-location\).path|value="\(get-item\.*\).length|Invoke-Binary |Donut-Loader -process_id\.*-donutfile|Bypass-4MSI|IEX \([System.Text.Encoding]::ASCII.GetString\([System.Convert]::FromBase64String\(\$a\)\)\).replace\('\.\.\.',''\)</field>
+    <description>Sigma: HackTool - Evil-WinRm Execution - PowerShell Module</description>
+    <group>lateral_movement,sigma_converted,</group>
+  </rule>
 </group>

@@ -53,6 +53,37 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101367" level="8">
+    <if_sid>61613</if_sid>
+    <field name="win.eventdata.targetFilename">:\\Program files\\wsl\\|:\\Program files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_</field>
+    <description>Sigma: Potential WSL Binary Modification from Installed Location</description>
+    <mitre>
+      <id>T1036.005</id>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102202" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">C:\\Windows\\System32\\wsl.exe</field>
+    <field name="win.eventdata.image">\\wsl.exe$</field>
+    <description>Sigma: Suspicious WSL Binary Hijack via Proxy Execution</description>
+    <mitre>
+      <id>T1036.005</id>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102208" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\wsl.exe$</field>
+    <description>Sigma: Suspicious WSL Binary Masquerading</description>
+    <mitre>
+      <id>T1036.005</id>
+      <id>T1218</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="107253" level="10">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">/xml|-xml</field>
