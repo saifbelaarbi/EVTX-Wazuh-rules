@@ -197,6 +197,55 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101300" level="9">
+    <if_sid>61625</if_sid>
+    <field name="win.eventdata.targetFilename">\\Logging\\CmdletInfra\\LocalPowerShell\\Cmdlet\\|_Cmdlet_</field>
+    <description>Sigma: Exchange PowerShell Cmdlet History Deleted</description>
+    <mitre>
+      <id>T1070</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101451" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Set-EtwTraceProvider | 17</field>
+    <description>Sigma: Disable of ETW Trace - Powershell</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101452" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Set-EtwTraceProvider |“'17'”</field>
+    <description>Sigma: Disable of ETW Trace - Powershell</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="101453" level="9">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Set-EtwTraceProvider |”17”</field>
+    <description>Sigma: Disable of ETW Trace - Powershell</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102079" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.image">\\wevtutil.exe$</field>
+    <description>Sigma: ETW Trace Evasion Activity</description>
+    <mitre>
+      <id>T1070</id>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="104675" level="9">
     <if_sid>61603</if_sid>
     <field name="win.eventdata.commandLine">delete|deletevalue|import|safeboot|network</field>

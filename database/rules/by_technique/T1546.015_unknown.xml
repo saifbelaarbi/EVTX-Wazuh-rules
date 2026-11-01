@@ -82,4 +82,23 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
+  <rule id="107601" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">-sta |-localserver |{|}</field>
+    <field name="win.eventdata.image">\\rundll32.exe$</field>
+    <description>Sigma: Rundll32 Registered COM Objects</description>
+    <mitre>
+      <id>T1546.015</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107723" level="11">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\CLSID\\{c90250f3-4d7d-4991-9b69-a5c5bc1c2ae6}\\InProcServer32\\\(Default\)$</field>
+    <description>Sigma: Potential PSFactoryBuffer COM Hijacking</description>
+    <mitre>
+      <id>T1546.015</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
 </group>
