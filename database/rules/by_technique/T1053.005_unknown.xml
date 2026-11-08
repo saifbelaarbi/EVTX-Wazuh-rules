@@ -51,6 +51,17 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="101225" level="9">
+    <if_sid>60100</if_sid>
+    <field name="win.system.eventID">4698|4702</field>
+    <field name="win.eventdata.taskName">\\defendnot</field>
+    <description>Sigma: HackTool - Defendnot Default Scheduled Task Activity</description>
+    <mitre>
+      <id>T1053.005</id>
+      <id>T1685</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
   <rule id="104009" level="9">
     <if_sid>60100</if_sid>
     <field name="win.system.eventID">4698</field>
@@ -59,6 +70,26 @@
       <id>T1053.005</id>
     </mitre>
     <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="104898" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">schtasks /create</field>
+    <description>Suspicious command-line pattern 'schtasks /create' detected</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>persistence,evtx_generated,</group>
+  </rule>
+  <rule id="105553" level="9">
+    <if_sid>61609</if_sid>
+    <field name="win.eventdata.imageLoaded">\\taskschd.dll$</field>
+    <field name="win.eventdata.image">\\eqnedt32.exe$|\\excel.exe$|\\fltldr.exe$|\\graph.exe$|\\msaccess.exe$|\\mspub.exe$|\\onenote.exe$|\\onenoteim.exe$|\\onenotem.exe$|\\outlook.exe$|\\powerpnt.exe$|\\visio.exe$|\\winproj.exe$|\\winword.exe$</field>
+    <description>Sigma: Microsoft Office Application Loading Task Scheduler DLL</description>
+    <mitre>
+      <id>T1053.005</id>
+      <id>T1204.002</id>
+    </mitre>
+    <group>persistence,sigma_converted,</group>
   </rule>
   <rule id="107021" level="11">
     <if_sid>60100</if_sid>
@@ -306,6 +337,16 @@
     <field name="win.eventdata.targetObject">\\Command$</field>
     <field name="win.eventdata.details">.bat|.bin|.cmd|.dat|.dll|.exe|.hta|.jar|.js|.msi|.ps|.sh|.vb</field>
     <description>Sigma: Potential Registry Persistence Attempt Via Windows Telemetry</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107611" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">/TN "{|/TN '{|/TN {</field>
+    <field name="win.eventdata.image">\\schtasks.exe$</field>
+    <description>Sigma: Suspicious Scheduled Task Name As GUID</description>
     <mitre>
       <id>T1053.005</id>
     </mitre>

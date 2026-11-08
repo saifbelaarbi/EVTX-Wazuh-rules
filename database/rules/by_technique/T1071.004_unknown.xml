@@ -57,4 +57,25 @@
     </mitre>
     <group>command_and_control,sigma_converted,</group>
   </rule>
+  <rule id="110222" level="9">
+    <if_sid>61624</if_sid>
+    <field name="win.eventdata.queryName">.1u.ms$|.backname.io$|.nip.io$|.sslip.io$|.traefik.me$|.xip.io$</field>
+    <description>Sigma: DNS Query to Wildcard DNS Services - Windows</description>
+    <mitre>
+      <id>T1071.004</id>
+      <id>T1568</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
+  <rule id="110305" level="9">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage">\\powershell.exe$|\\pwsh.exe$</field>
+    <field name="win.eventdata.commandLine"> -q=txt | -querytype=txt | -type=txt</field>
+    <field name="win.eventdata.image">\\nslookup.exe$</field>
+    <description>Sigma: Nslookup PowerShell Download Cradle - ProcessCreation</description>
+    <mitre>
+      <id>T1071.004</id>
+    </mitre>
+    <group>command_and_control,sigma_converted,</group>
+  </rule>
 </group>

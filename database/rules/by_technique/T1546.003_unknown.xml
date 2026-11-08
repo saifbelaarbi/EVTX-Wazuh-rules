@@ -174,6 +174,16 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
+  <rule id="107673" level="11">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">ActiveScriptEventConsumer| CREATE </field>
+    <field name="win.eventdata.originalFileName">wmic.exe</field>
+    <description>Sigma: NewActiveScriptEventConsumer Creation Attempt via Wmic.EXE</description>
+    <mitre>
+      <id>T1546.003</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
   <rule id="112542" level="10">
     <if_sid>61609</if_sid>
     <field name="win.eventdata.image">\\scrcons.exe$</field>

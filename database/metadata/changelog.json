@@ -20110,5 +20110,1325 @@
     "rule_id": "101167",
     "action": "add",
     "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "104898",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "108795",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "108796",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "108801",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "108803",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "108804",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "108805",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "108810",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "108811",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "104943",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "104944",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105085",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105086",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105197",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105198",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105263",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105264",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105355",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105356",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105357",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:48.951003+00:00",
+    "rule_id": "105358",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105418",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101200",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105421",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108823",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108825",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108826",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107403",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101223",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101224",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107404",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101225",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101227",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101230",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101232",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101233",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101236",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108831",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108842",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105447",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105448",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108848",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "113556",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "112609",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101256",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101259",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101262",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101265",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101287",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107427",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108856",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101291",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101292",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101293",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "110222",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101300",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107441",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101350",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101351",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107445",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101355",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101364",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105553",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105567",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105568",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105582",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105597",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101389",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "114056",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "110243",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "110254",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101407",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101410",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "112618",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101419",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101425",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101428",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105603",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101437",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101438",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101439",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101443",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "111162",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101447",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108901",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101451",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101452",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101453",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101455",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101456",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101458",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101471",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108915",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "114554",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101487",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "113566",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101494",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "110263",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101496",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101503",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "111170",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108918",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101504",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101509",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101521",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108924",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107512",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101540",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101557",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "110274",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101558",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101561",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101565",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101589",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101600",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101612",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "111179",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "111180",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101623",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101650",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101651",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101652",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101653",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108956",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108957",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105630",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105631",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108965",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "108967",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101664",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101665",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101667",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "113577",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101685",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105635",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "110301",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101768",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101771",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101789",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "110305",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101798",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105640",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101819",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101820",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101838",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "111215",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101843",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101852",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101853",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101855",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101861",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101864",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "109014",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101871",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "109015",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "111217",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105653",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "101980",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "109035",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102002",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102006",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107601",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102021",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107611",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "113592",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102048",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107631",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "114077",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102079",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "109043",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102105",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102111",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102114",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "109063",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107642",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107644",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102130",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102131",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102135",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102142",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107654",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102143",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107658",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "110380",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "110384",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105680",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "112645",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102169",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107673",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102184",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102185",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102190",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102193",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102200",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105695",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102206",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102211",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102215",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102219",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107680",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107682",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107683",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105711",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105712",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105713",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102224",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102225",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107691",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107692",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107702",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102232",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105729",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105730",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105731",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102244",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105745",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "107723",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105763",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "102276",
+    "action": "add",
+    "version": 1
+  },
+  {
+    "timestamp": "2026-11-08T04:58:50.603454+00:00",
+    "rule_id": "105790",
+    "action": "add",
+    "version": 1
   }
 ]
