@@ -331,4 +331,31 @@
     </mitre>
     <group>privilege_escalation,sigma_converted,</group>
   </rule>
+  <rule id="107691" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\Shellex\\ColumnHandlers|\\Filter|\\Exefile\\Shell\\Open\\Command\\\(Default\)|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\Classes\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\.exe|\\.cmd|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <description>Sigma: Classes Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107692" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows CE Services\\AutoStart|\\Software\\Wow6432Node\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Wow6432Node\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnDisconnect|\\SOFTWARE\\Microsoft\\Windows CE Services\\AutoStartOnConnect|\\SYSTEM\\Setup\\CmdLine|\\Software\\Microsoft\\Ctf\\LangBarAddin|\\Software\\Microsoft\\Command Processor\\Autorun|\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components|\\SOFTWARE\\Classes\\Protocols\\Handler|\\SOFTWARE\\Classes\\Protocols\\Filter|\\SOFTWARE\\Classes\\Htmlfile\\Shell\\Open\\Command\\\(Default\)|\\Environment\\UserInitMprLogonScript|\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop\\Scrnsave.exe|\\Software\\Microsoft\\Internet Explorer\\UrlSearchHooks|\\SOFTWARE\\Microsoft\\Internet Explorer\\Desktop\\Components|\\Software\\Classes\\Clsid\\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\\Inprocserver32|\\Control Panel\\Desktop\\Scrnsave.exe</field>
+    <description>Sigma: Common Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
+  <rule id="107702" level="10">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Folder\\ShellEx\\ExtShellFolderViews|\\Folder\\ShellEx\\DragDropHandlers|\\Folder\\ShellEx\\ColumnHandlers|\\Directory\\Shellex\\DragDropHandlers|\\Directory\\Shellex\\CopyHookHandlers|\\CLSID\\{AC757296-3522-4E11-9862-C17BE5A1767E}\\Instance|\\CLSID\\{ABE3B9A4-257D-4B97-BD1A-294AF496222E}\\Instance|\\CLSID\\{7ED96837-96F0-4812-B211-F13C24117ED3}\\Instance|\\CLSID\\{083863F1-70DE-11d0-BD40-00A0C911CE86}\\Instance|\\AllFileSystemObjects\\ShellEx\\DragDropHandlers|\\ShellEx\\PropertySheetHandlers|\\ShellEx\\ContextMenuHandlers</field>
+    <description>Sigma: Wow6432Node Classes Autorun Keys Modification</description>
+    <mitre>
+      <id>T1547.001</id>
+    </mitre>
+    <group>privilege_escalation,sigma_converted,</group>
+  </rule>
 </group>

@@ -136,4 +136,24 @@
     </mitre>
     <group>execution,sigma_converted,</group>
   </rule>
+  <rule id="102224" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\DoNotAllowExceptions$</field>
+    <field name="win.eventdata.details">DWORD \(0x00000000\)</field>
+    <description>Sigma: Allow Exceptions in Microsoft Defender Firewall via Registry</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
+  <rule id="102232" level="8">
+    <if_sid>61615</if_sid>
+    <field name="win.eventdata.targetObject">\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\|\\AuthorizedApplications\\List</field>
+    <field name="win.eventdata.details">:Enabled:</field>
+    <description>Sigma: Add Authorized Applications to Microsoft Defender Firewall via Registry</description>
+    <mitre>
+      <id>T1686.003</id>
+    </mitre>
+    <group>execution,sigma_converted,</group>
+  </rule>
 </group>

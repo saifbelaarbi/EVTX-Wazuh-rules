@@ -6761,5 +6761,234 @@
     "event_data": {
       "Image": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe"
     }
+  },
+  "104898": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2020-10-23 21:57:36.399534+00:00",
+    "event_data": {
+      "CommandLine": "\"C:\\Windows\\System32\\cmd.exe\"  /C schtasks /Create /f /XML C:\\Users\\IEUser\\AppData\\Local\\Temp\\sduchxll.tmp /TN DataUsageHandlers"
+    }
+  },
+  "108795": {
+    "event_id": 10,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-19 15:11:16.487989+00:00",
+    "event_data": {
+      "TargetImage": "C:\\Windows\\system32\\lsass.exe",
+      "GrantedAccess": "0x00001010"
+    }
+  },
+  "108796": {
+    "event_id": 1,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2019-07-19 15:11:16.986675+00:00",
+    "event_data": {
+      "CommandLine": "\"C:\\Windows\\system32\\cmd.exe\" /c \"gsecdump -a\""
+    }
+  },
+  "108801": {
+    "event_id": 10,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "IEWIN7",
+    "timestamp": "2019-04-30 12:43:43.784178+00:00",
+    "event_data": {
+      "TargetImage": "C:\\Windows\\system32\\lsass.exe",
+      "GrantedAccess": "0x001f1fff"
+    }
+  },
+  "108803": {
+    "event_id": 10,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2021-04-22 22:09:25.417738+00:00",
+    "event_data": {
+      "TargetImage": "C:\\Windows\\system32\\lsass.exe",
+      "GrantedAccess": "0x00001000"
+    }
+  },
+  "108804": {
+    "event_id": 10,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2021-04-22 22:09:26.163584+00:00",
+    "event_data": {
+      "TargetImage": "C:\\Windows\\system32\\lsass.exe",
+      "GrantedAccess": "0x00001410"
+    }
+  },
+  "108805": {
+    "event_id": 10,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "MSEDGEWIN10",
+    "timestamp": "2021-04-22 22:09:26.163885+00:00",
+    "event_data": {
+      "TargetImage": "C:\\Windows\\system32\\lsass.exe",
+      "GrantedAccess": "0x001fffff"
+    }
+  },
+  "108810": {
+    "event_id": 10,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "IEWIN7",
+    "timestamp": "2019-05-02 14:50:17.955524+00:00",
+    "event_data": {
+      "TargetImage": "C:\\Windows\\system32\\lsass.exe",
+      "GrantedAccess": "0x0000143a"
+    }
+  },
+  "108811": {
+    "event_id": 10,
+    "channel": "Microsoft-Windows-Sysmon/Operational",
+    "provider_name": "Microsoft-Windows-Sysmon",
+    "computer": "IEWIN7",
+    "timestamp": "2019-05-11 18:10:42.637533+00:00",
+    "event_data": {
+      "TargetImage": "C:\\Windows\\system32\\lsass.exe",
+      "GrantedAccess": "0x00101ffb"
+    }
+  },
+  "104943": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:15:35.365023+00:00",
+    "event_data": {
+      "ServiceName": "dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg15\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "104944": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:15:35.365023+00:00",
+    "event_data": {
+      "ServiceName": "dGVkIChTZWN1cml0eSwgQXBwbGljYXRpb24sIFN5c3RlbSkNCiNAcGFyYW0gJFJlbW90ZUNvbXB1dGVyIC0+ICBUaGUgdmFsdWUgdG8gdGVsbCBpZiB0aGUgY29tcHV0ZXIgaXMgcmVtb3RlIG9yIG",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg15\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105085": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:17:18.961132+00:00",
+    "event_data": {
+      "ServiceName": "xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg86\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105086": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:17:18.961132+00:00",
+    "event_data": {
+      "ServiceName": "xpc3QNCg0KI0BwYXJhbSAkTG9nTmFtZSAgICAgICAgICAgIC0+ICBUaGUgRXZlbnQgTG9nDQojQHBhcmFtICRBdmdFdmVudHNQZXJTZWNvbmQgLT4gIFRoZSBhdmcgZXZlbnRzIHBlciBzZWNvbmQg",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg86\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105197": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:18:41.440752+00:00",
+    "event_data": {
+      "ServiceName": "ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg143\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105198": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:18:41.440752+00:00",
+    "event_data": {
+      "ServiceName": "ZW50c1BlclNlY29uZCAtPiAgVGhlIGF2ZyBldmVudHMgcGVyIHNlY29uZCBmb3IgdGhlIGdpdmVuIGxvZw0KI0BwYXJhbSAkVG90YWxMb2dFdmVudHMgICAgIC0+ICBUaGUgdG90YWwgIyBvZiBldm",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg143\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105263": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:19:29.482460+00:00",
+    "event_data": {
+      "ServiceName": "oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg176\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105264": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:19:29.482460+00:00",
+    "event_data": {
+      "ServiceName": "oNCiNAcGFyYW0gJERlc2NyaXB0aW9uIC0+ICBUaGUgRGVzY3JpcHRpb24gb2YgdGhlIERpYWxvZw0KI0BwYXJhbSAkUm9vdEZvbGRlciAgLT4gIFRoZSBsb2NhdGlvbiB0aGF0IHRoZSBmb2xkZXIg",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg176\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105355": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:20:36.582958+00:00",
+    "event_data": {
+      "ServiceName": "MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg222\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105356": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:20:36.582958+00:00",
+    "event_data": {
+      "ServiceName": "MjIyMjIyMNCiNGdW5jdGlvbiB3aWxsIGxvZyBtZXNzYWdlcyB0aHJvdWdob3V0IHRoZSBzY3JpcHQgZXhlY3V0aW9uIA0KDQojQHBhcmFtICRzZXZlcml0eSAgIC0+IEhvdyBzZXZlcmUgb2YgdGhl",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg222\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105357": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:20:38.020479+00:00",
+    "event_data": {
+      "ServiceName": "IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg223\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
+  },
+  "105358": {
+    "event_id": 7045,
+    "channel": "System",
+    "provider_name": "Service Control Manager",
+    "computer": "FS03.offsec.lan",
+    "timestamp": "2021-11-03 08:20:38.020479+00:00",
+    "event_data": {
+      "ServiceName": "IGlucHV0IG1lc3NhZ2UgdG8gbG9nICAgDQojQHBhcmFtICRsb2dNZXNzYWdlIC0+IFRoZSBtZXNzYWdlIHRoYXQgd2lsbCBiZSBsb2dnZWQgY2FzdCB0byBhIHN0cmluZw0KDQojIyMjIyMjIyMjIy",
+      "ImagePath": "c:\\windows\\system32\\cmd.exe /c powershell -command \"Get-Service \"seg223\" | select -Expand DisplayName |out-file -append tmp_payload.txt\""
+    }
   }
 }

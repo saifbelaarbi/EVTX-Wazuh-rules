@@ -334,4 +334,13 @@
     </mitre>
     <group>exfiltration,sigma_converted,</group>
   </rule>
+  <rule id="114554" level="12">
+    <if_sid>91801</if_sid>
+    <field name="win.eventdata.scriptBlockText">Get-content |foreach|[System.Net.Dns]::GetHostEntry|Out-File</field>
+    <description>Sigma: PowerShell Script With File Hostname Resolving Capabilities</description>
+    <mitre>
+      <id>T1020</id>
+    </mitre>
+    <group>exfiltration,sigma_converted,</group>
+  </rule>
 </group>
